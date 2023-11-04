@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="MovieWidgets">
+        <include content="WidgetListBigLandscape">
+            <param name="content_path" value="plugin://plugin.video.fen/?action=in_progress_movies&amp;iconImage=player&amp;mode=build_movie_list&amp;name=Finish+watching"/>
+            <param name="widget_header" value="Finish watching"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19011"/>
+        </include>
+        <include content="WidgetListCategoryStacked">
+            <param name="content_path" value="plugin://plugin.video.fen/?action=MovieList&amp;iconImage=movies&amp;mode=navigator.main&amp;name=Discover+movies"/>
+            <param name="widget_header" value="Browse..."/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19012"/>
+        </include>
+        <include content="WidgetListPosterStacked">
+            <param name="content_path" value="$INFO[Window(Home).Property(fentastic.19012.path)]"/>
+            <param name="widget_header" value="$INFO[Window(Home).Property(fentastic.19012.label)]"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="190121"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.fen/?action=trakt_collection_lists&amp;iconImage=trakt&amp;mode=build_movie_list&amp;new_page=recent&amp;name=Recently+added"/>
+            <param name="widget_header" value="Recently added"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19013"/>
+        </include>
+        <include content="WidgetListPoster">
+            <param name="content_path" value="plugin://plugin.video.fen/?action=trakt_watchlist&amp;iconImage=trakt&amp;mode=build_movie_list&amp;name=Watchlist"/>
+            <param name="widget_header" value="Watchlist"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19014"/>
+        </include>
+        <include content="WidgetListLandscape">
+            <param name="content_path" value="plugin://plugin.video.fen/?list_type=my_lists&amp;mode=trakt.list.build_trakt_list&amp;slug=bubu-s-movies&amp;user=streamer3925&amp;name=Bubu%27s+movies&amp;iconImage=trakt"/>
+            <param name="widget_header" value="Bubu's movies"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19015"/>
+        </include>
+        <include content="WidgetListPoster">
+            <param name="content_path" value="plugin://plugin.video.fen/?action=trakt_recommendations&amp;iconImage=trakt&amp;mode=build_movie_list&amp;new_page=movies&amp;name=Recommended"/>
+            <param name="widget_header" value="Recommended"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19016"/>
+        </include>
+        <include content="WidgetListPoster">
+            <param name="content_path" value="plugin://plugin.video.fen/?action=recent_watched_movies&amp;iconImage=watched_recent&amp;mode=build_movie_list&amp;name=Recently+watched"/>
+            <param name="widget_header" value="Recently watched"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19017"/>
+        </include>
+        <include content="WidgetListCategory">
+            <param name="content_path" value="plugin://plugin.video.fen/?name=32470&amp;iconImage=genres&amp;mode=navigator.genres&amp;menu_type=movie"/>
+            <param name="widget_header" value="Genres"/>
+            <param name="widget_target" value="videos"/>
+            <param name="list_id" value="19018"/>
+        </include>
+    </include>
+</includes>

@@ -1,0 +1,13 @@
+.DS_Store
+xml/script-nimbus-main_menu_movies.xml
+xml/script-nimbus-main_menu_tvshows.xml
+xml/script-nimbus-main_menu_custom1.xml
+xml/script-nimbus-main_menu_custom2.xml
+xml/script-nimbus-main_menu_custom3.xml
+xml/script-nimbus-widget_movies.xml
+xml/script-nimbus-widget_tvshows.xml
+xml/script-nimbus-widget_custom1.xml
+xml/script-nimbus-widget_custom2.xml
+xml/script-nimbus-widget_custom3.xml
+xml/script-nimbus-search_history.xml
+xml/script-skinshortcuts-includes.xml

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+    <include name="MoviesMainMenu">
+        <item>
+            <label>Movies</label>
+            <onclick>ActivateWindow(Videos,plugin://plugin.video.fen/?mode=navigator.build_shortcut_folder_list&amp;name=My+movies&amp;iconImage=movies&amp;shortcut_folder=True&amp;external_list_item=True,return)</onclick>
+            <property name="menu_id">$NUMBER[19000]</property>
+            <thumb>icons/sidemenu/movies.png</thumb>
+            <property name="id">movies</property>
+            <visible>!Skin.HasSetting(HomeMenuNoMovieButton)</visible>
+        </item>
+    </include>
+</includes>
