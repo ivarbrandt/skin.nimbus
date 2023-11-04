@@ -3,12 +3,12 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
-  <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.fentastic.helper,mode=check_for_update&amp;skin_id=skin.fentastic)</onload>
-	<onload>RunScript(script.fentastic.helper,mode=check_for_profile_change&amp;skin_id=skin.fentastic)</onload>
-  <onload condition="String.IsEmpty(Window(Home).Property(fentastic.starting_widgets))">RunScript(script.fentastic.helper,mode=starting_widgets)</onload>
-  <onload condition="String.IsEmpty(Window(Home).Property(fentastic.starting_widgets))">SetProperty(fentastic.starting_widgets,true)</onload>
-	<onload>RunScript(script.fentastic.helper,mode=modify_keymap)</onload>
-	<onload>RunScript(script.fentastic.helper,mode=fix_black_screen)</onload>
+  <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
+	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
+  <onload condition="String.IsEmpty(Window(Home).Property(nimbus.starting_widgets))">RunScript(script.nimbus.helper,mode=starting_widgets)</onload>
+  <onload condition="String.IsEmpty(Window(Home).Property(nimbus.starting_widgets))">SetProperty(nimbus.starting_widgets,true)</onload>
+	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
+	<onload>RunScript(script.nimbus.helper,mode=fix_black_screen)</onload>
 	<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundBrightness))">Skin.SetString(DefaultBackgroundBrightness,Medium)</onload>
 	<onload condition="String.IsEmpty(Skin.String(DefaultFanartBrightness))">Skin.SetString(DefaultFanartBrightness,Medium)</onload>
 	<controls>
@@ -1025,13 +1025,13 @@
 						</include>
 						<include content="IconButton" condition="!Skin.HasSetting(NoSearchResultsWindow) + Skin.HasSetting(DefaultSearchWindowBehavior)">
 							<param name="control_id" value="805" />
-							<param name="onclick" value="RunScript(script.fentastic.helper,mode=search_input)" />
+							<param name="onclick" value="RunScript(script.nimbus.helper,mode=search_input)" />
 							<param name="icon" value="icons/search.png" />
 							<param name="label" value="$LOCALIZE[137]" />
 						</include>
 						<include content="IconButton" condition="!Skin.HasSetting(NoSearchResultsWindow) + !Skin.HasSetting(DefaultSearchWindowBehavior)">
 							<param name="control_id" value="806" />
-							<param name="onclick" value="RunScript(script.fentastic.helper,mode=open_search_window)" />
+							<param name="onclick" value="RunScript(script.nimbus.helper,mode=open_search_window)" />
 							<param name="icon" value="icons/search.png" />
 							<param name="label" value="$LOCALIZE[137]" />
 						</include>

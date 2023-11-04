@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
   <include name="Changelog">
-    <label>[B][COLOR accent_color]Version $INFO[System.AddonVersion(skin.fentastic)][/COLOR][/B]
+    <label>[B][COLOR accent_color]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
 - Fixed ratings not showing on some items
 - Readded Embuary Helper/Info functionality to Video Info window
 
@@ -41,7 +41,7 @@
 - Added optional color studio logos
 - Added custom background and fanart brightness
 - Added custom version of AutoCompletion for virtual keyboard to repo (only try if you are having issues with your version)
-- Added optional FENtastic Audio Suite to repo
+- Added optional Nimbus Audio Suite to repo
 - Reorganized skin settings
 - Fixed WideWall view
 - Removed color themes
@@ -215,9 +215,9 @@ Main changes from default Estuary include:
 
 
   <include name="SetupGuide">
-    <label>[B][COLOR accent_color]Welcome to the FENtastic Setup Guide[/COLOR][/B]
+    <label>[B][COLOR accent_color]Welcome to the Nimbus Setup Guide[/COLOR][/B]
 
-FENtastic is a skin specifically designed for FEN users. It can display movie, tvshow, and episode widgets as well as submenu widgets. It can also set paths for main menu items (more on this later). Here in this guide I will show you how these work and how to set them up.
+Nimbus is a skin specifically designed for FEN users. It can display movie, tvshow, and episode widgets as well as submenu widgets. It can also set paths for main menu items (more on this later). Here in this guide I will show you how these work and how to set them up.
 
 On first install the home screen should be empty. This means that the Movie and Show sections should be missing from the main menu on the left.
 
@@ -234,7 +234,7 @@ Click a menu item to toggle the display of a section on and off. This will show 
 
 That's it! You're all set to go. Enjoy the skin!
 
-If you would like to see a more detailed version of this Setup Guide, please visit my Github repo at https://github.com/ivarbrandt/skin.fentastic
+If you would like to see a more detailed version of this Setup Guide, please visit my Github repo at https://github.com/ivarbrandt/skin.nimbus
     </label>
   </include>
 </includes>

@@ -14,8 +14,8 @@
             <param name="list_id" value="19012"/>
         </include>
         <include content="WidgetListPosterStacked">
-            <param name="content_path" value="$INFO[Window(Home).Property(fentastic.19012.path)]"/>
-            <param name="widget_header" value="$INFO[Window(Home).Property(fentastic.19012.label)]"/>
+            <param name="content_path" value="$INFO[Window(Home).Property(nimbus.19012.path)]"/>
+            <param name="widget_header" value="$INFO[Window(Home).Property(nimbus.19012.label)]"/>
             <param name="widget_target" value="videos"/>
             <param name="list_id" value="190121"/>
         </include>

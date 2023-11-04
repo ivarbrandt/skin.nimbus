@@ -9,17 +9,17 @@
 	<include file="Includes_DialogSelect.xml" />
 	<include file="Includes_MusicInfo.xml" />
 	<include file="Includes_PVR.xml" />
-	<include file="script-fentastic-main_menu_movies.xml" />
-	<include file="script-fentastic-main_menu_tvshows.xml" />
-	<include file="script-fentastic-main_menu_custom1.xml" />
-	<include file="script-fentastic-main_menu_custom2.xml" />
-	<include file="script-fentastic-main_menu_custom3.xml" />
-	<include file="script-fentastic-widget_movies.xml" />
-	<include file="script-fentastic-widget_tvshows.xml" />
-	<include file="script-fentastic-widget_custom1.xml" />
-	<include file="script-fentastic-widget_custom2.xml" />
-	<include file="script-fentastic-widget_custom3.xml" />
-	<include file="script-fentastic-search_history.xml" />
+	<include file="script-nimbus-main_menu_movies.xml" />
+	<include file="script-nimbus-main_menu_tvshows.xml" />
+	<include file="script-nimbus-main_menu_custom1.xml" />
+	<include file="script-nimbus-main_menu_custom2.xml" />
+	<include file="script-nimbus-main_menu_custom3.xml" />
+	<include file="script-nimbus-widget_movies.xml" />
+	<include file="script-nimbus-widget_tvshows.xml" />
+	<include file="script-nimbus-widget_custom1.xml" />
+	<include file="script-nimbus-widget_custom2.xml" />
+	<include file="script-nimbus-widget_custom3.xml" />
+	<include file="script-nimbus-search_history.xml" />
 	<include file="View_50_List.xml" />
 	<include file="View_51_Poster.xml" />
 	<include file="View_52_IconWall.xml" />
@@ -1785,21 +1785,21 @@
 					<orientation>vertical</orientation>
 					<itemgap>5</itemgap>
 					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(fentastic.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+					<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
 					<control type="image">
 						<width>60</width>
 						<height>36</height>
 						<aspectratio>keep</aspectratio>
 						<align>center</align>
 						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(fentastic.metascoreImage)]</texture>
+						<texture>$INFO[Window.Property(nimbus.metascoreImage)]</texture>
 					</control>
 					<control type="label">
 						<width max="60">auto</width>
 						<height>42</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(fentastic.metascore)]</label>
+						<label>$INFO[Window.Property(nimbus.metascore)]</label>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</control>
@@ -1808,21 +1808,21 @@
 					<orientation>vertical</orientation>
 					<itemgap>5</itemgap>
 					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(fentastic.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+					<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
 					<control type="image">
 						<width>60</width>
 						<height>36</height>
 						<aspectratio>keep</aspectratio>
 						<align>center</align>
 						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(fentastic.tomatoImage)]</texture>
+						<texture>$INFO[Window.Property(nimbus.tomatoImage)]</texture>
 					</control>
 					<control type="label">
 						<width max="60">auto</width>
 						<height>42</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(fentastic.tomatoMeter)]</label>
+						<label>$INFO[Window.Property(nimbus.tomatoMeter)]</label>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</control>
@@ -1831,21 +1831,21 @@
 					<orientation>vertical</orientation>
 					<itemgap>5</itemgap>
 					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(fentastic.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+					<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
 					<control type="image">
 						<width>60</width>
 						<height>36</height>
 						<aspectratio>keep</aspectratio>
 						<align>center</align>
 						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(fentastic.tomatoUserImage)]</texture>
+						<texture>$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
 					</control>
 					<control type="label">
 						<width max="60">auto</width>
 						<height>42</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(fentastic.tomatoUserMeter)]</label>
+						<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]</label>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</control>
@@ -1854,21 +1854,21 @@
 					<orientation>vertical</orientation>
 					<itemgap>5</itemgap>
 					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(fentastic.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+					<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
 					<control type="image">
 						<width>60</width>
 						<height>36</height>
 						<aspectratio>keep</aspectratio>
 						<align>center</align>
 						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(fentastic.imdbImage)]</texture>
+						<texture>$INFO[Window.Property(nimbus.imdbImage)]</texture>
 					</control>
 					<control type="label">
 						<width max="60">auto</width>
 						<height>42</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(fentastic.imdbRating)]</label>
+						<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</control>
@@ -1877,21 +1877,21 @@
 					<orientation>vertical</orientation>
 					<itemgap>5</itemgap>
 					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(fentastic.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+					<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
 					<control type="image">
 						<width>87</width>
 						<height>36</height>
 						<aspectratio>keep</aspectratio>
 						<align>center</align>
 						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(fentastic.popularImage)]</texture>
+						<texture>$INFO[Window.Property(nimbus.popularImage)]</texture>
 					</control>
 					<control type="label">
 						<width max="87">auto</width>
 						<height>42</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(fentastic.popularRating)]</label>
+						<label>$INFO[Window.Property(nimbus.popularRating)]</label>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</control>
@@ -1900,21 +1900,21 @@
 					<orientation>vertical</orientation>
 					<itemgap>8</itemgap>
 					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(fentastic.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+					<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
 					<control type="image">
 						<width>65</width>
 						<height>33</height>
 						<aspectratio>keep</aspectratio>
 						<align>center</align>
 						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(fentastic.tmdbImage)]</texture>
+						<texture>$INFO[Window.Property(nimbus.tmdbImage)]</texture>
 					</control>
 					<control type="label">
 						<width max="65">auto</width>
 						<height>42</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>$INFO[Window.Property(fentastic.tmdbRating)]</label>
+						<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</control>

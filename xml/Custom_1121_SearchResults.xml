@@ -74,8 +74,8 @@
 							<param name="list_id" value="27017"/>
 						</include>
 						<include content="WidgetListBigPosterStacked" condition="!Skin.HasSetting(HideTraktResults)">
-							<param name="content_path" value="$INFO[Window(1121).Property(fentastic.27017.path)]"/>
-							<param name="widget_header" value="$INFO[Window(1121).Property(fentastic.27017.label)]"/>
+							<param name="content_path" value="$INFO[Window(1121).Property(nimbus.27017.path)]"/>
+							<param name="widget_header" value="$INFO[Window(1121).Property(nimbus.27017.label)]"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="270171"/>
 						</include>
@@ -99,7 +99,7 @@
 					<param name="left">50</param>
 					<param name="text_label" value="Your search history is currently empty. Would you like to perform a new search or return to the home screen?" />
 					<param name="button_label" value="New search" />
-					<param name="button_onclick" value="RunScript(script.fentastic.helper,mode=re_search)"/>
+					<param name="button_onclick" value="RunScript(script.nimbus.helper,mode=re_search)"/>
 					<param name="button3_onclick" value="ActivateWindow(home)"/>
 					<param name="button_id" value="27400"/>
 				</include>
@@ -182,7 +182,7 @@
 						<align>justify</align>
 						<include content="IconButton">
 							<param name="control_id" value="801" />
-							<param name="onclick" value="RunScript(script.fentastic.helper,mode=remove_all_spaths)" />
+							<param name="onclick" value="RunScript(script.nimbus.helper,mode=remove_all_spaths)" />
 							<param name="icon" value="icons/infodialogs/uninstall.png" />
 							<param name="label" value="Clear search history" />
 						</include>
@@ -194,7 +194,7 @@
 						</include>
 						<include content="IconButton">
 							<param name="control_id" value="803" />
-							<param name="onclick" value="RunScript(script.fentastic.helper,mode=search_input)" />
+							<param name="onclick" value="RunScript(script.nimbus.helper,mode=search_input)" />
 							<param name="icon" value="icons/search.png" />
 							<param name="label" value="$LOCALIZE[137]" />
 						</include>
