@@ -680,7 +680,7 @@
 
 	<variable name="CustomBackgroundImage">
 		<value condition="!String.IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
-		<value>special://skin/extras/backgrounds/redblur.jpg</value>
+		<value>special://skin/extras/backgrounds/blueblur.jpg</value>
 	</variable>
 
 	<variable name="ClearlogoVar">
