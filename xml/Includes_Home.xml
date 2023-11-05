@@ -606,15 +606,6 @@
 							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
 							<bordersize>20</bordersize>
 						</control>
-						<control type="image">
-							<top>23</top>
-							<left>113.5</left>
-							<width>120</width>
-							<height>$PARAM[icon_height]</height>
-							<texture colordiffuse="dialog_bg2" fallback="DefaultFolder.png">$PARAM[icon]</texture>
-							<aspectratio>scale</aspectratio>
-							<visible>!Skin.HasSetting(NoIconSilhouettes)</visible>
-						</control>
 						<control type="textbox">
 							<visible>!String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
 							<left>47</left>
@@ -622,7 +613,6 @@
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
-							<font>font25_narrow</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -635,7 +625,6 @@
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
-							<font>font25_narrow</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -662,15 +651,6 @@
 							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
 							<bordersize>20</bordersize>
 						</control>
-						<control type="image">
-							<top>23</top>
-							<left>113.5</left>
-							<width>120</width>
-							<height>$PARAM[icon_height]</height>
-							<texture colordiffuse="dialog_bg2" fallback="DefaultFolder.png">$PARAM[icon]</texture>
-							<aspectratio>scale</aspectratio>
-							<visible>!Skin.HasSetting(NoIconSilhouettes)</visible>
-						</control>
 						<control type="textbox">
 							<visible>!String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
 							<left>47</left>
@@ -679,7 +659,6 @@
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>unfocused_text</textcolor>
-							<font>font25_narrow</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -693,7 +672,6 @@
 							<height>70</height>
 							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
 							<textcolor>unfocused_text</textcolor>
-							<font>font25_narrow</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -713,11 +691,11 @@
 		<param name="additional_tvshow_items">false</param>
 		<param name="visible">true</param>
 		<definition>
-			<include content="CategoryLabelWidget">
+			<!-- <include content="CategoryLabelWidget">
 				<param name="label">$PARAM[widget_header]</param>
 				<param name="list_id" value="$PARAM[list_id]"/>
 				<param name="visible" value="$PARAM[visible]"/>
-			</include>
+			</include> -->
 			<include content="BusyListSpinnerWidget">
 				<param name="list_id" value="$PARAM[list_id]" />
 			</include>
@@ -740,15 +718,6 @@
 							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
 							<bordersize>20</bordersize>
 						</control>
-						<control type="image">
-							<top>23</top>
-							<left>113.5</left>
-							<width>120</width>
-							<height>$PARAM[icon_height]</height>
-							<texture colordiffuse="dialog_bg2" fallback="DefaultFolder.png">$PARAM[icon]</texture>
-							<aspectratio>scale</aspectratio>
-							<visible>!Skin.HasSetting(NoIconSilhouettes)</visible>
-						</control>
 						<control type="textbox">
 							<left>47</left>
 							<top>25</top>
@@ -756,7 +725,6 @@
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>unfocused_text</textcolor>
-							<font>font25_narrow</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -782,15 +750,6 @@
 							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
 							<bordersize>20</bordersize>
 						</control>
-						<control type="image">
-							<top>23</top>
-							<left>113.5</left>
-							<width>120</width>
-							<height>$PARAM[icon_height]</height>
-							<texture colordiffuse="dialog_bg2" fallback="DefaultFolder.png">$PARAM[icon]</texture>
-							<aspectratio>scale</aspectratio>
-							<visible>!Skin.HasSetting(NoIconSilhouettes)</visible>
-						</control>
 						<control type="textbox">
 							<left>47</left>
 							<top>25</top>
@@ -798,7 +757,6 @@
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>unfocused_text</textcolor>
-							<font>font25_narrow</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 							<aligny>center</aligny>

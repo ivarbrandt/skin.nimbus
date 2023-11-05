@@ -228,20 +228,6 @@
 					<onclick>Skin.ToggleSetting(OneClickClose)</onclick>
 					<selected>Skin.HasSetting(OneClickClose)</selected>
 				</control>
-				<!-- ALTERNATE INFOPANEL -->
-				<control type="radiobutton" id="63702">
-					<label>Enable alternate InfoPanel</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.AlternateInfo)</selected>
-					<onclick>Skin.ToggleSetting(Enable.AlternateInfo)</onclick>
-				</control>
-				<!-- RAINDROP BACKGROUND -->
-				<control type="radiobutton" id="63703">
-					<label>Show raindrop background</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(HideRainDrops)</onclick>
-					<selected>Skin.HasSetting(HideRainDrops)</selected>
-				</control>
 				<!-- STACKED WIDGET DELAY -->
 				<control type="button" id="63704">
 					<label>Set stacked widget load delay in milliseconds (1000ms = 1 second)</label>
@@ -262,13 +248,6 @@
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(NoFocusAnimations)</selected>
 					<onclick>Skin.ToggleSetting(NoFocusAnimations)</onclick>
-				</control>
-				<!-- ICON SILHOUETTES -->
-				<control type="radiobutton" id="63707">
-					<label>Enable icon silhouettes for category widgets</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(NoIconSilhouettes)</selected>
-					<onclick>Skin.ToggleSetting(NoIconSilhouettes)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
 				<control type="radiobutton" id="63708">

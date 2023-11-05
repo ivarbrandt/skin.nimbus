@@ -459,7 +459,7 @@
 						<label>$VAR[InfoPanelBottom]</label>
 						<textcolor>unfocused_text</textcolor>
 						<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>!Skin.HasSetting(Enable.AlternateInfo) + Skin.HasSetting(UseLandscape) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+						<visible>Skin.HasSetting(UseLandscape) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
 					<!-- CLEARLOGO -->
 					<control type="textbox">
@@ -468,7 +468,7 @@
 						<label>$VAR[InfoPanelBottom]</label>
 						<textcolor>unfocused_text</textcolor>
 						<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>!Skin.HasSetting(Enable.AlternateInfo) + !Skin.HasSetting(UseLandscape) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+						<visible>!Skin.HasSetting(UseLandscape) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 					</control>
 					<control type="textbox">
 						<height max="335">auto</height>
@@ -476,50 +476,7 @@
 						<label>$VAR[InfoPanelBottom]</label>
 						<textcolor>unfocused_text</textcolor>
 						<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>!Skin.HasSetting(Enable.AlternateInfo) + !Skin.HasSetting(UseLandscape) + Container.Content(episodes)</visible>
-					</control>
-					<!-- ALTERNATE INFOPANEL PLOT -->
-					<!-- LANDSCAPE -->
-					<control type="textbox">
-						<height max="170">auto</height>
-						<bottom>70</bottom>
-						<label>$VAR[InfoPanelBottom]</label>
-						<textcolor>unfocused_text</textcolor>
-						<autoscroll delay="5000" time="2000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>Skin.HasSetting(Enable.AlternateInfo) + Skin.HasSetting(UseLandscape) + [Container.Content(movies) | Container.Content(seasons)]</visible>
-					</control>
-					<control type="textbox">
-						<height max="90">auto</height>
-						<bottom>70</bottom>
-						<label>$VAR[InfoPanelBottom]</label>
-						<textcolor>unfocused_text</textcolor>
-						<autoscroll delay="5000" time="2000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>Skin.HasSetting(Enable.AlternateInfo) + Skin.HasSetting(UseLandscape) + Container.Content(tvshows)</visible>
-					</control>
-					<control type="textbox">
-						<height max="210">auto</height>
-						<bottom>70</bottom>
-						<label>$VAR[InfoPanelBottom]</label>
-						<textcolor>unfocused_text</textcolor>
-						<autoscroll delay="5000" time="2000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>Skin.HasSetting(Enable.AlternateInfo) + Skin.HasSetting(UseLandscape) + Container.Content(episodes)</visible>
-					</control>
-					<!-- CLEARLOGO -->
-					<control type="textbox">
-						<height max="290">auto</height>
-						<bottom>70</bottom>
-						<label>$VAR[InfoPanelBottom]</label>
-						<textcolor>unfocused_text</textcolor>
-						<autoscroll delay="5000" time="2000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>Skin.HasSetting(Enable.AlternateInfo) + !Skin.HasSetting(UseLandscape) + [Container.Content(movies) | Container.Content(seasons)]</visible>
-					</control>
-					<control type="textbox">
-						<height max="210">auto</height>
-						<bottom>70</bottom>
-						<label>$VAR[InfoPanelBottom]</label>
-						<textcolor>unfocused_text</textcolor>
-						<autoscroll delay="5000" time="2000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>Skin.HasSetting(Enable.AlternateInfo) + !Skin.HasSetting(UseLandscape) + [Container.Content(tvshows) | Container.Content(episodes)]</visible>
+						<visible>!Skin.HasSetting(UseLandscape) + Container.Content(episodes)</visible>
 					</control>
 				</control>
 				<!-- image control -->
