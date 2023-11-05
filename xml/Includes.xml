@@ -21,17 +21,11 @@
 	<include file="script-nimbus-widget_custom3.xml" />
 	<include file="script-nimbus-search_history.xml" />
 	<include file="View_50_List.xml" />
-	<include file="View_51_Poster.xml" />
 	<include file="View_52_IconWall.xml" />
-	<include file="View_53_Shift.xml" />
 	<include file="View_54_InfoWall.xml" />
 	<include file="View_55_WideList.xml" />
-	<include file="View_56_WideInfoWall.xml" />
 	<include file="View_503_NowPlaying.xml" />
 	<include file="View_500_Wall.xml" />
-	<include file="View_501_Banner.xml" />
-	<include file="View_502_FanArt.xml" />
-	<include file="View_504_WideWall.xml" />
 	<include file="Custom_1117_ExtraInfoContent.xml"/>
 	<include file="Custom_1118_SetupGuideViewer.xml"/>
 	<include file="Custom_1119_ChangelogViewer.xml" />
@@ -83,10 +77,10 @@
 						<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 						<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 						<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(531)">conditional</animation>
-						<visible>Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(501) | Control.IsVisible(504) | Control.IsVisible(54)</visible>
+						<visible>Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(55) | Control.IsVisible(501) | Control.IsVisible(54)</visible>
 					</control>
 				</control>
-				<control type="group">
+				<!-- <control type="group">
 					<left>0</left>
 					<right>0</right>
 					<bottom>0</bottom>
@@ -108,7 +102,7 @@
 						<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 						<hitrect x="0" y="20" w="100%" h="40" />
 					</control>
-				</control>
+				</control> -->
 			</control>
 		</definition>
 	</include>
@@ -1231,7 +1225,7 @@
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-					<control type="button">
+					<!-- <control type="button">
 						<bottom>20</bottom>
 						<left>12</left>
 						<width>36</width>
@@ -1242,7 +1236,7 @@
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<onclick>SetFocus(9000)</onclick>
 						<visible>!Control.IsVisible(6160)</visible>
-					</control>
+					</control> -->
 					<control type="button" id="6160">
 						<bottom>20</bottom>
 						<left>12</left>
