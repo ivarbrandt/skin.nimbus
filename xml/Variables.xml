@@ -88,6 +88,11 @@
 		<value>$INFO[ListItem.Art(fanart)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
+	<!-- <variable name="NetflixFanartVar">
+		<value condition="!String.isempty(ListItem.Thumb) + String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Thumb]</value>
+		<value>$INFO[ListItem.Art(fanart)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable> -->
 	<variable name="ListLabelVar">
 		<value condition="String.IsEqual(ListItem.DbType,episode) + Window.IsActive(videoplaylist)">$INFO[ListItem.TVShowtitle,,: ]$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</value>
 		<value condition="String.IsEqual(ListItem.DbType,musicvideo) + Window.IsActive(videoplaylist)">$INFO[ListItem.Artist,, - ]$INFO[ListItem.Title]</value>
@@ -438,7 +443,8 @@
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$INFO[Container(9000).ListItem.Property(id)]$INFO[Skin.String(HomeFanart.ext)]</value>
 	</variable>
 	<variable name="HomeFanartVar">
-		<value condition="Skin.HasSetting(no_fanart)"></value>
+		<!-- <value condition="Skin.HasSetting(no_fanart)"></value> -->
+		<value condition="!String.isempty(ListItem.Thumb) + String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Thumb]</value>
 		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Property(FanartCode))">$INFO[Skin.String(WeatherFanart.path)]$INFO[Container.ListItem.Property(FanartCode)]$INFO[Skin.String(WeatherFanart.ext)]</value>
@@ -730,39 +736,39 @@
 	</variable>
 	<!-- MPAA Rating -->
 	<variable name="RI_Mpaa">
-		<value condition="!String.IsEmpty(ListItem.Mpaa)">$INFO[ListItem.Mpaa,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Mpaa)">$INFO[ListItem.Mpaa, • ]</value>
 	</variable>
 	<!-- Genre -->
 	<variable name="RI_Genre">
-		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre, • ]</value>
 	</variable>
 	<!-- Director -->
 	<variable name="RI_Director">
-		<value condition="!String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director, • ]</value>
 	</variable>
 	<!-- Network -->
 	<variable name="RI_Network">
-		<value condition="!String.IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio, • ]</value>
 	</variable>
 	<!-- Total Seasons -->
 	<variable name="RI_TotalSeasons">
-		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons))">$INFO[ListItem.Property(TotalSeasons),[B] • [/B], seasons]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons))">$INFO[ListItem.Property(TotalSeasons), • , seasons]</value>
 	</variable>
 	<!-- Status -->
 	<variable name="RI_Status">
-		<value condition="!String.IsEmpty(ListItem.Status)">$INFO[ListItem.Status,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Status)">$INFO[ListItem.Status, • ]</value>
 	</variable>
 	<!-- Runtime -->
 	<variable name="RI_Runtime">
-		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h),[B] • [/B], hr] $INFO[ListItem.Duration(m),, mins]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h), • ,h] $INFO[ListItem.Duration(m),,m]</value>
 	</variable>
 	<!-- Runtime Episodes -->
 	<variable name="RI_RuntimeEpisodes">
-		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),[B] • [/B], mins]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins), • ,m]</value>
 	</variable>
 	<!-- Ends at: -->
 	<variable name="RI_Endsat">
-		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.EndTime,[B] • [/B]$LOCALIZE[31080]: ]</value>
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.EndTime, • $LOCALIZE[31080]: ]</value>
 	</variable>
 	<!-- Plot -->
 	<variable name="RI_Plot">
@@ -780,39 +786,39 @@
 	</variable>
 	<!-- MPAA Rating -->
 	<variable name="_Mpaa">
-		<value condition="!String.IsEmpty(ListItem.Mpaa)">$INFO[ListItem.Mpaa,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Mpaa)">$INFO[ListItem.Mpaa, • ]</value>
 	</variable>
 	<!-- Genre -->
 	<variable name="_Genre">
-		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre, • ]</value>
 	</variable>
 	<!-- Director -->
 	<variable name="_Director">
-		<value condition="!String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director, • ]</value>
 	</variable>
 	<!-- Network -->
 	<variable name="_Network">
-		<value condition="!String.IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio, • ]</value>
 	</variable>
 	<!-- Total Seasons -->
 	<variable name="_TotalSeasons">
-		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons))">$INFO[ListItem.Property(TotalSeasons),[B] • [/B], seasons]</value>
+		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons))">$INFO[ListItem.Property(TotalSeasons), • , seasons]</value>
 	</variable>
 	<!-- Status -->
 	<variable name="_Status">
-		<value condition="!String.IsEmpty(ListItem.Status)">$INFO[ListItem.Status,[B] • [/B]]</value>
+		<value condition="!String.IsEmpty(ListItem.Status)">$INFO[ListItem.Status, • ]</value>
 	</variable>
 	<!-- Runtime -->
 	<variable name="_Runtime">
-		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h),[B] • [/B], hr] $INFO[ListItem.Duration(m),, mins]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h), • ,h] $INFO[ListItem.Duration(m),,m]</value>
 	</variable>
 	<!-- Runtime Episodes -->
 	<variable name="_RuntimeEpisodes">
-		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins),[B] • [/B], mins]</value>
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins), • ,m]</value>
 	</variable>
 	<!-- Ends at: -->
 	<variable name="_Endsat">
-		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.EndTime,[B] • [/B]$LOCALIZE[31080]: ]</value>
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.EndTime, • $LOCALIZE[31080]: ]</value>
 	</variable>
 	<!-- Plot -->
 	<variable name="_Plot">
@@ -822,14 +828,14 @@
 
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Genre]$VAR[RI_Director]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">[B]$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Runtime]$VAR[RI_Endsat][/B]</value>
 		<!-- SHOWS -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Genre]$VAR[RI_RuntimeEpisodes]$VAR[RI_TotalSeasons]$VAR[RI_Status]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">[B]$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Status][/B]</value>
 		<!-- SEASONS -->
 		<!-- TODO Fix seasons not showing release year -->
 		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,season)">$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Genre]$VAR[RI_RuntimeEpisodes]$VAR[RI_Endsat]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">[B]$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes][/B]</value>
 	</variable>
 	
 	<variable name="InfoPanelBottom">
