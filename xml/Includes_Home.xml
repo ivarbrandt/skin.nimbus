@@ -20,10 +20,10 @@
 		<param name="label_focus_collections">$INFO[Container($PARAM[list_id]).ListItem.Label,[B]| [/B]]</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
-				<left>75</left>
+				<left>85</left>
 				<top>80</top>
 				<height>40</height>
-				<width>1350</width>
+				<width>1815</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
 				<control type="label">
@@ -69,65 +69,51 @@
 		<param name="label_focus_episodes">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Season,[B] | [/B]S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]</param>
 		<param name="label_focus_collections">$INFO[Container($PARAM[list_id]).ListItem.Label,[B]| [/B]]</param>
 		<definition>
-			<left>75</left>
-			<top>92</top>
-			<height>40</height>
-			<width>1350</width>
-			<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-			<visible>$PARAM[visible]</visible>
-			<control type="label" id="$PARAM[list_id]666">
+			<control type="group" id="$PARAM[list_id]665">
 				<left>75</left>
-				<top>92</top>
+				<top>80</top>
 				<height>40</height>
 				<width>1350</width>
-				<visible>!Container($PARAM[list_id]).IsUpdating</visible>
-				<label>$PARAM[label]</label>
-				<textcolor>unfocused_text</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<scroll>true</scroll>
-				<scrollspeed>100</scrollspeed>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<visible>!Control.HasFocus($PARAM[list_id])</visible>
-				<visible>String.IsEmpty(Window.Property(nimbus.stacked))</visible>
-			</control>
-			<control type="label" id="$PARAM[list_id]667">
-				<left>75</left>
-				<top>92</top>
-				<height>40</height>
-				<width>1350</width>
-				<visible>!Container($PARAM[list_id]).IsUpdating</visible>
-				<label>$PARAM[label]$PARAM[label_focus]</label>
-				<shadowcolor>text_shadow</shadowcolor>
-				<scroll>true</scroll>
-				<scrollspeed>100</scrollspeed>
-				<visible>$PARAM[visible]</visible>
-				<visible>!String.IsEqual(ListItem.DBType,episode) + Control.HasFocus($PARAM[list_id])</visible>
-			</control>
-			<control type="label" id="$PARAM[list_id]668">
-				<left>75</left>
-				<top>92</top>
-				<height>40</height>
-				<width>1350</width>
-				<visible>!Container($PARAM[list_id]).IsUpdating</visible>
-				<label>$PARAM[label]$PARAM[label_focus_episodes]</label>
-				<shadowcolor>text_shadow</shadowcolor>
-				<visible>$PARAM[visible]</visible>
-				<scroll>true</scroll>
-				<scrollspeed>100</scrollspeed>
-				<visible>String.IsEqual(ListItem.DBType,episode) + Control.HasFocus($PARAM[list_id])</visible>
-			</control>
-			<control type="label" id="$PARAM[list_id]669">
-				<left>75</left>
-				<top>92</top>
-				<height>40</height>
-				<width>1350</width>
-				<visible>!Container($PARAM[list_id]).IsUpdating</visible>
-				<label>$PARAM[label_focus_collections]</label>
-				<shadowcolor>text_shadow</shadowcolor>
-				<visible>$PARAM[visible]</visible>
-				<scroll>true</scroll>
-				<scrollspeed>100</scrollspeed>
-				<visible>[String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)] + Control.HasFocus($PARAM[list_id])</visible>
+				<control type="label" id="$PARAM[list_id]666">
+					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<label>$PARAM[label]</label>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>$PARAM[visible]</visible>
+					<visible>!Control.HasFocus($PARAM[list_id])</visible>
+					<visible>String.IsEmpty(Window.Property(nimbus.stacked))</visible>
+				</control>
+				<control type="label" id="$PARAM[list_id]667">
+					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<label>$PARAM[label]$PARAM[label_focus]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>$PARAM[visible]</visible>
+					<visible>!String.IsEqual(ListItem.DBType,episode) + Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="label" id="$PARAM[list_id]668">
+					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<label>$PARAM[label]$PARAM[label_focus_episodes]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>$PARAM[visible]</visible>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>String.IsEqual(ListItem.DBType,episode) + Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="label" id="$PARAM[list_id]669">
+					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<label>$PARAM[label_focus_collections]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+					<visible>$PARAM[visible]</visible>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>[String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)] + Control.HasFocus($PARAM[list_id])</visible>
+				</control>
 			</control>
 		</definition>
 	</include>
@@ -197,7 +183,7 @@
 			</include> -->
       <control type="fixedlist" id="$PARAM[list_id]">
         <left>0</left>
-        <top>107</top> 
+        <top>95</top> 
         <right>0</right>
         <height>465</height>
 				<onright>$PARAM[list_id]</onright>
