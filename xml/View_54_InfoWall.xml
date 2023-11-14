@@ -266,6 +266,19 @@
 					<bordersize>20</bordersize>
 				</control>
 				<control type="image">
+					<!-- <left>15</left> -->
+					<top>-10</top>
+					<!-- 235 -->
+					<width>275</width>
+					<!-- 324 -->
+					<height>379</height>
+					<texture colordiffuse="99000000" diffuse="masks/poster.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+					<!-- <aspectratio>scale</aspectratio> -->
+					<bordersize>20</bordersize>
+					<animation condition="Container($PARAM[list_id]).IsUpdating" effect="fade" time="700" start="100" end="0" pulse="true">Conditional</animation>
+					<visible>Container($PARAM[list_id]).IsUpdating</visible>
+				</control>
+				<control type="image">
 					<left>20</left>
 					<top>255</top>
 					<width>94</width>
