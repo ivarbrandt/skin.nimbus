@@ -1160,21 +1160,21 @@
 				<top>35</top>
 				<left>35</left>
         <control type="image">
-          <left>19</left>
+          <left>0</left>
           <top>0</top>
           <aspectratio>keep</aspectratio>
-          <width>130</width>
-          <height>56</height>
-          <texture colordiffuse="accent_color">special://skin/media/logos/K-logo.png</texture>
+          <width>200</width>
+          <height>86</height>
+          <texture colordiffuse="unfocused_text">special://skin/media/logos/K-logo.png</texture>
         </control>
-        <control type="image">
+        <!-- <control type="image">
           <left>59</left>
           <top>0</top>
           <aspectratio>keep</aspectratio>
           <width>192</width>
           <height>56</height>
           <texture colordiffuse="unfocused_text">special://skin/media/logos/letters.png</texture>
-        </control>
+        </control> -->
 			</control>
 		</control>
 	</controls>
