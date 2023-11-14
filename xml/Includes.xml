@@ -1133,7 +1133,7 @@
 	</include>
 	<include name="ColoredBackgroundImages">
 		<control type="image">
-			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
@@ -1616,169 +1616,331 @@
 			<top>$PARAM[top]</top>
 			<orientation>vertical</orientation>
 			<itemgap>13</itemgap>
-			<control type="textbox">
+			<!-- <control type="textbox">
 				<height>auto</height>
 				<font>font36_title</font>
 				<label>Season $INFO[ListItem.Season], Episode $INFO[ListItem.Episode]</label>
 				<textcolor>unfocused_text</textcolor>
 				<visible>String.IsEqual(ListItem.DbType,episode)</visible>
-			</control>
+			</control> -->
 			<control type="textbox">
 				<height>auto</height>
 				<label>$VAR[InfoPanelTop]</label>
 				<textcolor>unfocused_text</textcolor>
 			</control>
-			<control type="grouplist">
-				<height>90</height>
-				<orientation>horizontal</orientation>
-				<itemgap>$PARAM[ratings_spacing]</itemgap>
-				<aligny>center</aligny>
-				<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Genre)</visible>
-				<control type="grouplist">
-					<width>60</width>
-					<orientation>vertical</orientation>
-					<itemgap>5</itemgap>
-					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
-					<control type="image">
-						<width>60</width>
-						<height>36</height>
-						<aspectratio>keep</aspectratio>
-						<align>center</align>
-						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(nimbus.metascoreImage)]</texture>
-					</control>
-					<control type="label">
-						<width max="60">auto</width>
-						<height>42</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[Window.Property(nimbus.metascore)]</label>
-						<textcolor>unfocused_text</textcolor>
-					</control>
-				</control>
-				<control type="grouplist">
-					<width>60</width>
-					<orientation>vertical</orientation>
-					<itemgap>5</itemgap>
-					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
-					<control type="image">
-						<width>60</width>
-						<height>36</height>
-						<aspectratio>keep</aspectratio>
-						<align>center</align>
-						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(nimbus.tomatoImage)]</texture>
-					</control>
-					<control type="label">
-						<width max="60">auto</width>
-						<height>42</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[Window.Property(nimbus.tomatoMeter)]</label>
-						<textcolor>unfocused_text</textcolor>
-					</control>
-				</control>
-				<control type="grouplist">
-					<width>60</width>
-					<orientation>vertical</orientation>
-					<itemgap>5</itemgap>
-					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
-					<control type="image">
-						<width>60</width>
-						<height>36</height>
-						<aspectratio>keep</aspectratio>
-						<align>center</align>
-						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
-					</control>
-					<control type="label">
-						<width max="60">auto</width>
-						<height>42</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]</label>
-						<textcolor>unfocused_text</textcolor>
-					</control>
-				</control>
-				<control type="grouplist">
-					<width>60</width>
-					<orientation>vertical</orientation>
-					<itemgap>5</itemgap>
-					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
-					<control type="image">
-						<width>60</width>
-						<height>36</height>
-						<aspectratio>keep</aspectratio>
-						<align>center</align>
-						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(nimbus.imdbImage)]</texture>
-					</control>
-					<control type="label">
-						<width max="60">auto</width>
-						<height>42</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
-						<textcolor>unfocused_text</textcolor>
-					</control>
-				</control>
-				<control type="grouplist">
-					<width>77</width>
-					<orientation>vertical</orientation>
-					<itemgap>5</itemgap>
-					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
-					<control type="image">
-						<width>87</width>
-						<height>36</height>
-						<aspectratio>keep</aspectratio>
-						<align>center</align>
-						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(nimbus.popularImage)]</texture>
-					</control>
-					<control type="label">
-						<width max="87">auto</width>
-						<height>42</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[Window.Property(nimbus.popularRating)]</label>
-						<textcolor>unfocused_text</textcolor>
-					</control>
-				</control>
-				<control type="grouplist">
-					<width>65</width>
-					<orientation>vertical</orientation>
-					<itemgap>8</itemgap>
-					<align>center</align>
-					<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
-					<control type="image">
-						<width>65</width>
-						<height>33</height>
-						<aspectratio>keep</aspectratio>
-						<align>center</align>
-						<aligny>center</aligny>
-						<texture>$INFO[Window.Property(nimbus.tmdbImage)]</texture>
-					</control>
-					<control type="label">
-						<width max="65">auto</width>
-						<height>42</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
-						<textcolor>unfocused_text</textcolor>
-					</control>
-				</control>
-			</control>
+
+			<include content="VerticalRatings">
+				<param name="ratings_spacing" value="25" />
+			</include>
+
+			<include content="HorizontalRatings">
+				<param name="ratings_spacing" value="20" />
+			</include>
+			
 			<control type="textbox">
 				<height max="$PARAM[height_noalt]">auto</height>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+			</control>
+		</control>
+	</include>
+
+	<include name="VerticalRatings">
+		<control type="grouplist">
+			<height>90</height>
+			<orientation>horizontal</orientation>
+			<itemgap>$PARAM[ratings_spacing]</itemgap>
+			<aligny>center</aligny>
+			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Genre)</visible>
+			<visible>[Control.IsVisible(50) | Control.IsVisible(54)]</visible>
+			<control type="grouplist">
+				<width>60</width>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				<align>center</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+				<control type="image">
+					<width>60</width>
+					<height>36</height>
+					<aspectratio>keep</aspectratio>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>42</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.metascore)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>60</width>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				<align>center</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+				<control type="image">
+					<width>60</width>
+					<height>36</height>
+					<aspectratio>keep</aspectratio>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>42</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tomatoMeter)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>60</width>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				<align>center</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+				<control type="image">
+					<width>60</width>
+					<height>36</height>
+					<aspectratio>keep</aspectratio>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>42</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>60</width>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				<align>center</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+				<control type="image">
+					<width>60</width>
+					<height>36</height>
+					<aspectratio>keep</aspectratio>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.imdbImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>42</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>77</width>
+				<orientation>vertical</orientation>
+				<itemgap>5</itemgap>
+				<align>center</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+				<control type="image">
+					<width>87</width>
+					<height>36</height>
+					<aspectratio>keep</aspectratio>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.popularImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="87">auto</width>
+					<height>42</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>65</width>
+				<orientation>vertical</orientation>
+				<itemgap>8</itemgap>
+				<align>center</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+				<control type="image">
+					<width>65</width>
+					<height>33</height>
+					<aspectratio>keep</aspectratio>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="65">auto</width>
+					<height>42</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<include name="HorizontalRatings">
+		<control type="grouplist">
+			<height>40</height>
+			<orientation>horizontal</orientation>
+			<itemgap>$PARAM[ratings_spacing]</itemgap>
+			<aligny>center</aligny>
+			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Genre)</visible>
+			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121)]</visible>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+				<control type="image">
+					<width>50</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="80">auto</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+				<control type="image">
+					<width>50</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="80">auto</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>3</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+				<control type="image">
+					<width>50</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="80">auto</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>8</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+				<control type="image">
+					<width>74</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.imdbImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+				<control type="image">
+					<width>42</width>
+					<height>35</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.popularImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="87">auto</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>150</width>
+				<orientation>horizontal</orientation>
+				<itemgap>7</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+				<control type="image">
+					<width>90</width>
+					<height>33</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture>$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
+					<textcolor>unfocused_text</textcolor>
+				</control>
 			</control>
 		</control>
 	</include>
