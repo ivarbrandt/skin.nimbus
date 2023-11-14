@@ -839,7 +839,7 @@
 						<param name="left">-517</param>
 						<param name="width" value="900" />
 					</include>
-					<visible allowhiddenfocus="true">![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
+					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<!-- TODO Add sideblade panel for direct editing of widgets, hiding sections, other shortcuts -->
 					<control type="fixedlist" id="9000">
 						<left>-517</left>
@@ -1166,7 +1166,7 @@
 			</control>
 			<control type="group">
         <animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
-        <visible>![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !Skin.HasSetting(TrailerPlaying)</visible>
+        <visible>![ControlGroup(2000).HasFocus | Skin.HasSetting(TrailerPlaying)]</visible>
 				<depth>DepthBars</depth>
 				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
