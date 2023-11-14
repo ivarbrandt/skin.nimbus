@@ -261,6 +261,7 @@
 						<scrollspeed>100</scrollspeed>
 						<visible>$PARAM[visible]</visible>
 						<visible>!Control.HasFocus($PARAM[list_id])</visible>
+						<visible>String.IsEmpty(Window.Property(nimbus.stacked))</visible>
 					</control>
 					<!-- RATINGS VISIBLE -->
 					<control type="label" id="$PARAM[list_id]667">
@@ -488,7 +489,7 @@
 				<movement>4</movement>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
-				<height>565</height>
+				<height>465</height>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -525,9 +526,9 @@
         <param name="label">$PARAM[widget_header]</param>
         <param name="list_id" value="$PARAM[list_id]" />
       </include>
-			<include content="BusyListSpinnerWidget">
+			<!-- <include content="BusyListSpinnerWidget">
 				<param name="list_id" value="$PARAM[list_id]" />
-			</include>
+			</include> -->
       <control type="fixedlist" id="$PARAM[list_id]">
         <left>0</left>
         <top>115</top> 
@@ -613,6 +614,7 @@
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
+							<font>font25_narrow</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -625,6 +627,7 @@
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
+							<font>font25_narrow</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -658,6 +661,7 @@
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
+							<font>font25_narrow</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -671,6 +675,7 @@
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
+							<font>font25_narrow</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -696,11 +701,13 @@
 				<param name="list_id" value="$PARAM[list_id]" />
 			</include> -->
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<animation condition="Control.HasFocus($PARAM[list_id])" effect="slide" time="300" start="1350,0" end="0,0" tween="cubic" easing="out">Conditional</animation>
+				<animation condition="Control.HasFocus($PARAM[list_id])" effect="fade" time="300" start="0" end="100">Conditional</animation>
+				<!-- <animation condition="!Control.HasFocus($PARAM[list_id])" effect="fade" time="300" start="100" end="0">Conditional</animation> -->
 				<left>0</left>
 				<top>70</top>
 				<right>0</right>
-				<height>195</height>
+				<height>108</height>
+				<width>1370</width>
 				<include content="WidgetListCommonStacked">
 					<param name="list_id" value="$PARAM[list_id]" />
 				</include>
@@ -710,20 +717,20 @@
 					<control type="group">
 						<left>70</left>
 						<visible>Control.HasFocus($PARAM[list_id])</visible>
-						<control type="image">
+						<!-- <control type="image">
 							<width>327</width>
 							<height>100</height>
 							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
 							<bordersize>20</bordersize>
-						</control>
-						<control type="textbox">
+						</control> -->
+						<control type="label">
 							<left>37</left>
 							<top>15</top>
 							<width>244</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>unfocused_text</textcolor>
-							<font>font25_narrow</font>
+							<!-- <font>font25_narrow</font> -->
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -735,12 +742,12 @@
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
 						<visible>Control.HasFocus($PARAM[list_id])</visible>
-						<control type="image">
+						<!-- <control type="image">
 							<width>327</width>
 							<height>100</height>
 							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
 							<bordersize>20</bordersize>
-						</control>
+						</control> -->
 						<control type="image">
 							<include>FocusBounce</include>
 							<width>327</width>
@@ -750,33 +757,33 @@
 							<include>Animation_FocusTextureFade</include>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
-						<control type="textbox">
+						<control type="label">
 							<left>37</left>
 							<top>15</top>
 							<width>244</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>focused_text</textcolor>
-							<font>font25_narrow</font>
+							<!-- <font>font25_narrow</font> -->
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
-							<autoscroll delay="1300" time="1500" repeat="2000">$PARAM[focused]</autoscroll>
+							<scroll>$PARAM[focused]</scroll>
 						</control>
-						<control type="textbox">
+						<control type="label">
 							<left>37</left>
 							<top>15</top>
 							<width>244</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>unfocused_text</textcolor>
-							<font>font25_narrow</font>
+							<!-- <font>font25_narrow</font> -->
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<visible>!Control.HasFocus($PARAM[list_id])</visible>
-							<autoscroll delay="1300" time="1500" repeat="2000">$PARAM[focused]</autoscroll>
+							<scroll>$PARAM[focused]</scroll>
 						</control>
 					</control>
 				</focusedlayout>
