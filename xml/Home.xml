@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>9000</defaultcontrol>
+	<defaultcontrol>2000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
@@ -14,22 +14,33 @@
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="multiimage">
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
+			
+			<right>-3</right>
+			<top>-3</top>
+			<width>1300</width>
+			<height>731</height>
 			<aspectratio>scale</aspectratio>
 			<fadetime>600</fadetime>
 			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="bg_overlay">$VAR[HomeFanartVar]</imagepath>
+			<imagepath background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
 		</control>
+		<!-- <control type="image">
+			<right>0</right>
+			<top>0</top>
+			<width>1300</width>
+			<height>731</height>
+			<aspectratio>keep</aspectratio>
+			<texture diffuse="overlays/netflixfanartdiffuse.png">$VAR[NetflixFanartVar]</texture>
+		</control> -->
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
-				<left>462</left>
+				<left>-33</left>
 				<include>OpenClose_Right</include>
 				<visible>!Skin.HasSetting(TrailerPlaying)</visible>
 				<animation effect="slide" time="700" start="1380,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
@@ -822,9 +833,9 @@
 				<animation effect="slide" time="700" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<include content="ContentPanel">
+				<!-- <include content="ContentPanel">
 					<param name="width" value="900" />
-				</include>
+				</include> -->
 				<control type="group">
 					<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 					<visible allowhiddenfocus="true">![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
@@ -1051,10 +1062,12 @@
 					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
 					<include>OpenClose_Left</include>
 					<control type="image">
-						<left>30</left>
+						<left>50</left>
 						<top>50</top>
-						<width>395</width>
-						<height>153</height>
+						<!-- 395 -->
+						<width>545</width>
+						<!-- 153 -->
+						<height>211</height>
 						<texture background="true">$VAR[ClearlogoVar]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
@@ -1101,15 +1114,15 @@
 						</control>
 					</control>
 					<include condition="![Skin.HasSetting(Disable.RatingsINF) | String.IsEmpty(Skin.String(mdblist_api_key))]" content="RatingsInfoPanel">
-						<param name="left" value="30" />
-						<param name="width" value="410" />
-						<param name="top" value="239" />
+						<param name="left" value="50" />
+						<param name="width" value="825" />
+						<param name="top" value="296" />
 						<param name="ratings_spacing" value="7" />
-						<param name="height_noalt" value="460" />
+						<param name="height_noalt" value="170" />
 						<param name="height_alt_movie" value="330" />
 						<param name="height_alt_tvshow" value="290" />
 					</include>
-					<!-- <control type="textbox">
+					<control type="textbox">
 						<left>30</left>
 						<top>467</top>
 						<width>530</width>
@@ -1120,7 +1133,7 @@
 						<textcolor>80FFFFFF</textcolor>
 						<label>$LOCALIZE[19055]</label>
 						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
-					</control> -->
+					</control>
 				</control>
 			</control>
 			<control type="group">

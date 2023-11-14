@@ -3,9 +3,12 @@
 
 	<include name="WidgetGroupListCommon">
 		<orientation>vertical</orientation>
-		<height>100%</height>
-		<scrolltime tween="cubic" easing="out">500</scrolltime>
-		<itemgap>-160</itemgap>
+		<!-- 500 -->
+		<top>545</top>
+		<!-- 55 -->
+		<height>53%</height>
+		<scrolltime tween="cubic" easing="out">1</scrolltime>
+		<itemgap>-100</itemgap>
 		<usecontrolcoords>true</usecontrolcoords>
 	</include>
 
@@ -13,15 +16,15 @@
 		<!-- TODO Add one-click functionality for Trakt Manager, viewing of trailers etc -->
 		<param name="visible">true</param>
 		<param name="item_treshold">0</param>
-		<param name="label_focus">$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]</param>
-		<param name="label_focus_episodes">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]</param>
+		<param name="label_focus">$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Genre,[B] | [/B]]</param>
+		<param name="label_focus_episodes">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Season,[B] | [/B]S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]</param>
 		<param name="label_focus_collections">$INFO[Container($PARAM[list_id]).ListItem.Label,[B]| [/B]]</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<left>75</left>
 				<top>80</top>
 				<onback>9000</onback>
-				<height>90</height>
+				<height>40</height>
 				<width>1350</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
@@ -243,7 +246,7 @@
 				<left>75</left>
 				<top>80</top>
 				<onback>9000</onback>
-				<height>90</height>
+				<height>40</height>
 				<width>1350</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
@@ -331,6 +334,7 @@
 						<visible>[String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)] + Control.HasFocus($PARAM[list_id])</visible>
 						<visible>[String.IsEmpty(Skin.String(mdblist_api_key)) | Skin.HasSetting(Disable.WidgetLabelRatings)]</visible>
 					</control>
+
 					<control type="grouplist">
 						<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Skin.HasSetting(Disable.WidgetLabelRatings) | Container($PARAM[list_id]).IsUpdating] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Genre) + Control.HasFocus($PARAM[list_id])</visible>
 						<orientation>horizontal</orientation>
@@ -465,6 +469,8 @@
 							</control>
 						</control>
 					</control>
+
+
 				</control>
 			</control>
 		</definition>
@@ -483,10 +489,10 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>115</top>
+				<top>95</top>
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
-				<movement>4</movement>
+				<movement>6</movement>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
 				<height>465</height>
@@ -494,8 +500,10 @@
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<itemlayout width="269" height="393">
+				<itemlayout width="263" height="393">
 					<control type="group">
+						<animation effect="fade" start="0" end="100" time="700" tween="sine" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)">VisibleChange</animation>
+						<visible>Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)</visible>
 						<left>68</left>
 						<top>15</top>
 						<include content="InfoWallMovieLayout">
@@ -504,8 +512,10 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="269" height="393">
+				<focusedlayout width="263" height="393">
 					<control type="group">
+						<animation effect="fade" start="0" end="100" time="300" tween="sine" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)">VisibleChange</animation>
+						<visible>Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)</visible>
 						<depth>DepthContentPopout</depth>
 						<left>68</left>
 						<top>15</top>
@@ -531,7 +541,7 @@
 			</include> -->
       <control type="fixedlist" id="$PARAM[list_id]">
         <left>0</left>
-        <top>115</top> 
+        <top>95</top> 
         <right>0</right>
         <height>465</height>
 				<onright>$PARAM[list_id]</onright>
@@ -540,7 +550,7 @@
         <include content="WidgetListCommonStacked">
           <param name="list_id" value="$PARAM[list_id]" />
         </include>
-        <itemlayout width="269" height="393">
+        <itemlayout width="263" height="393">
           <control type="group">
             <left>68</left>
             <top>15</top>
@@ -550,7 +560,7 @@
             </include>
           </control>
         </itemlayout>
-        <focusedlayout width="269" height="393">
+        <focusedlayout width="263" height="393">
           <control type="group">
             <depth>DepthContentPopout</depth>
             <left>68</left>
@@ -1527,7 +1537,7 @@
 		<onback>9000</onback>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 		<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
-		<!-- <preloaditems>2</preloaditems> -->
+		<preloaditems>2</preloaditems>
 	</include>
 
 	<include name="WidgetListCommonStacked">
@@ -1538,7 +1548,7 @@
 		<onback>9000</onback>
     <onback>SetFocus($PARAM[list_id],0,absolute)</onback>
     <onfocus>RunScript(script.nimbus.helper,mode=widget_monitor&amp;list_id=$PARAM[list_id])</onfocus>
-    <!-- <preloaditems>2</preloaditems> -->
+    <preloaditems>2</preloaditems>
   </include>
 
 	<include name="BusyListSpinner">
