@@ -1386,7 +1386,7 @@
 		<definition>
 			<!-- Content Panel Background -->
 			<control type="image">
-				<texture flipx="$PARAM[flipx]" colordiffuse="button_focus2">lists/contentpanel-fade.png</texture>
+				<texture flipx="$PARAM[flipx]" colordiffuse="black">lists/contentpanel-fade.png</texture>
 				<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 				<bordersize>20</bordersize>
 				<width>$PARAM[width]</width>
@@ -1394,7 +1394,7 @@
 				<right>$PARAM[right]</right>
 				<top>$PARAM[top]</top>
 				<height>$PARAM[height]</height>
-				<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode) | VideoPlayer.Content(LiveTV)]</visible>
+				<visible>VideoPlayer.Content(LiveTV) | Control.HasFocus(9000) | ControlGroup(700).HasFocus</visible>
 			</control>
 		</definition>
 	</include>
