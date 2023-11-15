@@ -840,7 +840,6 @@
 						<param name="width" value="900" />
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
-					<!-- TODO Add sideblade panel for direct editing of widgets, hiding sections, other shortcuts -->
 					<control type="fixedlist" id="9000">
 						<left>-517</left>
 						<top>240</top>
