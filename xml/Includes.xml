@@ -883,7 +883,7 @@
 					<height>130</height>
 					<texture>frame/InfoBar.png</texture>
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
-					<animation effect="fade" start="0" end="100" time="700" reversible="true">VisibleChange</animation>
+					<animation effect="fade" start="0" end="100" time="700">VisibleChange</animation>
 				</control>
 				<control type="grouplist">
 					<width>900</width>
