@@ -833,15 +833,14 @@
 				<animation effect="slide" time="700" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 				<depth>DepthContentPanel</depth>
 				<control type="group">
-					<animation effect="slide" time="400" start="0,0" end="517,0" tween="sine" easing="inout">VisibleChange</animation>
+					<animation effect="slide" time="400" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 					<include>OpenClose_Left</include>
 					<include content="ContentPanel">
-						<param name="left">-517</param>
-						<param name="width" value="900" />
+					<param name="width" value="900" />
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="fixedlist" id="9000">
-						<left>-517</left>
+						<left>25</left>
 						<top>240</top>
             <width>492</width>
 						<bottom>-10</bottom>
@@ -1002,7 +1001,7 @@
 					<control type="grouplist" id="700">
 						<orientation>horizontal</orientation>
 						<itemgap>0</itemgap>
-            <left>-492</left>
+            <left>45</left>
 						<width>380</width>
 						<height>110</height>
 						<top>115</top>
@@ -1057,7 +1056,7 @@
 				</control>
 
 				<control type="group">
-					<animation effect="fade" time="400" start="0" end="100" tween="sine">VisibleChange</animation>
+					<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 					<width>550</width>
 					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
 					<include>OpenClose_Left</include>
