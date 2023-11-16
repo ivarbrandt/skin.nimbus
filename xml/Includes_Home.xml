@@ -37,6 +37,7 @@
 				<control type="label">
 					<top>12</top>
 					<label>$PARAM[label]$PARAM[label_focus]</label>
+					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
@@ -45,6 +46,7 @@
 				<control type="label">
 					<top>12</top>
 					<label>$PARAM[label]$PARAM[label_focus_episodes]</label>
+					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
@@ -53,6 +55,7 @@
 				<control type="label">
 					<top>12</top>
 					<label>$PARAM[label_focus_collections]</label>
+					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
