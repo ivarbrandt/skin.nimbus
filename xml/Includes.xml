@@ -1135,7 +1135,7 @@
 	</include>
 	<include name="ColoredBackgroundImages">
 		<control type="image">
-			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home)</visible>
+			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home) + !Window.IsVisible(1121)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
