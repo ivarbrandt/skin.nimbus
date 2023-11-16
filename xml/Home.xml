@@ -831,11 +831,91 @@
 				<visible>!Skin.HasSetting(TrailerPlaying)</visible>
 				<animation effect="slide" time="700" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 				<depth>DepthContentPanel</depth>
+				
+
+				<control type="group">
+					<animation effect="fade" time="500" start="0" end="100" tween="sine">VisibleChange</animation>
+					<width>550</width>
+					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode) | Control.HasFocus(9000) | ControlGroup(700).HasFocus</visible>
+					<include>OpenClose_Left</include>
+					<control type="image">
+						<left>50</left>
+						<top>50</top>
+						<!-- 395 -->
+						<width>545</width>
+						<!-- 153 -->
+						<height>211</height>
+						<texture colordiffuse="FCE9E9E9" background="true">$VAR[ClearlogoVar]</texture>
+						<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="textbox">
+						<top>75</top>
+						<left>30</left>
+						<width>430</width>
+						<aligny>center</aligny>
+						<height>98</height>
+						<font>font36_title</font>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+					</control>
+					<control type="group">
+						<visible>Skin.HasSetting(Disable.RatingsINF) | String.IsEmpty(Skin.String(mdblist_api_key))</visible>
+						<control type="textbox">
+							<left>30</left>
+							<top>239</top>
+							<width>410</width>
+							<bottom>60</bottom>
+							<label>$VAR[InfoPanel]</label>
+							<textcolor>unfocused_text</textcolor>
+							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
+						</control>
+						<control type="textbox">
+							<left>30</left>
+							<top>323</top>
+							<width>410</width>
+							<bottom>60</bottom>
+							<label>$VAR[InfoPanelEpisode]</label>
+							<textcolor>unfocused_text</textcolor>
+							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
+						</control>
+						<control type="textbox">
+							<left>30</left>
+							<top>213</top>
+							<width>410</width>
+							<aligny>center</aligny>
+							<height>110</height>
+							<bottom>60</bottom>
+							<font>font36_title</font>
+							<label>Season $INFO[ListItem.Season], Episode $INFO[ListItem.Episode]</label>
+							<visible>String.IsEqual(ListItem.DbType,episode)</visible>
+						</control>
+					</control>
+					<include condition="![Skin.HasSetting(Disable.RatingsINF) | String.IsEmpty(Skin.String(mdblist_api_key))]" content="RatingsInfoPanel">
+						<param name="left" value="50" />
+						<param name="width" value="825" />
+						<param name="top" value="296" />
+						<param name="ratings_spacing" value="7" />
+						<param name="height_noalt" value="170" />
+					</include>
+					<control type="textbox">
+						<left>30</left>
+						<top>467</top>
+						<width>530</width>
+						<height>413</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font27</font>
+						<textcolor>80FFFFFF</textcolor>
+						<label>$LOCALIZE[19055]</label>
+						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
+					</control>
+				</control>
+
 				<control type="group">
 					<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 					<include>OpenClose_Left</include>
 					<include content="ContentPanel">
-					<param name="width" value="900" />
+						<param name="width" value="1100"/>
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="fixedlist" id="9000">
@@ -1054,83 +1134,7 @@
 					</control>
 				</control>
 
-				<control type="group">
-					<animation effect="fade" time="500" start="0" end="100" tween="sine">VisibleChange</animation>
-					<width>550</width>
-					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode) | Control.HasFocus(9000) | ControlGroup(700).HasFocus</visible>
-					<include>OpenClose_Left</include>
-					<control type="image">
-						<left>50</left>
-						<top>50</top>
-						<!-- 395 -->
-						<width>545</width>
-						<!-- 153 -->
-						<height>211</height>
-						<texture colordiffuse="FCE9E9E9" background="true">$VAR[ClearlogoVar]</texture>
-						<aspectratio align="center">keep</aspectratio>
-					</control>
-					<control type="textbox">
-						<top>75</top>
-						<left>30</left>
-						<width>430</width>
-						<aligny>center</aligny>
-						<height>98</height>
-						<font>font36_title</font>
-						<label>$INFO[ListItem.Label]</label>
-						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
-					</control>
-					<control type="group">
-						<visible>Skin.HasSetting(Disable.RatingsINF) | String.IsEmpty(Skin.String(mdblist_api_key))</visible>
-						<control type="textbox">
-							<left>30</left>
-							<top>239</top>
-							<width>410</width>
-							<bottom>60</bottom>
-							<label>$VAR[InfoPanel]</label>
-							<textcolor>unfocused_text</textcolor>
-							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
-						<control type="textbox">
-							<left>30</left>
-							<top>323</top>
-							<width>410</width>
-							<bottom>60</bottom>
-							<label>$VAR[InfoPanelEpisode]</label>
-							<textcolor>unfocused_text</textcolor>
-							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
-						<control type="textbox">
-							<left>30</left>
-							<top>213</top>
-							<width>410</width>
-							<aligny>center</aligny>
-							<height>110</height>
-							<bottom>60</bottom>
-							<font>font36_title</font>
-							<label>Season $INFO[ListItem.Season], Episode $INFO[ListItem.Episode]</label>
-							<visible>String.IsEqual(ListItem.DbType,episode)</visible>
-						</control>
-					</control>
-					<include condition="![Skin.HasSetting(Disable.RatingsINF) | String.IsEmpty(Skin.String(mdblist_api_key))]" content="RatingsInfoPanel">
-						<param name="left" value="50" />
-						<param name="width" value="825" />
-						<param name="top" value="296" />
-						<param name="ratings_spacing" value="7" />
-						<param name="height_noalt" value="170" />
-					</include>
-					<control type="textbox">
-						<left>30</left>
-						<top>467</top>
-						<width>530</width>
-						<height>413</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>font27</font>
-						<textcolor>80FFFFFF</textcolor>
-						<label>$LOCALIZE[19055]</label>
-						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
-					</control>
-				</control>
+
 			</control>
 			<control type="group">
 				<depth>DepthBars</depth>
