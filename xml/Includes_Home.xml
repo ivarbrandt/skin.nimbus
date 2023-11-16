@@ -1181,6 +1181,21 @@
 		<onback>SetFocus($PARAM[list_id],0,absolute)</onback>
 		<onback>9000</onback>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
+
+		<onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
+		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
+		<onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
+		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
+
+		<onfocus>ClearProperty(nimbus_clearlogo_art)</onfocus>
+		<onfocus>ClearProperty(nimbus_clearlogo_prop)</onfocus>
+		<onunfocus>SetProperty(nimbus_clearlogo_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(clearlogo)], home)</onunfocus>
+		<onunfocus>SetProperty(nimbus_clearlogo_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(clearlogo)], home)</onunfocus>
+
+		<onfocus>ClearProperty(nimbus_year)</onfocus>
+		<onunfocus>SetProperty(nimbus_year, $INFO[Container($PARAM[list_id]).ListItem(0).Year], home)</onunfocus>
+
+
 		<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
 		<preloaditems>2</preloaditems>
 	</include>

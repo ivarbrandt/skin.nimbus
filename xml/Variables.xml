@@ -452,6 +452,8 @@
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(802)">$INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(803)">$INFO[Skin.String(HomeFanart.path)]favorites$INFO[Skin.String(HomeFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path)) + Control.HasFocus(801)">$INFO[Skin.String(HomeFanart.path)]search$INFO[Skin.String(HomeFanart.ext)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_art))">$INFO[Window(home).Property(nimbus_fanart_art)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_prop))">$INFO[Window(home).Property(nimbus_fanart_prop)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$INFO[Container(9000).ListItem.Property(id)]$INFO[Skin.String(HomeFanart.ext)]</value>
 	</variable>
 	<variable name="MediaFanartVar">
@@ -691,7 +693,9 @@
 
 	<variable name="ClearlogoVar">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-		<value>$INFO[ListItem.Label]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_art))">$INFO[Window(home).Property(nimbus_clearlogo_art)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_prop))">$INFO[Window(home).Property(nimbus_clearlogo_prop)]</value>
+		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
 	<variable name="BackgroundBrightnessVar">
