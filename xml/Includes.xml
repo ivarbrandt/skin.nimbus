@@ -876,12 +876,14 @@
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
 				<control type="image">
+					<visible>Window.IsVisible(extendedprogressdialog)</visible>
 					<left>0</left>
 					<top>0</top>
 					<width>110%</width>
 					<height>130</height>
 					<texture>frame/InfoBar.png</texture>
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="700" reversible="true">VisibleChange</animation>
 				</control>
 				<control type="grouplist">
 					<width>900</width>
