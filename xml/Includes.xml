@@ -1815,7 +1815,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture>$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
@@ -1838,7 +1838,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture>$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
@@ -1861,7 +1861,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture>$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
@@ -1884,7 +1884,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture>$INFO[Window.Property(nimbus.imdbImage)]</texture>
+					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.imdbImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
@@ -1907,7 +1907,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture>$INFO[Window.Property(nimbus.popularImage)]</texture>
+					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.popularImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="87">auto</width>
@@ -1930,7 +1930,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture>$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
