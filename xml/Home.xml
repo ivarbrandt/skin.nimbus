@@ -14,16 +14,15 @@
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="multiimage">
-			
 			<right>-3</right>
 			<top>-3</top>
 			<width>1300</width>
 			<height>731</height>
 			<aspectratio>scale</aspectratio>
-			<fadetime>600</fadetime>
+			<fadetime>500</fadetime>
 			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<imagepath background="true" colordiffuse="FCE9E9E9" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
@@ -1056,7 +1055,7 @@
 				</control>
 
 				<control type="group">
-					<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
+					<animation effect="fade" time="500" start="0" end="100" tween="sine">VisibleChange</animation>
 					<width>550</width>
 					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
 					<include>OpenClose_Left</include>

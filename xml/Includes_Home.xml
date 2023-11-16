@@ -147,7 +147,7 @@
 				</include>
 				<itemlayout width="263" height="393">
 					<control type="group">
-						<animation effect="fade" start="0" end="100" time="700" tween="sine" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)">VisibleChange</animation>
+						<animation effect="fade" start="0" end="100" time="500" tween="sine" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)">VisibleChange</animation>
 						<visible>Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | ControlGroup(700).HasFocus</visible>
 						<left>68</left>
 						<top>15</top>
