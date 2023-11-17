@@ -841,9 +841,7 @@
 					<control type="image">
 						<left>50</left>
 						<top>50</top>
-						<!-- 395 -->
 						<width>545</width>
-						<!-- 153 -->
 						<height>211</height>
 						<texture colordiffuse="FCE9E9E9" background="true">$VAR[ClearlogoVar]</texture>
 						<aspectratio align="center">keep</aspectratio>
