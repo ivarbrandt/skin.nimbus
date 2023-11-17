@@ -261,7 +261,7 @@
 					<width>275</width>
 					<!-- 324 -->
 					<height>379</height>
-					<texture colordiffuse="FCE9E9E9" diffuse="masks/poster.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+					<texture colordiffuse="FCE9E9E9" diffuse="masks/poster.png" background="true">$VAR[InfoWallPosterVar]</texture>
 					<!-- <aspectratio>scale</aspectratio> -->
 					<bordersize>20</bordersize>
 				</control>
@@ -272,7 +272,7 @@
 					<width>275</width>
 					<!-- 324 -->
 					<height>379</height>
-					<texture colordiffuse="99000000" diffuse="masks/poster.png" background="true">$INFO[ListItem.Art(poster)]</texture>
+					<texture colordiffuse="99000000" diffuse="masks/poster.png" background="true">$VAR[InfoWallPosterVar]</texture>
 					<!-- <aspectratio>scale</aspectratio> -->
 					<bordersize>20</bordersize>
 					<animation condition="Container($PARAM[list_id]).IsUpdating" effect="fade" time="700" start="100" end="0" pulse="true">Conditional</animation>
