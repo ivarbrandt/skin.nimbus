@@ -1178,7 +1178,7 @@
 		<orientation>horizontal</orientation>
 		<onleft>$PARAM[list_id]</onleft>
 		<onright>$PARAM[list_id]</onright>
-		<onback>SetFocus($PARAM[list_id],0,absolute)</onback>
+		<!-- <onback>SetFocus($PARAM[list_id],0,absolute)</onback> -->
 		<onback>9000</onback>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 
@@ -1187,13 +1187,15 @@
 		<onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
 		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
 
-		<onfocus>ClearProperty(nimbus_clearlogo_art)</onfocus>
+		<!-- <onfocus>ClearProperty(nimbus_clearlogo_art)</onfocus>
 		<onfocus>ClearProperty(nimbus_clearlogo_prop)</onfocus>
 		<onunfocus>SetProperty(nimbus_clearlogo_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(clearlogo)], home)</onunfocus>
-		<onunfocus>SetProperty(nimbus_clearlogo_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(clearlogo)], home)</onunfocus>
+		<onunfocus>SetProperty(nimbus_clearlogo_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(clearlogo)], home)</onunfocus> -->
 
-		<onfocus>ClearProperty(nimbus_year)</onfocus>
-		<onunfocus>SetProperty(nimbus_year, $INFO[Container($PARAM[list_id]).ListItem(0).Year], home)</onunfocus>
+		<!-- <onfocus>ClearProperty(nimbus_plot)</onfocus>
+		<onfocus>ClearProperty(nimbus_plot_prop)</onfocus>
+		<onunfocus>SetProperty(nimbus_plot, $INFO[Container($PARAM[list_id]).ListItem(0).Plot], home)</onunfocus>
+		<onunfocus>SetProperty(nimbus_plot_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(nimbus_plot)], home)</onunfocus> -->
 
 
 		<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>

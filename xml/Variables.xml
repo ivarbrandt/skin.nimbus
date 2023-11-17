@@ -693,8 +693,8 @@
 
 	<variable name="ClearlogoVar">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_art))">$INFO[Window(home).Property(nimbus_clearlogo_art)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_prop))">$INFO[Window(home).Property(nimbus_clearlogo_prop)]</value>
+		<!-- <value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_art))">$INFO[Window(home).Property(nimbus_clearlogo_art)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_prop))">$INFO[Window(home).Property(nimbus_clearlogo_prop)]</value> -->
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
@@ -777,6 +777,9 @@
 	<!-- Plot -->
 	<variable name="RI_Plot">
 		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+		<!-- <value condition="!String.IsEmpty(Window(home).Property(nimbus_plot))">$INFO[Window(home).Property(nimbus_plot)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_plot_prop))">$INFO[Window(home).Property(nimbus_plot_prop)]</value> -->
+		<value></value>
 	</variable>
 
 	<!-- INFOPANEL VARIABLES -->
