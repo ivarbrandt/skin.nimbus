@@ -698,6 +698,12 @@
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
+	<variable name="InfoWallPosterVar">
+		<value condition="!String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(poster)]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(season.poster)]</value>
+		<value>$INFO[ListItem.Art(poster)]</value>
+	</variable>
+
 	<variable name="BackgroundBrightnessVar">
     <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),Highest)">E6FFFFFF</value>
     <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),High)">CCFFFFFF</value>
