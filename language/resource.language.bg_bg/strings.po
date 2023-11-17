@@ -369,7 +369,7 @@ msgstr "Отместване"
 
 #. viewtype name
 msgctxt "#31101"
-msgid "InfoWall"
+msgid "Flix"
 msgstr "Стена с информация"
 
 #. viewtype name

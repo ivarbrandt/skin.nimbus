@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-	<include name="InfoWallPictureLayout">
+	<include name="FlixPictureLayout">
 		<param name="focused">false</param>
 		<definition>
 			<control type="image">
@@ -28,7 +28,7 @@
 				<top>10</top>
 				<width>336</width>
 				<height>300</height>
-				<texture border="2" background="true">$VAR[InfoWallThumbVar]</texture>
+				<texture border="2" background="true">$VAR[FlixThumbVar]</texture>
 				<aspectratio>keep</aspectratio>
 			</control>
 			<control type="label">
@@ -45,7 +45,7 @@
 		</definition>
 	</include>
 
-	<include name="InfoWallMusicLayout">
+	<include name="FlixMusicLayout">
 		<param name="fallback_image">DefaultFolder.png</param>
 		<param name="main_label">$INFO[ListItem.Artist]</param>
 		<param name="sub_label">$INFO[ListItem.Title]</param>
@@ -99,7 +99,7 @@
 				<top>0</top>
 				<width>280</width>
 				<height>280</height>
-				<texture diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[InfoWallThumbVar]</texture>
+				<texture diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[FlixThumbVar]</texture>
 				<aspectratio>keep</aspectratio>
 				<bordersize>20</bordersize>
 			</control>
@@ -146,7 +146,7 @@
 		</definition>
 	</include>
 
-	<include name="InfoWallMovieLayout">
+	<include name="FlixMovieLayout">
 		<param name="focused">false</param>
 		<definition>
 			<control type="group">
@@ -261,7 +261,7 @@
 					<width>275</width>
 					<!-- 324 -->
 					<height>379</height>
-					<texture colordiffuse="FCE9E9E9" diffuse="masks/poster.png" background="true">$VAR[InfoWallPosterVar]</texture>
+					<texture colordiffuse="FCE9E9E9" diffuse="masks/poster.png" background="true">$VAR[FlixPosterVar]</texture>
 					<!-- <aspectratio>scale</aspectratio> -->
 					<bordersize>20</bordersize>
 				</control>
@@ -272,7 +272,7 @@
 					<width>275</width>
 					<!-- 324 -->
 					<height>379</height>
-					<texture colordiffuse="99000000" diffuse="masks/poster.png" background="true">$VAR[InfoWallPosterVar]</texture>
+					<texture colordiffuse="99000000" diffuse="masks/poster.png" background="true">$VAR[FlixPosterVar]</texture>
 					<!-- <aspectratio>scale</aspectratio> -->
 					<bordersize>20</bordersize>
 					<animation condition="Container($PARAM[list_id]).IsUpdating" effect="fade" time="700" start="100" end="0" pulse="true">Conditional</animation>
@@ -335,28 +335,6 @@
 					<align>right</align>
 					<visible>$PARAM[focused] + String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0) + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control>
-				<control type="label">
-					<left>40</left>
-					<top>360</top>
-					<width>195</width>
-					<label>$INFO[ListItem.Label]</label>
-					<font>font10</font>
-          <textcolor>unfocused_text</textcolor>
-					<shadowcolor>text_shadow</shadowcolor>
-					<align>center</align>
-					<visible>!$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
-				</control>
-				<control type="label">
-					<left>40</left>
-					<top>360</top>
-					<width>195</width>
-					<label>$INFO[ListItem.Label]</label>
-					<font>font10</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<align>center</align>
-					<visible>$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
-					<scroll>true</scroll>
 				</control>
 			</control>
 			<control type="group">
@@ -446,50 +424,63 @@
 		</definition>
 	</include>
 
-	<include name="View_54_InfoWall">
+	<include name="View_54_Flix">
 		<control type="group">
 			<include>OpenClose_Right</include>
-			<left>80</left>
-			<top>0</top>
+			<left>0</left>
+			<top>545</top>
 			<visible>Control.IsVisible(54)</visible>
-			<include>Visible_Right</include>
-			<control type="panel" id="54">
-				<left>480</left>
-				<right>15</right>
+			<control type="label">
+				<left>45</left>
+				<top>70</top>
+				<width>1815</width>
+				<label>$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [B]»[/B] ]$VAR[FlixCrumbsVar]</label>
+				<font>font36</font>
+				<textcolor>unfocused_text</textcolor>
+				<shadowcolor>text_shadow</shadowcolor>
+				<align>left</align>
+				<!-- <visible>!$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible> -->
+			</control>
+			<control type="fixedlist" id="54">
+				<left>0</left>
+				<right>0</right>
 				<height>100%</height>
-				<onleft>9000</onleft>
-				<onright>531</onright>
-				<onup condition="Integer.IsGreater(Container.NumPages,1)">54</onup>
-				<onup condition="!Integer.IsGreater(Container.NumPages,1)">9000</onup>
-				<ondown>54</ondown>
+				<onleft>54</onleft>
+				<!-- <onright>531</onright> -->
+				<orientation>horizontal</orientation>
+				<movement>6</movement>
+				<!-- <onup condition="Integer.IsGreater(Container.NumPages,1)">54</onup>
+				<onup condition="!Integer.IsGreater(Container.NumPages,1)">9000</onup> -->
+				<onup>9000</onup>
+				<ondown>5199</ondown>
 				<viewtype label="31101">icon</viewtype>
 				<preloaditems>2</preloaditems>
-				<pagecontrol>531</pagecontrol>
+				<pagecontrol>5199</pagecontrol>
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
-				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Container.Content(images) | Container.Content(videos) | Container.Content(games)</visible>
-				<itemlayout height="415" width="263" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(images) | Container.Content(videos) | Container.Content(games)</visible>
+				<itemlayout height="415" width="263" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 					<control type="group">
 						<left>30</left>
 						<top>120</top>
-						<include>InfoWallMovieLayout</include>
+						<include>FlixMovieLayout</include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="415" width="263" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<focusedlayout height="415" width="263" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>30</left>
 						<top>120</top>
-						<include content="InfoWallMovieLayout">
+						<include content="FlixMovieLayout">
 							<param name="focused" value="true" />
 						</include>
 					</control>
 				</focusedlayout>
 				<!-- infowall spacing -->
-				<itemlayout height="301" width="410" condition="Container.Content(episodes) | Container.Content(videos) | [Container.Content(musicvideos) + !Skin.HasSetting(show_musicvideoposter)]">
+				<!-- <itemlayout height="301" width="410" condition="Container.Content(episodes) | Container.Content(videos) | [Container.Content(musicvideos) + !Skin.HasSetting(show_musicvideoposter)]">
 					<control type="group">
 						<left>64</left>
 						<top>110</top>
-						<include content="InfoWallEpisodeLayout">
+						<include content="FlixEpisodeLayout">
 							<param name="focused" value="false" />
 							<param name="thumb_label" value="$INFO[ListItem.Label2]" />
 						</include>
@@ -500,17 +491,17 @@
 						<depth>DepthContentPopout</depth>
 						<left>64</left>
 						<top>110</top>
-						<include content="InfoWallEpisodeLayout">
+						<include content="FlixEpisodeLayout">
 							<param name="focused" value="true" />
 							<param name="thumb_label" value="$INFO[ListItem.Label2]" />
 						</include>
 					</control>
-				</focusedlayout>
+				</focusedlayout> -->
 				<itemlayout height="410" width="310" condition="Container.Content(artists) | Container.Content(albums)">
 					<control type="group">
 						<top>150</top>
 						<left>40</left>
-						<include>InfoWallMusicLayout</include>
+						<include>FlixMusicLayout</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="410" width="310" condition="Container.Content(artists) | Container.Content(albums)">
@@ -518,7 +509,7 @@
 						<depth>DepthContentPopout</depth>
 						<top>150</top>
 						<left>40</left>
-						<include content="InfoWallMusicLayout">
+						<include content="FlixMusicLayout">
 							<param name="focused" value="true" />
 						</include>
 					</control>
@@ -527,7 +518,7 @@
 					<control type="group">
 						<left>0</left>
 						<top>150</top>
-						<include>InfoWallPictureLayout</include>
+						<include>FlixPictureLayout</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="401" width="378" condition="Container.Content(images)">
@@ -535,7 +526,7 @@
 						<depth>DepthContentPopout</depth>
 						<left>0</left>
 						<top>150</top>
-						<include content="InfoWallPictureLayout">
+						<include content="FlixPictureLayout">
 							<param name="focused" value="true" />
 						</include>
 					</control>

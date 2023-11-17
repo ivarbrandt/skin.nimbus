@@ -378,7 +378,7 @@ msgstr "جابه‌جایی"
 
 #. viewtype name
 msgctxt "#31101"
-msgid "InfoWall"
+msgid "Flix"
 msgstr "دیوار اطّلاعات"
 
 #. viewtype name

@@ -379,7 +379,7 @@ msgstr "Mayúscules"
 
 #. viewtype name
 msgctxt "#31101"
-msgid "InfoWall"
+msgid "Flix"
 msgstr ""
 
 #. viewtype name

@@ -61,7 +61,7 @@
 		<value>DefaultAudio.png</value>
 	</variable>
 	<!-- interesting -->
-	<variable name="InfoWallThumbVar">
+	<variable name="FlixThumbVar">
 		<value condition="!String.IsEqual(listitem.dbtype,musicvideo) + !String.IsEmpty(Listitem.Art(poster))">$INFO[Listitem.Art(poster)]</value>
 		<value condition="String.IsEqual(ListItem.DbType,episode) + System.Setting(hideunwatchedepisodethumbs) + Integer.IsEqual(ListItem.Playcount,0) + !String.IsEmpty(Listitem.Art(fanart))">$INFO[Listitem.Art(fanart)]</value>
 		<value condition="String.IsEqual(ListItem.DbType,episode) + System.Setting(hideunwatchedepisodethumbs) + Integer.IsEqual(ListItem.Playcount,0) + String.IsEmpty(Listitem.Art(fanart))">OverlaySpoiler.png</value>
@@ -457,7 +457,8 @@
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$INFO[Container(9000).ListItem.Property(id)]$INFO[Skin.String(HomeFanart.ext)]</value>
 	</variable>
 	<variable name="MediaFanartVar">
-		<value condition="Skin.HasSetting(no_fanart)"></value>
+		<!-- <value condition="Skin.HasSetting(no_fanart)"></value> -->
+		<value condition="!String.isempty(ListItem.Thumb) + String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Thumb]</value>
 		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
 		<value condition="Container.Content(genres) + Window.IsActive(videos)">$INFO[Skin.String(MovieGenreFanart.path)]$INFO[ListItem.Label]$INFO[Skin.String(MovieGenreFanart.ext)]</value>
 		<value condition="Window.IsActive(pictures) + String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.FolderPath]</value>
@@ -504,9 +505,9 @@
 	<variable name="BreadcrumbsVideoVar">
 		<value condition="Container.Content(movies) | String.StartsWith(container.folderpath,library://video/movies/) | String.StartsWith(container.folderpath,videodb://movies)">$LOCALIZE[20342]</value>
 		<value condition="Container.Content(musicvideos) | String.StartsWith(container.folderpath,library://video/musicvideos/) | String.StartsWith(container.folderpath,videodb://musicvideos)">$LOCALIZE[20389]</value>
-		<value condition="Container.Content(tvshows) | String.StartsWith(container.folderpath,library://video/tvshows/) | String.StartsWith(container.folderpath,videodb://tvshows)">Shows</value>
-		<value condition="Container.Content(seasons)">Shows</value>
-		<value condition="Container.Content(episodes)">Shows</value>
+		<value condition="Container.Content(tvshows) | String.StartsWith(container.folderpath,library://video/tvshows/) | String.StartsWith(container.folderpath,videodb://tvshows)">TV Shows</value>
+		<value condition="Container.Content(seasons)">TV Shows</value>
+		<value condition="Container.Content(episodes)">TV Shows</value>
 		<value>$LOCALIZE[3]</value>
 	</variable>
 	<variable name="BreadcrumbsPVRChannelsVar">
@@ -698,10 +699,17 @@
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
-	<variable name="InfoWallPosterVar">
+	<variable name="FlixPosterVar">
 		<value condition="!String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(poster)]</value>
 		<value condition="String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(season.poster)]</value>
 		<value>$INFO[ListItem.Art(poster)]</value>
+	</variable>
+
+	<variable name="FlixCrumbsVar">
+		<!-- <value condition="![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
+		<value condition="String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Season,[B] | [/B]S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]</value>
+		<value condition="![String.IsEqual(ListItem.DBtype,episode) + String.IsEmpty(ListItem.Genre)]">$INFO[ListItem.Label,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Genre,[B] | [/B]]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label,[B] | [/B]]</value>
 	</variable>
 
 	<variable name="BackgroundBrightnessVar">

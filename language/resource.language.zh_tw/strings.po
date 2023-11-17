@@ -369,7 +369,7 @@ msgstr "橫列海報"
 
 #. viewtype name
 msgctxt "#31101"
-msgid "InfoWall"
+msgid "Flix"
 msgstr "資訊牆"
 
 #. viewtype name

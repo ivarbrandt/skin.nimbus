@@ -131,7 +131,7 @@
 						<visible>Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | ControlGroup(700).HasFocus</visible>
 						<left>68</left>
 						<top>15</top>
-						<include content="InfoWallMovieLayout">
+						<include content="FlixMovieLayout">
 						<param name="focused" value="false" />
 						<param name="list_id" value="$PARAM[list_id]" />
 						</include>
@@ -144,7 +144,7 @@
 						<depth>DepthContentPopout</depth>
 						<left>68</left>
 						<top>15</top>
-						<include content="InfoWallMovieLayout">
+						<include content="FlixMovieLayout">
 						<param name="focused" value="true" />
 						<param name="list_id" value="$PARAM[list_id]" />
 						</include>
@@ -179,7 +179,7 @@
           <control type="group">
             <left>68</left>
             <top>15</top>
-            <include content="InfoWallMovieLayout">
+            <include content="FlixMovieLayout">
             <param name="focused" value="false" />
 						<param name="list_id" value="$PARAM[list_id]" />
             </include>
@@ -190,7 +190,7 @@
             <depth>DepthContentPopout</depth>
             <left>68</left>
             <top>15</top>
-            <include content="InfoWallMovieLayout">
+            <include content="FlixMovieLayout">
             <param name="focused" value="true" />
 						<param name="list_id" value="$PARAM[list_id]" />
             </include>
@@ -545,7 +545,7 @@
 				<itemlayout width="270" height="500">
 					<control type="group">
 						<left>70</left>
-						<include content="InfoWallMusicLayout">
+						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
@@ -558,7 +558,7 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
-						<include content="InfoWallMusicLayout">
+						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />

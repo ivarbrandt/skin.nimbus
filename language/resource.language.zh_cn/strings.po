@@ -369,7 +369,7 @@ msgstr "平移"
 
 #. viewtype name
 msgctxt "#31101"
-msgid "InfoWall"
+msgid "Flix"
 msgstr "信息墙"
 
 #. viewtype name

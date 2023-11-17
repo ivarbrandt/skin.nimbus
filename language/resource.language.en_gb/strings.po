@@ -470,9 +470,9 @@ msgid "Shift"
 msgstr ""
 
 #. viewtype name
-#: /xml/View_54_InfoWall.xml
+#: /xml/View_54_Flix.xml
 msgctxt "#31101"
-msgid "InfoWall"
+msgid "Flix"
 msgstr ""
 
 #. viewtype name

@@ -47,7 +47,7 @@
 						<top>7</top>
 						<width>110</width>
 						<height>110</height>
-						<texture diffuse="masks/landscapeinfo.png">$VAR[InfoWallThumbVar]</texture>
+						<texture diffuse="masks/landscapeinfo.png">$VAR[FlixThumbVar]</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
@@ -105,7 +105,7 @@
 						<top>7</top>
 						<width>110</width>
 						<height>110</height>
-						<texture diffuse="masks/landscapeinfo.png">$VAR[InfoWallThumbVar]</texture>
+						<texture diffuse="masks/landscapeinfo.png">$VAR[FlixThumbVar]</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>

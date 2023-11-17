@@ -10,7 +10,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
-			<include>View_54_InfoWall</include>
+			<include>View_54_Flix</include>
 			<include>View_55_WideList</include>
 			<include>View_500_Wall</include>
 			<control type="group">
@@ -31,16 +31,16 @@
 				<control type="group">
 					<width>550</width>
 					<control type="image">
-						<left>30</left>
-						<top>120</top>
-						<width>515</width>
-						<height>200</height>
-						<texture background="true">$VAR[ClearlogoVar]</texture>
+						<left>45</left>
+						<top>50</top>
+						<width>545</width>
+						<height>211</height>
+						<texture colordiffuse="FCE9E9E9" background="true">$VAR[ClearlogoVar]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
 					<control type="textbox">
 						<top>155</top>
-						<left>30</left>
+						<left>45</left>
 						<width>550</width>
 						<aligny>center</aligny>
 						<height>110</height>
@@ -51,7 +51,7 @@
 					<control type="group">
 						<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 						<control type="textbox">
-							<left>30</left>
+							<left>45</left>
 							<top>346</top>
 							<width>525</width>
 							<bottom>115</bottom>
@@ -60,7 +60,7 @@
 							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
 						</control>
 						<control type="textbox">
-							<left>30</left>
+							<left>45</left>
 							<top>440</top>
 							<width>525</width>
 							<bottom>105</bottom>
@@ -69,7 +69,7 @@
 							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
 						</control>
 						<control type="textbox">
-							<left>30</left>
+							<left>45</left>
 							<top>330</top>
 							<width>525</width>
 							<aligny>center</aligny>
@@ -81,7 +81,7 @@
 							<visible>String.IsEqual(ListItem.DbType,episode)</visible>
 						</control>
 						<control type="textbox">
-							<left>30</left>
+							<left>45</left>
 							<top>467</top>
 							<width>530</width>
 							<height>413</height>
@@ -94,13 +94,11 @@
 						</control>
 					</control>
 					<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="RatingsInfoPanel">
-						<param name="left" value="30" />
-						<param name="width" value="525" />
-						<param name="top" value="346" />
-						<param name="ratings_spacing" value="25" />
-						<param name="height_noalt" value="375" />
-						<param name="height_alt_movie" value="250" />
-						<param name="height_alt_tvshow" value="170" />
+						<param name="left" value="45" />
+						<param name="width" value="825" />
+						<param name="top" value="296" />
+						<param name="ratings_spacing" value="7" />
+						<param name="height_noalt" value="170" />
 					</include>
 					<control type="group">
 						<left>20</left>
@@ -119,9 +117,9 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsVideoVar]" />
 			</include>
-			<include content="BottomBar">
+			<!-- <include content="BottomBar">
 				<param name="info_visible" value="false" />
-			</include>
+			</include> -->
 			<control type="group">
 				<depth>DepthBars</depth>
 				<bottom>0</bottom>

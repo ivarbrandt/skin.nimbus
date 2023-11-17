@@ -369,8 +369,8 @@ msgstr "Shift"
 
 #. viewtype name
 msgctxt "#31101"
-msgid "InfoWall"
-msgstr "InfoWall"
+msgid "Flix"
+msgstr "Flix"
 
 #. viewtype name
 msgctxt "#31102"

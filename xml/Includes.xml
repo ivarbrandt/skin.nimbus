@@ -22,7 +22,7 @@
 	<include file="script-nimbus-search_history.xml" />
 	<include file="View_50_List.xml" />
 	<include file="View_52_IconWall.xml" />
-	<include file="View_54_InfoWall.xml" />
+	<include file="View_54_Flix.xml" />
 	<include file="View_55_WideList.xml" />
 	<include file="View_503_NowPlaying.xml" />
 	<include file="View_500_Wall.xml" />
@@ -74,14 +74,14 @@
 						<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 						<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 						<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(531)">conditional</animation>
-						<visible>Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(55) | Control.IsVisible(501) | Control.IsVisible(54)</visible>
+						<visible>Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(55) | Control.IsVisible(501)</visible>
 					</control>
 				</control>
-				<!-- <control type="group">
-					<left>0</left>
+				<control type="group">
+					<left>45</left>
 					<right>0</right>
-					<bottom>0</bottom>
-					<width>100%</width>
+					<bottom>-7</bottom>
+					<width>95%</width>
 					<height>60</height>
 					<control type="scrollbar" id="5199">
 						<left>0</left>
@@ -92,14 +92,14 @@
 						<onup>50</onup>
 						<ondown>50</ondown>
 						<orientation>horizontal</orientation>
-						<visible>Control.IsVisible(51) | Control.IsVisible(53)</visible>
+						<visible>Control.IsVisible(54)</visible>
 						<animation effect="slide" end="0,6" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(5199)">conditional</animation>
 						<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 						<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
 						<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 						<hitrect x="0" y="20" w="100%" h="40" />
 					</control>
-				</control> -->
+				</control>
 			</control>
 		</definition>
 	</include>
@@ -371,7 +371,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture>$PARAM[texture]</texture>
 				<visible>$PARAM[visible]</visible>
-				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121)]</visible>
+				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54)]</visible>
 			</control>
 		</definition>
 	</include>
@@ -586,7 +586,7 @@
 						<itemlayout height="365" width="280">
 							<control type="group">
 								<top>150</top>
-								<include content="InfoWallMusicLayout">
+								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultAddon.png" />
 								</include>
 							</control>
@@ -595,7 +595,7 @@
 							<control type="group">
 								<include>FocusBounce</include>
 								<top>150</top>
-								<include content="InfoWallMusicLayout">
+								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultAddon.png" />
 									<param name="focused" value="true" />
 								</include>
@@ -875,6 +875,7 @@
 				<animation effect="slide" end="0,-112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
+				<visible>!Control.IsVisible(54)</visible>
 				<control type="image">
 					<visible>Window.IsVisible(extendedprogressdialog)</visible>
 					<left>0</left>
@@ -1173,18 +1174,21 @@
 				<control type="group" id="31111">
 					<visible>![Window.IsActive(Home) | Window.IsActive(1121)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
 					<depth>DepthBackground</depth>
-					<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<control type="image" id="32111">
-						<include>FullScreenDimensions</include>
+						<right>-3</right>
+						<top>-3</top>
+						<width>1300</width>
+						<height>731</height>
 						<aspectratio>scale</aspectratio>
-						<fadetime>400</fadetime>
+						<fadetime>500</fadetime>
 						<animation effect="fade" time="400">VisibleChange</animation>
-						<texture background="true" colordiffuse="$VAR[FanartBrightnessVar]">$VAR[MediaFanartVar]</texture>
-						<visible>!Control.IsVisible(502) | $EXP[infodialog_active]</visible>
+						<texture background="true" colordiffuse="FCE9E9E9" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</texture>
+						<!-- <visible>!Control.IsVisible(502) | $EXP[infodialog_active]</visible> -->
 					</control>
-					<control type="image">
+					<!-- <control type="image">
 						<left>-3</left>
 						<top>0</top>
 						<right>1193</right>
@@ -1195,7 +1199,7 @@
 						<animation effect="fade" time="400">VisibleChange</animation>
 						<texture background="true" colordiffuse="$VAR[FanartBrightnessVar]">$VAR[PosterVar]</texture>
 						<visible>!Control.IsVisible(32111)</visible>
-					</control>
+					</control> -->
 				</control>
 			</control>
 		</definition>
@@ -1630,9 +1634,9 @@
 				<textcolor>unfocused_text</textcolor>
 			</control>
 
-			<include content="VerticalRatings">
+			<!-- <include content="VerticalRatings">
 				<param name="ratings_spacing" value="25" />
-			</include>
+			</include> -->
 
 			<include content="HorizontalRatings">
 				<param name="ratings_spacing" value="20" />
@@ -1648,7 +1652,7 @@
 		</control>
 	</include>
 
-	<include name="VerticalRatings">
+	<!-- <include name="VerticalRatings">
 		<control type="grouplist">
 			<height>90</height>
 			<orientation>horizontal</orientation>
@@ -1795,7 +1799,7 @@
 				</control>
 			</control>
 		</control>
-	</include>
+	</include> -->
 
 	<include name="HorizontalRatings">
 		<control type="grouplist">
@@ -1804,7 +1808,7 @@
 			<itemgap>$PARAM[ratings_spacing]</itemgap>
 			<aligny>center</aligny>
 			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Genre)</visible>
-			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121)]</visible>
+			<!-- <visible>[Window.IsVisible(Home) | Window.IsVisible(1121)]</visible> -->
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>

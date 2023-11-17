@@ -46,7 +46,7 @@
 				<itemlayout width="300" height="380">
 					<control type="group">
 						<top>10</top>
-						<include content="InfoWallMusicLayout">
+						<include content="FlixMusicLayout">
 							<param name="fallback_image" value="DefaultFavourites.png" />
 						</include>
 					</control>
@@ -54,7 +54,7 @@
 				<focusedlayout width="300">
 					<control type="group">
 						<top>10</top>
-						<include content="InfoWallMusicLayout">
+						<include content="FlixMusicLayout">
 							<param name="fallback_image" value="DefaultFavourites.png" />
 							<param name="focused" value="true" />
 						</include>

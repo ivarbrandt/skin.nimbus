@@ -369,7 +369,7 @@ msgstr "Schimbare"
 
 #. viewtype name
 msgctxt "#31101"
-msgid "InfoWall"
+msgid "Flix"
 msgstr "Fundal cu informații"
 
 #. viewtype name
