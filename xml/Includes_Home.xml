@@ -15,9 +15,7 @@
 	<include name="CategoryLabel">
 		<param name="visible">true</param>
 		<param name="item_treshold">0</param>
-		<param name="label_focus">$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Genre,[B] | [/B]]</param>
-		<param name="label_focus_episodes">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Season,[B] | [/B]S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]</param>
-		<param name="label_focus_collections">$INFO[Container($PARAM[list_id]).ListItem.Label,[B]| [/B]]</param>
+		<param name="label_focus">$VAR[FlixCrumbsVar]</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
 				<left>85</left>
@@ -41,25 +39,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>!String.IsEqual(ListItem.DBType,episode) + Control.HasFocus($PARAM[list_id])</visible>
-				</control>
-				<control type="label">
-					<top>12</top>
-					<label>$PARAM[label]$PARAM[label_focus_episodes]</label>
-					<textcolor>unfocused_text</textcolor>
-					<shadowcolor>text_shadow</shadowcolor>
-					<scroll>true</scroll>
-					<scrollspeed>100</scrollspeed>
-					<visible>String.IsEqual(ListItem.DBType,episode) + Control.HasFocus($PARAM[list_id])</visible>
-				</control>
-				<control type="label">
-					<top>12</top>
-					<label>$PARAM[label_focus_collections]</label>
-					<textcolor>unfocused_text</textcolor>
-					<shadowcolor>text_shadow</shadowcolor>
-					<scroll>true</scroll>
-					<scrollspeed>100</scrollspeed>
-					<visible>[String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)] + Control.HasFocus($PARAM[list_id])</visible>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 			</control>
 		</definition>
