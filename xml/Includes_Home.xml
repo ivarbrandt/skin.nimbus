@@ -30,12 +30,21 @@
 				</control> -->
 				<control type="label">
 					<top>12</top>
+					<label>[B]Loading widgets...[/B]</label>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>Container($PARAM[list_id]).IsUpdating</visible>
+				</control>
+				<control type="label">
+					<top>12</top>
 					<label>$PARAM[label]$PARAM[label_focus]</label>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<visible>!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 			</control>
 		</definition>
