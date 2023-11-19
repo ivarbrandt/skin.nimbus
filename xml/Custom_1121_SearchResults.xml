@@ -23,6 +23,7 @@
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
 				<left>-33</left>
+				<top>545</top>
 				<include>OpenClose_Right</include>
 				<!-- SEARCH RESULTS -->
 				<control type="group" id="27000">
@@ -30,6 +31,9 @@
 						<param name="id" value="movies"/>
 					</include>
 					<control type="grouplist" id="27001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="27001" />
+						</include>
 					<visible allowhiddenfocus="true">!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>27099</pagecontrol>
@@ -91,6 +95,17 @@
 				<param name="breadcrumbs_label" value="" />
 			</include>
 			<!-- <include>BottomBar</include> -->
+			<control type="label">
+				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + !Control.HasFocus(9000) + !Control.HasFocus(700)</visible>
+					<top>600</top>
+					<left>52</left>
+					<width>1815</width>
+					<aligny>center</aligny>
+					<height>40</height>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
+				</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
@@ -248,7 +263,7 @@
 						<param name="width" value="825" />
 						<param name="top" value="296" />
 						<param name="ratings_spacing" value="7" />
-						<param name="height_noalt" value="170" />
+						<param name="height_noalt" value="150" />
 					</include>
 					<!-- <control type="textbox">
 						<left>30</left>
@@ -317,17 +332,6 @@
 				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<control type="label">
-				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
-					<top>-5</top>
-					<left>525</left>
-					<width>1085</width>
-					<aligny>center</aligny>
-					<height>98</height>
-					<font>font37</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
-				</control>
 				<control type="label">
 				<visible>String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
 					<top>500</top>
