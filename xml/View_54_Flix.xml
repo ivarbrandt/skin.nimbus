@@ -428,13 +428,13 @@
 		<control type="group">
 			<include>OpenClose_Right</include>
 			<left>0</left>
-			<top>545</top>
+			<top>565</top>
 			<visible>Control.IsVisible(54)</visible>
 			<control type="label">
 				<left>45</left>
 				<top>70</top>
 				<width>1815</width>
-				<label>$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [B]»[/B] ]$VAR[FlixCrumbsVar]</label>
+				<label>[B]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, » ][/B]$VAR[FlixCrumbsVar]</label>
 				<font>font36</font>
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
