@@ -39,7 +39,8 @@
 				</control>
 				<control type="label">
 					<top>12</top>
-					<label>$PARAM[label]$PARAM[label_focus]</label>
+					<label>[B]$PARAM[label][/B]$PARAM[label_focus]</label>
+					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>

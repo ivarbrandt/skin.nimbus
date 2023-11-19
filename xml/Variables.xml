@@ -707,9 +707,9 @@
 
 	<variable name="FlixCrumbsVar">
 		<!-- <value condition="![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
-		<value condition="String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Season,[B] | [/B]S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title,[B] | [/B]]</value>
-		<value condition="![String.IsEqual(ListItem.DBtype,episode) + String.IsEmpty(ListItem.Genre)]">$INFO[ListItem.Label,[B] | [/B]]$INFO[Container($PARAM[list_id]).ListItem.Genre,[B] | [/B]]</value>
-		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label,[B] | [/B]]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, | ]$INFO[Container($PARAM[list_id]).ListItem.Season, | S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, | ][/B]</value>
+		<value condition="![String.IsEqual(ListItem.DBtype,episode) + String.IsEmpty(ListItem.Genre)]">[B]$INFO[ListItem.Label, | ]$INFO[Container($PARAM[list_id]).ListItem.Genre, | ][/B]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.Label, | ][/B]</value>
 	</variable>
 
 	<variable name="BackgroundBrightnessVar">
@@ -849,14 +849,14 @@
 
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">[B]$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Runtime]$VAR[RI_Endsat][/B]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
 		<!-- SHOWS -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">[B]$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Status][/B]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Status]</value>
 		<!-- SEASONS -->
 		<!-- TODO Fix seasons not showing release year -->
 		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,season)">$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Genre]$VAR[RI_RuntimeEpisodes]$VAR[RI_Endsat]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">[B]$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes][/B]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]</value>
 	</variable>
 	
 	<variable name="InfoPanelBottom">
