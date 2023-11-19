@@ -3,11 +3,7 @@
 
 	<include name="WidgetGroupListCommon">
 		<orientation>vertical</orientation>
-		<!-- 500 -->
-		<top>545</top>
-		<!-- 55 -->
-		<height>53%</height>
-		<scrolltime tween="cubic" easing="out">1</scrolltime>
+		<height>99999</height>
 		<itemgap>-100</itemgap>
 		<usecontrolcoords>true</usecontrolcoords>
 	</include>
@@ -24,14 +20,14 @@
 				<width>1815</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<control type="label">
+				<!-- <control type="label">
 					<top>12</top>
 					<label>$PARAM[label]</label>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<visible>!Control.HasFocus($PARAM[list_id])</visible>
-				</control>
+				</control> -->
 				<control type="label">
 					<top>12</top>
 					<label>$PARAM[label]$PARAM[label_focus]</label>
@@ -120,12 +116,12 @@
 				<movement>6</movement>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
-				<height>465</height>
+				<height>1100</height>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<itemlayout width="263" height="393">
+				<itemlayout width="263" >
 					<control type="group">
 						<animation effect="fade" start="0" end="100" time="500" tween="sine" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)">VisibleChange</animation>
 						<visible>Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | ControlGroup(700).HasFocus</visible>
@@ -137,7 +133,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="263" height="393">
+				<focusedlayout width="263" >
 					<control type="group">
 						<animation effect="fade" start="0" end="100" time="300" tween="sine" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000)">VisibleChange</animation>
 						<visible>Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | ControlGroup(700).HasFocus</visible>
@@ -1252,8 +1248,6 @@
 	<include name="WidgetScrollbar">
 		<control type="group">
 			<right>0</right>
-			<top>80</top>
-			<bottom>80</bottom>
 			<width>60</width>
 			<control type="scrollbar" id="$PARAM[scrollbar_id]">
 				<right>0</right>

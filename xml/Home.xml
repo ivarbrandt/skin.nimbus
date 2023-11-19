@@ -40,6 +40,7 @@
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
 				<left>-33</left>
+				<top>545</top>
 				<include>OpenClose_Right</include>
 				<!-- <visible>!Skin.HasSetting(TrailerPlaying)</visible>
 				<animation effect="slide" time="700" start="1380,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation> -->
@@ -78,6 +79,9 @@
 						<param name="id" value="movies"/>
 					</include>
 					<control type="grouplist" id="19001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="19001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>19099</pagecontrol>
 						<include content="MovieWidgets" condition="!Skin.HasSetting(HomeMenuNoMoviesButton)" />
@@ -93,6 +97,9 @@
 						<param name="id" value="tvshows"/>
 					</include>
 					<control type="grouplist" id="22001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="22001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>22099</pagecontrol>
 						<include content="TVShowWidgets" condition="!Skin.HasSetting(HomeMenuNoTVShowsButton)" />
@@ -108,6 +115,9 @@
 						<param name="id" value="custom1"/>
 					</include>
 					<control type="grouplist" id="23001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="23001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>23099</pagecontrol>
 						<include content="Custom1Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom1Button)" />
@@ -138,6 +148,9 @@
 						<param name="id" value="custom3"/>
 					</include>
 					<control type="grouplist" id="25001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="25001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>25099</pagecontrol>
 						<include content="Custom3Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom3Button)" />
@@ -152,6 +165,9 @@
 						<param name="id" value="music"/>
 					</include>
 					<control type="grouplist" id="7001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="7001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>7010</pagecontrol>
 						<include content="WidgetListCategory" condition="Library.HasContent(music) + !Skin.HasSetting(home_no_categories_widget)">
@@ -233,6 +249,9 @@
 						<param name="id" value="addons"/>
 					</include>
 					<control type="grouplist" id="8001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="8001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>8010</pagecontrol>
 						<include content="WidgetListCategory" condition="!Skin.HasSetting(home_no_categories_widget)" >
@@ -316,6 +335,9 @@
 						<param name="id" value="video"/>
 					</include>
 					<control type="grouplist" id="11001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="11001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>11010</pagecontrol>
 						<include content="WidgetListCategory">
@@ -357,6 +379,9 @@
 						<param name="id" value="livetv"/>
 					</include>
 					<control type="grouplist" id="12001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="12001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>12010</pagecontrol>
 						<include content="WidgetListCategory" condition="System.HasPVRAddon + !Skin.HasSetting(home_no_categories_widget)">
@@ -428,6 +453,9 @@
 						<param name="id" value="radio"/>
 					</include>
 					<control type="grouplist" id="13001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="13001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>13010</pagecontrol>
 						<include content="WidgetListCategory" condition="System.HasPVRAddon">
@@ -499,6 +527,9 @@
 						<param name="id" value="favorites"/>
 					</include>
 					<control type="panel" id="14100">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="14100" />
+						</include>
 						<left>33</left>
 						<top>0</top>
 						<right>0</right>
@@ -555,6 +586,9 @@
 						<param name="id" value="weather"/>
 					</include>
 					<control type="grouplist" id="15001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="15001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>15010</pagecontrol>
 						<control type="group" id="16678">
@@ -670,6 +704,9 @@
 						<param name="id" value="musicvideos"/>
 					</include>
 					<control type="grouplist" id="16001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="16001" />
+						</include>
 						<pagecontrol>16010</pagecontrol>
 						<include content="WidgetListCategory" condition="Library.HasContent(musicvideos) + !Skin.HasSetting(home_no_categories_widget)">
 							<param name="content_path" value="library://video/musicvideos/"/>
@@ -762,6 +799,9 @@
 						<param name="id" value="pictures"/>
 					</include>
 					<control type="grouplist" id="4001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="4001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<include content="WidgetListCategory" condition="!Skin.HasSetting(HomeMenuNoPicturesButton)">
 							<param name="content_path" value="sources://pictures/"/>
@@ -778,6 +818,9 @@
 						<param name="id" value="games"/>
 					</include>
 					<control type="grouplist" id="17001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="17001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>17010</pagecontrol>
 						<include content="WidgetListSquare">
@@ -831,8 +874,6 @@
 				<visible>!Skin.HasSetting(TrailerPlaying)</visible>
 				<animation effect="slide" time="700" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 				<depth>DepthContentPanel</depth>
-				
-
 				<control type="group">
 					<animation effect="fade" time="500" start="0" end="100" tween="sine">VisibleChange</animation>
 					<width>550</width>
