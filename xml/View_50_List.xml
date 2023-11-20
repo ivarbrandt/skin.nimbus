@@ -480,7 +480,7 @@
 					</control>
 				</control>
 				<!-- image control -->
-				<control type="group">
+				<!-- <control type="group">
 					<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 					<control type="image">
 						<left>30</left>
@@ -521,7 +521,7 @@
 						<label>$INFO[ListItem.Label]</label>
 						<visible>[String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season)] + !String.IsEqual(ListItem.DBType,song) + !Container.Content(addons) + !Skin.HasSetting(UseLandscape) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
 					</control>
-				</control>
+				</control> -->
 				<control type="image">
 					<left>30</left>
 					<top>110</top>
@@ -580,7 +580,7 @@
 					<visible>!Container.Content() | !String.isempty(ListItem.Plot)</visible>
 					<left>30</left>
 					<!-- Plot control -->
-					<control type="group">
+					<!-- <control type="group">
 						<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 						<control type="textbox">
 							<top>460</top>
@@ -600,7 +600,7 @@
 							<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
 							<visible>!Skin.HasSetting(UseLandscape)</visible>
 						</control>
-					</control>
+					</control> -->
 					<control type="textbox" id="15500">
 						<top>600</top>
 						<width>540</width>

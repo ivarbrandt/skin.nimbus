@@ -248,22 +248,13 @@
 						<label>$INFO[ListItem.Label]</label>
 						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
 					</control>
-					<control type="textbox">
-						<left>30</left>
-						<top>239</top>
-						<width>410</width>
-						<bottom>60</bottom>
-						<label>$VAR[InfoPanel]</label>
-						<textcolor>unfocused_text</textcolor>
-						<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>Skin.HasSetting(Disable.RatingsINF) | String.IsEmpty(Skin.String(mdblist_api_key))</visible>
-					</control>
-					<include condition="![Skin.HasSetting(Disable.RatingsINF) | String.IsEmpty(Skin.String(mdblist_api_key))]" content="RatingsInfoPanel">
+					<include content="RatingsInfoPanel">
 						<param name="left" value="50" />
 						<param name="width" value="825" />
 						<param name="top" value="296" />
 						<param name="ratings_spacing" value="7" />
-						<param name="height_noalt" value="150" />
+						<param name="height_ratings" value="150" />
+						<param name="height_noratings" value="190" />
 					</include>
 					<!-- <control type="textbox">
 						<left>30</left>
