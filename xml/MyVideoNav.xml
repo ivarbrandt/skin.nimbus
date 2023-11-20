@@ -35,7 +35,7 @@
 						<top>50</top>
 						<width>545</width>
 						<height>211</height>
-						<texture colordiffuse="FCE9E9E9" background="true">$VAR[ClearlogoVar]</texture>
+						<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
 					<control type="textbox">

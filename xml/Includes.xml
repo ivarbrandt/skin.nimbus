@@ -1185,7 +1185,7 @@
 						<aspectratio>scale</aspectratio>
 						<fadetime>500</fadetime>
 						<animation effect="fade" time="400">VisibleChange</animation>
-						<texture background="true" colordiffuse="FCE9E9E9" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</texture>
+						<texture background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</texture>
 						<!-- <visible>!Control.IsVisible(502) | $EXP[infodialog_active]</visible> -->
 					</control>
 					<!-- <control type="image">
@@ -1823,7 +1823,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
@@ -1847,7 +1847,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
@@ -1871,7 +1871,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
@@ -1895,7 +1895,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.imdbImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.imdbImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
@@ -1919,7 +1919,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.popularImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.popularImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="87">auto</width>
@@ -1943,7 +1943,7 @@
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="FCE9E9E9">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="60">auto</width>

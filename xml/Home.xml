@@ -24,7 +24,7 @@
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="FCE9E9E9" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
+			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
 		</control>
 		<!-- <control type="image">
@@ -884,7 +884,7 @@
 						<top>50</top>
 						<width>545</width>
 						<height>211</height>
-						<texture colordiffuse="FCE9E9E9" background="true">$VAR[ClearlogoVar]</texture>
+						<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
 					<control type="textbox">

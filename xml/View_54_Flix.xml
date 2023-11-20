@@ -261,7 +261,7 @@
 					<width>275</width>
 					<!-- 324 -->
 					<height>379</height>
-					<texture colordiffuse="FCE9E9E9" diffuse="masks/poster.png" background="true">$VAR[FlixPosterVar]</texture>
+					<texture colordiffuse="artwork_dim" diffuse="masks/poster.png" background="true">$VAR[FlixPosterVar]</texture>
 					<!-- <aspectratio>scale</aspectratio> -->
 					<bordersize>20</bordersize>
 				</control>

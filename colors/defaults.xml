@@ -9,7 +9,9 @@
 	<color name="button_focus2">CCEAECED</color>
 	<color name="focused_text">FF141515</color>
 	<color name="unfocused_text">FFCCCCCC</color>
-	<!-- <color name="accent_color">FF87CEEB</color> -->
+	<color name="artwork_dim">FFE9E9E9</color>
+	<!-- <color name="accent_color">FF87CEEB</color> white -->
+	<!-- <color name="accent_color">FF6F00FF</color> indigo -->
 	<color name="accent_color">FFba160c</color>
 	<color name="selected">FF11E7B1</color>
 	<color name="primary_content_panel_bg">FF354CCF</color>
