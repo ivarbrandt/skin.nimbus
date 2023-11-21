@@ -1136,7 +1136,7 @@
 	</include>
 	<include name="ColoredBackgroundImages">
 		<control type="image">
-			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home) + !Window.IsVisible(1121)</visible>
+			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home) + !Window.IsVisible(1121) + !Control.IsVisible(54)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
@@ -1172,7 +1172,7 @@
 					<include>ColoredBackgroundImages</include>
 				</control>
 				<control type="group" id="31111">
-					<visible>![Window.IsActive(Home) | Window.IsActive(1121)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+					<visible>![Window.IsActive(Home) | Window.IsActive(1121) | Control.IsVisible(500) | Control.IsVisible(52) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
 					<depth>DepthBackground</depth>
 					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
