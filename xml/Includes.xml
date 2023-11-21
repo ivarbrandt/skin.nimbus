@@ -90,7 +90,7 @@
 						<height>12</height>
 						<texturesliderbackground />
 						<onup>50</onup>
-						<ondown>50</ondown>
+						<ondown>Container.SetViewMode(500)</ondown>
 						<orientation>horizontal</orientation>
 						<visible>Control.IsVisible(54)</visible>
 						<animation effect="slide" end="0,6" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(5199)">conditional</animation>

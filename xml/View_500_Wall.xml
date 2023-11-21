@@ -12,7 +12,9 @@
 				<top>0</top>
 				<width>102%</width>
 				<height>100%</height>
-				<onleft>9000</onleft>
+				<!-- <onback>Container.SetViewMode(54)</onback>
+				<onback>ClearProperty(CurrentView)</onback> -->
+				<onleft>Container.SetViewMode(54)</onleft>
 				<onright>531</onright>
 				<onup condition="Integer.IsGreater(Container.NumPages,1)">500</onup>
 				<onup condition="!Integer.IsGreater(Container.NumPages,1)">9000</onup>
