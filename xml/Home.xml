@@ -40,7 +40,7 @@
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
 				<left>-33</left>
-				<top>545</top>
+				<top>510</top>
 				<include>OpenClose_Right</include>
 				<!-- <visible>!Skin.HasSetting(TrailerPlaying)</visible>
 				<animation effect="slide" time="700" start="1380,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation> -->

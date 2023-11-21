@@ -743,6 +743,11 @@
     <value condition="!Skin.HasSetting(UseLandscape)">Clearlogo</value>
 	</variable>
 
+	<variable name="LoadingLabelsVar">
+    <value condition="Container.IsUpdating + Window.IsActive(home)">[B]Loading widgets...[/B]</value>
+    <value condition="Container.IsUpdating + Window.IsActive(1121)">[B]Loading search results...[/B]</value>
+	</variable>
+
 	<!-- RATINGS INFOPANEL VARIABLES -->
 	<!-- Released -->
 	<variable name="RI_Year">

@@ -23,7 +23,7 @@
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
 				<left>-33</left>
-				<top>545</top>
+				<top>510</top>
 				<include>OpenClose_Right</include>
 				<!-- SEARCH RESULTS -->
 				<control type="group" id="27000">
@@ -96,8 +96,8 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
-				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + !Control.HasFocus(9000) + !Control.HasFocus(700)</visible>
-					<top>600</top>
+				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
+					<top>565</top>
 					<left>52</left>
 					<width>1815</width>
 					<aligny>center</aligny>
