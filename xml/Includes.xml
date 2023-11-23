@@ -1757,11 +1757,11 @@
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>
-				<itemgap>5</itemgap>
+				<itemgap>10</itemgap>
 				<align>left</align>
 				<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
 				<control type="image">
-					<width>42</width>
+					<width>33</width>
 					<height>35</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
