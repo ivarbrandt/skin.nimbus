@@ -11,8 +11,8 @@
 			<control type="label">
 				<left>45</left>
 				<top>70</top>
-				
-				<label>[B]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, » ][/B]$VAR[FlixCrumbsVar]</label>
+				<width>1815</width>
+				<label>[B]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [COLOR accent_color]»[/COLOR] ][/B]$VAR[FlixCrumbsVar]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
@@ -35,9 +35,9 @@
 					</include> -->
 					<control type="scrollbar" id="50600">
 						<left>35</left>
-						<top>170</top>
+						<top>155</top>
 						<width>12</width>
-						<bottom>200</bottom>
+						<bottom>95</bottom>
 						<onleft>9000</onleft>
 						<onright>50</onright>
 						<orientation>vertical</orientation>
@@ -163,7 +163,7 @@
 				<width>1950</width>
 				<viewtype label="$PARAM[viewtype_label]">list</viewtype>
 				<visible>Container.Content(episodes) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible>
-				<focusedlayout height="list_item_height" width="605">
+				<focusedlayout height="list_item_height" width="610">
 					<control type="image">
 						<left>0</left>
 						<right>0</right>
@@ -216,7 +216,7 @@
 						<visible>Control.HasFocus($PARAM[list_id])</visible>
 					</control>
 				</focusedlayout>
-				<itemlayout height="list_item_height" width="605">
+				<itemlayout height="list_item_height" width="610">
 					<control type="label">
 						<left>70</left>
 						<right>20</right>

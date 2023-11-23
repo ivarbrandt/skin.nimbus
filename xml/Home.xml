@@ -18,7 +18,7 @@
 			<top>-3</top>
 			<width>1300</width>
 			<height>731</height>
-			<aspectratio>scale</aspectratio>
+			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>

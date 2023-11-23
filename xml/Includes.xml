@@ -371,7 +371,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture>$PARAM[texture]</texture>
 				<visible>$PARAM[visible]</visible>
-				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54)]</visible>
+				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50)]</visible>
 			</control>
 		</definition>
 	</include>
@@ -875,7 +875,7 @@
 				<animation effect="slide" end="0,-112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
-				<visible>!Control.IsVisible(54)</visible>
+				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500)]</visible>
 				<control type="image">
 					<visible>Window.IsVisible(extendedprogressdialog)</visible>
 					<left>0</left>
@@ -929,7 +929,7 @@
 					<orientation>horizontal</orientation>
 					<width>1100</width>
 					<itemgap>10</itemgap>
-					<visible>!Window.IsVisible(extendedprogressdialog) + !Window.IsActive(fullscreenvideo) + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home) + !Window.IsVisible(1121)</visible>
+					<visible>![Window.IsVisible(extendedprogressdialog) | Window.IsActive(fullscreenvideo) | Skin.HasSetting(TrailerPlaying)]</visible>
 					<animation effect="fade" time="150">VisibleChange</animation>
 					<control type="group">
 						<width>600</width>
@@ -1182,7 +1182,7 @@
 						<top>-3</top>
 						<width>1300</width>
 						<height>731</height>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>stretch</aspectratio>
 						<fadetime>500</fadetime>
 						<animation effect="fade" time="400">VisibleChange</animation>
 						<texture background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</texture>
