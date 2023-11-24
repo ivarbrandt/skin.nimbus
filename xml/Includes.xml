@@ -1617,6 +1617,7 @@
 		<control type="button">
 			<visible>false</visible>
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Stop</onunfocus>
+			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.ToggleSetting(TrailerPlaying)</onunfocus>
 		</control>
 	</include>
 
