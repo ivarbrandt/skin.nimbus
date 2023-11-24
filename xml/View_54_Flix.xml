@@ -262,7 +262,7 @@
 					<height>379</height>
 					<texture colordiffuse="FFE9E9E9" diffuse="masks/poster.png" background="true">$VAR[FlixPosterVar]</texture>
 					<bordersize>20</bordersize>
-					<animation condition="Container($PARAM[list_id]).IsUpdating" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation>
+					<animation condition="Container($PARAM[list_id]).IsUpdating + !Skin.HasSetting(TrailerPlaying)" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>20</left>
@@ -460,6 +460,7 @@
 						<include content="FlixMovieLayout">
 							<param name="focused" value="true" />
 						</include>
+						<include>TrailerAutoStop</include>
 					</control>
 				</focusedlayout>
 				<!-- infowall spacing -->

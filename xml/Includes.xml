@@ -1152,16 +1152,29 @@
 	</include>
 	<include name="DefaultBackground">
 		<definition>
-			<control type="videowindow">
-				<depth>DepthBackground</depth>
-				<include>FullScreenDimensions</include>
+			<control type="group">
 				<visible>Player.HasVideo</visible>
-				<visible>!Slideshow.IsActive</visible>
-			</control>
-			<control type="visualisation">
-				<include>FullScreenDimensions</include>
-				<visible>!Slideshow.IsActive</visible>
-				<visible>Player.HasAudio + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + Visualisation.Enabled</visible>
+				<control type="videowindow">
+					<depth>DepthBackground</depth>
+					<right>-3</right>
+					<top>-72</top>
+					<width>1410</width>
+					<height>793</height>
+					<visible>!Slideshow.IsActive</visible>
+				</control>
+				<control type="image">
+					<right>-3</right>
+					<top>-3</top>
+					<width>1410</width>
+					<height>730</height>
+					<include content="WindowOpenClose_Fade_Delayed_Animation" />
+					<texture colordiffuse="black">overlays/netflixtrailerdiffuse.png</texture>
+				</control>
+				<control type="visualisation">
+					<include>FullScreenDimensions</include>
+					<visible>!Slideshow.IsActive</visible>
+					<visible>Player.HasAudio + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + Visualisation.Enabled</visible>
+				</control>
 			</control>
 			<control type="group">
 				<include>FullScreenDimensions</include>
@@ -1599,6 +1612,13 @@
 	</include>
 
 	<!-- MY INCLUDES -->
+
+	<include name="TrailerAutoStop">
+		<control type="button">
+			<visible>false</visible>
+			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Stop</onunfocus>
+		</control>
+	</include>
 
 	<include name="ProgressBar">
 		<control type="progress">

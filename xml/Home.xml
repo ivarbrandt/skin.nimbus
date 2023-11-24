@@ -871,8 +871,8 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="group">
-				<visible>!Skin.HasSetting(TrailerPlaying)</visible>
-				<animation effect="slide" time="700" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
+				<!-- <visible>!Skin.HasSetting(TrailerPlaying)</visible>
+				<animation effect="slide" time="700" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation> -->
 				<depth>DepthContentPanel</depth>
 				<control type="group">
 					<width>550</width>

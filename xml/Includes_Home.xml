@@ -43,7 +43,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])</visible>
+					<visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | Skin.HasSetting(TrailerPlaying)</visible>
 				</control>
 			</control>
 		</definition>
@@ -149,6 +149,7 @@
 						<param name="focused" value="true" />
 						<param name="list_id" value="$PARAM[list_id]" />
 						</include>
+						<include>TrailerAutoStop</include>
 					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>

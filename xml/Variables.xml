@@ -745,8 +745,8 @@
 	</variable>
 
 	<variable name="LoadingLabelsVar">
-    <value condition="Container.IsUpdating + Window.IsActive(home)">[B]Loading widgets...[/B]</value>
-    <value condition="Container.IsUpdating + Window.IsActive(1121)">[B]Loading search results...[/B]</value>
+    <value condition="Container.IsUpdating + Window.IsActive(home) + !Skin.HasSetting(TrailerPlaying)">[B]Loading widgets...[/B]</value>
+    <value condition="Container.IsUpdating + Window.IsActive(1121) + !Skin.HasSetting(TrailerPlaying)">[B]Loading search results...[/B]</value>
 	</variable>
 
 	<!-- RATINGS INFOPANEL VARIABLES -->
