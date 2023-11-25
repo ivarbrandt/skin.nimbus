@@ -1617,7 +1617,6 @@
 		<control type="button">
 			<visible>false</visible>
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Stop</onunfocus>
-			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.ToggleSetting(TrailerPlaying)</onunfocus>
 		</control>
 	</include>
 
@@ -1658,7 +1657,17 @@
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
+				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Skin.HasSetting(TrailerPlaying)]</visible>
+			</control>
+			<control type="textbox">
+				<height max="$PARAM[height_noratings]">auto</height>
+				<width>600</width>
+				<bottom>70</bottom>
+				<label>[B]$VAR[InfoPanelBottom][/B]</label>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+				<visible>Skin.HasSetting(TrailerPlaying)</visible>
 			</control>
 			<control type="textbox">
 				<height max="$PARAM[height_noratings]">auto</height>
@@ -1678,7 +1687,7 @@
 			<orientation>horizontal</orientation>
 			<itemgap>$PARAM[ratings_spacing]</itemgap>
 			<aligny>center</aligny>
-			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Genre)</visible>
+			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !Skin.HasSetting(TrailerPlaying) + !String.IsEmpty(ListItem.Genre)</visible>
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>
