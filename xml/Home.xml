@@ -133,6 +133,9 @@
 						<param name="id" value="custom2"/>
 					</include>
 					<control type="grouplist" id="24001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="24001" />
+						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>24099</pagecontrol>
 						<include content="Custom2Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom2Button)" />
