@@ -5,12 +5,11 @@
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
-  <!-- <onload condition="String.IsEmpty(Window(Home).Property(nimbus.starting_widgets))">RunScript(script.nimbus.helper,mode=starting_widgets)</onload>
-  <onload condition="String.IsEmpty(Window(Home).Property(nimbus.starting_widgets))">SetProperty(nimbus.starting_widgets,true)</onload> -->
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=fix_black_screen)</onload>
 	<onload condition="String.IsEmpty(Skin.String(DefaultBackgroundBrightness))">Skin.SetString(DefaultBackgroundBrightness,Medium)</onload>
 	<onload condition="String.IsEmpty(Skin.String(DefaultFanartBrightness))">Skin.SetString(DefaultFanartBrightness,Medium)</onload>
+	<onload>SetFocus(2000)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="multiimage">
@@ -27,14 +26,6 @@
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
 		</control>
-		<!-- <control type="image">
-			<right>0</right>
-			<top>0</top>
-			<width>1300</width>
-			<height>731</height>
-			<aspectratio>keep</aspectratio>
-			<texture diffuse="overlays/netflixfanartdiffuse.png">$VAR[NetflixFanartVar]</texture>
-		</control> -->
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
@@ -42,8 +33,6 @@
 				<left>-33</left>
 				<top>510</top>
 				<include>OpenClose_Right</include>
-				<!-- <visible>!Skin.HasSetting(TrailerPlaying)</visible>
-				<animation effect="slide" time="700" start="1380,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation> -->
 				<control type="group" id="27000">
 					<visible>false</visible>
 					<include content="Visible_Right_Delayed">
@@ -874,8 +863,6 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="group">
-				<!-- <visible>!Skin.HasSetting(TrailerPlaying)</visible>
-				<animation effect="slide" time="700" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation> -->
 				<depth>DepthContentPanel</depth>
 				<control type="group">
 					<width>550</width>
