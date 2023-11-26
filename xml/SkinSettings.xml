@@ -228,29 +228,15 @@
 					<onclick>Skin.ToggleSetting(OneClickClose)</onclick>
 					<selected>Skin.HasSetting(OneClickClose)</selected>
 				</control>
-				<!-- STACKED WIDGET DELAY -->
-				<control type="button" id="63704">
-					<label>Set stacked widget load delay in milliseconds (1000ms = 1 second)</label>
-					<label2>$INFO[Skin.String(category_widget_delay),, milliseconds]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.SetNumeric(category_widget_delay)</onclick>
-				</control>
-				<!-- COUNTDOWN TIMER -->
-				<control type="radiobutton" id="63705">
-					<label>Show countdown timer for stacked widget load delay</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(category_widget_display_delay)</selected>
-					<onclick>Skin.ToggleSetting(category_widget_display_delay)</onclick>
-				</control>
 				<!-- FOCUS ANIMATIONS -->
-				<control type="radiobutton" id="63706">
+				<control type="radiobutton" id="63702">
 					<label>Enable focus animations</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(NoFocusAnimations)</selected>
 					<onclick>Skin.ToggleSetting(NoFocusAnimations)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63708">
+				<control type="radiobutton" id="63703">
 					<label>Disable color studio logos</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
