@@ -705,10 +705,10 @@
 
 	<variable name="FlixCrumbsVar">
 		<!-- <value condition="![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
-		<value condition="[String.IsEqual(ListItem.DBtype,episode) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color]|[/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color]|[/COLOR] ]</value>
-		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ]</value>
-		<value condition="![String.IsEqual(ListItem.DBtype,episode) + String.IsEmpty(ListItem.Genre)]">$INFO[ListItem.Label, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ]</value>
-		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, | ]</value>
+		<value condition="[String.IsEqual(ListItem.DBtype,episode) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color]|[/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color]|[/COLOR] ][/B]</value>
+		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
+		<value condition="![String.IsEqual(ListItem.DBtype,episode) + String.IsEmpty(ListItem.Genre)]">[B]$INFO[ListItem.Label, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.Label, | ][/B]</value>
 	</variable>
 
 	<variable name="HomescreenFlixCrumbs">

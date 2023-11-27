@@ -1643,7 +1643,7 @@
 			<itemgap>13</itemgap>
 			<control type="textbox">
 				<height>auto</height>
-				<label>$VAR[InfoPanelTop]</label>
+				<label>[B]$VAR[InfoPanelTop][/B]</label>
 				<font>font27_narrow</font>
 				<textcolor>unfocused_text</textcolor>
 			</control>
@@ -1653,7 +1653,7 @@
 			<control type="textbox">
 				<height max="$PARAM[height_ratings]">auto</height>
 				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
+				<label>[B]$VAR[InfoPanelBottom][/B]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -1663,7 +1663,7 @@
 				<height max="$PARAM[height_noratings]">auto</height>
 				<width>600</width>
 				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
+				<label>[B]$VAR[InfoPanelBottom][/B]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -1672,7 +1672,7 @@
 			<control type="textbox">
 				<height max="$PARAM[height_noratings]">auto</height>
 				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
+				<label>[B]$VAR[InfoPanelBottom][/B]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -1707,7 +1707,7 @@
 					<height>40</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
+					<label>[B]$INFO[Window.Property(nimbus.metascore)]%[/B]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1731,7 +1731,7 @@
 					<height>40</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
+					<label>[B]$INFO[Window.Property(nimbus.tomatoMeter)]%[/B]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1755,7 +1755,7 @@
 					<height>40</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
+					<label>[B]$INFO[Window.Property(nimbus.tomatoUserMeter)]%[/B]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1779,7 +1779,7 @@
 					<height>40</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
+					<label>[B]$INFO[Window.Property(nimbus.imdbRating)][/B]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1803,7 +1803,7 @@
 					<height>40</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
+					<label>[B]$INFO[Window.Property(nimbus.popularRating)][/B]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1827,7 +1827,7 @@
 					<height>40</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
+					<label>[B]$INFO[Window.Property(nimbus.tmdbRating)][/B]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>

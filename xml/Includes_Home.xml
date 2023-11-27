@@ -37,7 +37,7 @@
 				</control>
 				<control type="label">
 					<top>12</top>
-					<label>$VAR[HomescreenFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
+					<label>[B]$VAR[HomescreenFlixCrumbs]$PARAM[label][/B]$PARAM[label_focus]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
