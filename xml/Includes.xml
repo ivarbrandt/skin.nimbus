@@ -1642,10 +1642,13 @@
 			<orientation>vertical</orientation>
 			<itemgap>13</itemgap>
 			<control type="textbox">
-				<height>45</height>
+				<height>auto</height>
+				<!-- <height>44</height> -->
+				<!-- <label>[B]Hello there! How are you doing on this fine day? I'm good just working on labels that are really long.[/B]</label> -->
 				<label>[B]$VAR[InfoPanelTop][/B]</label>
-				<font>font27_narrow</font>
+				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
+				<!-- <autoscroll delay="3000" time="1" repeat="5000">true</autoscroll> -->
 			</control>
 			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings">
 				<param name="ratings_spacing" value="20" />
