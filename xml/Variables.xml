@@ -687,11 +687,6 @@
 
 	<!-- MY VARIABLES -->
 
-	<variable name="CustomBackgroundImage">
-		<value condition="!String.IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
-		<value>special://skin/extras/backgrounds/blueblur.jpg</value>
-	</variable>
-
 	<variable name="ClearlogoVar">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
@@ -713,22 +708,6 @@
 
 	<variable name="HomescreenFlixCrumbs">
     <value condition="Window.IsActive(Home)">$INFO[Container(9000).ListItem.Label] [COLOR accent_color]»[/COLOR] </value>
-	</variable>
-
-	<variable name="BackgroundBrightnessVar">
-    <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),Highest)">E6FFFFFF</value>
-    <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),High)">CCFFFFFF</value>
-    <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),Medium)">99FFFFFF</value>
-    <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),Low)">4DFFFFFF</value>
-		<value>99FFFFFF</value>
-	</variable>
-
-	<variable name="FanartBrightnessVar">
-    <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Highest)">99FFFFFF</value>
-    <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),High)">80FFFFFF</value>
-    <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Medium)">66FFFFFF</value>
-    <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Low)">4DFFFFFF</value>
-    <value>66FFFFFF</value>
 	</variable>
 
 	<variable name="DefaultSearchWindowBehaviorVar">

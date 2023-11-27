@@ -1140,14 +1140,14 @@
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="$VAR[BackgroundBrightnessVar]" fallback="special://skin/extras/backgrounds/blueblur.jpg">$VAR[CustomBackgroundImage]</texture>
+			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.png</texture>
 		</control>
 		<control type="image">
 			<visible>Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="CC141414" fallback="special://skin/extras/backgrounds/blueblur.jpg">$VAR[CustomBackgroundImage]</texture>
+			<texture colordiffuse="CC141414">special://skin/extras/backgrounds/primary.png</texture>
 		</control>
 	</include>
 	<include name="DefaultBackground">
