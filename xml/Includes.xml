@@ -818,7 +818,7 @@
 				<top>-2</top>
 				<right>-2</right>
         <bottom>-2</bottom>
-				<texture colordiffuse="unfocused_text">$PARAM[diffusetexture]</texture>
+				<texture colordiffuse="button_focus">$PARAM[diffusetexture]</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -1546,7 +1546,7 @@
 				<left>-5</left>
 				<width>410</width>
 				<height>270</height>
-				<texture colordiffuse="button_focus2">masks/settingspanel-unfocused.png</texture>
+				<texture colordiffuse="button_focus2">masks/settingspanel.png</texture>
 				<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 				<bordersize>20</bordersize>
 			</control>
@@ -1573,28 +1573,28 @@
 			<control type="group">
 				<depth>DepthContentPopout</depth>
 				<control type="image">
-					<left>-5</left>
-					<width>410</width>
-					<height>270</height>
-					<texture colordiffuse="button_focus2">masks/settingspanel-unfocused.png</texture>
-					<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
-					<bordersize>20</bordersize>
-				</control>
-				<control type="image">
 					<include>FocusBounce</include>
 					<left>-5</left>
 					<width>410</width>
 					<height>270</height>
 					<texture colordiffuse="button_focus">masks/settingspanel.png</texture>
-					<bordersize>20</bordersize>
+					<bordersize>15</bordersize>
 					<include>Animation_FocusTextureFade</include>
+				</control>
+				<control type="image">
+					<left>-5</left>
+					<width>410</width>
+					<height>270</height>
+					<texture colordiffuse="button_focus2">masks/settingspanel.png</texture>
+					<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
+					<bordersize>20</bordersize>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>
 					<top>30</top>
 					<width>240</width>
 					<height>160</height>
-					<texture colordiffuse="focused_text">$INFO[ListItem.Icon]</texture>
+					<texture colordiffuse="FFCCCCCC">$INFO[ListItem.Icon]</texture>
 					<align>center</align>
 					<aspectratio>scale</aspectratio>
 				</control>
@@ -1603,8 +1603,8 @@
 					<top>190</top>
 					<width>350</width>
 					<height>400</height>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<textcolor>focused_text</textcolor>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>FFCCCCCC</textcolor>
 					<align>center</align>
 				</control>
 			</control>

@@ -38,7 +38,7 @@
 				<height>100</height>
 				<font>font45</font>
 				<label>$PARAM[header_label]</label>
-				<textcolor>accent_color</textcolor>
+				<textcolor>button_focus</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 				<shadowcolor>black</shadowcolor>
@@ -463,7 +463,7 @@
 						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
 						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/capslock.png</textureradioonfocus>
-						<textureradioonnofocus colordiffuse="accent_color">icons/keyboard/capslock.png</textureradioonnofocus>
+						<textureradioonnofocus colordiffuse="keyboard_selected">icons/keyboard/capslock.png</textureradioonnofocus>
 						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/capslock.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/capslock.png</textureradiooffnofocus>
 						<radioposx>40</radioposx>
@@ -480,7 +480,7 @@
 						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
 						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/shift.png</textureradioonfocus>
-						<textureradioonnofocus colordiffuse="accent_color">icons/keyboard/shift.png</textureradioonnofocus>
+						<textureradioonnofocus colordiffuse="keyboard_selected">icons/keyboard/shift.png</textureradioonnofocus>
 						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/shift.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/shift.png</textureradiooffnofocus>
 						<radioposx>42</radioposx>
@@ -495,9 +495,9 @@
 						<ondown>104</ondown>
 						<texturefocus />
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="accent_color">icons/keyboard/spacebar.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="keyboard_selected">icons/keyboard/spacebar.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/spacebar.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="accent_color">icons/keyboard/spacebar.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="keyboard_selected">icons/keyboard/spacebar.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/spacebar.png</textureradiooffnofocus>
 						<radioposx>34</radioposx>
 						<radiowidth>328</radiowidth>
