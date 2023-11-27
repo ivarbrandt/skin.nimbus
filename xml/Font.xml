@@ -6,76 +6,76 @@
 			<name>font10</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>23</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font12</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>25</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font13</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>30</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font14</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>33</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font23_narrow</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>23</size>
-			<style>lighten</style>
+			<style>bold</style>
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
 			<name>font25_narrow</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>25</size>
-			<style>lighten</style>
+			<style>bold</style>
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
 			<name>font27</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>27</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font27_narrow</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>27</size>
-			<style>lighten</style>
+			<style>bold</style>
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
 			<name>font32</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>32</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font37</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>37</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font45</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>45</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font60</name>
 			<filename>NotoSans-Regular.ttf</filename>
 			<size>60</size>
-			<style>lighten</style>
+			<style>bold</style>
 		</font>
 		<font>
 			<name>font_clock</name>
