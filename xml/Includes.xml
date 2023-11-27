@@ -1642,7 +1642,7 @@
 			<orientation>vertical</orientation>
 			<itemgap>13</itemgap>
 			<control type="textbox">
-				<height>auto</height>
+				<height>45</height>
 				<label>[B]$VAR[InfoPanelTop][/B]</label>
 				<font>font27_narrow</font>
 				<textcolor>unfocused_text</textcolor>
@@ -1683,7 +1683,7 @@
 
 	<include name="HorizontalRatings">
 		<control type="grouplist">
-			<height>40</height>
+			<height>38</height>
 			<orientation>horizontal</orientation>
 			<itemgap>$PARAM[ratings_spacing]</itemgap>
 			<aligny>center</aligny>
@@ -1704,7 +1704,7 @@
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
-					<height>40</height>
+					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>[B]$INFO[Window.Property(nimbus.metascore)]%[/B]</label>
@@ -1728,7 +1728,7 @@
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
-					<height>40</height>
+					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>[B]$INFO[Window.Property(nimbus.tomatoMeter)]%[/B]</label>
@@ -1752,7 +1752,7 @@
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
-					<height>40</height>
+					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>[B]$INFO[Window.Property(nimbus.tomatoUserMeter)]%[/B]</label>
@@ -1776,7 +1776,7 @@
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
-					<height>40</height>
+					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>[B]$INFO[Window.Property(nimbus.imdbRating)][/B]</label>
@@ -1800,7 +1800,7 @@
 				</control>
 				<control type="label">
 					<width max="87">auto</width>
-					<height>40</height>
+					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>[B]$INFO[Window.Property(nimbus.popularRating)][/B]</label>
@@ -1824,7 +1824,7 @@
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
-					<height>40</height>
+					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>[B]$INFO[Window.Property(nimbus.tmdbRating)][/B]</label>

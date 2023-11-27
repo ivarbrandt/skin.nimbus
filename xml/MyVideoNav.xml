@@ -53,8 +53,8 @@
 						<param name="width" value="825" />
 						<param name="top" value="296" />
 						<param name="ratings_spacing" value="7" />
-						<param name="height_ratings" value="150" />
-						<param name="height_noratings" value="190" />
+						<param name="height_ratings" value="145" />
+						<param name="height_noratings" value="180" />
 					</include>
 					<control type="group">
 						<left>20</left>
