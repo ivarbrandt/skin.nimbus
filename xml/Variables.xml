@@ -694,8 +694,6 @@
 
 	<variable name="ClearlogoVar">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-		<!-- <value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_art))">$INFO[Window(home).Property(nimbus_clearlogo_art)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(nimbus_clearlogo_prop))">$INFO[Window(home).Property(nimbus_clearlogo_prop)]</value> -->
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
@@ -711,6 +709,10 @@
 		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
 		<value condition="![String.IsEqual(ListItem.DBtype,episode) + String.IsEmpty(ListItem.Genre)]">[B]$INFO[ListItem.Label, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
 		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.Label, | ][/B]</value>
+	</variable>
+
+	<variable name="HomescreenFlixCrumbs">
+    <value condition="Window.IsActive(Home)">$INFO[Container(9000).ListItem.Label] [COLOR accent_color]»[/COLOR] </value>
 	</variable>
 
 	<variable name="BackgroundBrightnessVar">
