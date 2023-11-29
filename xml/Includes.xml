@@ -1742,11 +1742,11 @@
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>
-				<itemgap>3</itemgap>
+				<itemgap>2</itemgap>
 				<align>left</align>
 				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
 				<control type="image">
-					<width>50</width>
+					<width>45</width>
 					<height>38</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
@@ -1766,7 +1766,7 @@
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>
-				<itemgap>8</itemgap>
+				<itemgap>5</itemgap>
 				<align>left</align>
 				<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
 				<control type="image">
@@ -1790,11 +1790,11 @@
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>
-				<itemgap>10</itemgap>
+				<itemgap>8</itemgap>
 				<align>left</align>
 				<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
 				<control type="image">
-					<width>33</width>
+					<width>29</width>
 					<height>35</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
@@ -1811,7 +1811,7 @@
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
-			<control type="grouplist">
+			<!-- <control type="grouplist">
 				<width>150</width>
 				<orientation>horizontal</orientation>
 				<itemgap>7</itemgap>
@@ -1830,6 +1830,29 @@
 					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
+					<label>[B]$INFO[Window.Property(nimbus.tmdbRating)][/B]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control> -->
+			<control type="grouplist">
+				<width>118</width>
+				<orientation>horizontal</orientation>
+				<itemgap>12</itemgap>
+				<align>right</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+				<control type="image">
+					<top>-3</top>
+					<width>60</width>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>36</height>
+					<align>left</align>
 					<label>[B]$INFO[Window.Property(nimbus.tmdbRating)][/B]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
