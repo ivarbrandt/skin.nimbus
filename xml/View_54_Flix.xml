@@ -238,7 +238,7 @@
 					<top>-14</top>
 					<width>283</width>
 					<height>387</height>
-					<texture colordiffuse="FFEAECED">masks/poster.png</texture>
+					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster.png</texture>
 					<bordersize>17</bordersize>
 					<!-- <visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible> -->
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>

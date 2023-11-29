@@ -730,6 +730,13 @@
     <value condition="Container.IsUpdating + Window.IsActive(1121) + !Skin.HasSetting(TrailerPlaying)">[B]Loading search results...[/B]</value>
 	</variable>
 
+	<variable name="FocusedColorVar">
+    <value condition="!Skin.HasSetting(Disable.ColorThemeFocus)">accent_color</value>
+    <value>FFCCCCCC</value>
+    <!-- <value>FFEAECED</value> -->
+    <!-- <value>FFC1C1C1</value> -->
+	</variable>
+
 	<!-- RATINGS INFOPANEL VARIABLES -->
 	<!-- Released -->
 	<variable name="RI_Year">

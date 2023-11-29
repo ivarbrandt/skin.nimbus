@@ -235,8 +235,15 @@
 					<selected>!Skin.HasSetting(NoFocusAnimations)</selected>
 					<onclick>Skin.ToggleSetting(NoFocusAnimations)</onclick>
 				</control>
-				<!-- STUDIO LOGOS -->
+				<!-- FOCUS COLOR -->
 				<control type="radiobutton" id="63703">
+					<label>Enable color theme focus</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
+					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
+				</control>
+				<!-- STUDIO LOGOS -->
+				<control type="radiobutton" id="63704">
 					<label>Disable color studio logos</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
