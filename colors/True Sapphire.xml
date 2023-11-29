@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+	<color name="primary_background">4D003AFF</color>
+	<color name="button_focus">FF0046E9</color>
+	<color name="focused_text">FFC1C1C1</color>
+	<color name="accent_color">FF2A56BF</color>
+	<color name="selected">FF3A6fE9</color>
+	<color name="keyboard_selected">FF0046E9</color>
+</colors>
