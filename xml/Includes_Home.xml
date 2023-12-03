@@ -121,9 +121,9 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>110</top>
+				<top>107</top>
 				<right>0</right>
-				<height>195</height>
+				<height>1100</height>
 				<onright>$PARAM[list_id]</onright>
 				<movement>3</movement>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
@@ -133,7 +133,7 @@
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="337" height="340">
+				<itemlayout width="337">
 					<control type="group">
 						<left>70</left>
 						<control type="image">
@@ -170,7 +170,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="337" height="340">
+				<focusedlayout width="337">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -326,9 +326,9 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>120</top>
+				<top>107</top>
 				<right>0</right>
-				<height>415</height>
+				<height>1100</height>
 				<movement>4</movement>
 				<onright>$PARAM[list_id]</onright>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
@@ -339,7 +339,7 @@
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="270" height="500">
+				<itemlayout width="270">
 					<control type="group">
 						<left>70</left>
 						<include content="FlixMusicLayout">
@@ -351,7 +351,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="270" height="500">
+				<focusedlayout width="270">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -387,16 +387,16 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>120</top>
+				<top>107</top>
 				<right>0</right>
-				<height>392</height>
+				<height>1100</height>
 				<movement>4</movement>
 				<onright>$PARAM[list_id]</onright>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<itemlayout width="267" height="500" infoupdate="$PARAM[info_update]">
+				<itemlayout width="267" infoupdate="$PARAM[info_update]">
 					<control type="group">
 						<left>70</left>
 						<control type="image">
@@ -468,7 +468,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="267" height="500" infoupdate="$PARAM[info_update]">
+				<focusedlayout width="267" infoupdate="$PARAM[info_update]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -565,9 +565,9 @@
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
 				<left>0</left>
-				<top>100</top>
+				<top>107</top>
 				<right>0</right>
-				<height>391</height>
+				<height>1100</height>
 				<movement>4</movement>
 				<onright>$PARAM[list_id]</onright>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
