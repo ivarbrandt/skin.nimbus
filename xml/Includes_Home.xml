@@ -104,7 +104,7 @@
 	<include name="WidgetListCategory">
 		<param name="item_limit">30</param>
 		<param name="icon">$INFO[ListItem.Icon]</param>
-		<param name="icon_height">72</param>
+		<param name="icon_height">225</param>
 		<param name="additional_movie_items">false</param>
 		<param name="additional_tvshow_items">false</param>
 		<param name="visible">true</param>
@@ -125,7 +125,7 @@
 				<right>0</right>
 				<height>1100</height>
 				<onright>$PARAM[list_id]</onright>
-				<movement>3</movement>
+				<movement>5</movement>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<include content="WidgetListCommon">
@@ -133,22 +133,31 @@
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="337">
+				<itemlayout width="305">
 					<control type="group">
 						<left>70</left>
 						<control type="image">
-							<width>347</width>
-							<height>120</height>
-							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
+							<width>315</width>
+							<height>315</height>
+							<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 							<bordersize>20</bordersize>
+						</control>
+						<control type="image">
+							<centertop>155</centertop>
+							<left>35</left>
+							<width>250</width>
+							<height>$PARAM[icon_height]</height>
+							<texture colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
 							<visible>!String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>47</left>
-							<top>25</top>
+							<left>35</left>
+							<top>297</top>
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
+							<!-- <label>hello there how are you doing today?</label> -->
 							<font>font25_narrow</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -157,8 +166,8 @@
 						</control>
 						<control type="textbox">
 							<visible>String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>47</left>
-							<top>25</top>
+							<left>35</left>
+							<top>297</top>
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
@@ -170,29 +179,37 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="337">
+				<focusedlayout width="305">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
 						<control type="image">
 							<include>FocusBounce</include>
-							<width>347</width>
-							<height>120</height>
-							<texture colordiffuse="button_focus">masks/categorywidget.png</texture>
-							<bordersize>17</bordersize>
+							<width>315</width>
+							<height>315</height>
+							<texture colordiffuse="accent_color">masks/addons.png</texture>
+							<bordersize>15</bordersize>
 							<include>Animation_FocusTextureFade</include>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 						<control type="image">
-							<width>347</width>
-							<height>120</height>
-							<texture colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texture>
+							<width>315</width>
+							<height>315</height>
+							<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 							<bordersize>20</bordersize>
+						</control>
+						<control type="image">
+							<centertop>155</centertop>
+							<left>35</left>
+							<width>250</width>
+							<height>$PARAM[icon_height]</height>
+							<texture colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
 							<visible>!String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>47</left>
-							<top>25</top>
+							<left>35</left>
+							<top>297</top>
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label]</label>
@@ -205,8 +222,8 @@
 						</control>
 						<control type="textbox">
 							<visible>String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>47</left>
-							<top>25</top>
+							<left>35</left>
+							<top>297</top>
 							<width>254</width>
 							<height>70</height>
 							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
@@ -329,7 +346,7 @@
 				<top>107</top>
 				<right>0</right>
 				<height>1100</height>
-				<movement>4</movement>
+				<movement>5</movement>
 				<onright>$PARAM[list_id]</onright>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
@@ -339,7 +356,7 @@
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="270">
+				<itemlayout width="305">
 					<control type="group">
 						<left>70</left>
 						<include content="FlixMusicLayout">
@@ -351,7 +368,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="270">
+				<focusedlayout width="305">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
@@ -390,34 +407,34 @@
 				<top>107</top>
 				<right>0</right>
 				<height>1100</height>
-				<movement>4</movement>
+				<movement>5</movement>
 				<onright>$PARAM[list_id]</onright>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<itemlayout width="267" infoupdate="$PARAM[info_update]">
+				<itemlayout width="305" infoupdate="$PARAM[info_update]">
 					<control type="group">
 						<left>70</left>
 						<control type="image">
 							<!-- 319 -->
-							<width>279</width>
+							<width>315</width>
 							<!-- 340 -->
-							<height>297</height>
-							<texture diffuse="masks/addons.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
+							<height>315</height>
+							<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<top>43</top>
-							<left>38</left>
+							<left>60</left>
 							<width>205</width>
 							<height>147</height>
 							<texture fallback="DefaultTVShows.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="label">
-							<left>42</left>
-							<top>204</top>
+							<left>58</left>
+							<top>214</top>
 							<width>205</width>
 							<height>70</height>
 							<label>$PARAM[label]</label>
@@ -428,8 +445,8 @@
 							<aligny>top</aligny>
 						</control>
 						<control type="label">
-							<left>42</left>
-							<top>234</top>
+							<left>58</left>
+							<top>244</top>
 							<width>205</width>
 							<height>65</height>
 							<label>$PARAM[label2]</label>
@@ -448,76 +465,76 @@
 						</control>
 						<control type="progress">
 							<left>40</left>
-							<top>249</top>
+							<top>267</top>
 							<width>200</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.PercentPlayed</info>
 							<visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
 						</control>
 						<control type="progress">
 							<left>40</left>
-							<top>249</top>
+							<top>267</top>
 							<width>200</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.Progress</info>
 							<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="267" infoupdate="$PARAM[info_update]">
+				<focusedlayout width="305" infoupdate="$PARAM[info_update]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>
 						<control type="progress">
 							<left>40</left>
-							<top>249</top>
+							<top>267</top>
 							<width>200</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.PercentPlayed</info>
 							<visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
 						</control>
 						<control type="progress">
 							<left>40</left>
-							<top>249</top>
+							<top>267</top>
 							<width>200</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="button_focus" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.Progress</info>
 							<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
 						</control>
 						<control type="image">
 							<include>FocusBounce</include>
-							<width>279</width>
-							<height>297</height>
-							<texture diffuse="masks/addons.png" colordiffuse="button_focus">colors/grey.png</texture>
+							<width>315</width>
+							<height>315</height>
+							<texture diffuse="masks/addons.png" colordiffuse="accent_color">colors/grey.png</texture>
 							<bordersize>15</bordersize>
 							<include>Animation_FocusTextureFade</include>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 						<control type="image">
-							<width>279</width>
-							<height>297</height>
-							<texture diffuse="masks/addons.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
+							<width>315</width>
+							<height>315</height>
+							<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
 							<top>43</top>
-							<left>38</left>
+							<left>60</left>
 							<width>205</width>
 							<height>147</height>
 							<texture fallback="DefaultTVShows.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="label">
-							<left>42</left>
-							<top>204</top>
+							<left>58</left>
+							<top>214</top>
 							<width>205</width>
 							<height>70</height>
 							<label>$PARAM[label]</label>
@@ -529,8 +546,8 @@
 							<aligny>top</aligny>
 						</control>
 						<control type="label">
-							<left>42</left>
-							<top>234</top>
+							<left>58</left>
+							<top>244</top>
 							<width>205</width>
 							<height>65</height>
 							<label>$PARAM[label2]</label>

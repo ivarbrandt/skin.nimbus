@@ -56,9 +56,9 @@
 				<include>FocusBounce</include>
 				<top>-4</top>
 				<left>-4</left>
-				<width>288</width>
-				<height>288</height>
-				<texture diffuse="masks/addons.png" colordiffuse="button_focus">colors/grey.png</texture>
+				<width>323</width>
+				<height>323</height>
+				<texture diffuse="masks/addons.png" colordiffuse="accent_color">colors/grey.png</texture>
 				<bordersize>19</bordersize>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -78,9 +78,9 @@
 				<include>FocusBounce</include>
 				<top>-4</top>
 				<left>-4</left>
-				<width>288</width>
-				<height>288</height>
-				<texture diffuse="masks/addons.png" colordiffuse="button_focus">colors/grey.png</texture>
+				<width>323</width>
+				<height>323</height>
+				<texture diffuse="masks/addons.png" colordiffuse="accent_color">colors/grey.png</texture>
 				<bordersize>19</bordersize>
 				<visible>$PARAM[focused] + [Control.HasFocus(14100) | ControlGroup(400).HasFocus | Control.HasFocus(450)]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -88,25 +88,25 @@
 			<control type="image">
 				<top>0</top>
 				<!-- 316 -->
-				<width>280</width>
+				<width>315</width>
 				<!-- 386 -->
-				<height>280</height>
-				<texture diffuse="masks/addons.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
+				<height>315</height>
+				<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 				<bordersize>20</bordersize>
 			</control>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
-				<width>280</width>
-				<height>280</height>
-				<texture diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[FlixThumbVar]</texture>
+				<width>315</width>
+				<height>315</height>
+				<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[FlixThumbVar]</texture>
 				<aspectratio>keep</aspectratio>
 				<bordersize>20</bordersize>
 			</control>
 			<control type="textbox">
-				<left>28</left>
-				<top>257</top>
-				<width>226</width>
+				<left>15</left>
+				<top>297</top>
+				<width>290</width>
 				<height>80</height>
 				<font>font12</font>
 				<align>center</align>
