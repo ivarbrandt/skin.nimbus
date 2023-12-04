@@ -242,8 +242,15 @@
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control>
+				<!-- HOMESCREEN BACKGROUND -->
+				<!-- <control type="radiobutton" id="63704">
+					<label>Enable color theme background for Homescreen and Flix views</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.ColorThemeBackground)</selected>
+					<onclick>Skin.ToggleSetting(Disable.ColorThemeBackground)</onclick>
+				</control> -->
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63704">
+				<control type="radiobutton" id="63705">
 					<label>Disable color studio logos</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
