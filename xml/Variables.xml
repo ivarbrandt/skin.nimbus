@@ -707,7 +707,11 @@
 	</variable>
 
 	<variable name="HomescreenFlixCrumbs">
-    <value condition="Window.IsActive(Home)">$INFO[Container(9000).ListItem.Label] [COLOR accent_color]»[/COLOR] </value>
+    <value condition="Window.IsActive(Home)">$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color]»[/COLOR] </value>
+	</variable>
+
+	<variable name="ClockCrumbs">
+    <value condition="Skin.HasSetting(Enable.ClockCrumbs)">$INFO[System.Time] [COLOR accent_color]•[/COLOR] </value>
 	</variable>
 
 	<variable name="DefaultSearchWindowBehaviorVar">

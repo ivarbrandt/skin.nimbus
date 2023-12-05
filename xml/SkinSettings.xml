@@ -242,13 +242,13 @@
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control>
-				<!-- HOMESCREEN BACKGROUND -->
-				<!-- <control type="radiobutton" id="63704">
-					<label>Enable color theme background for Homescreen and Flix views</label>
+				<!-- CLOCK -->
+				<control type="radiobutton" id="63704">
+					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.ColorThemeBackground)</selected>
-					<onclick>Skin.ToggleSetting(Disable.ColorThemeBackground)</onclick>
-				</control> -->
+					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
+					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
+				</control>
 				<!-- STUDIO LOGOS -->
 				<control type="radiobutton" id="63705">
 					<label>Disable color studio logos</label>
