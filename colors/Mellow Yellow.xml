@@ -1,0 +1,8 @@
+<colors>
+	<color name="primary_background">4DFFFF80</color>
+	<color name="button_focus">FFFFFF80</color>
+	<color name="focused_text">FF141515</color>
+	<color name="accent_color">FFFFFF80</color>
+	<color name="selected">FFD0C234</color>
+	<color name="keyboard_selected">FFFFFF80</color>
+</colors>

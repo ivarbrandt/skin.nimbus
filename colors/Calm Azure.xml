@@ -4,6 +4,6 @@
 	<color name="button_focus">FF366CDB</color>
 	<color name="focused_text">FFC1C1C1</color>
 	<color name="accent_color">FF366CDB</color>
-	<color name="selected">FF7c9ada</color>
+	<color name="selected">FF7C9ADA</color>
 	<color name="keyboard_selected">FF366CDB</color>
 </colors>
