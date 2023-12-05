@@ -1142,27 +1142,6 @@
 			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 		</control>
-		<!-- <control type="image">
-			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home) + !Window.IsVisible(1121) + !Control.IsVisible(54) + !Control.IsVisible(50) + Skin.HasSetting(Disable.ColorThemeBackground)</visible>
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="primary_background" fallback="special://skin/extras/backgrounds/primary.jpg">special://skin/extras/backgrounds/primary.jpg</texture>
-		</control>
-		<control type="image">
-			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Skin.HasSetting(Disable.ColorThemeBackground)</visible>
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="primary_background" fallback="special://skin/extras/backgrounds/primary.jpg">special://skin/extras/backgrounds/primary.jpg</texture>
-		</control> -->
-		<control type="image">
-			<visible>Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="CC141414">special://skin/extras/backgrounds/primary.png</texture>
-		</control>
 	</include>
 	<include name="DefaultBackground">
 		<definition>
