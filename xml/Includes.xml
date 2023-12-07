@@ -1142,6 +1142,17 @@
 			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 		</control>
+		<control type="image">
+			<visible>String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + [Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50)] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<right>-3</right>
+			<top>-3</top>
+			<width>1410</width>
+			<height>730</height>
+			<depth>DepthBackground</depth>
+			<aspectratio>scale</aspectratio>
+			<texture diffuse="overlays/netflixfanartdiffuse.png" colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
+			<animation effect="fade" time="400">VisibleChange</animation>
+		</control>
 	</include>
 	<include name="DefaultBackground">
 		<definition>
