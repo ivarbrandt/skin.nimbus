@@ -234,12 +234,11 @@
 				</include>
 				<control type="image">
 					<include>FocusBounce</include>
-					<left>-4</left>
-					<top>-14</top>
-					<width>283</width>
-					<height>387</height>
+					<top>-10</top>
+					<width>275</width>
+					<height>379</height>
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster.png</texture>
-					<bordersize>17</bordersize>
+					<bordersize>13</bordersize>
 					<!-- <visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible> -->
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
