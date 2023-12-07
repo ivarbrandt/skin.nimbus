@@ -870,31 +870,13 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<control type="group">
-					<width>550</width>
+					<!-- <width>550</width> -->
 					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
 					<include>OpenClose_Left</include>
-					<control type="image">
-						<left>50</left>
-						<top>50</top>
-						<width>545</width>
-						<height>211</height>
-						<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
-						<aspectratio align="center">keep</aspectratio>
-					</control>
-					<control type="textbox">
-						<top>75</top>
-						<left>50</left>
-						<width>430</width>
-						<aligny>center</aligny>
-						<height>147</height>
-						<font>font36_title</font>
-						<label>$INFO[ListItem.Label]</label>
-						<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
-					</control>
-					<include content="RatingsInfoPanel">
+					<include content="FlixPanel">
 						<param name="left" value="50" />
 						<param name="width" value="825" />
-						<param name="top" value="296" />
+						<param name="top" value="50" />
 						<param name="ratings_spacing" value="7" />
 						<param name="height_ratings" value="145" />
 						<param name="height_noratings" value="180" />
