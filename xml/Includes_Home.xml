@@ -970,10 +970,9 @@
 	<include name="WidgetListCommon">
 		<scrolltime tween="cubic" easing="out">500</scrolltime>
 		<orientation>horizontal</orientation>
-		<onleft>$PARAM[list_id]</onleft>
+		<onleft>9000</onleft>
 		<onright>$PARAM[list_id]</onright>
-		<!-- <onback>SetFocus($PARAM[list_id],0,absolute)</onback> -->
-		<onback>9000</onback>
+		<onback>SetFocus($PARAM[list_id],0,absolute)</onback>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 		<onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
 		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
