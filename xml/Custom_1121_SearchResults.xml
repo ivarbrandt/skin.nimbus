@@ -120,7 +120,7 @@
 				<control type="group">
 					<animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation>
 					<include content="ContentPanel">
-						<param name="width" value="1100" />
+						<param name="width" value="1500" />
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="label">

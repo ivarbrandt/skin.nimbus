@@ -897,7 +897,7 @@
 					</animation> -->
 					<include>OpenClose_Left</include>
 					<include content="ContentPanel">
-						<param name="width" value="1100"/>
+						<param name="width" value="900"/>
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="fixedlist" id="9000">
