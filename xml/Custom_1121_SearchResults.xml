@@ -97,14 +97,14 @@
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
 				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
-					<top>565</top>
-					<left>52</left>
-					<width>1815</width>
-					<aligny>center</aligny>
-					<height>40</height>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
+				<top>565</top>
+				<left>52</left>
+				<width>1815</width>
+				<aligny>center</aligny>
+				<height>40</height>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
 				</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
@@ -118,76 +118,81 @@
 					<param name="button_id" value="27400"/>
 				</include>
 				<control type="group">
-					<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
+					<animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation>
 					<include content="ContentPanel">
-						<param name="width" value="900" />
+						<param name="width" value="1100" />
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="label">
+						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,125" tween="cubic" easing="inout">Conditional</animation>
 						<visible>![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
-						<top>130</top>
-						<left>65</left>
-						<width>1085</width>
+						<top>200</top>
+						<left>90</left>
+						<width>820</width>
 						<aligny>center</aligny>
 						<height>98</height>
 						<font>font36_title</font>
-						<label>Recent searches</label>
+						<label>[UPPERCASE]Recent searches[/UPPERCASE]</label>
 						<texctcolor>unfocused_text</texctcolor>
 					</control>
 					<control type="fixedlist" id="9000">
-						<left>19</left>
-						<top>230</top>
-            <width>492</width>
-						<bottom>-10</bottom>
-						<movement>7</movement>
+						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,125" tween="cubic" easing="inout">Conditional</animation>
+						<left>25</left>
+						<top>300</top>
+						<width>825</width>
+						<height>500</height>
+						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus(2000)</onright>
 						<onup>700</onup>
-						<ondown>700</ondown>
+						<ondown>9000</ondown>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
-						<focusedlayout height="83">
+						<focusedlayout height="70">
 							<control type="group">
 								<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
 							</control>
+							<!-- SideMenu Focused Icons -->
 							<control type="label">
 								<include>FocusBounce</include>
-								<left>45</left>
+								<left>65</left>
 								<top>0</top>
-								<height>83</height>
-								<width>355</width>
+								<height>70</height>
+								<width>670</width>
 								<aligny>center</aligny>
-								<font>font32</font>
-								<label>$INFO[ListItem.Label]</label>
-								<textcolor>unfocused_text</textcolor>
+								<font>font37</font>
+								<textcolor>darkgrey</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 								<shadowcolor>text_shadow</shadowcolor>
-								<scroll>$PARAM[focused]</scroll>
-								<visible>ControlGroup(700).HasFocus</visible>
+								<visible>Control.HasFocus(700)</visible>
 							</control>
 							<control type="label">
 								<include>FocusBounce</include>
-								<left>45</left>
+								<left>65</left>
 								<top>0</top>
-								<height>83</height>
-								<width>355</width>
+								<height>70</height>
+								<width>670</width>
 								<aligny>center</aligny>
-								<font>font45_title</font>
-								<label>$INFO[ListItem.Label]</label>
+								<font>font52_title</font>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+								<textcolor>button_focus</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
+								<!-- <visible>!Control.HasFocus(700)</visible> -->
+								<visible>!Control.HasFocus(700)</visible>
 								<scroll>$PARAM[focused]</scroll>
-								<visible>!ControlGroup(700).HasFocus</visible>
+								<scrollspeed>300</scrollspeed>
 							</control>
 						</focusedlayout>
-						<itemlayout height="83">
+						<itemlayout height="70">
 							<control type="label">
-								<left>45</left>
+								<left>65</left>
 								<top>0</top>
-								<height>83</height>
-								<width>355</width>
+								<height>70</height>
+								<width>670</width>
 								<aligny>center</aligny>
-								<font>font32</font>
-								<label>$INFO[ListItem.Label]</label>
+								<font>font37</font>
 								<textcolor>darkgrey</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 						</itemlayout>
@@ -196,43 +201,85 @@
 							<include content="SearchHistory" />
 						</content>
 					</control>
-					<control type="grouplist" id="700">
-						<visible>String.IsEmpty(Skin.String(DatabaseStatus))</visible>
-						<orientation>horizontal</orientation>
-						<itemgap>0</itemgap>
-            <left>17</left>
-						<width>380</width>
-						<height>110</height>
-						<top>15</top>
-						<onup>SetFocus(9000,99,absolute)</onup>
-						<ondown>SetFocus(9000,0,absolute)</ondown>
-						<onright>SetFocus(2000)</onright>
-						<align>justify</align>
-						<include content="IconButton">
-							<param name="control_id" value="801" />
-							<param name="onclick" value="RunScript(script.nimbus.helper,mode=remove_all_spaths)" />
-							<param name="icon" value="icons/infodialogs/uninstall.png" />
-							<param name="label" value="Clear search history" />
-						</include>
-						<include content="IconButton">
-							<param name="control_id" value="802" />
-							<param name="onclick" value="ActivateWindow(10025,plugin://plugin.video.fen/?iconImage=https%3a%2f%2fi.imgur.com%2fxihFNwP.png&amp;mode=navigator.trakt_lists,return)" />
-							<param name="icon" value="icons/trakt-icon-white.png" />
-							<param name="label" value="TRAKT Lists" />
-						</include>
-						<include content="IconButton">
-							<param name="control_id" value="803" />
-							<param name="onclick" value="RunScript(script.nimbus.helper,mode=search_input)" />
-							<param name="icon" value="icons/search.png" />
-							<param name="label" value="$LOCALIZE[137]" />
-						</include>
-						<include content="IconButton">
-							<param name="control_id" value="804" />
-							<param name="onclick" value="Fullscreen" />
-							<param name="icon" value="icons/now-playing/fullscreen.png" />
-							<param name="label" value="$LOCALIZE[31000]" />
-							<param name="visible" value="Player.HasMedia" />
-						</include>
+					<control type="fixedlist" id="700">
+						<visible allowhiddenfocus="true">Control.HasFocus(700) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
+						<animation effect="slide" time="500" start="0,-340" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+						<orientation>vertical</orientation>
+						<left>25</left>
+						<top>170</top>
+						<width>825</width>
+						<height>160</height>
+						<onup>700</onup>
+						<ondown>9000</ondown>
+						<onright>2000</onright>
+						<focusposition>0</focusposition>
+						<movement>2</movement>
+						<focusedlayout height="45">
+							<!-- <control type="group">
+								<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+							</control> -->
+							<!-- SideMenu Focused Icons -->
+							<control type="label">
+								<include>FocusBounce</include>
+								<left>65</left>
+								<top>0</top>
+								<height>70</height>
+								<width>670</width>
+								<aligny>center</aligny>
+								<font>font27</font>
+								<textcolor>darkgrey</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+								<visible>!Control.HasFocus(700)</visible>
+							</control>
+							<control type="label">
+								<include>FocusBounce</include>
+								<left>65</left>
+								<top>0</top>
+								<height>70</height>
+								<width>670</width>
+								<aligny>center</aligny>
+								<font>font40_title</font>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+								<textcolor>button_focus</textcolor>
+								<shadowcolor>text_shadow</shadowcolor>
+								<visible>Control.HasFocus(700)</visible>
+								<scroll>$PARAM[focused]</scroll>
+								<scrollspeed>300</scrollspeed>
+							</control>
+						</focusedlayout>
+						<itemlayout height="45">
+							<control type="label">
+								<left>65</left>
+								<top>0</top>
+								<height>70</height>
+								<width>670</width>
+								<aligny>center</aligny>
+								<font>font27</font>
+								<textcolor>darkgrey</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+						</itemlayout>
+						<content>
+							<item>
+								<label>new search</label>
+								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
+							</item>
+							<item>
+								<label>trakt lists</label>
+								<onclick>ActivateWindow(10025,plugin://plugin.video.fen/?&amp;mode=navigator.trakt_lists,return)</onclick>
+							</item>
+							<item>
+								<label>clear search history</label>
+								<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
+							</item>
+							<item>
+								<label>fullscreen</label>
+								<onclick>Fullscreen</onclick>
+								<visible>Player.HasMedia</visible>
+							</item>
+						</content>
 					</control>
 				</control>
 				<control type="group">
@@ -288,26 +335,6 @@
 				</control>
 			</control>
 			<!-- <control type="group">
-        <animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
-				<include>OpenClose_Left</include>
-        <visible allowhiddenfocus="true">![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
-				<depth>DepthBars</depth>
-				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
-				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<top>30</top>
-				<left>90</left>
-				<control type="label">
-					<top>90</top>
-					<left>-25</left>
-					<width>1085</width>
-					<aligny>center</aligny>
-					<height>98</height>
-					<font>font36_title</font>
-					<label>Recent searches</label>
-				</control>
-			</control> -->
-			<control type="group">
 				<include>OpenClose_Right</include>
 				<animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
 				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
@@ -326,7 +353,7 @@
 					<wrapmultiline>true</wrapmultiline>
 					<label>Explore your past searches on the left, delve into TRAKT lists using the TRAKT button, or click the search icon to initiate a new search.</label>
 				</control>
-			</control>
+			</control> -->
 		</control>
 	</controls>
 </window>

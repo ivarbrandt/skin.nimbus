@@ -1417,7 +1417,7 @@
 				<right>$PARAM[right]</right>
 				<top>$PARAM[top]</top>
 				<height>$PARAM[height]</height>
-				<visible>Window.IsActive(Home) + [Control.HasFocus(9000) | Control.HasFocus(700)] | VideoPlayer.Content(LiveTV)</visible>
+				<visible>[Window.IsActive(Home) | Window.IsActive(1121)] + [Control.HasFocus(9000) | Control.HasFocus(700)] | VideoPlayer.Content(LiveTV)</visible>
 			</control>
 		</definition>
 	</include>
