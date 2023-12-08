@@ -254,7 +254,7 @@
 				<visible>$PARAM[visible]</visible>
 				<control type="grouplist" id="$PARAM[button_id]577">
 					<orientation>vertical</orientation>
-					<top>0</top>
+					<top>90</top>
 					<bottom>0</bottom>
 					<left>$PARAM[left]</left>
 					<right>50</right>
@@ -284,7 +284,7 @@
 							<onclick>$PARAM[button_onclick]</onclick>
 							<align>center</align>
 							<texturefocus border="40" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
-							<texturenofocus border="40" colordiffuse="button_focus2">buttons/dnfo.png</texturenofocus>
+							<texturenofocus border="40" colordiffuse="FF3d3d3d">buttons/dnfo.png</texturenofocus>
 							<focusedcolor>focused_text</focusedcolor>
 							<visible>$PARAM[visible_1]</visible>
 						</control>
@@ -298,7 +298,7 @@
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
 							<texturefocus border="40" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
-							<texturenofocus border="40" colordiffuse="button_focus2" >buttons/dnfo.png</texturenofocus>
+							<texturenofocus border="40" colordiffuse="FF3d3d3d" >buttons/dnfo.png</texturenofocus>
 							<focusedcolor>focused_text</focusedcolor>
 							<visible>$PARAM[visible_2] + Window.IsActive(home)</visible>
 						</control>
@@ -312,7 +312,7 @@
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
 							<texturefocus border="40" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
-							<texturenofocus border="40" colordiffuse="button_focus2" >buttons/dnfo.png</texturenofocus>
+							<texturenofocus border="40" colordiffuse="FF3d3d3d" >buttons/dnfo.png</texturenofocus>
 							<focusedcolor>focused_text</focusedcolor>
 							<visible>$PARAM[visible_3] + Window.IsActive(1121)</visible>
 						</control>
