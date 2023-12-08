@@ -839,7 +839,7 @@
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
-			<control type="radiobutton">
+			<!-- <control type="radiobutton">
 				<right>30</right>
 				<top>25</top>
 				<width>48</width>
@@ -865,7 +865,7 @@
 				<texturenofocus>dialogs/close.png</texturenofocus>
 				<onclick>Action(close)</onclick>
 				<visible>Skin.HasSetting(touchmode)</visible>
-			</control>
+			</control> -->
 		</control>
 	</include>
 	<include name="TopBar">
@@ -1550,7 +1550,7 @@
 				<left>-5</left>
 				<width>410</width>
 				<height>270</height>
-				<texture colordiffuse="button_focus2">masks/settingspanel.png</texture>
+				<texture colordiffuse="dialog_bg">masks/settingspanel-unfocused.png</texture>
 				<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 				<bordersize>20</bordersize>
 			</control>
@@ -1582,14 +1582,14 @@
 					<width>410</width>
 					<height>270</height>
 					<texture colordiffuse="button_focus">masks/settingspanel.png</texture>
-					<bordersize>15</bordersize>
+					<bordersize>13</bordersize>
 					<include>Animation_FocusTextureFade</include>
 				</control>
 				<control type="image">
 					<left>-5</left>
 					<width>410</width>
 					<height>270</height>
-					<texture colordiffuse="button_focus2">masks/settingspanel.png</texture>
+					<texture colordiffuse="dialog_bg">masks/settingspanel.png</texture>
 					<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 					<bordersize>20</bordersize>
 				</control>
