@@ -1234,17 +1234,17 @@
 							</item>
 						</content>
 					</control>
+					<include content="MiniMenuLabels">
+						<param name="visible" value="Control.HasFocus(700)"/>
+						<param name="top" value="125"/>
+						<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
+					</include>
+					<include content="MiniMenuLabels">
+						<param name="visible" value="Control.HasFocus(733)"/>
+						<param name="top" value="175"/>
+						<param name="label" value="[UPPERCASE]Edit $INFO[Container(9000).ListItem.Label] Section[/UPPERCASE]"/>
+					</include>
 				</control>
-				<include content="MiniMenuLabels">
-					<param name="visible" value="Control.HasFocus(700)"/>
-					<param name="top" value="125"/>
-					<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
-				</include>
-				<include content="MiniMenuLabels">
-					<param name="visible" value="Control.HasFocus(733)"/>
-					<param name="top" value="175"/>
-					<param name="label" value="[UPPERCASE]Edit $INFO[Container(9000).ListItem.Label] Section[/UPPERCASE]"/>
-				</include>
 			</control>
 			<control type="group">
 				<depth>DepthBars</depth>
