@@ -1617,6 +1617,16 @@
 
 	<!-- MY INCLUDES -->
 
+	<include name="DarkenBG">
+		<control type="image">
+			<visible>!ControlGroup(2000).HasFocus</visible>
+			<texture colordiffuse="FF000000">colors/white.png</texture>
+			<animation type="Conditional" condition="!ControlGroup(2000).HasFocus" reversible="true">
+				<effect type="fade" start="0" end="33" time="300" tween="linear" />
+			</animation>
+		</control>
+	</include>
+
 	<include name="TrailerAutoStop">
 		<control type="button">
 			<visible>false</visible>
