@@ -886,15 +886,15 @@
 						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
 					</control>
 				</control>
-
+				<include>DarkenBG</include>
 				<control type="group">
-					<animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation>
+					<!-- <animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation> -->
 					<!-- <animation effect="fade" time="75" start="0" end="100">VisibleChange</animation> -->
 					<!-- <animation condition="Control.HasFocus(9000) | Control.HasFocus(700)" effect="slide" time="500" start="-492,0" end="0,0" tween="cubic" easing="inout">Conditional</animation> -->
-					<!-- <animation condition="Control.HasFocus(9000) | Control.HasFocus(700)">
-						<effect type="fade" start="0" end="100" time="300" />
-						<effect type="slide" start="-492,0" end="0,0" time="300" tween="sine" easing="inout" />
-					</animation> -->
+					<animation condition="!ControlGroup(2000).HasFocus">
+						<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
+						<effect type="slide" start="-492,0" end="0,0" time="300" tween="cubic" easing="out" />
+					</animation>
 					<include>OpenClose_Left</include>
 					<include content="ContentPanel">
 						<param name="width" value="900"/>
@@ -910,6 +910,7 @@
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
+						<onleft>RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=movie.widget)</onleft>
 						<onback>700</onback>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -1138,9 +1139,13 @@
 								<label>settings</label>
 								<onclick>ActivateWindow(settings)</onclick>
 							</item>
-							<item>
+							<!-- <item>
 								<label>skin settings</label>
 								<onclick>ActivateWindow(skinsettings)</onclick>
+							</item> -->
+							<item>
+								<label>change color theme</label>
+								<onclick>ActivateWindowAndFocus(appearancesettings, -100,0,-76,0)</onclick>
 							</item>
 							<item>
 								<label>search</label>

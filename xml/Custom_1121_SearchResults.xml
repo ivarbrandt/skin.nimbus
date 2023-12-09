@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="SearchResults" id="1121">
-	<defaultcontrol>2000</defaultcontrol>
+	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
 		<include>DefaultBackground</include>
@@ -109,6 +109,7 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
+				<include>DarkenBG</include>
 				<include content="ImageWidget" condition="!String.IsEmpty(Skin.String(DatabaseStatus))">
 					<param name="left">50</param>
 					<param name="text_label" value="Your search history is currently empty. Would you like to perform a new search or return to the home screen?" />
@@ -118,9 +119,13 @@
 					<param name="button_id" value="27400"/>
 				</include>
 				<control type="group">
-					<animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation>
+					<!-- <animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation> -->
+					<animation condition="!ControlGroup(2000).HasFocus">
+						<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
+						<effect type="slide" start="-492,0" end="0,0" time="300" tween="cubic" easing="out" />
+					</animation>
 					<include content="ContentPanel">
-						<param name="width" value="1500" />
+						<param name="width" value="1100" />
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="label">
@@ -144,7 +149,7 @@
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
-						<onright>SetFocus(2000)</onright>
+						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
 						<onup>700</onup>
 						<ondown>9000</ondown>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
@@ -211,7 +216,7 @@
 						<height>160</height>
 						<onup>700</onup>
 						<ondown>9000</ondown>
-						<onright>2000</onright>
+						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
 						<focusposition>0</focusposition>
 						<movement>2</movement>
 						<focusedlayout height="45">
