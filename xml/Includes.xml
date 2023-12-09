@@ -1417,7 +1417,7 @@
 				<right>$PARAM[right]</right>
 				<top>$PARAM[top]</top>
 				<height>$PARAM[height]</height>
-				<visible>[Window.IsActive(Home) | Window.IsActive(1121)] + [Control.HasFocus(9000) | Control.HasFocus(700)] | VideoPlayer.Content(LiveTV)</visible>
+				<visible>[Window.IsActive(Home) | Window.IsActive(1121)] + [Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)] | VideoPlayer.Content(LiveTV)</visible>
 			</control>
 		</definition>
 	</include>
@@ -1624,6 +1624,21 @@
 			<animation type="Conditional" condition="!ControlGroup(2000).HasFocus" reversible="true">
 				<effect type="fade" start="0" end="33" time="300" tween="linear" />
 			</animation>
+		</control>
+	</include>
+	
+	<include name="MiniMenuLabels">
+		<control type="label">
+			<visible>$PARAM[visible]</visible>
+			<animation effect="slide" time="500" start="0,-370" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+			<top>$PARAM[top]</top>
+			<left>90</left>
+			<width>820</width>
+			<aligny>center</aligny>
+			<height>98</height>
+			<font>font32_title</font>
+			<label>$PARAM[label]</label>
+			<texctcolor>unfocused_text</texctcolor>
 		</control>
 	</include>
 

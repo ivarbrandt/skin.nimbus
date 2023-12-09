@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>2000</defaultcontrol>
-	<onload>SetFocus(2000)</onload>
+	<onload>SetFocus(9000)</onload>
 	<backgroundcolor>background</backgroundcolor>
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
@@ -902,6 +902,7 @@
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="fixedlist" id="9000">
 						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,125" tween="cubic" easing="inout">Conditional</animation>
+						<animation condition="Control.HasFocus(733)" effect="slide" time="500" start="0,0" end="0,125" tween="cubic" easing="inout">Conditional</animation>
 						<left>25</left>
 						<top>250</top>
             <width>825</width>
@@ -910,7 +911,7 @@
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
-						<onleft>RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=movie.widget)</onleft>
+						<onleft condition="String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)">733</onleft>
 						<onback>700</onback>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -931,7 +932,7 @@
 								<textcolor>darkgrey</textcolor>
 								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 								<shadowcolor>text_shadow</shadowcolor>
-								<visible>Control.HasFocus(700)</visible>
+								<visible>Control.HasFocus(700) | Control.HasFocus(733)</visible>
 							</control>
 							<control type="label">
 								<include>FocusBounce</include>
@@ -944,8 +945,7 @@
 								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 								<textcolor>button_focus</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
-								<visible>!Control.HasFocus(700)</visible>
-								<scroll>$PARAM[focused]</scroll>
+								<visible>![Control.HasFocus(700) | Control.HasFocus(733)]</visible>
 								<scrollspeed>300</scrollspeed>
 							</control>
 						</focusedlayout>
@@ -1074,15 +1074,10 @@
 						<height>160</height>
 						<onup>700</onup>
 						<ondown>9000</ondown>
-						<!-- <onright>2000</onright> -->
-						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 						<onback>9000</onback>
 						<focusposition>1</focusposition>
 						<movement>1</movement>
 						<focusedlayout height="45">
-							<!-- <control type="group">
-								<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-							</control> -->
 							<!-- SideMenu Focused Icons -->
 							<control type="label">
 								<include>FocusBounce</include>
@@ -1169,9 +1164,83 @@
 							</item>
 						</content>
 					</control>
+					<control type="fixedlist" id="733">
+						<visible allowhiddenfocus="true">Control.HasFocus(733)</visible>
+						<animation effect="slide" time="500" start="0,-370" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+						<orientation>vertical</orientation>
+						<left>25</left>
+						<top>200</top>
+            <width>825</width>
+						<height>160</height>
+						<onup>733</onup>
+						<ondown>9000</ondown>
+						<onback>9000</onback>
+						<focusposition>1</focusposition>
+						<movement>1</movement>
+						<focusedlayout height="45">
+							<!-- SideMenu Focused Icons -->
+							<control type="label">
+								<include>FocusBounce</include>
+								<left>65</left>
+								<top>0</top>
+								<height>70</height>
+								<width>670</width>
+								<aligny>center</aligny>
+								<font>font27</font>
+								<textcolor>darkgrey</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+								<visible>!Control.HasFocus(733)</visible>
+							</control>
+							<control type="label">
+								<include>FocusBounce</include>
+								<left>65</left>
+								<top>0</top>
+								<height>70</height>
+								<width>670</width>
+								<aligny>center</aligny>
+								<font>font40_title</font>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+								<textcolor>button_focus</textcolor>
+								<shadowcolor>text_shadow</shadowcolor>
+								<visible>Control.HasFocus(733)</visible>
+							</control>
+						</focusedlayout>
+						<itemlayout height="45">
+							<control type="label">
+								<left>65</left>
+								<top>0</top>
+								<height>70</height>
+								<width>492</width>
+								<aligny>center</aligny>
+								<font>font27</font>
+								<textcolor>darkgrey</textcolor>
+								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+						</itemlayout>
+						<content>
+							<item>
+								<label>main menu</label>
+								<onclick>$VAR[EditMainMenusVar]</onclick>
+							</item>
+							<item>
+								<label>widgets</label>
+								<onclick>$VAR[EditWidgetsVar]</onclick>
+							</item>
+						</content>
+					</control>
 				</control>
-
-
+				<include content="MiniMenuLabels">
+					<param name="visible" value="Control.HasFocus(700)"/>
+					<param name="top" value="125"/>
+					<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
+				</include>
+				<include content="MiniMenuLabels">
+					<param name="visible" value="Control.HasFocus(733)"/>
+					<param name="top" value="175"/>
+					<param name="label" value="[UPPERCASE]Edit $INFO[Container(9000).ListItem.Label] Section[/UPPERCASE]"/>
+				</include>
 			</control>
 			<control type="group">
 				<depth>DepthBars</depth>

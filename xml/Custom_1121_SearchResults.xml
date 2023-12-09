@@ -140,6 +140,11 @@
 						<label>[UPPERCASE]Recent searches[/UPPERCASE]</label>
 						<texctcolor>unfocused_text</texctcolor>
 					</control>
+					<include content="MiniMenuLabels">
+						<param name="visible" value="Control.HasFocus(700)"/>
+						<param name="top" value="90"/>
+						<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
+					</include>
 					<control type="fixedlist" id="9000">
 						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,125" tween="cubic" easing="inout">Conditional</animation>
 						<left>25</left>
@@ -149,6 +154,7 @@
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
+						<onleft>9000</onleft>
 						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -220,9 +226,6 @@
 						<focusposition>0</focusposition>
 						<movement>2</movement>
 						<focusedlayout height="45">
-							<!-- <control type="group">
-								<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-							</control> -->
 							<!-- SideMenu Focused Icons -->
 							<control type="label">
 								<include>FocusBounce</include>
@@ -322,7 +325,7 @@
 					<param name="infolabel_prefix" value="Container." />
 					<param name="resolution_var" value="$VAR[ContainerResolutionFlagVar]" />
 				</include>
-				<control type="rss">
+				<!-- <control type="rss">
 					<animation effect="slide" end="0,90" time="500" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 					<left>0</left>
 					<bottom>0</bottom>
@@ -337,7 +340,7 @@
 					<headlinecolor>FFC0C0C0</headlinecolor>
 					<visible>Skin.HasSetting(hide_mediaflags) | !ControlGroup(2000).HasFocus</visible>
 					<animation effect="fade" time="300">VisibleChange</animation>
-				</control>
+				</control> -->
 			</control>
 			<!-- <control type="group">
 				<include>OpenClose_Right</include>
