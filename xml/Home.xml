@@ -1074,6 +1074,8 @@
 						<height>160</height>
 						<onup>700</onup>
 						<ondown>9000</ondown>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
 						<onback>9000</onback>
 						<focusposition>1</focusposition>
 						<movement>1</movement>
@@ -1174,6 +1176,8 @@
 						<height>160</height>
 						<onup>733</onup>
 						<ondown>9000</ondown>
+						<onleft>9000</onleft>
+						<onright>9000</onright>
 						<onback>9000</onback>
 						<focusposition>1</focusposition>
 						<movement>1</movement>
