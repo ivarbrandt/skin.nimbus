@@ -223,6 +223,9 @@
 						<onup>700</onup>
 						<ondown>9000</ondown>
 						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
+						<onright condition="String.IsEmpty(Skin.String(SearchInput))">9000</onright>
+						<onleft>9000</onleft>
+						<onback>9000</onback>
 						<focusposition>0</focusposition>
 						<movement>2</movement>
 						<focusedlayout height="45">
