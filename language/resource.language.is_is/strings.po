@@ -395,7 +395,7 @@ msgstr "Textavarp"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "Breiðlisti"
 
 msgctxt "#31110"

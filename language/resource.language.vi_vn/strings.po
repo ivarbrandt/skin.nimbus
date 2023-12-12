@@ -395,8 +395,8 @@ msgstr "Teletext"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
-msgstr "WideList"
+msgid "FlixList"
+msgstr "FlixList"
 
 msgctxt "#31110"
 msgid "Enter files section"

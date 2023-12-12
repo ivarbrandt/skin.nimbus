@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="View_55_WideList">
+	<include name="View_55_FlixList">
 		<param name="bottom_offset">list_bottom_offset</param>
 		<definition>
 			<control type="group">

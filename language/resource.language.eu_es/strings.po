@@ -395,7 +395,7 @@ msgstr "Teletestua"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "Zerrenda zabala"
 
 msgctxt "#31110"

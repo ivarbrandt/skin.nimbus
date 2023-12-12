@@ -395,7 +395,7 @@ msgstr "Télétexte"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "Liste large"
 
 msgctxt "#31110"

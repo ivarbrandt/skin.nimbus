@@ -404,7 +404,7 @@ msgstr "Teleteks"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "Daftar lebar"
 
 # empty strings from id 31108 to 31109

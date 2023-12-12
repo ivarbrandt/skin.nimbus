@@ -395,7 +395,7 @@ msgstr "טלטקסט"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "רשימה רחבה"
 
 msgctxt "#31110"

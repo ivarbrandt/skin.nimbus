@@ -402,7 +402,7 @@ msgstr "Teletekst"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr ""
 
 # empty strings from id 31108 to 31109

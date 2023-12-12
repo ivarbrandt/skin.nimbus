@@ -395,7 +395,7 @@ msgstr "Teksti-TV"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "Leveä lista"
 
 msgctxt "#31110"

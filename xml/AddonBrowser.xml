@@ -10,7 +10,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
-			<include content="View_55_WideList">
+			<include content="View_55_FlixList">
 				<param name="bottom_offset">list_bottom</param>
 			</include>
 			<include content="CommonScrollbars">

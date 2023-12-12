@@ -404,7 +404,7 @@ msgstr "دورمتن"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "فهرست پهناور"
 
 # empty strings from id 31108 to 31109

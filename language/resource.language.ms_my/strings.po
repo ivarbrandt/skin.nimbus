@@ -395,7 +395,7 @@ msgstr "Teleteks"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "SenaraiLebar"
 
 msgctxt "#31110"

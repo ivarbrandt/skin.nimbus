@@ -395,7 +395,7 @@ msgstr "文字多重放送"
 
 #. viewtype name
 msgctxt "#31107"
-msgid "WideList"
+msgid "FlixList"
 msgstr "ワイドリスト"
 
 msgctxt "#31110"

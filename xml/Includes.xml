@@ -23,7 +23,7 @@
 	<include file="View_50_List.xml" />
 	<include file="View_52_IconWall.xml" />
 	<include file="View_54_Flix.xml" />
-	<include file="View_55_WideList.xml" />
+	<include file="View_55_FlixList.xml" />
 	<include file="View_503_NowPlaying.xml" />
 	<include file="View_500_Wall.xml" />
 	<include file="Custom_1121_SearchResults.xml" />
