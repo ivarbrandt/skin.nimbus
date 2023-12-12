@@ -193,7 +193,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout height="list_item_height" condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos)+ !Container.Content(favourites)">
+					<focusedlayout height="list_item_height" width="610" condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos)+ !Container.Content(favourites)">
 						<control type="image">
 							<left>0</left>
 							<right>0</right>
@@ -202,65 +202,66 @@
 							<visible>Control.HasFocus(55)</visible>
 						</control>
 						<control type="image">
-							<left>35</left>
+							<left>15</left>
 							<centertop>50%</centertop>
 							<width>32</width>
 							<height>32</height>
-							<texture>$VAR[ListWatchedIconVar]</texture>
+							<texture colordiffuse="focused_text">$VAR[ListWatchedIconVar]</texture>
 							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 						</control>
 						<control type="label">
-							<left>105</left>
+							<left>70</left>
 							<top>-3</top>
 							<bottom>0</bottom>
-							<right>40</right>
+							<right>20</right>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
-							<font>font36_title</font>
+							<font>font27_title</font>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<left>105</left>
+							<left>70</left>
 							<top>-3</top>
 							<bottom>0</bottom>
-							<right>40</right>
+							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$VAR[ListLabel2Var]</label>
+							<font>font27_title</font>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
-					<itemlayout height="list_item_height" condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)">
+					<itemlayout height="list_item_height" width="610" condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)">
 						<control type="image">
-							<left>35</left>
+							<left>15</left>
 							<centertop>50%</centertop>
 							<width>32</width>
 							<height>32</height>
-							<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
+							<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
 							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 						</control>
 						<control type="label">
-							<left>105</left>
+							<left>70</left>
 							<top>-3</top>
 							<bottom>0</bottom>
-							<right>40</right>
+							<right>20</right>
 							<aligny>center</aligny>
-							<font>font32</font>
+							<font>font27_title</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<left>105</left>
+							<left>70</left>
 							<top>-3</top>
 							<bottom>0</bottom>
-							<right>40</right>
+							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font32</font>
+							<font>font27_title</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[ListLabel2Var]</label>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -420,7 +421,7 @@
 				<width>37</width>
 				<height>37</height>
 				<centertop>50%</centertop>
-				<texture>$VAR[AddonsListIconVar]</texture>
+				<texture colordiffuse="unfocused_text">$VAR[AddonsListIconVar]</texture>
 			</control>
 			<control type="label">
 				<top>-3</top>

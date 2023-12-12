@@ -105,13 +105,13 @@
 			</control>
 			<control type="textbox">
 				<left>15</left>
-				<top>297</top>
+				<top>293</top>
 				<width>290</width>
 				<height>80</height>
-				<font>font12</font>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$PARAM[single_label]</label>
+				<font>font25_title</font>
 				<textcolor>unfocused_text</textcolor>
 				<visible>!String.IsEqual(ListItem.DBType,album)</visible>
 			</control>
