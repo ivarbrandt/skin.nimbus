@@ -569,99 +569,19 @@
 						<param name="scrollbar_id" value="14010"/>
 					</include>
 				</control>
+				<!-- <include>WeatherPanel</include> -->
 				<control type="group" id="15000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),weather)</visible>
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="weather"/>
 					</include>
+					<include>WeatherPanel</include>
 					<control type="grouplist" id="15001">
 						<include content="Animation_Widget_Poster_Slide">
 							<param name="container" value="15001" />
 						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>15010</pagecontrol>
-						<control type="group" id="16678">
-							<description>Weather info</description>
-							<left>68</left>
-							<right>70</right>
-							<top>102</top>
-							<height>360</height>
-							<visible>!String.IsEmpty(Weather.plugin)</visible>
-							<control type="image">
-								<top>20</top>
-								<left>20</left>
-								<height>220</height>
-								<bottom>90</bottom>
-								<width>97%</width>
-								<texture colordiffuse="button_focus2" border="21">masks/settingspanel-unfocused.png</texture>
-							</control>
-							<control type="label">
-								<left>840</left>
-								<top>60</top>
-								<aligny>center</aligny>
-								<height>24</height>
-								<right>60</right>
-								<align>right</align>
-								<font>font30_title</font>
-								<label>$INFO[Weather.Location]</label>
-								<textcolor>unfocused_text</textcolor>
-							</control>
-							<control type="label">
-								<left>840</left>
-								<top>120</top>
-								<aligny>center</aligny>
-								<height>24</height>
-								<right>60</right>
-								<align>right</align>
-								<font>font14</font>
-								<label>$INFO[Weather.Conditions]</label>
-								<textcolor>unfocused_text</textcolor>
-							</control>
-							<control type="label">
-								<left>840</left>
-								<top>180</top>
-								<aligny>center</aligny>
-								<height>24</height>
-								<right>60</right>
-								<align>right</align>
-								<font>font14</font>
-								<label>$INFO[Weather.Temperature]</label>
-								<textcolor>unfocused_text</textcolor>
-							</control>
-							<control type="grouplist">
-								<top>50</top>
-								<left>50</left>
-								<right>20</right>
-								<orientation>horizontal</orientation>
-								<align>left</align>
-								<itemgap>-110</itemgap>
-								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
-									<param name="label" value="Window(weather).Property(Current.Wind)" />
-									<param name="texture" value="icons/weather/wind.png" />
-									<param name="header" value="404" />
-								</include>
-								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
-									<param name="label" value="Window(weather).Property(Current.Humidity)" />
-									<param name="texture" value="icons/weather/humidity.png" />
-									<param name="header" value="406" />
-								</include>
-								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
-									<param name="label" value="Window(weather).Property(Current.Precipitation)" />
-									<param name="texture" value="icons/weather/rain.png" />
-									<param name="header" value="33021" />
-								</include>
-								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
-									<param name="label" value="Window(weather).Property(Today.Sunrise)" />
-									<param name="texture" value="icons/weather/sunrise.png" />
-									<param name="header" value="405" />
-								</include>
-								<include content="WeatherIconHome" condition="!String.IsEmpty(Weather.Plugin)">
-									<param name="label" value="Window(weather).Property(Today.Sunset)" />
-									<param name="texture" value="icons/weather/sunset.png" />
-									<param name="header" value="403" />
-								</include>
-							</control>
-						</control>
 						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
 							<param name="content_include" value="DailyItems" />
 							<param name="list_id" value="15200" />
@@ -673,6 +593,31 @@
 							<param name="list_id" value="15100" />
 							<param name="widget_header" value="$LOCALIZE[33036]"/>
 							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))" />
+						</include>
+						<include content="WeatherMapItem">
+							<param name="item_id" value="1" />
+							<param name="onup_id" value="15200" />
+							<param name="ondown_id" value="70020" />
+						</include>
+						<include content="WeatherMapItem">
+							<param name="item_id" value="2" />
+							<param name="onup_id" value="70010" />
+							<param name="ondown_id" value="70030" />
+						</include>
+						<include content="WeatherMapItem">
+							<param name="item_id" value="3" />
+							<param name="onup_id" value="70020" />
+							<param name="ondown_id" value="70040" />
+						</include>
+						<include content="WeatherMapItem">
+							<param name="item_id" value="4" />
+							<param name="onup_id" value="70030" />
+							<param name="ondown_id" value="70050" />
+						</include>
+						<include content="WeatherMapItem">
+							<param name="item_id" value="5" />
+							<param name="onup_id" value="70040" />
+							<param name="ondown_id" value="20001" />
 						</include>
 					</control>
 					<include content="ImageWidget" condition="String.IsEmpty(Weather.plugin)">
@@ -873,7 +818,7 @@
 						<param name="height_ratings" value="145" />
 						<param name="height_noratings" value="180" />
 					</include>
-					<control type="textbox">
+					<!-- <control type="textbox">
 						<left>50</left>
 						<top>467</top>
 						<width>530</width>
@@ -884,17 +829,17 @@
 						<textcolor>80FFFFFF</textcolor>
 						<label>$LOCALIZE[19055]</label>
 						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
-					</control>
+					</control> -->
 				</control>
 				<include>DarkenBG</include>
 				<control type="group">
-					<!-- <animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation> -->
+					<animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="cubic" easing="out">Conditional</animation>
 					<!-- <animation effect="fade" time="75" start="0" end="100">VisibleChange</animation> -->
 					<!-- <animation condition="Control.HasFocus(9000) | Control.HasFocus(700)" effect="slide" time="500" start="-492,0" end="0,0" tween="cubic" easing="inout">Conditional</animation> -->
-					<animation condition="!ControlGroup(2000).HasFocus">
+					<!-- <animation condition="!ControlGroup(2000).HasFocus">
 						<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
 						<effect type="slide" start="-492,0" end="0,0" time="300" tween="cubic" easing="out" />
-					</animation>
+					</animation> -->
 					<include>OpenClose_Left</include>
 					<include content="ContentPanel">
 						<param name="width" value="900"/>

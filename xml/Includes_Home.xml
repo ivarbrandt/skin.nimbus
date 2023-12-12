@@ -573,7 +573,7 @@
 	</include>
 
 	<include name="WeatherWidget">
-		<param name="width">266</param>
+		<param name="width">305</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
@@ -585,7 +585,7 @@
 				<top>107</top>
 				<right>0</right>
 				<height>1100</height>
-				<movement>4</movement>
+				<movement>5</movement>
 				<onright>$PARAM[list_id]</onright>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
@@ -593,60 +593,61 @@
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>$PARAM[visible]</visible>
-				<itemlayout width="$PARAM[width]" height="320">
+				<itemlayout width="$PARAM[width]">
 					<control type="group">
+						<top>-20</top>
 						<left>70</left>
 						<control type="image">
 							<left>0</left>
 							<top>20</top>
-							<width>254</width>
-							<height>280</height>
-							<texture diffuse="masks/addons.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
+							<width>315</width>
+							<height>315</height>
+							<texture diffuse="masks/addons.png" colordiffuse="dialog_bg">masks/addons.png</texture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<left>60</left>
-							<top>108</top>
-							<width>130</width>
-							<height>130</height>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<left>57</left>
+							<top>57</top>
+							<width>197</width>
+							<height>197</height>
+							<texture colordiffuse="artwork_dim">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
-							<left>15</left>
-							<top>45</top>
+							<left>29</left>
+							<top>333</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<width>230</width>
+							<width>267</width>
 						</control>
 						<control type="label">
-							<left>15</left>
-							<top>78</top>
+							<left>29</left>
+							<top>369</top>
 							<align>center</align>
 							<font>font12</font>
 							<label>$INFO[ListItem.Property(ShortDate)]</label>
-							<width>230</width>
+							<width>267</width>
 						</control>
 						<control type="label">
-							<left>15</left>
-							<top>236</top>
+							<left>27</left>
+							<top>261</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
-							<font>font12</font>
-							<width>230</width>
+							<font>font27</font>
+							<width>267</width>
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="$PARAM[width]" height="400">
+				<focusedlayout width="$PARAM[width]">
 					<control type="group">
 						<left>70</left>
+						<top>-20</top>
 						<depth>DepthContentPopout</depth>
 						<control type="image">
-							<include>FocusBounce</include>
 							<left>0</left>
 							<top>20</top>
-							<width>254</width>
-							<height>280</height>
-							<texture diffuse="masks/addons.png" colordiffuse="button_focus">colors/grey.png</texture>
+							<width>315</width>
+							<height>315</height>
+							<texture diffuse="masks/addons.png" colordiffuse="accent_color">masks/addons.png</texture>
 							<bordersize>15</bordersize>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 							<include>Animation_FocusTextureFade</include>
@@ -654,40 +655,40 @@
 						<control type="image">
 							<left>0</left>
 							<top>20</top>
-							<width>254</width>
-							<height>280</height>
+							<width>315</width>
+							<height>315</height>
 							<texture diffuse="masks/addons.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<left>60</left>
-							<top>108</top>
-							<width>130</width>
-							<height>130</height>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<left>57</left>
+							<top>57</top>
+							<width>197</width>
+							<height>197</height>
+							<texture colordiffuse="artwork_dim">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
-							<left>15</left>
-							<top>45</top>
+							<left>29</left>
+							<top>333</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<width>230</width>
+							<width>267</width>
 						</control>
 						<control type="label">
-							<left>15</left>
-							<top>78</top>
+							<left>29</left>
+							<top>369</top>
 							<align>center</align>
 							<font>font12</font>
 							<label>$INFO[ListItem.Property(ShortDate)]</label>
-							<width>230</width>
+							<width>267</width>
 						</control>
 						<control type="label">
-							<left>15</left>
-							<top>236</top>
+							<left>27</left>
+							<top>261</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
-							<font>font12</font>
-							<width>230</width>
+							<font>font27</font>
+							<width>267</width>
 						</control>
 					</control>
 				</focusedlayout>
@@ -858,7 +859,7 @@
 			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_id].Outlook)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
-			<property name="ShortDate">[COLOR skyblue]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].ShortDate)][/COLOR]</property>
+			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].LongDate)][/COLOR]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Hourly.$PARAM[item_index].OutlookIcon)]</thumb>
 			<onclick>noop</onclick>
@@ -868,13 +869,13 @@
 
 	<include name="WeatherDailyItem">
 		<item>
-			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDay)]</label>
+			<label>$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</label>
 			<label2>[COLOR FFFF4C4C][B]$INFO[Window(weather).Property(Daily.$PARAM[item_index].HighTemperature)][/COLOR]  [COLOR unfocused_text]•[/COLOR]  [COLOR FF4C8CFF]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LowTemperature)][/B][/COLOR]</label2>
 			<property name="LongDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDay)]</property>
 			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Outlook)]</property>
-			<property name="ShortDate">[COLOR skyblue]$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDate)][/COLOR]</property>
+			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDate)][/COLOR]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Daily.$PARAM[item_index].OutlookIcon)]</thumb>
 			<onclick>noop</onclick>

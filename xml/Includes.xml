@@ -43,8 +43,8 @@
 	<constant name="dialogbuttons_itemgap">20</constant>
 	<constant name="list_bottom">0</constant>
 	<constant name="list_bottom_offset">70</constant>
-	<constant name="list_top_offset">110</constant>
-	<constant name="list_item_height">70</constant>
+	<constant name="list_top_offset">660</constant>
+	<constant name="list_item_height">69</constant>
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
 	<expression name="ProgessBarMovie">String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</expression>
@@ -56,24 +56,22 @@
 				<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="System.HasActiveModalDialog">Conditional</animation>
 				<animation effect="fade" start="0" end="100" delay="300" time="320">WindowOpen</animation>
 				<control type="group">
-					<right>0</right>
+					<left>-41</left>
 					<top>list_top_offset</top>
 					<width>60</width>
 					<bottom>$PARAM[bottom_offset]</bottom>
 					<control type="scrollbar" id="531">
-						<right>0</right>
+						<left>35</left>
 						<top>0</top>
-						<bottom>0</bottom>
-						<width>13</width>
-						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onleft>
-						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onleft>
+						<bottom>7</bottom>
+						<width>12</width>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
+						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
 						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
 						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onright>
 						<orientation>vertical</orientation>
 						<texturesliderbackground />
-						<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
-						<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
-						<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(531)">conditional</animation>
+						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="!Control.HasFocus(531)">conditional</animation>
 						<visible>Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(55) | Control.IsVisible(501)</visible>
 					</control>
 				</control>
@@ -424,28 +422,6 @@
 				</include>
 			</control>
 		</definition>
-	</include>
-	<include name="WeatherIconHome">
-		<control type="group">
-			<width>268</width>
-			<visible>!String.IsEmpty($PARAM[label])</visible>
-			<control type="image">
-				<left>40</left>
-				<width>80</width>
-				<height>80</height>
-				<texture colordiffuse="D0FFFFFF">$PARAM[texture]</texture>
-			</control>
-			<control type="textbox">
-				<top>110</top>
-				<width>160</width>
-				<height>63</height>
-				<font>font27_narrow</font>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$INFO[$PARAM[label]]</label>
-				<textcolor>unfocused_text</textcolor>
-			</control>
-		</control>
 	</include>
 	<include name="WeatherIconMyWeather">
 		<control type="group">
@@ -875,7 +851,7 @@
 				<animation effect="slide" end="0,-112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
-				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500)]</visible>
+				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)]</visible>
 				<control type="image">
 					<visible>Window.IsVisible(extendedprogressdialog)</visible>
 					<left>0</left>
@@ -1136,14 +1112,16 @@
 	</include>
 	<include name="ColoredBackgroundImages">
 		<control type="image">
-			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home) + !Window.IsVisible(1121) + !Control.IsVisible(54) + !Control.IsVisible(50)</visible>
+			<visible>[Skin.HasSetting(no_fanart) | String.IsEmpty(Listitem.Art(fanart))] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying) + !Window.IsVisible(Home) + !Window.IsVisible(1121) + !Control.IsVisible(54) + !Control.IsVisible(50) + !Control.IsVisible(55)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 		</control>
 		<control type="image">
-			<visible>String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + [Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50)] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<!-- <visible>String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus + !Container.Content(addons) + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible> -->
+			<visible>String.IsEmpty(Listitem.Art(fanart)) + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)] + !ControlGroup(15000).HasFocus + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<!-- <visible>!ControlGroup(15000).HasFocus</visible> -->
 			<right>-3</right>
 			<top>-3</top>
 			<width>1410</width>
@@ -1189,7 +1167,7 @@
 					<include>ColoredBackgroundImages</include>
 				</control>
 				<control type="group" id="31111">
-					<visible>![Window.IsActive(Home) | Window.IsActive(1121) | Control.IsVisible(500) | Control.IsVisible(52) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+					<visible>![Window.IsActive(Home) | Window.IsActive(1121) | Control.IsVisible(500) | Control.IsVisible(52)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
 					<depth>DepthBackground</depth>
 					<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
@@ -1675,7 +1653,7 @@
 				<height>233</height>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.Art(clearlogo))</visible>
+				<visible>!String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
 			</control>
 			<control type="textbox">
 				<aligny>center</aligny>
@@ -1684,7 +1662,7 @@
 				<textcolor>unfocused_text</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 				<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>String.IsEmpty(ListItem.Art(clearlogo))</visible>
+				<visible>String.IsEmpty(ListItem.Art(clearlogo)) + !Container.Content()</visible>
 			</control>
 			<control type="textbox">
 				<height>44</height>
@@ -1692,6 +1670,32 @@
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
+			</control>
+			<!-- <control type="textbox">
+				<height>44</height>
+				<label>$VAR[AddonsLabel2Var]</label>
+				<font>font30_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
+				<visible>Container.Content(addons)</visible>
+			</control> -->
+			<control type="textbox" id="15500">
+				<height>223</height>
+				<width>600</width>
+				<label>$VAR[ListBoxInfoVar]</label>
+				<font>font30_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
+				<visible>!String.IsEqual(ListItem.DbType,movie) + !String.IsEqual(ListItem.DbType,tvshow) + !String.IsEqual(ListItem.DbType,season) + !String.IsEqual(ListItem.DbType,episode) + !String.IsEqual(ListItem.DBType,song) + String.IsEmpty(ListItem.Art(clearlogo))</visible>
+			</control>
+			<control type="textbox" id="15550">
+				<height>153</height>
+				<width>600</width>
+				<label>$VAR[ListBoxInfoVar]</label>
+				<font>font30_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
+				<visible>!String.IsEqual(ListItem.DbType,movie) + !String.IsEqual(ListItem.DbType,tvshow) + !String.IsEqual(ListItem.DbType,season) + !String.IsEqual(ListItem.DbType,episode) + !String.IsEqual(ListItem.DBType,song) + !String.IsEmpty(ListItem.Art(clearlogo))</visible>
 			</control>
 			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings">
 				<param name="ratings_spacing" value="20" />
@@ -1876,6 +1880,89 @@
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
+			</control>
+		</control>
+	</include>
+
+	<include name="BigWeatherLabel">
+		<control type="label">
+			<top>$PARAM[top]</top>
+			<aligny>center</aligny>
+			<height>24</height>
+			<right>60</right>
+			<align>left</align>
+			<font>font36_title</font>
+			<label>$PARAM[label]</label>
+			<textcolor>accent_color</textcolor>
+		</control>
+	</include>
+
+	<include name="SmallWeatherLabel">
+		<control type="label">
+			<top>$PARAM[top]</top>
+			<aligny>center</aligny>
+			<height>24</height>
+			<right>60</right>
+			<align>left</align>
+			<font>font27</font>
+			<label>$PARAM[label]</label>
+			<textcolor>darkgrey</textcolor>
+		</control>
+	</include>
+
+	<include name="WeatherPanel">
+		<control type="group" id="16678">
+			<description>Weather info</description>
+			<left>83</left>
+			<top>-511</top>
+			<height>360</height>
+			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus</visible>
+			<include content="BigWeatherLabel">
+				<param name="top" value="60"/>
+				<param name="label" value="[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="110"/>
+				<param name="label" value="[B]$INFO[Window(weather).Property(Updated),[COLOR white]LAST UPDATED: [/COLOR]][/B]"/>
+			</include>
+			<include content="BigWeatherLabel">
+				<param name="top" value="170"/>
+				<param name="label" value="CURRENTLY"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="220"/>
+				<param name="label" value="[B]$INFO[Weather.Conditions,[COLOR white]CONDITIONS: [/COLOR]][/B]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="260"/>
+				<param name="label" value="[B]$INFO[Weather.Temperature,[COLOR white]TEMPERATURE: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike),[COLOR accent_color] • [/COLOR][COLOR white][I]FEELS LIKE: [/COLOR]]°F[/I][/B]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="300"/>
+				<param name="label" value="[B]$INFO[Window(weather).Property(Current.Humidity),[COLOR white]HUMIDITY: [/COLOR]]$INFO[Window(weather).Property(Current.DewPoint),[COLOR accent_color] • [/COLOR][COLOR white]DEW POINT: [/COLOR]]°F[/B]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="340"/>
+				<param name="label" value="[B]$INFO[Window(weather).Property(Current.Wind),[COLOR white]WINDS: [/COLOR]][/B]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="380"/>
+				<param name="label" value="$INFO[Window(weather).Property(Current.Precipitation),[B][COLOR white]PRECIPITATION: [/COLOR]][/B]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="420"/>
+				<param name="label" value="[B]$INFO[Window(weather).Property(Today.Sunrise),[COLOR white]SUNRISE: [/COLOR]]$INFO[Window(weather).Property(Today.Sunset),[COLOR accent_color] • [/COLOR][COLOR white]SUNSET: [/COLOR]][/B]"/>
+			</include>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Property(Outlook))</visible>
+				<include content="BigWeatherLabel">
+					<param name="top" value="480"/>
+					<param name="label" value="FORECAST"/>
+				</include>
+				<include content="SmallWeatherLabel">
+					<param name="top" value="530"/>
+					<param name="label" value="[B]$INFO[ListItem.Property(Outlook),[COLOR white]CONDITIONS: [/COLOR]][/B]"/>
+				</include>
 			</control>
 		</control>
 	</include>

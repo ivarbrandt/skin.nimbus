@@ -724,11 +724,6 @@
     <value>Open shutdown menu</value>
 	</variable>
 
-	<variable name="LandscapeSwitchVar">
-    <value condition="Skin.HasSetting(UseLandscape)">Landscape</value>
-    <value condition="!Skin.HasSetting(UseLandscape)">Clearlogo</value>
-	</variable>
-
 	<variable name="LoadingLabelsVar">
     <value condition="Container.IsUpdating + Window.IsActive(home) + !Skin.HasSetting(TrailerPlaying)">[B]Loading widgets...[/B]</value>
     <value condition="Container.IsUpdating + Window.IsActive(1121) + !Skin.HasSetting(TrailerPlaying)">[B]Loading search results...[/B]</value>

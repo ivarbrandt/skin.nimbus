@@ -107,6 +107,12 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>font27_title</name>
+			<filename>SF-Pro.ttf</filename>
+			<size>27</size>
+			<style>bold</style>
+		</font>
+		<font>
 			<name>font30_title</name>
 			<filename>SF-Pro.ttf</filename>
 			<size>30</size>
