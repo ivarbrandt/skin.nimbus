@@ -702,13 +702,18 @@
 		<!-- <value condition="![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
 		<value condition="[String.IsEqual(ListItem.DBtype,episode) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color]|[/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color]|[/COLOR] ][/B]</value>
 		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
-		<value condition="![String.IsEqual(ListItem.DBtype,episode) + String.IsEmpty(ListItem.Genre)]">[B]$INFO[ListItem.Title, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
+		<value condition="![String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,movie)] + !String.IsEmpty(ListItem.Genre)">[B]$INFO[ListItem.Title, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(ListItem.Genre)">[B]$INFO[ListItem.Title, [COLOR accent_color]|[/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color]|[/COLOR] ][/B]</value>
 		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">[B]$INFO[Container($PARAM[list_id]).ListItem.Label, | ][/B]</value>
 	</variable>
 
 	<variable name="HomescreenFlixCrumbs">
     <value condition="Window.IsActive(Home)">$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color]»[/COLOR] </value>
 	</variable>
+
+	<!-- <variable name="FlixCrumbsProgress">
+    <value condition=">[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500) | Control.IsVisible(55)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)">$INFO[ListItem.Property(WatchedProgress),[COLOR accent_color] | [/COLOR]]% watched</value>
+	</variable> -->
 
 	<variable name="ClockCrumbs">
     <value condition="Skin.HasSetting(Enable.ClockCrumbs)">$INFO[System.Time] [COLOR accent_color]•[/COLOR] </value>
