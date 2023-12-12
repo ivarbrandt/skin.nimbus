@@ -162,7 +162,7 @@
 				<ondown>$PARAM[list_id]</ondown>
 				<width>1950</width>
 				<viewtype label="$PARAM[viewtype_label]">list</viewtype>
-				<visible>Container.Content(episodes) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible>
+				<visible>Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible>
 				<focusedlayout height="list_item_height" width="610">
 					<control type="image">
 						<left>0</left>
