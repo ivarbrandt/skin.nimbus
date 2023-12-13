@@ -217,7 +217,7 @@
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<font>font27_title</font>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -228,7 +228,7 @@
 							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>$VAR[ListLabel2Var]</label>
+							<label>[LIGHT]$VAR[ListLabel2Var][/LIGHT]</label>
 							<font>font27_title</font>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -251,7 +251,7 @@
 							<aligny>center</aligny>
 							<font>font27_title</font>
 							<textcolor>unfocused_text</textcolor>
-							<label>$VAR[ListLabelVar]</label>
+							<label>[LIGHT]$VAR[ListLabelVar][/LIGHT]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
@@ -263,7 +263,7 @@
 							<aligny>center</aligny>
 							<font>font27_title</font>
 							<textcolor>unfocused_text</textcolor>
-							<label>$VAR[ListLabel2Var]</label>
+							<label>[LIGHT]$VAR[ListLabel2Var][/LIGHT]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
@@ -293,7 +293,7 @@
 							<scroll>true</scroll>
 							<scrollspeed>160</scrollspeed>
 							<font>font27_title</font>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -315,7 +315,7 @@
 							<right>25</right>
 							<aligny>center</aligny>
 							<textcolor>unfocused_text</textcolor>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 							<font>font27_title</font>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -376,7 +376,7 @@
 				<left>0</left>
 				<right>0</right>
 				<bottom>0</bottom>
-				<texture colordiffuse="button_focus">masks/focus.png</texture>
+				<texture colordiffuse="button_focus">masks/focus-long.png</texture>
 				<visible>Control.HasFocus(55)</visible>
 			</control>
 			<control type="image">
@@ -393,7 +393,7 @@
 				<aligny>center</aligny>
 				<scroll>true</scroll>
 				<font>font27_title</font>
-				<label>$INFO[ListItem.Label]</label>
+				<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 				<textcolor>focused_text</textcolor>
 			</control>
 			<control type="label">
@@ -402,7 +402,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<font>font27_title</font>
-				<label>$VAR[AddonsLabel2Var]</label>
+				<label>[LIGHT]$VAR[AddonsLabel2Var][/LIGHT]</label>
 				<textcolor>focused_text</textcolor>
 				<scroll>true</scroll>
 			</control>
@@ -427,7 +427,7 @@
 				<top>-3</top>
 				<left>70</left>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
+				<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 				<textcolor>unfocused_text</textcolor>
 				<font>font27_title</font>
 			</control>
@@ -437,7 +437,7 @@
 				<right>70</right>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$VAR[AddonsLabel2Var]</label>
+				<label>[LIGHT]$VAR[AddonsLabel2Var][/LIGHT]</label>
 				<font>font27_title</font>
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
@@ -447,7 +447,7 @@
 				<centertop>50%</centertop>
 				<width>37</width>
 				<height>37</height>
-				<texture>$VAR[AddonsOriginVar]</texture>
+				<texture colordiffuse="unfocused_text">$VAR[AddonsOriginVar]</texture>
 				<visible>!ListItem.IsFolder</visible>
 			</control>
 		</itemlayout>

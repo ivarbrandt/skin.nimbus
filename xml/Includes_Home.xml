@@ -156,7 +156,7 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 							<!-- <label>hello there how are you doing today?</label> -->
 							<font>font25_title</font>
 							<textcolor>unfocused_text</textcolor>
@@ -170,7 +170,7 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
+							<label>[LIGHT]$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])[/LIGHT]</label>
 							<font>font25_title</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -212,7 +212,7 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 							<font>font25_title</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -226,7 +226,7 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
+							<label>[LIGHT]$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])[/LIGHT]</label>
 							<font>font25_title</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -616,7 +616,7 @@
 							<left>29</left>
 							<top>333</top>
 							<align>center</align>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 							<font>font27_title</font>
 							<width>267</width>
 						</control>
@@ -625,7 +625,7 @@
 							<top>369</top>
 							<align>center</align>
 							<font>font25_title</font>
-							<label>$INFO[ListItem.Property(ShortDate)]</label>
+							<label>[LIGHT]$INFO[ListItem.Property(ShortDate)][/LIGHT]</label>
 							<width>267</width>
 						</control>
 						<control type="label">
@@ -672,7 +672,7 @@
 							<left>29</left>
 							<top>333</top>
 							<align>center</align>
-							<label>$INFO[ListItem.Label]</label>
+							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
 							<font>font27_title</font>
 							<width>267</width>
 						</control>
@@ -681,7 +681,7 @@
 							<top>369</top>
 							<align>center</align>
 							<font>font25_title</font>
-							<label>$INFO[ListItem.Property(ShortDate)]</label>
+							<label>[LIGHT]$INFO[ListItem.Property(ShortDate)][/LIGHT]</label>
 							<width>267</width>
 						</control>
 						<control type="label">

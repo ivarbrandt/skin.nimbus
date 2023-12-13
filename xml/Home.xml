@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>2000</defaultcontrol>
-	<onload>SetFocus(9000)</onload>
+	<defaultcontrol>9000</defaultcontrol>
+	<onload>SetFocus(2000)</onload>
 	<backgroundcolor>background</backgroundcolor>
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
@@ -833,13 +833,13 @@
 				</control>
 				<include>DarkenBG</include>
 				<control type="group">
-					<animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="cubic" easing="out">Conditional</animation>
+					<!-- <animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="cubic" easing="out">Conditional</animation> -->
 					<!-- <animation effect="fade" time="75" start="0" end="100">VisibleChange</animation> -->
 					<!-- <animation condition="Control.HasFocus(9000) | Control.HasFocus(700)" effect="slide" time="500" start="-492,0" end="0,0" tween="cubic" easing="inout">Conditional</animation> -->
-					<!-- <animation condition="!ControlGroup(2000).HasFocus">
+					<animation condition="!ControlGroup(2000).HasFocus">
 						<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
 						<effect type="slide" start="-492,0" end="0,0" time="300" tween="cubic" easing="out" />
-					</animation> -->
+					</animation>
 					<include>OpenClose_Left</include>
 					<include content="ContentPanel">
 						<param name="width" value="900"/>

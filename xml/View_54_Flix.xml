@@ -47,9 +47,9 @@
 
 	<include name="FlixMusicLayout">
 		<param name="fallback_image">DefaultFolder.png</param>
-		<param name="main_label">$INFO[ListItem.Artist]</param>
-		<param name="sub_label">$INFO[ListItem.Title]</param>
-		<param name="single_label">$INFO[ListItem.Label]</param>
+		<param name="main_label">[LIGHT]$INFO[ListItem.Artist][/LIGHT]</param>
+		<param name="sub_label">[LIGHT]$INFO[ListItem.Title][/LIGHT]</param>
+		<param name="single_label">[LIGHT]$INFO[ListItem.Label][/LIGHT]</param>
 		<param name="focused">false</param>
 		<definition>
 			<control type="image">
