@@ -466,7 +466,7 @@
 						<control type="progress">
 							<left>40</left>
 							<top>267</top>
-							<width>200</width>
+							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
 							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
@@ -476,7 +476,7 @@
 						<control type="progress">
 							<left>40</left>
 							<top>267</top>
-							<width>200</width>
+							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
 							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
@@ -492,7 +492,7 @@
 						<control type="progress">
 							<left>40</left>
 							<top>267</top>
-							<width>200</width>
+							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
 							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
@@ -502,7 +502,7 @@
 						<control type="progress">
 							<left>40</left>
 							<top>267</top>
-							<width>200</width>
+							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
 							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
