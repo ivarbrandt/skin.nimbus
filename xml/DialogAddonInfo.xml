@@ -2,13 +2,19 @@
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<onload condition="!ListItem.Property(addon.isinstalled) + Window.IsActive(addonbrowser)">SetFocus(6)</onload>
-	<onload>SetProperty(infobackground,$ESCINFO[ListItem.Art(fanart)],home)</onload>
+	<!-- <onload>SetProperty(infobackground,$ESCINFO[ListItem.Art(fanart)],home)</onload> -->
 	<onunload>ClearProperty(infobackground,home)</onunload>
 	<onunload>ClearProperty(AddonNews,Home)</onunload>
 	<onunload>ClearProperty(TextViewer_Header,Home)</onunload>
 	<onunload>ClearProperty(AddonVersion,Home)</onunload>
 	<controls>
 		<control type="group">
+			<control type="image">
+				<depth>DepthBackground</depth>
+				<include>FullScreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
+			</control>
 			<centertop>50%</centertop>
 			<height>1080</height>
 			<centerleft>50%</centerleft>
