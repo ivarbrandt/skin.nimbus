@@ -1112,19 +1112,19 @@
 	</include>
 	<include name="ColoredBackgroundImages">
 		<control type="image">
-			<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + !Skin.HasSetting(Enable.ColorThemeBackground) + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 		</control>
-		<!-- <control type="image">
+		<control type="image">
 			<visible>Skin.HasSetting(Enable.ColorThemeBackground) + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
 			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-		</control> -->
+		</control>
 		<control type="image">
 			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
 			<right>-3</right>

@@ -243,12 +243,12 @@
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control>
 				<!-- HOMESCREEN BACKGROUND -->
-				<!-- <control type="radiobutton" id="63704">
+				<control type="radiobutton" id="63704">
 					<label>Enable color theme background for Homescreen and Flix views</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ColorThemeBackground)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ColorThemeBackground)</onclick>
-				</control> -->
+				</control>
 				<!-- CLOCK -->
 				<control type="radiobutton" id="63705">
 					<label>Enable current time in InfoLine</label>
