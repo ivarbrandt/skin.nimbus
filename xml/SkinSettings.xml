@@ -237,17 +237,19 @@
 				</control>
 				<!-- FOCUS COLOR -->
 				<control type="radiobutton" id="63703">
-					<label>Enable color theme focus</label>
+					<label>Enable color theme for focus and progress</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control>
-				<!-- HOMESCREEN BACKGROUND -->
+				<!-- BACKGROUND BLUR -->
 				<control type="radiobutton" id="63704">
-					<label>Enable color theme background for Homescreen and Flix views</label>
+					<!-- <label>$INFO[Skin.String(BlurRadius)]</label> -->
+					<label>Enable background blur for media content</label>
 					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.ColorThemeBackground)</selected>
-					<onclick>Skin.ToggleSetting(Enable.ColorThemeBackground)</onclick>
+					<onclick condition="System.AddonIsEnabled(script.embuary.helper)">Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
+					<onclick condition="!System.HasAddon(script.embuary.helper)">InstallAddon(script.embuary.helper)</onclick>
+					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
 				</control>
 				<!-- CLOCK -->
 				<control type="radiobutton" id="63705">

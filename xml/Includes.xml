@@ -1110,9 +1110,10 @@
 		<height>100</height>
 		<width>auto</width>
 	</include>
-	<include name="ColoredBackgroundImages">
+
+	<!-- <include name="ColoredBackgroundImages">
 		<control type="image">
-			<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + !Skin.HasSetting(Enable.ColorThemeBackground) + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
 			<aspectratio>scale</aspectratio>
@@ -1136,7 +1137,70 @@
 			<texture diffuse="overlays/netflixfanartdiffuse.png" colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 			<animation effect="fade" time="400">VisibleChange</animation>
 		</control>
+	</include> -->
+
+	<include name="ColoredBackgroundImages">
+
+		<control type="group">
+			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<control type="image" id="100000">
+				<fadetime>500</fadetime>
+				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				<animation effect="fade" time="400">VisibleChange</animation>
+				<depth>DepthBackground</depth>
+				<include>FullScreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<texture>$VAR[FanartVar]</texture>
+				<colordiffuse>black</colordiffuse>
+			</control>
+			<control type="image">
+				<fadetime>500</fadetime>
+				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				<animation effect="fade" time="400">VisibleChange</animation>
+				<depth>DepthBackground</depth>
+				<include>FullScreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<texture colordiffuse="FF464646">$INFO[Window(home).Property(listitem_blurred)]</texture>
+			</control>
+		</control>
+
+		<control type="group">
+			<visible>!Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<control type="image">
+				<depth>DepthBackground</depth>
+				<include>FullScreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
+				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(500)]</visible>
+			</control>
+			
+			<control type="image">
+				<depth>DepthBackground</depth>
+				<include>FullScreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
+				<visible>Control.IsVisible(500) + !Skin.HasSetting(Enable.BackgroundBlur)</visible>
+			</control>
+	
+			<control type="image">
+				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus</visible>
+				<right>-3</right>
+				<top>-3</top>
+				<width>1410</width>
+				<height>730</height>
+				<depth>DepthBackground</depth>
+				<aspectratio>scale</aspectratio>
+				<texture diffuse="overlays/netflixfanartdiffuse.png" colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
+				<animation effect="fade" time="400">VisibleChange</animation>
+			</control>
+		</control>
+
 	</include>
+
 	<include name="DefaultBackground">
 		<definition>
 			<control type="group">
@@ -1638,7 +1702,7 @@
 			<width>$PARAM[width]</width>
 			<height>1</height>
 			<texturebg></texturebg>
-			<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
+			<midtexture colordiffuse="$VAR[FocusedColorVar]" border="3">progress/texturebg_alt_white.png</midtexture>
 			<info>Container($PARAM[id]).ListItem.Property(WatchedProgress)</info>
 			<visible>[String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | [Integer.IsGreater(Container($PARAM[id]).ListItem.Property(UnwatchedEpisodes),0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | [String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]</visible>
 			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>

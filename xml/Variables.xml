@@ -454,6 +454,10 @@
 		<value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_prop))">$INFO[Window(home).Property(nimbus_fanart_prop)]</value>
 		<value condition="!String.IsEmpty(Skin.String(HomeFanart.path))">$INFO[Skin.String(HomeFanart.path)]$INFO[Container(9000).ListItem.Property(id)]$INFO[Skin.String(HomeFanart.ext)]</value>
 	</variable>
+	<variable name="FanartVar">
+		<value condition="!String.isempty(ListItem.Thumb) + String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Thumb]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
+	</variable>
 	<variable name="MediaFanartVar">
 		<value condition="!String.isempty(ListItem.Thumb) + String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Thumb]</value>
 		<value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
