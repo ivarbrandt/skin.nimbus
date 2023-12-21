@@ -58,7 +58,7 @@
 				<left>-4</left>
 				<width>323</width>
 				<height>323</height>
-				<texture diffuse="masks/addons.png" colordiffuse="accent_color">colors/grey.png</texture>
+				<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
 				<bordersize>19</bordersize>
 				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -80,7 +80,7 @@
 				<left>-4</left>
 				<width>323</width>
 				<height>323</height>
-				<texture diffuse="masks/addons.png" colordiffuse="accent_color">colors/grey.png</texture>
+				<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
 				<bordersize>19</bordersize>
 				<visible>$PARAM[focused] + [Control.HasFocus(14100) | ControlGroup(400).HasFocus | Control.HasFocus(450)]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>

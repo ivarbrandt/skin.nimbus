@@ -187,7 +187,7 @@
 							<include>FocusBounce</include>
 							<width>315</width>
 							<height>315</height>
-							<texture colordiffuse="accent_color">masks/addons.png</texture>
+							<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
 							<bordersize>15</bordersize>
 							<include>Animation_FocusTextureFade</include>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
@@ -469,7 +469,7 @@
 							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="$VAR[FocusedColorVar]" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.PercentPlayed</info>
 							<visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
 						</control>
@@ -479,7 +479,7 @@
 							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="$VAR[FocusedColorVar]" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.Progress</info>
 							<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
 						</control>
@@ -495,7 +495,7 @@
 							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="$VAR[FocusedColorVar]" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.PercentPlayed</info>
 							<visible>!Integer.IsEqual(ListItem.PercentPlayed,0)</visible>
 						</control>
@@ -505,7 +505,7 @@
 							<width>237</width>
 							<height>1</height>
 							<texturebg></texturebg>
-							<midtexture colordiffuse="accent_color" border="3">progress/texturebg_alt_white.png</midtexture>
+							<midtexture colordiffuse="$VAR[FocusedColorVar]" border="3">progress/texturebg_alt_white.png</midtexture>
 							<info>ListItem.Progress</info>
 							<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
 						</control>
@@ -513,7 +513,7 @@
 							<include>FocusBounce</include>
 							<width>315</width>
 							<height>315</height>
-							<texture diffuse="masks/addons.png" colordiffuse="accent_color">colors/grey.png</texture>
+							<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
 							<bordersize>15</bordersize>
 							<include>Animation_FocusTextureFade</include>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
@@ -648,7 +648,7 @@
 							<top>20</top>
 							<width>315</width>
 							<height>315</height>
-							<texture diffuse="masks/addons.png" colordiffuse="accent_color">masks/addons.png</texture>
+							<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
 							<bordersize>15</bordersize>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 							<include>Animation_FocusTextureFade</include>
