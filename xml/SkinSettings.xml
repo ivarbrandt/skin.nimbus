@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
+	<onload>RunScript(script.nimbus.helper, mode=calculate_cache_size)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="multiimage">
@@ -269,7 +270,7 @@
 				<!-- CLEAR IMAGE CACHE -->
 				<control type="button" id="63707">
 					<label>    - Clear image cache</label>
-					<!-- <label2>$INFO[Skin.String(BlurSaturation)]</label2> -->
+					<label2>$INFO[Skin.String(CacheSize)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
