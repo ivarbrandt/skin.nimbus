@@ -244,22 +244,37 @@
 				</control>
 				<!-- BACKGROUND BLUR -->
 				<control type="radiobutton" id="63704">
-					<!-- <label>$INFO[Skin.String(BlurRadius)]</label> -->
 					<label>Enable background blur for media content</label>
 					<include>DefaultSettingButton</include>
-					<onclick condition="System.AddonIsEnabled(script.embuary.helper)">Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
-					<onclick condition="!System.HasAddon(script.embuary.helper)">InstallAddon(script.embuary.helper)</onclick>
+					<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
+					<!-- <onclick>InstallAddon(script.embuary.helper)</onclick> -->
 					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
 				</control>
+				<!-- BLUR RADIUS -->
+				<control type="button" id="63705">
+					<label>    - Set blur radius (Lower to reduce itensity of blurring)</label>
+					<label2>$INFO[Skin.String(BlurRadius)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=set_blurradius)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<!-- BLUR SATURATION -->
+				<control type="button" id="63706">
+					<label>    - Set blur saturation (Lower to reduce color intensity of blurred image)</label>
+					<label2>$INFO[Skin.String(BlurSaturation)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63705">
+				<control type="radiobutton" id="63707">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63706">
+				<control type="radiobutton" id="63708">
 					<label>Disable color studio logos</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>

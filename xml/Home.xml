@@ -8,11 +8,8 @@
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=fix_black_screen)</onload>
-	<onload condition="!Skin.HasSetting(BlurEnabled) + Skin.HasSetting(Enable.BackgroundBlur)">Skin.ToggleSetting(BlurEnabled)</onload>		
-	<onload condition="Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEqual(Skin.String(BlurRadius,40))">Skin.SetString(BlurRadius,40)</onload>	
-	<onload condition="Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEqual(Skin.String(BlurSaturation,2.0))">Skin.SetString(BlurSaturation,2.0)</onload>	
-	<onload condition="Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEqual(Skin.String(ServiceInterval,0.2))">Skin.SetString(ServiceInterval,0.2)</onload>	
-	<onload condition="!Skin.HasSetting(BlurEnabled) + Skin.HasSetting(Enable.BackgroundBlur)">RunScript(script.embuary.helper,action=restartservice)</onload>
+	<onload condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
+	<onload condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,2.0)</onload>	
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="multiimage">
