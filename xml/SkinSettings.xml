@@ -266,15 +266,23 @@
 					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
+				<!-- CLEAR IMAGE CACHE -->
+				<control type="button" id="63707">
+					<label>    - Clear image cache</label>
+					<!-- <label2>$INFO[Skin.String(BlurSaturation)]</label2> -->
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63707">
+				<control type="radiobutton" id="63708">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63708">
+				<control type="radiobutton" id="63709">
 					<label>Disable color studio logos</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
