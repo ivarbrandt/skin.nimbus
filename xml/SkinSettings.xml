@@ -252,7 +252,7 @@
 				</control>
 				<!-- BLUR RADIUS -->
 				<control type="button" id="63705">
-					<label>    - Set blur radius (Lower to reduce itensity of blurring)</label>
+					<label>    - Set blur radius (Lower to reduce blur intensity)</label>
 					<label2>$INFO[Skin.String(BlurRadius)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_blurradius)</onclick>
@@ -260,7 +260,7 @@
 				</control>
 				<!-- BLUR SATURATION -->
 				<control type="button" id="63706">
-					<label>    - Set blur saturation (Lower to reduce color intensity of blurred image)</label>
+					<label>    - Set blur saturation (Lower to reduce color intensity)</label>
 					<label2>$INFO[Skin.String(BlurSaturation)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
