@@ -269,7 +269,7 @@
 				</control>
 				<!-- CLEAR IMAGE CACHE -->
 				<control type="button" id="63707">
-					<label>    - Clear image cache</label>
+					<label>    - Clear blur cache</label>
 					<label2>$INFO[Skin.String(CacheSize)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
