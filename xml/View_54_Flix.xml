@@ -254,9 +254,9 @@
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-				<include condition="![$PARAM[focused] | Control.HasFocus($PARAM[list_id])]" content="ProgressBar">
+				<include content="ProgressBar">
 					<param name="left" value="43"/>
-					<param name="top" value="327"/>
+					<param name="top" value="323"/>
 					<param name="width" value="189"/>
 				</include>
 				<control type="image">
