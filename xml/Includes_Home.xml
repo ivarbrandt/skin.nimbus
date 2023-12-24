@@ -37,7 +37,7 @@
 				</control>
 				<control type="label">
 					<top>12</top>
-					<label>[B]$VAR[HomescreenFlixCrumbs]$PARAM[label][/B]$PARAM[label_focus]</label>
+					<label>$VAR[HomescreenFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
@@ -135,6 +135,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="305">
 					<control type="group">
+						<top>3</top>
 						<left>70</left>
 						<control type="image">
 							<width>315</width>
@@ -156,9 +157,9 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
+							<label>$INFO[ListItem.Label]</label>
 							<!-- <label>hello there how are you doing today?</label> -->
-							<font>font25_title</font>
+							<font>font25</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -170,8 +171,8 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>[LIGHT]$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])[/LIGHT]</label>
-							<font>font25_title</font>
+							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
+							<font>font25</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -182,6 +183,7 @@
 				<focusedlayout width="305">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
+						<top>3</top>
 						<left>70</left>
 						<control type="image">
 							<include>FocusBounce</include>
@@ -190,7 +192,17 @@
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
 							<bordersize>15</bordersize>
 							<include>Animation_FocusTextureFade</include>
-							<visible>Control.HasFocus($PARAM[list_id])</visible>
+							<visible>Control.HasFocus($PARAM[list_id]) + !Skin.HasSetting(Enable.FocusGlow)</visible>
+						</control>
+						<control type="image">
+							<include>FocusBounce</include>
+							<width>315</width>
+							<height>315</height>
+							<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
+							<bordersize>0</bordersize>
+							<include>Animation_FocusTextureFade</include>
+							<visible>Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(Enable.FocusGlow)</visible>
+							<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="157.5,157.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
 						</control>
 						<control type="image">
 							<width>315</width>
@@ -212,8 +224,8 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-							<font>font25_title</font>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font25</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -226,8 +238,8 @@
 							<top>297</top>
 							<width>254</width>
 							<height>70</height>
-							<label>[LIGHT]$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])[/LIGHT]</label>
-							<font>font25_title</font>
+							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
+							<font>font25</font>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -358,6 +370,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="305">
 					<control type="group">
+						<top>3</top>
 						<left>70</left>
 						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
@@ -371,6 +384,7 @@
 				<focusedlayout width="305">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
+						<top>3</top>
 						<left>70</left>
 						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
@@ -616,16 +630,16 @@
 							<left>29</left>
 							<top>333</top>
 							<align>center</align>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-							<font>font27_title</font>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font27</font>
 							<width>267</width>
 						</control>
 						<control type="label">
 							<left>29</left>
 							<top>369</top>
 							<align>center</align>
-							<font>font25_title</font>
-							<label>[LIGHT]$INFO[ListItem.Property(ShortDate)][/LIGHT]</label>
+							<font>font25</font>
+							<label>$INFO[ListItem.Property(ShortDate)]</label>
 							<width>267</width>
 						</control>
 						<control type="label">
@@ -650,8 +664,19 @@
 							<height>315</height>
 							<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
 							<bordersize>15</bordersize>
-							<visible>Control.HasFocus($PARAM[list_id])</visible>
+							<visible>Control.HasFocus($PARAM[list_id]) + !Skin.HasSetting(Enable.FocusGlow)</visible>
 							<include>Animation_FocusTextureFade</include>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>20</top>
+							<width>315</width>
+							<height>315</height>
+							<texture diffuse="masks/addons-glow.png" colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
+							<bordersize>-3</bordersize>
+							<visible>Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(Enable.FocusGlow)</visible>
+							<include>Animation_FocusTextureFade</include>
+							<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="157.5,157.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -672,16 +697,16 @@
 							<left>29</left>
 							<top>333</top>
 							<align>center</align>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
-							<font>font27_title</font>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font27</font>
 							<width>267</width>
 						</control>
 						<control type="label">
 							<left>29</left>
 							<top>369</top>
 							<align>center</align>
-							<font>font25_title</font>
-							<label>[LIGHT]$INFO[ListItem.Property(ShortDate)][/LIGHT]</label>
+							<font>font25</font>
+							<label>$INFO[ListItem.Property(ShortDate)]</label>
 							<width>267</width>
 						</control>
 						<control type="label">

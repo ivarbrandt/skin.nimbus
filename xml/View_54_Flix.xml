@@ -47,9 +47,9 @@
 
 	<include name="FlixMusicLayout">
 		<param name="fallback_image">DefaultFolder.png</param>
-		<param name="main_label">[LIGHT]$INFO[ListItem.Artist][/LIGHT]</param>
-		<param name="sub_label">[LIGHT]$INFO[ListItem.Title][/LIGHT]</param>
-		<param name="single_label">[LIGHT]$INFO[ListItem.Label][/LIGHT]</param>
+		<param name="main_label">$INFO[ListItem.Artist]</param>
+		<param name="sub_label">$INFO[ListItem.Title]</param>
+		<param name="single_label">$INFO[ListItem.Label]</param>
 		<param name="focused">false</param>
 		<definition>
 			<control type="image">
@@ -60,21 +60,48 @@
 				<height>323</height>
 				<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
 				<bordersize>19</bordersize>
-				<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+				<visible>!Skin.HasSetting(Enable.FocusGlow) + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 			</control>
-			<!-- <control type="image">
+			<control type="image">
 				<include>FocusBounce</include>
 				<top>-4</top>
 				<left>-4</left>
-				<width>288</width>
-				<height>288</height>
-				<texture diffuse="masks/addons.png" colordiffuse="button_focus">colors/grey.png</texture>
-				<bordersize>19</bordersize>
-				<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+				<width>323</width>
+				<height>323</height>
+				<texture diffuse="masks/addons-glow.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
+				<bordersize>3</bordersize>
+				<visible>Skin.HasSetting(Enable.FocusGlow) + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-			</control> -->
+				<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="161.5,161.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
+			</control>
+
 			<control type="image">
+				<include>FocusBounce</include>
+				<top>-4</top>
+				<left>-4</left>
+				<width>323</width>
+				<height>323</height>
+				<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
+				<bordersize>19</bordersize>
+				<visible>!Skin.HasSetting(Enable.FocusGlow) + $PARAM[focused] + [Control.HasFocus(14100) | ControlGroup(400).HasFocus | Control.HasFocus(450)]</visible>
+				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+			</control>
+			<control type="image">
+				<include>FocusBounce</include>
+				<top>-4</top>
+				<left>-4</left>
+				<width>323</width>
+				<height>323</height>
+				<texture diffuse="masks/addons-glow.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
+				<bordersize>3</bordersize>
+				<visible>Skin.HasSetting(Enable.FocusGlow) + $PARAM[focused] + [Control.HasFocus(14100) | ControlGroup(400).HasFocus | Control.HasFocus(450)]</visible>
+				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="161.5,161.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
+			</control>
+
+
+			<!-- <control type="image">
 				<include>FocusBounce</include>
 				<top>-4</top>
 				<left>-4</left>
@@ -84,7 +111,7 @@
 				<bordersize>19</bordersize>
 				<visible>$PARAM[focused] + [Control.HasFocus(14100) | ControlGroup(400).HasFocus | Control.HasFocus(450)]</visible>
 				<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-			</control>
+			</control> -->
 			<control type="image">
 				<top>0</top>
 				<!-- 316 -->
@@ -111,7 +138,7 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$PARAM[single_label]</label>
-				<font>font25_title</font>
+				<font>font25</font>
 				<textcolor>unfocused_text</textcolor>
 				<visible>!String.IsEqual(ListItem.DBType,album)</visible>
 			</control>
@@ -227,9 +254,9 @@
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-				<include content="ProgressBar">
+				<include condition="![$PARAM[focused] | Control.HasFocus($PARAM[list_id])]" content="ProgressBar">
 					<param name="left" value="43"/>
-					<param name="top" value="323"/>
+					<param name="top" value="327"/>
 					<param name="width" value="189"/>
 				</include>
 				<control type="image">
@@ -239,9 +266,20 @@
 					<height>379</height>
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster.png</texture>
 					<bordersize>13</bordersize>
-					<!-- <visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible> -->
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
-					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<visible>!Container($PARAM[list_id]).IsUpdating + !Skin.HasSetting(Enable.FocusGlow)</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="image">
+					<include>FocusBounce</include>
+					<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="137.5,191.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
+					<top>-12</top>
+					<width>275</width>
+					<height>383</height>
+					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
+					<bordersize>-3</bordersize>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+					<visible>!Container($PARAM[list_id]).IsUpdating + Skin.HasSetting(Enable.FocusGlow)</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 				<!-- <control type="image">
@@ -420,7 +458,7 @@
 				<left>45</left>
 				<top>70</top>
 				<width>1815</width>
-				<label>[B]$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [COLOR accent_color]»[/COLOR] ][/B]$VAR[FlixCrumbsVar]</label>
+				<label>$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [COLOR accent_color][B]»[/B][/COLOR] ]$VAR[FlixCrumbsVar]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>

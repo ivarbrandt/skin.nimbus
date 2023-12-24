@@ -34,6 +34,12 @@
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
+			<name>font25</name>
+			<filename>SF-Pro.ttf</filename>
+			<size>25</size>
+			<style>lighten</style>
+		</font>
+		<font>
 			<name>font25_narrow</name>
 			<filename>SF-Pro.ttf</filename>
 			<size>25</size>

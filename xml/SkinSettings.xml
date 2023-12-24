@@ -243,8 +243,24 @@
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control>
-				<!-- BACKGROUND BLUR -->
+				<!-- FOCUS GLOW -->
 				<control type="radiobutton" id="63704">
+					<label>Enable focus glow</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.FocusGlow)</selected>
+					<onclick>Skin.ToggleSetting(Enable.FocusGlow)</onclick>
+					<onclick>Skin.Reset(Enable.GlowPulse)</onclick>
+				</control>
+				<!-- FOCUS GLOW ANIMATION -->
+				<control type="radiobutton" id="63705">
+					<label>    - Enable pulsing glow</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.GlowPulse)</selected>
+					<onclick>Skin.ToggleSetting(Enable.GlowPulse)</onclick>
+					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
+				</control>
+				<!-- BACKGROUND BLUR -->
+				<control type="radiobutton" id="63706">
 					<label>Enable background blur for media content</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
@@ -252,7 +268,7 @@
 					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
 				</control>
 				<!-- BLUR RADIUS -->
-				<control type="button" id="63705">
+				<control type="button" id="63707">
 					<label>    - Set blur radius (Lower to reduce blur intensity)</label>
 					<label2>$INFO[Skin.String(BlurRadius)]</label2>
 					<include>DefaultSettingButton</include>
@@ -260,7 +276,7 @@
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<!-- BLUR SATURATION -->
-				<control type="button" id="63706">
+				<control type="button" id="63708">
 					<label>    - Set blur saturation (Lower to reduce color intensity)</label>
 					<label2>$INFO[Skin.String(BlurSaturation)]</label2>
 					<include>DefaultSettingButton</include>
@@ -268,7 +284,7 @@
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<!-- CLEAR IMAGE CACHE -->
-				<control type="button" id="63707">
+				<control type="button" id="63709">
 					<label>    - Clear blur cache</label>
 					<label2>$INFO[Skin.String(CacheSize)]</label2>
 					<include>DefaultSettingButton</include>
@@ -276,14 +292,14 @@
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63708">
+				<control type="radiobutton" id="63710">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63709">
+				<control type="radiobutton" id="63711">
 					<label>Disable color studio logos</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>

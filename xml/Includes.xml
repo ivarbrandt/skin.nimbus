@@ -1630,6 +1630,18 @@
 					<texture colordiffuse="button_focus">masks/settingspanel.png</texture>
 					<bordersize>13</bordersize>
 					<include>Animation_FocusTextureFade</include>
+					<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
+				</control>
+				<control type="image">
+					<include>FocusBounce</include>
+					<left>-5</left>
+					<width>410</width>
+					<height>270</height>
+					<texture colordiffuse="button_focus">masks/settingspanel-glow.png</texture>
+					<bordersize>-5</bordersize>
+					<include>Animation_FocusTextureFade</include>
+					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
+					<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="205,135" tween="cubic" easing="in" pulse="true">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>-5</left>
@@ -1709,6 +1721,22 @@
 		</control>
 	</include>
 
+	<!-- <include name="FocusedItem">
+    <control type="image">
+			<include>FocusBounce</include>
+			<top>$PARAM[top]</top>
+			<width>$PARAM[width]</width>
+			<height>$PARAM[height]</height>
+			<texture colordiffuse="$VAR[FocusedColorVar]">$PARAM[texture]</texture>
+			<bordersize>$PARAM[bordersize]</bordersize>
+			<visible>$PARAM[visible1]</visible>
+			<visible>$PARAM[visible2]</visible>
+			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+			<animation visible="$PARAM[glow_animation_visible]" condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="$PARAM[glow_animation_width],$PARAM[glow_animation_height]" tween="cubic" easing="in" pulse="true">Conditional</animation>
+    </control>
+	</include> -->
+
+
 	<include name="FlixPanel">
 		<control type="grouplist">
 			<left>$PARAM[left]</left>
@@ -1734,7 +1762,7 @@
 			</control>
 			<control type="textbox">
 				<height>44</height>
-				<label>[B]$VAR[InfoPanelTop][/B]</label>
+				<label>$VAR[InfoPanelTop]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
@@ -1750,7 +1778,7 @@
 			<control type="textbox" id="15500">
 				<height>313</height>
 				<width>600</width>
-				<label>[B]$VAR[ListBoxInfoVar][/B]</label>
+				<label>$VAR[ListBoxInfoVar]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
@@ -1759,7 +1787,7 @@
 			<control type="textbox" id="15550">
 				<height>180</height>
 				<width>600</width>
-				<label>[B]$VAR[ListBoxInfoVar][/B]</label>
+				<label>$VAR[ListBoxInfoVar]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
@@ -1771,7 +1799,7 @@
 			<control type="textbox">
 				<height max="$PARAM[height_ratings]">auto</height>
 				<bottom>70</bottom>
-				<label>[B]$VAR[InfoPanelBottom][/B]</label>
+				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -1781,7 +1809,7 @@
 				<height max="$PARAM[height_noratings]">auto</height>
 				<width>600</width>
 				<bottom>70</bottom>
-				<label>[B]$VAR[InfoPanelBottom][/B]</label>
+				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -1790,7 +1818,7 @@
 			<control type="textbox">
 				<height max="$PARAM[height_noratings]">auto</height>
 				<bottom>70</bottom>
-				<label>[B]$VAR[InfoPanelBottom][/B]</label>
+				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -1825,7 +1853,7 @@
 					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[Window.Property(nimbus.metascore)]%[/B]</label>
+					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1849,7 +1877,7 @@
 					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[Window.Property(nimbus.tomatoMeter)]%[/B]</label>
+					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1873,7 +1901,7 @@
 					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[Window.Property(nimbus.tomatoUserMeter)]%[/B]</label>
+					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1897,7 +1925,7 @@
 					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[Window.Property(nimbus.imdbRating)][/B]</label>
+					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1921,7 +1949,7 @@
 					<height>36</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[Window.Property(nimbus.popularRating)][/B]</label>
+					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1944,7 +1972,7 @@
 					<width max="60">auto</width>
 					<height>36</height>
 					<align>left</align>
-					<label>[B]$INFO[Window.Property(nimbus.tmdbRating)][/B]</label>
+					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -1991,7 +2019,7 @@
 			</include>
 			<include content="SmallWeatherLabel">
 				<param name="top" value="110"/>
-				<param name="label" value="[B]$INFO[Window(weather).Property(Updated),[COLOR white]LAST UPDATED: [/COLOR]][/B]"/>
+				<param name="label" value="$INFO[Window(weather).Property(Updated),[COLOR white]LAST UPDATED: [/COLOR]]"/>
 			</include>
 			<include content="BigWeatherLabel">
 				<param name="top" value="170"/>
@@ -1999,27 +2027,27 @@
 			</include>
 			<include content="SmallWeatherLabel">
 				<param name="top" value="220"/>
-				<param name="label" value="[B]$INFO[Weather.Conditions,[COLOR white]CONDITIONS: [/COLOR]][/B]"/>
+				<param name="label" value="$INFO[Weather.Conditions,[COLOR white]CONDITIONS: [/COLOR]]"/>
 			</include>
 			<include content="SmallWeatherLabel">
 				<param name="top" value="260"/>
-				<param name="label" value="[B]$INFO[Weather.Temperature,[COLOR white]TEMPERATURE: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike),[COLOR accent_color] • [/COLOR][COLOR white][I]FEELS LIKE: [/COLOR]]°F[/I][/B]"/>
+				<param name="label" value="$INFO[Weather.Temperature,[COLOR white]TEMPERATURE: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike),[COLOR accent_color] • [/COLOR][COLOR white][I]FEELS LIKE: [/COLOR]]°F[/I]"/>
 			</include>
 			<include content="SmallWeatherLabel">
 				<param name="top" value="300"/>
-				<param name="label" value="[B]$INFO[Window(weather).Property(Current.Humidity),[COLOR white]HUMIDITY: [/COLOR]]$INFO[Window(weather).Property(Current.DewPoint),[COLOR accent_color] • [/COLOR][COLOR white]DEW POINT: [/COLOR]]°F[/B]"/>
+				<param name="label" value="$INFO[Window(weather).Property(Current.Humidity),[COLOR white]HUMIDITY: [/COLOR]]$INFO[Window(weather).Property(Current.DewPoint),[COLOR accent_color] • [/COLOR][COLOR white]DEW POINT: [/COLOR]]°F"/>
 			</include>
 			<include content="SmallWeatherLabel">
 				<param name="top" value="340"/>
-				<param name="label" value="[B]$INFO[Window(weather).Property(Current.Wind),[COLOR white]WINDS: [/COLOR]][/B]"/>
+				<param name="label" value="$INFO[Window(weather).Property(Current.Wind),[COLOR white]WINDS: [/COLOR]]"/>
 			</include>
 			<include content="SmallWeatherLabel">
 				<param name="top" value="380"/>
-				<param name="label" value="$INFO[Window(weather).Property(Current.Precipitation),[B][COLOR white]PRECIPITATION: [/COLOR]][/B]"/>
+				<param name="label" value="$INFO[Window(weather).Property(Current.Precipitation),[COLOR white]PRECIPITATION: [/COLOR]]"/>
 			</include>
 			<include content="SmallWeatherLabel">
 				<param name="top" value="420"/>
-				<param name="label" value="[B]$INFO[Window(weather).Property(Today.Sunrise),[COLOR white]SUNRISE: [/COLOR]]$INFO[Window(weather).Property(Today.Sunset),[COLOR accent_color] • [/COLOR][COLOR white]SUNSET: [/COLOR]][/B]"/>
+				<param name="label" value="$INFO[Window(weather).Property(Today.Sunrise),[COLOR white]SUNRISE: [/COLOR]]$INFO[Window(weather).Property(Today.Sunset),[COLOR accent_color] • [/COLOR][COLOR white]SUNSET: [/COLOR]]"/>
 			</include>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Property(Outlook))</visible>
@@ -2029,7 +2057,7 @@
 				</include>
 				<include content="SmallWeatherLabel">
 					<param name="top" value="530"/>
-					<param name="label" value="[B]$INFO[ListItem.Property(Outlook),[COLOR white]CONDITIONS: [/COLOR]][/B]"/>
+					<param name="label" value="$INFO[ListItem.Property(Outlook),[COLOR white]CONDITIONS: [/COLOR]]"/>
 				</include>
 			</control>
 		</control>
