@@ -8,17 +8,6 @@
 			<top>530</top>
 			<visible>Control.IsVisible(50)</visible>
 			<include>Visible_Right</include>
-			<control type="label">
-				<left>45</left>
-				<top>70</top>
-				<width>1815</width>
-				<label>[B]$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [COLOR accent_color]»[/COLOR] ][/B]$VAR[FlixCrumbsVar]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>left</align>
-				<!-- <visible>!$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible> -->
-			</control>
 			<include content="ListContainer">
 				<param name="list_id" value="50" />
 				<param name="right" value="594" />
