@@ -75,7 +75,7 @@
 			<align>right</align>
 			<aligny>center</aligny>
 			<wrapmultiline>true</wrapmultiline>
-			<font>font29</font>
+			<font>font27</font>
 		</control>
 		<control type="group">
 			<include>MediaMenuCommon</include>

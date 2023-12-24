@@ -61,7 +61,7 @@
 						<height>80</height>
 						<label>$INFO[ListItem.label]</label>
 						<textcolor>unfocused_text</textcolor>
-						<font>font29</font>
+						<font>font27</font>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
@@ -91,7 +91,7 @@
 						<height>80</height>
 						<label>[B]$INFO[ListItem.label][/B]</label>
 						<textcolor>focused_text</textcolor>
-						<font>font29</font>
+						<font>font27</font>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>

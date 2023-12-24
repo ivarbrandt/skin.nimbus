@@ -169,7 +169,7 @@
 						<aligny>center</aligny>
 						<scroll>true</scroll>
 						<scrollspeed>300</scrollspeed>
-						<font>font29</font>
+						<font>font27</font>
 						<label>[B]$VAR[ListLabelVar][/B]</label>
 						<textcolor>focused_text</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -212,7 +212,7 @@
 						<top>0</top>
 						<bottom>0</bottom>
 						<aligny>center</aligny>
-						<font>font29</font>
+						<font>font27</font>
 						<textcolor>unfocused_text</textcolor>
 						<label>[B]$VAR[ListLabelVar][/B]</label>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -224,7 +224,7 @@
 						<bottom>0</bottom>
 						<align>right</align>
 						<aligny>center</aligny>
-						<font>font29</font>
+						<font>font27</font>
 						<textcolor>unfocused_text</textcolor>
 						<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 						<shadowcolor>text_shadow</shadowcolor>
