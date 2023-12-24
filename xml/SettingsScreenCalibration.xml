@@ -86,7 +86,7 @@
 			<width>100%</width>
 			<align>center</align>
 			<label></label>
-			<font>font27</font>
+			<font>font29</font>
 			<shadowcolor>FF000000</shadowcolor>
 		</control>
 		<control type="label" id="3">

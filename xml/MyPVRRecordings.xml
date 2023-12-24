@@ -77,7 +77,7 @@
 					<label>$INFO[PVR.backenddiskspace]</label>
 					<shadowcolor>black</shadowcolor>
 					<align>right</align>
-					<font>font27</font>
+					<font>font29</font>
 					<visible>!Integer.IsGreater(PVR.backenddiskspaceprogr,100)</visible>
 				</control>
 				<control type="progress">

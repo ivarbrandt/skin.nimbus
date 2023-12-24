@@ -192,7 +192,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<wrapmultiline>true</wrapmultiline>
-				<font>font27</font>
+				<font>font29</font>
 			</control>
 			<include>PVRChannelNumberInput</include>
 			<include>MediaMenuMouseOverlay</include>

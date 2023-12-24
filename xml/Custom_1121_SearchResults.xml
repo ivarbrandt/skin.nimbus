@@ -102,7 +102,7 @@
 				<width>1815</width>
 				<aligny>center</aligny>
 				<height>40</height>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
 				</control>
@@ -237,7 +237,7 @@
 								<height>70</height>
 								<width>670</width>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<font>font29</font>
 								<textcolor>darkgrey</textcolor>
 								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -266,7 +266,7 @@
 								<height>70</height>
 								<width>670</width>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<font>font29</font>
 								<textcolor>darkgrey</textcolor>
 								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -311,7 +311,7 @@
 						<height>413</height>
 						<align>center</align>
 						<aligny>center</aligny>
-						<font>font27</font>
+						<font>font29</font>
 						<textcolor>80FFFFFF</textcolor>
 						<label>$LOCALIZE[19055]</label>
 						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>

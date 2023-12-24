@@ -930,7 +930,7 @@
 							<control type="label">
 								<label>$INFO[Player.Title]</label>
 								<textcolor>unfocused_text</textcolor>
-								<font>font27</font>
+								<font>font29</font>
 								<shadowcolor>text_shadow</shadowcolor>
 								<height>35</height>
 								<width min="1" max="602">auto</width>
@@ -1763,7 +1763,7 @@
 			<control type="textbox">
 				<height>44</height>
 				<label>$VAR[InfoPanelTop]</label>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 			</control>
@@ -1779,7 +1779,7 @@
 				<height>313</height>
 				<width>600</width>
 				<label>$VAR[ListBoxInfoVar]</label>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 				<visible>String.IsEmpty(ListItem.Art(clearlogo)) + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
@@ -1788,7 +1788,7 @@
 				<height>180</height>
 				<width>600</width>
 				<label>$VAR[ListBoxInfoVar]</label>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 				<visible>!String.IsEmpty(ListItem.Art(clearlogo)) + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
@@ -1800,7 +1800,7 @@
 				<height max="$PARAM[height_ratings]">auto</height>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Skin.HasSetting(TrailerPlaying)]</visible>
@@ -1810,7 +1810,7 @@
 				<width>600</width>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 				<visible>Skin.HasSetting(TrailerPlaying)</visible>
@@ -1819,7 +1819,7 @@
 				<height max="$PARAM[height_noratings]">auto</height>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 				<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
@@ -1854,7 +1854,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
@@ -1878,7 +1878,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
@@ -1902,7 +1902,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
@@ -1926,7 +1926,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
@@ -1950,7 +1950,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
@@ -1973,7 +1973,7 @@
 					<height>36</height>
 					<align>left</align>
 					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
@@ -2000,7 +2000,7 @@
 			<height>24</height>
 			<right>60</right>
 			<align>left</align>
-			<font>font27</font>
+			<font>font29</font>
 			<label>$PARAM[label]</label>
 			<textcolor>darkgrey</textcolor>
 		</control>

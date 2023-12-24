@@ -12,7 +12,7 @@
 					<top>600</top>
 					<width>1815</width>
 					<label>$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [COLOR accent_color][B]»[/B][/COLOR] ]$VAR[FlixCrumbsVar]</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>left</align>
@@ -23,7 +23,7 @@
 					<top>600</top>
 					<width>1815</width>
 					<label>$VAR[ClockCrumbs]$INFO[Container.FolderName]$VAR[FlixCrumbsVar]</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>left</align>
@@ -66,7 +66,7 @@
 								<aligny>center</aligny>
 								<scroll>true</scroll>
 								<scrollspeed>160</scrollspeed>
-								<font>font27</font>
+								<font>font29</font>
 								<label>$VAR[ListLabelVar]</label>
 								<textcolor>focused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -77,7 +77,7 @@
 								<aligny>center</aligny>
 								<scroll>true</scroll>
 								<scrollspeed>160</scrollspeed>
-								<font>font27</font>
+								<font>font29</font>
 								<label>$VAR[ListLabelVar]</label>
 								<textcolor>focused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -90,7 +90,7 @@
 							<bottom>0</bottom>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font29</font>
 							<label>$INFO[ListItem.Rating]</label>
 							<textcolor>focused_text</textcolor>
 							<visible>!String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEqual(ListItem.DbType,season)</visible>
@@ -102,7 +102,7 @@
 							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font29</font>
 							<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							<textcolor>focused_text</textcolor>
 							<visible>String.IsEqual(ListItem.DBtype,season)</visible>
@@ -117,7 +117,7 @@
 								<right>20</right>
 								<align>right</align>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<font>font29</font>
 								<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]  •  $INFO[ListItem.Rating]</label>
 								<textcolor>focused_text</textcolor>
 							</control>
@@ -139,7 +139,7 @@
 							<control type="label">
 								<right>83</right>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<font>font29</font>
 								<label>$VAR[ListLabelVar]</label>
 								<textcolor>unfocused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -148,7 +148,7 @@
 							<control type="label">
 								<right>243</right>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<font>font29</font>
 								<label>$VAR[ListLabelVar]</label>
 								<textcolor>unfocused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
@@ -161,7 +161,7 @@
 							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font29</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Rating]</label>
 							<visible>!String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEqual(ListItem.DbType,season)</visible>
@@ -173,7 +173,7 @@
 							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font29</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							<visible>String.IsEqual(ListItem.DBtype,season)</visible>
@@ -188,7 +188,7 @@
 								<right>20</right>
 								<align>right</align>
 								<aligny>center</aligny>
-								<font>font27</font>
+								<font>font29</font>
 								<textcolor>unfocused_text</textcolor>
 								<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]  •  $INFO[ListItem.Rating]</label>
 							</control>
@@ -218,7 +218,7 @@
 							<right>20</right>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
-							<font>font27</font>
+							<font>font29</font>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -231,7 +231,7 @@
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>$VAR[ListLabel2Var]</label>
-							<font>font27</font>
+							<font>font29</font>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -251,7 +251,7 @@
 							<bottom>0</bottom>
 							<right>20</right>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font29</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -263,7 +263,7 @@
 							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font29</font>
 							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[ListLabel2Var]</label>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -294,7 +294,7 @@
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>160</scrollspeed>
-							<font>font27</font>
+							<font>font29</font>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -318,7 +318,7 @@
 							<aligny>center</aligny>
 							<textcolor>unfocused_text</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<font>font27</font>
+							<font>font29</font>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
@@ -394,7 +394,7 @@
 				<left>70</left>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
-				<font>font27</font>
+				<font>font29</font>
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>focused_text</textcolor>
 			</control>
@@ -403,7 +403,7 @@
 				<right>70</right>
 				<align>right</align>
 				<aligny>center</aligny>
-				<font>font27</font>
+				<font>font29</font>
 				<label>$VAR[AddonsLabel2Var]</label>
 				<textcolor>focused_text</textcolor>
 				<scroll>true</scroll>
@@ -431,7 +431,7 @@
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
 				<textcolor>unfocused_text</textcolor>
-				<font>font27</font>
+				<font>font29</font>
 			</control>
 			<control type="label">
 				<top>-5</top>
@@ -440,7 +440,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<label>$VAR[AddonsLabel2Var]</label>
-				<font>font27</font>
+				<font>font29</font>
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>

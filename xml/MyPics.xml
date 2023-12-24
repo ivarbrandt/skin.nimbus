@@ -32,7 +32,7 @@
 					<height>413</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>80FFFFFF</textcolor>
 					<label>$LOCALIZE[19055]</label>
 					<visible>!ListItem.IsParentFolder + ListItem.IsFolder</visible>

@@ -47,7 +47,7 @@
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
-			<name>font27</name>
+			<name>font29</name>
 			<filename>SF-Pro.ttf</filename>
 			<size>29</size>
 			<style>lighten</style>
@@ -208,9 +208,9 @@
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
-			<name>font27</name>
+			<name>font29</name>
 			<filename>arial.ttf</filename>
-			<size>27</size>
+			<size>29</size>
 		</font>
 		<font>
 			<name>font27_narrow</name>

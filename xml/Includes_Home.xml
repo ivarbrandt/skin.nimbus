@@ -31,14 +31,14 @@
 				<control type="label">
 					<top>12</top>
 					<label>$VAR[LoadingLabelsVar]</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 				</control>
 				<control type="label">
 					<top>12</top>
 					<label>$VAR[HomescreenFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
-					<font>font27</font>
+					<font>font29</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
@@ -631,7 +631,7 @@
 							<top>333</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<font>font27</font>
+							<font>font29</font>
 							<width>267</width>
 						</control>
 						<control type="label">
@@ -647,7 +647,7 @@
 							<top>261</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
-							<font>font27</font>
+							<font>font29</font>
 							<width>267</width>
 						</control>
 					</control>
@@ -698,7 +698,7 @@
 							<top>333</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<font>font27</font>
+							<font>font29</font>
 							<width>267</width>
 						</control>
 						<control type="label">
@@ -714,7 +714,7 @@
 							<top>261</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
-							<font>font27</font>
+							<font>font29</font>
 							<width>267</width>
 						</control>
 					</control>
