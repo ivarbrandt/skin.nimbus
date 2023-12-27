@@ -249,7 +249,7 @@
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.FocusGlow)</selected>
 					<onclick>Skin.ToggleSetting(Enable.FocusGlow)</onclick>
-					<onclick>Skin.Reset(Enable.GlowPulse)</onclick>
+					<!-- <onclick>Skin.Reset(Enable.GlowPulse)</onclick> -->
 				</control>
 				<!-- FOCUS GLOW ANIMATION -->
 				<control type="radiobutton" id="63705">
