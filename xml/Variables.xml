@@ -712,6 +712,10 @@
     <value condition="Window.IsActive(Home)">$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color][B]»[/B][/COLOR] </value>
 	</variable>
 
+	<variable name="SearchFlixCrumbs">
+    <value condition="Window.IsActive(1121)">$VAR[ClockCrumbs]</value>
+	</variable>
+
 	<!-- <variable name="FlixCrumbsProgress">
     <value condition=">[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500) | Control.IsVisible(55)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)">$INFO[ListItem.Property(WatchedProgress),[COLOR accent_color] | [/COLOR]]% watched</value>
 	</variable> -->
