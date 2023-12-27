@@ -1636,7 +1636,7 @@
 					<include>FocusBounce</include>
 					<left>-8</left>
 					<width>416</width>
-					<height>270</height>
+					<height>268</height>
 					<texture colordiffuse="button_focus">masks/settingspanel-glow.png</texture>
 					<bordersize>12</bordersize>
 					<include>Animation_FocusTextureFade</include>
