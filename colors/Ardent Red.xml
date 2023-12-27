@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <colors>
-	<color name="primary_background">80990000</color>
+	<color name="primary_background">FF430000</color>
 	<color name="button_focus">FFDA0000</color>
 	<color name="focused_text">FFC1C1C1</color>
 <!-- <color name="accent_color">FF6F00FF</color> indigo -->
