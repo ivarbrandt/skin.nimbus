@@ -1628,7 +1628,7 @@
 					<width>410</width>
 					<height>270</height>
 					<texture colordiffuse="button_focus">masks/settingspanel.png</texture>
-					<bordersize>37</bordersize>
+					<bordersize>30</bordersize>
 					<include>Animation_FocusTextureFade</include>
 					<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
 				</control>
