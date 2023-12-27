@@ -29,7 +29,7 @@
 				<bottom>0</bottom>
 				<width>1990</width>
 				<height>470</height>
-				<texture diffuse="masks/keyboard.png" colordiffuse="dialog_bg">colors/white.png</texture>
+				<texture diffuse="masks/keyboard.png" colordiffuse="dialog_bg2">colors/white.png</texture>
 			</control>
 			<control type="label" id="311">
 				<centerleft>50%</centerleft>
@@ -55,7 +55,7 @@
 				<top>184</top>
 				<width>1542</width>
 				<height>100</height>
-				<texture diffuse="masks/focus-long.png" colordiffuse="dialog_bg">colors/white.png</texture>
+				<texture diffuse="masks/focus-long.png" colordiffuse="dialog_bg2">colors/white.png</texture>
 			</control>
 			<control type="edit" id="312">
 				<centerleft>50%</centerleft>
@@ -608,11 +608,18 @@
 						<top>0</top>
 						<width>480</width>
 						<height>60</height>
-						<texture diffuse="masks/focus.png" colordiffuse="dialog_tint">colors/white.png</texture>
+						<texture diffuse="masks/focus.png" colordiffuse="button_focus">colors/white.png</texture>
+					</control>
+					<control type="image">
+						<left>10</left>
+						<top>0</top>
+						<width>480</width>
+						<height>60</height>
+						<texture diffuse="masks/focus.png" colordiffuse="dialog_bg">colors/white.png</texture>
 					</control>
 					<control type="label">
 						<textoffsetx>30</textoffsetx>
-						<top>0</top>
+						<top>-3</top>
 						<width>500</width>
 						<height>60</height>
 						<label>$INFO[ListItem.Label]</label>
@@ -625,13 +632,13 @@
 				</itemlayout>
 				<focusedlayout width="500" height="82">
 					<control type="group">
-						<control type="image">
+						<!-- <control type="image">
 							<left>10</left>
 							<top>0</top>
 							<width>480</width>
 							<height>60</height>
-							<texture diffuse="masks/focus.png" colordiffuse="dialog_tint">colors/white.png</texture>
-						</control>
+							<texture diffuse="masks/focus.png" colordiffuse="dialog_bg">colors/white.png</texture>
+						</control> -->
 						<control type="image">
 							<left>10</left>
 							<width>480</width>
@@ -641,7 +648,7 @@
 						</control>
 						<control type="label">
 							<textoffsetx>30</textoffsetx>
-							<top>0</top>
+							<top>-3</top>
 							<width>500</width>
 							<height>60</height>
 							<label>[B]$INFO[ListItem.Label][/B]</label>
