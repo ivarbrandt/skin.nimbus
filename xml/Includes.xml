@@ -1739,9 +1739,9 @@
 
 	<include name="FlixPanel">
 		<control type="grouplist">
-			<left>$PARAM[left]</left>
-			<width>$PARAM[width]</width>
-			<top>$PARAM[top]</top>
+			<left>50</left>
+			<width>825</width>
+			<top>50</top>
 			<orientation>vertical</orientation>
 			<itemgap>13</itemgap>
 			<control type="image">
@@ -1793,11 +1793,9 @@
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 				<visible>!String.IsEmpty(ListItem.Art(clearlogo)) + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
 			</control>
-			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings">
-				<param name="ratings_spacing" value="20" />
-			</include>
+			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
 			<control type="textbox">
-				<height max="$PARAM[height_ratings]">auto</height>
+				<height max="145">auto</height>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
@@ -1806,7 +1804,7 @@
 				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Skin.HasSetting(TrailerPlaying)]</visible>
 			</control>
 			<control type="textbox">
-				<height max="$PARAM[height_noratings]">auto</height>
+				<height max="180">auto</height>
 				<width>600</width>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
@@ -1816,7 +1814,7 @@
 				<visible>Skin.HasSetting(TrailerPlaying)</visible>
 			</control>
 			<control type="textbox">
-				<height max="$PARAM[height_noratings]">auto</height>
+				<height max="180">auto</height>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
@@ -1831,7 +1829,7 @@
 		<control type="grouplist">
 			<height>38</height>
 			<orientation>horizontal</orientation>
-			<itemgap>$PARAM[ratings_spacing]</itemgap>
+			<itemgap>20</itemgap>
 			<aligny>center</aligny>
 			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !Skin.HasSetting(TrailerPlaying) + !String.IsEmpty(ListItem.Genre)</visible>
 			<control type="grouplist">
@@ -2009,7 +2007,7 @@
 	<include name="WeatherPanel">
 		<control type="group" id="16678">
 			<description>Weather info</description>
-			<left>83</left>
+			<left>50</left>
 			<top>-511</top>
 			<height>360</height>
 			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus</visible>

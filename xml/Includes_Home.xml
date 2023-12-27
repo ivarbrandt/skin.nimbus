@@ -14,7 +14,7 @@
 		<param name="label_focus">$VAR[FlixCrumbsVar]</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
-				<left>85</left>
+				<left>50</left>
 				<top>80</top>
 				<height>40</height>
 				<width>1815</width>
@@ -37,7 +37,7 @@
 				</control>
 				<control type="label">
 					<top>12</top>
-					<label>$VAR[HomescreenFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
+					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
@@ -61,7 +61,6 @@
 				<param name="posy" value="240"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<left>0</left>
 				<top>107</top>
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
@@ -76,7 +75,7 @@
 				</include>
 				<itemlayout width="263" >
 					<control type="group">
-						<left>68</left>
+						<left>35</left>
 						<top>15</top>
 						<include content="FlixMovieLayout">
 						<param name="focused" value="false" />
@@ -87,7 +86,7 @@
 				<focusedlayout width="263" >
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>68</left>
+						<left>35</left>
 						<top>15</top>
 						<include content="FlixMovieLayout">
 						<param name="focused" value="true" />
@@ -120,7 +119,6 @@
 				<param name="posy" value="140"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<left>0</left>
 				<top>107</top>
 				<right>0</right>
 				<height>1100</height>
@@ -133,10 +131,10 @@
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="305">
+				<itemlayout width="306">
 					<control type="group">
 						<top>3</top>
-						<left>70</left>
+						<left>37</left>
 						<control type="image">
 							<width>315</width>
 							<height>315</height>
@@ -180,11 +178,11 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="305">
+				<focusedlayout width="306">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>3</top>
-						<left>70</left>
+						<left>37</left>
 						<control type="image">
 							<include>FocusBounce</include>
 							<width>315</width>
@@ -354,7 +352,6 @@
 				<param name="visible" value="$PARAM[visible]"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<left>0</left>
 				<top>107</top>
 				<right>0</right>
 				<height>1100</height>
@@ -368,10 +365,10 @@
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="305">
+				<itemlayout width="306">
 					<control type="group">
 						<top>3</top>
-						<left>70</left>
+						<left>37</left>
 						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
@@ -381,11 +378,11 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="305">
+				<focusedlayout width="306">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>3</top>
-						<left>70</left>
+						<left>37</left>
 						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
@@ -417,7 +414,6 @@
 				<param name="posy" value="200"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<left>0</left>
 				<top>107</top>
 				<right>0</right>
 				<height>1100</height>
@@ -427,9 +423,9 @@
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<itemlayout width="305" infoupdate="$PARAM[info_update]">
+				<itemlayout width="306" infoupdate="$PARAM[info_update]">
 					<control type="group">
-						<left>70</left>
+						<left>37</left>
 						<control type="image">
 							<!-- 319 -->
 							<width>315</width>
@@ -499,10 +495,10 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="305" infoupdate="$PARAM[info_update]">
+				<focusedlayout width="306" infoupdate="$PARAM[info_update]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<left>70</left>
+						<left>37</left>
 						<control type="progress">
 							<left>40</left>
 							<top>267</top>
@@ -587,7 +583,7 @@
 	</include>
 
 	<include name="WeatherWidget">
-		<param name="width">305</param>
+		<param name="width">306</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
@@ -595,7 +591,6 @@
 				<param name="visible" value="$PARAM[visible]"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<left>0</left>
 				<top>107</top>
 				<right>0</right>
 				<height>1100</height>
@@ -610,7 +605,7 @@
 				<itemlayout width="$PARAM[width]">
 					<control type="group">
 						<top>-20</top>
-						<left>70</left>
+						<left>37</left>
 						<control type="image">
 							<left>0</left>
 							<top>20</top>
@@ -654,7 +649,7 @@
 				</itemlayout>
 				<focusedlayout width="$PARAM[width]">
 					<control type="group">
-						<left>70</left>
+						<left>37</left>
 						<top>-20</top>
 						<depth>DepthContentPopout</depth>
 						<control type="image">

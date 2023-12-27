@@ -22,7 +22,6 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
-				<left>-33</left>
 				<top>510</top>
 				<include>OpenClose_Right</include>
 				<!-- SEARCH RESULTS -->
@@ -98,7 +97,7 @@
 			<control type="label">
 				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
 				<top>565</top>
-				<left>52</left>
+				<left>50</left>
 				<width>1815</width>
 				<aligny>center</aligny>
 				<height>40</height>
@@ -296,14 +295,7 @@
 				<control type="group">
 					<!-- <width>550</width> -->
 					<visible allowhiddenfocus="true">[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
-					<include content="FlixPanel">
-						<param name="left" value="50" />
-						<param name="width" value="825" />
-						<param name="top" value="50" />
-						<param name="ratings_spacing" value="7" />
-						<param name="height_ratings" value="145" />
-						<param name="height_noratings" value="180" />
-					</include>
+					<include content="FlixPanel"/>
 					<!-- <control type="textbox">
 						<left>30</left>
 						<top>467</top>

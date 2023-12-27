@@ -7,9 +7,9 @@
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
-	<onload>RunScript(script.nimbus.helper,mode=fix_black_screen)</onload>
-	<onload condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
-	<onload condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,2.0)</onload>	
+	<!-- <onload>RunScript(script.nimbus.helper,mode=fix_black_screen)</onload> -->
+	<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,2.0)</onload>	
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="multiimage">
@@ -30,7 +30,6 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
-				<left>-33</left>
 				<top>510</top>
 				<include>OpenClose_Right</include>
 				<control type="group" id="27000">
@@ -534,9 +533,9 @@
 						<orientation>horizontal</orientation>
 						<pagecontrol>14010</pagecontrol>
 						<visible>Integer.IsGreater(Container(14100).NumItems,0) | Container(14100).IsUpdating</visible>
-						<itemlayout width="305">
+						<itemlayout width="306">
 							<control type="group">
-								<left>70</left>
+								<left>37</left>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultFavourites.png" />
 									<param name="list_id" value="$PARAM[list_id]" />
@@ -544,10 +543,10 @@
 								</include>
 							</control>
 						</itemlayout>
-						<focusedlayout width="305">
+						<focusedlayout width="306">
 							<control type="group">
 								<depth>DepthContentPopout</depth>
-								<left>70</left>
+								<left>37</left>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultFavourites.png" />
 									<param name="list_id" value="$PARAM[list_id]" />
@@ -571,7 +570,6 @@
 						<param name="scrollbar_id" value="14010"/>
 					</include>
 				</control>
-				<!-- <include>WeatherPanel</include> -->
 				<control type="group" id="15000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),weather)</visible>
 					<include content="Visible_Right_Delayed">
@@ -812,14 +810,7 @@
 					<!-- <width>550</width> -->
 					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
 					<include>OpenClose_Left</include>
-					<include content="FlixPanel">
-						<param name="left" value="50" />
-						<param name="width" value="825" />
-						<param name="top" value="50" />
-						<param name="ratings_spacing" value="7" />
-						<param name="height_ratings" value="145" />
-						<param name="height_noratings" value="180" />
-					</include>
+					<include content="FlixPanel"/>
 					<!-- <control type="textbox">
 						<left>50</left>
 						<top>467</top>

@@ -30,14 +30,7 @@
 				</include> -->
 				<control type="group">
 					<!-- <width>550</width> -->
-					<include content="FlixPanel">
-						<param name="left" value="45" />
-						<param name="width" value="825" />
-						<param name="top" value="50" />
-						<param name="ratings_spacing" value="7" />
-						<param name="height_ratings" value="145" />
-						<param name="height_noratings" value="180" />
-					</include>
+					<include content="FlixPanel"/>
 					<control type="group">
 						<left>20</left>
 						<top>245</top>
