@@ -147,7 +147,7 @@
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
 				<texturefocus colordiffuse="button_focus">buttons/dfo.png</texturefocus>
-				<texturenofocus colordiffuse="button_focus">buttons/dnfo.png</texturenofocus>
+				<texturenofocus colordiffuse="dialog_bg">buttons/dnfo.png</texturenofocus>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>

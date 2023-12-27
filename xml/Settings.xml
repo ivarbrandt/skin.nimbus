@@ -21,22 +21,23 @@
 			<top>0</top>
 			<bottom>0</bottom>
 			<include>OpenClose_Right</include>
-			<control type="label">
+			<!-- <control type="label">
 				<left>0</left>
 				<right>0</right>
 				<top>420</top>
 				<height>400</height>
-				<label>$LOCALIZE[5]</label>
+				<label>[UPPERCASE]$LOCALIZE[5][/UPPERCASE]</label>
 				<textcolor>unfocused_text</textcolor>
 				<align>center</align>
 				<font>font37</font>
-			</control>
+			</control> -->
 			<control type="panel" id="9000">
-				<left>0</left>
+				<left>30</left>
 				<width>100%</width>
-				<top>120</top>
-				<height>300</height>
-				<onup>noop</onup>
+				<top>180</top>
+				<height>100%</height>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
 				<ondown>Control.SetFocus(9001,$INFO[Container(9000).Position],absolute)</ondown>
 				<include>SettingsPanel</include>
 				<content>
@@ -60,10 +61,57 @@
 						<onclick>ActivateWindow(systeminfo)</onclick>
 						<icon>icons/settings/sysinfo.png</icon>
 					</item>
+					<item>
+						<label>$LOCALIZE[14200]</label>
+						<onclick>ActivateWindow(PlayerSettings)</onclick>
+						<icon>icons/settings/player.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[14211]</label>
+						<onclick>ActivateWindow(MediaSettings)</onclick>
+						<icon>icons/settings/media.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[14204]</label>
+						<onclick>ActivateWindow(PVRSettings)</onclick>
+						<icon>icons/settings/livetv.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[14036]</label>
+						<onclick>ActivateWindow(ServiceSettings)</onclick>
+						<icon>icons/settings/network.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[15016]</label>
+						<visible>System.GetBool(gamesgeneral.enable)</visible>
+						<onclick>ActivateWindow(GameSettings)</onclick>
+						<icon>icons/settings/games.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[14206]</label>
+						<onclick>ActivateWindow(InterfaceSettings)</onclick>
+						<icon>icons/settings/interface.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[13200]</label>
+						<onclick>ActivateWindow(Profiles)</onclick>
+						<icon>icons/settings/profiles.png</icon>
+					</item>
+					<item>
+						<label>$LOCALIZE[13000]</label>
+						<onclick>ActivateWindow(SystemSettings)</onclick>
+						<icon>icons/settings/system.png</icon>
+					</item>
+					<item>
+						<label>LibreELEC</label>
+						<onclick>RunAddon(service.libreelec.settings)</onclick>
+						<icon>icons/settings/libreelec.png</icon>
+						<visible>System.AddonIsEnabled(service.libreelec.settings)</visible>
+					</item>
 				</content>
 			</control>
-			<control type="panel" id="9001">
-				<left>0</left>
+			<!-- <control type="panel" id="9001">
+				<left>30</left>
 				<right>0</right>
 				<top>470</top>
 				<bottom>0</bottom>
@@ -119,11 +167,11 @@
 						<visible>System.AddonIsEnabled(service.libreelec.settings)</visible>
 					</item>
 				</content>
-			</control>
+			</control> -->
 		</control>
 		<include content="TopBar">
 			<param name="breadcrumbs_label" value="$LOCALIZE[13000]" />
 		</include>
-		<include>BottomBar</include>
+		<!-- <include>BottomBar</include> -->
 	</controls>
 </window>

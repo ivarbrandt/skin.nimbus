@@ -228,7 +228,7 @@
 	</include>
 	<include name="DefaultSimpleListLayout">
 		<param name="align">left</param>
-		<param name="height">70</param>
+		<param name="height">63</param>
 		<param name="font">font13</param>
 		<param name="fontcolor">grey</param>
 		<param name="diffuse">$PARAM[diffuse]</param>
@@ -254,7 +254,7 @@
 					</control>
 					<control type="label">
 						<left>80</left>
-						<top>0</top>
+						<top>-3</top>
 						<right>20</right>
 						<bottom>0</bottom>
 						<align>$PARAM[align]</align>
@@ -268,7 +268,7 @@
 					<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					<control type="label">
 						<left>45</left>
-						<top>0</top>
+						<top>-3</top>
 						<right>45</right>
 						<bottom>0</bottom>
 						<align>$PARAM[align]</align>
@@ -308,7 +308,7 @@
 					</control>
 					<control type="label">
 						<left>80</left>
-						<top>0</top>
+						<top>-3</top>
 						<right>20</right>
 						<bottom>0</bottom>
 						<align>$PARAM[align]</align>
@@ -322,7 +322,7 @@
 					<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					<control type="label">
 						<left>45</left>
-						<top>0</top>
+						<top>-3</top>
 						<right>45</right>
 						<bottom>0</bottom>
 						<align>$PARAM[align]</align>
@@ -789,13 +789,13 @@
 		<control type="group">
 			<width>$PARAM[width]</width>
 			<height>$PARAM[height]</height>
-			<control type="image">
+			<!-- <control type="image">
 				<left>-2</left>
 				<top>-2</top>
 				<right>-2</right>
         <bottom>-2</bottom>
 				<texture colordiffuse="button_focus">$PARAM[diffusetexture]</texture>
-			</control>
+			</control> -->
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -1591,27 +1591,27 @@
 		</control>
 	</include>
 	<include name="SettingsPanel">
-		<itemlayout height="260" width="400">
+		<itemlayout height="230" width="370">
 			<control type="image">
 				<left>-5</left>
 				<width>410</width>
 				<height>270</height>
-				<texture colordiffuse="dialog_bg">masks/settingspanel-unfocused.png</texture>
+				<texture colordiffuse="dialog_bg">masks/settingspanel.png</texture>
 				<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
-				<bordersize>20</bordersize>
+				<bordersize>37</bordersize>
 			</control>
 			<control type="image">
-				<centerleft>50%</centerleft>
-				<top>30</top>
-				<width>240</width>
-				<height>160</height>
+				<centerleft>54%</centerleft>
+				<top>45</top>
+				<width>210</width>
+				<height>140</height>
 				<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 				<align>center</align>
 				<aspectratio>scale</aspectratio>
 			</control>
 			<control type="label">
 				<left>25</left>
-				<top>190</top>
+				<top>170</top>
 				<width>350</width>
 				<height>400</height>
 				<label>$INFO[ListItem.Label]</label>
@@ -1619,7 +1619,7 @@
 				<align>center</align>
 			</control>
 		</itemlayout>
-		<focusedlayout height="230" width="400">
+		<focusedlayout height="230" width="370">
 			<control type="group">
 				<depth>DepthContentPopout</depth>
 				<control type="image">
@@ -1628,20 +1628,20 @@
 					<width>410</width>
 					<height>270</height>
 					<texture colordiffuse="button_focus">masks/settingspanel.png</texture>
-					<bordersize>13</bordersize>
+					<bordersize>37</bordersize>
 					<include>Animation_FocusTextureFade</include>
 					<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
 				</control>
 				<control type="image">
 					<include>FocusBounce</include>
-					<left>-5</left>
-					<width>410</width>
+					<left>-8</left>
+					<width>416</width>
 					<height>270</height>
 					<texture colordiffuse="button_focus">masks/settingspanel-glow.png</texture>
-					<bordersize>-5</bordersize>
+					<bordersize>12</bordersize>
 					<include>Animation_FocusTextureFade</include>
 					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
-					<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="205,135" tween="cubic" easing="in" pulse="true">Conditional</animation>
+					<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="208,135" tween="cubic" easing="in" pulse="true">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>-5</left>
@@ -1649,20 +1649,20 @@
 					<height>270</height>
 					<texture colordiffuse="dialog_bg">masks/settingspanel.png</texture>
 					<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
-					<bordersize>20</bordersize>
+					<bordersize>37</bordersize>
 				</control>
 				<control type="image">
-					<centerleft>50%</centerleft>
-					<top>30</top>
-					<width>240</width>
-					<height>160</height>
+					<centerleft>54%</centerleft>
+					<top>45</top>
+					<width>210</width>
+					<height>140</height>
 					<texture colordiffuse="FFCCCCCC">$INFO[ListItem.Icon]</texture>
 					<align>center</align>
 					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="label">
 					<left>25</left>
-					<top>190</top>
+					<top>170</top>
 					<width>350</width>
 					<height>400</height>
 					<label>$INFO[ListItem.Label]</label>
