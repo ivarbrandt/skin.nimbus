@@ -27,12 +27,6 @@
 			<style>lighten</style>
 		</font>
 		<font>
-			<name>font20</name>
-			<filename>SF-Pro.ttf</filename>
-			<size>20</size>
-			<style>lighten</style>
-		</font>
-		<font>
 			<name>font23_narrow</name>
 			<filename>SF-Pro.ttf</filename>
 			<size>23</size>
