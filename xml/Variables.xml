@@ -714,7 +714,11 @@
 	</variable>
 
 	<variable name="HomescreenFlixCrumbs">
-    <value condition="Window.IsActive(Home)">$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color][B]»[/B][/COLOR] </value>
+    <value condition="Window.IsActive(Home)">$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color][B]»[/B][/COLOR] </value>
+	</variable>
+
+	<variable name="TrailerReadyVar">
+    <value condition="!String.IsEmpty(Window.Property(nimbus.trailer_ready))">[COLOR limegreen]▶[/COLOR] </value>
 	</variable>
 
 	<variable name="SearchFlixCrumbs">

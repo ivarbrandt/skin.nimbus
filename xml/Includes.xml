@@ -1794,7 +1794,7 @@
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>Skin.HasSetting(TrailerPlaying) | Player.HasMedia</visible>
+				<visible>Skin.HasSetting(TrailerPlaying)</visible>
 			</control>
 			<control type="textbox">
 				<height max="180">auto</height>
