@@ -155,6 +155,11 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>font53_title</name>
+			<filename>AVENIDA.ttf</filename>
+			<size>78</size>
+		</font>
+		<font>
 			<name>font_MainMenu</name>
 			<filename>SF-Pro.ttf</filename>
 			<size>60</size>

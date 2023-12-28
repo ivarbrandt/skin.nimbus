@@ -259,47 +259,15 @@
 					<onclick>Skin.ToggleSetting(Enable.GlowPulse)</onclick>
 					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
 				</control>
-				<!-- BACKGROUND BLUR -->
-				<control type="radiobutton" id="63706">
-					<label>Enable background blur for media content</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
-					<!-- <onclick>InstallAddon(script.embuary.helper)</onclick> -->
-					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
-				</control>
-				<!-- BLUR RADIUS -->
-				<control type="button" id="63707">
-					<label>    - Set blur radius (Lower to reduce blur intensity)</label>
-					<label2>$INFO[Skin.String(BlurRadius)]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper, mode=set_blurradius)</onclick>
-					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
-				</control>
-				<!-- BLUR SATURATION -->
-				<control type="button" id="63708">
-					<label>    - Set blur saturation (Lower to reduce color intensity)</label>
-					<label2>$INFO[Skin.String(BlurSaturation)]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
-					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
-				</control>
-				<!-- CLEAR IMAGE CACHE -->
-				<control type="button" id="63709">
-					<label>    - Clear blur cache</label>
-					<label2>$INFO[Skin.String(CacheSize)]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
-					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
-				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63710">
+				<control type="radiobutton" id="63706">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63711">
+				<control type="radiobutton" id="63707">
 					<label>Disable color studio logos</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
@@ -531,7 +499,45 @@
 				<onup>600</onup>
 				<ondown>600</ondown>
 				<visible>Container(9000).HasFocus(6)</visible>
-				<control type="button" id="6002">
+				<!-- CLEARLOGO -->
+				<control type="radiobutton" id="6002">
+					<label>Enable clearlogo</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(Enable.Clearlogo)</onclick>
+					<selected>Skin.HasSetting(Enable.Clearlogo)</selected>
+				</control>
+				<!-- BACKGROUND BLUR -->
+				<control type="radiobutton" id="6003">
+					<label>Enable background blur for media content</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
+					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
+				</control>
+				<!-- BLUR RADIUS -->
+				<control type="button" id="6004">
+					<label>    - Set blur radius (Lower to reduce blur intensity)</label>
+					<label2>$INFO[Skin.String(BlurRadius)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=set_blurradius)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<!-- BLUR SATURATION -->
+				<control type="button" id="6005">
+					<label>    - Set blur saturation (Lower to reduce color intensity)</label>
+					<label2>$INFO[Skin.String(BlurSaturation)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<!-- CLEAR IMAGE CACHE -->
+				<control type="button" id="6006">
+					<label>    - Clear blur cache</label>
+					<label2>$INFO[Skin.String(CacheSize)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<control type="button" id="6007">
 					<label>$LOCALIZE[31131]</label>
 					<label2>$INFO[Skin.String(HomeFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -539,7 +545,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6003">
+				<control type="button" id="6008">
 					<label>$LOCALIZE[31062]</label>
 					<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -547,7 +553,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6004">
+				<control type="button" id="6009">
 					<label>$LOCALIZE[31149]</label>
 					<label2>$INFO[Skin.String(MovieGenreFanart.Name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -555,7 +561,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="radiobutton" id="6005">
+				<control type="radiobutton" id="6010">
 					<label>$LOCALIZE[31168]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
@@ -667,16 +673,16 @@
 						<label>Options</label>
 						<onclick>noop</onclick>
 					</item>
+					<item id="6">
+						<label>$LOCALIZE[31159]</label>
+						<onclick>noop</onclick>
+					</item>
 					<item id="4">
 						<label>Ratings/Trailers</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="3">
 						<label>Search</label>
-						<onclick>noop</onclick>
-					</item>
-					<item id="6">
-						<label>$LOCALIZE[31159]</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="7">
@@ -710,7 +716,7 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[5] [B]»[/B] $LOCALIZE[20077]" />
+			<param name="breadcrumbs_label" value="$LOCALIZE[5] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[20077]" />
 		</include>
 		<include>BottomBar</include>
 		<control type="textbox" id="6">

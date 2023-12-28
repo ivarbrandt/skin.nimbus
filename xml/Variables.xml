@@ -708,6 +708,11 @@
 		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value>
 	</variable>
 
+	<variable name="SubstituteLabel">
+    <value condition="String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | Container.Content(addons)">$INFO[ListItem.Label]</value>
+    <value condition="String.IsEqual(ListItem.DbType,episode)">$INFO[ListItem.TVshowTitle]</value>
+	</variable>
+
 	<variable name="HomescreenFlixCrumbs">
     <value condition="Window.IsActive(Home)">$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color][B]»[/B][/COLOR] </value>
 	</variable>
