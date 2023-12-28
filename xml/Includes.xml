@@ -1704,6 +1704,7 @@
 		<control type="button">
 			<visible>false</visible>
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Stop</onunfocus>
+			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.Reset(TrailerPlaying)</onunfocus>
 		</control>
 	</include>
 
