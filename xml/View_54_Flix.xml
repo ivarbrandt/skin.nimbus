@@ -458,7 +458,7 @@
 				<left>50</left>
 				<top>70</top>
 				<width>1815</width>
-				<label>$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [COLOR accent_color][B]»[/B][/COLOR] ]$VAR[FlixCrumbsVar]</label>
+				<label>$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$INFO[Container.PluginCategory, [COLOR accent_color][B]»[/B][/COLOR] ]$VAR[FlixCrumbsVar]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>

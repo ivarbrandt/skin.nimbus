@@ -722,7 +722,7 @@
 	</variable>
 
 	<variable name="SearchFlixCrumbs">
-    <value condition="Window.IsActive(1121)">$VAR[ClockCrumbs]</value>
+    <value condition="Window.IsActive(1121)">$VAR[TrailerReadyVar]$VAR[ClockCrumbs]</value>
 	</variable>
 
 	<!-- <variable name="FlixCrumbsProgress">
