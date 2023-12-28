@@ -801,7 +801,7 @@
 				<top>0</top>
 				<right>0</right>
 				<bottom>0</bottom>
-				<texture colordiffuse="dialog_bg">$PARAM[diffusetexture]</texture>
+				<texture colordiffuse="dialog_bg3">$PARAM[diffusetexture]</texture>
 			</control>
 			<control type="label" id="$PARAM[header_id]">
 				<posx>0</posx> 
@@ -1749,16 +1749,16 @@
 				<height>233</height>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
+				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
 			</control>
 			<control type="textbox">
 				<aligny>center</aligny>
-				<height>auto</height>
-				<font>font52_title</font>
+				<height>233</height>
+				<font>font53_title</font>
 				<textcolor>unfocused_text</textcolor>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[SubstituteLabel]</label>
 				<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
+				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
 			</control>
 			<control type="textbox">
 				<height>44</height>
@@ -1767,31 +1767,14 @@
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 			</control>
-			<!-- <control type="textbox">
-				<height>44</height>
-				<label>$VAR[AddonsLabel2Var]</label>
-				<font>font30_title</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-				<visible>Container.Content(addons)</visible>
-			</control> -->
 			<control type="textbox" id="15500">
-				<height>313</height>
-				<width>600</width>
-				<label>$VAR[ListBoxInfoVar]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-				<visible>String.IsEmpty(ListItem.Art(clearlogo)) + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
-			</control>
-			<control type="textbox" id="15550">
 				<height>180</height>
 				<width>600</width>
 				<label>$VAR[ListBoxInfoVar]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-				<visible>!String.IsEmpty(ListItem.Art(clearlogo)) + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
+				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
 			</control>
 			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
 			<control type="textbox">
