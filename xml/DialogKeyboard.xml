@@ -603,7 +603,7 @@
 				<ondown>105</ondown>
 				<visible>!Control.IsVisible(313)</visible>
 				<itemlayout width="500" height="82">
-					<control type="image">
+					<!-- <control type="image">
 						<left>10</left>
 						<top>0</top>
 						<width>480</width>
@@ -616,7 +616,7 @@
 						<width>480</width>
 						<height>60</height>
 						<texture diffuse="masks/focus.png" colordiffuse="dialog_bg">colors/white.png</texture>
-					</control>
+					</control> -->
 					<control type="label">
 						<textoffsetx>30</textoffsetx>
 						<top>-3</top>
