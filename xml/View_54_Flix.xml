@@ -275,7 +275,7 @@
 					<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="137.5,191.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
 					<top>-12</top>
 					<width>275</width>
-					<height>383</height>
+					<height>381</height>
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
 					<bordersize>-3</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
