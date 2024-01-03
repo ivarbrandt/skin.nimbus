@@ -1752,14 +1752,34 @@
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
 			</control>
-			<control type="textbox">
-				<aligny>center</aligny>
+			<control type="group">
 				<height>233</height>
-				<font>font53_title</font>
-				<textcolor>unfocused_text</textcolor>
-				<label>$VAR[SubstituteLabel]</label>
-				<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
+				<width>725</width>
 				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
+				<control type="textbox">
+					<aligny>center</aligny>
+					<font>font52_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[SubstituteLabel]</label>
+					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>String.IsEqual(Skin.String(titleSetting),0)</visible>
+				</control>
+				<control type="textbox">
+					<aligny>center</aligny>
+					<font>font_title_eng</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[SubstituteLabel]</label>
+					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>String.IsEqual(Skin.String(titleSetting),1)</visible>
+				</control>
+				<control type="textbox">
+					<aligny>center</aligny>
+					<font>font_title_west</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[SubstituteLabel]</label>
+					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>String.IsEqual(Skin.String(titleSetting),2)</visible>
+				</control>
 			</control>
 			<control type="textbox">
 				<height>44</height>

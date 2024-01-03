@@ -820,6 +820,19 @@
 		<value>Skin.SetString(trailerSetting,0)</value>
 	</variable>
 
+	<variable name="TitleSettingVar">
+    <value condition="String.IsEqual(Skin.String(titleSetting),0)">Default</value>
+    <value condition="String.IsEqual(Skin.String(titleSetting),1)">Engebrechtre</value>
+    <value condition="String.IsEqual(Skin.String(titleSetting),2)">Westmeath</value>
+	</variable>
+
+	<variable name="TitleSettingToggleVar">
+		<value condition="String.IsEqual(Skin.String(titleSetting),0)">Skin.SetString(titleSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(titleSetting),1)">Skin.SetString(titleSetting,2)</value>
+		<value condition="String.IsEqual(Skin.String(titleSetting),2)">Skin.SetString(titleSetting,0)</value>
+		<value>Skin.SetString(titleSetting,0)</value>
+	</variable>
+
 	<!-- RATINGS INFOPANEL VARIABLES -->
 	<!-- Released -->
 	<variable name="RI_Year">
