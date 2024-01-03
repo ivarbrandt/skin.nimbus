@@ -1754,7 +1754,7 @@
 			</control>
 			<control type="group">
 				<height>233</height>
-				<width>725</width>
+				<width>600</width>
 				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
 				<control type="textbox">
 					<aligny>center</aligny>
