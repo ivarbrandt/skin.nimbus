@@ -10,6 +10,8 @@
 	<!-- <onload>RunScript(script.nimbus.helper,mode=fix_black_screen)</onload> -->
 	<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,2.0)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(trailerSetting))">Skin.SetString(trailerSetting,0)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="multiimage">

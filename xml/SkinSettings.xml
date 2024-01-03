@@ -371,62 +371,69 @@
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_api_key)</onclick>
 				</control>
-				<control type="radiobutton" id="64801">
-					<label>Enable one-click trailers (long press play/pause button or 't' key on keyboard)</label>
+				<control type="button" id="64801">
+					<label>    - Trailers</label>
+					<label2>$VAR[TrailerSettingVar]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Enable.OneClickTrailers)</onclick>
-					<selected>Skin.HasSetting(Enable.OneClickTrailers)</selected>
+					<onclick>$VAR[TrailerSettingToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64802">
+				<control type="button" id="64802">
+					<label>        - Set delay</label>
+					<label2>$VAR[TrailerDelayTimeVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[TrailerDelayToggleVar]</onclick>
+					<visible>!String.IsEmpty(Skin.String(mdblist_api_key)) + String.IsEqual(Skin.String(trailerSetting),2)</visible>
+				</control>
+				<control type="radiobutton" id="64803">
 					<label>    - Metacritic</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.MetacriticRating)</onclick>
 					<selected>!Skin.HasSetting(Disable.MetacriticRating)</selected>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64803">
+				<control type="radiobutton" id="64804">
 					<label>    - Rotten Tomatoes (Critic)</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.RTCRating)</onclick>
 					<selected>!Skin.HasSetting(Disable.RTCRating)</selected>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64804">
+				<control type="radiobutton" id="64805">
 					<label>    - Rotten Tomatoes (Audience)</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.RTARating)</onclick>
 					<selected>!Skin.HasSetting(Disable.RTARating)</selected>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64805">
+				<control type="radiobutton" id="64806">
 					<label>    - IMDb (Main)</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.IMDbRating)</onclick>
 					<selected>!Skin.HasSetting(Disable.IMDbRating)</selected>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64806">
+				<control type="radiobutton" id="64807">
 					<label>    - IMDb (Popular)</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.IMDbPopularRating)</onclick>
 					<selected>!Skin.HasSetting(Disable.IMDbPopularRating)</selected>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64807">
+				<control type="radiobutton" id="64808">
 					<label>    - TMDb</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.TMDbRating)</onclick>
 					<selected>!Skin.HasSetting(Disable.TMDbRating)</selected>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="button" id="64808">
+				<control type="button" id="64809">
 					<label>Clear MDbList API Key</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.SetString(mdblist_api_key,)</onclick>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
-				<control type="button" id="64809">
+				<control type="button" id="64810">
 					<label>Clear ratings cache</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper,mode=delete_all_ratings)</onclick>
