@@ -1142,7 +1142,7 @@
 	<include name="ColoredBackgroundImages">
 
 		<control type="group">
-			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
 			<control type="image" id="100000">
 				<fadetime>500</fadetime>
 				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
@@ -1785,7 +1785,7 @@
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Skin.HasSetting(TrailerPlaying)]</visible>
+				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
 			</control>
 			<control type="textbox">
 				<height max="180">auto</height>
@@ -1795,7 +1795,7 @@
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>Skin.HasSetting(TrailerPlaying)</visible>
+				<visible>Player.HasMedia</visible>
 			</control>
 			<control type="textbox">
 				<height max="180">auto</height>
@@ -1815,7 +1815,7 @@
 			<orientation>horizontal</orientation>
 			<itemgap>20</itemgap>
 			<aligny>center</aligny>
-			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !Skin.HasSetting(TrailerPlaying) + !String.IsEmpty(ListItem.Genre)</visible>
+			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !Player.HasMedia + !String.IsEmpty(ListItem.Genre)</visible>
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>
