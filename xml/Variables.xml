@@ -718,7 +718,7 @@
 	</variable>
 
 	<variable name="TrailerReadyVar">
-    <value condition="!String.IsEmpty(Window.Property(nimbus.trailer_ready))">[COLOR limegreen]▶[/COLOR] </value>
+    <value condition="String.IsEqual(Skin.String(trailerSetting),1) + Skin.HasSetting(Enable.TrailerReadyIcon) + !String.IsEmpty(Window.Property(nimbus.trailer_ready))">[COLOR accent_color]▶[/COLOR] </value>
 	</variable>
 
 	<variable name="SearchFlixCrumbs">
