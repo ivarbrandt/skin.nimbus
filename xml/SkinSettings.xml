@@ -379,14 +379,14 @@
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
 				<control type="button" id="64802">
-					<label>        - Set delay</label>
+					<label>        - Set trailer delay</label>
 					<label2>$VAR[TrailerDelayTimeVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[TrailerDelayToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key)) + String.IsEqual(Skin.String(trailerSetting),2)</visible>
 				</control>
 				<control type="radiobutton" id="64803">
-					<label>        - Enable trailer ready icon in InfoLine</label>
+					<label>        - Enable trailer ready icon in InfoLine (movies/tvshows)</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Enable.TrailerReadyIcon)</onclick>
 					<selected>Skin.HasSetting(Enable.TrailerReadyIcon)</selected>
