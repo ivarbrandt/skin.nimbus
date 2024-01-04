@@ -3,8 +3,7 @@
 	<include name="View_500_Wall">
 		<control type="group">
 			<include>OpenClose_Right</include>
-			<left>50</left>
-			<top>0</top>
+			<left>33</left>
 			<visible>Control.IsVisible(500)</visible>
 			<include>Visible_Right</include>
 			<control type="panel" id="500">
@@ -12,14 +11,11 @@
 					<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,937" end="0,0" time="500" tween="cubic" easing="out" />
 				</animation>
-				<left>-17</left>
-				<top>0</top>
-				<width>102%</width>
 				<height>100%</height>
 				<!-- <onback>Container.SetViewMode(54)</onback>
 				<onback>ClearProperty(CurrentView)</onback> -->
 				<onleft>Container.SetViewMode(54)</onleft>
-				<onright>531</onright>
+				<onright>Container.SetViewMode(54)</onright>
 				<onup condition="Integer.IsGreater(Container.NumPages,1)">500</onup>
 				<onup condition="!Integer.IsGreater(Container.NumPages,1)">9000</onup>
 				<ondown>500</ondown>
