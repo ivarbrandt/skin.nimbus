@@ -1140,7 +1140,6 @@
 	</include> -->
 
 	<include name="ColoredBackgroundImages">
-
 		<control type="group">
 			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
 			<control type="image" id="100000">
@@ -1641,7 +1640,10 @@
 					<bordersize>12</bordersize>
 					<include>Animation_FocusTextureFade</include>
 					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
-					<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="208,135" tween="cubic" easing="in" pulse="true">Conditional</animation>
+					<include content="GlowPulse">
+						<param name="pos_x" value="208"/>
+						<param name="pos_y" value="135"/>
+					</include>
 				</control>
 				<control type="image">
 					<left>-5</left>
@@ -1697,6 +1699,30 @@
 			<font>font32_title</font>
 			<label>$PARAM[label]</label>
 			<texctcolor>unfocused_text</texctcolor>
+		</control>
+	</include>
+
+	<include name="FlixSquareFocus">
+		<control type="image">
+			<include>FocusBounce</include>
+			<!-- <width>$PARAM[width]</width>
+			<height>$PARAM[height]</height> -->
+			<texture diffuse="$PARAM[diffuse]" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
+			<bordersize>$PARAM[border_size]</bordersize>
+			<visible>$PARAM[vis_cond]</visible>
+			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+		</control>
+	</include>
+
+	<include name="FlixPosterFocus">
+		<control type="image">
+			<include>FocusBounce</include>
+			<width>$PARAM[width]</width>
+			<height>$PARAM[height]</height>
+			<texture diffuse="$PARAM[diffuse]" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
+			<bordersize>$PARAM[border_size]</bordersize>
+			<visible>$PARAM[vis_cond]</visible>
+			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 		</control>
 	</include>
 

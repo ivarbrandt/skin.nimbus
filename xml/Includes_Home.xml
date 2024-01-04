@@ -78,7 +78,7 @@
 						<left>35</left>
 						<top>15</top>
 						<include content="FlixMovieLayout">
-						<param name="focused" value="false" />
+						<!-- <param name="focused" value="false" /> -->
 						<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
@@ -124,6 +124,7 @@
 				<height>1100</height>
 				<onright>$PARAM[list_id]</onright>
 				<movement>5</movement>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<include content="WidgetListCommon">
@@ -142,7 +143,7 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<centertop>155</centertop>
+							<top>43</top>
 							<left>35</left>
 							<width>250</width>
 							<height>$PARAM[icon_height]</height>
@@ -183,24 +184,25 @@
 						<depth>DepthContentPopout</depth>
 						<top>3</top>
 						<left>37</left>
-						<control type="image">
-							<include>FocusBounce</include>
+						<control type="group">
 							<width>315</width>
 							<height>315</height>
-							<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
-							<bordersize>15</bordersize>
-							<include>Animation_FocusTextureFade</include>
-							<visible>Control.HasFocus($PARAM[list_id]) + !Skin.HasSetting(Enable.FocusGlow)</visible>
-						</control>
-						<control type="image">
-							<include>FocusBounce</include>
-							<width>315</width>
-							<height>315</height>
-							<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
-							<bordersize>0</bordersize>
-							<include>Animation_FocusTextureFade</include>
-							<visible>Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(Enable.FocusGlow)</visible>
-							<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="157.5,157.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
+							<include content="FlixSquareFocus">
+								<param name="diffuse" value="masks/addons.png"/>
+								<param name="border_size" value="15"/>
+								<param name="vis_cond" value="!Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
+							</include>
+							<control type="group">
+								<include content="FlixSquareFocus">
+									<param name="diffuse" value="masks/addons-glow.png"/>
+									<param name="border_size" value="0"/>
+									<param name="vis_cond" value="Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
+								</include>
+								<include content="GlowPulse">
+									<param name="pos_x" value="157.5"/>
+									<param name="pos_y" value="157.5"/>
+								</include>
+							</control>
 						</control>
 						<control type="image">
 							<width>315</width>
@@ -209,7 +211,7 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<centertop>155</centertop>
+							<top>43</top>
 							<left>35</left>
 							<width>250</width>
 							<height>$PARAM[icon_height]</height>
@@ -356,6 +358,7 @@
 				<right>0</right>
 				<height>1100</height>
 				<movement>5</movement>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
 				<onright>$PARAM[list_id]</onright>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
@@ -374,7 +377,7 @@
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
 							<param name="list_id" value="$PARAM[list_id]" />
-							<param name="focused" value="false" />
+							<!-- <param name="focused" value="false" /> -->
 						</include>
 					</control>
 				</itemlayout>
@@ -419,6 +422,7 @@
 				<height>1100</height>
 				<movement>5</movement>
 				<onright>$PARAM[list_id]</onright>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
@@ -596,6 +600,7 @@
 				<height>1100</height>
 				<movement>5</movement>
 				<onright>$PARAM[list_id]</onright>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<include content="WidgetListCommon">
@@ -650,32 +655,28 @@
 				<focusedlayout width="$PARAM[width]">
 					<control type="group">
 						<left>37</left>
-						<top>-20</top>
 						<depth>DepthContentPopout</depth>
-						<control type="image">
-							<left>0</left>
-							<top>20</top>
+						<control type="group">
 							<width>315</width>
 							<height>315</height>
-							<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
-							<bordersize>15</bordersize>
-							<visible>Control.HasFocus($PARAM[list_id]) + !Skin.HasSetting(Enable.FocusGlow)</visible>
-							<include>Animation_FocusTextureFade</include>
+							<include content="FlixSquareFocus">
+								<param name="diffuse" value="masks/addons.png"/>
+								<param name="border_size" value="15"/>
+								<param name="vis_cond" value="!Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
+							</include>
+							<control type="group">
+								<include content="FlixSquareFocus">
+									<param name="diffuse" value="masks/addons-glow.png"/>
+									<param name="border_size" value="0"/>
+									<param name="vis_cond" value="Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
+								</include>
+								<include content="GlowPulse">
+									<param name="pos_x" value="157.5"/>
+									<param name="pos_y" value="157.5"/>
+								</include>
+							</control>
 						</control>
 						<control type="image">
-							<left>0</left>
-							<top>20</top>
-							<width>315</width>
-							<height>315</height>
-							<texture diffuse="masks/addons-glow.png" colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
-							<bordersize>-3</bordersize>
-							<visible>Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(Enable.FocusGlow)</visible>
-							<include>Animation_FocusTextureFade</include>
-							<animation condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="157.5,157.5" tween="cubic" easing="in" pulse="true">Conditional</animation>
-						</control>
-						<control type="image">
-							<left>0</left>
-							<top>20</top>
 							<width>315</width>
 							<height>315</height>
 							<texture diffuse="masks/addons.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
@@ -683,14 +684,14 @@
 						</control>
 						<control type="image">
 							<left>57</left>
-							<top>57</top>
+							<top>37</top>
 							<width>197</width>
 							<height>197</height>
 							<texture colordiffuse="artwork_dim">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>29</left>
-							<top>333</top>
+							<top>313</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
 							<font>font27</font>
@@ -698,7 +699,7 @@
 						</control>
 						<control type="label">
 							<left>29</left>
-							<top>369</top>
+							<top>349</top>
 							<align>center</align>
 							<font>font25</font>
 							<label>$INFO[ListItem.Property(ShortDate)]</label>
@@ -706,7 +707,7 @@
 						</control>
 						<control type="label">
 							<left>27</left>
-							<top>261</top>
+							<top>241</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
 							<font>font27</font>
