@@ -13,7 +13,7 @@
 			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="artwork_dim">$VAR[AddonsFanartVar]</imagepath>
+			<imagepath background="true" colordiffuse="bg_overlay">$VAR[AddonsFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
 		</control>
 		<control type="group">
@@ -101,6 +101,7 @@
 						</control>
 						<control type="label">
 							<include>FocusBounce</include>
+							<top>-3</top>
 							<left>65</left>
 							<bottom>0</bottom>
 							<right>10</right>
@@ -113,6 +114,7 @@
 					</focusedlayout>
 					<itemlayout height="95" width="462">
 						<control type="label">
+							<top>-3</top>
 							<left>65</left>
 							<bottom>0</bottom>
 							<right>10</right>
