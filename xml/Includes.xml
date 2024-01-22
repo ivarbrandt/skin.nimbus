@@ -369,7 +369,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture>$PARAM[texture]</texture>
 				<visible>$PARAM[visible]</visible>
-				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50)]</visible>
+				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500)]</visible>
 			</control>
 		</definition>
 	</include>
@@ -559,7 +559,7 @@
 						<preloaditems>2</preloaditems>
 						<pagecontrol>$PARAM[group_id]30</pagecontrol>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
-						<itemlayout height="365" width="280">
+						<itemlayout height="365" width="350">
 							<control type="group">
 								<top>150</top>
 								<include content="FlixMusicLayout">
@@ -567,7 +567,7 @@
 								</include>
 							</control>
 						</itemlayout>
-						<focusedlayout height="365" width="280">
+						<focusedlayout height="365" width="350">
 							<control type="group">
 								<include>FocusBounce</include>
 								<top>150</top>
@@ -789,19 +789,19 @@
 		<control type="group">
 			<width>$PARAM[width]</width>
 			<height>$PARAM[height]</height>
-			<!-- <control type="image">
+			<control type="image">
 				<left>-2</left>
 				<top>-2</top>
 				<right>-2</right>
         <bottom>-2</bottom>
 				<texture colordiffuse="button_focus">$PARAM[diffusetexture]</texture>
-			</control> -->
+			</control>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
 				<right>0</right>
 				<bottom>0</bottom>
-				<texture colordiffuse="dialog_bg3">$PARAM[diffusetexture]</texture>
+				<texture colordiffuse="dialog_bg2">$PARAM[diffusetexture]</texture>
 			</control>
 			<control type="label" id="$PARAM[header_id]">
 				<posx>0</posx> 
@@ -845,19 +845,20 @@
 		</control>
 	</include>
 	<include name="TopBar">
-		<param name="sublabel">$INFO[Container.SortMethod,$LOCALIZE[31022]: ,  ∙  ]$INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems]</param>
+		<!-- <param name="sublabel">$INFO[Container.SortMethod,$LOCALIZE[31022]: ,  ∙  ]$INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems]</param> -->
 		<definition>
 			<control type="group">
 				<animation effect="slide" end="0,-112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<depth>DepthBars</depth>
+				<!-- <animation effect="fade" start="0" end="100" time="300" condition="!Container.Scrolling">Conditional</animation> -->
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
-				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)]</visible>
+				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]</visible>
 				<control type="image">
-					<visible>Window.IsVisible(extendedprogressdialog)</visible>
+					<!-- <visible>Window.IsVisible(extendedprogressdialog)</visible> -->
 					<left>0</left>
 					<top>0</top>
 					<width>110%</width>
-					<height>130</height>
+					<height>170</height>
 					<texture>frame/InfoBar.png</texture>
 					<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
 					<animation effect="fade" start="0" end="100" time="700">VisibleChange</animation>
@@ -886,7 +887,7 @@
 					<texturefocus />
 					<texturenofocus />
 				</control>
-				<control type="label" id="18900">
+				<!-- <control type="label" id="18900">
 					<top>50</top>
 					<label>$PARAM[sublabel]</label>
 					<left>35</left>
@@ -896,11 +897,11 @@
 					<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 					<animation effect="slide" end="70,0" time="200" reversible="true" condition="Control.IsVisible(799)">Conditional</animation>
-				</control>
+				</control> -->
 				<control type="grouplist">
 					<top>0</top>
 					<align>right</align>
-					<right>20</right>
+					<right>33</right>
 					<height>200</height>
 					<orientation>horizontal</orientation>
 					<width>1100</width>
@@ -977,27 +978,28 @@
 					</control>
 					<control type="image">
 						<width>60</width>
-						<height>100</height>
+						<height>110</height>
 						<fadetime>300</fadetime>
 						<aspectratio aligny="center" align="left">keep</aspectratio>
 						<texture colordiffuse="unfocused_text">$INFO[Weather.FanartCode,weather/small/,.png]</texture>
 						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
 					</control>
 					<control type="label">
-						<font>font_clock_small</font>
+						<font>font45</font>
 						<height>100</height>
 						<width>auto</width>
 						<aligny>center</aligny>
 						<align>right</align>
-						<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits] [COLOR accent_color][B] • [/B][/COLOR]</label>
+						<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits] [COLOR accent_color] • [/COLOR]</label>
 						<textcolor>unfocused_text</textcolor>
 						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
 					</control>
 					<control type="label">
-						<font>font_clock</font>
+						<font>font45</font>
 						<textcolor>unfocused_text</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
-						<height>200</height>
+						<aligny>center</aligny>
+						<height>100</height>
 						<width>auto</width>
 						<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(screencalibration)">WindowClose</animation>
 						<label>$INFO[System.Time]</label>
@@ -1060,7 +1062,7 @@
 		</definition>
 	</include>
 	<include name="TopBarLabels">
-		<left>35</left>
+		<left>37</left>
 		<description>Left side of top bar</description>
 		<top>-7</top>
 		<height>100</height>
@@ -1080,13 +1082,13 @@
 			<visible>!String.IsEmpty(Container.ShowTitle) + !String.IsEqual(Container.ShowTitle,Container.FolderName)</visible>
 		</control>
 		<control type="label">
-			<label>$INFO[Container.FolderName, [B]»[/B] ]</label>
+			<label>$INFO[Container.FolderName, [COLOR accent_color][B]»[/B][/COLOR] ]</label>
 			<include>BreadcrumbsLabel</include>
 			<visible>![Container.Content()]</visible>
 			<visible>![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyVideoNav.xml)]</visible>
 		</control>
 		<control type="label">
-			<label>$INFO[Container.PluginCategory, [B]»[/B] ]</label>
+			<label>$INFO[Container.PluginCategory, [COLOR accent_color][B]»[/B][/COLOR] ]</label>
 			<include>BreadcrumbsLabel</include>
 			<visible>!String.isempty(Container.PluginCategory)</visible>
 		</control>
@@ -1830,7 +1832,7 @@
 				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="7000" time="2000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
 			</control>
 			<control type="textbox">
@@ -1840,7 +1842,7 @@
 				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 				<visible>Player.HasMedia</visible>
 			</control>
 			<control type="textbox">
@@ -1849,7 +1851,7 @@
 				<label>$VAR[InfoPanelBottom]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="10000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 				<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 			</control>
 		</control>
