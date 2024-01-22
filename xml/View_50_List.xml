@@ -260,7 +260,7 @@
 					<height>470</height>
 					<aspectratio aligny="center">keep</aspectratio>
 					<fadetime>300</fadetime>
-					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[IconWallThumbVar]</texture>
+					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$INFO[ListItem.Icon]</texture>
 					<visible>![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)] + !Container.Content(addons)</visible>
 				</control>
 				<control type="image">
