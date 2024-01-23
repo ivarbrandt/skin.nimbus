@@ -103,7 +103,7 @@
 	<include name="WidgetListCategory">
 		<param name="item_limit">30</param>
 		<param name="icon">$INFO[ListItem.Icon]</param>
-		<param name="icon_height">225</param>
+		<param name="icon_height">230</param>
 		<param name="additional_movie_items">false</param>
 		<param name="additional_tvshow_items">false</param>
 		<param name="visible">true</param>
@@ -144,10 +144,10 @@
 						</control>
 						<control type="image">
 							<top>43</top>
-							<left>35</left>
+							<left>33</left>
 							<width>250</width>
 							<height>$PARAM[icon_height]</height>
-							<texture colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<texture diffuse="masks/addons.png" colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
@@ -212,10 +212,10 @@
 						</control>
 						<control type="image">
 							<top>43</top>
-							<left>35</left>
+							<left>33</left>
 							<width>250</width>
 							<height>$PARAM[icon_height]</height>
-							<texture colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
+							<texture diffuse="masks/addons.png" colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
