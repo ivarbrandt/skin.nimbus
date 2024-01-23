@@ -161,7 +161,7 @@
 					<param name="top" value="265.9"/>
 					<param name="width" value="165"/>
 				</include>
-				<control type="image">
+				<!-- <control type="image">
 					<include>FocusBounce</include>
 					<left>-4</left>
 					<top>-14</top>
@@ -171,49 +171,74 @@
 					<bordersize>17</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control> -->
+				<control type="image">
+					<top>-10</top>
+					<width>275</width>
+					<height>379</height>
+					<include>FocusBounce</include>
+					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster.png</texture>
+					<bordersize>13</bordersize>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+					<visible>!Container($PARAM[list_id]).IsUpdating + !Skin.HasSetting(Enable.FocusGlow)</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
+				<control type="image">
+					<top>-12</top>
+					<width>275</width>
+					<height>381</height>
+					<include>FocusBounce</include>
+					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
+					<bordersize>-3</bordersize>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+					<visible>!Container($PARAM[list_id]).IsUpdating + Skin.HasSetting(Enable.FocusGlow)</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+					<include content="GlowPulse">
+						<param name="pos_x" value="137.5"/>
+						<param name="pos_y" value="191.5"/>
+					</include>
 				</control>
 				<control type="textbox">
 					<left>27</left>
-					<top>224</top>
+					<top>237</top>
 					<width>222</width>
 					<height>120</height>
-					<font>font27</font>
+					<font>font25</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
+					<label>[B]$INFO[ListItem.Label][/B]</label>
 					<textcolor>focused_text</textcolor>
 					<autoscroll time="2000" delay="1000" repeat="2000">$PARAM[focused] + Control.HasFocus($PARAM[list_id])</autoscroll>
 					<visible>!ListItem.IsParentFolder + $PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="textbox">
 					<left>27</left>
-					<top>224</top>
+					<top>237</top>
 					<width>222</width>
 					<height>120</height>
-					<font>font27</font>
+					<font>font25</font>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>unfocused_text</textcolor>
-					<textcolor>focused_text</textcolor>
 					<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">
-					<left>4</left>
-					<top>-1</top>
-					<width>272</width>
-					<height>272</height>
-					<texture colordiffuse="focused_text" fallback="DefaultMovies.png" background="true">$INFO[ListItem.Icon]</texture>
+					<left>3</left>
+					<top>-7</top>
+					<width>270</width>
+					<height>270</height>
+					<texture diffuse="masks/addons.png" colordiffuse="artwork_dim" fallback="DefaultMovies.png" background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>scale</aspectratio>
 					<bordersize>20</bordersize>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
-					<left>4</left>
-					<top>-1</top>
-					<width>272</width>
-					<height>272</height>
-					<texture colordiffuse="unfocused_text" fallback="DefaultMovies.png" background="true">$INFO[ListItem.Icon]</texture>
+					<left>3</left>
+					<top>-7</top>
+					<width>270</width>
+					<height>270</height>
+					<texture diffuse="masks/addons.png" colordiffuse="artwork_dim" fallback="DefaultMovies.png" background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>scale</aspectratio>
 					<bordersize>20</bordersize>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
