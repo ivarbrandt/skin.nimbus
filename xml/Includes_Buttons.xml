@@ -48,6 +48,20 @@
 			</control>
 		</definition>
 	</include>
+	<include name="PlayerButton">
+		<width>48</width>
+		<height>48</height>
+		<textcolor>Grey</textcolor>
+		<focusedcolor>Bright</focusedcolor>
+		<disabledcolor>Dark</disabledcolor>
+		<font>PlayerIcon</font>
+		<align>left</align>
+		<aligny>top</aligny>
+		<textoffsetx>4</textoffsetx>
+		<textoffsety>4</textoffsety>
+		<texturefocus border="3" colordiffuse="accent_color">controls/Button.png</texturefocus>
+		<alttexturefocus border="3" colordiffuse="accent_color">controls/Button.png</alttexturefocus>
+	</include>
 	<include name="DefaultSettingButton">
 		<param name="height">70</param>
 		<param name="right">25</param>
