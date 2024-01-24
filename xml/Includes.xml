@@ -2095,100 +2095,94 @@
 
 	<include name="Seekbar">
 		<control type="progress">
-				<left>120</left>
-				<top>60</top>
-				<width>1680</width>
-				<height>12</height>
-				<texturebg colordiffuse="Grey">osd/ProgressBack.png</texturebg>
-				<midtexture colordiffuse="player_cache">osd/Progress.png</midtexture>
-				<info>Player.ProgressCache</info>
+			<left>120</left>
+			<top>60</top>
+			<width>1680</width>
+			<height>12</height>
+			<texturebg colordiffuse="Grey">osd/ProgressBack.png</texturebg>
+			<midtexture colordiffuse="player_cache">osd/Progress.png</midtexture>
+			<info>Player.ProgressCache</info>
 		</control>
 		<control type="progress">
-				<left>120</left>
-				<top>60</top>
-				<width>1680</width>
-				<height>12</height>
-				<texturebg colordiffuse="00FFFFFF">osd/ProgressBack.png</texturebg>
-				<midtexture colordiffuse="accent_color">osd/Progress.png</midtexture>
-				<info>Player.Progress</info>
+			<left>120</left>
+			<top>60</top>
+			<width>1680</width>
+			<height>12</height>
+			<texturebg colordiffuse="00FFFFFF">osd/ProgressBack.png</texturebg>
+			<midtexture colordiffuse="accent_color">osd/Progress.png</midtexture>
+			<info>Player.Progress</info>
 		</control>
-
-
 		<control type="ranges">
-				<left>120</left>
-				<top>61.3</top>
-				<width>1680</width>
-				<height>3</height>
-				<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
-				<righttexture colordiffuse="white">osd/Chapter.png</righttexture>
-				<info>Player.Chapters</info>
+			<left>120</left>
+			<top>61.3</top>
+			<width>1680</width>
+			<height>3</height>
+			<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
+			<righttexture colordiffuse="white">osd/Chapter.png</righttexture>
+			<info>Player.Chapters</info>
 		</control>
-
 		<control type="slider" id="401">
-				<left>120</left>
-				<top>60</top>
-				<width>1680</width>
-				<height>12</height>
-				<orientation>horizontal</orientation>
-				<texturesliderbar colordiffuse="00ffffff">osd/ProgressBack.png</texturesliderbar>
-				<textureslidernib colordiffuse="unfocused_text">osd/Progress.png</textureslidernib>
-				<textureslidernibfocus colordiffuse="unfocused_text">osd/Progress.png</textureslidernibfocus>
-				<visible>Player.SeekEnabled + Player.Seeking</visible>
-		</control>
-
-		<control type="label">
-				<visible>!Window.IsActive(VideoOSD.xml)</visible>
-				<top>80</top>
-				<height>40</height>
-				<font>PlayerTime</font>
-				<textcolor>Bright</textcolor>
-				<align>center</align>
-				<label>$VAR[SeekLabel]</label>
-		</control>
-
-		<control type="label">
-				<visible>String.IsEqual(Player.Time(h), 0)</visible>
-				<top>80</top>
-				<left>120</left>
-				<width>auto</width>
-				<height>40</height>
-				<font>PlayerTime</font>
-				<textcolor>Bright</textcolor>
-				<label>$INFO[Player.Time(mm:ss)]</label>
+			<left>120</left>
+			<top>60</top>
+			<width>1680</width>
+			<height>12</height>
+			<orientation>horizontal</orientation>
+			<texturesliderbar colordiffuse="00ffffff">osd/ProgressBack.png</texturesliderbar>
+			<textureslidernib colordiffuse="unfocused_text">osd/Progress.png</textureslidernib>
+			<textureslidernibfocus colordiffuse="unfocused_text">osd/Progress.png</textureslidernibfocus>
+			<visible>Player.SeekEnabled + Player.Seeking</visible>
 		</control>
 		<control type="label">
-				<visible>!String.IsEqual(Player.Time(h), 0)</visible>
-				<top>80</top>
-				<left>120</left>
-				<width>auto</width>
-				<height>40</height>
-				<font>PlayerTime</font>
-				<textcolor>Bright</textcolor>
-				<label>$INFO[Player.Time(h:mm:ss)]</label>
-		</control>
-
-		<control type="label">
-				<visible>String.IsEqual(Player.TimeRemaining(h), 0)</visible>
-				<top>80</top>
-				<right>120</right>
-				<width>200</width>
-				<height>40</height>
-				<font>PlayerTime</font>
-				<textcolor>Bright</textcolor>
-				<align>right</align>
-				<label>$INFO[Player.TimeRemaining(mm:ss), -]</label>
+			<visible>!Window.IsActive(VideoOSD.xml)</visible>
+			<top>80</top>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>Bright</textcolor>
+			<align>center</align>
+			<label>$VAR[SeekLabel]</label>
 		</control>
 		<control type="label">
-				<visible>!String.IsEqual(Player.TimeRemaining(h), 0)</visible>
-				<top>80</top>
-				<right>120</right>
-				<width>200</width>
-				<height>40</height>
-				<font>PlayerTime</font>
-				<textcolor>Bright</textcolor>
-				<align>right</align>
-				<label>$INFO[Player.TimeRemaining(h:mm:ss), -]</label>
+			<visible>String.IsEqual(Player.Time(h), 0)</visible>
+			<top>80</top>
+			<left>120</left>
+			<width>auto</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>Bright</textcolor>
+			<label>$INFO[Player.Time(mm:ss)]</label>
 		</control>
-</include>
+		<control type="label">
+			<visible>!String.IsEqual(Player.Time(h), 0)</visible>
+			<top>80</top>
+			<left>120</left>
+			<width>auto</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>Bright</textcolor>
+			<label>$INFO[Player.Time(h:mm:ss)]</label>
+		</control>
+		<control type="label">
+			<visible>String.IsEqual(Player.TimeRemaining(h), 0)</visible>
+			<top>80</top>
+			<right>120</right>
+			<width>200</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>Bright</textcolor>
+			<align>right</align>
+			<label>$INFO[Player.TimeRemaining(mm:ss), -]</label>
+		</control>
+		<control type="label">
+			<visible>!String.IsEqual(Player.TimeRemaining(h), 0)</visible>
+			<top>80</top>
+			<right>120</right>
+			<width>200</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>Bright</textcolor>
+			<align>right</align>
+			<label>$INFO[Player.TimeRemaining(h:mm:ss), -]</label>
+		</control>
+	</include>
 	
 </includes>

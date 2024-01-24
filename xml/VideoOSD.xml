@@ -3,9 +3,7 @@
     <defaultcontrol>700</defaultcontrol>
     <onload>SetFocus(703)</onload>
     <onunload>ClearProperty(LanguageNotification,home)</onunload>
-
     <controls>
-
         <control type="label">
             <top>0</top>
             <height>100</height>
@@ -13,18 +11,13 @@
             <textcolor>Bright</textcolor>
             <label>$INFO[VideoPlayer.AudioStreamCount]</label>
         </control>
-
         <control type="group">
-						
             <top>900</top>
             <height>180</height>
-
             <control type="image">
                 <texture colordiffuse="f0080808">colors/white.png</texture>
             </control>
-
             <include>Seekbar</include>
-
             <control type="grouplist" id="700">
                 <top>80</top>
                 <height>48</height>
@@ -35,7 +28,6 @@
                 <align>center</align>
                 <onleft>710</onleft>
                 <onright>707</onright>
-
                 <control type="button" id="701">
                     <include>PlayerButton</include>
                     <label>&#xf141;</label>
@@ -70,11 +62,9 @@
                     <onclick>PlayerControl(Next)</onclick>
                 </control>
             </control>
-
             <control type="group">
                 <top>80</top>
                 <height>48</height>
-
                 <control type="button" id="707">
                     <left>1400</left>
                     <font>PlayerIconSmall</font>
@@ -96,7 +86,6 @@
                     <align>center</align>
                     <label>[CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE]</label>
                 </control>
-
                 <control type="button" id="708">
                     <left>1460</left>
                     <font>PlayerIconSmall</font>
@@ -118,33 +107,30 @@
                     <align>center</align>
                     <label>[CAPITALIZE]$VAR[VideoPlayerSubtitleLanguage][/CAPITALIZE]</label>
                 </control>
-
                 <control type="button" id="709">
                     <left>1520</left>
                     <font>PlayerIconSmall</font>
                     <textoffsety>7</textoffsety>
                     <include>PlayerButton</include>
                     <label>&#xeae4;</label>
-										<onclick>ActivateWindow(videobookmarks)</onclick>
-										<visible>!VideoPlayer.Content(livetv)</visible>
+					<onclick>ActivateWindow(videobookmarks)</onclick>
+					<visible>!VideoPlayer.Content(livetv)</visible>
                     <onleft>708</onleft>
                     <onright>710</onright>
                 </control>
-
                 <control type="button" id="710">
                     <left>1580</left>
                     <font>PlayerIconSmall</font>
                     <textoffsety>7</textoffsety>
                     <include>PlayerButton</include>
                     <label>&#xf0e7;</label>
-										<onclick>SetProperty(settingslist_content,osd,home)</onclick>
-										<onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
-										<onclick>ActivateWindow(1101)</onclick>
+					<onclick>SetProperty(settingslist_content,osd,home)</onclick>
+					<onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
+					<onclick>ActivateWindow(1101)</onclick>
                     <onleft>709</onleft>
                     <onright>701</onright>
                 </control>
             </control>
-
         </control>
     </controls>
 </window>

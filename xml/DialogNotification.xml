@@ -2,9 +2,6 @@
 <window>
 	<!-- <zorder>3</zorder> -->
 	<controls>
-		
-
-
         <control type="label" id="402">
             <top>-100</top>
             <height>34</height>
@@ -12,7 +9,6 @@
             <font>Font24</font>
             <align>top</align>
         </control>
-
         <control type="group">
             <visible>!String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
             <control type="label">
@@ -26,7 +22,6 @@
                 <label>$INFO[Control.GetLabel(402)]</label>
             </control>
         </control>
-
         <control type="group">
             <visible>String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
             <include>Visible_Fade</include>
@@ -34,17 +29,14 @@
             <right>80</right>
             <height>80</height>
             <width>600</width>
-            
             <control type="image">
                 <colordiffuse>e0161616</colordiffuse>
                 <texture border="32">colors/white.png</texture>
             </control>
-
             <control type="image">
                 <width>3</width>
                 <texture colordiffuse="accent_color">colors/white.png</texture>
             </control>
-
             <control type="label" id="401">
                 <top>4</top>
                 <left>18</left>
