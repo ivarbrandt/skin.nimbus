@@ -8,7 +8,7 @@
             <height>180</height>
 
             <control type="image">
-                <texture colordiffuse="e0080808">general/White.png</texture>
+                <texture colordiffuse="e0080808">colors/white.png</texture>
             </control>
 
             <include>Seekbar</include>

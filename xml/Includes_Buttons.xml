@@ -59,8 +59,8 @@
 		<aligny>top</aligny>
 		<textoffsetx>4</textoffsetx>
 		<textoffsety>4</textoffsety>
-		<texturefocus border="3" colordiffuse="accent_color">controls/Button.png</texturefocus>
-		<alttexturefocus border="3" colordiffuse="accent_color">controls/Button.png</alttexturefocus>
+		<texturefocus border="3" colordiffuse="accent_color">osd/Button.png</texturefocus>
+		<alttexturefocus border="3" colordiffuse="accent_color">osd/Button.png</alttexturefocus>
 	</include>
 	<include name="DefaultSettingButton">
 		<param name="height">70</param>
