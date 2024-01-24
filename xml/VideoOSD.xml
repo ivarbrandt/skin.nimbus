@@ -1,138 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <defaultcontrol>700</defaultcontrol>
-    <onload>SetFocus(703)</onload>
-    <onunload>ClearProperty(LanguageNotification,home)</onunload>
-    <controls>
+  <defaultcontrol>700</defaultcontrol>
+  <onload>SetFocus(703)</onload>
+  <onunload>ClearProperty(LanguageNotification,home)</onunload>
+  <controls>
+    <control type="label">
+      <top>0</top>
+      <height>100</height>
+      <font>Font30</font>
+      <textcolor>Bright</textcolor>
+      <label>$INFO[VideoPlayer.AudioStreamCount]</label>
+    </control>
+    <control type="group">
+      <top>900</top>
+      <height>180</height>
+      <control type="image">
+      <texture colordiffuse="f0080808">colors/white.png</texture>
+    </control>
+    <include>Seekbar</include>
+      <control type="grouplist" id="700">
+        <top>80</top>
+        <height>48</height>
+        <left>0</left>
+        <width>100%</width>
+        <itemgap>8</itemgap>
+        <orientation>horizontal</orientation>
+        <align>center</align>
+        <onleft>710</onleft>
+        <onright>707</onright>
+        <control type="button" id="701">
+          <include>PlayerButton</include>
+          <label>&#xf141;</label>
+          <onclick>PlayerControl(Previous)</onclick>
+        </control>
+        <control type="button" id="702">
+          <include>PlayerButton</include>
+          <label>&#xf087;</label>
+          <onclick>PlayerControl(Rewind)</onclick>
+        </control>
+        <control type="togglebutton" id="703">
+          <include>PlayerButton</include>
+          <label>&#xefd9;</label>
+          <altlabel>&#xf012;</altlabel>
+          <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+          <onclick>PlayerControl(Play)</onclick>
+          <visible>Player.PauseEnabled</visible>
+        </control>
+        <control type="button" id="704">
+          <include>PlayerButton</include>
+          <label>&#xf1a2;</label>
+          <onclick>PlayerControl(Stop)</onclick>
+        </control>
+        <control type="button" id="705">
+          <include>PlayerButton</include>
+          <label>&#xf178;</label>
+          <onclick>PlayerControl(Forward)</onclick>
+        </control>
+        <control type="button" id="706">
+          <include>PlayerButton</include>
+          <label>&#xf145;</label>
+          <onclick>PlayerControl(Next)</onclick>
+        </control>
+      </control>
+      <control type="group">
+        <top>80</top>
+        <height>48</height>
+        <control type="button" id="707">
+          <left>1400</left>
+          <font>PlayerIconSmall</font>
+          <textoffsety>7</textoffsety>
+          <include>PlayerButton</include>
+          <label>&#xef84;</label>
+          <onfocus>SetProperty(LanguageNotification,true,home)</onfocus>
+          <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
+          <onclick>AudioNextLanguage</onclick>
+          <onleft>706</onleft>
+          <onright>708</onright>
+        </control>
         <control type="label">
-            <top>0</top>
-            <height>100</height>
-            <font>Font30</font>
-            <textcolor>Bright</textcolor>
-            <label>$INFO[VideoPlayer.AudioStreamCount]</label>
+          <top>43</top>
+          <left>1400</left>
+          <height>48</height>
+          <width>48</width>
+          <font>Font22</font>
+          <align>center</align>
+          <label>[CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE]</label>
         </control>
-        <control type="group">
-            <top>900</top>
-            <height>180</height>
-            <control type="image">
-                <texture colordiffuse="f0080808">colors/white.png</texture>
-            </control>
-            <include>Seekbar</include>
-            <control type="grouplist" id="700">
-                <top>80</top>
-                <height>48</height>
-                <left>0</left>
-                <width>100%</width>
-                <itemgap>8</itemgap>
-                <orientation>horizontal</orientation>
-                <align>center</align>
-                <onleft>710</onleft>
-                <onright>707</onright>
-                <control type="button" id="701">
-                    <include>PlayerButton</include>
-                    <label>&#xf141;</label>
-                    <onclick>PlayerControl(Previous)</onclick>
-                </control>
-                <control type="button" id="702">
-                    <include>PlayerButton</include>
-                    <label>&#xf087;</label>
-                    <onclick>PlayerControl(Rewind)</onclick>
-                </control>
-                <control type="togglebutton" id="703">
-                    <include>PlayerButton</include>
-                    <label>&#xefd9;</label>
-                    <altlabel>&#xf012;</altlabel>
-                    <usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-                    <onclick>PlayerControl(Play)</onclick>
-                    <visible>Player.PauseEnabled</visible>
-                </control>
-                <control type="button" id="704">
-                    <include>PlayerButton</include>
-                    <label>&#xf1a2;</label>
-                    <onclick>PlayerControl(Stop)</onclick>
-                </control>
-                <control type="button" id="705">
-                    <include>PlayerButton</include>
-                    <label>&#xf178;</label>
-                    <onclick>PlayerControl(Forward)</onclick>
-                </control>
-                <control type="button" id="706">
-                    <include>PlayerButton</include>
-                    <label>&#xf145;</label>
-                    <onclick>PlayerControl(Next)</onclick>
-                </control>
-            </control>
-            <control type="group">
-                <top>80</top>
-                <height>48</height>
-                <control type="button" id="707">
-                    <left>1400</left>
-                    <font>PlayerIconSmall</font>
-                    <textoffsety>7</textoffsety>
-                    <include>PlayerButton</include>
-                    <label>&#xef84;</label>
-                    <onfocus>SetProperty(LanguageNotification,true,home)</onfocus>
-                    <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
-                    <onclick>AudioNextLanguage</onclick>
-                    <onleft>706</onleft>
-                    <onright>708</onright>
-                </control>
-                <control type="label">
-                    <top>43</top>
-                    <left>1400</left>
-                    <height>48</height>
-                    <width>48</width>
-                    <font>Font22</font>
-                    <align>center</align>
-                    <label>[CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE]</label>
-                </control>
-                <control type="button" id="708">
-                    <left>1460</left>
-                    <font>PlayerIconSmall</font>
-                    <textoffsety>7</textoffsety>
-                    <include>PlayerButton</include>
-                    <label>&#xef43;</label>
-                    <onfocus>SetProperty(LanguageNotification,true,home)</onfocus>
-                    <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
-                    <onclick>NextSubtitle</onclick>
-                    <onleft>707</onleft>
-                    <onright>709</onright>
-                </control>
-                <control type="label">
-                    <top>43</top>
-                    <left>1460</left>
-                    <height>48</height>
-                    <width>48</width>
-                    <font>Font22</font>
-                    <align>center</align>
-                    <label>[CAPITALIZE]$VAR[VideoPlayerSubtitleLanguage][/CAPITALIZE]</label>
-                </control>
-                <control type="button" id="709">
-                    <left>1520</left>
-                    <font>PlayerIconSmall</font>
-                    <textoffsety>7</textoffsety>
-                    <include>PlayerButton</include>
-                    <label>&#xeae4;</label>
-					<onclick>ActivateWindow(videobookmarks)</onclick>
-					<visible>!VideoPlayer.Content(livetv)</visible>
-                    <onleft>708</onleft>
-                    <onright>710</onright>
-                </control>
-                <control type="button" id="710">
-                    <left>1580</left>
-                    <font>PlayerIconSmall</font>
-                    <textoffsety>7</textoffsety>
-                    <include>PlayerButton</include>
-                    <label>&#xf0e7;</label>
-					<onclick>SetProperty(settingslist_content,osd,home)</onclick>
-					<onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
-					<onclick>ActivateWindow(1101)</onclick>
-                    <onleft>709</onleft>
-                    <onright>701</onright>
-                </control>
-            </control>
+        <control type="button" id="708">
+          <left>1460</left>
+          <font>PlayerIconSmall</font>
+          <textoffsety>7</textoffsety>
+          <include>PlayerButton</include>
+          <label>&#xef43;</label>
+          <onfocus>SetProperty(LanguageNotification,true,home)</onfocus>
+          <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
+          <onclick>NextSubtitle</onclick>
+          <onleft>707</onleft>
+          <onright>709</onright>
         </control>
-    </controls>
+        <control type="label">
+          <top>43</top>
+          <left>1460</left>
+          <height>48</height>
+          <width>48</width>
+          <font>Font22</font>
+          <align>center</align>
+          <label>[CAPITALIZE]$VAR[VideoPlayerSubtitleLanguage][/CAPITALIZE]</label>
+        </control>
+        <control type="button" id="709">
+          <left>1520</left>
+          <font>PlayerIconSmall</font>
+          <textoffsety>7</textoffsety>
+          <include>PlayerButton</include>
+          <label>&#xeae4;</label>
+          <onclick>ActivateWindow(videobookmarks)</onclick>
+          <visible>!VideoPlayer.Content(livetv)</visible>
+          <onleft>708</onleft>
+          <onright>710</onright>
+        </control>
+        <control type="button" id="710">
+          <left>1580</left>
+          <font>PlayerIconSmall</font>
+          <textoffsety>7</textoffsety>
+          <include>PlayerButton</include>
+          <label>&#xf0e7;</label>
+          <onclick>SetProperty(settingslist_content,osd,home)</onclick>
+          <onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
+          <onclick>ActivateWindow(1101)</onclick>
+          <onleft>709</onleft>
+          <onright>701</onright>
+        </control>
+      </control>
+    </control>
+  </controls>
 </window>
 
 <!-- <control type="grouplist" id="202">

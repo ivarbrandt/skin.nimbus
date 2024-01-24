@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-    <visible>[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek + String.IsEqual(Skin.String(HideOSD),Always) | Player.Paused  | Player.DisplayAfterSeek + !System.IdleTime(3) | Player.Paused + !System.IdleTime(3) | Player.Forwarding | Player.Rewinding | Player.IsTempo] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(MusicOSD)</visible>
-    <controls>
-        <control type="group">
-            <top>900</top>
-            <height>180</height>
-            <control type="image">
-                <texture colordiffuse="e0080808">colors/white.png</texture>
-            </control>
-            <include>Seekbar</include>
-        </control>
-    </controls>
+  <visible>[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek + String.IsEqual(Skin.String(HideOSD),Always) | Player.Paused  | Player.DisplayAfterSeek + !System.IdleTime(3) | Player.Paused + !System.IdleTime(3) | Player.Forwarding | Player.Rewinding | Player.IsTempo] + !Window.IsVisible(VideoOSD) + !Window.IsVisible(subtitlesearch) + !Window.IsVisible(MusicOSD)</visible>
+  <controls>
+    <control type="group">
+      <top>900</top>
+      <height>180</height>
+      <control type="image">
+          <texture colordiffuse="e0080808">colors/white.png</texture>
+      </control>
+      <include>Seekbar</include>
+    </control>
+  </controls>
 </window>
