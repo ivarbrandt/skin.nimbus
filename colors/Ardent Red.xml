@@ -7,4 +7,5 @@
 	<color name="accent_color">FFBA160C</color>
 	<color name="selected">FFCC4E5C</color>
 	<color name="keyboard_selected">FFDA0000</color>
+	<color name="player_cache">FFf8938c</color>
 </colors>

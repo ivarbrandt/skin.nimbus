@@ -6,4 +6,5 @@
 	<color name="accent_color">FF752ED2</color>
 	<color name="selected">FF9553EC</color>
 	<color name="keyboard_selected">FF6F00FF</color>
+	<color name="player_cache">FFc3a5eb</color>
 </colors>

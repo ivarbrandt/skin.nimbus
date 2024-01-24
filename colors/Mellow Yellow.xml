@@ -5,4 +5,5 @@
 	<color name="accent_color">FFFFFF80</color>
 	<color name="selected">FFD0C234</color>
 	<color name="keyboard_selected">FFFFFF80</color>
+	<color name="player_cache">FF9e9e00</color>
 </colors>
