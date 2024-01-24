@@ -8,7 +8,7 @@
       <top>0</top>
       <height>100</height>
       <font>Font30</font>
-      <textcolor>Bright</textcolor>
+      <textcolor>osd_light</textcolor>
       <label>$INFO[VideoPlayer.AudioStreamCount]</label>
     </control>
     <control type="group">

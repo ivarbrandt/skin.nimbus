@@ -51,9 +51,9 @@
 	<include name="PlayerButton">
 		<width>48</width>
 		<height>48</height>
-		<textcolor>Grey</textcolor>
-		<focusedcolor>Bright</focusedcolor>
-		<disabledcolor>Dark</disabledcolor>
+		<textcolor>osd_grey</textcolor>
+		<focusedcolor>osd_light</focusedcolor>
+		<disabledcolor>osd_dark</disabledcolor>
 		<font>PlayerIcon</font>
 		<align>left</align>
 		<aligny>top</aligny>

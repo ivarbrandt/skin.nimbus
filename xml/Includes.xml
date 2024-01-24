@@ -1261,7 +1261,7 @@
 						<fadetime>400</fadetime>
 						<include>OpenClose_Left</include>
 						<animation effect="fade" time="400">VisibleChange</animation>
-						<texture background="true" colordiffuse="$VAR[FanartBrightnessVar]">$VAR[PosterVar]</texture>
+						<texture background="true" colordiffuse="$VAR[Fanartosd_lightnessVar]">$VAR[PosterVar]</texture>
 						<visible>!Control.IsVisible(32111)</visible>
 					</control> -->
 				</control>
@@ -1679,7 +1679,7 @@
 
 	<!-- MY INCLUDES -->
 
-	<include name="DarkenBG">
+	<include name="osd_darkenBG">
 		<control type="image">
 			<visible>!ControlGroup(2000).HasFocus</visible>
 			<texture colordiffuse="FF000000">colors/white.png</texture>
@@ -2099,7 +2099,7 @@
 			<top>60</top>
 			<width>1680</width>
 			<height>12</height>
-			<texturebg colordiffuse="Grey">osd/ProgressBack.png</texturebg>
+			<texturebg colordiffuse="osd_grey">osd/ProgressBack.png</texturebg>
 			<midtexture colordiffuse="player_cache">osd/Progress.png</midtexture>
 			<info>Player.ProgressCache</info>
 		</control>
@@ -2137,7 +2137,7 @@
 			<top>80</top>
 			<height>40</height>
 			<font>PlayerTime</font>
-			<textcolor>Bright</textcolor>
+			<textcolor>osd_light</textcolor>
 			<align>center</align>
 			<label>$VAR[SeekLabel]</label>
 		</control>
@@ -2148,7 +2148,7 @@
 			<width>auto</width>
 			<height>40</height>
 			<font>PlayerTime</font>
-			<textcolor>Bright</textcolor>
+			<textcolor>osd_light</textcolor>
 			<label>$INFO[Player.Time(mm:ss)]</label>
 		</control>
 		<control type="label">
@@ -2158,7 +2158,7 @@
 			<width>auto</width>
 			<height>40</height>
 			<font>PlayerTime</font>
-			<textcolor>Bright</textcolor>
+			<textcolor>osd_light</textcolor>
 			<label>$INFO[Player.Time(h:mm:ss)]</label>
 		</control>
 		<control type="label">
@@ -2168,7 +2168,7 @@
 			<width>200</width>
 			<height>40</height>
 			<font>PlayerTime</font>
-			<textcolor>Bright</textcolor>
+			<textcolor>osd_light</textcolor>
 			<align>right</align>
 			<label>$INFO[Player.TimeRemaining(mm:ss), -]</label>
 		</control>
@@ -2179,7 +2179,7 @@
 			<width>200</width>
 			<height>40</height>
 			<font>PlayerTime</font>
-			<textcolor>Bright</textcolor>
+			<textcolor>osd_light</textcolor>
 			<align>right</align>
 			<label>$INFO[Player.TimeRemaining(h:mm:ss), -]</label>
 		</control>

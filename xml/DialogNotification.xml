@@ -16,7 +16,7 @@
         <right>0</right>
         <width>816</width>
         <height>34</height>
-        <textcolor>Bright</textcolor>
+        <textcolor>osd_light</textcolor>
         <font>Font24</font>
         <align>center</align>
         <label>$INFO[Control.GetLabel(402)]</label>
@@ -42,7 +42,7 @@
         <left>18</left>
         <right>0</right>
         <height>34</height>
-        <textcolor>Bright</textcolor>
+        <textcolor>osd_light</textcolor>
         <font>Font30</font>
         <align>top</align>
       </control>
@@ -51,7 +51,7 @@
         <left>18</left>
         <right>0</right>
         <height>34</height>
-        <textcolor>Grey</textcolor>
+        <textcolor>osd_grey</textcolor>
         <font>Font24</font>
         <align>top</align>
         <label>$INFO[Control.GetLabel(402)]</label>
