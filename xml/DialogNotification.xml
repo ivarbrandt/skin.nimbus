@@ -1,8 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<zorder>3</zorder>
+	<!-- <zorder>3</zorder> -->
 	<controls>
-		<control type="group">
+		
+
+
+        <control type="label" id="402">
+            <top>-100</top>
+            <height>34</height>
+            <textcolor>00ffffff</textcolor>
+            <font>Font24</font>
+            <align>top</align>
+        </control>
+
+        <control type="group">
+            <visible>!String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
+            <control type="label">
+                <top>914</top>
+                <right>0</right>
+                <width>816</width>
+                <height>34</height>
+                <textcolor>Bright</textcolor>
+                <font>Font24</font>
+                <align>center</align>
+                <label>$INFO[Control.GetLabel(402)]</label>
+            </control>
+        </control>
+
+        <control type="group">
+            <visible>String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
+            <include>Visible_Fade</include>
+            <top>40</top>
+            <right>80</right>
+            <height>80</height>
+            <width>600</width>
+            
+            <control type="image">
+                <colordiffuse>e0161616</colordiffuse>
+                <texture border="32">general/White.png</texture>
+            </control>
+
+            <control type="image">
+                <width>3</width>
+                <texture colordiffuse="accent_color">general/White.png</texture>
+            </control>
+
+            <control type="label" id="401">
+                <top>4</top>
+                <left>18</left>
+                <right>0</right>
+                <height>34</height>
+                <textcolor>Bright</textcolor>
+                <font>Font30</font>
+                <align>top</align>
+            </control>
+            <control type="label">
+                <bottom>6</bottom>
+                <left>18</left>
+                <right>0</right>
+                <height>34</height>
+                <textcolor>Grey</textcolor>
+                <font>Font24</font>
+                <align>top</align>
+                <label>$INFO[Control.GetLabel(402)]</label>
+            </control>
+        </control>
+    </controls>
+</window>
+		<!-- <control type="group">
 			<depth>DepthMax</depth>
 			<top>100</top>
 			<right>0</right>
@@ -25,7 +90,6 @@
 				<texture colordiffuse="dialog_bg">masks/dialog-notification.png</texture>
 				<bordersize>17</bordersize>
 			</control>
-			<!-- TODO Find way to apply diffuse texture -->
 			<control type="image" id="400">
 				<description>avatar</description>
 				<left>25</left>
@@ -56,6 +120,5 @@
 				<scrollout>false</scrollout>
 				<pauseatend>2000</pauseatend>
 			</control>
-		</control>
-	</controls>
-</window>
+		</control> -->
+	
