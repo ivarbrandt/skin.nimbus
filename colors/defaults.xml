@@ -28,7 +28,7 @@
 	<color name="disabled">40FFFFFF</color>
 	<color name="invalid">FFFF0000</color>
   <color name="osd_light">fffafafa</color>
-  <color name="osd_grey">b0666666</color>
+  <color name="osd_grey">b0a0a0a0</color>
   <color name="osd_dark">e0404040</color>
 	<!-- <color name="player_cache">FF828282</color> -->
 	<color name="player_cache">FF4c75d8</color>
