@@ -235,6 +235,7 @@
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(NoFocusAnimations)</selected>
 					<onclick>Skin.ToggleSetting(NoFocusAnimations)</onclick>
+					<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
 				</control>
 				<!-- FOCUS COLOR -->
 				<control type="radiobutton" id="63703">
