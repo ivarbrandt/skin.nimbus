@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">15100</defaultcontrol>
+	<!-- <defaultcontrol always="true">15100</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<menucontrol>10000</menucontrol>
+	<menucontrol>10000</menucontrol> -->
 	<controls>
-		<control type="button" id="20000">
+		<!-- <control type="button" id="20000">
 			<include>HiddenObject</include>
 			<animation effect="fade" time="300" start="100" end="0">Focus</animation>
 			<onfocus>SetFocus(2000)</onfocus>
@@ -205,6 +205,6 @@
 			<param name="breadcrumbs_label" value="$LOCALIZE[8]$INFO[Window(Weather).Property(Location), [COLOR accent_color][B]»[/B][/COLOR] ]" />
 			<param name="sublabel" value="$INFO[Window(weather).Property(WeatherProvider)]" />
 		</include>
-		<include>BottomBar</include>
+		<include>BottomBar</include> -->
 	</controls>
 </window>

@@ -996,7 +996,7 @@
 							</item>
 							<item>
 								<label>$LOCALIZE[8]</label>
-								<onclick condition="!String.IsEmpty(Weather.Plugin)">ActivateWindow(Weather)</onclick>
+								<onclick condition="!String.IsEmpty(Weather.Plugin)">Weather.LocationNext</onclick>
 								<onclick condition="String.IsEmpty(Weather.Plugin)">ReplaceWindow(servicesettings,weather)</onclick>
 								<property name="menu_id">$NUMBER[15000]</property>
 								<thumb>icons/sidemenu/weather.png</thumb>
