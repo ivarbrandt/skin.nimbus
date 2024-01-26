@@ -798,13 +798,13 @@
 		<control type="group">
 			<width>$PARAM[width]</width>
 			<height>$PARAM[height]</height>
-			<control type="image">
+			<!-- <control type="image">
 				<left>-2</left>
 				<top>-2</top>
 				<right>-2</right>
         <bottom>-2</bottom>
 				<texture colordiffuse="button_focus">$PARAM[diffusetexture]</texture>
-			</control>
+			</control> -->
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
