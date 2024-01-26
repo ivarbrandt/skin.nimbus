@@ -26,7 +26,7 @@
       <visible>String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
       <include>Visible_Fade</include>
       <top>40</top>
-      <right>80</right>
+      <right>40</right>
       <height>80</height>
       <width>600</width>
       <control type="image">
