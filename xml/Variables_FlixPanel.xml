@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <!-- RATINGS INFOPANEL VARIABLES -->
+	<!-- Released -->
+	<variable name="RI_Year">
+		<value condition="!String.IsEmpty(ListItem.Year)">$INFO[ListItem.Year]</value>
+	</variable>
+	<!-- Aired -->
+	<variable name="RI_Aired">
+		<value condition="!String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered]</value>
+	</variable>
+	<!-- MPAA Rating -->
+	<variable name="RI_Mpaa">
+		<value condition="!String.IsEmpty(ListItem.Mpaa)">$INFO[ListItem.Mpaa, [COLOR accent_color]•[/COLOR] ]</value>
+	</variable>
+	<variable name="Season_Mpaa">
+		<value condition="!String.IsEmpty(ListItem.Mpaa)">$INFO[ListItem.Mpaa]</value>
+	</variable>
+	<!-- Genre -->
+	<variable name="RI_Genre">
+		<value condition="!String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Genre, [COLOR accent_color]•[/COLOR] ]</value>
+	</variable>
+	<!-- Director -->
+	<variable name="RI_Director">
+		<value condition="!String.IsEmpty(ListItem.Director)">$INFO[ListItem.Director, [COLOR accent_color]•[/COLOR] ]</value>
+	</variable>
+	<!-- Network -->
+	<variable name="RI_Network">
+		<value condition="!String.IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio, [COLOR accent_color]•[/COLOR] ]</value>
+	</variable>
+	<!-- Total Seasons -->
+	<variable name="RI_TotalSeasons">
+		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons))">$INFO[ListItem.Property(TotalSeasons), [COLOR accent_color]•[/COLOR] , seasons]</value>
+	</variable>
+	<!-- Status -->
+	<variable name="RI_Status">
+		<value condition="!String.IsEmpty(ListItem.Status)">$INFO[ListItem.Status, [COLOR accent_color]•[/COLOR] ]</value>
+	</variable>
+	<!-- Runtime -->
+	<variable name="RI_Runtime">
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(h), [COLOR accent_color]•[/COLOR] ,h] $INFO[ListItem.Duration(m),,m]</value>
+	</variable>
+	<!-- Runtime Episodes -->
+	<variable name="RI_RuntimeEpisodes">
+		<value condition="!String.IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration(mins), [COLOR accent_color]•[/COLOR] ,m]</value>
+	</variable>
+	<!-- Ends at: -->
+	<variable name="RI_Endsat">
+		<value condition="!String.IsEmpty(ListItem.EndTime) + !String.IsEmpty(ListItem.Duration)">$INFO[ListItem.EndTime, [COLOR accent_color]•[/COLOR] $LOCALIZE[31080]: ]</value>
+	</variable>
+	<!-- Plot -->
+	<variable name="RI_Plot">
+		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+		<value></value>
+	</variable>
+
+	<variable name="InfoPanelTop">
+		<!-- MOVIES -->
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
+		<!-- SHOWS -->
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Status]</value>
+		<!-- SEASONS -->
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,season)">$VAR[Season_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]</value>
+		<!-- EPISODES -->
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]</value>
+	</variable>
+	
+	<variable name="InfoPanelBottom">
+		<!-- MOVIES, TVSHOWS, SEASONS, EPISODES, COLLECTIONS -->
+		<value condition="!ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$VAR[RI_Plot]</value>
+	</variable>
+</includes>

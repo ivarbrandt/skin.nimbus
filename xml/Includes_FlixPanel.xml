@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <include name="FlixPanel">
+		<control type="grouplist">
+			<left>50</left>
+			<width>825</width>
+			<top>50</top>
+			<orientation>vertical</orientation>
+			<itemgap>13</itemgap>
+			<control type="image">
+				<width>545</width>
+				<height>233</height>
+				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
+				<aspectratio align="center">keep</aspectratio>
+				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
+			</control>
+			<control type="group">
+				<height>233</height>
+				<width>600</width>
+				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
+				<control type="textbox">
+					<aligny>center</aligny>
+					<font>font52_title</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[SubstituteLabel]</label>
+					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>String.IsEqual(Skin.String(titleSetting),0)</visible>
+				</control>
+				<control type="textbox">
+					<aligny>center</aligny>
+					<font>font_title_eng</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[SubstituteLabel]</label>
+					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>String.IsEqual(Skin.String(titleSetting),1)</visible>
+				</control>
+				<control type="textbox">
+					<aligny>center</aligny>
+					<font>font_title_west</font>
+					<textcolor>unfocused_text</textcolor>
+					<label>$VAR[SubstituteLabel]</label>
+					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>String.IsEqual(Skin.String(titleSetting),2)</visible>
+				</control>
+			</control>
+			<control type="textbox">
+				<height>44</height>
+				<label>$VAR[InfoPanelTop]</label>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
+			</control>
+			<control type="textbox" id="15500">
+				<height>180</height>
+				<width>600</width>
+				<label>$VAR[ListBoxInfoVar]</label>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
+				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
+			</control>
+			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
+			<control type="textbox">
+				<height max="145">auto</height>
+				<bottom>70</bottom>
+				<label>$VAR[InfoPanelBottom]</label>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
+			</control>
+			<control type="textbox">
+				<height max="180">auto</height>
+				<width>600</width>
+				<bottom>70</bottom>
+				<label>$VAR[InfoPanelBottom]</label>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+				<visible>Player.HasMedia</visible>
+			</control>
+			<control type="textbox">
+				<height max="180">auto</height>
+				<bottom>70</bottom>
+				<label>$VAR[InfoPanelBottom]</label>
+				<font>font27</font>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+				<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
+			</control>
+		</control>
+	</include>
+
+	<include name="HorizontalRatings">
+		<control type="grouplist">
+			<height>38</height>
+			<orientation>horizontal</orientation>
+			<itemgap>20</itemgap>
+			<aligny>center</aligny>
+			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !Player.HasMedia + !String.IsEmpty(ListItem.Genre)</visible>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+				<control type="image">
+					<width>50</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="80">auto</width>
+					<height>36</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+				<control type="image">
+					<width>50</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="80">auto</width>
+					<height>36</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>2</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+				<control type="image">
+					<width>45</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="80">auto</width>
+					<height>36</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>5</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+				<control type="image">
+					<width>74</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.imdbImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>36</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>130</width>
+				<orientation>horizontal</orientation>
+				<itemgap>8</itemgap>
+				<align>left</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+				<control type="image">
+					<width>29</width>
+					<height>35</height>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.popularImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="87">auto</width>
+					<height>36</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<control type="grouplist">
+				<width>118</width>
+				<orientation>horizontal</orientation>
+				<itemgap>12</itemgap>
+				<align>right</align>
+				<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+				<control type="image">
+					<top>-3</top>
+					<width>60</width>
+					<aspectratio>keep</aspectratio>
+					<align>left</align>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+				</control>
+				<control type="label">
+					<width max="60">auto</width>
+					<height>36</height>
+					<align>left</align>
+					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

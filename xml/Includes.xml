@@ -9,6 +9,9 @@
 	<include file="Includes_DialogSelect.xml" />
 	<include file="Includes_MusicInfo.xml" />
 	<include file="Includes_PVR.xml" />
+	<include file="Includes_FlixPanel.xml" />
+	<include file="Includes_Weather.xml" />
+	<include file="Includes_Seekbar.xml" />
 	<include file="script-nimbus-main_menu_movies.xml" />
 	<include file="script-nimbus-main_menu_tvshows.xml" />
 	<include file="script-nimbus-main_menu_custom1.xml" />
@@ -28,6 +31,12 @@
 	<include file="View_500_Wall.xml" />
 	<include file="Custom_1121_SearchResults.xml" />
 	<include file="Variables.xml" />
+	<include file="Variables_FlixPanel.xml" />
+	<include file="Variables_MyVariables.xml" />
+	<include file="Variables_HelpTexts.xml" />
+	<include file="Variables_SearchProviders.xml" />
+	<include file="Variables_Seekbar.xml" />
+	<include file="Variables_Trailers.xml" />
 	<constant name="DepthDialog">0.50</constant>
 	<constant name="DepthDialog+">0.52</constant>
 	<constant name="DepthDialog-">0.48</constant>
@@ -1145,16 +1154,8 @@
 		<control type="group">
 			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Art(fanart)) + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
 			<control type="image" id="100000">
-				<fadetime>500</fadetime>
-				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-				<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-				<animation effect="fade" time="400">VisibleChange</animation>
-				<depth>DepthBackground</depth>
-				<include>FullScreenDimensions</include>
-				<aspectratio>scale</aspectratio>
+				<visible>false</visible>
 				<texture>$VAR[FanartVar]</texture>
-				<colordiffuse>black</colordiffuse>
 			</control>
 			<control type="image">
 				<fadetime>500</fadetime>
@@ -1168,7 +1169,6 @@
 				<texture colordiffuse="FF464646">$INFO[Window(home).Property(listitem_blurred)]</texture>
 			</control>
 		</control>
-
 		<control type="group">
 			<visible>!Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
 			<control type="image">
@@ -1178,7 +1178,6 @@
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(500)]</visible>
 			</control>
-			
 			<control type="image">
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
@@ -1186,7 +1185,6 @@
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 				<visible>Control.IsVisible(500) + !Skin.HasSetting(Enable.BackgroundBlur)</visible>
 			</control>
-	
 			<control type="image">
 				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus</visible>
 				<right>-3</right>
@@ -1199,7 +1197,6 @@
 				<animation effect="fade" time="400">VisibleChange</animation>
 			</control>
 		</control>
-
 	</include>
 
 	<include name="DefaultBackground">
@@ -1765,424 +1762,4 @@
     </control>
 	</include> -->
 
-
-	<include name="FlixPanel">
-		<control type="grouplist">
-			<left>50</left>
-			<width>825</width>
-			<top>50</top>
-			<orientation>vertical</orientation>
-			<itemgap>13</itemgap>
-			<control type="image">
-				<width>545</width>
-				<height>233</height>
-				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
-			</control>
-			<control type="group">
-				<height>233</height>
-				<width>600</width>
-				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
-				<control type="textbox">
-					<aligny>center</aligny>
-					<font>font52_title</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>$VAR[SubstituteLabel]</label>
-					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-					<visible>String.IsEqual(Skin.String(titleSetting),0)</visible>
-				</control>
-				<control type="textbox">
-					<aligny>center</aligny>
-					<font>font_title_eng</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>$VAR[SubstituteLabel]</label>
-					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-					<visible>String.IsEqual(Skin.String(titleSetting),1)</visible>
-				</control>
-				<control type="textbox">
-					<aligny>center</aligny>
-					<font>font_title_west</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>$VAR[SubstituteLabel]</label>
-					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-					<visible>String.IsEqual(Skin.String(titleSetting),2)</visible>
-				</control>
-			</control>
-			<control type="textbox">
-				<height>44</height>
-				<label>$VAR[InfoPanelTop]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-			</control>
-			<control type="textbox" id="15500">
-				<height>180</height>
-				<width>600</width>
-				<label>$VAR[ListBoxInfoVar]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
-			</control>
-			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
-			<control type="textbox">
-				<height max="145">auto</height>
-				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
-			</control>
-			<control type="textbox">
-				<height max="180">auto</height>
-				<width>600</width>
-				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>Player.HasMedia</visible>
-			</control>
-			<control type="textbox">
-				<height max="180">auto</height>
-				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
-			</control>
-		</control>
-	</include>
-
-	<include name="HorizontalRatings">
-		<control type="grouplist">
-			<height>38</height>
-			<orientation>horizontal</orientation>
-			<itemgap>20</itemgap>
-			<aligny>center</aligny>
-			<visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !Player.HasMedia + !String.IsEmpty(ListItem.Genre)</visible>
-			<control type="grouplist">
-				<width>130</width>
-				<orientation>horizontal</orientation>
-				<itemgap>5</itemgap>
-				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
-				<control type="image">
-					<width>50</width>
-					<height>38</height>
-					<aspectratio>keep</aspectratio>
-					<align>left</align>
-					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
-				</control>
-				<control type="label">
-					<width max="80">auto</width>
-					<height>36</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-				</control>
-			</control>
-			<control type="grouplist">
-				<width>130</width>
-				<orientation>horizontal</orientation>
-				<itemgap>5</itemgap>
-				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
-				<control type="image">
-					<width>50</width>
-					<height>38</height>
-					<aspectratio>keep</aspectratio>
-					<align>left</align>
-					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
-				</control>
-				<control type="label">
-					<width max="80">auto</width>
-					<height>36</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-				</control>
-			</control>
-			<control type="grouplist">
-				<width>130</width>
-				<orientation>horizontal</orientation>
-				<itemgap>2</itemgap>
-				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
-				<control type="image">
-					<width>45</width>
-					<height>38</height>
-					<aspectratio>keep</aspectratio>
-					<align>left</align>
-					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
-				</control>
-				<control type="label">
-					<width max="80">auto</width>
-					<height>36</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-				</control>
-			</control>
-			<control type="grouplist">
-				<width>130</width>
-				<orientation>horizontal</orientation>
-				<itemgap>5</itemgap>
-				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
-				<control type="image">
-					<width>74</width>
-					<height>38</height>
-					<aspectratio>keep</aspectratio>
-					<align>left</align>
-					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.imdbImage)]</texture>
-				</control>
-				<control type="label">
-					<width max="60">auto</width>
-					<height>36</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-				</control>
-			</control>
-			<control type="grouplist">
-				<width>130</width>
-				<orientation>horizontal</orientation>
-				<itemgap>8</itemgap>
-				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
-				<control type="image">
-					<width>29</width>
-					<height>35</height>
-					<aspectratio>keep</aspectratio>
-					<align>left</align>
-					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.popularImage)]</texture>
-				</control>
-				<control type="label">
-					<width max="87">auto</width>
-					<height>36</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-				</control>
-			</control>
-			<control type="grouplist">
-				<width>118</width>
-				<orientation>horizontal</orientation>
-				<itemgap>12</itemgap>
-				<align>right</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
-				<control type="image">
-					<top>-3</top>
-					<width>60</width>
-					<aspectratio>keep</aspectratio>
-					<align>left</align>
-					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
-				</control>
-				<control type="label">
-					<width max="60">auto</width>
-					<height>36</height>
-					<align>left</align>
-					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-				</control>
-			</control>
-		</control>
-	</include>
-
-	<include name="BigWeatherLabel">
-		<control type="label">
-			<top>$PARAM[top]</top>
-			<aligny>center</aligny>
-			<height>24</height>
-			<right>60</right>
-			<align>left</align>
-			<font>font36_title</font>
-			<label>$PARAM[label]</label>
-			<textcolor>accent_color</textcolor>
-		</control>
-	</include>
-
-	<include name="SmallWeatherLabel">
-		<control type="label">
-			<top>$PARAM[top]</top>
-			<aligny>center</aligny>
-			<height>24</height>
-			<right>60</right>
-			<align>left</align>
-			<font>font27</font>
-			<label>$PARAM[label]</label>
-			<textcolor>darkgrey</textcolor>
-		</control>
-	</include>
-
-	<include name="WeatherPanel">
-		<control type="group" id="16678">
-			<description>Weather info</description>
-			<left>50</left>
-			<top>-511</top>
-			<height>360</height>
-			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus</visible>
-			<include content="BigWeatherLabel">
-				<param name="top" value="60"/>
-				<param name="label" value="[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="110"/>
-				<param name="label" value="$INFO[Window(weather).Property(Updated),[COLOR white]LAST UPDATED: [/COLOR]]"/>
-			</include>
-			<include content="BigWeatherLabel">
-				<param name="top" value="170"/>
-				<param name="label" value="CURRENTLY"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="220"/>
-				<param name="label" value="$INFO[Weather.Conditions,[COLOR white]CONDITIONS: [/COLOR]]"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="260"/>
-				<param name="label" value="$INFO[Weather.Temperature,[COLOR white]TEMPERATURE: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike),[COLOR accent_color] • [/COLOR][COLOR white][I]FEELS LIKE: [/COLOR]]°F[/I]"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="300"/>
-				<param name="label" value="$INFO[Window(weather).Property(Current.Humidity),[COLOR white]HUMIDITY: [/COLOR]]$INFO[Window(weather).Property(Current.DewPoint),[COLOR accent_color] • [/COLOR][COLOR white]DEW POINT: [/COLOR]]°F"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="340"/>
-				<param name="label" value="$INFO[Window(weather).Property(Current.Wind),[COLOR white]WINDS: [/COLOR]]"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="380"/>
-				<param name="label" value="$INFO[Window(weather).Property(Current.Precipitation),[COLOR white]PRECIPITATION: [/COLOR]]"/>
-			</include>
-			<include content="SmallWeatherLabel">
-				<param name="top" value="420"/>
-				<param name="label" value="$INFO[Window(weather).Property(Today.Sunrise),[COLOR white]SUNRISE: [/COLOR]]$INFO[Window(weather).Property(Today.Sunset),[COLOR accent_color] • [/COLOR][COLOR white]SUNSET: [/COLOR]]"/>
-			</include>
-			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Property(Outlook))</visible>
-				<include content="BigWeatherLabel">
-					<param name="top" value="480"/>
-					<param name="label" value="FORECAST"/>
-				</include>
-				<include content="SmallWeatherLabel">
-					<param name="top" value="530"/>
-					<param name="label" value="$INFO[ListItem.Property(Outlook),[COLOR white]CONDITIONS: [/COLOR]]"/>
-				</include>
-			</control>
-		</control>
-	</include>
-
-	<include name="Seekbar">
-		<control type="progress">
-			<left>120</left>
-			<top>60</top>
-			<width>1680</width>
-			<height>12</height>
-			<texturebg colordiffuse="osd_grey">osd/ProgressBack.png</texturebg>
-			<midtexture colordiffuse="player_cache">osd/Progress.png</midtexture>
-			<info>Player.ProgressCache</info>
-		</control>
-		<control type="progress">
-			<left>120</left>
-			<top>60</top>
-			<width>1680</width>
-			<height>12</height>
-			<texturebg colordiffuse="00FFFFFF">osd/ProgressBack.png</texturebg>
-			<midtexture colordiffuse="accent_color">osd/Progress.png</midtexture>
-			<info>Player.Progress</info>
-		</control>
-		<control type="ranges">
-			<left>120</left>
-			<top>61.3</top>
-			<width>1680</width>
-			<height>3</height>
-			<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
-			<righttexture colordiffuse="white">osd/Chapter.png</righttexture>
-			<info>Player.Chapters</info>
-		</control>
-		<control type="slider" id="401">
-			<left>120</left>
-			<top>60</top>
-			<width>1680</width>
-			<height>12</height>
-			<orientation>horizontal</orientation>
-			<texturesliderbar colordiffuse="00ffffff">osd/ProgressBack.png</texturesliderbar>
-			<textureslidernib colordiffuse="unfocused_text">osd/Progress.png</textureslidernib>
-			<textureslidernibfocus colordiffuse="unfocused_text">osd/Progress.png</textureslidernibfocus>
-			<visible>Player.SeekEnabled + Player.Seeking</visible>
-		</control>
-		<control type="label">
-			<visible>!Window.IsActive(VideoOSD.xml)</visible>
-			<top>80</top>
-			<height>40</height>
-			<font>PlayerTime</font>
-			<textcolor>osd_light</textcolor>
-			<align>center</align>
-			<label>$VAR[SeekLabel]</label>
-		</control>
-		<control type="label">
-			<visible>String.IsEqual(Player.Time(h), 0)</visible>
-			<top>80</top>
-			<left>120</left>
-			<width>auto</width>
-			<height>40</height>
-			<font>PlayerTime</font>
-			<textcolor>osd_light</textcolor>
-			<label>$INFO[Player.Time(mm:ss)]</label>
-		</control>
-		<control type="label">
-			<visible>!String.IsEqual(Player.Time(h), 0)</visible>
-			<top>80</top>
-			<left>120</left>
-			<width>auto</width>
-			<height>40</height>
-			<font>PlayerTime</font>
-			<textcolor>osd_light</textcolor>
-			<label>$INFO[Player.Time(h:mm:ss)]</label>
-		</control>
-		<control type="label">
-			<visible>String.IsEqual(Player.TimeRemaining(h), 0)</visible>
-			<top>80</top>
-			<right>120</right>
-			<width>200</width>
-			<height>40</height>
-			<font>PlayerTime</font>
-			<textcolor>osd_light</textcolor>
-			<align>right</align>
-			<label>$INFO[Player.TimeRemaining(mm:ss), -]</label>
-		</control>
-		<control type="label">
-			<visible>!String.IsEqual(Player.TimeRemaining(h), 0)</visible>
-			<top>80</top>
-			<right>120</right>
-			<width>200</width>
-			<height>40</height>
-			<font>PlayerTime</font>
-			<textcolor>osd_light</textcolor>
-			<align>right</align>
-			<label>$INFO[Player.TimeRemaining(h:mm:ss), -]</label>
-		</control>
-	</include>
-	
 </includes>

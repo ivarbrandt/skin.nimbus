@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <include name="BigWeatherLabel">
+		<control type="label">
+			<top>$PARAM[top]</top>
+			<aligny>center</aligny>
+			<height>24</height>
+			<right>60</right>
+			<align>left</align>
+			<font>font36_title</font>
+			<label>$PARAM[label]</label>
+			<textcolor>accent_color</textcolor>
+		</control>
+	</include>
+
+	<include name="SmallWeatherLabel">
+		<control type="label">
+			<top>$PARAM[top]</top>
+			<aligny>center</aligny>
+			<height>24</height>
+			<right>60</right>
+			<align>left</align>
+			<font>font27</font>
+			<label>$PARAM[label]</label>
+			<textcolor>darkgrey</textcolor>
+		</control>
+	</include>
+
+	<include name="WeatherPanel">
+		<control type="group" id="16678">
+			<description>Weather info</description>
+			<left>50</left>
+			<top>-511</top>
+			<height>360</height>
+			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus</visible>
+			<include content="BigWeatherLabel">
+				<param name="top" value="60"/>
+				<param name="label" value="[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="110"/>
+				<param name="label" value="$INFO[Window(weather).Property(Updated),[COLOR white]LAST UPDATED: [/COLOR]]"/>
+			</include>
+			<include content="BigWeatherLabel">
+				<param name="top" value="170"/>
+				<param name="label" value="CURRENTLY"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="220"/>
+				<param name="label" value="$INFO[Weather.Conditions,[COLOR white]CONDITIONS: [/COLOR]]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="260"/>
+				<param name="label" value="$INFO[Weather.Temperature,[COLOR white]TEMPERATURE: [/COLOR]]$INFO[Window(weather).Property(Current.FeelsLike),[COLOR accent_color] • [/COLOR][COLOR white][I]FEELS LIKE: [/COLOR]]°F[/I]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="300"/>
+				<param name="label" value="$INFO[Window(weather).Property(Current.Humidity),[COLOR white]HUMIDITY: [/COLOR]]$INFO[Window(weather).Property(Current.DewPoint),[COLOR accent_color] • [/COLOR][COLOR white]DEW POINT: [/COLOR]]°F"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="340"/>
+				<param name="label" value="$INFO[Window(weather).Property(Current.Wind),[COLOR white]WINDS: [/COLOR]]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="380"/>
+				<param name="label" value="$INFO[Window(weather).Property(Current.Precipitation),[COLOR white]PRECIPITATION: [/COLOR]]"/>
+			</include>
+			<include content="SmallWeatherLabel">
+				<param name="top" value="420"/>
+				<param name="label" value="$INFO[Window(weather).Property(Today.Sunrise),[COLOR white]SUNRISE: [/COLOR]]$INFO[Window(weather).Property(Today.Sunset),[COLOR accent_color] • [/COLOR][COLOR white]SUNSET: [/COLOR]]"/>
+			</include>
+			<control type="group">
+				<visible>!String.IsEmpty(ListItem.Property(Outlook))</visible>
+				<include content="BigWeatherLabel">
+					<param name="top" value="480"/>
+					<param name="label" value="FORECAST"/>
+				</include>
+				<include content="SmallWeatherLabel">
+					<param name="top" value="530"/>
+					<param name="label" value="$INFO[ListItem.Property(Outlook),[COLOR white]CONDITIONS: [/COLOR]]"/>
+				</include>
+			</control>
+		</control>
+	</include>
+</includes>

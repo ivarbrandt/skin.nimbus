@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <variable name="SkinSettingsHelpTextVar">
+		<value condition="Container(9000).HasFocus(1)">$LOCALIZE[31130]</value>
+		<value condition="Container(9000).HasFocus(2) + !ControlGroup(10000).HasFocus">Various skin settings.</value>
+		<value condition="Control.HasFocus(63701)">Configure what the power button does. OPEN SHUTDOWN MENU is the default option for Kodi. This will open the shutdown menu when the power button in the homescreen mini menu is clicked. EXIT will close Kodi with one click. NOTE: The homescreen label will change according which option is set.</value>
+		<value condition="Control.HasFocus(63703)">Enabling this option will set the focus frame around items to use the color from the current color theme. This setting applies to all menu items such as posters and category widgets but it excludes list items. If this option is disabled it will use the color from the default color theme.</value>
+		<value condition="Control.HasFocus(63704)">Enabling this option will create a glow effect around the focus frame.</value>
+		<value condition="Control.HasFocus(63705)">Enabling this option will enable a pulsing glow animation around the focus frame.</value>
+		<value condition="Control.HasFocus(63706)">Enabling this option will show the current time in the InfoLine located right above the widget items. This will show in the homescreen, search window, and all video windows.</value>
+		<value condition="Control.HasFocus(63707)">Enabling this option will use monochrome studio logos instead of colored ones.</value>
+		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings.</value>
+		<value condition="Control.HasFocus(6470)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
+		<value condition="Control.HasFocus(6471)">Set the search window behavior. OPEN KEYBOARD will open a keybaord when the Search button is clicked in the homescreen mini menu. OPEN SEARCH WINDOW will open the search window where you can see your search history, view TRAKT lists, etc.</value>
+		<value condition="Control.HasFocus(6472) | Control.HasFocus(6473) | Control.HasFocus(6474) | Control.HasFocus(6475) | Control.HasFocus(6476) | Control.HasFocus(6477) | Control.HasFocus(6478)">Enabling or disable the showing of specific search widgets.</value>
+		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">Ratings and trailer settings.</value>
+		<value condition="Control.HasFocus(6480)">If you do not have a MDBList API key, please go to https://mdblist.com to sign up for a free API key.</value>
+		<value condition="Control.HasFocus(64801)">Toggle trailer viewing options. OFF: Disable all skin trailer functions. ONE-CLICK: Trailers are played by long pressing the play/pause button or the "t" key on a keyboard. AUTO: Trailers are automatically played after an item has been focused and the delay time has passed.</value>
+		<value condition="Control.HasFocus(64802)">Set the amount of time to wait before playing the trailer.</value>
+		<value condition="Control.HasFocus(64803)">Enabling this option will show a small play icon at the beginning of the InfoLine. This icon works as a visual indication of when a trailer is loaded and ready to be played.</value>
+		<value condition="Control.HasFocus(64804) | Control.HasFocus(64805) | Control.HasFocus(64806) | Control.HasFocus(64807) | Control.HasFocus(64808) | Control.HasFocus(64809)">Enabling or disable the showing of specific ratings.</value>
+		<value condition="Control.HasFocus(64810)">Remove your API key. This will remove all ratings from the skin.</value>
+		<value condition="Control.HasFocus(64811)">Clear the ratings cache. This will remove all stored ratings in the database and fetch brand new ones when an item is focused. It is not recommended to use this often as retrieving new ratings is slower and involves more API calls.</value>
+		<value condition="Container(9000).HasFocus(5)">$LOCALIZE[31129]</value>
+		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6008) | Control.HasFocus(6009) | Control.HasFocus(6010) | Control.HasFocus(6011)]">$LOCALIZE[31169]</value>
+		<value condition="Control.HasFocus(6002)">Enabling this option will show clearlogos for media content. Disabling this option will use a default text title.</value>
+		<value condition="Control.HasFocus(6003)">Choose your preferred font style for text titles.</value>
+		<value condition="Control.HasFocus(6004)">Enabling this option will blur the background for media content. Disabling this option will use a default black background.</value>
+		<value condition="Control.HasFocus(6005)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40.</value>
+		<value condition="Control.HasFocus(6006)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. RECOMMENDED VALUES:[CR]FANART.TV ARTWORK: 2.0 | TMDB ARTWORK: 2.5</value>
+		<value condition="Control.HasFocus(6007)">Click to clear the blur cache. You can see the size of the cache in megabytes on the right. NOTE: The cache does not need to be cleared when changing the blur radius or saturation values in order for the changes to take effect.</value>
+		<value condition="Container(9000).HasFocus(7)">$LOCALIZE[31171]</value>
+	</variable>
+  <variable name="PVRGuideControlsHelpTextVar">
+		<value condition="Control.HasFocus(600)">$LOCALIZE[19063]</value>
+		<value condition="Control.HasFocus(601)">$LOCALIZE[19317]</value>
+		<value condition="Control.HasFocus(602)">$LOCALIZE[19070]</value>
+		<value condition="Control.HasFocus(603)">$LOCALIZE[19318]</value>
+		<value condition="Control.HasFocus(604)">$LOCALIZE[19064]</value>
+		<value condition="Control.HasFocus(605)">$LOCALIZE[19288]</value>
+		<value condition="Control.HasFocus(70040)">$LOCALIZE[19322]</value>
+		<value condition="Control.HasFocus(70041)">$LOCALIZE[19323]</value>
+		<value condition="Control.HasFocus(70042)">$LOCALIZE[19324]</value>
+		<value condition="Control.HasFocus(70043)">$LOCALIZE[19319]</value>
+		<value condition="Control.HasFocus(70044)">$LOCALIZE[19320]</value>
+		<value condition="Control.HasFocus(70045)">$LOCALIZE[19321]</value>
+	</variable>
+	<variable name="OSDHelpTextVar">
+		<value condition="Control.HasFocus(87) + !Player.Paused">$LOCALIZE[31054]</value>
+		<value condition="Control.HasFocus(87) + [Player.Paused + Window.IsVisible(videoosd)]">$LOCALIZE[31055]</value>
+		<value condition="Control.HasFocus(608)+ PVR.IsRecordingPlayingChannel">$LOCALIZE[19059]</value>
+		<value condition="Control.HasFocus(608)">$LOCALIZE[264]</value>
+		<value condition="Control.HasFocus(804)">$LOCALIZE[33061]</value>
+		<value condition="Control.HasFocus(70040)">$LOCALIZE[19019]</value>
+		<value condition="Control.HasFocus(70041)">$LOCALIZE[19069]</value>
+		<value condition="Control.HasFocus(70042)">$LOCALIZE[31065]</value>
+		<value condition="Control.HasFocus(70043)">$LOCALIZE[19033]</value>
+		<value condition="Control.HasFocus(70044)">$LOCALIZE[298]</value>
+		<value condition="Control.HasFocus(70045)">$LOCALIZE[31106]</value>
+		<value condition="Control.HasFocus(70046)">$LOCALIZE[24012]</value>
+		<value condition="Control.HasFocus(70047)">$LOCALIZE[36501]</value>
+		<value condition="Control.HasFocus(70048)">$LOCALIZE[5]</value>
+		<value condition="Control.HasFocus(70050)">$LOCALIZE[29900]</value>
+		<value condition="Control.HasFocus(70051)">$LOCALIZE[31066]</value>
+		<value condition="Control.HasFocus(70052)">$LOCALIZE[31033]$INFO[MusicPlayer.UserRating, : ]</value>
+		<value condition="Control.HasFocus(70053)">$LOCALIZE[486]$INFO[Playlist.Repeat, : ]</value>
+		<value condition="Control.HasFocus(70054) + Playlist.IsRandom">$LOCALIZE[590]: $LOCALIZE[16041]</value>
+		<value condition="Control.HasFocus(70054)">$LOCALIZE[590]: $LOCALIZE[16039]</value>
+		<value condition="Control.HasFocus(70055)">$LOCALIZE[24013]</value>
+	</variable>
+</includes>

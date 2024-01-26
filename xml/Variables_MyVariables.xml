@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  <variable name="ClearlogoVar">
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+		<value>$INFO[ListItem.Art(clearlogo)]</value>
+	</variable>
+
+	<variable name="FlixPosterVar">
+		<value condition="!String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(poster)]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(season.poster)]</value>
+		<value>$INFO[ListItem.Art(poster)]</value>
+	</variable>
+
+	<variable name="FlixCrumbsVar">
+		<!-- <value condition="![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
+		<value condition="[String.IsEqual(ListItem.DBtype,episode) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="![String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,movie)] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value>
+	</variable>
+
+	<variable name="SubstituteLabel">
+    <value condition="String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | Container.Content(addons)">$INFO[ListItem.Label]</value>
+    <value condition="String.IsEqual(ListItem.DbType,episode)">$INFO[ListItem.TVshowTitle]</value>
+	</variable>
+
+	<variable name="HomescreenFlixCrumbs">
+    <value condition="Window.IsActive(Home)">$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color][B]»[/B][/COLOR] </value>
+	</variable>
+
+	<variable name="TrailerReadyVar">
+    <value condition="String.IsEqual(Skin.String(trailerSetting),1) + ![String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DbType,season)] + Skin.HasSetting(Enable.TrailerReadyIcon) + !String.IsEmpty(Window.Property(nimbus.trailer_ready))">[COLOR accent_color]▶[/COLOR] </value>
+	</variable>
+
+	<variable name="SearchFlixCrumbs">
+    <value condition="Window.IsActive(1121)">$VAR[TrailerReadyVar]$VAR[ClockCrumbs]</value>
+	</variable>
+
+	<!-- <variable name="FlixCrumbsProgress">
+    <value condition=">[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500) | Control.IsVisible(55)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)">$INFO[ListItem.Property(WatchedProgress),[COLOR accent_color] | [/COLOR]]% watched</value>
+	</variable> -->
+
+	<variable name="ClockCrumbs">
+    <value condition="Skin.HasSetting(Enable.ClockCrumbs)">$INFO[System.Time] [COLOR accent_color]•[/COLOR] </value>
+	</variable>
+
+	<variable name="DefaultSearchWindowBehaviorVar">
+    <value condition="Skin.HasSetting(DefaultSearchWindowBehavior)">Open keyboard</value>
+    <value>Open search window</value>
+	</variable>
+
+	<variable name="OneClickCloseVar">
+    <value condition="Skin.HasSetting(OneClickClose)">Exit</value>
+    <value>Open shutdown menu</value>
+	</variable>
+
+	<variable name="LoadingLabelsVar">
+    <value condition="Container.IsUpdating + Window.IsActive(home) + !Skin.HasSetting(TrailerPlaying)">Loading widgets...</value>
+    <value condition="Container.IsUpdating + Window.IsActive(1121) + !Skin.HasSetting(TrailerPlaying)">Loading search results...</value>
+	</variable>
+
+	<variable name="FocusedColorVar">
+    <value condition="!Skin.HasSetting(Disable.ColorThemeFocus)">accent_color</value>
+    <value>FFCCCCCC</value>
+    <!-- <value>FFEAECED</value> -->
+    <!-- <value>FFC1C1C1</value> -->
+	</variable>
+
+	<variable name="EditMainMenusVar">
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),movies)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=movie.main_menu)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),tvshows)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=tvshow.main_menu)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom1)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom1.main_menu)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom2)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom2.main_menu)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom3)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom3.main_menu)</value>
+	</variable>
+
+	<variable name="EditWidgetsVar">
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),movies)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=movie.widget)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),tvshows)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=tvshow.widget)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom1)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom1.widget)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom2)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom2.widget)</value>
+    <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom3)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom3.widget)</value>
+	</variable>
+	
+	<variable name="TitleSettingVar">
+    <value condition="String.IsEqual(Skin.String(titleSetting),0)">Default</value>
+    <value condition="String.IsEqual(Skin.String(titleSetting),1)">Engebrechtre</value>
+    <value condition="String.IsEqual(Skin.String(titleSetting),2)">Westmeath</value>
+	</variable>
+
+	<variable name="TitleSettingToggleVar">
+		<value condition="String.IsEqual(Skin.String(titleSetting),0)">Skin.SetString(titleSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(titleSetting),1)">Skin.SetString(titleSetting,2)</value>
+		<value condition="String.IsEqual(Skin.String(titleSetting),2)">Skin.SetString(titleSetting,0)</value>
+		<value>Skin.SetString(titleSetting,0)</value>
+	</variable>
+</includes>
