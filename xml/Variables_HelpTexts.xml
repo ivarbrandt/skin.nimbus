@@ -9,7 +9,7 @@
 		<value condition="Control.HasFocus(63704)">Enabling this option will create a glow effect around the focus frame.</value>
 		<value condition="Control.HasFocus(63705)">Enabling this option will enable a pulsing glow animation around the focus frame.</value>
 		<value condition="Control.HasFocus(63706)">Enabling this option will show the current time in the InfoLine located right above the widget items. This will show in the homescreen, search window, and all video windows.</value>
-		<value condition="Control.HasFocus(63707)">Enabling this option will use monochrome studio logos instead of colored ones.</value>
+		<value condition="Control.HasFocus(63707)">Enabling this option will show colored studio logos for media content in the FlixPanel.</value>
 		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings.</value>
 		<value condition="Control.HasFocus(6470)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
 		<value condition="Control.HasFocus(6471)">Set the search window behavior. OPEN KEYBOARD will open a keybaord when the Search button is clicked in the homescreen mini menu. OPEN SEARCH WINDOW will open the search window where you can see your search history, view TRAKT lists, etc.</value>

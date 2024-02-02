@@ -378,7 +378,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture colordiffuse="artwork_dim">$PARAM[texture]</texture>
 				<visible>$PARAM[visible]</visible>
-				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(50) | Control.IsVisible(500)]</visible>
+				<!-- <visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(50) | Control.IsVisible(500)]</visible> -->
 			</control>
 		</definition>
 	</include>
@@ -395,7 +395,7 @@
 				<itemgap>10</itemgap>
 				<width>1900</width>
 				<usecontrolcoords>true</usecontrolcoords>
-				<control type="group">
+				<!-- <control type="group">
 					<width>140</width>
 					<visible>[System.AddonIsEnabled(resource.images.studios.white) | System.AddonIsEnabled(resource.images.studios.coloured)] + !String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio)</visible>
 					<include condition="!Skin.HasSetting(Disable.ColorStudio)" content="MediaFlag">
@@ -404,7 +404,7 @@
 					<include condition="Skin.HasSetting(Disable.ColorStudio)" content="MediaFlag">
 						<param name="texture" value="$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]" />
 					</include>
-				</control>
+				</control> -->
 				<include content="MediaFlag">
 					<param name="texture" value="$INFO[ListItem.VideoCodec,flags/videocodec/,.png]" />
 					<param name="visible" value="!String.IsEmpty($PARAM[infolabel_prefix]ListItem.VideoCodec)" />
@@ -1722,6 +1722,26 @@
 			<bordersize>$PARAM[border_size]</bordersize>
 			<visible>$PARAM[vis_cond]</visible>
 			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+		</control>
+	</include>
+
+	<include name="FlixInfoIcon">
+		<control type="togglebutton">
+			<visible>$PARAM[visible]</visible>
+			<left>50</left>
+			<width>auto</width>
+			<top>56</top>
+			<height>38</height>
+			<align>left</align>
+			<aligny>top</aligny>
+			<textoffsetx>10</textoffsetx>
+			<textoffsety>1</textoffsety>
+			<font>FlixPanelIcon</font>
+			<textcolor>unfocused_text</textcolor>
+			<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
+			<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
+			<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+			<label>[LIGHT]$PARAM[flixlabel][/LIGHT]</label>
 		</control>
 	</include>
 

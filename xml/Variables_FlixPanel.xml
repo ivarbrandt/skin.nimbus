@@ -69,4 +69,10 @@
 		<!-- MOVIES, TVSHOWS, SEASONS, EPISODES, COLLECTIONS -->
 		<value condition="!ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$VAR[RI_Plot]</value>
 	</variable>
+
+	<variable name="FlixPanelRuntime">
+		<!-- MOVIES, TVSHOWS, SEASONS, EPISODES, COLLECTIONS -->
+		<value condition="String.IsEqual(ListItem.DBtype,movie)">$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,tvshow) |  String.IsEqual(ListItem.DBtype,season) |  String.IsEqual(ListItem.DBtype,episode)">$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]</value>
+	</variable>
 </includes>

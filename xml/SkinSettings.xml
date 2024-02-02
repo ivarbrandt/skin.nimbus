@@ -269,11 +269,11 @@
 				</control>
 				<!-- STUDIO LOGOS -->
 				<control type="radiobutton" id="63707">
-					<label>Disable color studio logos</label>
+					<label>Enable studio logos in FlixPanel</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
-					<onclick>Skin.ToggleSetting(Disable.ColorStudio)</onclick>
-					<selected>!Skin.HasSetting(Disable.ColorStudio)</selected>
+					<onclick>Skin.ToggleSetting(Enable.StudioLogos)</onclick>
+					<selected>Skin.HasSetting(Enable.StudioLogos)</selected>
 				</control>
 			</control>
 
