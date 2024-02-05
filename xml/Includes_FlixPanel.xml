@@ -52,7 +52,7 @@
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 			</control> -->
 			<control type="grouplist">
-				<height>53</height>
+				<height>55</height>
 				<orientation>horizontal</orientation>
 				<itemgap>20</itemgap>
 				<aligny>center</aligny>
