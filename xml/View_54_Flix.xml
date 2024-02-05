@@ -65,7 +65,7 @@
 				<control type="group">
 					<include content="FlixSquareFocus">
 						<param name="diffuse" value="masks/addons-glow.png"/>
-						<param name="border_size" value="3"/>
+						<param name="border_size" value="-3"/>
 						<param name="vis_cond" value="Skin.HasSetting(Enable.FocusGlow) + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]"/>
 					</include>
 					<include content="GlowPulse">
@@ -81,7 +81,7 @@
 				<control type="group">
 					<include content="FlixSquareFocus">
 						<param name="diffuse" value="masks/addons-glow.png"/>
-						<param name="border_size" value="3"/>
+						<param name="border_size" value="-3"/>
 						<param name="vis_cond" value="Skin.HasSetting(Enable.FocusGlow) + $PARAM[focused] + [Control.HasFocus(14100) | ControlGroup(400).HasFocus | Control.HasFocus(450)]"/>
 					</include>
 					<include content="GlowPulse">
@@ -156,11 +156,11 @@
 		<definition>
 			<control type="group">
 				<visible>String.IsEmpty(ListItem.Art(poster))</visible>
-				<include content="ProgressBar">
+				<!-- <include content="ProgressBar">
 					<param name="left" value="35"/>
 					<param name="top" value="265.9"/>
 					<param name="width" value="165"/>
-				</include>
+				</include> -->
 				<!-- <control type="image">
 					<include>FocusBounce</include>
 					<left>-4</left>
@@ -246,18 +246,30 @@
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-				<include content="ProgressBar">
+				<!-- <include content="ProgressBar">
 					<param name="left" value="43"/>
 					<param name="top" value="323"/>
 					<param name="width" value="189"/>
-				</include>
+				</include> -->
+				<control type="image">
+					<top>-10</top>
+					<width>275</width>
+					<height>379</height>
+					<include>FocusBounce</include>
+					<texture colordiffuse="FF252525">masks/poster.png</texture>
+					<bordersize>19</bordersize>
+					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+					<visible>![$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+				</control>
 				<control type="image">
 					<top>-10</top>
 					<width>275</width>
 					<height>379</height>
 					<include>FocusBounce</include>
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster.png</texture>
-					<bordersize>13</bordersize>
+					<bordersize>15</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<visible>!Container($PARAM[list_id]).IsUpdating + !Skin.HasSetting(Enable.FocusGlow)</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -304,9 +316,9 @@
 				</control>
 				<control type="image">
 					<left>20</left>
-					<top>252</top>
+					<top>192</top>
 					<width>235</width>
-					<height>97</height>
+					<height>157</height>
 					<texture colordiffuse="CCFFFFFF">overlays/overlayfade8.png</texture>
 					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
 					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
@@ -350,9 +362,9 @@
 				<top>320</top>
 				<control type="image">
 					<left>20</left>
-					<top>-68</top>
+					<top>-128</top>
 					<width>235</width>
-					<height>97</height>
+					<height>157</height>
 					<texture colordiffuse="CCFFFFFF">overlays/overlayfade8.png</texture>
 					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
@@ -410,22 +422,33 @@
 				</control> -->
 			</control>
 			<control type="image">
-				<left>26</left>
-				<top>311</top>
-				<width>32</width>
-				<height>32</height>
+				<left>20</left>
+				<top>255</top>
+				<width>94</width>
+				<height>94</height>
+				<texture>overlays/overlaybg.png</texture>
+				<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+				<visible>![$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+				<visible>!Integer.IsGreater(ListItem.Playcount,0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
+				<!-- <visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible> -->
+			</control>
+			<control type="image">
+				<left>30</left>
+				<top>317</top>
+				<width>23</width>
+				<height>23</height>
 				<texture>$VAR[WallWatchedIconVar]</texture>
 			</control>
 			<control type="group">
 				<left>188</left>
 				<top>-8</top>
 				<include content="RatingCircle" condition="Skin.HasSetting(circle_rating) | Skin.HasSetting(circle_userrating)">
-					<param name="left">-72</param>
-					<param name="top">17</param>
+					<param name="left">-71.7</param>
+					<param name="top">18</param>
 					<param name="width">139</param>
 					<param name="height">139</param>
-					<param name="label-left">11</param>
-					<param name="label-top">25</param>
+					<param name="label-left">13</param>
+					<param name="label-top">23</param>
 					<param name="cornerdiffuse">overlays/overlaybg3.png</param>
 				</include>
 			</control>

@@ -195,7 +195,7 @@
 							<control type="group">
 								<include content="FlixSquareFocus">
 									<param name="diffuse" value="masks/addons-glow.png"/>
-									<param name="border_size" value="0"/>
+									<param name="border_size" value="-7"/>
 									<param name="vis_cond" value="Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
 								</include>
 								<include content="GlowPulse">
