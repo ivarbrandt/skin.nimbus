@@ -135,7 +135,7 @@
 			<name>FlixPanelIcon</name>
 			<filename>SF-Pro.ttf</filename>
 			<aspect>0.95</aspect>
-			<style>light</style>
+			<style>bold</style>
 			<size>25</size>
 		</font>
 		<font>

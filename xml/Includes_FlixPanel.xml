@@ -6,7 +6,7 @@
 			<width>825</width>
 			<top>50</top>
 			<orientation>vertical</orientation>
-			<itemgap>13</itemgap>
+			<itemgap>10</itemgap>
 			<control type="image">
 				<width>545</width>
 				<!-- 233 -->
@@ -52,7 +52,7 @@
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 			</control> -->
 			<control type="grouplist">
-				<height>49</height>
+				<height>53</height>
 				<orientation>horizontal</orientation>
 				<itemgap>20</itemgap>
 				<aligny>center</aligny>
