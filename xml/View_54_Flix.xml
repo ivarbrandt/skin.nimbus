@@ -330,6 +330,7 @@
 					<width>280</width>
 					<label>$INFO[ListItem.Property(WatchedProgress)]% watched</label>
 					<font>font20_title</font>
+					<textcolor>artwork_dim</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
 					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
@@ -376,6 +377,7 @@
 					<width>169</width>
 					<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 					<font>font20_title</font>
+					<textcolor>artwork_dim</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
@@ -386,7 +388,7 @@
 					<top>-1.8</top>
 					<width>24</width>
 					<height>24</height>
-					<texture>lists/played-total.png</texture>
+					<texture colordiffuse="artwork_dim">lists/played-total.png</texture>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -437,7 +439,7 @@
 				<top>317</top>
 				<width>23</width>
 				<height>23</height>
-				<texture>$VAR[WallWatchedIconVar]</texture>
+				<texture colordiffuse="artwork_dim">$VAR[WallWatchedIconVar]</texture>
 			</control>
 			<control type="group">
 				<left>188</left>
