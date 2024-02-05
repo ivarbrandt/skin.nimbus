@@ -1741,7 +1741,7 @@
 			<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
 			<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
 			<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
-			<label>[LIGHT]$PARAM[flixlabel][/LIGHT]</label>
+			<label>$PARAM[flixlabel]</label>
 		</control>
 	</include>
 
