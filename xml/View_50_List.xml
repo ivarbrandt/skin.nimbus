@@ -65,7 +65,7 @@
 					<control type="group">
 						<left>540</left>
 						<top>143</top>
-						<include content="RatingCircle">
+						<!-- <include content="RatingCircle">
 							<param name="animation" value="True" />
 							<param name="left">-72</param>
 							<param name="top">17</param>
@@ -74,7 +74,7 @@
 							<param name="label-left">-16</param>
 							<param name="label-top">38</param>
 							<param name="cornerdiffuse">overlays/overlaybg4.png</param>
-						</include>
+						</include> -->
 					</control>
 					<include content="ProgressBar">
 						<!-- 48 -->
