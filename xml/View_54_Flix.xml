@@ -253,9 +253,9 @@
 				</include> -->
 				<control type="image">
 					<top>11</top>
-					<left>19</left>
-					<width>235</width>
-					<height>339</height>
+					<left>20</left>
+					<width>236</width>
+					<height>354</height>
 					<include>FocusBounce</include>
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster.png</texture>
 					<bordersize>-5</bordersize>
@@ -264,46 +264,36 @@
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 				<control type="image">
-					<top>-9</top>
-					<width>273</width>
-					<height>377</height>
+					<top>-7</top>
+					<left>5</left>
+					<width>267</width>
+					<height>389</height>
 					<include>FocusBounce</include>
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
-					<bordersize>-5</bordersize>
+					<bordersize>-7</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<visible>!Container($PARAM[list_id]).IsUpdating + Skin.HasSetting(Enable.FocusGlow)</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					<include content="GlowPulse">
-						<param name="pos_x" value="137.5"/>
-						<param name="pos_y" value="191.5"/>
+						<param name="pos_x" value="133.5"/>
+						<param name="pos_y" value="193.5"/>
 					</include>
 				</control>
 				<control type="image">
-					<left>19</left>
+					<left>20</left>
 					<top>11</top>
-					<width>235</width>
-					<height>339</height>
+					<width>236</width>
+					<!-- 339 -->
+					<height>354</height>
 					<texture colordiffuse="FFE9E9E9" diffuse="masks/poster.png" background="true">$VAR[FlixPosterVar]</texture>
 					<bordersize>1</bordersize>
+					<aspectratio scalediffuse="false">scale</aspectratio>
 					<bordertexture colordiffuse="FF252525" border="7" infill="false">masks/poster-border.png</bordertexture>
 					<animation condition="Container($PARAM[list_id]).IsUpdating + !Skin.HasSetting(TrailerPlaying)" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation>
 				</control>
-				<!-- <control type="image">
-					<top>-9</top>
-					<width>275</width>
-					<height>379</height>
-					<include>FocusBounce</include>
-					<texture colordiffuse="white">masks/poster.png</texture>
-					<texture colordiffuse="FF252525">masks/poster.png</texture>
-					<bordersize>19</bordersize>
-					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
-					<visible>![$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
-					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control> -->
 				<control type="image">
-					<left>20</left>
-					<top>255</top>
+					<left>21</left>
+					<top>270</top>
 					<width>94</width>
 					<height>94</height>
 					<texture>overlays/overlaybg.png</texture>
@@ -311,17 +301,17 @@
 					<animation condition="[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]" effect="fade" time="1" start="100" end="0">Conditional</animation>
 				</control>
 				<control type="image">
-					<left>20</left>
-					<top>255</top>
+					<left>21</left>
+					<top>270</top>
 					<width>94</width>
 					<height>94</height>
 					<texture>overlays/overlaybg.png</texture>
 					<visible>String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0) + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">
-					<left>20</left>
-					<top>192</top>
-					<width>235</width>
+					<left>21</left>
+					<top>267</top>
+					<width>234</width>
 					<!-- 157 -->
 					<height>97</height>
 					<texture colordiffuse="CCFFFFFF">overlays/overlayfade8.png</texture>
@@ -331,7 +321,7 @@
 				</control>
 				<control type="label">
 					<left>-35</left>
-					<top>315</top>
+					<top>329</top>
 					<width>280</width>
 					<label>$INFO[ListItem.Property(WatchedProgress)]% watched</label>
 					<font>font20_title</font>
@@ -367,9 +357,9 @@
 				<visible>String.IsEqual(ListItem.DBtype,tvshow)</visible>
 				<top>320</top>
 				<control type="image">
-					<left>20</left>
-					<top>-128</top>
-					<width>235</width>
+					<left>21</left>
+					<top>-53</top>
+					<width>234</width>
 					<!-- 157 -->
 					<height>97</height>
 					<texture colordiffuse="CCFFFFFF">overlays/overlayfade8.png</texture>
@@ -379,7 +369,7 @@
 				</control>
 				<control type="label">
 					<left>39</left>
-					<top>-4</top>
+					<top>9</top>
 					<width>169</width>
 					<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 					<font>font20_title</font>
@@ -391,7 +381,7 @@
 				</control>
 				<control type="image">
 					<left>218</left>
-					<top>-1.8</top>
+					<top>11.2</top>
 					<width>24</width>
 					<height>24</height>
 					<texture colordiffuse="artwork_dim">lists/played-total.png</texture>
@@ -431,7 +421,7 @@
 			</control>
 			<control type="image">
 				<left>20</left>
-				<top>255</top>
+				<top>270</top>
 				<width>94</width>
 				<height>94</height>
 				<texture>overlays/overlaybg.png</texture>
@@ -442,7 +432,7 @@
 			</control>
 			<control type="image">
 				<left>31</left>
-				<top>316</top>
+				<top>331</top>
 				<width>23</width>
 				<height>23</height>
 				<texture colordiffuse="artwork_dim">$VAR[WallWatchedIconVar]</texture>
@@ -451,11 +441,11 @@
 				<left>188</left>
 				<top>-8</top>
 				<include content="RatingCircle" condition="Skin.HasSetting(circle_rating) | Skin.HasSetting(circle_userrating)">
-					<param name="left">-74.7</param>
+					<param name="left">-71.7</param>
 					<param name="top">20</param>
 					<param name="width">139</param>
 					<param name="height">139</param>
-					<param name="label-left">11</param>
+					<param name="label-left">13</param>
 					<param name="label-top">25</param>
 					<param name="cornerdiffuse">overlays/overlaybg3.png</param>
 				</include>
