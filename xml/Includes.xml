@@ -1166,7 +1166,7 @@
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
-				<texture colordiffuse="FF464646">$INFO[Window(home).Property(listitem_blurred)]</texture>
+				<texture diffuse="overlays/fanartmask.png" colordiffuse="FF464646">$INFO[Window(home).Property(listitem_blurred)]</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -1731,11 +1731,11 @@
 			<left>50</left>
 			<width>auto</width>
 			<top>56</top>
-			<height>43</height>
+			<height>41</height>
 			<align>left</align>
 			<aligny>top</aligny>
 			<textoffsetx>10</textoffsetx>
-			<textoffsety>1.5</textoffsety>
+			<textoffsety>2.5</textoffsety>
 			<font>FlixPanelIcon</font>
 			<textcolor>unfocused_text</textcolor>
 			<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
