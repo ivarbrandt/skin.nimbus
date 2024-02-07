@@ -156,22 +156,6 @@
 		<definition>
 			<control type="group">
 				<visible>String.IsEmpty(ListItem.Art(poster))</visible>
-				<!-- <include content="ProgressBar">
-					<param name="left" value="35"/>
-					<param name="top" value="265.9"/>
-					<param name="width" value="165"/>
-				</include> -->
-				<!-- <control type="image">
-					<include>FocusBounce</include>
-					<left>-4</left>
-					<top>-14</top>
-					<width>283</width>
-					<height>387</height>
-					<texture colordiffuse="button_focus">masks/poster.png</texture>
-					<bordersize>17</bordersize>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control> -->
 				<control type="image">
 					<top>11</top>
 					<left>19</left>
@@ -233,24 +217,9 @@
 					<aspectratio>scale</aspectratio>
 					<bordersize>20</bordersize>
 				</control>
-				<!-- <control type="image">
-					<left>3</left>
-					<top>-7</top>
-					<width>270</width>
-					<height>270</height>
-					<texture diffuse="masks/addons.png" colordiffuse="artwork_dim" fallback="DefaultMovies.png" background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio>scale</aspectratio>
-					<bordersize>20</bordersize>
-					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
-				</control> -->
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-				<!-- <include content="ProgressBar">
-					<param name="left" value="43"/>
-					<param name="top" value="323"/>
-					<param name="width" value="189"/>
-				</include> -->
 				<control type="image">
 					<top>11</top>
 					<left>20</left>
@@ -331,27 +300,6 @@
 					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
-				<!-- <control type="image">
-					<left>20</left>
-					<top>252</top>
-					<width>235</width>
-					<height>97</height>
-					<texture colordiffuse="CCFFFFFF">overlays/overlayfade8.png</texture>
-					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-					<visible>$PARAM[focused] + String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0) + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control> -->
-				<!-- <control type="label">
-					<left>-35</left>
-					<top>315</top>
-					<width>280</width>
-					<label>$INFO[ListItem.Property(WatchedProgress)]% watched</label>
-					<font>font20_title</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<align>right</align>
-					<visible>$PARAM[focused] + String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0) + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control> -->
 			</control>
 			<control type="group">
 				<visible>String.IsEqual(ListItem.DBtype,tvshow)</visible>
@@ -388,36 +336,6 @@
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
-				<!-- <control type="image">
-					<left>20</left>
-					<top>-68</top>
-					<width>235</width>
-					<height>97</height>
-					<texture colordiffuse="CCFFFFFF">overlays/overlayfade8.png</texture>
-					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-					<visible>$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control> -->
-				<!-- <control type="label">
-					<left>39</left>
-					<top>-4</top>
-					<width>169</width>
-					<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
-					<font>font20_title</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<align>right</align>
-					<visible>$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control> -->
-				<!-- <control type="image">
-					<left>218</left>
-					<top>-1.8</top>
-					<width>24</width>
-					<height>24</height>
-					<texture>lists/played-total.png</texture>
-					<visible>$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible>
-					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-				</control> -->
 			</control>
 			<control type="image">
 				<left>20</left>
@@ -428,7 +346,6 @@
 				<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				<visible>![$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 				<visible>!Integer.IsGreater(ListItem.Playcount,0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
-				<!-- <visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible> -->
 			</control>
 			<control type="image">
 				<left>31</left>
@@ -468,18 +385,14 @@
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>left</align>
-				<!-- <visible>!$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]</visible> -->
 			</control>
 			<control type="fixedlist" id="54">
 				<left>0</left>
 				<right>0</right>
 				<height>100%</height>
 				<onleft>54</onleft>
-				<!-- <onright>531</onright> -->
 				<orientation>horizontal</orientation>
 				<movement>6</movement>
-				<!-- <onup condition="Integer.IsGreater(Container.NumPages,1)">54</onup>
-				<onup condition="!Integer.IsGreater(Container.NumPages,1)">9000</onup> -->
 				<onup>9000</onup>
 				<ondown>5199</ondown>
 				<viewtype label="31101">icon</viewtype>
@@ -505,28 +418,6 @@
 						<include>TrailerAutoStop</include>
 					</control>
 				</focusedlayout>
-				<!-- infowall spacing -->
-				<!-- <itemlayout height="301" width="410" condition="Container.Content(episodes) | Container.Content(videos) | [Container.Content(musicvideos) + !Skin.HasSetting(show_musicvideoposter)]">
-					<control type="group">
-						<left>64</left>
-						<top>110</top>
-						<include content="FlixEpisodeLayout">
-							<param name="focused" value="false" />
-							<param name="thumb_label" value="$INFO[ListItem.Label2]" />
-						</include>
-					</control>
-				</itemlayout>
-				<focusedlayout height="301" width="410" condition="Container.Content(episodes) | Container.Content(videos) | [Container.Content(musicvideos) + !Skin.HasSetting(show_musicvideoposter)]">
-					<control type="group">
-						<depth>DepthContentPopout</depth>
-						<left>64</left>
-						<top>110</top>
-						<include content="FlixEpisodeLayout">
-							<param name="focused" value="true" />
-							<param name="thumb_label" value="$INFO[ListItem.Label2]" />
-						</include>
-					</control>
-				</focusedlayout> -->
 				<itemlayout height="410" width="310" condition="Container.Content(artists) | Container.Content(albums)">
 					<control type="group">
 						<top>150</top>
