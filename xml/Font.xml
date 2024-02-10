@@ -64,19 +64,19 @@
 			<filename>SF-Pro.ttf</filename>
 			<size>30</size>
 			<aspect>0.92</aspect>
-	</font>
+		</font>
 		<font>
 			<name>Font22</name>
 			<filename>SF-Pro.ttf</filename>
 			<size>22</size>
 			<aspect>0.92</aspect>
-	</font>
-	<font>
-		<name>PlayerTime</name>
-		<filename>SF-Pro.ttf</filename>
-		<size>30</size>
-		<aspect>0.98</aspect>
-</font>
+		</font>
+		<font>
+			<name>PlayerTime</name>
+			<filename>SF-Pro.ttf</filename>
+			<size>30</size>
+			<aspect>0.98</aspect>
+		</font>
 		<font>
 			<name>font32</name>
 			<filename>SF-Pro.ttf</filename>
@@ -134,7 +134,6 @@
 		<font>
 			<name>FlixPanelIcon</name>
 			<filename>SF-Pro.ttf</filename>
-			<aspect>0.95</aspect>
 			<style>light</style>
 			<size>25</size>
 		</font>

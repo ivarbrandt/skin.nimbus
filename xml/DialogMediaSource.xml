@@ -9,11 +9,11 @@
 		<centerleft>50%</centerleft>
 		<width>1200</width>
 		<include content="DialogBackgroundCommons">
-			<param name="width" value="1200" />
-			<param name="height" value="750" />
+			<!-- <param name="width" value="1200" />
+			<param name="height" value="750" /> -->
 			<param name="header_label" value="$LOCALIZE[13406]" />
 			<param name="header_id" value="2" />
-			<param name="diffusetexture" value="masks/dialog-bg-squareish.png" />
+			<!-- <param name="diffusetexture" value="masks/dialog-bg-squareish.png" /> -->
 		</include>
 		<control type="label">
 			<description>path label</description>
@@ -42,7 +42,7 @@
 				<control type="label">
 					<left>10</left>
 					<right>10</right>
-					<top>0</top>
+					<top>-5</top>
 					<bottom>0</bottom>
 					<aligny>center</aligny>
 					<textcolor>unfocused_text</textcolor>
@@ -60,7 +60,7 @@
 				</control>
 				<control type="label">
 					<left>10</left>
-					<top>0</top>
+					<top>-5</top>
 					<bottom>0</bottom>
 					<right>10</right>
 					<aligny>center</aligny>
@@ -121,7 +121,7 @@
 			<label></label>
 			<onup>10</onup>
 			<ondown>9001</ondown>
-			<colordiffuse>button_focus</colordiffuse>
+			<!-- <colordiffuse>button_focus</colordiffuse> -->
 		</control>
 		<control type="grouplist" id="9001">
 			<left>0</left>

@@ -5,6 +5,13 @@
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
+	<variable name="BorderColorVar">
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">FF2E2E2E</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur)">FF5B5B5B</value>
+		<value>FFFF2E2E2E</value>
+		<!-- <value>FF252525</value> -->
+	</variable>
+
 	<variable name="FlixPosterVar">
 		<value condition="!String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(poster)]</value>
 		<value condition="String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(season.poster)]</value>
@@ -94,5 +101,11 @@
 		<value condition="String.IsEqual(Skin.String(titleSetting),1)">Skin.SetString(titleSetting,2)</value>
 		<value condition="String.IsEqual(Skin.String(titleSetting),2)">Skin.SetString(titleSetting,0)</value>
 		<value>Skin.SetString(titleSetting,0)</value>
+	</variable>
+
+	<variable name="ContextMenuTitleVar">
+		<value condition="String.IsEqual(ListItem.dbtype,season)">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
+		<value condition="String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
+		<value>$INFO[ListItem.Title]</value>
 	</variable>
 </includes>

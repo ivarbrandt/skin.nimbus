@@ -5,15 +5,15 @@
 	<controls>
 		<control type="group">
 			<centerleft>50%</centerleft>
-			<centertop>50%</centertop>
+			<centertop>47%</centertop>
 			<width>1300</width>
 			<height>850</height>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1300" />
-				<param name="height" value="850" />
+				<!-- <param name="width" value="1300" />
+				<param name="height" value="850" /> -->
 				<param name="header_label" value="" />
 				<param name="header_id" value="411" />
-				<param name="diffusetexture" value="masks/dialog-bg-squareish.png" />
+				<!-- <param name="diffusetexture" value="masks/dialog-bg-squareish.png" /> -->
 			</include>
 			<control type="grouplist" id="9000">
 				<left>990</left>
@@ -47,25 +47,25 @@
 			</control>
 			<control type="image">
 				<left>1010</left>
-				<top>420</top>
+				<top>467</top>
 				<width>260</width>
 				<height>380</height>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<bordersize>4</bordersize>
-				<texture  colordiffuse="unfocused_text" border="4" background="true">$INFO[ListItem.Icon]</texture>
+				<texture colordiffuse="unfocused_text" border="4" background="true">$INFO[ListItem.Icon]</texture>
 			</control>
 			<control type="panel" id="450">
 				<left>20</left>
 				<top>100</top>
 				<width>940</width>
-				<height>700</height>
+				<height>760</height>
 				<onleft>60</onleft>
 				<onright>9000</onright>
 				<onup>450</onup>
 				<ondown>450</ondown>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout height="70" width="940">
+				<itemlayout height="75" width="940">
 					<control type="image">
 						<left>35</left>
 						<top>10</top>
@@ -76,16 +76,17 @@
 					</control>
 					<control type="label">
 						<left>100</left>
-						<top>0</top>
+						<top>-1</top>
 						<right>20</right>
 						<height>70</height>
 						<aligny>center</aligny>
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
+						<font>font32</font>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</itemlayout>
-				<focusedlayout height="70" width="940">
+				<focusedlayout height="75" width="940">
 					<control type="image">
 						<left>25</left>
 						<top>0</top>
@@ -104,12 +105,13 @@
 					</control>
 					<control type="label">
 						<left>100</left>
-						<top>0</top>
+						<top>-1</top>
 						<right>20</right>
 						<height>70</height>
 						<aligny>center</aligny>
 						<selectedcolor>green</selectedcolor>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<font>font32</font>
 						<textcolor>focused_text</textcolor>
 					</control>
 				</focusedlayout>
@@ -118,14 +120,14 @@
 				<left>20</left>
 				<top>100</top>
 				<width>940</width>
-				<height>700</height>
+				<height>760</height>
 				<onleft>60</onleft>
 				<onright>9000</onright>
 				<onup>451</onup>
 				<ondown>451</ondown>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime>200</scrolltime>
-				<itemlayout height="70" width="940">
+				<itemlayout height="75" width="940">
 					<control type="image">
 						<left>35</left>
 						<top>10</top>
@@ -142,10 +144,11 @@
 						<aligny>center</aligny>
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
+						<font>font32</font>
 						<textcolor>unfocused_text</textcolor>
 					</control>
 				</itemlayout>
-				<focusedlayout height="70" width="940">
+				<focusedlayout height="75" width="940">
 					<control type="image">
 						<left>25</left>
 						<top>0</top>
@@ -170,6 +173,7 @@
 						<aligny>center</aligny>
 						<selectedcolor>green</selectedcolor>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<font>font32</font>
 						<textcolor>focused_text</textcolor>
 					</control>
 				</focusedlayout>
@@ -178,15 +182,15 @@
 				<left>20</left>
 				<top>100</top>
 				<width>12</width>
-				<height>698</height>
+				<height>746</height>
 				<onleft>9000</onleft>
 				<onright>451</onright>
 				<orientation>vertical</orientation>
 			</control>
 			<control type="label" id="412">
 				<description>Path label</description>
-				<left>75</left>
-				<bottom>25</bottom>
+				<left>65</left>
+				<bottom>-37</bottom>
 				<width>595</width>
 				<height>30</height>
 				<haspath>true</haspath>
@@ -196,7 +200,7 @@
 			</control>
 			<control type="label">
 				<left>-50</left>
-				<bottom>25</bottom>
+				<bottom>-37</bottom>
 				<width>1270</width>
 				<height>30</height>
 				<align>right</align>

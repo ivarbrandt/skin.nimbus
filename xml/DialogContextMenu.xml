@@ -8,15 +8,35 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<left>735</left>
-			<top>225</top>
-			<include content="DialogBackgroundCommons">
+			<!-- <left>735</left> -->
+			<top>265</top>
+			<!-- <include content="DialogBackgroundCommons">
 				<param name="width" value="450" />
 				<param name="height" value="455" />
 				<param name="header_label" value="Context menu" />
 				<param name="header_id" value="" />
 				<param name="diffusetexture" value="masks/addons.png" />
-			</include>
+			</include> -->
+			<control type="image">
+				<left>-1920</left>
+				<top>-1080</top>
+				<width>5760</width>
+				<height>3240</height>
+				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<texture colordiffuse="F7030303">colors/white.png</texture>
+			</control>
+			<control type="label">
+				<top>-90</top>
+				<left>50</left> 
+				<right>50</right>
+				<height>70</height>
+				<font>font40_title</font>
+				<textcolor>darkgrey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$VAR[ContextMenuTitleVar]</label>
+			</control>
 			<control type="button">
 				<left>-1920</left>
 				<top>-1080</top>
@@ -26,29 +46,31 @@
 				<texturenofocus />
 				<onclick>Action(close)</onclick>
 			</control>
-			<animation effect="slide" end="0,175" time="0" condition="Window.IsActive(home)">conditional</animation>
+			<!-- <animation effect="slide" end="0,75" time="0" condition="Window.IsActive(home)">conditional</animation> -->
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
-				<left>0</left>
-				<top>100</top>
-				<width>450</width>
-				<height>325</height>
+				<left>712</left>
+				<top>0</top>
+				<width>496</width>
+				<height max="780">auto</height>
 				<usecontrolcoords>true</usecontrolcoords>
 			</control>
-			<include content="UpDownArrows">
+			<!-- <include content="UpDownArrows">
 				<param name="container_id" value="996" />
 				<param name="posx" value="201" />
 				<param name="up_posy" value="-40" />
 				<param name="down_posy" value="470" />
-			</include>
+			</include> -->
 			<control type="button" id="1000">
 				<description>button template</description>
+				<textoffsety>12</textoffsety>
 				<left>25</left>
 				<top></top>
-				<width>400</width>
-				<height>65</height>
+				<width>446</width>
+				<height>70</height>
 				<align>center</align>
-				<textcolor>unfocused_text</textcolor>
+				<font>font32</font>
+				<textcolor>darkgrey</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
 				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
 				<texturenofocus />

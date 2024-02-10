@@ -49,7 +49,7 @@
 	<constant name="DepthBackground">-0.80</constant>
 	<constant name="DepthSideBlade">0.10</constant>
 	<constant name="bg_alpha">79</constant>
-	<constant name="dialogbuttons_itemgap">20</constant>
+	<constant name="dialogbuttons_itemgap">14</constant>
 	<constant name="list_bottom">0</constant>
 	<constant name="list_bottom_offset">70</constant>
 	<constant name="list_top_offset">660</constant>
@@ -237,9 +237,9 @@
 	</include>
 	<include name="DefaultSimpleListLayout">
 		<param name="align">left</param>
-		<param name="height">63</param>
-		<param name="font">font13</param>
-		<param name="fontcolor">grey</param>
+		<param name="height">75</param>
+		<param name="font">font32</param>
+		<param name="fontcolor">darkgrey</param>
 		<param name="diffuse">$PARAM[diffuse]</param>
 		<definition>
 			<itemlayout width="$PARAM[width]" height="$PARAM[height]">
@@ -283,7 +283,7 @@
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
 						<aligny>center</aligny>
-						<textcolor>unfocused_text</textcolor>
+						<textcolor>darkgrey</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</control>
@@ -464,6 +464,7 @@
 				<bottom>list_bottom_offset</bottom>
 				<right>$PARAM[right]</right>
 				<width>$PARAM[width]</width>
+				<height>840</height>
 				<focusposition>4</focusposition>
 				<movement>3</movement>
 				<onleft>$PARAM[onleft_id]</onleft>
@@ -491,7 +492,7 @@
 					</control>
 					<control type="label">
 						<left>90</left>
-						<top>0</top>
+						<top>-5</top>
 						<bottom>0</bottom>
 						<right>20</right>
 						<aligny>center</aligny>
@@ -503,7 +504,7 @@
 					<control type="label">
 						<left>0</left>
 						<textoffsetx>30</textoffsetx>
-						<top>0</top>
+						<top>-5</top>
 						<bottom>0</bottom>
 						<right>0</right>
 						<align>right</align>
@@ -523,7 +524,7 @@
 					</control>
 					<control type="label">
 						<left>90</left>
-						<top>0</top>
+						<top>-5</top>
 						<bottom>0</bottom>
 						<right>20</right>
 						<aligny>center</aligny>
@@ -534,7 +535,7 @@
 					<control type="label">
 						<left>0</left>
 						<textoffsetx>30</textoffsetx>
-						<top>0</top>
+						<top>-5</top>
 						<bottom>0</bottom>
 						<right>0</right>
 						<align>right</align>
@@ -694,7 +695,7 @@
 				<left>$PARAM[posx]</left>
 				<top>$PARAM[down_posy]</top>
 				<width>48</width>
-				<height>24</height>
+				<height>48</height>
 				<texturefocus colordiffuse="unfocused_text">overlays/arrowdown.png</texturefocus>
 				<texturenofocus colordiffuse="unfocused_text">overlays/arrowdown.png</texturenofocus>
 				<animation effect="zoom" start="100,0" end="100,100" center="auto" time="200" delay="10">VisibleChange</animation>
@@ -709,7 +710,7 @@
 				<left>$PARAM[posx]</left>
 				<top>$PARAM[up_posy]</top>
 				<width>48</width>
-				<height>24</height>
+				<height>48</height>
 				<texturefocus colordiffuse="unfocused_text" flipy="true">overlays/arrowdown.png</texturefocus>
 				<texturenofocus colordiffuse="unfocused_text" flipy="true">overlays/arrowdown.png</texturenofocus>
 				<animation effect="zoom" start="100,0" end="100,100" center="auto" time="200" delay="10">VisibleChange</animation>
@@ -783,7 +784,8 @@
 			<animation effect="fade" time="300">VisibleChange</animation>
 			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-			<texture colordiffuse="80FFFFFF">colors/black.png</texture>
+			<!-- <texture colordiffuse="f5282828">colors/black.png</texture> -->
+			<texture colordiffuse="FC030303">colors/white.png</texture>
 			<visible>$PARAM[darken_bg]</visible>
 		</control>
 		<control type="button">
@@ -796,9 +798,9 @@
 			<onclick>Action(close)</onclick>
 		</control>
 		<control type="group">
-			<width>$PARAM[width]</width>
-			<height>$PARAM[height]</height>
-			<control type="image">
+			<!-- <width>$PARAM[width]</width>
+			<height>$PARAM[height]</height> -->
+			<!-- <control type="image">
 				<left>-2</left>
 				<top>-2</top>
 				<right>-2</right>
@@ -811,13 +813,13 @@
 				<right>0</right>
 				<bottom>0</bottom>
 				<texture colordiffuse="dialog_bg2">$PARAM[diffusetexture]</texture>
-			</control>
+			</control> -->
 			<control type="label" id="$PARAM[header_id]">
 				<posx>0</posx> 
-				<top>20</top>
+				<top>10</top>
 				<width>$PARAM[width]</width> 
 				<height>70</height>
-				<font>font32_title</font>
+				<font>font36_title</font>
 				<label>$PARAM[header_label]</label>
 				<align>center</align> 
 				<aligny>center</aligny>
@@ -1166,7 +1168,7 @@
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
-				<texture diffuse="overlays/fanartmask.png" colordiffuse="FF464646">$INFO[Window(home).Property(listitem_blurred)]</texture>
+				<texture colordiffuse="FF464646">$INFO[Window(home).Property(listitem_blurred)]</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -1228,7 +1230,7 @@
 				<include>FullScreenDimensions</include>
 				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 				<control type="group">
-					<animation effect="fade" start="100" end="bg_alpha" time="0" condition="!Control.IsVisible(31111)">Conditional</animation>
+					<!-- <animation effect="fade" start="100" end="bg_alpha" time="0" condition="!Control.IsVisible(31111)">Conditional</animation> -->
 					<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(FullscreenGame) | Window.Previous(startup)">WindowOpen</animation>
 					<include>ColoredBackgroundImages</include>
 				</control>
@@ -1633,15 +1635,15 @@
 				<control type="image">
 					<include>FocusBounce</include>
 					<left>-5</left>
-					<width>410</width>
-					<height>270</height>
+					<width>411</width>
+					<height>271</height>
 					<texture colordiffuse="button_focus">masks/settingspanel-glow.png</texture>
-					<bordersize>17</bordersize>
+					<bordersize>14</bordersize>
 					<include>Animation_FocusTextureFade</include>
 					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
 					<include content="GlowPulse">
-						<param name="pos_x" value="205"/>
-						<param name="pos_y" value="135"/>
+						<param name="pos_x" value="205.5"/>
+						<param name="pos_y" value="135.5"/>
 					</include>
 				</control>
 				<control type="image">
@@ -1731,11 +1733,11 @@
 			<left>50</left>
 			<width>auto</width>
 			<top>56</top>
-			<height>41</height>
+			<height>49</height>
 			<align>left</align>
 			<aligny>top</aligny>
-			<textoffsetx>10</textoffsetx>
-			<textoffsety>2.5</textoffsety>
+			<textoffsetx>14</textoffsetx>
+			<textoffsety>6</textoffsety>
 			<font>FlixPanelIcon</font>
 			<textcolor>unfocused_text</textcolor>
 			<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>

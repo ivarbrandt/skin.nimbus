@@ -50,16 +50,16 @@
 							<visible>Control.HasFocus(55)</visible>
 						</control>
 						<control type="image">
-							<left>15</left>
-							<centertop>50%</centertop>
-							<width>37</width>
-							<height>37</height>
+							<left>25</left>
+							<top>24</top>
+							<width>23</width>
+							<height>23</height>
 							<texture colordiffuse="focused_text">$VAR[ListWatchedIconVar]</texture>
 							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 						</control>
 						<control type="group">
 							<left>70</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<control type="label">
 								<right>83</right>
@@ -86,7 +86,7 @@
 						</control>
 						<control type="label">
 							<right>20</right>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<align>right</align>
 							<aligny>center</aligny>
@@ -97,7 +97,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<top>-5</top>
+							<top>4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<align>right</align>
@@ -112,7 +112,7 @@
 							<visible>String.IsEqual(ListItem.DBtype,tvshow)</visible>
 							<control type="label">
 								<width>260</width>
-								<top>-5</top>
+								<top>-4</top>
 								<bottom>0</bottom>
 								<right>20</right>
 								<align>right</align>
@@ -126,15 +126,16 @@
 					</focusedlayout>
 					<itemlayout height="list_item_height" width="608" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">
 						<control type="image">
-							<left>15</left>
-							<centertop>50%</centertop>
-							<width>37</width>
-							<height>37</height>
-							<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
+							<left>25</left>
+							<top>24</top>
+							<width>23</width>
+							<height>23</height>
+							<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
+							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 						</control>
 						<control type="group">
 							<left>70</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<control type="label">
 								<right>83</right>
@@ -156,7 +157,7 @@
 							</control>
 						</control>
 						<control type="label">
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<align>right</align>
@@ -168,7 +169,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<align>right</align>
@@ -183,7 +184,7 @@
 						<visible>String.IsEqual(ListItem.DBtype,tvshow)</visible>
 							<control type="label">
 								<width>260</width>
-								<top>-5</top>
+								<top>-4</top>
 								<bottom>0</bottom>
 								<right>20</right>
 								<align>right</align>
@@ -203,17 +204,17 @@
 							<texture colordiffuse="button_focus">masks/focus-long.png</texture>
 							<visible>Control.HasFocus(55)</visible>
 						</control>
-						<control type="image">
-							<left>15</left>
-							<centertop>50%</centertop>
-							<width>32</width>
-							<height>32</height>
+							<control type="image">
+							<left>25</left>
+							<top>24</top>
+							<width>23</width>
+							<height>23</height>
 							<texture colordiffuse="focused_text">$VAR[ListWatchedIconVar]</texture>
 							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 						</control>
 						<control type="label">
 							<left>70</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<aligny>center</aligny>
@@ -225,7 +226,7 @@
 						</control>
 						<control type="label">
 							<left>70</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<align>right</align>
@@ -238,16 +239,16 @@
 					</focusedlayout>
 					<itemlayout height="list_item_height" width="608" condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)">
 						<control type="image">
-							<left>15</left>
-							<centertop>50%</centertop>
-							<width>32</width>
-							<height>32</height>
+							<left>25</left>
+							<top>24</top>
+							<width>23</width>
+							<height>23</height>
 							<texture colordiffuse="unfocused_text">$VAR[ListWatchedIconVar]</texture>
 							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 						</control>
 						<control type="label">
 							<left>70</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<aligny>center</aligny>
@@ -258,7 +259,7 @@
 						</control>
 						<control type="label">
 							<left>70</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<align>right</align>
@@ -284,11 +285,11 @@
 							<width>50</width>
 							<bottom>10</bottom>
 							<aspectratio>keep</aspectratio>
-							<texture diffuse="masks/addons.png">$INFO[ListItem.Icon]</texture>
+							<texture colordiffuse="focused_text" diffuse="masks/addons.png">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>90</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>25</right>
 							<aligny>center</aligny>
@@ -308,11 +309,11 @@
 							<width>50</width>
 							<bottom>10</bottom>
 							<aspectratio>keep</aspectratio>
-							<texture diffuse="masks/addons.png" colordiffuse="grey">$INFO[ListItem.Icon]</texture>
+							<texture diffuse="masks/addons.png" colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>90</left>
-							<top>-5</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>25</right>
 							<aligny>center</aligny>
@@ -382,15 +383,15 @@
 				<visible>Control.HasFocus(55)</visible>
 			</control>
 			<control type="image">
-				<left>15</left>
-				<width>37</width>
-				<height>37</height>
-				<centertop>50%</centertop>
+				<left>20</left>
+				<top>18</top>
+				<width>33</width>
+				<height>33</height>
 				<texture colordiffuse="focused_text">$VAR[AddonsListIconVar]</texture>
 				<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 			</control>
 			<control type="label">
-				<top>-5</top>
+				<top>-4</top>
 				<left>70</left>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
@@ -399,7 +400,7 @@
 				<textcolor>focused_text</textcolor>
 			</control>
 			<control type="label">
-				<top>-5</top>
+				<top>-4</top>
 				<right>70</right>
 				<align>right</align>
 				<aligny>center</aligny>
@@ -411,22 +412,23 @@
 			<control type="image">
 				<right>20</right>
 				<centertop>50%</centertop>
-				<width>37</width>
-				<height>37</height>
+				<width>33</width>
+				<height>33</height>
 				<texture colordiffuse="focused_text">$VAR[AddonsOriginVar]</texture>
 				<visible>!ListItem.IsFolder</visible>
 			</control>
 		</focusedlayout>
 		<itemlayout height="list_item_height" width="913" condition="Container.Content(addons)">
 			<control type="image">
-				<left>15</left>
-				<width>37</width>
-				<height>37</height>
-				<centertop>50%</centertop>
+				<left>20</left>
+				<top>18</top>
+				<width>33</width>
+				<height>33</height>
 				<texture colordiffuse="unfocused_text">$VAR[AddonsListIconVar]</texture>
+				<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
 			</control>
 			<control type="label">
-				<top>-5</top>
+				<top>-4</top>
 				<left>70</left>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
@@ -434,7 +436,7 @@
 				<font>font27</font>
 			</control>
 			<control type="label">
-				<top>-5</top>
+				<top>-4</top>
 				<left>75</left>
 				<right>70</right>
 				<align>right</align>
@@ -447,8 +449,8 @@
 			<control type="image">
 				<right>20</right>
 				<centertop>50%</centertop>
-				<width>37</width>
-				<height>37</height>
+				<width>33</width>
+				<height>33</height>
 				<texture colordiffuse="unfocused_text">$VAR[AddonsOriginVar]</texture>
 				<visible>!ListItem.IsFolder</visible>
 			</control>

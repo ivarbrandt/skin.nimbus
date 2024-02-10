@@ -8,13 +8,34 @@
 			<width>600</width>
 			<centertop>50%</centertop>
 			<height>700</height>
-			<include content="DialogBackgroundCommons">
+			<!-- <include content="DialogBackgroundCommons">
 				<param name="width" value="600" />
 				<param name="height" value="485" />
 				<param name="header_label" value="$LOCALIZE[31072]" />
 				<param name="header_id" value="2" />
 				<param name="diffusetexture" value="masks/addons.png" />
-			</include>
+			</include> -->
+			<control type="image">
+				<left>-1920</left>
+				<top>-1080</top>
+				<width>5760</width>
+				<height>3240</height>
+				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<texture colordiffuse="F7030303">colors/white.png</texture>
+			</control>
+			<control type="label">
+				<top>20</top>
+				<left>50</left> 
+				<right>50</right>
+				<height>70</height>
+				<font>font40_title</font>
+				<textcolor>darkgrey</textcolor>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$LOCALIZE[31072]</label>
+			</control>
+
 			<control type="panel" id="9000">
 				<include>ButtonMenuList</include>
 				<content>
@@ -98,11 +119,11 @@
 					</item>
 				</content>
 			</control>
-		<include content="UpDownArrows">
-			<param name="container_id" value="9000" />
-			<param name="posx" value="276" />
-			<param name="up_posy" value="-40" />
-			<param name="down_posy" value="500" />
+			<include content="UpDownArrows">
+				<param name="container_id" value="9000" />
+				<param name="posx" value="277.5" />
+				<param name="up_posy" value="-30" />
+				<param name="down_posy" value="690" />
 			</include>
 		</control>
 	</controls>

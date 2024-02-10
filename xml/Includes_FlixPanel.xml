@@ -52,9 +52,9 @@
 				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 			</control> -->
 			<control type="grouplist">
-				<height>53</height>
+				<height>56</height>
 				<orientation>horizontal</orientation>
-				<itemgap>20</itemgap>
+				<itemgap>15</itemgap>
 				<aligny>center</aligny>
 				<visible>!Window.IsVisible(dialogbusy)</visible>
 				<include content="FlixInfoIcon">
@@ -117,9 +117,9 @@
 				<control type="group">
 					<control type="image">
 						<top>-4</top>
-						<left>-17</left>
+						<left>-12</left>
 						<width>110</width>
-						<height>50</height>
+						<height>56</height>
 						<fadetime>0</fadetime>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>

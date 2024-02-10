@@ -248,4 +248,18 @@
 		<animation effect="slide" end="0,-563.5" time="0" tween="cubic" easing="inout" reversible="true" condition="Integer.IsGreater(Container($PARAM[container]).Position,99)">Conditional</animation>
 		<animation effect="slide" end="0,-563.5" time="0" tween="cubic" easing="inout" reversible="true" condition="Integer.IsGreater(Container($PARAM[container]).Position,100)">Conditional</animation>
   </include>
+	<include name="CenterContext">
+		<animation effect="slide" start="0,0" end="0,1020" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,1)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,956" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,2)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,892" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,3)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,828" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,4)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,764" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,5)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,700" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,6)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,636" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,7)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,572" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,8)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,508" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,9)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,444" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,10)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,380" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,11)">Conditional</animation>
+		<animation effect="slide" start="0,0" end="0,380" time="0" condition="Integer.IsGreater(Container($PARAM[id]).NumItems,11)">Conditional</animation>
+</include>
 </includes>

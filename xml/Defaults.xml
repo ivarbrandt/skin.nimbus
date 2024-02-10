@@ -34,7 +34,6 @@
 		<focusedcolor>focused_text</focusedcolor>
 		<disabledcolor>disabled</disabledcolor>
 		<textoffsetx>7</textoffsetx>
-		<aligny>center</aligny>
 		<pulseonselect>no</pulseonselect>
 	</default>
 	<default type="togglebutton">

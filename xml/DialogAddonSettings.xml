@@ -9,18 +9,15 @@
 			<width>1820</width>
 			<include>Animation_DialogPopupVisible</include>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1820" />
-				<param name="height" value="900" />
 				<param name="header_label" value="" />
 				<param name="header_id" value="2" />
-				<param name="diffusetexture" value="masks/dialog-bg-large.png" />
 			</include>
 			<control type="grouplist" id="3">
 				<description>Categories Area</description>
 				<left>29</left>
 				<top>85</top>
 				<width>400</width>
-				<height>596</height>
+				<height>645</height>
 				<itemgap>dialogbuttons_itemgap</itemgap>
 				<orientation>vertical</orientation>
 				<onleft>9000</onleft>
@@ -33,11 +30,14 @@
 				<height>80</height>
 				<width>345</width>
 				<textoffsetx>20</textoffsetx>
+				<textcolor>darkgrey</textcolor>
+				<focusedcolor>focused_text</focusedcolor>
 				<align>center</align>
 				<aligny>center</aligny>
-				<font>font25_title</font>
-				<texturefocus colordiffuse="button_focus">masks/categorywidget.png</texturefocus>
-				<texturenofocus colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texturenofocus>
+				<font>font27_title</font>
+				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
+				<texturenofocus/>
+				<!-- <texturenofocus colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texturenofocus> -->
 			</control>
 			<control type="grouplist" id="5">
 				<description>control area</description>
@@ -120,17 +120,18 @@
 			</control>
 			<control type="radiobutton" id="20">
 				<left>29</left>
-				<top>700</top>
+				<top>737</top>
 				<width>345</width>
 				<height>80</height>
-				<font>font25_title</font>
+				<font>font27_title</font>
 				<aligny>center</aligny>
+				<align>center</align>
 				<onclick>SettingsLevelChange</onclick>
-				<textoffsetx>100</textoffsetx>
+				<textoffsetx>0</textoffsetx>
 				<textoffsety>0</textoffsety>
 				<textcolor>unfocused_text</textcolor>
-				<focusedcolor>focused_text</focusedcolor>
-				<texturefocus colordiffuse="button_focus">masks/categorywidget.png</texturefocus>
+				<focusedcolor>button_focus</focusedcolor>
+				<texturefocus/>
 				<texturenofocus />
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>
@@ -140,10 +141,10 @@
 				<onright>5</onright>
 				<onup>3</onup>
 				<ondown>3</ondown>
-				<textureradioonfocus colordiffuse="focused_text">icons/settings.png</textureradioonfocus>
-				<textureradioonnofocus colordiffuse="unfocused_text">icons/settings.png</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="focused_text">icons/settings.png</textureradioofffocus>
-				<textureradiooffnofocus colordiffuse="unfocused_text">icons/settings.png</textureradiooffnofocus>
+				<textureradioonfocus/>
+				<textureradioonnofocus/>
+				<textureradioofffocus/>
+				<textureradiooffnofocus/>
 			</control>
 			<control type="scrollbar" id="60">
 				<left>1489</left>

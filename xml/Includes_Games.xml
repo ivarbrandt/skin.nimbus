@@ -7,11 +7,11 @@
 			<width>1820</width>
 			<height>870</height>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1820" />
-				<param name="height" value="870" />
+				<!-- <param name="width" value="1820" />
+				<param name="height" value="870" /> -->
 				<param name="header_label" value="$LOCALIZE[35058]" />
 				<param name="header_id" value="2" />
-				<param name="diffusetexture" value="masks/dialog-bg-large.png" />
+				<!-- <param name="diffusetexture" value="masks/dialog-bg-large.png" /> -->
 			</include>
 			<control type="group">
 				<description>Controller list</description>
@@ -183,11 +183,11 @@
 			<width>1820</width>
 			<height>830</height>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1820" />
-				<param name="height" value="830" />
+				<!-- <param name="width" value="1820" />
+				<param name="height" value="830" /> -->
 				<param name="header_label" value="" />
 				<param name="header_id" value="2" />
-				<param name="diffusetexture" value="masks/dialog-bg-large.png" />
+				<!-- <param name="diffusetexture" value="masks/dialog-bg-large.png" /> -->
 			</include>
 			<control type="group">
 				<description>Content area</description>

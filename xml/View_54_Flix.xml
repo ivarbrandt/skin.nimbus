@@ -257,7 +257,8 @@
 					<texture colordiffuse="FFE9E9E9" diffuse="masks/poster.png" background="true">$VAR[FlixPosterVar]</texture>
 					<bordersize>1</bordersize>
 					<aspectratio scalediffuse="false">scale</aspectratio>
-					<bordertexture colordiffuse="FF252525" border="7" infill="false">masks/poster-border.png</bordertexture>
+					<bordertexture colordiffuse="$VAR[BorderColorVar]" border="7" infill="false">masks/poster-border.png</bordertexture>
+					<!-- <bordertexture colordiffuse="FF252525" border="7" infill="false">masks/poster-border.png</bordertexture> -->
 					<animation condition="Container($PARAM[list_id]).IsUpdating + !Skin.HasSetting(TrailerPlaying)" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation>
 				</control>
 				<control type="image">

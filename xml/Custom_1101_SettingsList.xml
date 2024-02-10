@@ -13,11 +13,11 @@
 			<visible>!Window.IsActive(DialogSettings.xml) + !Window.IsActive(DialogSlider.xml) + !Window.IsActive(GameVideoFilter) + !Window.IsActive(GameStretchMode) + !Window.IsActive(GameControllers) + !Window.IsActive(GameVideoRotation)</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="750" />
-				<param name="height" value="490" />
+				<!-- <param name="width" value="750" />
+				<param name="height" value="490" /> -->
 				<param name="header_label" value="$INFO[Window(home).Property(settingslist_Header)]" />
 				<param name="header_id" value="1" />
-				<param name="diffusetexture" value="masks/landscape-502.png" />
+				<!-- <param name="diffusetexture" value="masks/landscape-502.png" /> -->
 			</include>
 			<control type="group" id="11000">
 				<left>25</left>

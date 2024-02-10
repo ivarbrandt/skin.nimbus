@@ -145,7 +145,7 @@
 		<param name="width">250</param>
 		<param name="height">67</param>
 		<param name="wrapmultiline">false</param>
-		<param name="font">font25_title</param>
+		<param name="font">font27_title</param>
 		<param name="onclick"></param>
 		<param name="visible">true</param>
 		<definition>
@@ -155,13 +155,15 @@
 				<label>$PARAM[label]</label>
 				<font>$PARAM[font]</font>
 				<textoffsetx>20</textoffsetx>
+				<textoffsety>12</textoffsety>
 				<onclick>$PARAM[onclick]</onclick>
 				<wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
 				<align>center</align>
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
-				<texturefocus colordiffuse="button_focus">buttons/dfo.png</texturefocus>
-				<texturenofocus colordiffuse="dialog_bg">buttons/dnfo.png</texturenofocus>
+				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
+				<texturenofocus/>
+				<!-- <texturenofocus colordiffuse="dialog_bg">buttons/dnfo.png</texturenofocus> -->
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
@@ -348,26 +350,27 @@
 		<left>0</left>
 		<top>80</top>
 		<width>600</width>
-		<height>380</height>
+		<height>620</height>
 		<onleft>9000</onleft>
 		<onright>9000</onright>
 		<onup>9000</onup>
 		<ondown>9000</ondown>
 		<orientation>vertical</orientation>
-		<itemlayout height="70" width="600">
+		<itemlayout height="75" width="600">
 			<control type="label">
 				<left>0</left>
 				<textoffsetx>20</textoffsetx>
-				<top>25</top>
+				<top>23</top>
 				<width>600</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>unfocused_text</textcolor>
+				<textcolor>darkgrey</textcolor>
 				<label>$INFO[ListItem.Label]</label>
+				<font>font32</font>
 			</control>
 		</itemlayout>
-		<focusedlayout height="70" width="600">
+		<focusedlayout height="75" width="600">
 			<control type="image">
 				<left>25</left>
 				<top>25</top>
@@ -378,12 +381,13 @@
 			<control type="label">
 				<left>0</left>
 				<textoffsetx>20</textoffsetx>
-				<top>25</top>
+				<top>23</top>
 				<width>600</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>[B]$INFO[ListItem.Label][/B]</label>
+				<font>font32</font>
 				<textcolor>focused_text</textcolor>
 			</control>
 		</focusedlayout>

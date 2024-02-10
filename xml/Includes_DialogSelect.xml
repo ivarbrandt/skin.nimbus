@@ -4,14 +4,14 @@
 		<control type="group">
 			<centertop>50%</centertop>
 			<centerleft>50%</centerleft>
-			<height>750</height>
+			<height>870</height>
 			<width>1220</width>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1220" />
-				<param name="height" value="775" />
+				<!-- <param name="width" value="1220" />
+				<param name="height" value="775" /> -->
 				<param name="header_label" value="" />
 				<param name="header_id" value="1" />
-				<param name="diffusetexture" value="masks/landscape-502.png" />
+				<!-- <param name="diffusetexture" value="masks/landscape-502.png" /> -->
 			</include>
 			<control type="list" id="3">
 				<left>20</left>
@@ -199,11 +199,11 @@
 			<width>1639</width>
 			<height>919</height>
 			<include content="DialogBackgroundCommons">
-				<param name="width" value="1639" />
-				<param name="height" value="919" />
+				<!-- <param name="width" value="1639" />
+				<param name="height" value="919" /> -->
 				<param name="header_label" value="35260" />
 				<param name="header_id" value="10820" />
-				<param name="diffusetexture" value="masks/landscape-502.png" />
+				<!-- <param name="diffusetexture" value="masks/landscape-502.png" /> -->
 			</include>
 			<control type="group">
 				<description>Content area</description>
