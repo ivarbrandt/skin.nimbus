@@ -252,7 +252,7 @@
 						<param name="height" value="60" />
 						<param name="list_id" value="150" />
 						<param name="align" value="center" />
-						<param name="diffuse" value="masks/categorywidget.png" />
+						<param name="diffuse" value="masks/focus.png" />
 					</include>
 				</control>
 			</control>
