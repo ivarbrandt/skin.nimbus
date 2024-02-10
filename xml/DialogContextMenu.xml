@@ -63,7 +63,6 @@
 			</include> -->
 			<control type="button" id="1000">
 				<description>button template</description>
-				<textoffsety>12</textoffsety>
 				<left>25</left>
 				<top></top>
 				<width>446</width>

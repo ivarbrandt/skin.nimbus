@@ -30,6 +30,7 @@
 		<texturefocus border="21" colordiffuse="button_focus">buttons/button-fo.png</texturefocus>
 		<texturenofocus border="21">buttons/button-nofo.png</texturenofocus>
 		<font>font13</font>
+		<aligny>center</aligny>
 		<textcolor>unfocused_text</textcolor>
 		<focusedcolor>focused_text</focusedcolor>
 		<disabledcolor>disabled</disabledcolor>
