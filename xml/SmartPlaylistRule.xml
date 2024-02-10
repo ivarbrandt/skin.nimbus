@@ -8,11 +8,8 @@
 			<width>960</width>
 			<top>330</top>
 			<include content="DialogBackgroundCommons">
-				<!-- <param name="width" value="960" />
-				<param name="height" value="500" /> -->
 				<param name="header_label" value="$LOCALIZE[21421]" />
 				<param name="header_id" value="2" />
-				<!-- <param name="diffusetexture" value="masks/dialog-bg-squareish.png" /> -->
 			</include>
 			<control type="label">
 				<description>Rule match label</description>

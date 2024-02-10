@@ -59,7 +59,7 @@
 						<width>215</width>
 						<height>215</height>
 						<!-- <aspectratio>scale</aspectratio> -->
-						<texture diffuse="masks/landscapeinfo.png" fallback="DefaultUser.png">$INFO[Listitem.Icon]</texture>
+						<texture diffuse="masks/addons.png" fallback="DefaultUser.png">$INFO[Listitem.Icon]</texture>
 					</control>
 					<control type="label">
 						<left>10</left>
@@ -121,7 +121,7 @@
 							<width>215</width>
 							<height>215</height>
 							<!-- <aspectratio>scale</aspectratio> -->
-							<texture diffuse="masks/landscapeinfo.png" fallback="DefaultUser.png">$INFO[Listitem.Icon]</texture>
+							<texture diffuse="masks/addons.png" fallback="DefaultUser.png">$INFO[Listitem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>10</left>

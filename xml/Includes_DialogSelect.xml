@@ -7,11 +7,8 @@
 			<height>870</height>
 			<width>1220</width>
 			<include content="DialogBackgroundCommons">
-				<!-- <param name="width" value="1220" />
-				<param name="height" value="775" /> -->
 				<param name="header_label" value="" />
 				<param name="header_id" value="1" />
-				<!-- <param name="diffusetexture" value="masks/landscape-502.png" /> -->
 			</include>
 			<control type="list" id="3">
 				<left>20</left>
@@ -47,7 +44,7 @@
 						<top>7</top>
 						<width>110</width>
 						<height>110</height>
-						<texture diffuse="masks/landscapeinfo.png">$VAR[FlixThumbVar]</texture>
+						<texture diffuse="masks/addons.png">$VAR[FlixThumbVar]</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
@@ -105,7 +102,7 @@
 						<top>7</top>
 						<width>110</width>
 						<height>110</height>
-						<texture diffuse="masks/landscapeinfo.png">$VAR[FlixThumbVar]</texture>
+						<texture diffuse="masks/addons.png">$VAR[FlixThumbVar]</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!ListItem.Property(PVR.IsRecordingTimer) + !ListItem.Property(PVR.IsRemindingTimer)</visible>
 					</control>
@@ -199,11 +196,8 @@
 			<width>1639</width>
 			<height>919</height>
 			<include content="DialogBackgroundCommons">
-				<!-- <param name="width" value="1639" />
-				<param name="height" value="919" /> -->
 				<param name="header_label" value="35260" />
 				<param name="header_id" value="10820" />
-				<!-- <param name="diffusetexture" value="masks/landscape-502.png" /> -->
 			</include>
 			<control type="group">
 				<description>Content area</description>

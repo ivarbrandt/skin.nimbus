@@ -11,11 +11,8 @@
 			<centertop>50%</centertop>
 			<height>770</height>
 			<include content="DialogBackgroundCommons">
-				<!-- <param name="width" value="84%" />
-				<param name="height" value="770" /> -->
 				<param name="header_label" value="$INFO[Window(home).Property(TextViewer_Header)]" />
 				<param name="header_id" value="1" />
-				<!-- <param name="diffusetexture" value="masks/dialog-bg-large.png" /> -->
 			</include>
 			<control type="textbox" id="2000">
 				<left>3%</left>

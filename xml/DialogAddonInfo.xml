@@ -28,8 +28,8 @@
 					<width>695</width>
 					<height>375</height>
 					<label></label>
-					<texturefocus colordiffuse="button_focus" border="21">masks/landscape.png</texturefocus>
-					<texturenofocus colordiffuse="button_focus2" border="21">masks/landscape-unfocused.png</texturenofocus>
+					<texturefocus colordiffuse="button_focus" >masks/landscape.png</texturefocus>
+					<texturenofocus colordiffuse="button_focus2" >masks/landscape-unfocused.png</texturenofocus>
 					<onup>50</onup>
 					<ondown>9000</ondown>
 					<onclick>SetProperty(TextViewer_Header,$LOCALIZE[31141] $INFO[ListItem.AddonVersion],home)</onclick>
@@ -107,7 +107,7 @@
 							<width>425</width>
 							<height>260</height>
 							<texture diffuse="masks/landscape.png" background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio>scale</aspectratio>
+							<aspectratio scalediffuse="false">scale</aspectratio>
 							<bordersize>20</bordersize>
 						</control>
 					</itemlayout>
@@ -118,7 +118,7 @@
 							<top>16</top>
 							<width>393</width>
 							<height>228</height>
-							<texture border="8" colordiffuse="button_focus">masks/landscape.png</texture>
+							<texture colordiffuse="button_focus">masks/landscape.png</texture>
 						</control>
 						<control type="image">
 							<left>-12</left>
@@ -133,7 +133,7 @@
 							<width>425</width>
 							<height>260</height>
 							<texture diffuse="masks/landscape.png" background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio>scale</aspectratio>
+							<aspectratio scalediffuse="false">scale</aspectratio>
 							<bordersize>20</bordersize>
 						</control>
 					</focusedlayout>
@@ -279,8 +279,8 @@
 						<aligny>top</aligny>
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>focused_text</focusedcolor>
-						<texturefocus border="2" colordiffuse="button_focus">masks/landscape.png</texturefocus>
-						<texturenofocus border="2" colordiffuse="button_focus2">masks/landscape-unfocused.png</texturenofocus>
+						<texturefocus colordiffuse="button_focus">masks/landscape.png</texturefocus>
+						<texturenofocus colordiffuse="button_focus2">masks/landscape-unfocused.png</texturenofocus>
 						<textoffsetx>35</textoffsetx>
 						<textoffsety>76</textoffsety>
 						<radioposx>65</radioposx>
@@ -331,7 +331,7 @@
 					<width>540</width>
 					<height>540</height>
 					<!-- <aspectratio>scale</aspectratio> -->
-					<texture diffuse="masks/landscapeinfo.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
+					<texture diffuse="masks/addons.png" colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
 					<bordersize>20</bordersize>
 				</control>
 				<control type="image">
@@ -341,7 +341,7 @@
 					<height>500</height>
 					<!-- <aspectratio aligny="top">scale</aspectratio> -->
 					<fadetime>300</fadetime>
-					<texture diffuse="masks/landscapeinfo.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					<texture diffuse="masks/addons.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 				</control>
 				<control type="group">
 					<visible>String.IsEqual(ListItem.AddonLifecycleType,$LOCALIZE[24170]) | String.IsEqual(ListItem.AddonLifecycleType,$LOCALIZE[24171])</visible>

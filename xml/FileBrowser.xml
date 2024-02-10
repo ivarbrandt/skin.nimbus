@@ -9,11 +9,8 @@
 			<width>1300</width>
 			<height>850</height>
 			<include content="DialogBackgroundCommons">
-				<!-- <param name="width" value="1300" />
-				<param name="height" value="850" /> -->
 				<param name="header_label" value="" />
 				<param name="header_id" value="411" />
-				<!-- <param name="diffusetexture" value="masks/dialog-bg-squareish.png" /> -->
 			</include>
 			<control type="grouplist" id="9000">
 				<left>990</left>
