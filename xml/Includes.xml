@@ -1611,7 +1611,7 @@
 			</control>
 			<control type="label">
 				<left>25</left>
-				<top>170</top>
+				<top>175</top>
 				<width>350</width>
 				<height>400</height>
 				<label>$INFO[ListItem.Label]</label>
@@ -1659,13 +1659,13 @@
 					<top>45</top>
 					<width>210</width>
 					<height>140</height>
-					<texture colordiffuse="FFCCCCCC">$INFO[ListItem.Icon]</texture>
+					<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
 					<align>center</align>
 					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="label">
 					<left>25</left>
-					<top>170</top>
+					<top>175</top>
 					<width>350</width>
 					<height>400</height>
 					<label>$INFO[ListItem.Label]</label>
