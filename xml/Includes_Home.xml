@@ -609,11 +609,10 @@
 				<visible>$PARAM[visible]</visible>
 				<itemlayout width="$PARAM[width]">
 					<control type="group">
-						<top>-20</top>
 						<left>37</left>
 						<control type="image">
-							<left>0</left>
-							<top>20</top>
+							<top>-1</top>
+							<left>-1</left>
 							<width>315</width>
 							<height>315</height>
 							<texture diffuse="masks/addons.png" colordiffuse="dialog_bg">masks/addons.png</texture>
@@ -621,14 +620,14 @@
 						</control>
 						<control type="image">
 							<left>57</left>
-							<top>57</top>
+							<top>37</top>
 							<width>197</width>
 							<height>197</height>
 							<texture colordiffuse="artwork_dim">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>29</left>
-							<top>333</top>
+							<top>313</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
 							<font>font27</font>
@@ -636,7 +635,7 @@
 						</control>
 						<control type="label">
 							<left>29</left>
-							<top>369</top>
+							<top>349</top>
 							<align>center</align>
 							<font>font25</font>
 							<label>$INFO[ListItem.Property(ShortDate)]</label>
@@ -644,7 +643,7 @@
 						</control>
 						<control type="label">
 							<left>27</left>
-							<top>261</top>
+							<top>241</top>
 							<align>center</align>
 							<label>$INFO[ListItem.Label2]</label>
 							<font>font27</font>
@@ -667,7 +666,7 @@
 							<control type="group">
 								<include content="FlixSquareFocus">
 									<param name="diffuse" value="masks/addons-glow.png"/>
-									<param name="border_size" value="0"/>
+									<param name="border_size" value="-7"/>
 									<param name="vis_cond" value="Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
 								</include>
 								<include content="GlowPulse">
