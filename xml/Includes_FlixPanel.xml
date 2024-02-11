@@ -3,7 +3,7 @@
   <include name="FlixPanel">
 		<control type="grouplist">
 			<left>50</left>
-			<width>825</width>
+			<width>785</width>
 			<top>50</top>
 			<orientation>vertical</orientation>
 			<itemgap>10</itemgap>
@@ -54,9 +54,9 @@
 			<control type="grouplist">
 				<height>56</height>
 				<orientation>horizontal</orientation>
-				<itemgap>15</itemgap>
+				<itemgap>12</itemgap>
 				<aligny>center</aligny>
-				<visible>!Window.IsVisible(dialogbusy)</visible>
+				<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia]</visible>
 				<include content="FlixInfoIcon">
 					<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.year) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow)]"/>
 					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.year]"/>
@@ -148,7 +148,7 @@
 				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
 			</control>
 			<control type="textbox">
-				<height max="145">auto</height>
+				<height max="215">auto</height>
 				<width>600</width>
 				<bottom>70</bottom>
 				<label>$VAR[InfoPanelBottom]</label>
