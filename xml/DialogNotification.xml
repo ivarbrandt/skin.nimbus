@@ -38,7 +38,7 @@
         <texture colordiffuse="accent_color">colors/white.png</texture>
       </control>
       <control type="label" id="401">
-        <top>4</top>
+        <top>2</top>
         <left>18</left>
         <right>0</right>
         <height>34</height>
@@ -47,7 +47,7 @@
         <align>top</align>
       </control>
       <control type="label">
-        <bottom>6</bottom>
+        <bottom>10</bottom>
         <left>18</left>
         <right>0</right>
         <height>34</height>
