@@ -2,8 +2,6 @@
 
   ![Viewtypes](resources/images/flix.jpg)
 
-  ![Viewtypes](resources/images/flixlist.jpg)
-
 
 ## INFO
 
