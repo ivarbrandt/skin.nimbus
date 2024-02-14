@@ -6,13 +6,17 @@
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<centertop>47%</centertop>
-			<width>1300</width>
+			<width>1050</width>
 			<height>850</height>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="" />
 				<param name="header_id" value="411" />
 			</include>
 			<control type="grouplist" id="9000">
+				<animation condition="Control.HasFocus(450) | Control.HasFocus(451) | Control.HasFocus(60)">
+					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
+				</animation>
 				<left>990</left>
 				<top>95</top>
 				<width>400</width>
@@ -43,13 +47,17 @@
 				</include>
 			</control>
 			<control type="image">
+				<animation condition="![Control.HasFocus(450) | Control.HasFocus(451) | Control.HasFocus(60)]">
+					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
+				</animation>
 				<left>1010</left>
-				<top>467</top>
-				<width>260</width>
-				<height>380</height>
-				<aspectratio aligny="bottom">keep</aspectratio>
+				<top>275</top>
+				<width>397</width>
+				<height>580</height>
+				<aspectratio aligny="top">keep</aspectratio>
 				<bordersize>4</bordersize>
-				<texture colordiffuse="unfocused_text" border="4" background="true">$INFO[ListItem.Icon]</texture>
+				<texture colordiffuse="darkgrey" border="4" background="true">$INFO[ListItem.Icon]</texture>
 			</control>
 			<control type="panel" id="450">
 				<left>20</left>
@@ -68,7 +76,7 @@
 						<top>10</top>
 						<width>50</width>
 						<height>50</height>
-						<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="darkgrey">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
@@ -80,7 +88,7 @@
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
-						<textcolor>unfocused_text</textcolor>
+						<textcolor>darkgrey</textcolor>
 					</control>
 				</itemlayout>
 				<focusedlayout height="75" width="940">
@@ -130,7 +138,7 @@
 						<top>10</top>
 						<width>50</width>
 						<height>50</height>
-						<texture colordiffuse="unfocused_text">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="darkgrey">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
@@ -142,7 +150,7 @@
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
-						<textcolor>unfocused_text</textcolor>
+						<textcolor>darkgrey</textcolor>
 					</control>
 				</itemlayout>
 				<focusedlayout height="75" width="940">
@@ -191,19 +199,19 @@
 				<width>595</width>
 				<height>30</height>
 				<haspath>true</haspath>
-				<font>font12</font>
+				<font>font13</font>
 				<aligny>bottom</aligny>
 				<textcolor>grey</textcolor>
 			</control>
 			<control type="label">
-				<left>-50</left>
+				<left>790</left>
 				<bottom>-37</bottom>
 				<width>1270</width>
 				<height>30</height>
-				<align>right</align>
+				<align>left</align>
 				<aligny>bottom</aligny>
 				<textcolor>grey</textcolor>
-				<font>font12</font>
+				<font>font13</font>
 				<label>$VAR[FileBrowserSelectLabel]</label>
 			</control>
 		</control>

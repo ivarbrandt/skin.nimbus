@@ -6,16 +6,19 @@
 	<onunload>ClearProperty(settingslist_content,Home)</onunload>
 	<controls>
 		<control type="group">
-			<centerleft>47%</centerleft>
+			<centerleft>50%</centerleft>
 			<height>670</height>
 			<centertop>50%</centertop>
 			<width>700</width>
 			<visible>!Window.IsActive(DialogSettings.xml) + !Window.IsActive(DialogSlider.xml) + !Window.IsActive(GameVideoFilter) + !Window.IsActive(GameStretchMode) + !Window.IsActive(GameControllers) + !Window.IsActive(GameVideoRotation)</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="$INFO[Window(home).Property(settingslist_Header)]" />
-				<param name="header_id" value="1" />
-			</include>
+			<control type="group">
+				<left>50</left>
+				<include content="DialogBackgroundCommons">
+					<param name="header_label" value="$INFO[Window(home).Property(settingslist_Header)]" />
+					<param name="header_id" value="1" />
+				</include>
+			</control>
 			<control type="group" id="11000">
 				<left>25</left>
 				<top>100</top>

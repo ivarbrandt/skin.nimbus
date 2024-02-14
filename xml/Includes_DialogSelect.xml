@@ -2,16 +2,16 @@
 <includes>
 	<include name="DefaultDialogSelectLayout">
 		<control type="group">
-			<centertop>50%</centertop>
+			<centertop>47%</centertop>
 			<centerleft>50%</centerleft>
 			<height>870</height>
-			<width>1220</width>
+			<width>880</width>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="" />
 				<param name="header_id" value="1" />
 			</include>
 			<control type="list" id="3">
-				<left>20</left>
+				<!-- <left>140</left> -->
 				<top>100</top>
 				<width>880</width>
 				<bottom>20</bottom>
@@ -28,7 +28,7 @@
 				</include>
 			</control>
 			<control type="list" id="6">
-				<left>20</left>
+				<!-- <left>140</left> -->
 				<top>100</top>
 				<width>880</width>
 				<bottom>20</bottom>
@@ -149,7 +149,7 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="61">
-				<left>892</left>
+				<left>872</left>
 				<top>100</top>
 				<width>12</width>
 				<bottom>20</bottom>
@@ -157,36 +157,44 @@
 				<onleft condition="Control.IsVisible(6)">6</onleft>
 				<onright>9001</onright>
 				<orientation>vertical</orientation>
+				<animation condition="Control.HasFocus(3) | Control.HasFocus(6)">
+					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+					<effect type="slide" start="0,0" end="300,0" time="300" tween="cubic" easing="in" />
+				</animation>
 			</control>
 			<control type="label">
-				<left>880</left>
-				<bottom>10</bottom>
+				<left>581</left>
+				<bottom>-20</bottom>
 				<width>275</width>
 				<height>35</height>
-				<font>font12</font>
+				<font>font13</font>
 				<align>right</align>
-				<textcolor>grey</textcolor>
+				<textcolor>darkgrey</textcolor>
 				<label>$VAR[SelectLabel]</label>
 			</control>
-			<control type="grouplist" id="9001">
-				<left>920</left>
-				<top>100</top>
-				<onleft>61</onleft>
-				<itemgap>dialogbuttons_itemgap</itemgap>
-				<onright>3</onright>
-				<include content="DefaultDialogButton">
-					<param name="id" value="5" />
-					<param name="label" value="" />
-				</include>
-				<include content="DefaultDialogButton">
-					<param name="id" value="8" />
-					<param name="label" value="" />
-				</include>
-				<include content="DefaultDialogButton">
-					<param name="id" value="7" />
-					<param name="label" value="$LOCALIZE[222]" />
-				</include>
-			</control>
+		</control>
+		<control type="grouplist" id="9001">
+			<left>1420</left>
+			<top>172</top>
+			<onleft>61</onleft>
+			<itemgap>dialogbuttons_itemgap</itemgap>
+			<onright>3</onright>
+			<animation condition="Control.HasFocus(3) | Control.HasFocus(6) | Control.HasFocus(61)">
+				<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+				<effect type="slide" start="0,0" end="350,0" time="300" tween="cubic" easing="in" />
+			</animation>
+			<include content="DefaultDialogButton">
+				<param name="id" value="5" />
+				<param name="label" value="" />
+			</include>
+			<include content="DefaultDialogButton">
+				<param name="id" value="8" />
+				<param name="label" value="" />
+			</include>
+			<include content="DefaultDialogButton">
+				<param name="id" value="7" />
+				<param name="label" value="$LOCALIZE[222]" />
+			</include>
 		</control>
 	</include>
 	<include name="GameDialogSelectSaveLayout">

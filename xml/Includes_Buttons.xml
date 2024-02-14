@@ -81,6 +81,25 @@
 			<texturenofocus />
 		</definition>
 	</include>
+	<include name="DefaultAddonSettingsButton">
+		<param name="height">70</param>
+		<param name="right">25</param>
+		<param name="textoffsetx">40</param>
+		<definition>
+			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
+			<top>0</top>
+			<height>$PARAM[height]</height>
+			<right>$PARAM[right]</right>
+			<aligny>center</aligny>
+			<invalidcolor>invalid</invalidcolor>
+			<selectedcolor>selected</selectedcolor>
+			<font>font32</font>
+			<textcolor>darkgrey</textcolor>
+			<focusedcolor>focused_text</focusedcolor>
+			<texturefocus colordiffuse="button_focus">masks/focus-long.png</texturefocus>
+			<texturenofocus />
+		</definition>
+	</include>
 	<include name="DefaultSystemSettingsButton">
 		<param name="height">70</param>
 		<param name="right">25</param>
@@ -159,7 +178,7 @@
 				<onclick>$PARAM[onclick]</onclick>
 				<wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
 				<align>center</align>
-				<textcolor>unfocused_text</textcolor>
+				<textcolor>darkgrey</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
 				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
 				<texturenofocus/>
@@ -174,6 +193,8 @@
 		<textoffsety>27</textoffsety>
 		<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
 		<texturenofocus />
+		<textcolor>darkgrey</textcolor>
+		<focusedcolor>focused_text</focusedcolor>
 		<align>center</align>
 		<aligny>top</aligny>
 		<font>font45</font>
@@ -348,20 +369,20 @@
 	</include>
 	<include name="ButtonMenuList">
 		<left>0</left>
-		<top>80</top>
-		<width>600</width>
-		<height>620</height>
+		<top>65</top>
+		<width>496</width>
+		<height>600</height>
 		<onleft>9000</onleft>
 		<onright>9000</onright>
 		<onup>9000</onup>
 		<ondown>9000</ondown>
 		<orientation>vertical</orientation>
-		<itemlayout height="75" width="600">
+		<itemlayout height="70" width="496">
 			<control type="label">
 				<left>0</left>
 				<textoffsetx>20</textoffsetx>
 				<top>23</top>
-				<width>600</width>
+				<width>496</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -370,11 +391,11 @@
 				<font>font32</font>
 			</control>
 		</itemlayout>
-		<focusedlayout height="75" width="600">
+		<focusedlayout height="70" width="496">
 			<control type="image">
 				<left>25</left>
 				<top>25</top>
-				<width>550</width>
+				<width>446</width>
 				<height>70</height>
 				<texture colordiffuse="button_focus">masks/focus.png</texture>
 			</control>
@@ -382,7 +403,7 @@
 				<left>0</left>
 				<textoffsetx>20</textoffsetx>
 				<top>23</top>
-				<width>600</width>
+				<width>496</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>

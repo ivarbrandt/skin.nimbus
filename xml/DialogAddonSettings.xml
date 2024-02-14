@@ -26,6 +26,10 @@
 				<ondown>20</ondown>
 			</control>
 			<control type="button" id="10">
+				<animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
+					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+					<effect type="slide" start="0,0" end="-200,0" time="300" tween="cubic" easing="in" />
+				</animation>
 				<description>Default Category Button</description>
 				<height>80</height>
 				<width>345</width>
@@ -44,8 +48,9 @@
 				<left>404</left>
 				<top>100</top>
 				<width>1060</width>
-				<height>700</height>
+				<height>720</height>
 				<pagecontrol>60</pagecontrol>
+				<textcolor>green</textcolor>
 				<onleft>3</onleft>
 				<onright>60</onright>
 				<onup>5</onup>
@@ -64,16 +69,16 @@
 			</control>
 			<control type="button" id="7">
 				<description>Default Button</description>
-				<include>DefaultSettingButton</include>
+				<include>DefaultAddonSettingsButton</include>
 			</control>
 			<control type="radiobutton" id="8">
 				<description>Default RadioButton</description>
-				<include>DefaultSettingButton</include>
+				<include>DefaultAddonSettingsButton</include>
 				<textwidth>880</textwidth>
 			</control>
 			<control type="spincontrolex" id="9">
 				<description>Default SpinControlex</description>
-				<include>DefaultSettingButton</include>
+				<include>DefaultAddonSettingsButton</include>
 			</control>
 			<control type="image" id="11">
 				<description>separator image</description>
@@ -81,11 +86,11 @@
 				<texture colordiffuse="button_focus" border="3">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="edit" id="12">
-				<include>DefaultSettingButton</include>
+				<include>DefaultAddonSettingsButton</include>
 			</control>
 			<control type="sliderex" id="13">
 				<description>Default Slider</description>
-				<include>DefaultSettingButton</include>
+				<include>DefaultAddonSettingsButton</include>
 				<textwidth>700</textwidth>
 			</control>
 			<control type="label" id="14">
@@ -94,9 +99,13 @@
 			</control>
 			<control type="colorbutton" id="15">
 				<description>Default ColorButton</description>
-				<include>DefaultSettingButton</include>
+				<include>DefaultAddonSettingsButton</include>
 			</control>
 			<control type="grouplist" id="9000">
+				<animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
+					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
+				</animation>
 				<left>1530</left>
 				<top>92</top>
 				<orientation>vertical</orientation>
@@ -119,8 +128,12 @@
 				</include>
 			</control>
 			<control type="radiobutton" id="20">
+				<animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
+					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+					<effect type="slide" start="0,0" end="-200,0" time="300" tween="cubic" easing="in" />
+				</animation>
 				<left>29</left>
-				<top>737</top>
+				<top>747</top>
 				<width>345</width>
 				<height>80</height>
 				<font>font27_title</font>
@@ -129,9 +142,9 @@
 				<onclick>SettingsLevelChange</onclick>
 				<textoffsetx>0</textoffsetx>
 				<textoffsety>0</textoffsety>
-				<textcolor>unfocused_text</textcolor>
-				<focusedcolor>button_focus</focusedcolor>
-				<texturefocus/>
+				<textcolor>darkgrey</textcolor>
+				<focusedcolor>focused_text</focusedcolor>
+				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
 				<texturenofocus />
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>
@@ -147,6 +160,10 @@
 				<textureradiooffnofocus/>
 			</control>
 			<control type="scrollbar" id="60">
+				<animation condition="ControlGroup(5).HasFocus">
+					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
+					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
+				</animation>
 				<left>1489</left>
 				<top>100</top>
 				<width>12</width>

@@ -8,35 +8,14 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<!-- <left>735</left> -->
-			<top>265</top>
-			<!-- <include content="DialogBackgroundCommons">
-				<param name="width" value="450" />
-				<param name="height" value="455" />
-				<param name="header_label" value="Context menu" />
+			<top>175</top>
+			<include content="DialogBackgroundCommons">
+				<param name="header_label" value="$VAR[ContextMenuTitleVar]" />
 				<param name="header_id" value="" />
-				<param name="diffusetexture" value="masks/addons.png" />
-			</include> -->
-			<control type="image">
-				<left>-1920</left>
-				<top>-1080</top>
-				<width>5760</width>
-				<height>3240</height>
-				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<texture colordiffuse="F7030303">colors/white.png</texture>
-			</control>
-			<control type="label">
-				<top>-90</top>
-				<left>50</left> 
-				<right>50</right>
-				<height>70</height>
-				<font>font40_title</font>
-				<textcolor>darkgrey</textcolor>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$VAR[ContextMenuTitleVar]</label>
-			</control>
+			</include>
+		</control>
+		<control type="group">
+			<top>265</top>
 			<control type="button">
 				<left>-1920</left>
 				<top>-1080</top>
