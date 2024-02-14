@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">50</defaultcontrol>
+	<defaultcontrol always="true">54</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<views>50,52,54,55,500,501,502</views>
+	<views>50,52,54,55,500</views>
 	<menucontrol>9000</menucontrol>
 	<controls>
 		<include>DefaultBackground</include>
