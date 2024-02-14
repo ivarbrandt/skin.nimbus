@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
+	<onload>ClearProperty(nimbus_fanart_art, home)</onload>
+	<onload>ClearProperty(nimbus_fanart_prop, home)</onload>
 	<backgroundcolor>background</backgroundcolor>
 	<views>50,52,55</views>
 	<menucontrol>9000</menucontrol>
@@ -93,7 +95,7 @@
 				<animation effect="fade" time="300">VisibleChange</animation>
 				<include content="LeftAlignedInfo">
 					<param name="main_label" value="$INFO[Window(AddonBrowser).Property(Updated)]" />
-					<param name="sub_label" value="$LOCALIZE[31069]" />
+					<param name="sub_label" value="[UPPERCASE][B]$LOCALIZE[31069][/B][/UPPERCASE]" />
 				</include>
 			</control>
 		</control>
