@@ -25,7 +25,7 @@
 						<control type="image">
 							<width>396</width>
 							<height>245</height>
-							<texture colordiffuse="dialog_bg">masks/settingspanel.png</texture>
+							<texture colordiffuse="dialog_bg">masks/landscape.png</texture>
 							<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 							<bordersize>20</bordersize>
 						</control>
@@ -60,7 +60,7 @@
 							<include>FocusBounce</include>
 							<width>396</width>
 							<height>245</height>
-							<texture colordiffuse="button_focus">masks/settingspanel.png</texture>
+							<texture colordiffuse="button_focus">masks/landscape.png</texture>
 							<bordersize>13</bordersize>
 							<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
 							<include>Animation_FocusTextureFade</include>
@@ -69,7 +69,7 @@
 							<left>-1</left>
 							<width>399</width>
 							<height>245</height>
-							<texture colordiffuse="button_focus">masks/settingspanel-glow.png</texture>
+							<texture colordiffuse="button_focus">masks/landscape-glow.png</texture>
 							<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 							<bordersize>-3</bordersize>
 							<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
@@ -82,7 +82,7 @@
 							<include>FocusBounce</include>
 							<width>396</width>
 							<height>245</height>
-							<texture colordiffuse="dialog_bg">masks/settingspanel.png</texture>
+							<texture colordiffuse="dialog_bg">masks/landscape.png</texture>
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
