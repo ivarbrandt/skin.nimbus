@@ -239,7 +239,7 @@
 				</control>
 				<!-- FOCUS COLOR -->
 				<control type="radiobutton" id="63703">
-					<label>Enable color theme for focus and progress</label>
+					<label>Enable color theme for focus</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
