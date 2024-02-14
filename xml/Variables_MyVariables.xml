@@ -68,7 +68,8 @@
 	</variable>
 
 	<variable name="FocusedColorVar">
-    <value condition="!Skin.HasSetting(Disable.ColorThemeFocus)">accent_color</value>
+    <value condition="![Window.IsVisible(1100) | Skin.HasSetting(Disable.ColorThemeFocus)]">accent_color</value>
+    <value condition="Window.IsVisible(1100)">accent_color</value>
     <value>FFCCCCCC</value>
     <!-- <value>FFEAECED</value> -->
     <!-- <value>FFC1C1C1</value> -->
@@ -104,8 +105,9 @@
 	</variable>
 
 	<variable name="ContextMenuTitleVar">
+		<value condition="String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,tvshow)">$INFO[ListItem.Title]</value>
 		<value condition="String.IsEqual(ListItem.dbtype,season)">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
 		<value condition="String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
-		<value>$INFO[ListItem.Title]</value>
+		<value>Context menu</value>
 	</variable>
 </includes>
