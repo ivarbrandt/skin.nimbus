@@ -15,7 +15,7 @@
 	<onload condition="String.IsEmpty(Skin.String(titleSetting))">Skin.SetString(titleSetting,0)</onload>	
 	<controls>
 		<include>DefaultBackground</include>
-		<control type="multiimage">
+		<!-- <control type="multiimage">
 			<right>-3</right>
 			<top>-3</top>
 			<width>1300</width>
@@ -28,7 +28,7 @@
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
-		</control>
+		</control> -->
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
