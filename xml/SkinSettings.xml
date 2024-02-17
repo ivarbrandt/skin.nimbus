@@ -229,46 +229,22 @@
 					<onclick>Skin.ToggleSetting(OneClickClose)</onclick>
 					<selected>Skin.HasSetting(OneClickClose)</selected>
 				</control>
-				<!-- FOCUS ANIMATIONS -->
-				<control type="radiobutton" id="63702">
-					<label>Enable focus animations</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(NoFocusAnimations)</selected>
-					<onclick>Skin.ToggleSetting(NoFocusAnimations)</onclick>
-					<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
-				</control>
 				<!-- FOCUS COLOR -->
-				<control type="radiobutton" id="63703">
+				<control type="radiobutton" id="63702">
 					<label>Enable color theme for focus</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control>
-				<!-- FOCUS GLOW -->
-				<control type="radiobutton" id="63704">
-					<label>Enable focus glow</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.FocusGlow)</selected>
-					<onclick>Skin.ToggleSetting(Enable.FocusGlow)</onclick>
-					<!-- <onclick>Skin.Reset(Enable.GlowPulse)</onclick> -->
-				</control>
-				<!-- FOCUS GLOW ANIMATION -->
-				<control type="radiobutton" id="63705">
-					<label>    - Enable pulsing glow</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.GlowPulse)</selected>
-					<onclick>Skin.ToggleSetting(Enable.GlowPulse)</onclick>
-					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
-				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63706">
+				<control type="radiobutton" id="63703">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63707">
+				<control type="radiobutton" id="63704">
 					<label>Enable studio logos in FlixPanel</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
@@ -345,13 +321,13 @@
 					<selected>!Skin.HasSetting(HideTVShowKeywordResults)</selected>
 					<visible>!Skin.HasSetting(NoSearchResultsWindow)</visible>
 				</control>
-				<control type="radiobutton" id="6478">
+				<!-- <control type="radiobutton" id="6478">
 					<label>   - TRAKT Lists</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(HideTraktResults)</onclick>
 					<selected>!Skin.HasSetting(HideTraktResults)</selected>
 					<visible>!Skin.HasSetting(NoSearchResultsWindow)</visible>
-				</control>
+				</control> -->
 			</control>
 
 			<control type="grouplist" id="648">
