@@ -571,7 +571,7 @@
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<itemlayout height="365" width="350">
 							<control type="group">
-								<left>20</left>
+								<left>25</left>
 								<top>150</top>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultAddon.png" />
@@ -580,7 +580,7 @@
 						</itemlayout>
 						<focusedlayout height="365" width="350">
 							<control type="group">
-								<left>20</left>
+								<left>25</left>
 								<top>150</top>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultAddon.png" />
@@ -1677,6 +1677,7 @@
 
 	<include name="FlixSquareFocus">
 		<control type="image">
+			<left>2</left>
 			<!-- <width>$PARAM[width]</width>
 			<height>$PARAM[height]</height> -->
 			<texture diffuse="masks/addons-glow.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
