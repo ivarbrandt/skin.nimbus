@@ -571,6 +571,7 @@
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<itemlayout height="365" width="350">
 							<control type="group">
+								<left>20</left>
 								<top>150</top>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultAddon.png" />
@@ -579,7 +580,7 @@
 						</itemlayout>
 						<focusedlayout height="365" width="350">
 							<control type="group">
-								<include>FocusBounce</include>
+								<left>20</left>
 								<top>150</top>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultAddon.png" />
@@ -1595,8 +1596,7 @@
 		<focusedlayout height="230" width="370">
 			<control type="group">
 				<depth>DepthContentPopout</depth>
-				<control type="image">
-					<include>FocusBounce</include>
+				<!-- <control type="image">
 					<left>-5</left>
 					<width>410</width>
 					<height>270</height>
@@ -1604,16 +1604,15 @@
 					<bordersize>30</bordersize>
 					<include>Animation_FocusTextureFade</include>
 					<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
-				</control>
+				</control> -->
 				<control type="image">
-					<include>FocusBounce</include>
 					<left>-5</left>
 					<width>411</width>
 					<height>271</height>
 					<texture colordiffuse="button_focus">masks/landscape-glow.png</texture>
 					<bordersize>14</bordersize>
 					<include>Animation_FocusTextureFade</include>
-					<visible>Skin.HasSetting(Enable.FocusGlow)</visible>
+					<!-- <visible>Skin.HasSetting(Enable.FocusGlow)</visible> -->
 					<include content="GlowPulse">
 						<param name="pos_x" value="205.5"/>
 						<param name="pos_y" value="135.5"/>
@@ -1678,19 +1677,35 @@
 
 	<include name="FlixSquareFocus">
 		<control type="image">
-			<include>FocusBounce</include>
 			<!-- <width>$PARAM[width]</width>
 			<height>$PARAM[height]</height> -->
-			<texture diffuse="$PARAM[diffuse]" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
-			<bordersize>$PARAM[border_size]</bordersize>
+			<texture diffuse="masks/addons-glow.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
+			<bordersize>-27</bordersize>
 			<visible>$PARAM[vis_cond]</visible>
 			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 		</control>
 	</include>
 
+	<include name="FlixSquareBackgroundFocused">
+		<control type="image">
+			<texture colordiffuse="dialog_bg">masks/addons.png</texture>
+			<bordersize>1</bordersize>
+			<visible>$PARAM[vis_cond]</visible>
+		</control>
+	</include>
+
+	<include name="FlixSquareBackgroundUnFocused">
+		<control type="image">
+			<texture colordiffuse="dialog_bg">masks/addons.png</texture>
+			<bordersize>1</bordersize>
+			<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
+			<visible>$PARAM[vis_cond]</visible>
+			<visible>$PARAM[vis_cond_alt]</visible>
+		</control>
+	</include>
+
 	<include name="FlixPosterFocus">
 		<control type="image">
-			<include>FocusBounce</include>
 			<width>$PARAM[width]</width>
 			<height>$PARAM[height]</height>
 			<texture diffuse="$PARAM[diffuse]" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
@@ -1744,7 +1759,6 @@
 
 	<!-- <include name="FocusedItem">
     <control type="image">
-			<include>FocusBounce</include>
 			<top>$PARAM[top]</top>
 			<width>$PARAM[width]</width>
 			<height>$PARAM[height]</height>

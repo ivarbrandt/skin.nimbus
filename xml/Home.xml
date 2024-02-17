@@ -43,7 +43,7 @@
 					<control type="grouplist" id="27001">
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>27010</pagecontrol>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/video/"/>
 							<param name="widget_header" value="$LOCALIZE[1037]"/>
 							<param name="widget_target" value="videos"/>
@@ -52,7 +52,7 @@
 							<param name="list_id" value="27100"/>
 							<param name="fallback_icon" value="DefaultAddon.png"/>
 						</include>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/executable/"/>
 							<param name="widget_header" value="$LOCALIZE[1043]"/>
 							<param name="widget_target" value="programs"/>
@@ -170,7 +170,7 @@
 							<param name="widget_target" value="music"/>
 							<param name="list_id" value="7900"/>
 						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+						<include content="WidgetListCategory" condition="Library.HasContent(music)">
 							<param name="content_path" value="musicdb://recentlyplayedalbums"/>
 							<param name="widget_header" value="$LOCALIZE[517]"/>
 							<param name="widget_target" value="music"/>
@@ -179,7 +179,7 @@
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
 						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+						<include content="WidgetListCategory" condition="Library.HasContent(music)">
 							<param name="content_path" value="musicdb://recentlyaddedalbums/"/>
 							<param name="widget_header" value="$LOCALIZE[359]"/>
 							<param name="widget_target" value="music"/>
@@ -188,7 +188,7 @@
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
 						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+						<include content="WidgetListCategory" condition="Library.HasContent(music)">
 							<param name="content_path" value="special://skin/playlists/random_albums.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31012]"/>
 							<param name="widget_target" value="music"/>
@@ -197,14 +197,14 @@
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
 						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+						<include content="WidgetListCategory" condition="Library.HasContent(music)">
 							<param name="content_path" value="special://skin/playlists/random_artists.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31013]"/>
 							<param name="widget_target" value="music"/>
 							<param name="list_id" value="7400"/>
 							<param name="fallback_icon" value="DefaultMusicArtists.png"/>
 						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+						<include content="WidgetListCategory" condition="Library.HasContent(music)">
 							<param name="content_path" value="special://skin/playlists/unplayed_albums.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31014]"/>
 							<param name="widget_target" value="music"/>
@@ -213,7 +213,7 @@
 							<param name="onclick_condition" value="true"/>
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
 						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(music)">
+						<include content="WidgetListCategory" condition="Library.HasContent(music)">
 							<param name="content_path" value="special://skin/playlists/mostplayed_albums.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31011]"/>
 							<param name="widget_target" value="music"/>
@@ -255,7 +255,7 @@
 							<param name="list_id" value="8900"/>
 							<param name="visible" value="Integer.IsGreater(Container(8100).NumItems,0) | Integer.IsGreater(Container(8200).NumItems,0) | Integer.IsGreater(Container(8300).NumItems,0) | Integer.IsGreater(Container(8400).NumItems,0) | Integer.IsGreater(Container(8500).NumItems,0) | Integer.IsGreater(Container(8700).NumItems,0)"/>
 						</include>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/video/"/>
 							<param name="widget_header" value="$LOCALIZE[1037]"/>
 							<param name="widget_target" value="videos"/>
@@ -264,7 +264,7 @@
 							<param name="list_id" value="8100"/>
 							<param name="fallback_icon" value="DefaultAddon.png"/>
 						</include>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/audio/"/>
 							<param name="widget_header" value="$LOCALIZE[1038]"/>
 							<param name="widget_target" value="music"/>
@@ -273,7 +273,7 @@
 							<param name="list_id" value="8200"/>
 							<param name="fallback_icon" value="DefaultAddon.png"/>
 						</include>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/game/"/>
 							<param name="widget_header" value="$LOCALIZE[35049]"/>
 							<param name="widget_target" value="games"/>
@@ -283,7 +283,7 @@
 							<param name="fallback_icon" value="DefaultAddonGame.png"/>
 							<param name="visible" value="System.GetBool(gamesgeneral.enable)"/>
 						</include>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/executable/"/>
 							<param name="widget_header" value="$LOCALIZE[1043]"/>
 							<param name="widget_target" value="programs"/>
@@ -292,7 +292,7 @@
 							<param name="list_id" value="8300"/>
 							<param name="fallback_icon" value="DefaultAddon.png"/>
 						</include>
-						<include content="WidgetListSquare" condition="System.Platform.Android">
+						<include content="WidgetListCategory" condition="System.Platform.Android">
 							<param name="content_path" value="androidapp://sources/apps/"/>
 							<param name="widget_header" value="$LOCALIZE[20244]"/>
 							<param name="widget_target" value="programs"/>
@@ -301,7 +301,7 @@
 							<param name="list_id" value="8400"/>
 							<param name="fallback_icon" value="DefaultAddon.png"/>
 						</include>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/image/"/>
 							<param name="widget_header" value="$LOCALIZE[1039]"/>
 							<param name="widget_target" value="pictures"/>
@@ -538,7 +538,8 @@
 						<visible>Integer.IsGreater(Container(14100).NumItems,0) | Container(14100).IsUpdating</visible>
 						<itemlayout width="306">
 							<control type="group">
-								<left>37</left>
+								<top>26</top>
+								<left>56</left>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultFavourites.png" />
 									<param name="list_id" value="$PARAM[list_id]" />
@@ -549,7 +550,8 @@
 						<focusedlayout width="306">
 							<control type="group">
 								<depth>DepthContentPopout</depth>
-								<left>37</left>
+								<top>26</top>
+								<left>56</left>
 								<include content="FlixMusicLayout">
 									<param name="fallback_image" value="DefaultFavourites.png" />
 									<param name="list_id" value="$PARAM[list_id]" />
@@ -585,19 +587,19 @@
 						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>15010</pagecontrol>
-						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
+						<include content="WidgetListCategory" condition="!String.IsEmpty(Weather.Plugin)">
 							<param name="content_include" value="DailyItems" />
 							<param name="list_id" value="15200" />
 							<param name="widget_header" value="$LOCALIZE[31019]"/>
 							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Daily.IsFetched))" />
 						</include>
-						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
+						<include content="WidgetListCategory" condition="!String.IsEmpty(Weather.Plugin)">
 							<param name="content_include" value="HourlyItems" />
 							<param name="list_id" value="15100" />
 							<param name="widget_header" value="$LOCALIZE[33036]"/>
 							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))" />
 						</include>
-						<include content="WeatherMapItem">
+						<!-- <include content="WeatherMapItem">
 							<param name="item_id" value="1" />
 							<param name="onup_id" value="15200" />
 							<param name="ondown_id" value="70020" />
@@ -621,7 +623,7 @@
 							<param name="item_id" value="5" />
 							<param name="onup_id" value="70040" />
 							<param name="ondown_id" value="20001" />
-						</include>
+						</include> -->
 					</control>
 					<include content="ImageWidget" condition="String.IsEmpty(Weather.plugin)">
 						<param name="text_label" value="$LOCALIZE[31120]" />
@@ -685,7 +687,7 @@
 							<param name="fallback_image" value="DefaultMusicSongs.png" />
 							<param name="list_id" value="16400"/>
 						</include>
-						<include content="WidgetListSquare" condition="Library.HasContent(musicvideos)">
+						<include content="WidgetListCategory" condition="Library.HasContent(musicvideos)">
 							<param name="content_path" value="special://skin/playlists/random_musicvideo_artists.xsp"/>
 							<param name="widget_header" value="$LOCALIZE[31013]"/>
 							<param name="widget_target" value="music"/>
@@ -760,7 +762,7 @@
 						</include>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>17010</pagecontrol>
-						<include content="WidgetListSquare">
+						<include content="WidgetListCategory">
 							<param name="content_path" value="addons://sources/game/"/>
 							<param name="widget_header" value="$LOCALIZE[35049]"/>
 							<param name="widget_target" value="games"/>
@@ -863,7 +865,6 @@
 							</control>
 							<!-- SideMenu Focused Icons -->
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -876,7 +877,6 @@
 								<visible>Control.HasFocus(700) | Control.HasFocus(733)</visible>
 							</control>
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -1023,7 +1023,6 @@
 						<focusedlayout height="45">
 							<!-- SideMenu Focused Icons -->
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -1036,7 +1035,6 @@
 								<visible>!Control.HasFocus(700)</visible>
 							</control>
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -1125,7 +1123,6 @@
 						<focusedlayout height="45">
 							<!-- SideMenu Focused Icons -->
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -1138,7 +1135,6 @@
 								<visible>!Control.HasFocus(733)</visible>
 							</control>
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>

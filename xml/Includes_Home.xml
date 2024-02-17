@@ -101,12 +101,18 @@
 	</include>
 
 	<include name="WidgetListCategory">
-		<param name="item_limit">30</param>
+		<!-- <param name="item_limit">30</param>
 		<param name="icon">$INFO[ListItem.Icon]</param>
 		<param name="icon_height">230</param>
 		<param name="additional_movie_items">false</param>
-		<param name="additional_tvshow_items">false</param>
+		<param name="additional_tvshow_items">false</param> -->
 		<param name="visible">true</param>
+		<param name="sub_label">$INFO[ListItem.Label]</param>
+		<!-- <param name="sortby"></param>
+		<param name="sortorder">ascending</param> -->
+		<!-- <param name="widget_limit">15</param> -->
+		<param name="fallback_icon">DefaultFolder.png</param>
+		<param name="onclick_condition">false</param>
 		<definition>
 			<include content="CategoryLabel">
 				<param name="label">$PARAM[widget_header]</param>
@@ -134,121 +140,33 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="306">
 					<control type="group">
-						<top>3</top>
-						<left>37</left>
-						<control type="image">
-							<width>315</width>
-							<height>315</height>
-							<texture colordiffuse="dialog_bg">masks/addons.png</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<top>43</top>
-							<left>33</left>
-							<width>250</width>
-							<height>$PARAM[icon_height]</height>
-							<texture diffuse="masks/addons.png" colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
-							<aspectratio>keep</aspectratio>
-						</control>
-						<control type="textbox">
-							<visible>!String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>35</left>
-							<top>297</top>
-							<width>254</width>
-							<height>70</height>
-							<label>$INFO[ListItem.Label]</label>
-							<!-- <label>hello there how are you doing today?</label> -->
-							<font>font25</font>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-							<aligny>center</aligny>
-						</control>
-						<control type="textbox">
-							<visible>String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>35</left>
-							<top>297</top>
-							<width>254</width>
-							<height>70</height>
-							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
-							<font>font25</font>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-							<aligny>center</aligny>
-						</control>
+						<top>26</top>
+						<left>56</left>
+						<include content="FlixMusicLayout">
+							<param name="main_label" value="$PARAM[main_label]" />
+							<param name="single_label" value="$PARAM[single_label]" />
+							<param name="sub_label" value="$PARAM[sub_label]" />
+							<param name="list_id" value="$PARAM[list_id]" />
+							<param name="focused" value="false" />
+						</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="306">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<top>3</top>
-						<left>37</left>
-						<control type="group">
-							<width>315</width>
-							<height>315</height>
-							<include content="FlixSquareFocus">
-								<param name="diffuse" value="masks/addons.png"/>
-								<param name="border_size" value="15"/>
-								<param name="vis_cond" value="!Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
-							</include>
-							<control type="group">
-								<include content="FlixSquareFocus">
-									<param name="diffuse" value="masks/addons-glow.png"/>
-									<param name="border_size" value="-7"/>
-									<param name="vis_cond" value="Skin.HasSetting(Enable.FocusGlow) + Control.HasFocus($PARAM[list_id])"/>
-								</include>
-								<include content="GlowPulse">
-									<param name="pos_x" value="157.5"/>
-									<param name="pos_y" value="157.5"/>
-								</include>
-							</control>
-						</control>
-						<control type="image">
-							<width>315</width>
-							<height>315</height>
-							<texture colordiffuse="dialog_bg">masks/addons.png</texture>
-							<bordersize>20</bordersize>
-						</control>
-						<control type="image">
-							<top>43</top>
-							<left>33</left>
-							<width>250</width>
-							<height>$PARAM[icon_height]</height>
-							<texture diffuse="masks/addons.png" colordiffuse="artwork_dim" fallback="DefaultFolder.png">$PARAM[icon]</texture>
-							<aspectratio>keep</aspectratio>
-						</control>
-						<control type="textbox">
-							<visible>!String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>35</left>
-							<top>297</top>
-							<width>254</width>
-							<height>70</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>font25</font>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-							<aligny>center</aligny>
-							<autoscroll delay="1300" time="1500" repeat="2000">$PARAM[focused]</autoscroll>
-						</control>
-						<control type="textbox">
-							<visible>String.IsEqual(ListItem.FolderPath,addons://outdated/)</visible>
-							<left>35</left>
-							<top>297</top>
-							<width>254</width>
-							<height>70</height>
-							<label>$INFO[ListItem.Label] ($INFO[System.AddonUpdateCount])</label>
-							<font>font25</font>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<align>center</align>
-							<aligny>center</aligny>
-							<autoscroll delay="1300" time="1500" repeat="2000">$PARAM[focused]</autoscroll>
-						</control>
+						<top>26</top>
+						<left>56</left>
+						<include content="FlixMusicLayout">
+							<param name="main_label" value="$PARAM[main_label]" />
+							<param name="single_label" value="$PARAM[single_label]" />
+							<param name="sub_label" value="$PARAM[sub_label]" />
+							<param name="list_id" value="$PARAM[list_id]" />
+							<param name="focused" value="true" />
+						</include>
 					</control>
 				</focusedlayout>
 				<content target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
+				<include>$PARAM[content_include]</include>
 			</control>
 		</definition>
 	</include>
@@ -288,7 +206,6 @@
 						<align>center</align>
 						<onleft>9000</onleft>
 						<control type="button" id="$PARAM[button_id]">
-							<include>FocusBounce</include>
 							<width>auto</width>
 							<height>75</height>
 							<label>$PARAM[button_label]</label>
@@ -301,7 +218,6 @@
 							<visible>$PARAM[visible_1]</visible>
 						</control>
 						<control type="button" id="$PARAM[button_id]568">
-							<include>FocusBounce</include>
 							<width>auto</width>
 							<height>75</height>
 							<label>$PARAM[button2_label]</label>
@@ -315,7 +231,6 @@
 							<visible>$PARAM[visible_2] + Window.IsActive(home)</visible>
 						</control>
 						<control type="button" id="$PARAM[button_id]569">
-							<include>FocusBounce</include>
 							<width>auto</width>
 							<height>75</height>
 							<label>$PARAM[button3_label]</label>
@@ -334,7 +249,7 @@
 		</definition>
 	</include>
 	
-	<include name="WidgetListSquare">
+	<!-- <include name="WidgetListSquare">
 		<param name="sub_label">$INFO[ListItem.Label]</param>
 		<param name="sortby"></param>
 		<param name="visible">True</param>
@@ -370,22 +285,22 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<itemlayout width="306">
 					<control type="group">
-						<top>3</top>
-						<left>37</left>
+						<top>26</top>
+						<left>56</left>
 						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
 							<param name="list_id" value="$PARAM[list_id]" />
-							<!-- <param name="focused" value="false" /> -->
+							<param name="focused" value="false" />
 						</include>
 					</control>
 				</itemlayout>
 				<focusedlayout width="306">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<top>3</top>
-						<left>37</left>
+						<top>26</top>
+						<left>56</left>
 						<include content="FlixMusicLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
@@ -398,7 +313,7 @@
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[widget_limit]">$PARAM[content_path]</content>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 
 	<include name="WidgetListPVR">
 		<param name="item_treshold">0</param>
@@ -524,7 +439,6 @@
 							<visible>!Integer.IsEqual(ListItem.Progress,0)</visible>
 						</control>
 						<control type="image">
-							<include>FocusBounce</include>
 							<width>315</width>
 							<height>315</height>
 							<texture diffuse="masks/addons.png" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
@@ -586,7 +500,7 @@
 		</definition>
 	</include>
 
-	<include name="WeatherWidget">
+	<!-- <include name="WeatherWidget">
 		<param name="width">306</param>
 		<definition>
 			<include content="CategoryLabel">
@@ -717,7 +631,7 @@
 				<include>$PARAM[content_include]</include>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 
 	<include name="HourlyItems">
 		<content>
@@ -881,7 +795,7 @@
 			<property name="Temperature">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Temperature)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Hourly.$PARAM[item_id].Outlook)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].Cloudiness)]</property>
-			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].LongDate)][/COLOR]</property>
+			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Hourly.$PARAM[item_index].ShortDate)][/COLOR]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Hourly.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Hourly.$PARAM[item_index].OutlookIcon)]</thumb>
 			<onclick>noop</onclick>
@@ -897,7 +811,7 @@
 			<property name="TempDay">$INFO[Window(weather).Property(Daily.$PARAM[item_index].TempDay)]</property>
 			<property name="Cloudiness">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Cloudiness)]</property>
 			<property name="Outlook">$INFO[Window(weather).Property(Daily.$PARAM[item_index].Outlook)]</property>
-			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Daily.$PARAM[item_index].LongDate)][/COLOR]</property>
+			<property name="ShortDate">[COLOR darkgrey]$INFO[Window(weather).Property(Daily.$PARAM[item_index].ShortDate)][/COLOR]</property>
 			<property name="FanartCode">$INFO[Window(weather).Property(Daily.$PARAM[item_index].FanartCode)]</property>
 			<thumb>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Daily.$PARAM[item_index].OutlookIcon)]</thumb>
 			<onclick>noop</onclick>
