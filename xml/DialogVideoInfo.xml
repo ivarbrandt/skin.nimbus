@@ -61,7 +61,6 @@
 				<control type="group" id="140">
 					<top>538</top>
 					<control type="button" id="138">
-						<include>FocusBounce</include>
 						<left>20</left>
 						<top>20</top>
 						<!-- 754 -->
@@ -351,7 +350,6 @@
 								<top>15</top>
 								<width>196</width>
 								<height>287</height>
-								<include>FocusBounce</include>
 								<texture colordiffuse="button_focus">masks/poster.png</texture>
 							</control>
 							<control type="image">

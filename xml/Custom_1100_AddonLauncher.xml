@@ -100,7 +100,6 @@
 							<animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus(9000)">Conditional</animation>
 						</control>
 						<control type="label">
-							<include>FocusBounce</include>
 							<top>-3</top>
 							<left>65</left>
 							<bottom>0</bottom>
@@ -206,7 +205,6 @@
 				<onright>400</onright>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="radiobutton" id="801">
-					<include>FocusBounce</include>
 					<width>120</width>
 					<height>120</height>
 					<align>right</align>
@@ -228,7 +226,6 @@
 					<textureradiooffnofocus colordiffuse="unfocused_text">icons/submenu/add-ons.png</textureradiooffnofocus>
 				</control>
 				<control type="radiobutton" id="802">
-					<include>FocusBounce</include>
 					<top>5</top>
 					<width>157</width>
 					<height>110</height>
@@ -254,7 +251,6 @@
 					<textureradiooffdisabled colordiffuse="disabled">icons/submenu/updatelibrary.png</textureradiooffdisabled>
 				</control>
 				<control type="radiobutton" id="803">
-					<include>FocusBounce</include>
 					<width>120</width>
 					<height>120</height>
 					<align>right</align>

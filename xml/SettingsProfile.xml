@@ -107,7 +107,6 @@
 							<bordersize>20</bordersize>
 						</control>
 						<control type="image">
-							<include>FocusBounce</include>
 							<top>5</top>
 							<width>320</width>
 							<height>380</height>

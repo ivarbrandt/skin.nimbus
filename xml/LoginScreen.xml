@@ -68,7 +68,6 @@
 				</itemlayout>
 				<focusedlayout width="384" height="300">
 					<control type="image">
-						<include>FocusBounce</include>
 						<left>40</left>
 						<right>30</right>
 						<width>300</width>
@@ -109,7 +108,6 @@
 				<label>$INFO[ListItem.label2]</label>
 			</control>
 			<control type="button" id="20">
-				<include>FocusBounce</include>
 				<centerleft>50%</centerleft>
 				<bottom>50</bottom>
 				<width>400</width>

@@ -84,7 +84,6 @@
 					<animation effect="fade" time="400">VisibleChange</animation>
 				</control>
 				<control type="button" id="20">
-					<include>FocusBounce</include>
 					<left>2.1%</left>
 					<top>120</top>
 					<width>95.8%</width>
