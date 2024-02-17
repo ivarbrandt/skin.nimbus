@@ -1,6 +1,8 @@
 # Nimbus Skin for Kodi Nexus
 
   ![Viewtypes](resources/images/flix.jpg)
+  
+  ![Viewtypes](resources/images/flix1.jpg)
 
 
 ## INFO
