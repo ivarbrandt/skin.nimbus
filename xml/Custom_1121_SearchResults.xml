@@ -72,7 +72,7 @@
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27016"/>
             </include>
-						<include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults)">
+						<!-- <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults)">
 							<param name="content_path" value="plugin://plugin.video.fen/?mode=trakt.list.search_trakt_lists&amp;query=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
 							<param name="widget_header" value="TRAKT Lists"/>
 							<param name="widget_target" value="videos"/>
@@ -83,7 +83,7 @@
 							<param name="widget_header" value="$INFO[Window(1121).Property(nimbus.27017.label)]"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="270171"/>
-						</include>
+						</include> -->
 					</control>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="27099"/>
@@ -164,7 +164,6 @@
 							</control>
 							<!-- SideMenu Focused Icons -->
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -177,7 +176,6 @@
 								<visible>Control.HasFocus(700)</visible>
 							</control>
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -230,7 +228,6 @@
 						<focusedlayout height="45">
 							<!-- SideMenu Focused Icons -->
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
@@ -243,7 +240,6 @@
 								<visible>!Control.HasFocus(700)</visible>
 							</control>
 							<control type="label">
-								<include>FocusBounce</include>
 								<left>65</left>
 								<top>0</top>
 								<height>70</height>
