@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+	<!-- Return a single genre -->
+  <variable name="GenreVar">
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Action)">Action</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Adventure)">Adventure</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Animation)">Animation</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Comedy)">Comedy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Crime)">Crime</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Documentary)">Documentary</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Drama)">Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Family)">Family</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Fantasy)">Fantasy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Kids)">Kids</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,History)">History</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Horror)">Horror</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Music)">Music</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Mystery)">Mystery</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,News)">News</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Reality)">Reality</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Romance)">Romance</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Science Fiction)">Sci-Fi</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Sci-Fi)">Sci-Fi</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Soap)">Soap</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,TV Movie)">TV Movie</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Thriller)">Thriller</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,War)">War</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Western)">Western</value>
+	</variable>
+
+	<variable name="StatusVar">
+		<value condition="!String.IsEmpty(ListItem.Status) + String.StartsWith(ListItem.Status,Returning)">Returning</value>
+		<value>$INFO[Container($PARAM[id]).ListItem.Status]</value>
+	</variable>
+
   <variable name="ClearlogoVar">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
@@ -21,9 +54,9 @@
 	<variable name="FlixCrumbsVar">
 		<!-- <value condition="![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
 		<value condition="[String.IsEqual(ListItem.DBtype,episode) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="![String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,movie)] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Genre, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="![String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,movie)] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
 		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value>
 	</variable>
 

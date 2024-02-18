@@ -70,7 +70,11 @@
 					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
 				</include>
 				<include content="FlixInfoIcon">
-					<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)"/>
+					<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)"/>
+					<param name="flixlabel" value="$VAR[GenreVar]"/>
+				</include>
+				<include content="FlixInfoIcon">
+					<param name="visible" value="!ListItem.IsCollection + !String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)"/>
 					<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
 				</include>
 				<!-- <include content="FlixInfoIcon">
@@ -95,10 +99,10 @@
 				</include>
 				<include content="FlixInfoIcon">
 					<param name="visible" value="!String.IsEmpty(ListItem.Status) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Status]"/>
+					<param name="flixlabel" value="$VAR[StatusVar]"/>
 				</include>
 				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]"/>
+					<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,season)]"/>
 					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ]"/>
 				</include>
 				<!-- <control type="group">
