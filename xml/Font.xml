@@ -50,6 +50,7 @@
 			<name>font27</name>
 			<filename>SF-Pro.ttf</filename>
 			<size>29</size>
+			<linespacing>0.93</linespacing>
 			<style>lighten</style>
 		</font>
 		<font>

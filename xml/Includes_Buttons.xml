@@ -222,7 +222,6 @@
 		<param name="visible">true</param>
 		<definition>
 			<control type="radiobutton" id="$PARAM[control_id]">
-
 				<width>120</width>
 				<height>$PARAM[height]</height>
 				<align>center</align>
@@ -303,7 +302,6 @@
 		<param name="onclick_3_condition">true</param>
 		<definition>
 			<control type="radiobutton" id="$PARAM[id]">
-
 				<width>$PARAM[width]</width>
 				<height>130</height>
 				<align>center</align>
@@ -337,7 +335,6 @@
 		<param name="width">220</param>
 		<definition>
 			<control type="radiobutton" id="$PARAM[id]">
-
 				<width>$PARAM[width]</width>
 				<height>130</height>
 				<align>center</align>

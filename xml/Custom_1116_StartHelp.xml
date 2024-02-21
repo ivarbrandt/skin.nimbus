@@ -18,7 +18,7 @@
 				<top>100</top>
 				<width>855</width>
 				<height>165</height>
-				<label>Navigate to skin settings to set movie/tvshow main menu items and widgets</label>
+				<label>Navigate to skin settings to set up movie/tvshow main menu items and widgets</label>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>
 			<control type="button" id="100">
