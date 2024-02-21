@@ -11,11 +11,6 @@
       <texturefocus/>
       <texturenofocus/>
     </control>
-    <!-- <control type="button" id="9">
-      <visible>[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,set)]</visible>
-      <texturefocus/>
-      <texturenofocus/>
-    </control> -->
     <control type="button" id="10">
       <texturefocus/>
       <texturenofocus/>
@@ -25,23 +20,12 @@
       <texturefocus/>
       <texturenofocus/>
     </control>
-    <!-- <control type="image">
-        <animation type="WindowOpen">
-            <effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
-        </animation>
-        <animation type="WindowClose">
-            <effect type="fade" start="100" end="0" time="400" tween="sine" easing="inout" />
-        </animation>
-        <texture colordiffuse="b0080808">colors/white.png</texture>
-    </control> -->
     <control type="group">
       <animation type="WindowOpen">
           <effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
-          <!-- <effect type="slide" start="800,0" end="0,0" time="516" tween="sine" easing="inout" /> -->
       </animation>
       <animation type="WindowClose">
           <effect type="fade" start="100" end="0" time="400" tween="sine" easing="inout" />
-          <!-- <effect type="slide" start="0,0" end="800,0" time="516" tween="sine" easing="inout" /> -->
       </animation>
       <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(DialogSelect.xml) | Window.IsActive(FileBrowser.xml)">Conditional</animation>
       <control type="image">
@@ -70,36 +54,13 @@
           <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),cast)">50</onright>
           <include content="BigList">
             <param name="id" value="20000" />
-            <!-- <param name="MainLabel" value="$INFO[ListItem.Label]" />
-            <param name="SubLabel" value="$INFO[ListItem.Label2]" /> -->
           </include>
-          <!-- <itemlayout width="380" height="75">
-            <include content="ListItem">
-              <param name="id" value="20000" />
-              <param name="vis1" value="!Control.HasFocus($PARAM[id]) | !$PARAM[focused] " />
-            </include>
-          </itemlayout>
-          <focusedlayout width="380" height="75">
-            <include content="ListItem">
-              <param name="id" value="20000" />
-              <param name="focused" value="true" />
-              <param name="vis2" value="Control.HasFocus($PARAM[id]) + $PARAM[focused]" />
-              <control type="group">
-                <animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-              </control>
-            </include>
-          </focusedlayout> -->
           <content>
             <item>
               <visible>Control.IsVisible(8)</visible>
               <label>208</label>
               <onclick>SendClick(8)</onclick>
             </item>
-            <!-- <item>
-              <visible>Control.IsVisible(9)</visible>
-              <label>$VAR[VideoInfoPlayButtonLabelVar]</label>
-              <onclick>SendClick(9)</onclick>
-            </item> -->
             <item>
               <visible>Control.IsVisible(11)</visible>
               <label>20410</label>
@@ -214,16 +175,6 @@
             <fadetime>600</fadetime>
             <bordertexture colordiffuse="FF5B5B5B" border="20" infill="false">masks/poster-big-border.png</bordertexture>
           </control>
-          <!-- <control type="image">
-            <top>160</top>
-            <bottom>160</bottom>
-            <right>0</right>
-            <fadetime>600</fadetime>
-            <aspectratio align="right">keep</aspectratio>
-            <texture diffuse="masks/poster-big.png" colordiffuse="artwork_dim">$INFO[Container(50).ListItem.Art(thumb)]</texture>
-            <bordersize>2</bordersize>
-            <bordertexture colordiffuse="FF5B5B5B" border="20" infill="false">masks/poster-big-border.png</bordertexture>
-          </control> -->
           <control type="image">
             <visible>Container(50).IsUpdating</visible>
             <animation effect="fade" start="0" end="100" time="100" delay="2000" reversible="false">Visible</animation>

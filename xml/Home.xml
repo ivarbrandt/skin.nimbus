@@ -15,20 +15,6 @@
 	<onload condition="String.IsEmpty(Skin.String(titleSetting))">Skin.SetString(titleSetting,0)</onload>	
 	<controls>
 		<include>DefaultBackground</include>
-		<!-- <control type="multiimage">
-			<right>-3</right>
-			<top>-3</top>
-			<width>1300</width>
-			<height>731</height>
-			<aspectratio>stretch</aspectratio>
-			<fadetime>500</fadetime>
-			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
-			<visible>!Player.HasMedia</visible>
-		</control> -->
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
@@ -816,18 +802,6 @@
 					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
 					<include>OpenClose_Left</include>
 					<include content="FlixPanel"/>
-					<!-- <control type="textbox">
-						<left>50</left>
-						<top>467</top>
-						<width>530</width>
-						<height>413</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>font27</font>
-						<textcolor>80FFFFFF</textcolor>
-						<label>$LOCALIZE[19055]</label>
-						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
-					</control> -->
 				</control>
 				<include>osd_darkenBG</include>
 				<control type="group">
@@ -1095,32 +1069,6 @@
 					<animation effect="fade" time="300">VisibleChange</animation>
 				</control>
 			</control>
-			<!-- <control type="group">
-        <animation effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">VisibleChange</animation>
-        <visible>![ControlGroup(2000).HasFocus | Skin.HasSetting(TrailerPlaying)]</visible>
-				<depth>DepthBars</depth>
-				<animation effect="slide" end="0,-90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
-				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<top>35</top>
-				<left>10</left>
-        <control type="image">
-          <left>0</left>
-          <top>0</top>
-          <aspectratio>keep</aspectratio>
-          <width>200</width>
-          <height>86</height>
-          <texture colordiffuse="unfocused_text">special://skin/media/logos/K-logo.png</texture>
-        </control>
-        <control type="image">
-          <left>59</left>
-          <top>0</top>
-          <aspectratio>keep</aspectratio>
-          <width>192</width>
-          <height>56</height>
-          <texture colordiffuse="unfocused_text">special://skin/media/logos/letters.png</texture>
-        </control>
-			</control> -->
 		</control>
 	</controls>
 </window>

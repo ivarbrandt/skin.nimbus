@@ -1933,9 +1933,6 @@
 				<include content="BigListItem">
 					<param name="id" value="$PARAM[id]" />
 					<param name="focused" value="true" />
-					<!-- <control type="group">
-						<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-					</control> -->
 				</include>
 			</focusedlayout>
 			<itemlayout height="75">
@@ -1964,33 +1961,5 @@
 			</itemlayout>
 		</definition>
 	</include>
-
-	<!-- <include name="ProgressBar">
-		<control type="progress">
-			<left>$PARAM[left]</left>
-			<top>$PARAM[top]</top>
-			<width>$PARAM[width]</width>
-			<height>1</height>
-			<texturebg></texturebg>
-			<midtexture colordiffuse="$VAR[FocusedColorVar]" border="3">progress/texturebg_alt_white.png</midtexture>
-			<info>Container($PARAM[id]).ListItem.Property(WatchedProgress)</info>
-			<visible>[String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | [Integer.IsGreater(Container($PARAM[id]).ListItem.Property(UnwatchedEpisodes),0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | [String.IsEqual(ListItem.DBtype,episode) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]</visible>
-			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-		</control>
-	</include> -->
-
-	<!-- <include name="FocusedItem">
-    <control type="image">
-			<top>$PARAM[top]</top>
-			<width>$PARAM[width]</width>
-			<height>$PARAM[height]</height>
-			<texture colordiffuse="$VAR[FocusedColorVar]">$PARAM[texture]</texture>
-			<bordersize>$PARAM[bordersize]</bordersize>
-			<visible>$PARAM[visible1]</visible>
-			<visible>$PARAM[visible2]</visible>
-			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-			<animation visible="$PARAM[glow_animation_visible]" condition="Skin.HasSetting(Enable.GlowPulse)" effect="zoom" time="1733" start="97" end="100" center="$PARAM[glow_animation_width],$PARAM[glow_animation_height]" tween="cubic" easing="in" pulse="true">Conditional</animation>
-    </control>
-	</include> -->
 
 </includes>

@@ -44,8 +44,6 @@
 			</control>
 		
 			<control type="grouplist">
-				<!-- <left>50</left>
-				<width>785</width> -->
 				<top>258</top>
 				<orientation>vertical</orientation>
 				<itemgap>7</itemgap>
@@ -83,18 +81,6 @@
 						<param name="visible" value="!ListItem.IsCollection + !String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)"/>
 						<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
 					</include>
-					<!-- <include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Director) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Director]"/>
-					</include> -->
-					<!-- <include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Duration) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,tvshow) |  String.IsEqual(ListItem.DBtype,season) |  String.IsEqual(ListItem.DBtype,episode)]"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]"/>
-					</include> -->
 					<include content="FlixInfoIcon">
 						<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, season]"/>
@@ -111,19 +97,6 @@
 						<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,season)]"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ]"/>
 					</include>
-					<!-- <control type="group">
-						<control type="image">
-							<top>-9</top>
-							<left>-10</left>
-							<width>110</width>
-							<height>57</height>
-							<fadetime>0</fadetime>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
-							<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-							<visible>true</visible>
-							<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
-						</control>
-					</control> -->
 					<control type="group">
 						<control type="image">
 							<top>-4</top>

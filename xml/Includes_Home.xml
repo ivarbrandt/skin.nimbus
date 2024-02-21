@@ -20,14 +20,6 @@
 				<width>1815</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<!-- <control type="label">
-					<top>12</top>
-					<label>$PARAM[label]</label>
-					<textcolor>unfocused_text</textcolor>
-					<shadowcolor>text_shadow</shadowcolor>
-					<scroll>true</scroll>
-					<visible>!Control.HasFocus($PARAM[list_id])</visible>
-				</control> -->
 				<control type="label">
 					<top>12</top>
 					<label>$VAR[LoadingLabelsVar]</label>

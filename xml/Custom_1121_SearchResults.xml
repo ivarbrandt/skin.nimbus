@@ -72,18 +72,6 @@
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27016"/>
             </include>
-						<!-- <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults)">
-							<param name="content_path" value="plugin://plugin.video.fen/?mode=trakt.list.search_trakt_lists&amp;query=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
-							<param name="widget_header" value="TRAKT Lists"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="27017"/>
-						</include>
-						<include content="WidgetListPosterStacked" condition="!Skin.HasSetting(HideTraktResults)">
-							<param name="content_path" value="$INFO[Window(1121).Property(nimbus.27017.path)]"/>
-							<param name="widget_header" value="$INFO[Window(1121).Property(nimbus.27017.label)]"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="270171"/>
-						</include> -->
 					</control>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="27099"/>
@@ -138,7 +126,6 @@
 						<font>font36_title</font>
 						<label>[UPPERCASE]Recent searches[/UPPERCASE]</label>
 						<textcolor>accent_color</textcolor>
-						<!-- <textcolor>unfocused_text</textcolor> -->
 					</control>
 					<include content="MiniMenuLabels">
 						<param name="visible" value="Control.HasFocus(700)"/>
@@ -161,8 +148,6 @@
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<include content="BigList">
               <param name="id" value="9000" />
-              <!-- <param name="MainLabel" value="$INFO[ListItem.Label]" />
-              <param name="SubLabel" value="$INFO[ListItem.Label2]" /> -->
             </include>
 						<content>
 							<!-- SEARCH HISTORY -->
@@ -213,18 +198,6 @@
 					<!-- <width>550</width> -->
 					<visible allowhiddenfocus="true">[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
 					<include content="FlixPanel"/>
-					<!-- <control type="textbox">
-						<left>30</left>
-						<top>467</top>
-						<width>530</width>
-						<height>413</height>
-						<align>center</align>
-						<aligny>center</aligny>
-						<font>font27</font>
-						<textcolor>80FFFFFF</textcolor>
-						<label>$LOCALIZE[19055]</label>
-						<visible>String.IsEmpty(Listitem.Plot) + String.IsEmpty(Listitem.Tagline) + !ListItem.IsCollection + !ListItem.IsParentFolder</visible>
-					</control> -->
 				</control>
 			</control>
 			<control type="group">
@@ -237,22 +210,6 @@
 					<param name="infolabel_prefix" value="Container." />
 					<param name="resolution_var" value="$VAR[ContainerResolutionFlagVar]" />
 				</include>
-				<!-- <control type="rss">
-					<animation effect="slide" end="0,90" time="500" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
-					<left>0</left>
-					<bottom>0</bottom>
-					<height>39</height>
-					<width>100%</width>
-					<font>font12</font>
-					<urlset>1</urlset>
-					<hitrect x="-100" y="0" w="1" h="1" />
-					<titlecolor>button_focus</titlecolor>
-					<textcolor>button_focus</textcolor>
-					<shadowcolor>text_shadow</shadowcolor>
-					<headlinecolor>FFC0C0C0</headlinecolor>
-					<visible>Skin.HasSetting(hide_mediaflags) | !ControlGroup(2000).HasFocus</visible>
-					<animation effect="fade" time="300">VisibleChange</animation>
-				</control> -->
 			</control>
 			<!-- <control type="group">
 				<include>OpenClose_Right</include>
