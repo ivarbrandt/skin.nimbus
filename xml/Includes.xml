@@ -1671,7 +1671,7 @@
 			<height>98</height>
 			<font>font32_title</font>
 			<label>$PARAM[label]</label>
-			<texctcolor>unfocused_text</texctcolor>
+			<textcolor>accent_color</textcolor>
 		</control>
 	</include>
 
@@ -1742,6 +1742,227 @@
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Stop</onunfocus>
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.Reset(TrailerPlaying)</onunfocus>
 		</control>
+	</include>
+
+	<include name="BigListItem">
+		<param name="focused" default="false" />
+		<definition>
+			<control type="group">
+				<control type="image">
+					<top>7</top>
+					<bottom>9</bottom>
+					<width>5</width>
+					<left>47</left>
+					<texture colordiffuse="accent_color">colors/white.png</texture>
+					<visible>[Control.HasFocus($PARAM[id]) + $PARAM[focused]] + ![Control.HasFocus(700) | Control.HasFocus(733)]</visible>
+				</control>
+				<control type="group">
+					<control type="label">
+						<left>65</left>
+						<top>0</top>
+						<height>70</height>
+						<width>670</width>
+						<aligny>center</aligny>
+						<font>font37</font>
+						<textcolor>darkgrey</textcolor>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<shadowcolor>text_shadow</shadowcolor>
+						<visible>[!Control.HasFocus($PARAM[id]) | !$PARAM[focused]] + [Control.HasFocus(700) | Control.HasFocus(733)]</visible>
+					</control>
+					<control type="label">
+						<left>65</left>
+						<top>0</top>
+						<height>70</height>
+						<width>670</width>
+						<aligny>center</aligny>
+						<font>font52_title</font>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<!-- <textcolor>unfocused_text</textcolor> -->
+						<shadowcolor>text_shadow</shadowcolor>
+						<visible>[Control.HasFocus($PARAM[id]) + $PARAM[focused]] + ![Control.HasFocus(700) | Control.HasFocus(733)]</visible>
+						<scrollspeed>300</scrollspeed>
+					</control>
+					<control type="label">
+						<left>65</left>
+						<top>0</top>
+						<height>70</height>
+						<width>670</width>
+						<aligny>center</aligny>
+						<font>font37</font>
+						<textcolor>darkgrey</textcolor>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<shadowcolor>text_shadow</shadowcolor>
+						<visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="SmallListItem">
+		<param name="focused" default="false" />
+		<definition>
+			<control type="group">
+				<control type="image">
+					<top>11.5</top>
+					<bottom>-15</bottom>
+					<width>5</width>
+					<left>50</left>
+					<texture colordiffuse="accent_color">colors/white.png</texture>
+					<visible>[Control.HasFocus($PARAM[id]) + $PARAM[focused]] + !Control.HasFocus(9000)</visible>
+				</control>
+				<control type="group">
+					<control type="label">
+						<left>65</left>
+						<top>0</top>
+						<height>70</height>
+						<width>670</width>
+						<aligny>center</aligny>
+						<font>font27</font>
+						<textcolor>darkgrey</textcolor>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<shadowcolor>text_shadow</shadowcolor>
+						<visible>[!Control.HasFocus($PARAM[id]) | !$PARAM[focused]] + ![Control.HasFocus(700) | Control.HasFocus(733)]</visible>
+					</control>
+					<control type="label">
+						<left>65</left>
+						<top>0</top>
+						<height>70</height>
+						<width>670</width>
+						<aligny>center</aligny>
+						<font>font40_title</font>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<!-- <textcolor>unfocused_text</textcolor> -->
+						<shadowcolor>text_shadow</shadowcolor>
+						<visible>[Control.HasFocus($PARAM[id]) + $PARAM[focused]] + [Control.HasFocus(700) | Control.HasFocus(733)]</visible>
+						<scrollspeed>300</scrollspeed>
+					</control>
+					<control type="label">
+						<left>65</left>
+						<top>0</top>
+						<height>70</height>
+						<width>492</width>
+						<aligny>center</aligny>
+						<font>font27</font>
+						<textcolor>darkgrey</textcolor>
+						<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
+						<shadowcolor>text_shadow</shadowcolor>
+						<visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
+					</control>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="ListItemTwoLine">
+	<param name="focused" default="false" />
+		<definition>
+			<control type="group">
+				<control type="image">
+					<visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
+					<top>15</top>
+					<bottom>10</bottom>
+					<width>5</width>
+					<texture colordiffuse="accent_color">colors/white.png</texture>
+				</control>
+				<control type="group">
+					<control type="label">
+						<visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
+						<top>12</top>
+						<height>34</height>
+						<left>20</left>
+						<right>0</right>
+						<aligny>top</aligny>
+						<font>font32</font>
+						<textcolor>darkgrey</textcolor>
+						<label>$PARAM[MainLabel]</label>
+					</control>
+					<control type="label">
+						<visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
+						<top>12</top>
+						<height>34</height>
+						<left>20</left>
+						<right>0</right>
+						<aligny>top</aligny>
+						<font>font37</font>
+						<textcolor>white</textcolor>
+						<label>[B]$PARAM[MainLabel][/B]</label>
+					</control>
+				</control>
+				<control type="label">
+					<animation effect="slide" start="0,0" end="32,0" time="0" condition="[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">Conditional</animation>
+					<bottom>24</bottom>
+					<height>25</height>
+					<left>20</left>
+					<right>0</right>
+					<aligny>top</aligny>
+					<font>font27</font>
+					<textcolor>darkgrey</textcolor>
+					<label>$PARAM[SubLabel]</label>
+				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="CastItem">
+		<definition>
+			<itemlayout width="540" height="104" condition="String.IsEqual(Container($PARAM[hub]).ListItem.Property(level$PARAM[level].listType),twoline)">
+				<include content="ListItemTwoLine">
+					<param name="id" value="$PARAM[id]" />
+					<param name="MainLabel" value="$PARAM[MainLabel]" />
+					<param name="SubLabel" value="$PARAM[SubLabel]" />
+				</include>
+			</itemlayout>
+			<focusedlayout width="540" height="104" condition="String.IsEqual(Container($PARAM[hub]).ListItem.Property(level$PARAM[level].listType),twoline)">
+				<include content="ListItemTwoLine">
+					<param name="id" value="$PARAM[id]" />
+					<param name="focused" value="true" />
+					<param name="MainLabel" value="$PARAM[MainLabel]" />
+					<param name="SubLabel" value="$PARAM[SubLabel]" />
+				</include>
+			</focusedlayout>
+		</definition>
+	</include>
+
+	<include name="BigList">
+		<definition>
+			<focusedlayout height="75">
+				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+				</control>
+				<include content="BigListItem">
+					<param name="id" value="$PARAM[id]" />
+					<param name="focused" value="true" />
+					<!-- <control type="group">
+						<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+					</control> -->
+				</include>
+			</focusedlayout>
+			<itemlayout height="75">
+				<include content="BigListItem">
+					<param name="id" value="$PARAM[id]" />
+				</include>
+			</itemlayout>
+		</definition>
+	</include>
+
+	<include name="SmallList">
+		<definition>
+			<focusedlayout height="45">
+				<control type="group">
+					<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+				</control>
+				<include content="SmallListItem">
+					<param name="id" value="$PARAM[id]" />
+					<param name="focused" value="true" />
+				</include>
+			</focusedlayout>
+			<itemlayout height="45">
+				<include content="SmallListItem">
+					<param name="id" value="$PARAM[id]" />
+				</include>
+			</itemlayout>
+		</definition>
 	</include>
 
 	<!-- <include name="ProgressBar">

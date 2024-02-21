@@ -96,7 +96,7 @@
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
 				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
-				<top>565</top>
+				<top>568</top>
 				<left>50</left>
 				<width>1815</width>
 				<aligny>center</aligny>
@@ -137,7 +137,8 @@
 						<height>98</height>
 						<font>font36_title</font>
 						<label>[UPPERCASE]Recent searches[/UPPERCASE]</label>
-						<texctcolor>unfocused_text</texctcolor>
+						<textcolor>accent_color</textcolor>
+						<!-- <textcolor>unfocused_text</textcolor> -->
 					</control>
 					<include content="MiniMenuLabels">
 						<param name="visible" value="Control.HasFocus(700)"/>
@@ -149,7 +150,7 @@
 						<left>25</left>
 						<top>300</top>
 						<width>825</width>
-						<height>500</height>
+						<height>533</height>
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
@@ -158,52 +159,11 @@
 						<onup>700</onup>
 						<ondown>9000</ondown>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
-						<focusedlayout height="70">
-							<control type="group">
-								<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-							</control>
-							<!-- SideMenu Focused Icons -->
-							<control type="label">
-								<left>65</left>
-								<top>0</top>
-								<height>70</height>
-								<width>670</width>
-								<aligny>center</aligny>
-								<font>font37</font>
-								<textcolor>darkgrey</textcolor>
-								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-								<shadowcolor>text_shadow</shadowcolor>
-								<visible>Control.HasFocus(700)</visible>
-							</control>
-							<control type="label">
-								<left>65</left>
-								<top>0</top>
-								<height>70</height>
-								<width>670</width>
-								<aligny>center</aligny>
-								<font>font52_title</font>
-								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-								<textcolor>button_focus</textcolor>
-								<shadowcolor>text_shadow</shadowcolor>
-								<!-- <visible>!Control.HasFocus(700)</visible> -->
-								<visible>!Control.HasFocus(700)</visible>
-								<scroll>$PARAM[focused]</scroll>
-								<scrollspeed>300</scrollspeed>
-							</control>
-						</focusedlayout>
-						<itemlayout height="70">
-							<control type="label">
-								<left>65</left>
-								<top>0</top>
-								<height>70</height>
-								<width>670</width>
-								<aligny>center</aligny>
-								<font>font37</font>
-								<textcolor>darkgrey</textcolor>
-								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-								<shadowcolor>text_shadow</shadowcolor>
-							</control>
-						</itemlayout>
+						<include content="BigList">
+              <param name="id" value="9000" />
+              <!-- <param name="MainLabel" value="$INFO[ListItem.Label]" />
+              <param name="SubLabel" value="$INFO[ListItem.Label2]" /> -->
+            </include>
 						<content>
 							<!-- SEARCH HISTORY -->
 							<include content="SearchHistory" />
@@ -225,48 +185,9 @@
 						<onback>9000</onback>
 						<focusposition>0</focusposition>
 						<movement>2</movement>
-						<focusedlayout height="45">
-							<!-- SideMenu Focused Icons -->
-							<control type="label">
-								<left>65</left>
-								<top>0</top>
-								<height>70</height>
-								<width>670</width>
-								<aligny>center</aligny>
-								<font>font27</font>
-								<textcolor>darkgrey</textcolor>
-								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-								<shadowcolor>text_shadow</shadowcolor>
-								<visible>!Control.HasFocus(700)</visible>
-							</control>
-							<control type="label">
-								<left>65</left>
-								<top>0</top>
-								<height>70</height>
-								<width>670</width>
-								<aligny>center</aligny>
-								<font>font40_title</font>
-								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-								<textcolor>button_focus</textcolor>
-								<shadowcolor>text_shadow</shadowcolor>
-								<visible>Control.HasFocus(700)</visible>
-								<scroll>$PARAM[focused]</scroll>
-								<scrollspeed>300</scrollspeed>
-							</control>
-						</focusedlayout>
-						<itemlayout height="45">
-							<control type="label">
-								<left>65</left>
-								<top>0</top>
-								<height>70</height>
-								<width>670</width>
-								<aligny>center</aligny>
-								<font>font27</font>
-								<textcolor>darkgrey</textcolor>
-								<label>[UPPERCASE]$INFO[ListItem.Label][/UPPERCASE]</label>
-								<shadowcolor>text_shadow</shadowcolor>
-							</control>
-						</itemlayout>
+						<include content="SmallList">
+              <param name="id" value="700" />
+            </include>
 						<content>
 							<item>
 								<label>new search</label>
