@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-  <include name="FlixPanel">
-		<control type="grouplist">
+	<include name="FlixPanel">
+		<control type="group">
 			<left>50</left>
 			<width>785</width>
-			<top>50</top>
-			<orientation>vertical</orientation>
-			<itemgap>10</itemgap>
+			<top>45</top>
 			<control type="image">
 				<width>545</width>
 				<!-- 233 -->
-				<height>263</height>
+				<height>233</height>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
@@ -44,131 +42,140 @@
 					<visible>String.IsEqual(Skin.String(titleSetting),2)</visible>
 				</control>
 			</control>
-			<!-- <control type="textbox">
-				<height>44</height>
-				<label>$VAR[InfoPanelTop]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-			</control> -->
+		
 			<control type="grouplist">
-				<height>56</height>
-				<orientation>horizontal</orientation>
-				<itemgap>12</itemgap>
-				<aligny>center</aligny>
-				<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia]</visible>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.year) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow)]"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.year]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)"/>
-					<param name="flixlabel" value="$VAR[GenreVar]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!ListItem.IsCollection + !String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)"/>
-					<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
-				</include>
-				<!-- <include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Director) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Director]"/>
-				</include> -->
-				<!-- <include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Duration) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,tvshow) |  String.IsEqual(ListItem.DBtype,season) |  String.IsEqual(ListItem.DBtype,episode)]"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]"/>
-				</include> -->
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, season]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, seasons]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(ListItem.Status) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
-					<param name="flixlabel" value="$VAR[StatusVar]"/>
-				</include>
-				<include content="FlixInfoIcon">
-					<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,season)]"/>
-					<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ]"/>
-				</include>
-				<!-- <control type="group">
-					<control type="image">
-						<top>-9</top>
-						<left>-10</left>
-						<width>110</width>
-						<height>57</height>
-						<fadetime>0</fadetime>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-						<visible>true</visible>
-						<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
-					</control>
+				<!-- <left>50</left>
+				<width>785</width> -->
+				<top>258</top>
+				<orientation>vertical</orientation>
+				<itemgap>7</itemgap>
+				<!-- <control type="textbox">
+					<height>44</height>
+					<label>$VAR[InfoPanelTop]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
 				</control> -->
-				<control type="group">
-					<control type="image">
-						<top>-4</top>
-						<left>-12</left>
-						<width>110</width>
-						<height>56</height>
-						<fadetime>0</fadetime>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-						<visible>true</visible>
-						<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
+				<control type="grouplist">
+					<height>58</height>
+					<orientation>horizontal</orientation>
+					<itemgap>12</itemgap>
+					<aligny>center</aligny>
+					<align>left</align>
+					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia]</visible>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.year) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow)]"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.year]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)"/>
+						<param name="flixlabel" value="$VAR[GenreVar]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!ListItem.IsCollection + !String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)"/>
+						<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
+					</include>
+					<!-- <include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Director) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Director]"/>
+					</include> -->
+					<!-- <include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Duration) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,tvshow) |  String.IsEqual(ListItem.DBtype,season) |  String.IsEqual(ListItem.DBtype,episode)]"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]"/>
+					</include> -->
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, season]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, seasons]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Status) + !ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)"/>
+						<param name="flixlabel" value="$VAR[StatusVar]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,season)]"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ]"/>
+					</include>
+					<!-- <control type="group">
+						<control type="image">
+							<top>-9</top>
+							<left>-10</left>
+							<width>110</width>
+							<height>57</height>
+							<fadetime>0</fadetime>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+							<visible>true</visible>
+							<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
+						</control>
+					</control> -->
+					<control type="group">
+						<control type="image">
+							<top>-4</top>
+							<left>-12</left>
+							<width>110</width>
+							<height>56</height>
+							<fadetime>0</fadetime>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+							<visible>true</visible>
+							<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
+						</control>
 					</control>
 				</control>
-			</control>
-			<control type="textbox" id="15500">
-				<height>180</height>
-				<width>600</width>
-				<label>$VAR[ListBoxInfoVar]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
-			</control>
-			<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
-			<control type="textbox">
-				<height max="115">auto</height>
-				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
-			</control>
-			<control type="textbox">
-				<height max="215">auto</height>
-				<width>600</width>
-				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>Player.HasMedia</visible>
-			</control>
-			<control type="textbox">
-				<height max="145">auto</height>
-				<bottom>70</bottom>
-				<label>$VAR[InfoPanelBottom]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-				<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
+				<control type="textbox" id="15500">
+					<height>180</height>
+					<width>600</width>
+					<label>$VAR[ListBoxInfoVar]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
+					<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + ![String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DBType,song)]</visible>
+				</control>
+				<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
+				<control type="textbox">
+					<height max="135">auto</height>
+					<bottom>70</bottom>
+					<label>$VAR[InfoPanelBottom]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
+				</control>
+				<control type="textbox">
+					<height max="235">auto</height>
+					<width>600</width>
+					<bottom>70</bottom>
+					<label>$VAR[InfoPanelBottom]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>Player.HasMedia</visible>
+				</control>
+				<control type="textbox">
+					<height max="165">auto</height>
+					<bottom>70</bottom>
+					<label>$VAR[InfoPanelBottom]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+					<visible>String.IsEmpty(Skin.String(mdblist_api_key))</visible>
+				</control>
 			</control>
 		</control>
 	</include>
