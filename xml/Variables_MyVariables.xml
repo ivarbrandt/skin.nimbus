@@ -65,6 +65,11 @@
     <value condition="String.IsEqual(ListItem.DbType,episode)">$INFO[ListItem.TVshowTitle]</value>
 	</variable>
 
+	<variable name="DialogInfoTitle">
+		<value condition="String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.TVShowTitle,,[CR]][LIGHT]$INFO[ListItem.Season,S,: ]$INFO[ListItem.Episode,E, ]$INFO[ListItem.Title][/LIGHT]</value>
+		<value>$INFO[ListItem.Title]</value>
+	</variable>
+
 	<variable name="HomescreenFlixCrumbs">
     <value condition="Window.IsActive(Home)">$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$INFO[Container(9000).ListItem.Label] [COLOR accent_color][B]»[/B][/COLOR] </value>
 	</variable>
