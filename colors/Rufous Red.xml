@@ -2,7 +2,7 @@
 <colors>
   <color name="primary_background">FF490905</color>
   <color name="button_focus">FFBA160C</color>
-  <color name="focused_text">FFC1C1C1</color>
+  <color name="focused_text">FFE9E9E9</color>
   <color name="accent_color">FFBA160C</color>
   <color name="selected">FFBA160C</color>
   <color name="keyboard_selected">FFBA160C</color>
