@@ -1161,13 +1161,6 @@
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 				<visible>[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(500)]] | [!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(500) | Window.IsVisible(1100)] </visible>
 			</control>
-			<!-- <control type="image">
-				<depth>DepthBackground</depth>
-				<include>FullScreenDimensions</include>
-				<aspectratio>scale</aspectratio>
-				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-				<visible>Control.IsVisible(500) + !Skin.HasSetting(Enable.BackgroundBlur)</visible>
-			</control> -->
 			<control type="image">
 				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus</visible>
 				<right>-3</right>
@@ -1240,9 +1233,6 @@
 						<aspectratio>stretch</aspectratio>
 						<fadetime>500</fadetime>
 						<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-						<!-- <animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-						<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-						<animation effect="fade" time="400">VisibleChange</animation> -->
 						<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
 						<!-- <visible>!Player.HasMedia</visible> -->
 					</control>
@@ -1631,15 +1621,6 @@
 		<focusedlayout height="230" width="370">
 			<control type="group">
 				<depth>DepthContentPopout</depth>
-				<!-- <control type="image">
-					<left>-5</left>
-					<width>410</width>
-					<height>270</height>
-					<texture colordiffuse="button_focus">masks/landscape.png</texture>
-					<bordersize>30</bordersize>
-					<include>Animation_FocusTextureFade</include>
-					<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
-				</control> -->
 				<control type="image">
 					<top>37</top>
 					<left>25</left>
@@ -1648,7 +1629,6 @@
 					<texture colordiffuse="button_focus">masks/landscape-glow.png</texture>
 					<bordersize>-23</bordersize>
 					<include>Animation_FocusTextureFade</include>
-					<!-- <visible>Skin.HasSetting(Enable.FocusGlow)</visible> -->
 					<include content="GlowPulse">
 						<param name="pos_x" value="205.5"/>
 						<param name="pos_y" value="135.5"/>
@@ -1660,7 +1640,6 @@
 					<width>338</width>
 					<height>198</height>
 					<texture colordiffuse="dialog_bg">masks/landscape.png</texture>
-					<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 					<bordersize>1</bordersize>
 				</control>
 				<control type="image">
@@ -1712,48 +1691,6 @@
 		</control>
 	</include>
 
-	<!-- <include name="FlixSquareFocus">
-		<control type="image">
-			<left>2</left>
-			<width>$PARAM[width]</width>
-			<height>$PARAM[height]</height>
-			<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
-			<bordersize>-27</bordersize>
-			<visible>$PARAM[vis_cond]</visible>
-			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-		</control>
-	</include>
-
-	<include name="FlixSquareBackgroundFocused">
-		<control type="image">
-			<texture colordiffuse="dialog_bg">masks/addons.png</texture>
-			<bordersize>1</bordersize>
-			<visible>$PARAM[vis_cond]</visible>
-		</control>
-	</include>
-
-	<include name="FlixSquareBackgroundUnFocused">
-		<control type="image">
-			<texture colordiffuse="dialog_bg">masks/addons.png</texture>
-			<bordersize>1</bordersize>
-			<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
-			<visible>$PARAM[vis_cond1]</visible>
-			<visible>$PARAM[vis_cond2]</visible>
-			<visible>$PARAM[vis_cond3]</visible>
-		</control>
-	</include> -->
-
-	<!-- <include name="FlixPosterFocus">
-		<control type="image">
-			<width>$PARAM[width]</width>
-			<height>$PARAM[height]</height>
-			<texture diffuse="$PARAM[diffuse]" colordiffuse="$VAR[FocusedColorVar]">colors/grey.png</texture>
-			<bordersize>$PARAM[border_size]</bordersize>
-			<visible>$PARAM[vis_cond]</visible>
-			<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
-		</control>
-	</include> -->
-
 	<include name="FlixInfoIcon">
 		<control type="togglebutton">
 			<visible>$PARAM[visible]</visible>
@@ -1781,7 +1718,5 @@
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.Reset(TrailerPlaying)</onunfocus>
 		</control>
 	</include>
-
-	
 
 </includes>

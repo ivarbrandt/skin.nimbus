@@ -47,11 +47,6 @@
     <value condition="String.IsEqual(Skin.String(current_search_provider),2)">plugin://plugin.video.umbrella/?action=tvSearchterm&amp;name=$INFO[Skin.String(SearchInputEncoded)]</value>
 		<value>plugin://plugin.video.fen/?mode=build_tvshow_list&amp;action=tmdb_tv_search&amp;query=$INFO[Skin.String(SearchInputEncoded)]</value>
 	</variable>
-	<!-- <variable name="SearchProviderCollectionsVar">
-		<value conditiom="String.IsEqual(Skin.String(current_search_provider),0)">plugin://plugin.video.fen/?mode=build_movie_list&amp;action=tmdb_movies_search_sets&amp;query=$INFO[Skin.String(SearchInputEncoded)]</value>
-    <value condition="String.IsEqual(Skin.String(current_search_provider),1)">plugin://plugin.video.fenlight/?mode=build_movie_list&amp;action=tmdb_movies_search_sets&amp;query=$INFO[Skin.String(SearchInputEncoded)]</value>
-    <value>plugin://plugin.video.fen/?mode=build_movie_list&amp;action=tmdb_movies_search_sets&amp;query=$INFO[Skin.String(SearchInputEncoded)]</value>
-	</variable> -->
 	<variable name="SearchProviderPeopleVar">
 		<value condition="String.IsEqual(Skin.String(current_search_provider),0)">plugin://plugin.video.fen/?mode=person_direct.search&amp;query=$INFO[Skin.String(SearchInputEncoded)]</value>
     <value condition="String.IsEqual(Skin.String(current_search_provider),1)">plugin://plugin.video.fenlight/?mode=person_direct.search&amp;key_id=$INFO[Skin.String(SearchInputEncoded)]</value>
@@ -67,10 +62,5 @@
     <value condition="String.IsEqual(Skin.String(current_search_provider),1)">plugin://plugin.video.fenlight/?mode=build_tvshow_list&amp;action=tmdb_tv_keyword_results_direct&amp;key_id=$INFO[Skin.String(SearchInputEncoded)]</value>
     <value>plugin://plugin.video.fen/?mode=build_tvshow_list&amp;action=imdb_keywords_list_contents&amp;list_id=$INFO[Skin.String(SearchInputEncoded)]</value>
 	</variable>
-	<!-- <variable name="SearchProviderTRAKTListsVar">
-		<value condition="String.IsEqual(Skin.String(current_search_provider),0)">plugin://plugin.video.fen/?mode=trakt.list.search_trakt_lists&amp;query=$INFO[Skin.String(SearchInputTraktEncoded)]</value>
-    <value condition="String.IsEqual(Skin.String(current_search_provider),1)">plugin://plugin.video.fenlight/?mode=trakt.list.search_trakt_lists&amp;query=$INFO[Skin.String(SearchInputTraktEncoded)]</value>
-    <value>plugin://plugin.video.fen/?mode=trakt.list.search_trakt_lists&amp;query=$INFO[Skin.String(SearchInputTraktEncoded)]</value>
-	</variable> -->
 
 </includes>

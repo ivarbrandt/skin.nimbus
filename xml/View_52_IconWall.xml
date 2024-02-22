@@ -60,23 +60,13 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>120</top>
-						<!-- <control type="image">
-							<width>396</width>
-							<height>245</height>
-							<texture colordiffuse="button_focus">masks/landscape.png</texture>
-							<bordersize>13</bordersize>
-							<visible>!Skin.HasSetting(Enable.FocusGlow)</visible>
-							<include>Animation_FocusTextureFade</include>
-						</control> -->
 						<control type="image">
 							<left>14</left>
 							<top>14</top>
 							<width>362</width>
 							<height>211</height>
 							<texture colordiffuse="button_focus">masks/landscape-glow.png</texture>
-							<!-- <bordertexture border="21" infill="false">overlays/shadow.png</bordertexture> -->
 							<bordersize>-23</bordersize>
-							<!-- <visible>Skin.HasSetting(Enable.FocusGlow)</visible> -->
 							<include content="GlowPulse">
 								<param name="pos_x" value="199.5"/>
 								<param name="pos_y" value="122.5"/>

@@ -816,9 +816,6 @@
 				</control>
 				<include>osd_darkenBG</include>
 				<control type="group">
-					<!-- <animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="cubic" easing="out">Conditional</animation> -->
-					<!-- <animation effect="fade" time="75" start="0" end="100">VisibleChange</animation> -->
-					<!-- <animation condition="Control.HasFocus(9000) | Control.HasFocus(700)" effect="slide" time="500" start="-492,0" end="0,0" tween="cubic" easing="inout">Conditional</animation> -->
 					<animation condition="!ControlGroup(2000).HasFocus">
 						<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
 						<effect type="slide" start="-492,0" end="0,0" time="300" tween="cubic" easing="out" />
@@ -862,7 +859,6 @@
 								<label>$LOCALIZE[2]</label>
 								<onclick>ActivateWindow(Music,root,return)</onclick>
 								<property name="menu_id">$NUMBER[7000]</property>
-								<!-- <thumb>icons/sidemenu/music.png</thumb> -->
 								<property name="id">music</property>
 								<visible>!Skin.HasSetting(HomeMenuNoMusicButton)</visible>
 							</item>
@@ -870,7 +866,6 @@
 								<label>$LOCALIZE[427]</label>
 								<onclick>PlayDisc</onclick>
 								<property name="menu_id">$NUMBER[21000]</property>
-								<!-- <thumb>icons/sidemenu/disc.png</thumb> -->
 								<property name="id">disc</property>
 								<visible>System.HasMediaDVD</visible>
 							</item>
@@ -878,7 +873,6 @@
 								<label>$LOCALIZE[20389]</label>
 								<property name="menu_id">$NUMBER[16000]</property>
 								<onclick>ActivateWindow(Videos,musicvideos,return)</onclick>
-								<!-- <thumb>icons/sidemenu/musicvideos.png</thumb> -->
 								<property name="id">musicvideos</property>
 								<visible>!Skin.HasSetting(HomeMenuNoMusicVideoButton)</visible>
 							</item>
@@ -886,7 +880,6 @@
 								<label>Live TV</label>
 								<property name="menu_id">$NUMBER[12000]</property>
 								<onclick>ActivateWindow(TVGuide)</onclick>
-								<!-- <thumb>icons/sidemenu/livetv.png</thumb> -->
 								<property name="id">livetv</property>
 								<visible>!Skin.HasSetting(HomeMenuNoTVButton)</visible>
 							</item>
@@ -894,7 +887,6 @@
 								<label>$LOCALIZE[19021]</label>
 								<property name="menu_id">$NUMBER[13000]</property>
 								<onclick>ActivateWindow(RadioChannels)</onclick>
-								<!-- <thumb>icons/sidemenu/radio.png</thumb> -->
 								<property name="id">radio</property>
 								<visible>!Skin.HasSetting(HomeMenuNoRadioButton)</visible>
 							</item>
@@ -902,7 +894,6 @@
 								<label>$LOCALIZE[15016]</label>
 								<property name="menu_id">$NUMBER[17000]</property>
 								<onclick>ActivateWindow(Games)</onclick>
-								<!-- <thumb>icons/sidemenu/games.png</thumb> -->
 								<property name="id">games</property>
 								<visible>System.GetBool(gamesgeneral.enable) + !Skin.HasSetting(HomeMenuNoGamesButton)</visible>
 							</item>
@@ -910,7 +901,6 @@
 								<label>$LOCALIZE[24001]</label>
 								<property name="menu_id">$NUMBER[8000]</property>
 								<onclick>ActivateWindow(1100)</onclick>
-								<!-- <thumb>icons/sidemenu/addons.png</thumb> -->
 								<property name="id">addons</property>
 								<visible>!Skin.HasSetting(HomeMenuNoProgramsButton)</visible>
 							</item>
@@ -918,7 +908,6 @@
 								<label>$LOCALIZE[1]</label>
 								<onclick>ActivateWindow(Pictures)</onclick>
 								<property name="menu_id">$NUMBER[4000]</property>
-								<!-- <thumb>icons/sidemenu/pictures.png</thumb> -->
 								<property name="id">pictures</property>
 								<visible>!Skin.HasSetting(HomeMenuNoPicturesButton)</visible>
 							</item>
@@ -926,7 +915,6 @@
 								<label>$LOCALIZE[3]</label>
 								<onclick>ActivateWindow(Videos,root)</onclick>
 								<property name="menu_id">$NUMBER[11000]</property>
-								<!-- <thumb>icons/sidemenu/videos.png</thumb> -->
 								<property name="id">video</property>
 								<visible>!Skin.HasSetting(HomeMenuNoVideosButton)</visible>
 							</item>
@@ -934,7 +922,6 @@
 								<label>$LOCALIZE[10134]</label>
 								<onclick>ActivateWindow(favouritesbrowser)</onclick>
 								<property name="menu_id">$NUMBER[14000]</property>
-								<!-- <thumb>icons/sidemenu/favourites.png</thumb> -->
 								<property name="id">favorites</property>
 								<visible>!Skin.HasSetting(HomeMenuNoFavButton)</visible>
 							</item>
@@ -943,7 +930,6 @@
 								<onclick condition="!String.IsEmpty(Weather.Plugin)">Weather.LocationNext</onclick>
 								<onclick condition="String.IsEmpty(Weather.Plugin)">ReplaceWindow(servicesettings,weather)</onclick>
 								<property name="menu_id">$NUMBER[15000]</property>
-								<!-- <thumb>icons/sidemenu/weather.png</thumb> -->
 								<property name="id">weather</property>
 								<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
 							</item>
