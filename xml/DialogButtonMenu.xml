@@ -6,7 +6,7 @@
 		<control type="group">
 			<centerleft>50%</centerleft>
 			<width>496</width>
-			<centertop>50%</centertop>
+			<centertop>45%</centertop>
 			<height>600</height>
 			<include content="DialogBackgroundCommons">
 				<param name="header_label" value="$LOCALIZE[31072]" />
