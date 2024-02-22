@@ -68,97 +68,62 @@
 					<param name="width" value="523" />
 				</include>
 				<control type="fixedlist" id="9000">
-					<left>1</left>
-					<top>300</top>
+					<left>25</left>
+					<top>250</top>
 					<width>462</width>
-					<height>855</height>
+					<height>533</height>
 					<pagecontrol>70</pagecontrol>
 					<movement>6</movement>
 					<focusposition>0</focusposition>
 					<onup>700</onup>
-					<ondown>700</ondown>
+					<ondown>9000</ondown>
 					<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<focusedlayout height="95" width="462">
-						<control type="image">
-							<left>25</left>
-							<right>25</right>
-							<bottom>0</bottom>
-							<texture colordiffuse="button_focus">masks/focus.png</texture>
-							<animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus(9000)">Conditional</animation>
-						</control>
-						<control type="label">
-							<top>-3</top>
-							<left>65</left>
-							<bottom>0</bottom>
-							<right>10</right>
-							<aligny>center</aligny>
-							<font>font14</font>
-							<label>$INFO[ListItem.Label]</label>
-							<textcolor>focused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-						</control>
-					</focusedlayout>
-					<itemlayout height="95" width="462">
-						<control type="label">
-							<top>-3</top>
-							<left>65</left>
-							<bottom>0</bottom>
-							<right>10</right>
-							<aligny>center</aligny>
-							<font>font14</font>
-							<label>$INFO[ListItem.Label]</label>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-						</control>
-					</itemlayout>
+					<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
+					<include content="List">
+						<param name="id" value="9000" />
+					</include>
 					<content>
 						<item id="1">
-							<label>$LOCALIZE[1037]</label>
+							<label>$LOCALIZE[157]</label>
 							<onclick>ActivateWindow(videos,addons://sources/video/,return)</onclick>
-							<thumb>icons/sidemenu/videos.png</thumb>
 							<property name="id">video</property>
 							<property name="path">addons://sources/video/</property>
 							<property name="menu_id">$NUMBER[500]</property>
 						</item>
 						<item id="2">
-							<label>$LOCALIZE[1038]</label>
+							<label>$LOCALIZE[249]</label>
 							<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
-							<thumb>icons/sidemenu/music.png</thumb>
 							<property name="id">music</property>
 							<property name="path">addons://sources/audio/</property>
 							<property name="menu_id">$NUMBER[501]</property>
 						</item>
 						<item id="8">
-							<label>$LOCALIZE[35049]</label>
+							<label>game</label>
 							<visible>System.GetBool(gamesgeneral.enable)</visible>
 							<onclick>ActivateWindow(games,addons://sources/game/,return)</onclick>
-							<thumb>icons/sidemenu/games.png</thumb>
 							<property name="id">game</property>
 							<property name="path">addons://sources/game/</property>
 							<property name="menu_id">$NUMBER[509]</property>
 						</item>
 						<item id="3">
-							<label>$LOCALIZE[1043]</label>
+							<label>program</label>
 							<onclick>ActivateWindow(programs,addons://sources/executable/,return)</onclick>
-							<thumb>icons/sidemenu/programs.png</thumb>
 							<property name="id">addons</property>
 							<property name="path">addons://sources/executable/</property>
 							<property name="menu_id">$NUMBER[502]</property>
 						</item>
 						<item id="4">
-							<label>$LOCALIZE[20244]</label>
+							<label>android</label>
 							<onclick>ActivateWindow(programs,androidapp://sources/apps/,return)</onclick>
-							<thumb>icons/sidemenu/android.png</thumb>
 							<property name="id">android</property>
 							<property name="path">androidapp://sources/apps/</property>
 							<property name="menu_id">$NUMBER[506]</property>
 							<visible>System.Platform.Android</visible>
 						</item>
 						<item id="5">
-							<label>$LOCALIZE[1039]</label>
+							<label>picture</label>
 							<onclick>ActivateWindow(pictures,addons://sources/image/,return)</onclick>
-							<thumb>icons/sidemenu/pictures.png</thumb>
 							<property name="id">pictures</property>
 							<property name="path">addons://sources/image/</property>
 							<property name="menu_id">$NUMBER[503]</property>
@@ -166,7 +131,6 @@
 						<item id="7">
 							<label>$LOCALIZE[24998]</label>
 							<onclick>ActivateWindow(addonbrowser,addons://user/,return)</onclick>
-							<thumb>icons/sidemenu/manage.png</thumb>
 							<property name="id">manage</property>
 							<property name="path">addons://user/</property>
 							<property name="menu_id">$NUMBER[508]</property>
@@ -174,15 +138,61 @@
 						<item id="6">
 							<label>$LOCALIZE[33003]</label>
 							<onclick>ActivateWindow(addonbrowser,addons://all/,return)</onclick>
-							<thumb>icons/sidemenu/download.png</thumb>
 							<property name="id">download</property>
 							<property name="path">addons://all/</property>
 							<property name="menu_id">$NUMBER[507]</property>
 						</item>
 					</content>
 				</control>
+				<control type="fixedlist" id="700">
+					<visible allowhiddenfocus="true">Control.HasFocus(700)</visible>
+					<animation effect="slide" time="500" start="0,-370" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+					<orientation>vertical</orientation>
+					<left>25</left>
+					<top>200</top>
+					<width>825</width>
+					<height>160</height>
+					<onup>700</onup>
+					<ondown>9000</ondown>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onback>9000</onback>
+					<focusposition>0</focusposition>
+					<movement>2</movement>
+					<include content="List">
+						<param name="id" value="700" />
+						<param name="height" value="50" />
+						<param name="img_top" value="11.5" />
+						<param name="img_bottom" value="-10" />
+						<param name="img_width" value="5" />
+						<param name="img_left" value="50" />
+						<param name="focused_font" value="font40_title" />
+						<param name="unfocused_font" value="font27" />
+					</include>
+					<content>
+						<item>
+							<label>browser</label>
+							<onclick>ActivateWindow(addonbrowser,root)</onclick>
+							<visible>Skin.HasSetting(OneClickClose)</visible>
+						</item>
+						<item>
+							<label>updates | $INFO[System.AddonUpdateCount]</label>
+							<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
+							<visible>Integer.IsGreater(Container(8000).NumItems,0)</visible>
+						</item>
+						<item>
+							<label>settings</label>
+							<onclick>ActivateWindow(systemsettings,addons)</onclick>
+						</item>
+					</content>
+				</control>
+				<include content="MiniMenuLabels">
+					<param name="visible" value="Control.HasFocus(700)"/>
+					<param name="top" value="125"/>
+					<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
+				</include>
 			</control>
-			<control type="grouplist" id="700">
+			<!-- <control type="grouplist" id="700">
 				<orientation>horizontal</orientation>
 				<left>32</left>
 				<top>135</top>
@@ -271,11 +281,11 @@
 					<textcolor>accent_color</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 				</control>
-			</control>
+			</control> -->
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$LOCALIZE[24001]" />
 			</include>
-			<include>BottomBar</include>
+			<!-- <include>BottomBar</include> -->
 			<control type="group">
 				<left>-10000</left>
 				<include content="InfoList">
