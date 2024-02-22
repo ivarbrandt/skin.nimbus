@@ -52,7 +52,7 @@
           <width>500</width>
           <onleft>back</onleft>
           <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),cast)">50</onright>
-          <include content="BigList">
+          <include content="List">
             <param name="id" value="20000" />
           </include>
           <content>
