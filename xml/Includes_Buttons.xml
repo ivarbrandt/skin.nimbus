@@ -18,7 +18,7 @@
 		<radioposx>1</radioposx>
 		<radioposy>0</radioposy>
 	</include>
-	<include name="InfoDialogMetadata">
+	<!-- <include name="InfoDialogMetadata">
 		<param name="onclick_condition">false</param>
 		<param name="onclick">noop</param>
 		<param name="altclick_condition">false</param>
@@ -47,7 +47,7 @@
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 	<include name="PlayerButton">
 		<width>48</width>
 		<height>48</height>
@@ -269,7 +269,7 @@
 			</control>
 		</definition>
 	</include>
-	<include name="VideoInfoButtonsCommon">
+	<!-- <include name="VideoInfoButtonsCommon">
 		<param name="width">220</param>
 		<definition>
 			<width>$PARAM[width]</width>
@@ -293,7 +293,7 @@
 			<textureradiooffdisabled colordiffuse="disabled">$PARAM[icon]</textureradiooffdisabled>
 			<textureradioondisabled colordiffuse="disabled">$PARAM[icon]</textureradioondisabled>
 		</definition>
-	</include>
+	</include> -->
 	<include name="InfoDialogButton">
 		<!-- 262 -->
 		<param name="width">220</param>
