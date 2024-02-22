@@ -92,7 +92,7 @@
 		</definition>
 	</include>
 
-	<include name="WidgetListCategory">
+	<include name="WidgetListSquare">
 		<!-- <param name="item_limit">30</param>
 		<param name="icon">$INFO[ListItem.Icon]</param>
 		<param name="icon_height">230</param>
@@ -134,7 +134,7 @@
 					<control type="group">
 						<top>26</top>
 						<left>56</left>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
@@ -148,7 +148,7 @@
 						<depth>DepthContentPopout</depth>
 						<top>26</top>
 						<left>56</left>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
@@ -279,7 +279,7 @@
 					<control type="group">
 						<top>26</top>
 						<left>56</left>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
@@ -293,7 +293,7 @@
 						<depth>DepthContentPopout</depth>
 						<top>26</top>
 						<left>56</left>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="main_label" value="$PARAM[main_label]" />
 							<param name="single_label" value="$PARAM[single_label]" />
 							<param name="sub_label" value="$PARAM[sub_label]" />
