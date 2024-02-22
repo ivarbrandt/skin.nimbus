@@ -78,7 +78,7 @@
 				<!-- <itemlayout height="401" width="300" condition="Container.Content(artists) | Container.Content(albums)">
 					<control type="group">
 						<top>150</top>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="fallback_image" value="DefaultMusicSongs.png" />
 						</include>
 					</control>
@@ -87,7 +87,7 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>150</top>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="fallback_image" value="DefaultMusicSongs.png" />
 							<param name="focused" value="true" />
 						</include>
@@ -96,7 +96,7 @@
 				<itemlayout height="401" width="300" condition="Container.Content(addons)">
 					<control type="group">
 						<top>150</top>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="fallback_image" value="DefaultAddon.png" />
 						</include>
 					</control>
@@ -105,7 +105,7 @@
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>150</top>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="fallback_image" value="DefaultAddon.png" />
 							<param name="focused" value="true" />
 						</include>
@@ -115,7 +115,7 @@
 					<control type="group">
 						<left>35</left>
 						<top>150</top>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="fallback_image" value="DefaultFavourites.png" />
 						</include>
 					</control>
@@ -125,7 +125,7 @@
 						<depth>DepthContentPopout</depth>
 						<left>35</left>
 						<top>150</top>
-						<include content="FlixMusicLayout">
+						<include content="FlixSquareLayout">
 							<param name="fallback_image" value="DefaultFavourites.png" />
 							<param name="focused" value="true" />
 						</include>
