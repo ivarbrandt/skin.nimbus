@@ -75,4 +75,5 @@
 		<value condition="String.IsEqual(ListItem.DBtype,movie)">$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]</value>
 		<value condition="String.IsEqual(ListItem.DBtype,tvshow) |  String.IsEqual(ListItem.DBtype,season) |  String.IsEqual(ListItem.DBtype,episode)">$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]</value>
 	</variable>
+	
 </includes>

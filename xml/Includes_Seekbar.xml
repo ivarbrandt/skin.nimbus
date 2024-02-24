@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
   <include name="Seekbar">
 		<control type="progress">
 			<left>120</left>
-			<top>60</top>
+			<top>100</top>
 			<width>1680</width>
 			<height>12</height>
 			<texturebg colordiffuse="osd_grey">osd/ProgressBack.png</texturebg>
@@ -12,7 +13,7 @@
 		</control>
 		<control type="progress">
 			<left>120</left>
-			<top>60</top>
+			<top>100</top>
 			<width>1680</width>
 			<height>12</height>
 			<texturebg colordiffuse="00FFFFFF">osd/ProgressBack.png</texturebg>
@@ -21,7 +22,7 @@
 		</control>
 		<control type="ranges">
 			<left>120</left>
-			<top>61.3</top>
+			<top>101.3</top>
 			<width>1680</width>
 			<height>3</height>
 			<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
@@ -30,7 +31,7 @@
 		</control>
 		<control type="slider" id="401">
 			<left>120</left>
-			<top>60</top>
+			<top>100</top>
 			<width>1680</width>
 			<height>12</height>
 			<orientation>horizontal</orientation>
@@ -41,7 +42,7 @@
 		</control>
 		<control type="label">
 			<visible>!Window.IsActive(VideoOSD.xml)</visible>
-			<top>80</top>
+			<top>120</top>
 			<height>40</height>
 			<font>PlayerTime</font>
 			<textcolor>osd_light</textcolor>
@@ -49,8 +50,18 @@
 			<label>$VAR[SeekLabel]</label>
 		</control>
 		<control type="label">
+			<!-- <visible>!String.IsEmpty(Window(home).Property(LanguageNotification))</visible> -->
+			<top>47</top>
+			<left>120</left>
+			<width>auto</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>osd_light</textcolor>
+			<label>$VAR[Resolution_Label]$VAR[AudioCodec_Label]$VAR[AudioChannels_Label]</label>
+		</control>
+		<control type="label">
 			<visible>String.IsEqual(Player.Time(h), 0)</visible>
-			<top>80</top>
+			<top>120</top>
 			<left>120</left>
 			<width>auto</width>
 			<height>40</height>
@@ -60,7 +71,7 @@
 		</control>
 		<control type="label">
 			<visible>!String.IsEqual(Player.Time(h), 0)</visible>
-			<top>80</top>
+			<top>120</top>
 			<left>120</left>
 			<width>auto</width>
 			<height>40</height>
@@ -69,8 +80,19 @@
 			<label>$INFO[Player.Time(h:mm:ss)]</label>
 		</control>
 		<control type="label">
+			<visible>String.IsEmpty(Window(home).Property(LanguageNotification)) + !Control.IsVisible(33000)</visible>
+			<top>47</top>
+			<right>120</right>
+			<width>390</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>osd_light</textcolor>
+			<align>right</align>
+			<label>$INFO[Player.FinishTime,$LOCALIZE[31080]: ] [COLOR accent_color][B]|[/B][/COLOR] $INFO[System.Time]</label>
+		</control>
+		<control type="label">
 			<visible>String.IsEqual(Player.TimeRemaining(h), 0)</visible>
-			<top>80</top>
+			<top>120</top>
 			<right>120</right>
 			<width>200</width>
 			<height>40</height>
@@ -81,7 +103,7 @@
 		</control>
 		<control type="label">
 			<visible>!String.IsEqual(Player.TimeRemaining(h), 0)</visible>
-			<top>80</top>
+			<top>120</top>
 			<right>120</right>
 			<width>200</width>
 			<height>40</height>
@@ -91,4 +113,153 @@
 			<label>$INFO[Player.TimeRemaining(h:mm:ss), -]</label>
 		</control>
 	</include>
+
+	<!-- <include name="OSDBackground">
+		<control type="image">
+			<visible>Skin.HasSetting(Enable.OSDInfo) + !Window.IsVisible(videobookmarks) + Player.Paused + !Player.Seeking</visible>
+			<texture colordiffuse="e0080808">colors/white.png</texture>
+		</control>
+		<control type="image">
+			<visible>!Skin.HasSetting(Enable.OSDInfo) | Window.IsVisible(videobookmarks) | !Player.Paused | Player.Seeking</visible>
+			<bottom>0</bottom>
+			<height>220</height>
+			<texture colordiffuse="e0080808">colors/white.png</texture>
+		</control>
+	</include> -->
+
+	<!-- <include name="OSDBackground">
+		<control type="group">
+      <width>100%</width>
+      <control type="image">
+        <visible>Skin.HasSetting(Enable.OSDInfo) + !Window.IsVisible(videobookmarks) + Player.Paused + !Player.Seeking</visible>
+        <height>100%</height>
+        <texture colordiffuse="e0080808">colors/white.png</texture>
+      </control>
+      <control type="image">
+        <visible>!Skin.HasSetting(Enable.OSDInfo) | Window.IsVisible(videobookmarks) | !Player.Paused | Player.Seeking</visible>
+        <bottom>0</bottom>
+        <height>220</height>
+        <texture colordiffuse="e0080808">colors/white.png</texture>
+      </control>
+    </control>
+	</include> -->
+
+	<!-- <include name="OSDBackground">
+		<control type="group">
+      <control type="image">
+        <visible>Skin.HasSetting(Enable.OSDInfo) + !Window.IsVisible(videobookmarks) + Player.Paused + !Player.Seeking</visible>
+        <height>1080</height>
+        <texture colordiffuse="e0080808">colors/white.png</texture>
+      </control>
+      <control type="image">
+        <visible>!Skin.HasSetting(Enable.OSDInfo) | Window.IsVisible(videobookmarks) | !Player.Paused | Player.Seeking</visible>
+        <top>860</top>
+        <height>220</height>
+        <texture colordiffuse="e0080808">colors/white.png</texture>
+      </control>
+    </control>
+	</include> -->
+
+	<!-- <include name="OSDBackground">
+		<control type="group">
+			<control type="image">
+				<visible>Skin.HasSetting(Enable.OSDInfo) + !Window.IsVisible(videobookmarks) + Player.Paused + !Player.Seeking | !Skin.HasSetting(Enable.OSDInfo) | Window.IsVisible(videobookmarks) | !Player.Paused | Player.Seeking</visible>
+				<include content="OSDBackgroundVisible-On" condition="Skin.HasSetting(Enable.OSDInfo)" />
+				<include content="OSDBackgroundVisible-Off" condition="!Skin.HasSetting(Enable.OSDInfo)" />
+				<include content="OSDBackgroundTop-On" condition="Skin.HasSetting(Enable.OSDInfo)" />
+				<include content="OSDBackgroundTop-Off" condition="!Skin.HasSetting(Enable.OSDInfo)" />
+				<include content="OSDBackgroundHeight-On" condition="Skin.HasSetting(Enable.OSDInfo)" />
+				<include content="OSDBackgroundHeight-Off" condition="!Skin.HasSetting(Enable.OSDInfo)" />
+				<texture colordiffuse="e0080808">colors/white.png</texture>
+			</control>
+		</control>
+	</include> -->
+
+	<include name="OSDInfo">
+		<control type="image">
+			<visible>Skin.HasSetting(Enable.OSDInfo) + !Window.IsVisible(videobookmarks) + Player.Paused + !Player.Seeking</visible>
+			<texture colordiffuse="e0080808">colors/white.png</texture>
+		</control>
+		<control type="image">
+			<visible>!Skin.HasSetting(Enable.OSDInfo) | Window.IsVisible(videobookmarks) | !Player.Paused | Player.Seeking</visible>
+			<bottom>0</bottom>
+			<height>220</height>
+			<texture colordiffuse="e0080808">colors/white.png</texture>
+		</control>
+		<control type="group" id="33000">
+      <visible>Skin.HasSetting(Enable.OSDInfo) + !Window.IsVisible(videobookmarks) + Player.Paused + !Player.Seeking</visible>
+      <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
+      <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
+      <top>160</top>
+      <left>110</left>
+      <bottom>160</bottom>
+      <right>140</right>
+      <control type="image">
+        <width>490</width>
+        <height>735</height>
+        <top>-20</top>
+        <bottom>0</bottom>
+        <right>-20</right>
+        <aspectratio scalediffuse="false">scale</aspectratio>
+        <texture diffuse="masks/poster-big.png" colordiffuse="artwork_dim">$VAR[NowPlayingPosterVar]</texture>
+        <bordersize>1</bordersize>
+        <bordertexture colordiffuse="FF5B5B5B" border="20" infill="false">masks/poster-big-border.png</bordertexture>
+      </control>
+      <control type="grouplist">
+        <left>12.5</left>
+        <width>1080</width>
+        <top>-130</top>
+        <bottom>0</bottom>
+        <orientation>vertical</orientation>
+        <align>center</align>
+        <itemgap>20</itemgap>
+        <control type="image">
+          <!-- <width>1080</width> -->
+          <height>233</height>
+          <texture colordiffuse="artwork_dim" background="true">$VAR[PlayerClearLogoVar]</texture>
+          <aspectratio align="center">keep</aspectratio>
+          <visible>[!String.IsEmpty(Player.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)]</visible>
+        </control>
+        <control type="textbox">
+          <top>0</top>
+          <left>0</left>
+          <right>0</right>
+          <height>auto</height>
+          <font>font_MainMenu</font>
+          <textcolor>osd_light</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$VAR[NowPlayingBreadcrumbsVar]</label>
+          <visible>[String.IsEmpty(Player.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)]</visible>
+        </control>
+        <control type="textbox">
+          <visible>VideoPlayer.Content(episodes) + ![String.IsEmpty(VideoPlayer.Season) | String.IsEmpty(VideoPlayer.Episode)]</visible>
+          <height max="180">auto</height>
+          <font>PlayerTime</font>
+          <textcolor>osd_light</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$INFO[VideoPlayer.Season, S] $INFO[VideoPlayer.Episode,E, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[VideoPlayer.Title,,]</label>
+        </control>
+        <control type="textbox">
+          <height max="180">auto</height>
+          <font>PlayerTime</font>
+          <textcolor>osd_light</textcolor>
+          <align>center</align>
+          <aligny>center</aligny>
+          <label>$VAR[OSDSubLabelVar]</label>
+        </control>
+        <control type="textbox">
+          <visible>!String.IsEmpty(VideoPlayer.Plot)</visible>
+          <height max="330">auto</height>
+          <font>PlayerTime</font>
+          <textcolor>osd_light</textcolor>
+          <align>center</align>
+          <label>$INFO[VideoPlayer.Plot]</label>
+          <autoscroll delay="10000" time="5000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
+        </control>
+      </control>
+    </control>
+	</include>
+
 </includes>

@@ -11,22 +11,21 @@
       <textcolor>osd_light</textcolor>
       <label>$INFO[VideoPlayer.AudioStreamCount]</label>
     </control>
+    <!-- <include content="OSDBackground"/> -->
+    <include content="OSDInfo"/>
     <control type="group">
-      <top>900</top>
-      <height>180</height>
-      <control type="image">
-      <texture colordiffuse="f0080808">colors/white.png</texture>
-    </control>
-    <include>Seekbar</include>
+      <bottom>0</bottom>
+      <height>220</height>
+      <include content="Seekbar"/>
       <control type="grouplist" id="700">
-        <top>80</top>
+        <top>120</top>
         <height>48</height>
         <left>0</left>
         <width>100%</width>
         <itemgap>8</itemgap>
         <orientation>horizontal</orientation>
         <align>center</align>
-        <onleft>710</onleft>
+        <onleft>711</onleft>
         <onright>707</onright>
         <control type="button" id="701">
           <include>PlayerButton</include>
@@ -63,15 +62,15 @@
         </control>
       </control>
       <control type="group">
-        <top>80</top>
+        <top>120</top>
         <height>48</height>
         <control type="button" id="707">
-          <left>1400</left>
+          <left>1340</left>
           <font>PlayerIconSmall</font>
           <textoffsety>7</textoffsety>
           <include>PlayerButton</include>
           <label>&#xef84;</label>
-          <onfocus>SetProperty(LanguageNotification,true,home)</onfocus>
+          <onclick>SetProperty(LanguageNotification,true,home)</onclick>
           <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
           <onclick>AudioNextLanguage</onclick>
           <onleft>706</onleft>
@@ -79,7 +78,7 @@
         </control>
         <control type="label">
           <top>43</top>
-          <left>1400</left>
+          <left>1337</left>
           <height>48</height>
           <width>48</width>
           <font>Font22</font>
@@ -87,12 +86,12 @@
           <label>[CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE]</label>
         </control>
         <control type="button" id="708">
-          <left>1460</left>
+          <left>1400</left>
           <font>PlayerIconSmall</font>
           <textoffsety>7</textoffsety>
           <include>PlayerButton</include>
           <label>&#xef43;</label>
-          <onfocus>SetProperty(LanguageNotification,true,home)</onfocus>
+          <onclick>SetProperty(LanguageNotification,true,home)</onclick>
           <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
           <onclick>NextSubtitle</onclick>
           <onleft>707</onleft>
@@ -100,7 +99,7 @@
         </control>
         <control type="label">
           <top>43</top>
-          <left>1460</left>
+          <left>1397</left>
           <height>48</height>
           <width>48</width>
           <font>Font22</font>
@@ -108,17 +107,37 @@
           <label>[CAPITALIZE]$VAR[VideoPlayerSubtitleLanguage][/CAPITALIZE]</label>
         </control>
         <control type="button" id="709">
-          <left>1520</left>
+          <left>1465</left>
+          <font>PlayerIconSmall</font>
+          <textoffsety>7</textoffsety>
+          <include>PlayerButton</include>
+          <label>&#xf448;</label>
+          <onclick>Skin.ToggleSetting(Enable.OSDInfo)</onclick>
+          <visible>!VideoPlayer.Content(livetv)</visible>
+          <onleft>708</onleft>
+          <onright>710</onright>
+        </control>
+        <control type="label">
+          <top>43</top>
+          <left>1462</left>
+          <height>48</height>
+          <width>48</width>
+          <font>Font22</font>
+          <align>center</align>
+          <label>[CAPITALIZE]$VAR[OSDInfoToggle][/CAPITALIZE]</label>
+        </control>
+        <control type="button" id="710">
+          <left>1523</left>
           <font>PlayerIconSmall</font>
           <textoffsety>7</textoffsety>
           <include>PlayerButton</include>
           <label>&#xeae4;</label>
           <onclick>ActivateWindow(videobookmarks)</onclick>
           <visible>!VideoPlayer.Content(livetv)</visible>
-          <onleft>708</onleft>
-          <onright>710</onright>
+          <onleft>709</onleft>
+          <onright>711</onright>
         </control>
-        <control type="button" id="710">
+        <control type="button" id="711">
           <left>1580</left>
           <font>PlayerIconSmall</font>
           <textoffsety>7</textoffsety>
@@ -127,7 +146,7 @@
           <onclick>SetProperty(settingslist_content,osd,home)</onclick>
           <onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
           <onclick>ActivateWindow(1101)</onclick>
-          <onleft>709</onleft>
+          <onleft>710</onleft>
           <onright>701</onright>
         </control>
       </control>

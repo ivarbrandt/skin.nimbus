@@ -21,4 +21,110 @@
 		<value condition="VideoPlayer.SubtitlesEnabled">$INFO[VideoPlayer.SubtitlesLanguage]</value>
 		<value>$LOCALIZE[351]</value>
 	</variable>
+
+	<!-- <include name="OSDBackgroundTop-On">
+    <top>0</top>
+	</include>
+	<include name="OSDBackgroundTop-Off">
+    <top>860</top>
+	</include>
+	<include name="OSDBackgroundHeight-On">
+    <height>1080</height>
+	</include>
+	<include name="OSDBackgroundHeight-Off">
+    <height>220</height>
+	</include>
+
+	<include name="OSDBackgroundVisible-On">
+    <visible>Skin.HasSetting(Enable.OSDInfo) + !Window.IsVisible(videobookmarks) + Player.Paused + !Player.Seeking</visible>
+	</include>
+	<include name="OSDBackgroundVisible-Off">
+    <visible>!Skin.HasSetting(Enable.OSDInfo) | Window.IsVisible(videobookmarks) | !Player.Paused | Player.Seeking</visible>
+	</include> -->
+
+	<variable name="OSDInfoToggle">
+		<value condition="Skin.HasSetting(Enable.OSDInfo)">On</value>
+		<value condition="!Skin.HasSetting(Enable.OSDInfo)">Off</value>
+	</variable>
+
+	<variable name="GenreVarOSD">
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Action)">Action $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Adventure)">Adventure $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Animation)">Animation $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Comedy)">Comedy $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Crime)">Crime $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Documentary)">Documentary $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Drama)">Drama $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Family)">Family $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Fantasy)">Fantasy $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Kids)">Kids $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,History)">History $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Horror)">Horror $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Music)">Music $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Mystery)">Mystery $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,News)">News $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Reality)">Reality $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Romance)">Romance $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Science Fiction)">Sci-Fi $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Sci-Fi)">Sci-Fi $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Soap)">Soap $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,TV Movie)">TV Movie $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Thriller)">Thriller $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,War)">War $VAR[Nimbus_Divider]</value>
+		<value condition="!String.IsEmpty(VideoPlayer.Genre) + String.StartsWith(VideoPlayer.Genre,Western)">Western $VAR[Nimbus_Divider]</value>
+	</variable>
+
+	<variable name="OSDMediaType">
+		<value condition="!VideoPlayer.Content(episodes) + String.StartsWith(Player.FilenameAndPath,plugin://plugin.video.youtube)">content</value>
+		<value condition="!VideoPlayer.Content(episodes)">movie</value>
+		<value condition="VideoPlayer.Content(episodes)">episode</value>
+	</variable>
+
+	<variable name="AudioChannels_Label">
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,10)">9.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,8)">7.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,7)">6.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,6)">5.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,5)">4.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,4)">4</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,3)">2.1</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,2)">2</value>
+		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,1)">1</value>
+		<value>$INFO[VideoPlayer.AudioChannels]</value>
+	</variable>
+
+	<variable name="AudioCodec_Label">
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,AC3)">Dolby Digital $VAR[Nimbus_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,EAC3)">Dolby Digital Plus $VAR[Nimbus_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD $VAR[Nimbus_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,atmos)">Dolby Atmos $VAR[Nimbus_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD Master Audio $VAR[Nimbus_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd)">DTS-HD $VAR[Nimbus_Divider] </value>
+		<value condition="[String.IsEqual(VideoPlayer.AudioCodec,dts) | String.IsEqual(VideoPlayer.AudioCodec,dca)]">DTS $VAR[Nimbus_Divider] </value>
+		<value condition="!String.IsEmpty(VideoPlayer.AudioCodec)">[UPPERCASE]$INFO[VideoPlayer.AudioCodec][/UPPERCASE] $VAR[Nimbus_Divider] </value>
+		<value condition="String.Contains(Player.FilenameAndPath,.DTS-HD.MA)">DTS-HD.MA $VAR[Nimbus_Divider] </value>
+		<value condition="String.Contains(Player.FilenameAndPath,.EAC3)">EAC3 $VAR[Nimbus_Divider] </value>
+		<value condition="String.Contains(Player.FilenameAndPath,.DD) | String.Contains(Player.FilenameAndPath,.AC3)">AC3 $VAR[Nimbus_Divider] </value>
+		<value condition="!String.IsEmpty(ListItem.AudioCodec)">[UPPERCASE]$INFO[ListItem.AudioCodec][/UPPERCASE] $VAR[Nimbus_Divider] </value>
+		<value condition="String.Contains(ListItem.FilenameAndPath,.DTS-HD.MA)">DTS-HD.MA $VAR[Nimbus_Divider] </value>
+		<value condition="String.Contains(ListItem.FilenameAndPath,.EAC3)">EAC3 $VAR[Nimbus_Divider] </value>
+		<value condition="String.Contains(ListItem.FilenameAndPath,.DD) | String.Contains(ListItem.FilenameAndPath,.AC3)">AC3 $VAR[Nimbus_Divider] </value>
+	</variable>
+
+	<variable name="Resolution_Label">
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,8K) | String.Contains(Player.FileNameAndPath,4320p)]">8K $VAR[Nimbus_Divider] </value>
+		<value condition="VideoPlayer.IsFullscreen + [String.StartsWith(VideoPlayer.VideoResolution,4K) | String.Contains(Player.FileNameAndPath,2160p)] + String.Contains(VideoPlayer.HDRType,dolbyvision)">4K Dolby Vision $VAR[Nimbus_Divider] </value>
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,4K) | String.Contains(Player.FileNameAndPath,2160p)] + String.Contains(VideoPlayer.HDRType,hdr10)">4K HDR $VAR[Nimbus_Divider] </value>
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,4K) | String.Contains(Player.FileNameAndPath,2160p)] + String.Contains(VideoPlayer.HDRType,hlg)">4K HLG $VAR[Nimbus_Divider] </value>
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,4K) | String.Contains(Player.FileNameAndPath,2160p)] + [String.Contains(Player.FilenameAndPath,DV) | String.Contains(Player.FilenameAndPath,Dolby.Vision)]">4K Dolby Vision $VAR[Nimbus_Divider] </value>
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,4K) | String.Contains(Player.FileNameAndPath,2160p)] + String.Contains(Player.FilenameAndPath,HDR)">4K HDR $VAR[Nimbus_Divider] </value>
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,4K) | String.Contains(Player.FileNameAndPath,2160p)]">4K UHD $VAR[Nimbus_Divider] </value>
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,1080) | String.Contains(Player.FileNameAndPath,1080p)]">FHD $VAR[Nimbus_Divider] </value>
+		<value condition="[String.StartsWith(VideoPlayer.VideoResolution,720) | String.Contains(Player.FileNameAndPath,720p)]">HD $VAR[Nimbus_Divider] </value>
+		<value condition="String.StartsWith(VideoPlayer.VideoResolution,576)">SD $VAR[Nimbus_Divider] </value>
+		<value condition="String.StartsWith(VideoPlayer.VideoResolution,540)">SD $VAR[Nimbus_Divider] </value>
+		<value condition="String.StartsWith(VideoPlayer.VideoResolution,480)">SD $VAR[Nimbus_Divider] </value>
+		<value condition="!String.IsEmpty(VideoPlayer.VideoResolution)">$INFO[VideoPlayer.VideoResolution] $VAR[Nimbus_Divider] </value>
+	</variable>
+
 </includes>
