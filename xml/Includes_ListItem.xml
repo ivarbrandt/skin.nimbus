@@ -16,13 +16,11 @@
           <param name="img_width" value="$PARAM[img_width]" />
           <param name="img_left" value="$PARAM[img_left]" />
           <param name="focused_font" value="$PARAM[focused_font]" />
-          <!-- <param name="unfocused_font" value="$PARAM[unfocused_font]" /> -->
         </include>
       </focusedlayout>
       <itemlayout height="$PARAM[height]">
         <include content="ListItem">
           <param name="id" value="$PARAM[id]" />
-          <!-- <param name="focused_font" value="$PARAM[focused_font]" /> -->
           <param name="unfocused_font" value="$PARAM[unfocused_font]" />
         </include>
       </itemlayout>
