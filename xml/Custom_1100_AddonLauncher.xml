@@ -79,7 +79,7 @@
 					<ondown>9000</ondown>
 					<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
+					<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,130" tween="cubic" easing="inout">Conditional</animation>
 					<include content="List">
 						<param name="id" value="9000" />
 					</include>
