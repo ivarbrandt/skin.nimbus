@@ -306,6 +306,25 @@
 			<size>70</size>
 			<style>lighten</style>
 		</font>
+		<!-- ICON FONTS -->
+		<font>
+			<name>PlayerIcon</name>
+			<filename>remixicon.ttf</filename>
+			<size>38</size>
+			<style>symbol</style>
+		</font>
+		<font>
+			<name>PlayerIconSmall</name>
+			<filename>remixicon.ttf</filename>
+			<size>32</size>
+			<style>symbol</style>
+		</font>
+		<font>
+			<name>SmallIcon</name>
+			<filename>remixicon.ttf</filename>
+			<size>22</size>
+			<style>symbol</style>
+		</font>
 		<!-- Title Fonts -->
 		<font>
 			<name>font_flag</name>
