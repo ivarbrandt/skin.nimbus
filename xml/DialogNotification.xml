@@ -12,12 +12,12 @@
     <control type="group">
       <visible>!String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
       <control type="label">
-        <top>914</top>
+        <top>909</top>
         <right>0</right>
         <width>816</width>
         <height>34</height>
         <textcolor>osd_light</textcolor>
-        <font>Font24</font>
+        <font>PlayerTime</font>
         <align>center</align>
         <label>$INFO[Control.GetLabel(402)]</label>
       </control>
