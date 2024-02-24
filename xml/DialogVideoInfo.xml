@@ -191,7 +191,8 @@
                 <param name="id" value="50" />
             </include>
             <top>67</top>
-            <height>930</height>
+            <height>940</height>
+            <!-- <height>850</height> -->
             <onleft>20000</onleft>
             <include content="CastItem">
               <param name="id" value="50" />
@@ -199,6 +200,12 @@
               <param name="SubLabel" value="$INFO[ListItem.Label2]" />
             </include>
           </control>
+          <!-- <include content="UpDownArrows">
+            <param name="container_id" value="50" />
+            <param name="posx" value="246" />
+            <param name="up_posy" value="80" />
+            <param name="down_posy" value="960" />
+          </include> -->
         </control>
       </control>
     </control>
