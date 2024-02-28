@@ -7,7 +7,7 @@
       <texturenofocus/>
     </control>
     <control type="button" id="8">
-      <visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)]</visible>
+      <!-- <visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)]</visible> -->
       <texturefocus/>
       <texturenofocus/>
     </control>
@@ -49,7 +49,7 @@
             <param name="id" value="20000" />
           </include>
           <left>50</left>
-          <width>500</width>
+          <width>370</width>
           <onleft>back</onleft>
           <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),cast)">50</onright>
           <include content="List">
@@ -126,7 +126,7 @@
               <align>center</align>
               <aligny>center</aligny>
               <label>[B]$VAR[DialogInfoTitle][/B]</label>
-              <visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
+              <visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode)</visible>
             </control>
             <control type="textbox">
               <visible>!String.IsEmpty(ListItem.TagLine)</visible>

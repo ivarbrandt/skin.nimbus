@@ -4,6 +4,7 @@
 	<variable name="Nimbus_Divider">
 		<value>[COLOR accent_color][B]|[/B][/COLOR]</value>
 	</variable>
+	
 	<!-- Return a single genre -->
   <variable name="GenreVar">
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Action)">Action</value>

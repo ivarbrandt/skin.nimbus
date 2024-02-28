@@ -60,7 +60,7 @@
 						<bottom>124</bottom>
 						<fadetime>200</fadetime>
 						<aspectratio aligny="top">keep</aspectratio>
-						<texture fallback="DefaultVideo.png" background="true">$VAR[FlixThumbVar]</texture>
+						<texture diffuse="masks/poster-50.png" fallback="DefaultVideo.png" background="true">$VAR[FlixThumbVar]</texture>
 					</control>
 					<control type="group">
 						<left>540</left>
