@@ -56,24 +56,24 @@
 
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,movie)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
 		<!-- SHOWS -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,tvshow)">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Status]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[RI_Year]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_Status]</value>
 		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,season)">$VAR[Season_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[Season_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]</value>
 	</variable>
 	
 	<variable name="InfoPanelBottom">
 		<!-- MOVIES, TVSHOWS, SEASONS, EPISODES, COLLECTIONS -->
-		<value condition="!ListItem.IsCollection + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$VAR[RI_Plot]</value>
+		<value condition="!ListItem.IsCollection + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]">$VAR[RI_Plot]</value>
 	</variable>
 
 	<variable name="FlixPanelRuntime">
 		<!-- MOVIES, TVSHOWS, SEASONS, EPISODES, COLLECTIONS -->
-		<value condition="String.IsEqual(ListItem.DBtype,movie)">$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]</value>
-		<value condition="String.IsEqual(ListItem.DBtype,tvshow) |  String.IsEqual(ListItem.DBtype,season) |  String.IsEqual(ListItem.DBtype,episode)">$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]</value>
+		<value condition="$EXP[isMovie]">$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]</value>
+		<value condition="$EXP[isTVShow] |  $EXP[isSeason] |  $EXP[isEpisode]">$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]</value>
 	</variable>
-	
+
 </includes>

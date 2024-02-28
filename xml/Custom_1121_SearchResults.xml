@@ -82,7 +82,7 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
-				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
+				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 				<top>568</top>
 				<left>50</left>
 				<width>1815</width>
@@ -116,7 +116,7 @@
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="label">
 						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
-						<visible>![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
+						<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
 						<top>200</top>
 						<left>90</left>
 						<width>820</width>
@@ -206,7 +206,7 @@
 				</control>
 				<control type="group">
 					<!-- <width>550</width> -->
-					<visible allowhiddenfocus="true">[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]</visible>
+					<visible allowhiddenfocus="true">[$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 					<include content="FlixPanel"/>
 				</control>
 			</control>

@@ -811,7 +811,7 @@
 				<depth>DepthContentPanel</depth>
 				<control type="group">
 					<!-- <width>550</width> -->
-					<visible>String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)</visible>
+					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					<include>OpenClose_Left</include>
 					<include content="FlixPanel"/>
 				</control>

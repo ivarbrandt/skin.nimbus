@@ -56,9 +56,6 @@
 	<constant name="list_bottom_offset">70</constant>
 	<constant name="list_top_offset">660</constant>
 	<constant name="list_item_height">69</constant>
-	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
-	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
-	<expression name="ProgessBarMovie">String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</expression>
 
 	<include name="CommonScrollbars">
 		<param name="bottom_offset">list_bottom_offset</param>
@@ -1136,7 +1133,7 @@
 
 	<include name="ColoredBackgroundImages">
 		<control type="group">
-			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)] + !String.IsEmpty(ListItem.Art(fanart)) + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
+			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + !String.IsEmpty(ListItem.Art(fanart)) + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
 			<control type="image" id="100000">
 				<visible>false</visible>
 				<texture>$VAR[MediaFanartVar]</texture>

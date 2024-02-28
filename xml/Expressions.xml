@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+  
+  <expression name="isPlugin">String.StartsWith(Container.FolderPath,plugin://)</expression>
+  <expression name="isMovie">String.IsEqual(ListItem.DBType,movie)</expression>
+  <expression name="isVideo">String.IsEqual(ListItem.DBType,video)</expression>
+  <expression name="isTVShow">String.IsEqual(ListItem.DBType,tvshow)</expression>
+  <expression name="isSeason">String.IsEqual(ListItem.DBType,season)</expression>
+  <expression name="isSet">String.IsEqual(ListItem.DBType,set)</expression>
+  <expression name="isEpisode">String.IsEqual(ListItem.DBType,episode)</expression>
+  <!-- <expression name="isMusicvideo">String.IsEqual(ListItem.DBType,musicvideo)</expression>
+  <expression name="isArtist">String.IsEqual(ListItem.DBType,artist)</expression>
+  <expression name="isAlbum">String.IsEqual(ListItem.DBType,album)</expression>
+  <expression name="isSong">String.IsEqual(ListItem.DBType,song)</expression> -->
+  <expression name="noDBType">String.IsEmpty(ListItem.DBType)</expression>
+
+  <expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
+	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
+
+</includes>

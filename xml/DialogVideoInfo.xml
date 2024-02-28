@@ -7,7 +7,7 @@
       <texturenofocus/>
     </control>
     <control type="button" id="8">
-      <!-- <visible>[String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,episode)]</visible> -->
+      <!-- <visible>[$EXP[isMovie] | $EXP[isEpisode]]</visible> -->
       <texturefocus/>
       <texturenofocus/>
     </control>
@@ -114,7 +114,7 @@
               <height>233</height>
               <texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
               <aspectratio align="center">keep</aspectratio>
-              <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode) | Container.Content(addons)]</visible>
+              <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | Container.Content(addons)]</visible>
             </control>
             <control type="textbox">
               <top>0</top>
@@ -126,7 +126,7 @@
               <align>center</align>
               <aligny>center</aligny>
               <label>[B]$VAR[DialogInfoTitle][/B]</label>
-              <visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | String.IsEqual(ListItem.DbType,episode)</visible>
+              <visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
             </control>
             <control type="textbox">
               <visible>!String.IsEmpty(ListItem.TagLine)</visible>
@@ -183,9 +183,9 @@
             <texture>loading.gif</texture>
           </control>
           <control type="list" id="50">
-            <onright condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !String.IsEqual(ListItem.DBType,set)">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</onright>
-            <onright condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !String.IsEqual(ListItem.DBType,set)">EnableAddon(script.embuary.info)</onright>
-            <onright condition="!System.HasAddon(script.embuary.info) + !String.IsEqual(ListItem.DBType,set)">InstallAddon(script.embuary.info)</onright>
+            <onright condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !$EXP[isSet]">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</onright>
+            <onright condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !$EXP[isSet]">EnableAddon(script.embuary.info)</onright>
+            <onright condition="!System.HasAddon(script.embuary.info) + !$EXP[isSet]">InstallAddon(script.embuary.info)</onright>
             <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
             <include content="CenterList104">
                 <param name="id" value="50" />

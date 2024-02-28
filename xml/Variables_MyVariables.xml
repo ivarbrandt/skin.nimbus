@@ -51,27 +51,27 @@
 	</variable>
 
 	<variable name="FlixPosterVar">
-		<value condition="!String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(poster)]</value>
-		<value condition="String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.Art(season.poster)]</value>
+		<value condition="!$EXP[isEpisode]">$INFO[ListItem.Art(poster)]</value>
+		<value condition="$EXP[isEpisode]">$INFO[ListItem.Art(season.poster)]</value>
 		<value>$INFO[ListItem.Art(poster)]</value>
 	</variable>
 
 	<variable name="FlixCrumbsVar">
-		<!-- <value condition="![String.IsEqual(ListItem.DBtype,movie) | String.IsEqual(ListItem.DBtype,tvshow) | String.IsEqual(ListItem.DBtype,season) | String.IsEqual(ListItem.DBtype,episode)]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
-		<value condition="[String.IsEqual(ListItem.DBtype,episode) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="[String.IsEqual(ListItem.DBtype,episode) + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="![String.IsEqual(ListItem.DBtype,episode) | String.IsEqual(ListItem.DBtype,movie)] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="String.IsEqual(ListItem.DBtype,movie) + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="String.IsEqual(ListItem.DBtype,movie) + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value>
+		<!-- <value condition="![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]">$INFO[ListItem.Label,[B] | [/B]]</value> -->
+		<value condition="[$EXP[isEpisode] + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="[$EXP[isEpisode] + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="![$EXP[isEpisode] | $EXP[isMovie]] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isMovie] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isMovie] + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value>
 	</variable>
 
 	<variable name="SubstituteLabel">
-    <value condition="String.IsEqual(ListItem.DbType,movie) | String.IsEqual(ListItem.DbType,tvshow) | String.IsEqual(ListItem.DbType,season) | Container.Content(addons)">$INFO[ListItem.Label]</value>
-    <value condition="String.IsEqual(ListItem.DbType,episode)">$INFO[ListItem.TVshowTitle]</value>
+    <value condition="$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | Container.Content(addons)">$INFO[ListItem.Label]</value>
+    <value condition="$EXP[isEpisode]">$INFO[ListItem.TVshowTitle]</value>
 	</variable>
 
 	<variable name="DialogInfoTitle">
-		<value condition="String.IsEqual(ListItem.DBtype,episode)">$INFO[ListItem.TVShowTitle,,[CR]][LIGHT]$INFO[ListItem.Season,S,: ]$INFO[ListItem.Episode,E, ]$INFO[ListItem.Title][/LIGHT]</value>
+		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle,,[CR]][LIGHT]$INFO[ListItem.Season,S,: ]$INFO[ListItem.Episode,E, ]$INFO[ListItem.Title][/LIGHT]</value>
 		<value>$INFO[ListItem.Title]</value>
 	</variable>
 
@@ -81,7 +81,7 @@
 	</variable>
 
 	<variable name="TrailerReadyVar">
-    <value condition="String.IsEqual(Skin.String(trailerSetting),1) + ![String.IsEqual(ListItem.DbType,episode) | String.IsEqual(ListItem.DbType,season)] + Skin.HasSetting(Enable.TrailerReadyIcon) + !String.IsEmpty(Window.Property(nimbus.trailer_ready))">[COLOR accent_color]▶[/COLOR] </value>
+    <value condition="String.IsEqual(Skin.String(trailerSetting),1) + ![$EXP[isEpisode] | $EXP[isSeason]] + Skin.HasSetting(Enable.TrailerReadyIcon) + !String.IsEmpty(Window.Property(nimbus.trailer_ready))">[COLOR accent_color]▶[/COLOR] </value>
 	</variable>
 
 	<variable name="SearchFlixCrumbs">
@@ -145,9 +145,9 @@
 	</variable>
 
 	<variable name="ContextMenuTitleVar">
-		<value condition="String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,tvshow)">$INFO[ListItem.Title]</value>
-		<value condition="String.IsEqual(ListItem.dbtype,season)">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
-		<value condition="String.IsEqual(ListItem.dbtype,episode)">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
+		<value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
+		<value condition="$EXP[isSeason]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
+		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
 		<value>Context menu</value>
 	</variable>
 
