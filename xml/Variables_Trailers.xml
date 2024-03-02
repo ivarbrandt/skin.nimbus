@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
   <variable name="TrailerSettingVar">
-    <value condition="String.IsEqual(Skin.String(trailerSetting),0)">OFF</value>
-    <value condition="String.IsEqual(Skin.String(trailerSetting),1)">ONE-CLICK</value>
-    <value condition="String.IsEqual(Skin.String(trailerSetting),2)">AUTO</value>
-		<value>OFF</value>
+    <value condition="String.IsEqual(Skin.String(trailerSetting),0)">Off</value>
+    <value condition="String.IsEqual(Skin.String(trailerSetting),1)">One-click</value>
+    <value condition="String.IsEqual(Skin.String(trailerSetting),2)">Auto</value>
+		<value>Off</value>
 	</variable>
 
 	<variable name="TrailerDelayTimeVar">
@@ -42,10 +42,10 @@
 		<value condition="String.IsEqual(Skin.String(waitInterval),9)">Skin.SetString(waitInterval,0)</value>
 	</variable>
 
-	<variable name="TrailerDelayToggleVar">
+	<!-- <variable name="TrailerDelayToggleVar">
     <value condition="String.IsEqual(Skin.String(trailerSetting),0)">Skin.SetString(trailerSetting,1)</value>
     <value condition="String.IsEqual(Skin.String(trailerSetting),1)">Skin.SetString(trailerSetting,2)</value>
     <value condition="String.IsEqual(Skin.String(trailerSetting),2)">Skin.SetString(trailerSetting,0)</value>
 		<value>Skin.SetString(trailerSetting,0)</value>
-	</variable>
+	</variable> -->
 </includes>

@@ -229,22 +229,36 @@
 					<onclick>Skin.ToggleSetting(OneClickClose)</onclick>
 					<selected>Skin.HasSetting(OneClickClose)</selected>
 				</control>
+				<!-- HOMESCREEN ON BACK -->
+				<control type="button" id="63702">
+					<label>Home screen widget on back action</label>
+					<label2>$VAR[OnBackSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[OnBackSettingToggleVar]</onclick>
+				</control>
+				<!-- HOMESCREEN ON LEFT -->
+				<control type="button" id="63703">
+					<label>Home screen widget on left action</label>
+					<label2>$VAR[OnLeftSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
+				</control>
 				<!-- FOCUS COLOR -->
-				<control type="radiobutton" id="63702">
+				<control type="radiobutton" id="63704">
 					<label>Enable color theme for focus</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63703">
+				<control type="radiobutton" id="63705">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63704">
+				<control type="radiobutton" id="63706">
 					<label>Enable studio logos in FlixPanel</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>

@@ -144,6 +144,30 @@
 		<value>Skin.SetString(titleSetting,0)</value>
 	</variable>
 
+	<variable name="OnBackSettingVar">
+    <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Open main menu</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Reset widget</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),2)">Both</value>
+	</variable>
+
+	<variable name="OnBackSettingToggleVar">
+    <value condition="String.IsEqual(Skin.String(onBackSetting),0) + String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onBackSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Skin.SetString(onBackSetting,2)</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onBackSetting,0)</value>
+    <value condition="!String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onBackSetting,0)</value>
+	</variable>
+
+	<variable name="OnLeftSettingVar">
+	<value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Open main menu</value>
+	<value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Wrap to end</value>
+	</variable>
+
+	<variable name="OnLeftSettingToggleVar">
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),0) + String.IsEqual(Skin.String(onBackSetting),0)">Skin.SetString(onLeftSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Skin.SetString(onLeftSetting,0)</value>
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),0) + String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onLeftSetting,1)</value>
+	</variable>
+
 	<variable name="ContextMenuTitleVar">
 		<value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
 		<value condition="$EXP[isSeason]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
