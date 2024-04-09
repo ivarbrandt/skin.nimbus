@@ -1,4 +1,4 @@
-# Nimbus Skin for Kodi Nexus
+# Nimbus Skin for Kodi Omega
 
   ![Viewtypes](resources/images/flix.jpg)
   
@@ -7,6 +7,5 @@
 
 ## INFO
 
-- This is currently under development and is only available for Kodi Nexus.
-- It will be updated to work with Omega when a **STABLE** release of Kodi Omega has been released.
+- This is currently under development and is only available for Kodi Omega.
 - I will not be accepting **ANY** feature requests for this skin. It comes as is.
