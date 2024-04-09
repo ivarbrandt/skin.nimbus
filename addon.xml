@@ -2,7 +2,7 @@
 <addon id="skin.nimbus" version="0.0.94" name="Nimbus"
 	provider-name="Ivar Brandt">
 	<requires>
-		<import addon="xbmc.gui" version="5.16.0" />
+		<import addon="xbmc.gui" version="5.17.0" />
 		<import addon="script.nimbus.helper" />
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">
