@@ -7,16 +7,15 @@
 			<top>45</top>
 			<control type="image">
 				<width>545</width>
-				<!-- 233 -->
 				<height>233</height>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | Container.Content(addons)]</visible>
+				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
 			</control>
 			<control type="group">
 				<height>263</height>
 				<width>600</width>
-				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | Container.Content(addons)]</visible>
+				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
 				<control type="textbox">
 					<aligny>center</aligny>
 					<font>font52_title</font>
@@ -60,7 +59,7 @@
 					<itemgap>12</itemgap>
 					<aligny>center</aligny>
 					<align>left</align>
-					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia]</visible>
+					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + $EXP[isContent] + !String.IsEmpty(ListItem.Genre)</visible>
 					<include content="FlixInfoIcon">
 						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.year) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isTVShow]]"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.year]"/>
@@ -70,7 +69,7 @@
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]]"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
 					</include>
 					<include content="FlixInfoIcon">
@@ -112,13 +111,13 @@
 					</control>
 				</control>
 				<control type="textbox" id="15500">
-					<height>180</height>
+					<height>230</height>
 					<width>600</width>
 					<label>$VAR[ListBoxInfoVar]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
-					<autoscroll delay="3500" time="2000" repeat="5000">true</autoscroll>
-					<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + ![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | String.IsEqual(ListItem.DBType,song)]</visible>
+					<autoscroll delay="7000" time="3000" repeat="7000">true</autoscroll>
+					<visible>![$EXP[isContent] | String.IsEqual(ListItem.DBType,song)]</visible>
 				</control>
 				<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
 				<control type="textbox">
@@ -159,7 +158,7 @@
 			<orientation>horizontal</orientation>
 			<itemgap>20</itemgap>
 			<aligny>center</aligny>
-			<visible>[$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + !Player.HasMedia + !String.IsEmpty(ListItem.Genre)</visible>
+			<visible>!Player.HasMedia + !String.IsEmpty(ListItem.Genre) + $EXP[isContent]</visible>
 			<control type="grouplist">
 				<width>130</width>
 				<orientation>horizontal</orientation>
@@ -305,4 +304,5 @@
 			</control>
 		</control>
 	</include>
+
 </includes>

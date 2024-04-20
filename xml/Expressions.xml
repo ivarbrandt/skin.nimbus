@@ -2,13 +2,14 @@
 <includes>
   
   <expression name="isPlugin">String.StartsWith(Container.FolderPath,plugin://)</expression>
+  <expression name="isContent">String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,season)</expression>
   <expression name="isMovie">String.IsEqual(ListItem.DBType,movie)</expression>
   <expression name="isVideo">String.IsEqual(ListItem.DBType,video)</expression>
   <expression name="isTVShow">String.IsEqual(ListItem.DBType,tvshow)</expression>
   <expression name="isSeason">String.IsEqual(ListItem.DBType,season)</expression>
   <expression name="isSet">String.IsEqual(ListItem.DBType,set)</expression>
   <expression name="isEpisode">String.IsEqual(ListItem.DBType,episode)</expression>
-  <!-- <expression name="isMusicvideo">String.IsEqual(ListItem.DBType,musicvideo)</expression>
+  <!-- <expression name="isMusicVideo">String.IsEqual(ListItem.DBType,musicvideo)</expression>
   <expression name="isArtist">String.IsEqual(ListItem.DBType,artist)</expression>
   <expression name="isAlbum">String.IsEqual(ListItem.DBType,album)</expression>
   <expression name="isSong">String.IsEqual(ListItem.DBType,song)</expression> -->
