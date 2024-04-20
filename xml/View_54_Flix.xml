@@ -89,9 +89,9 @@
 			<control type="group">
 				<visible>ControlGroup(15000).HasFocus</visible>
 				<left>-5</left>
-				<top>275</top>
+				<top>280</top>
 				<width>290</width>
-				<height>80</height>
+				<height>75</height>
 				<control type="label">
 					<top>75</top>
 					<align>center</align>
@@ -109,9 +109,9 @@
 			<control type="textbox">
 				<visible>!ControlGroup(15000).HasFocus</visible>
 				<left>-5</left>
-				<top>280</top>
+				<top>285</top>
 				<width>290</width>
-				<height>80</height>
+				<height>75</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$PARAM[single_label]</label>
