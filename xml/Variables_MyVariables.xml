@@ -27,6 +27,7 @@
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Science Fiction)">Sci-Fi</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Sci-Fi)">Sci-Fi</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Soap)">Soap</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Talk)">Talk</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,TV Movie)">TV Movie</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Thriller)">Thriller</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,War)">War</value>
@@ -89,7 +90,8 @@
 	</variable>
 
 	<variable name="ClockCrumbs">
-    <value condition="Skin.HasSetting(Enable.ClockCrumbs)">$INFO[System.Time] [COLOR accent_color]•[/COLOR] </value>
+    <value condition="Skin.HasSetting(Enable.ClockCrumbs) + !Container.Content(favourites)">$INFO[System.Time] [COLOR accent_color]•[/COLOR] </value>
+    <value condition="Skin.HasSetting(Enable.ClockCrumbs) + Container.Content(favourites)">$INFO[System.Time] [COLOR accent_color]•[/COLOR] Favorites</value>
 	</variable>
 
 	<variable name="DefaultSearchWindowBehaviorVar">
