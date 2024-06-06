@@ -84,6 +84,16 @@
 				<control type="image">
 					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[FlixThumbVar]</texture>
 					<aspectratio>keep</aspectratio>
+					<visible>!ListItem.HasEPG</visible>
+				</control>
+				<control type="image">
+					<left>37</left>
+					<top>66</top>
+					<width>205</width>
+					<height>147</height>
+					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[FlixThumbVar]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>ListItem.HasEPG</visible>
 				</control>
 			</control>
 			<control type="group">

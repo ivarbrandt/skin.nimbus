@@ -13,16 +13,21 @@
 				<visible>Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(52) | Control.IsVisible(53)</visible>
 				<include>OpenClose_Right</include>
 				<include>Visible_Right</include>
+				<include content="PVRInfoPanel">
+					<param name="top" value="15"/>
+				</include>
 				<control type="group">
-					<top>140</top>
+					<height>810</height>
+					<!-- 140 -->
+					<top>600</top>
 					<depth>DepthContentPanel</depth>
-					<control type="image">
+					<!-- <control type="image">
 						<left>0</left>
 						<top>-10</top>
 						<width>100%</width>
 						<bottom>336</bottom>
 						<texture colordiffuse="button_focus2">dialogs/dialog-bg-nobo.png</texture>
-					</control>
+					</control> -->
 					<control type="group">
 						<visible>Control.IsVisible(50) | Control.IsVisible(51)</visible>
 						<control type="image">
@@ -111,7 +116,7 @@
 							<param name="channel_width" value="350"/>
 							<param name="scrollbar_top" value="110"/>
 						</include>
-						<include content="EpgGrid">
+						<!-- <include content="EpgGrid">
 							<param name="control_id" value="51"/>
 							<param name="control_orientation" value="horizontal"/>
 							<param name="control_top" value="62"/>
@@ -124,7 +129,7 @@
 							<param name="ruler_label_width" value="150"/>
 							<param name="channel_width" value="310"/>
 							<param name="scrollbar_top" value="168"/>
-						</include>
+						</include> -->
 						<include content="EpgGrid">
 							<param name="control_id" value="52"/>
 							<param name="control_orientation" value="vertical"/>
@@ -139,7 +144,7 @@
 							<param name="channel_width" value="350"/>
 							<param name="scrollbar_top" value="47"/>
 						</include>
-						<include content="EpgGrid">
+						<!-- <include content="EpgGrid">
 							<param name="control_id" value="53"/>
 							<param name="control_orientation" value="horizontal"/>
 							<param name="control_top" value="0"/>
@@ -152,10 +157,10 @@
 							<param name="ruler_label_width" value="150"/>
 							<param name="channel_width" value="310"/>
 							<param name="scrollbar_top" value="102"/>
-						</include>
+						</include> -->
 					</control>
 				</control>
-				<control type="group">
+				<!-- <control type="group">
 					<bottom>30</bottom>
 					<height>300</height>
 					<control type="image">
@@ -212,16 +217,16 @@
 						<textcolor>unfocused_text</textcolor>
 						<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 					</control>
-				</control>
+				</control> -->
 			</control>
 			<include>PVRChannelNumberInput</include>
-			<include content="TopBar">
+			<!-- <include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsPVRGuideVar]" />
 				<param name="sublabel" value="" />
-			</include>
-			<include content="BottomBar">
+			</include> -->
+			<!-- <include content="BottomBar">
 				<param name="info_visible" value="true" />
-			</include>
+			</include> -->
 			<control type="group">
 				<include>MediaMenuCommon</include>
 				<include content="PVRSideBar">

@@ -15,13 +15,22 @@
 			<control type="group">
 				<include>OpenClose_Left</include>
 				<include content="ContentPanel">
-					<param name="width" value="3000" />
+					<param name="width" value="2042" />
 				</include>
+				<control type="image">
+					<left>800</left>
+					<top>420</top>
+					<width>320</width>
+					<height>280</height>
+					<aspectratio align="center" aligny="center">keep</aspectratio>
+					<texture fallback="DefaultTVShows.png" >$INFO[Listitem.Icon]</texture>
+					<visible>Control.HasFocus(11)</visible>
+				</control>
 				<control type="fixedlist" id="11">
 					<left>25</left>
-					<top>list_top_offset</top>
+					<top>70</top>
 					<width>1900</width>
-					<bottom>list_bottom</bottom>
+					<bottom>30</bottom>
 					<onleft>60</onleft>
 					<onright>60</onright>
 					<onup>11</onup>
@@ -49,27 +58,30 @@
 							<label>$VAR[PVRListItemSubLabel]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="86" width="1900">
+					<focusedlayout height="300" width="1900">
 						<control type="image">
+							<height>86</height>
 							<left>0</left>
 							<width>730</width>
-							<bottom>0</bottom>
+							<top>0</top>
 							<texture colordiffuse="button_focus">masks/focus.png</texture>
 							<visible>Control.HasFocus(11)</visible>
 							<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
 						</control>
 						<control type="label">
+							<height>86</height>
 							<left>20</left>
 							<width>150</width>
-							<bottom>0</bottom>
+							<top>0</top>
 							<aligny>center</aligny>
 							<label>[B]$INFO[ListItem.StartTime][/B]</label>
 							<textcolor>focused_text</textcolor>
 						</control>
 						<control type="label">
+							<height>86</height>
 							<left>100</left>
 							<width>610</width>
-							<bottom>0</bottom>
+							<top>0</top>
 							<align>right</align>
 							<aligny>center</aligny>
 							<label>[B]$VAR[PVRListItemSubLabelFocused][/B]</label>
@@ -77,32 +89,26 @@
 							<scroll>true</scroll>
 						</control>
 						<control type="group">
-							<visible>!String.IsEmpty(ListItem.Plot) + Control.HasFocus(11)</visible>
+							<visible>!String.IsEmpty(ListItem.Plot)</visible>
 							<animation effect="fade" start="0" end="100" time="200">Focus</animation>
-							<control type="image">
-								<right>100</right>
-								<top>300</top>
-								<width>320</width>
-								<height>280</height>
-								<aspectratio align="center" aligny="center">keep</aspectratio>
-								<texture fallback="DefaultTVShows.png" >$INFO[Listitem.Icon]</texture>
-							</control>
+							
 							<control type="textbox">
-								<left>780</left>
-								<top>-70</top>
-								<width>760</width>
-								<height>290</height>
+								<left>10</left>
+								<top>105</top>
+								<width>715</width>
+								<height>190</height>
 								<label>$INFO[ListItem.Plot]</label>
 								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 							</control>
 						</control>
 					</focusedlayout>
 				</control>
+				
 				<control type="scrollbar" id="60">
 					<left>768</left>
-					<top>list_top_offset</top>
+					<top>73</top>
 					<width>12</width>
-					<bottom>list_bottom</bottom>
+					<bottom>41</bottom>
 					<onleft>11</onleft>
 					<onright>11</onright>
 					<texturesliderbackground />

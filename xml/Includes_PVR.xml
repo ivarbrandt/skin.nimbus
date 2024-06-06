@@ -38,7 +38,7 @@
 				</control>
 				<control type="label">
 					<left>105</left>
-					<right>120</right>
+					<right>180</right>
 					<top>10</top>
 					<height>30</height>
 					<aligny>top</aligny>
@@ -46,7 +46,7 @@
 				</control>
 				<control type="label">
 					<left>105</left>
-					<right>120</right>
+					<right>180</right>
 					<top>10</top>
 					<height>30</height>
 					<align>right</align>
@@ -58,7 +58,7 @@
 				<visible>!$PARAM[only_label_condition]</visible>
 				<control type="label">
 					<left>105</left>
-					<right>120</right>
+					<right>180</right>
 					<top>53</top>
 					<height>30</height>
 					<font>font12</font>
@@ -67,7 +67,7 @@
 				</control>
 				<control type="label">
 					<left>105</left>
-					<right>120</right>
+					<right>180</right>
 					<top>53</top>
 					<height>30</height>
 					<font>font12</font>
@@ -102,7 +102,7 @@
 		<param name="has_status_icon">false</param>
 		<param name="info_update">0</param>
 		<definition>
-			<itemlayout height="101" infoupdate="$PARAM[info_update]">
+			<itemlayout height="101" width="918" infoupdate="$PARAM[info_update]">
 				<control type="progress">
 					<left>20</left>
 					<top>66</top>
@@ -126,7 +126,7 @@
 					<param name="label4" value="[COLOR unfocused_text]$INFO[ListItem.Comment][/COLOR]" />
 				</include>
 			</itemlayout>
-			<focusedlayout height="101" infoupdate="$PARAM[info_update]">
+			<focusedlayout height="101" width="918" infoupdate="$PARAM[info_update]">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -365,34 +365,82 @@
 	</include>
 	<include name="PVRInfoPanel">
 		<control type="group">
+			<left>50</left>
+			<top>$PARAM[top]</top>
 			<visible>!ListItem.IsFolder</visible>
 			<control type="image">
-				<top>135</top>
-				<left>630</left>
-				<width>200</width>
-				<height>200</height>
+				<top>160</top>
+				<left>1150</left>
+				<width>333</width>
+				<height>239</height>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
+				<!-- <texture fallback="DefaultTVShows.png">masks/addons.png</texture> -->
 				<texture fallback="DefaultTVShows.png">$VAR[ChannelListEPGIconVar]</texture>
-				<visible>!String.IsEmpty(ListItem.ChannelName)</visible>
+				<visible>!String.IsEmpty(ListItem.ChannelName) + !Player.HasMedia</visible>
 				<fadetime>200</fadetime>
+			</control>
+			<control type="progress">
+				<width>434</width>
+				<left>1100</left>
+				<top>433</top>
+				<height>20</height>
+				<reveal>false</reveal>
+				<texturebg colordiffuse="player_cache" border="12">progress/back24.png</texturebg>
+				<midtexture colordiffuse="accent_color" border="12">progress/slider24.png</midtexture>
+				<info>ListItem.Progress</info>
+				<visible>Window.IsVisible(Home) + Integer.IsGreater(ListItem.Progress,0) + !Player.HasMedia</visible>
 			</control>
 			<control type="group">
 				<top>120</top>
 				<left>0</left>
-				<width>600</width>
-				<control type="label">
+				<width>785</width>
+				<!-- <control type="label">
 					<height>262</height>
 					<font>font45</font>
 					<textcolor>unfocused_text</textcolor>
 					<label>[B]$INFO[ListItem.ChannelName][/B]</label>
+				</control> -->
+
+
+
+
+				<control type="grouplist">
+					<top>50</top>
+					<height>58</height>
+					<orientation>horizontal</orientation>
+					<itemgap>12</itemgap>
+					<aligny>center</aligny>
+					<align>left</align>
+					<!-- <visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + $EXP[isContent] + !String.IsEmpty(ListItem.Genre)</visible> -->
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartDate)"/>
+						<param name="flixlabel" value="$INFO[ListItem.StartDate]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.Genre)"/>
+						<param name="flixlabel" value="$INFO[ListItem.Genre]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartTime) + !Player.HasMedia"/>
+						<param name="flixlabel" value="$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]"/>
+					</include>
+					<!-- <include content="FlixInfoIcon">
+						<param name="visible" value="!String.IsEmpty(ListItem.Duration)"/>
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]"/>
+					</include> -->
+					
 				</control>
-				<control type="label">
+
+
+
+
+				<!-- <control type="label">
 					<top>60</top>
 					<height>200</height>
 					<label>$VAR[PVRInfoPanelDateDurationLabel]</label>
 					<textcolor>unfocused_text</textcolor>
-				</control>
-				<control type="progress">
+				</control> -->
+				<!-- <control type="progress">
 					<top>200</top>
 					<height>12</height>
 					<colordiffuse>unfocused_text</colordiffuse>
@@ -405,7 +453,7 @@
 					<colordiffuse>unfocused_text</colordiffuse>
 					<info>ListItem.PercentPlayed</info>
 					<visible>Integer.IsGreater(ListItem.PercentPlayed,0)</visible>
-				</control>
+				</control> -->
 			</control>
 			<control type="label">
 				<top>365</top>
@@ -418,14 +466,26 @@
 				<visible>!ListItem.HasEpg</visible>
 			</control>
 			<control type="label">
-				<top>365</top>
+				<top>70</top>
 				<width>830</width>
 				<height>262</height>
-				<font>font36_title</font>
+				<font>font52_title</font>
 				<label>$INFO[ListItem.EpgEventTitle] $INFO[ListItem.Year,([COLOR grey],[/COLOR])]</label>
 				<textcolor>unfocused_text</textcolor>
 				<scroll>true</scroll>
-				<visible>ListItem.HasEpg</visible>
+				<scrollspeed>200</scrollspeed>
+				<visible>ListItem.HasEpg + !Player.HasMedia</visible>
+			</control>
+			<control type="label">
+				<top>70</top>
+				<width>550</width>
+				<height>262</height>
+				<font>font52_title</font>
+				<label>$INFO[ListItem.EpgEventTitle] $INFO[ListItem.Year,([COLOR grey],[/COLOR])]</label>
+				<textcolor>unfocused_text</textcolor>
+				<scroll>true</scroll>
+				<scrollspeed>200</scrollspeed>
+				<visible>ListItem.HasEpg + Player.HasMedia</visible>
 			</control>
 			<control type="label">
 				<top>410</top>
@@ -436,12 +496,69 @@
 				<textcolor>unfocused_text</textcolor>
 			</control>
 			<control type="textbox">
-				<top>465</top>
+				<top>220</top>
 				<width>830</width>
-				<bottom>list_bottom_offset</bottom>
-				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.Genre,[COLOR grey]$LOCALIZE[515]:[/COLOR] ,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
+				<height>260</height>
+				<!-- <bottom>625</bottom> -->
+				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				<visible>!Player.HasMedia</visible>
+			</control>
+			<control type="textbox">
+				<top>220</top>
+				<width>550</width>
+				<height>260</height>
+				<!-- <bottom>625</bottom> -->
+				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
+				<textcolor>unfocused_text</textcolor>
+				<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
+				<visible>Player.HasMedia</visible>
+			</control>
+			<control type="group">
+				<!-- <visible>!Window.IsVisible(10702)</visible> -->
+				<control type="label">
+					<include>OpenClose_Right</include>
+					<top>505</top>
+					<width>850</width>
+					<height>60</height>
+					<label>$VAR[PVRNextProgrammeLabel]</label>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+					<font>font27</font>
+					<visible>!Window.IsVisible(10702)</visible>
+				</control>
+				<control type="label">
+					<include>OpenClose_Right</include>
+					<top>545</top>
+					<width>850</width>
+					<height>60</height>
+					<label>$VAR[ClockCrumbs]$VAR[BreadcrumbsPVRChannelsVar]</label>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+					<font>font27</font>
+					<visible>![Window.IsVisible(Home) | Window.IsVisible(10702)]</visible>
+				</control>
+				<control type="label">
+					<include>OpenClose_Right</include>
+					<top>520</top>
+					<width>850</width>
+					<height>60</height>
+					<label>$VAR[ClockCrumbs]$VAR[BreadcrumbsPVRGuideVar]</label>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<wrapmultiline>true</wrapmultiline>
+					<font>font27</font>
+					<visible>Window.IsVisible(10702)</visible>
+				</control>
 			</control>
 		</control>
 		<control type="group">
@@ -455,7 +572,7 @@
 				<font>font37</font>
 				<visible>!ListItem.IsParentFolder</visible>
 			</control>
-			<control type="group">
+			<!-- <control type="group">
 				<left>-10</left>
 				<top>60</top>
 				<visible>!ListItem.IsParentFolder</visible>
@@ -486,7 +603,7 @@
 					</itemlayout>
 					<content sortby="date" sortorder="$PARAM[folder_sortorder]">$INFO[ListItem.FilenameAndPath]</content>
 				</control>
-			</control>
+			</control> -->
 		</control>
 	</include>
 	<include name="RDSInfoLine">
@@ -624,7 +741,7 @@
 					</control>
 					<control type="label" id="1">
 						<left>15</left>
-						<top>12</top>
+						<top>10</top>
 						<height>36</height>
 						<aligny>center</aligny>
 						<font>font13</font>
@@ -661,7 +778,7 @@
 					<!-- unfocused grid (back) -->
 					<control type="label" id="1">
 						<left>15</left>
-						<top>12</top>
+						<top>10</top>
 						<height>36</height>
 						<aligny>center</aligny>
 						<font>font13</font>

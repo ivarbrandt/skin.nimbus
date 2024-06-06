@@ -10,11 +10,14 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group">
 				<include>OpenClose_Left</include>
-				<control type="fixedlist" id="50">
-					<left>25</left>
-					<top>list_top_offset</top>
-					<right>918</right>
-					<bottom>list_bottom_offset</bottom>
+				<include content="PVRInfoPanel">
+					<param name="top" value="15"/>
+				</include>
+				<control type="panel" id="50">
+					<left>50</left>
+					<top>630</top>
+					<!-- <right>918</right> -->
+					<bottom>30</bottom>
 					<onleft>9000</onleft>
 					<onright>73</onright>
 					<onup>50</onup>
@@ -31,7 +34,7 @@
 						<param name="info_update" value="5000" />
 					</include>
 				</control>
-				<control type="fixedlist" id="51">
+				<!-- <control type="fixedlist" id="51">
 					<left>0</left>
 					<top>list_top_offset</top>
 					<right>920</right>
@@ -150,50 +153,38 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
-				</control>
+				</control> -->
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Right</include>
 				<width>870</width>
 				<right>0</right>
-				<include content="ContentPanel">
+				<!-- <include content="ContentPanel">
 					<param name="left" value="-72" />
 					<param name="width" value="970" />
 					<param name="top" value="-20" />
 					<param name="flipx" value="true" />
-				</include>
+				</include> -->
 				<control type="scrollbar" id="73">
-					<left>-50</left>
-					<top>list_top_offset</top>
+					<right>30</right>
+					<top>633</top>
 					<width>12</width>
-					<bottom>list_bottom_offset</bottom>
+					<bottom>45</bottom>
 					<onleft>50</onleft>
 					<onright>50</onright>
 					<orientation>vertical</orientation>
-					<animation effect="zoom" start="100,100" end="50,100" center="-50,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(73)">conditional</animation>
+					<animation effect="zoom" start="99,100" end="100,100" center="-50,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(73)">conditional</animation>
 				</control>
-				<include>PVRInfoPanel</include>
+				
 			</control>
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsPVRChannelsVar]" />
 			</include>
-			<include content="BottomBar">
+			<!-- <include content="BottomBar">
 				<param name="info_visible" value="true" />
-			</include>
-			<control type="label">
-				<right>20</right>
-				<include>OpenClose_Right</include>
-				<bottom>10</bottom>
-				<width>850</width>
-				<height>60</height>
-				<label>$VAR[PVRNextProgrammeLabel]</label>
-				<shadowcolor>black</shadowcolor>
-				<align>right</align>
-				<aligny>center</aligny>
-				<wrapmultiline>true</wrapmultiline>
-				<font>font27</font>
-			</control>
+			</include> -->
+			
 			<include>PVRChannelNumberInput</include>
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">

@@ -86,7 +86,7 @@
 						<onleft>6056</onleft>
 						<onright>50</onright>
 						<onup>14100</onup>
-						<ondown>6051</ondown>
+						<ondown>6054</ondown>
 						<width>1000</width>
 						<include content="PVRQuickNavItemsCommon">
 							<param name="control_id" value="100" />
@@ -124,13 +124,13 @@
 					<include>MediaMenuLabelCommon</include>
 					<label>$LOCALIZE[14018]</label>
 				</control>
-				<control type="button" id="6051">
+				<!-- <control type="button" id="6051">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[31023]</label>
 					<label2>[B]$INFO[Container.Viewmode][/B]</label2>
 					<onclick>Container.NextViewMode</onclick>
 					<visible>Window.IsActive(MyPVRGuide.xml)</visible>
-				</control>
+				</control> -->
 				<control type="button" id="6054">
 					<include>MediaMenuItemsCommon</include>
 					<label>$LOCALIZE[19141]</label>

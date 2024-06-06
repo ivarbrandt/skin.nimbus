@@ -87,7 +87,7 @@
 			<font>PlayerTime</font>
 			<textcolor>osd_light</textcolor>
 			<align>right</align>
-			<label>$INFO[Player.FinishTime,$LOCALIZE[31080]: ] [COLOR accent_color][B]|[/B][/COLOR] $INFO[System.Time]</label>
+			<label>$VAR[PlayerEndTimeVar]</label>
 		</control>
 		<control type="label">
 			<visible>String.IsEqual(Player.TimeRemaining(h), 0)</visible>

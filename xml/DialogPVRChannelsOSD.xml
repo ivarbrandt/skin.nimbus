@@ -12,9 +12,9 @@
 				</include>
 				<control type="fixedlist" id="11">
 					<left>25</left>
-					<top>list_top_offset</top>
+					<top>90</top>
 					<width>970</width>
-					<bottom>list_bottom</bottom>
+					<bottom>75</bottom>
 					<onleft>PreviousChannelGroup</onleft>
 					<onright>60</onright>
 					<onup>11</onup>
@@ -31,14 +31,16 @@
 					</include>
 				</control>
 				<control type="scrollbar" id="60">
-					<left>970</left>
-					<top>list_top_offset</top>
+					<left>910</left>
+					<top>93</top>
 					<width>12</width>
-					<bottom>list_bottom</bottom>
+					<bottom>81</bottom>
 					<onleft>11</onleft>
 					<onright>NextChannelGroup</onright>
 					<texturesliderbackground />
-					<animation effect="zoom" start="100,100" end="50,100" center="982,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
+					<animation effect="zoom" start="80,100" end="70,100" center="982,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
+					<animation effect="fade" time="300" start="0" end="100" tween="cubic" easing="inout">VisibleChange</animation>
+					<visible>Control.HasFocus(60) | Container.Scrolling</visible>
 				</control>
 			</control>
 			<control type="group">

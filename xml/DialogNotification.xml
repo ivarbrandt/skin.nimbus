@@ -13,7 +13,7 @@
       <visible>!String.IsEmpty(Window(home).Property(LanguageNotification))</visible>
       <control type="label">
         <top>909</top>
-        <right>0</right>
+        <right>20</right>
         <width>816</width>
         <height>34</height>
         <textcolor>osd_light</textcolor>
