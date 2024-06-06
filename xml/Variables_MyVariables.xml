@@ -4,6 +4,10 @@
 	<variable name="Nimbus_Divider">
 		<value>[COLOR accent_color][B]|[/B][/COLOR]</value>
 	</variable>
+
+	<variable name="Nimbus_Codec_Divider">
+		<value condition="!String.IsEmpty(VideoPlayer.AudioChannels)">[COLOR accent_color][B]|[/B][/COLOR]</value>
+	</variable>
 	
 	<!-- Return a single genre -->
   <variable name="GenreVar">

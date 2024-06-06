@@ -22,6 +22,11 @@
 		<value>$LOCALIZE[351]</value>
 	</variable>
 
+	<variable name="PlayerEndTimeVar">
+		<value condition="!VideoPlayer.Content(livetv)">$INFO[Player.FinishTime,$LOCALIZE[31080]: ] [COLOR accent_color][B]|[/B][/COLOR] $INFO[System.Time]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[System.Time]</value>
+	</variable>
+
 	<!-- <include name="OSDBackgroundTop-On">
     <top>0</top>
 	</include>
@@ -94,21 +99,21 @@
 	</variable>
 
 	<variable name="AudioCodec_Label">
-		<value condition="String.IsEqual(VideoPlayer.AudioCodec,AC3)">Dolby Digital $VAR[Nimbus_Divider] </value>
-		<value condition="String.IsEqual(VideoPlayer.AudioCodec,EAC3)">Dolby Digital Plus $VAR[Nimbus_Divider] </value>
-		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD $VAR[Nimbus_Divider] </value>
-		<value condition="String.IsEqual(VideoPlayer.AudioCodec,atmos)">Dolby Atmos $VAR[Nimbus_Divider] </value>
-		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD Master Audio $VAR[Nimbus_Divider] </value>
-		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd)">DTS-HD $VAR[Nimbus_Divider] </value>
-		<value condition="[String.IsEqual(VideoPlayer.AudioCodec,dts) | String.IsEqual(VideoPlayer.AudioCodec,dca)]">DTS $VAR[Nimbus_Divider] </value>
-		<value condition="!String.IsEmpty(VideoPlayer.AudioCodec)">[UPPERCASE]$INFO[VideoPlayer.AudioCodec][/UPPERCASE] $VAR[Nimbus_Divider] </value>
-		<value condition="String.Contains(Player.FilenameAndPath,.DTS-HD.MA)">DTS-HD.MA $VAR[Nimbus_Divider] </value>
-		<value condition="String.Contains(Player.FilenameAndPath,.EAC3)">EAC3 $VAR[Nimbus_Divider] </value>
-		<value condition="String.Contains(Player.FilenameAndPath,.DD) | String.Contains(Player.FilenameAndPath,.AC3)">AC3 $VAR[Nimbus_Divider] </value>
-		<value condition="!String.IsEmpty(ListItem.AudioCodec)">[UPPERCASE]$INFO[ListItem.AudioCodec][/UPPERCASE] $VAR[Nimbus_Divider] </value>
-		<value condition="String.Contains(ListItem.FilenameAndPath,.DTS-HD.MA)">DTS-HD.MA $VAR[Nimbus_Divider] </value>
-		<value condition="String.Contains(ListItem.FilenameAndPath,.EAC3)">EAC3 $VAR[Nimbus_Divider] </value>
-		<value condition="String.Contains(ListItem.FilenameAndPath,.DD) | String.Contains(ListItem.FilenameAndPath,.AC3)">AC3 $VAR[Nimbus_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,AC3)">Dolby Digital $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,EAC3)">Dolby Digital Plus $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,atmos)">Dolby Atmos $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD Master Audio $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd)">DTS-HD $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="[String.IsEqual(VideoPlayer.AudioCodec,dts) | String.IsEqual(VideoPlayer.AudioCodec,dca)]">DTS $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="!String.IsEmpty(VideoPlayer.AudioCodec)">[UPPERCASE]$INFO[VideoPlayer.AudioCodec][/UPPERCASE] $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.Contains(Player.FilenameAndPath,.DTS-HD.MA)">DTS-HD.MA $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.Contains(Player.FilenameAndPath,.EAC3)">EAC3 $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.Contains(Player.FilenameAndPath,.DD) | String.Contains(Player.FilenameAndPath,.AC3)">AC3 $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="!String.IsEmpty(ListItem.AudioCodec)">[UPPERCASE]$INFO[ListItem.AudioCodec][/UPPERCASE] $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.Contains(ListItem.FilenameAndPath,.DTS-HD.MA)">DTS-HD.MA $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.Contains(ListItem.FilenameAndPath,.EAC3)">EAC3 $VAR[Nimbus_Codec_Divider] </value>
+		<value condition="String.Contains(ListItem.FilenameAndPath,.DD) | String.Contains(ListItem.FilenameAndPath,.AC3)">AC3 $VAR[Nimbus_Codec_Divider] </value>
 	</variable>
 
 	<variable name="Resolution_Label">
