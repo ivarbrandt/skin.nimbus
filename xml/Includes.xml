@@ -1675,9 +1675,9 @@
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
-			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
-			<visible>!Control.IsVisible(500) + !Control.IsVisible(52) + !Player.HasMedia</visible>
+			<!-- <visible>!Control.IsVisible(500) + !Control.IsVisible(52) + !Player.HasMedia</visible> -->
+			<visible>!Player.HasMedia + [Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
 		</control>
 	</include>
 	
