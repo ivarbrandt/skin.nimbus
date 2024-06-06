@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
   <defaultcontrol>700</defaultcontrol>
-  <onload>SetFocus(703)</onload>
+  <onload condition="!VideoPlayer.Content(livetv)">SetFocus(703)</onload>
+  <onload condition="VideoPlayer.Content(livetv)">SetFocus(704)</onload>
   <onunload>ClearProperty(LanguageNotification,home)</onunload>
   <controls>
     <control type="label">
@@ -25,8 +26,8 @@
         <itemgap>8</itemgap>
         <orientation>horizontal</orientation>
         <align>center</align>
-        <onleft>711</onleft>
-        <onright>707</onright>
+        <onleft>715</onleft>
+        <onright>708</onright>
         <control type="button" id="701">
           <include>PlayerButton</include>
           <label>&#xf141;</label>
@@ -61,93 +62,225 @@
           <onclick>PlayerControl(Next)</onclick>
         </control>
       </control>
-      <control type="group">
+      <control type="grouplist" id="707">
         <top>120</top>
-        <height>48</height>
-        <control type="button" id="707">
-          <left>1340</left>
-          <font>PlayerIconSmall</font>
-          <textoffsety>7</textoffsety>
-          <include>PlayerButton</include>
-          <label>&#xef84;</label>
-          <onclick>SetProperty(LanguageNotification,true,home)</onclick>
-          <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
-          <onclick>AudioNextLanguage</onclick>
-          <onleft>706</onleft>
-          <onright>708</onright>
-        </control>
-        <control type="label">
-          <top>43</top>
-          <left>1337</left>
-          <height>48</height>
-          <width>48</width>
-          <font>Font22</font>
+        <height>96</height>
+        <left>430</left>
+        <width>100%</width>
+        <itemgap>55</itemgap>
+        <orientation>horizontal</orientation>
+        <align>center</align>
+        <onleft>703</onleft>
+        <onright>701</onright>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
           <align>center</align>
-          <label>[CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE]</label>
-        </control>
-        <control type="button" id="708">
-          <left>1400</left>
-          <font>PlayerIconSmall</font>
-          <textoffsety>7</textoffsety>
-          <include>PlayerButton</include>
-          <label>&#xef43;</label>
-          <onclick>SetProperty(LanguageNotification,true,home)</onclick>
-          <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
-          <onclick>NextSubtitle</onclick>
-          <onleft>707</onleft>
-          <onright>709</onright>
-        </control>
-        <control type="label">
-          <top>43</top>
-          <left>1397</left>
-          <height>48</height>
-          <width>48</width>
-          <font>Font22</font>
-          <align>center</align>
-          <label>[CAPITALIZE]$VAR[VideoPlayerSubtitleLanguage][/CAPITALIZE]</label>
-        </control>
-        <control type="button" id="709">
-          <left>1465</left>
-          <font>PlayerIconSmall</font>
-          <textoffsety>7</textoffsety>
-          <include>PlayerButton</include>
-          <label>&#xf448;</label>
-          <onclick>Skin.ToggleSetting(Enable.OSDInfo)</onclick>
+          <itemgap>-3</itemgap>
           <visible>!VideoPlayer.Content(livetv)</visible>
-          <onleft>708</onleft>
-          <onright>710</onright>
+          <control type="button" id="708">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xef84;</label>
+            <onclick>SetProperty(LanguageNotification,true,home)</onclick>
+            <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
+            <onclick>AudioNextLanguage</onclick>
+            <onleft condition="Control.IsVisible(703)">703</onleft>
+            <onleft condition="!Control.IsVisible(703)">704</onleft>
+            <onright>709</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label>[CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE]</label>
+          </control>
         </control>
-        <control type="label">
-          <top>43</top>
-          <left>1462</left>
-          <height>48</height>
-          <width>48</width>
-          <font>Font22</font>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
           <align>center</align>
-          <label>[CAPITALIZE]$VAR[OSDInfoToggle][/CAPITALIZE]</label>
-        </control>
-        <control type="button" id="710">
-          <left>1523</left>
-          <font>PlayerIconSmall</font>
-          <textoffsety>7</textoffsety>
-          <include>PlayerButton</include>
-          <label>&#xeae4;</label>
-          <onclick>ActivateWindow(videobookmarks)</onclick>
+          <itemgap>-3</itemgap>
           <visible>!VideoPlayer.Content(livetv)</visible>
-          <onleft>709</onleft>
-          <onright>711</onright>
+          <control type="button" id="709">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xef43;</label>
+            <onclick>SetProperty(LanguageNotification,true,home)</onclick>
+            <onunfocus>ClearProperty(LanguageNotification,home)</onunfocus>
+            <onclick>NextSubtitle</onclick>
+            <onleft>708</onleft>
+            <onright>710</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label>[CAPITALIZE]$VAR[VideoPlayerSubtitleLanguage][/CAPITALIZE]</label>
+          </control>
         </control>
-        <control type="button" id="711">
-          <left>1580</left>
-          <font>PlayerIconSmall</font>
-          <textoffsety>7</textoffsety>
-          <include>PlayerButton</include>
-          <label>&#xf0e7;</label>
-          <onclick>SetProperty(settingslist_content,osd,home)</onclick>
-          <onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
-          <onclick>ActivateWindow(1101)</onclick>
-          <onleft>710</onleft>
-          <onright>701</onright>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>-3</itemgap>
+          <visible>!VideoPlayer.Content(livetv)</visible>
+          <control type="button" id="710">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xf448;</label>
+            <onclick>Skin.ToggleSetting(Enable.OSDInfo)</onclick>
+            <onleft>709</onleft>
+            <onright>711</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label>[CAPITALIZE]$VAR[OSDInfoToggle][/CAPITALIZE]</label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>-3</itemgap>
+          <visible>!VideoPlayer.Content(livetv) + !Player.Paused</visible>
+          <control type="togglebutton" id="711">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xEB60;</label>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+            <onclick>SubTitleDelay</onclick>
+            <onleft>710</onleft>
+            <onright>712</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>-3</itemgap>
+          <visible>!VideoPlayer.Content(livetv)</visible>
+          <control type="button" id="712">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xeae4;</label>
+            <onclick>ActivateWindow(videobookmarks)</onclick>
+            <onleft>711</onleft>
+            <onright>713</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>-3</itemgap>
+          <visible>VideoPlayer.Content(livetv)</visible>
+          <control type="button" id="713">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xECF0;</label>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+            <onclick>ActivateWindow(PVROSDChannels)</onclick>
+            <onleft>712</onleft>
+            <onright>714</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>-3</itemgap>
+          <visible>VideoPlayer.Content(livetv) + VideoPlayer.HasEPG</visible>
+          <control type="button" id="714">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xF3F2;</label>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(pvrchannelguide)</onclick>
+            <onleft>713</onleft>
+            <onright>715</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>-3</itemgap>
+          <control type="button" id="715">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xf0e7;</label>
+            <onclick>SetProperty(settingslist_content,osd,home)</onclick>
+            <onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
+            <onclick>ActivateWindow(1101)</onclick>
+            <onleft>714</onleft>
+            <onright condition="Control.IsVisible(703)">703</onright>
+            <onright condition="!Control.IsVisible(703)">704</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
         </control>
       </control>
     </control>
