@@ -18,7 +18,7 @@
 				<top>80</top>
 				<height>40</height>
 				<width>1815</width>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)</visible>
 				<visible>$PARAM[visible]</visible>
 				<control type="label">
 					<top>12</top>
@@ -26,6 +26,7 @@
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="label">
 					<top>12</top>
@@ -35,7 +36,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | Skin.HasSetting(TrailerPlaying)</visible>
+					<visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(TrailerPlaying)]</visible>
 				</control>
 			</control>
 		</definition>
