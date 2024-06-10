@@ -80,8 +80,22 @@
 						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onright>
 						<orientation>vertical</orientation>
 						<texturesliderbackground />
-						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="!Control.HasFocus(531)">conditional</animation>
+						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(531)]">conditional</animation>
 						<visible>Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(55) | Control.IsVisible(501)</visible>
+					</control>
+					<control type="scrollbar" id="532">
+						<left>35</left>
+						<top>-487</top>
+						<bottom>100</bottom>
+						<width>12</width>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
+						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
+						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
+						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onright>
+						<orientation>vertical</orientation>
+						<texturesliderbackground />
+						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(532)]">conditional</animation>
+						<visible>Control.IsVisible(500)</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -1677,7 +1691,8 @@
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
 			<!-- <visible>!Control.IsVisible(500) + !Control.IsVisible(52) + !Player.HasMedia</visible> -->
-			<visible>!Player.HasMedia + [Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+			<!-- <visible>!Player.HasMedia + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + [Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible> -->
+			<visible>!Player.HasMedia + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + [Window.IsVisible(Home) | Window.IsVisible(1121)]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]</visible>
 		</control>
 	</include>
 	
@@ -1721,6 +1736,14 @@
 			<visible>false</visible>
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Stop</onunfocus>
 			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.Reset(TrailerPlaying)</onunfocus>
+		</control>
+	</include>
+
+	<include name="WallScrollTimer">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus>Skin.TimerStart(wallscrolltimer)</onfocus>
+			<!-- <onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.Reset(TrailerPlaying)</onunfocus> -->
 		</control>
 	</include>
 

@@ -2,6 +2,7 @@
 <includes>
 	<include name="FlixPanel">
 		<control type="group">
+			<visible>[Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + [Window.IsVisible(Home) | Window.IsVisible(1121)]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]</visible>
 			<left>50</left>
 			<width>785</width>
 			<top>45</top>

@@ -16,6 +16,8 @@
 	<onload condition="String.IsEmpty(Skin.String(onBackSetting))">Skin.SetString(onBackSetting,0)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
+	<onload>Skin.TimerStart(scrolltimer)</onload>
+	<!-- <onload condition="String.IsEmpty(Skin.String(mainMenuFocused))">Skin.TimerStart(scrolltimer)</onload> -->
 	<controls>
 		<include>DefaultBackground</include>
 		<include>FlixFanart</include>
@@ -832,8 +834,9 @@
 					</include>
 					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
 					<control type="fixedlist" id="9000">
-						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
-						<animation condition="Control.HasFocus(733)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
+						<animation condition="Control.HasFocus(700) | Control.HasFocus(733)">
+							<effect type="slide" start="0,0" end="0,150" time="500" tween="cubic" easing="inout" reversible="true" />
+						</animation>
 						<left>25</left>
 						<top>250</top>
             <width>825</width>
@@ -841,6 +844,8 @@
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
+						<onfocus>Skin.SetString(mainMenuFocused, true)</onfocus>
+						<onunfocus>Skin.TimerStart(navigationtimer)</onunfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 						<onleft condition="String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)">733</onleft>
 						<onback>700</onback>

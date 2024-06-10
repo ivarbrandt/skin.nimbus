@@ -367,7 +367,7 @@
 		<control type="group">
 			<left>50</left>
 			<top>$PARAM[top]</top>
-			<visible>!ListItem.IsFolder</visible>
+			<visible>[Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + Window.IsVisible(Home)] | Control.IsVisible(50) + !ListItem.IsFolder</visible>
 			<control type="image">
 				<top>160</top>
 				<left>1150</left>

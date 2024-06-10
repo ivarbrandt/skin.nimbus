@@ -13,4 +13,30 @@
         <description>A timer that is activated when the topbaroverlay is loaded and stops automatically after 5 seconds (or playback is resumed)</description>
         <stop>!Player.Paused | Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1110_topbaroverlay),5)</stop>
     </timer>
+    <timer>
+        <name>scrolltimer</name>
+        <description>Timer that is activated when a widget is focused</description>
+        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1)</stop>
+        <!-- <onstart>Notification(skintimer, Timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, Timer stopped, 1000)</onstop> -->
+    </timer>
+    <timer>
+        <name>navigationtimer</name>
+        <description>Timer to clear the navigation tracking property</description>
+        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(navigationtimer),0.5)</stop>
+        <onstop>Skin.Reset(mainMenuFocused)</onstop>
+        <!-- <onstart>Notification(skintimer, My timer was started, 1000)</onstart>
+        <onstop>Notification(skintimer, My timer was stopped, 1000)</onstop> -->
+    </timer>
+    <timer>
+        <name>wallscrolltimer</name>
+        <description>Timer to automatically return to Flix view</description>
+        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wallscrolltimer),2)</stop>
+        <onstop condition="Control.IsVisible(500) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(54)</onstop>
+        <!-- <onstart>Notification(skintimer, My timer was started, 1000)</onstart>
+        <onstop>Notification(skintimer, My timer was stopped, 1000)</onstop> -->
+    </timer>
 </timers>
