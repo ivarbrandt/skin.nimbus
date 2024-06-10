@@ -2,6 +2,7 @@
 <window type="SearchResults" id="1121">
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
+	<onload>Skin.TimerStart(scrolltimer)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<include>FlixFanart</include>
@@ -35,13 +36,13 @@
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27012"/>
             </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideCollectionsResults) + String.IsEqual(Skin.String(current_search_provider),0)">
-              <param name="content_path" value="plugin://plugin.video.fen/?mode=build_movie_list&amp;action=tmdb_movies_search_sets&amp;query=$INFO[Skin.String(SearchInputEncoded)]"/>
+            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideCollectionsResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),3)]">
+              <param name="content_path" value="$VAR[SearchProviderCollectionsVar]"/>
               <param name="widget_header" value="Collections"/>
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27013"/>
             </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1)]">
+            <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
               <param name="content_path" value="$VAR[SearchProviderPeopleVar]"/>
               <param name="widget_header" value="Actors/Actresses"/>
               <param name="widget_target" value="videos"/>
@@ -59,18 +60,36 @@
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27016"/>
             </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1)]">
+            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
 							<param name="content_path" value="$VAR[SearchProviderKeywordMoviesVar]"/>
               <param name="widget_header" value="$VAR[KeywordMoviesLabelVar]"/>
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27015"/>
             </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1)]">
+            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
 							<param name="content_path" value="$VAR[SearchProviderKeywordTVShowsVar]"/>
               <param name="widget_header" value="$VAR[KeywordTVShowsLabelVar]"/>
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27016"/>
             </include>
+            <include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+							<param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
+              <param name="widget_header" value="TRAKT Lists"/>
+              <param name="widget_target" value="videos"/>
+              <param name="list_id" value="27017"/>
+            </include>
+						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=movies&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
+							<param name="widget_header" value="TRAKT Lists (Movies)"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="27018"/>
+						</include>
+						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=tvshows&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
+							<param name="widget_header" value="TRAKT Lists (TV Shows)"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="27019"/>
+						</include>
 					</control>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="27099"/>
@@ -82,7 +101,7 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
-				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
+				<visible>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + !String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 				<top>568</top>
 				<left>50</left>
 				<width>1815</width>
@@ -91,7 +110,7 @@
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
-				</control>
+			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
@@ -140,6 +159,8 @@
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
+						<onfocus>Skin.SetString(mainMenuFocused, true)</onfocus>
+						<onunfocus>Skin.TimerStart(navigationtimer)</onunfocus>
 						<onleft>9000</onleft>
 						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
 						<onup>700</onup>
