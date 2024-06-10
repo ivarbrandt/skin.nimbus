@@ -9,6 +9,7 @@
 		<value condition="Control.HasFocus(63704)">Enabling this option will set the focus frame around items to use the color from the current color theme. This setting applies to all menu items such as posters and category widgets but it excludes list items. If this option is disabled it will use the color from the default color theme.</value>
 		<value condition="Control.HasFocus(63705)">Enabling this option will show the current time in the InfoLine located right above the widget items. This will show in the homescreen, search window, and all video windows.</value>
 		<value condition="Control.HasFocus(63706)">Enabling this option will show colored studio logos for media content in the FlixPanel.</value>
+		<value condition="Control.HasFocus(63707)">Enabling this option will allow for one-click access to Wall view when pressing down in Flix view. This is useful for quick browsing larger lists. When scrolling is stopped in Wall view, the skin will automatically switch back to Flix view.</value>
 		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings.</value>
 		<value condition="Control.HasFocus(64700)">Set your desired search provider. This will use the selected addon for searches in the search window and default search dialog. This setting can be changed on the fly in the search window mini menu.</value>
 		<value condition="Control.HasFocus(64701)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
@@ -18,7 +19,7 @@
 		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">Ratings and trailer settings.</value>
 		<value condition="Control.HasFocus(6480)">If you do not have a MDBList API key, please go to https://mdblist.com to sign up for a free API key.</value>
 		<value condition="Control.HasFocus(64801)">Toggle trailer viewing options. OFF: Disable all skin trailer functions. ONE-CLICK: Trailers are played by long pressing the play/pause button or the "t" key on a keyboard. AUTO: Trailers are automatically played after an item has been focused and the delay time has passed.</value>
-		<value condition="Control.HasFocus(64802)">map key text</value>
+		<value condition="Control.HasFocus(64802)">Click this to begin key mapping for one-click access to trailers. Follow the instructions provided in the notification window to map custom key.</value>
 		<value condition="Control.HasFocus(64803)">Set the amount of time to wait before playing the trailer.</value>
 		<value condition="Control.HasFocus(64804)">Enabling this option will show a small play icon at the beginning of the InfoLine. This icon works as a visual indication of when a trailer is loaded and ready to be played.</value>
 		<value condition="Control.HasFocus(64805) | Control.HasFocus(64806) | Control.HasFocus(64807) | Control.HasFocus(64808) | Control.HasFocus(64809) | Control.HasFocus(64810)">Enabling or disable the showing of specific ratings.</value>

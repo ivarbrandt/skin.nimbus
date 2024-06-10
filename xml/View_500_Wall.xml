@@ -7,21 +7,19 @@
 			<visible>Control.IsVisible(500)</visible>
 			<include>Visible_Right</include>
 			<control type="panel" id="500">
-				<animation condition="Control.HasFocus(500)">
+				<animation condition="Control.HasFocus(500) | Control.HasFocus(532) | ControlGroup(9000).HasFocus">
 					<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,937" end="0,0" time="500" tween="cubic" easing="out" />
 				</animation>
 				<height>100%</height>
-				<!-- <onback>Container.SetViewMode(54)</onback>
-				<onback>ClearProperty(CurrentView)</onback> -->
-				<onleft>Container.SetViewMode(54)</onleft>
-				<onright>Container.SetViewMode(54)</onright>
+				<onleft>532</onleft>
+				<onright>532</onright>
 				<onup condition="Integer.IsGreater(Container.NumPages,1)">500</onup>
 				<onup condition="!Integer.IsGreater(Container.NumPages,1)">9000</onup>
 				<ondown>500</ondown>
 				<viewtype label="31102">icon</viewtype>
 				<preloaditems>2</preloaditems>
-				<pagecontrol>531</pagecontrol>
+				<pagecontrol>532</pagecontrol>
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos) | Container.Content(addons) | Container.Content(images) | Container.Content(videos) | Container.Content(games)</visible>
 				<itemlayout height="387" width="268" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
@@ -37,6 +35,7 @@
 						<include content="FlixMovieLayout">
 							<param name="focused" value="true" />
 						</include>
+						<include>WallScrollTimer</include>
 					</control>
 				</focusedlayout>
 				<!-- <itemlayout height="301" width="300" condition="Container.Content(episodes) | Container.Content(videos) | [Container.Content(musicvideos) + !Skin.HasSetting(show_musicvideoposter)]">

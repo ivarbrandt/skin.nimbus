@@ -378,7 +378,8 @@
 				<orientation>horizontal</orientation>
 				<movement>6</movement>
 				<onup>9000</onup>
-				<ondown>5199</ondown>
+				<ondown condition="Skin.HasSetting(Disable.OneClickWallView)">5199</ondown>
+				<ondown condition="!Skin.HasSetting(Disable.OneClickWallView)">Container.SetViewMode(500)</ondown>
 				<viewtype label="31101">icon</viewtype>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>5199</pagecontrol>
