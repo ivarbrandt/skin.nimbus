@@ -4,36 +4,40 @@
   <include name="Seekbar">
 		<control type="progress">
 			<left>120</left>
-			<top>100</top>
+			<top>99</top>
 			<width>1680</width>
 			<height>12</height>
-			<texturebg colordiffuse="osd_grey">osd/ProgressBack.png</texturebg>
-			<midtexture colordiffuse="player_cache">osd/Progress.png</midtexture>
+			<!-- <texturebg colordiffuse="osd_grey">osd/ProgressBack.png</texturebg>
+			<midtexture colordiffuse="player_cache">osd/Progress.png</midtexture> -->
+			<texturebg colordiffuse="osd_grey1" border="7">progress/back24.png</texturebg>
+				<midtexture colordiffuse="player_cache" border="7">progress/slider24.png</midtexture>
 			<info>Player.ProgressCache</info>
 		</control>
 		<control type="progress">
 			<left>120</left>
-			<top>100</top>
+			<top>99</top>
 			<width>1680</width>
 			<height>12</height>
-			<texturebg colordiffuse="00FFFFFF">osd/ProgressBack.png</texturebg>
-			<midtexture colordiffuse="accent_color">osd/Progress.png</midtexture>
+			<!-- <texturebg colordiffuse="00FFFFFF">osd/ProgressBack.png</texturebg>
+			<midtexture colordiffuse="accent_color">osd/Progress.png</midtexture> -->
+			<texturebg colordiffuse="00FFFFFF" border="7">progress/back24.png</texturebg>
+				<midtexture colordiffuse="accent_color" border="7">progress/slider24.png</midtexture>
 			<info>Player.Progress</info>
 		</control>
 		<control type="ranges">
 			<left>120</left>
-			<top>101.3</top>
+			<top>94.2</top>
 			<width>1680</width>
-			<height>3</height>
+			<height>3.1</height>
 			<texturebg border="3" colordiffuse="00FFFFFF">colors/white50.png</texturebg>
-			<righttexture colordiffuse="white">osd/Chapter.png</righttexture>
+			<righttexture colordiffuse="ff808080">osd/Chapter.png</righttexture>
 			<info>Player.Chapters</info>
 		</control>
 		<control type="slider" id="401">
 			<left>120</left>
-			<top>100</top>
+			<top>99</top>
 			<width>1680</width>
-			<height>12</height>
+			<height>14</height>
 			<orientation>horizontal</orientation>
 			<texturesliderbar colordiffuse="00ffffff">osd/ProgressBack.png</texturesliderbar>
 			<textureslidernib colordiffuse="unfocused_text">osd/Progress.png</textureslidernib>
