@@ -66,8 +66,8 @@
 								<aligny>center</aligny>
 								<scroll>true</scroll>
 								<scrollspeed>160</scrollspeed>
-								<font>font27_title</font>
-								<label>[LIGHT]$VAR[ListLabelVar][/LIGHT]</label>
+								<font>font27</font>
+								<label>$VAR[ListLabelVar]</label>
 								<textcolor>focused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
 								<visible>Container.Content(movies) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(videos)</visible>
@@ -77,8 +77,8 @@
 								<aligny>center</aligny>
 								<scroll>true</scroll>
 								<scrollspeed>160</scrollspeed>
-								<font>font27_title</font>
-								<label>[LIGHT]$VAR[ListLabelVar][/LIGHT]</label>
+								<font>font27</font>
+								<label>$VAR[ListLabelVar]</label>
 								<textcolor>focused_text</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
 								<visible>Container.Content(tvshows)</visible>
@@ -90,8 +90,8 @@
 							<bottom>0</bottom>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font27_title</font>
-							<label>[LIGHT]$INFO[ListItem.Rating][/LIGHT]</label>
+							<font>font27</font>
+							<label>$INFO[ListItem.Rating]</label>
 							<textcolor>focused_text</textcolor>
 							<visible>!$EXP[isTVShow] + !$EXP[isSeason]</visible>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -102,8 +102,8 @@
 							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<font>font27_title</font>
-							<label>[LIGHT]$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,][/LIGHT]</label>
+							<font>font27</font>
+							<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
 							<textcolor>focused_text</textcolor>
 							<visible>$EXP[isSeason]</visible>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -117,8 +117,8 @@
 								<right>20</right>
 								<align>right</align>
 								<aligny>center</aligny>
-								<font>font27_title</font>
-								<label>[LIGHT]$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]  •  $INFO[ListItem.Rating][/LIGHT]</label>
+								<font>font27</font>
+								<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]  •  $INFO[ListItem.Rating]</label>
 								<textcolor>focused_text</textcolor>
 							</control>
 							<shadowcolor>text_shadow</shadowcolor>
@@ -219,8 +219,8 @@
 							<right>20</right>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
-							<font>font27_title</font>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
+							<font>font27</font>
+							<label>$INFO[ListItem.Label]</label>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -231,8 +231,8 @@
 							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>[LIGHT]$VAR[ListLabel2Var][/LIGHT]</label>
-							<font>font27_title</font>
+							<label>$VAR[ListLabel2Var]</label>
+							<font>font27</font>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -295,8 +295,8 @@
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>160</scrollspeed>
-							<font>font27_title</font>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
+							<font>font27</font>
+							<label>$INFO[ListItem.Label]</label>
 							<textcolor>focused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -395,8 +395,8 @@
 				<left>70</left>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
-				<font>font27_title</font>
-				<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
+				<font>font27</font>
+				<label>$INFO[ListItem.Label]</label>
 				<textcolor>focused_text</textcolor>
 			</control>
 			<control type="label">
@@ -404,8 +404,8 @@
 				<right>70</right>
 				<align>right</align>
 				<aligny>center</aligny>
-				<font>font27_title</font>
-				<label>[LIGHT]$VAR[AddonsLabel2Var][/LIGHT]</label>
+				<font>font27</font>
+				<label>$VAR[AddonsLabel2Var]</label>
 				<textcolor>focused_text</textcolor>
 				<scroll>true</scroll>
 			</control>

@@ -96,7 +96,7 @@
 								<align>center</align>
 								<aligny>center</aligny>
 								<scroll>true</scroll>
-								<label>[B]$INFO[ListItem.Label][/B]</label>
+								<label>$INFO[ListItem.Label]</label>
 								<textcolor>focused_text</textcolor>
 							</control>
 						</focusedlayout>

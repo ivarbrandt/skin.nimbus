@@ -134,7 +134,7 @@
 						<aligny>center</aligny>
 						<scroll>true</scroll>
 						<font>font14</font>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>
 					</control>
 					<control type="textbox">
@@ -143,7 +143,7 @@
 						<right>20</right>
 						<height>67</height>
 						<font>font12</font>
-						<label>[B]$INFO[ListItem.Label2][/B]</label>
+						<label>$INFO[ListItem.Label2]</label>
 						<textcolor>focused_text</textcolor>
 					</control>
 				</focusedlayout>

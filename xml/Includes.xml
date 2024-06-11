@@ -357,7 +357,7 @@
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
 						<aligny>center</aligny>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>
 						<scroll>true</scroll>
 					</control>
@@ -522,7 +522,7 @@
 						<right>20</right>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
@@ -650,7 +650,7 @@
 		<definition>
 			<control type="grouplist">
 				<left>20</left>
-				<top>5</top>
+				<top>-20</top>
 				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 				<width>1400</width>
@@ -663,7 +663,7 @@
 					<font>font30_title</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
-					<height>35</height>
+					<height>45</height>
 					<scroll>true</scroll>
 					<animation effect="slide" start="0,0" end="0,15" time="0" condition="String.IsEmpty(Control.GetLabel($PARAM[id]))">Conditional</animation>
 				</control>
@@ -1268,7 +1268,7 @@
 					<left>0</left>
 					<bottom>0</bottom>
 					<width>110%</width>
-					<height>85</height>
+					<height>123</height>
 					<texture flipy="true">frame/InfoBar.png</texture>
 				</control>
 				<control type="group">
@@ -1616,6 +1616,7 @@
 				<width>350</width>
 				<height>400</height>
 				<label>$INFO[ListItem.Label]</label>
+				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<align>center</align>
 			</control>
@@ -1659,6 +1660,7 @@
 					<width>350</width>
 					<height>400</height>
 					<label>$INFO[ListItem.Label]</label>
+					<font>font27</font>
 					<textcolor>FFCCCCCC</textcolor>
 					<align>center</align>
 				</control>
@@ -1727,7 +1729,7 @@
 			<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
 			<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
 			<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
-			<label>$PARAM[flixlabel]</label>
+			<label>[LIGHT]$PARAM[flixlabel][/LIGHT]</label>
 		</control>
 	</include>
 

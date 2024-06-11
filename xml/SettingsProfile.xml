@@ -174,7 +174,7 @@
 				</control>
 				<control type="button" id="5">
 					<label>$LOCALIZE[31058]</label>
-					<label2>[B]$INFO[System.ProfileAutoLogin][/B]</label2>
+					<label2>$INFO[System.ProfileAutoLogin]</label2>
 					<include>DefaultSettingButton</include>
 					<enable>!Window.IsVisible(ProfileSettings) + !System.HasLoginScreen</enable>
 				</control>

@@ -74,7 +74,7 @@
 							<width>150</width>
 							<top>0</top>
 							<aligny>center</aligny>
-							<label>[B]$INFO[ListItem.StartTime][/B]</label>
+							<label>$INFO[ListItem.StartTime]</label>
 							<textcolor>focused_text</textcolor>
 						</control>
 						<control type="label">
@@ -84,7 +84,7 @@
 							<top>0</top>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>[B]$VAR[PVRListItemSubLabelFocused][/B]</label>
+							<label>$VAR[PVRListItemSubLabelFocused]</label>
 							<textcolor>focused_text</textcolor>
 							<scroll>true</scroll>
 						</control>

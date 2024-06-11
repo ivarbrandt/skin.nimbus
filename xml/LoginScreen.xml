@@ -88,7 +88,7 @@
 						<right>60</right>
 						<top>220</top>
 						<height>80</height>
-						<label>[B]$INFO[ListItem.label][/B]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>
 						<font>font27</font>
 						<align>center</align>

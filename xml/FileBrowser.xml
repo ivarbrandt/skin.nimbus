@@ -115,7 +115,7 @@
 						<height>70</height>
 						<aligny>center</aligny>
 						<selectedcolor>green</selectedcolor>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
 						<textcolor>focused_text</textcolor>
 					</control>
@@ -177,7 +177,7 @@
 						<height>70</height>
 						<aligny>center</aligny>
 						<selectedcolor>green</selectedcolor>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
 						<textcolor>focused_text</textcolor>
 					</control>

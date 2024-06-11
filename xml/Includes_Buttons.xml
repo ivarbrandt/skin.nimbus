@@ -348,7 +348,7 @@
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<label>[B]$INFO[ListItem.Label][/B]</label>
+				<label>$INFO[ListItem.Label]</label>
 				<font>font32</font>
 				<textcolor>focused_text</textcolor>
 			</control>

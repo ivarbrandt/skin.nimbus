@@ -152,11 +152,11 @@
 					<param name="info_icon" value="$PARAM[info_icon]" />
 					<param name="has_info_icon" value="$PARAM[has_info_icon]" />
 					<param name="has_status_icon" value="$PARAM[has_status_icon]" />
-					<param name="label0" value="[COLOR focused_text][B]$INFO[ListItem.ChannelNumberLabel][/B][/COLOR]" />
-					<param name="label1" value="[COLOR focused_text][B]$PARAM[label1][/B][/COLOR]" />
-					<param name="label2" value="[COLOR focused_text][B]$PARAM[label2][/B][/COLOR]" />
-					<param name="label3" value="[COLOR focused_text][B]$VAR[PVRListItemSubLabelFocused][/B][/COLOR]" />
-					<param name="label4" value="[COLOR focused_text][B]$INFO[ListItem.Comment][/B][/COLOR]" />
+					<param name="label0" value="[COLOR focused_text]$INFO[ListItem.ChannelNumberLabel][/COLOR]" />
+					<param name="label1" value="[COLOR focused_text]$PARAM[label1][/COLOR]" />
+					<param name="label2" value="[COLOR focused_text]$PARAM[label2][/COLOR]" />
+					<param name="label3" value="[COLOR focused_text]$VAR[PVRListItemSubLabelFocused][/COLOR]" />
+					<param name="label4" value="[COLOR focused_text]$INFO[ListItem.Comment][/COLOR]" />
 				</include>
 			</focusedlayout>
 		</definition>
@@ -385,8 +385,8 @@
 				<top>433</top>
 				<height>20</height>
 				<reveal>false</reveal>
-				<texturebg colordiffuse="player_cache" border="12">progress/back24.png</texturebg>
-				<midtexture colordiffuse="accent_color" border="12">progress/slider24.png</midtexture>
+				<texturebg colordiffuse="player_cache" border="10">progress/back24.png</texturebg>
+				<midtexture colordiffuse="accent_color" border="10">progress/slider24.png</midtexture>
 				<info>ListItem.Progress</info>
 				<visible>Window.IsVisible(Home) + Integer.IsGreater(ListItem.Progress,0) + !Player.HasMedia</visible>
 			</control>
@@ -501,6 +501,7 @@
 				<height>260</height>
 				<!-- <bottom>625</bottom> -->
 				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
+				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 				<visible>!Player.HasMedia</visible>
@@ -511,6 +512,7 @@
 				<height>260</height>
 				<!-- <bottom>625</bottom> -->
 				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
+				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<autoscroll delay="10000" time="3000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 				<visible>Player.HasMedia</visible>
@@ -782,7 +784,7 @@
 						<height>36</height>
 						<aligny>center</aligny>
 						<font>font13</font>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>
 					</control>
 					<control type="image">
