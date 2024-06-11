@@ -18,7 +18,7 @@
 				<top>80</top>
 				<height>40</height>
 				<width>1815</width>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)</visible>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | !Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)</visible>
 				<visible>$PARAM[visible]</visible>
 				<control type="label">
 					<top>12</top>
@@ -718,11 +718,11 @@
 		<onright>$PARAM[list_id]</onright>
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),1) | String.IsEqual(Skin.String(onBackSetting),2)">SetFocus($PARAM[list_id],0,absolute)</onback>
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),0) | String.IsEqual(Skin.String(onBackSetting),2)">9000</onback>
+		<!-- <onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
+		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus> -->
 		<onfocus condition="String.IsEmpty(Skin.String(mainMenuFocused))">Skin.TimerStart(scrolltimer)</onfocus>
 		<!-- <onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus> -->
 		<!-- <onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus> -->
-		<onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
-		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
 		<!-- <onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus> -->
 		<!-- <onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
 		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus> -->

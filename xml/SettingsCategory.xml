@@ -175,12 +175,13 @@
 			<control type="textbox" id="6">
 				<description>description area</description>
 				<left>510</left>
-				<bottom>25</bottom>
+				<bottom>27</bottom>
 				<right>60</right>
-				<height>102</height>
+				<height>98</height>
+				<width>1370</width>
 				<font>font12</font>
 				<align>justify</align>
-				<textcolor>button_focus</textcolor>
+				<textcolor>accent_color</textcolor>
 				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 			</control>
 		</control>

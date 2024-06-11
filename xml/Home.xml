@@ -843,6 +843,8 @@
 						<height>533</height>
 						<movement>6</movement>
 						<focusposition>0</focusposition>
+						<onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
+						<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>Skin.SetString(mainMenuFocused, true)</onfocus>
 						<onunfocus>Skin.TimerStart(navigationtimer)</onunfocus>

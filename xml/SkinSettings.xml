@@ -792,8 +792,8 @@
 			<description>description area</description>
 			<left>510</left>
 			<bottom>27</bottom>
-			<width>1350</width>
-			<height>100</height>
+			<width>1370</width>
+			<height>98</height>
 			<font>font12</font>
 			<align>justify</align>
 			<textcolor>unfocused_text</textcolor>
