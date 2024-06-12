@@ -7,8 +7,8 @@
 			<width>785</width>
 			<top>45</top>
 			<control type="image">
-				<width>545</width>
-				<height>233</height>
+				<width>522</width>
+				<height>223</height>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
@@ -44,7 +44,7 @@
 			</control>
 		
 			<control type="grouplist">
-				<top>258</top>
+				<top>248</top>
 				<orientation>vertical</orientation>
 				<itemgap>7</itemgap>
 				<!-- <control type="textbox">
@@ -122,7 +122,7 @@
 				</control>
 				<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
 				<control type="textbox">
-					<height max="135">auto</height>
+					<height max="145">auto</height>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
 					<font>font27</font>
@@ -131,7 +131,7 @@
 					<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
 				</control>
 				<control type="textbox">
-					<height max="235">auto</height>
+					<height max="245">auto</height>
 					<width>600</width>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
@@ -141,7 +141,7 @@
 					<visible>Player.HasMedia</visible>
 				</control>
 				<control type="textbox">
-					<height max="165">auto</height>
+					<height max="175">auto</height>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
 					<font>font27</font>

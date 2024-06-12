@@ -98,9 +98,9 @@
 			</control>
 			<control type="group">
 				<visible>ControlGroup(15000).HasFocus</visible>
-				<left>-5</left>
+				<left>5</left>
 				<top>280</top>
-				<width>290</width>
+				<width>280</width>
 				<height>75</height>
 				<control type="label">
 					<top>75</top>
@@ -118,9 +118,9 @@
 			</control>
 			<control type="textbox">
 				<visible>!ControlGroup(15000).HasFocus</visible>
-				<left>-5</left>
+				<left>5</left>
 				<top>285</top>
-				<width>290</width>
+				<width>280</width>
 				<height>75</height>
 				<align>center</align>
 				<aligny>center</aligny>

@@ -498,7 +498,7 @@
 			<control type="textbox">
 				<top>220</top>
 				<width>830</width>
-				<height>260</height>
+				<height>250</height>
 				<!-- <bottom>625</bottom> -->
 				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
 				<font>font27</font>
@@ -509,7 +509,7 @@
 			<control type="textbox">
 				<top>220</top>
 				<width>550</width>
-				<height>260</height>
+				<height>250</height>
 				<!-- <bottom>625</bottom> -->
 				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
 				<font>font27</font>
