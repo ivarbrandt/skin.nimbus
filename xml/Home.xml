@@ -7,17 +7,9 @@
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
-	<!-- <onload>RunScript(script.nimbus.helper,mode=fix_black_screen)</onload> -->
-	<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,2.5)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(trailerSetting))">Skin.SetString(trailerSetting,0)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(titleSetting))">Skin.SetString(titleSetting,0)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(onBackSetting))">Skin.SetString(onBackSetting,0)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
-	<onload>Skin.TimerStart(scrolltimer)</onload>
-	<!-- <onload condition="String.IsEmpty(Skin.String(mainMenuFocused))">Skin.TimerStart(scrolltimer)</onload> -->
+	<onload>Skin.TimerStart(navigation_timer)</onload>
+	<onload>Skin.SetString(navigation_delay, true)</onload>
+	<!-- <onload condition="String.IsEmpty(Skin.String(navigation_delay))">Skin.TimerStart(widget_scroll_timer)</onload> -->
 	<controls>
 		<include>DefaultBackground</include>
 		<include>FlixFanart</include>
@@ -452,7 +444,7 @@
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
 							<param name="list_id" value="13900"/>
 						</include>
-						<include content="WidgetListPVR" condition="System.HasPVRAddon">
+						<include content="WidgetListSquare" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://channels/radio/*?view=lastplayed"/>
 							<param name="sortby" value="lastplayed"/>
 							<param name="sortorder" value="descending"/>
@@ -461,7 +453,7 @@
 							<param name="list_id" value="13200"/>
 							<param name="info_update" value="5000"/>
 						</include>
-						<include content="WidgetListPVR" condition="System.HasPVRAddon">
+						<include content="WidgetListSquare" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://recordings/radio/active?view=flat"/>
 							<param name="sortby" value="date"/>
 							<param name="sortorder" value="descending"/>
@@ -471,7 +463,7 @@
 							<param name="label" value="$INFO[ListItem.Title]$INFO[ListItem.Date, (,)]"/>
 							<param name="label2" value="$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName]"/>
 						</include>
-						<include content="WidgetListPVR" condition="System.HasPVRAddon">
+						<include content="WidgetListSquare" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://timers/radio/timers/?view=hidedisabled"/>
 							<param name="sortorder" value="ascending"/>
 							<param name="sortby" value="date"/>
@@ -482,14 +474,14 @@
 							<param name="label" value="$INFO[ListItem.Title]$INFO[ListItem.Date, (,)]"/>
 							<param name="label2" value="$VAR[SeasonEpisodeLabel]$INFO[ListItem.EpisodeName]"/>
 						</include>
-						<include content="WidgetListPVR" condition="System.HasPVRAddon">
+						<include content="WidgetListSquare" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://channels/radio"/>
 							<param name="widget_header" value="$LOCALIZE[19174]"/>
 							<param name="widget_target" value="radioguide"/>
 							<param name="list_id" value="13500"/>
 							<param name="item_treshold" value="1"/>
 						</include>
-						<include content="WidgetListPVR" condition="System.HasPVRAddon">
+						<include content="WidgetListSquare" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://search/radio/savedsearches"/>
 							<param name="sortorder" value="descending"/>
 							<param name="sortby" value="date"/>
@@ -843,11 +835,9 @@
 						<height>533</height>
 						<movement>6</movement>
 						<focusposition>0</focusposition>
-						<onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
-						<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
-						<onfocus>Skin.SetString(mainMenuFocused, true)</onfocus>
-						<onunfocus>Skin.TimerStart(navigationtimer)</onunfocus>
+						<onfocus>Skin.SetString(navigation_delay, true)</onfocus>
+						<onunfocus>Skin.TimerStart(navigation_timer)</onunfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 						<onleft condition="String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)">733</onleft>
 						<onback>700</onback>

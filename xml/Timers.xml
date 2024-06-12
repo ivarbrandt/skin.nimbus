@@ -14,27 +14,27 @@
         <stop>!Player.Paused | Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1110_topbaroverlay),5)</stop>
     </timer>
     <timer>
-        <name>scrolltimer</name>
+        <name>widget_scroll_timer</name>
         <description>Timer that is activated when a widget is focused</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1)</stop>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)</stop>
         <!-- <onstart>Notification(skintimer, Timer started, 1000)</onstart>
         <onstop>Notification(skintimer, Timer stopped, 1000)</onstop> -->
     </timer>
     <timer>
-        <name>navigationtimer</name>
+        <name>navigation_timer</name>
         <description>Timer to clear the navigation tracking property</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(navigationtimer),0.5)</stop>
-        <onstop>Skin.Reset(mainMenuFocused)</onstop>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(navigation_timer),0.5)</stop>
+        <onstop>Skin.Reset(navigation_delay)</onstop>
         <!-- <onstart>Notification(skintimer, My timer was started, 1000)</onstart>
         <onstop>Notification(skintimer, My timer was stopped, 1000)</onstop> -->
     </timer>
     <timer>
-        <name>wallscrolltimer</name>
+        <name>wall_scroll_timer</name>
         <description>Timer to automatically return to Flix view</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wallscrolltimer),2)</stop>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wall_scroll_timer),2)</stop>
         <onstop condition="Control.IsVisible(500) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(54)</onstop>
         <!-- <onstart>Notification(skintimer, My timer was started, 1000)</onstart>
         <onstop>Notification(skintimer, My timer was stopped, 1000)</onstop> -->

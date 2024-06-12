@@ -35,7 +35,7 @@
 						<include content="FlixMovieLayout">
 							<param name="focused" value="true" />
 						</include>
-						<include>WallScrollTimer</include>
+						<include>WallTimer</include>
 					</control>
 				</focusedlayout>
 				<!-- <itemlayout height="301" width="300" condition="Container.Content(episodes) | Container.Content(videos) | [Container.Content(musicvideos) + !Skin.HasSetting(show_musicvideoposter)]">
@@ -110,6 +110,13 @@
 						</include>
 					</control>
 				</focusedlayout>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<bottom>0</bottom>
+				<width>110%</width>
+				<height>123</height>
+				<texture flipy="true">frame/InfoBar.png</texture>
 			</control>
 		</control>
 	</include>

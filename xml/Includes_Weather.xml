@@ -32,7 +32,7 @@
 			<left>50</left>
 			<top>-511</top>
 			<height>360</height>
-			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1)</visible>
+			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)</visible>
 			<include content="BigWeatherLabel">
 				<param name="top" value="60"/>
 				<param name="label" value="[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]"/>

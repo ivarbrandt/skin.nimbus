@@ -2,21 +2,17 @@
 <window>
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
+	<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,2.5)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(trailerSetting))">Skin.SetString(trailerSetting,0)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(titleSetting))">Skin.SetString(titleSetting,0)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(onBackSetting))">Skin.SetString(onBackSetting,0)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
 	<onload>RunScript(script.nimbus.helper, mode=calculate_cache_size)</onload>
 	<controls>
 		<include>DefaultBackground</include>
-		<control type="multiimage">
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<fadetime>600</fadetime>
-			<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-			<animation effect="fade" start="0" end="100" time="400">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
-			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true">$INFO[Skin.String(HomeFanart.path)]settings$INFO[Skin.String(HomeFanart.ext)]</imagepath>
-			<visible>!Player.HasMedia + !String.IsEmpty(Skin.String(HomeFanart.path))</visible>
-		</control>
 		<control type="group" id="10000">
 			<left>470</left>
 			<include>OpenClose_Right</include>

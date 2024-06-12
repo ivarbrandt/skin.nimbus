@@ -36,7 +36,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>![Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) | Control.HasFocus($PARAM[list_id])]</visible>
+					<visible>![Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) | Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="label">
 					<top>12</top>
@@ -718,14 +718,7 @@
 		<onright>$PARAM[list_id]</onright>
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),1) | String.IsEqual(Skin.String(onBackSetting),2)">SetFocus($PARAM[list_id],0,absolute)</onback>
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),0) | String.IsEqual(Skin.String(onBackSetting),2)">9000</onback>
-		<!-- <onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
-		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus> -->
-		<onfocus condition="String.IsEmpty(Skin.String(mainMenuFocused))">Skin.TimerStart(scrolltimer)</onfocus>
-		<!-- <onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus> -->
-		<!-- <onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus> -->
-		<!-- <onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus> -->
-		<!-- <onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
-		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus> -->
+		<onfocus condition="String.IsEmpty(Skin.String(navigation_delay))">Skin.TimerStart(widget_scroll_timer)</onfocus>
 		<preloaditems>2</preloaditems>
 	</include>
 

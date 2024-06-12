@@ -2,7 +2,8 @@
 <window type="SearchResults" id="1121">
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<onload>Skin.TimerStart(scrolltimer)</onload>
+	<onload>Skin.TimerStart(widget_scroll_timer)</onload>
+	<onunload>Skin.SetString(navigation_delay, true)</onunload>
 	<controls>
 		<include>DefaultBackground</include>
 		<include>FlixFanart</include>
@@ -101,7 +102,7 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
-				<visible>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + !String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
+				<visible>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + !String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 				<top>568</top>
 				<left>50</left>
 				<width>1815</width>
@@ -159,8 +160,8 @@
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
-						<onfocus>Skin.SetString(mainMenuFocused, true)</onfocus>
-						<onunfocus>Skin.TimerStart(navigationtimer)</onunfocus>
+						<onfocus>Skin.SetString(navigation_delay, true)</onfocus>
+						<onunfocus>Skin.TimerStart(navigation_timer)</onunfocus>
 						<onleft>9000</onleft>
 						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
 						<onup>700</onup>

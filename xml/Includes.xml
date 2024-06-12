@@ -1117,34 +1117,6 @@
 		<width>auto</width>
 	</include>
 
-	<!-- <include name="ColoredBackgroundImages">
-		<control type="image">
-			<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-		</control>
-		<control type="image">
-			<visible>Skin.HasSetting(Enable.ColorThemeBackground) + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
-			<depth>DepthBackground</depth>
-			<include>FullScreenDimensions</include>
-			<aspectratio>scale</aspectratio>
-			<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-		</control>
-		<control type="image">
-			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus + !Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
-			<right>-3</right>
-			<top>-3</top>
-			<width>1410</width>
-			<height>730</height>
-			<depth>DepthBackground</depth>
-			<aspectratio>scale</aspectratio>
-			<texture diffuse="overlays/netflixfanartdiffuse.png" colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-			<animation effect="fade" time="400">VisibleChange</animation>
-		</control>
-	</include> -->
-
 	<include name="ColoredBackgroundImages">
 		<control type="group">
 			<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(55)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + !String.IsEmpty(ListItem.Art(fanart)) + Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
@@ -1174,11 +1146,8 @@
 				<visible>[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(500)]] | [!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(500) | Window.IsVisible(1100)] </visible>
 			</control>
 			<control type="image">
-				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus</visible>
-				<right>-3</right>
-				<top>-3</top>
-				<width>1300</width>
-				<height>731</height>
+				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + !ControlGroup(15000).HasFocus</visible>
+				<include>NetflixScreenDimensions</include>
 				<depth>DepthBackground</depth>
 				<aspectratio>scale</aspectratio>
 				<texture diffuse="overlays/netflixfanartdiffuse.png" colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
@@ -1375,6 +1344,13 @@
 		<top>0</top>
 		<width>100%</width>
 		<height>100%</height>
+	</include>
+
+	<include name="NetflixScreenDimensions">
+		<right>-3</right>
+		<top>-3</top>
+		<width>1300</width>
+		<height>731</height>
 	</include>
 
 	<include name="FocusableProgressBar">
@@ -1682,19 +1658,14 @@
 
 	<include name="FlixFanart">
 		<control type="multiimage">
-			<right>-3</right>
-			<top>-3</top>
-			<width>1300</width>
-			<height>731</height>
+			<include>NetflixScreenDimensions</include>
 			<aspectratio>stretch</aspectratio>
 			<fadetime>500</fadetime>
 			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
-			<!-- <visible>!Control.IsVisible(500) + !Control.IsVisible(52) + !Player.HasMedia</visible> -->
-			<!-- <visible>!Player.HasMedia + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + [Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible> -->
-			<visible>!Player.HasMedia + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + [Window.IsVisible(Home) | Window.IsVisible(1121)]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]</visible>
+			<visible>!Player.HasMedia + !String.IsEmpty(ListItem.Art(fanart)) + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + [[Window.IsVisible(Home) | Window.IsVisible(1121)] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
 		</control>
 	</include>
 	
@@ -1741,11 +1712,10 @@
 		</control>
 	</include>
 
-	<include name="WallScrollTimer">
+	<include name="WallTimer">
 		<control type="button">
 			<visible>false</visible>
-			<onfocus>Skin.TimerStart(wallscrolltimer)</onfocus>
-			<!-- <onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.Reset(TrailerPlaying)</onunfocus> -->
+			<onfocus>Skin.TimerStart(wall_scroll_timer)</onfocus>
 		</control>
 	</include>
 

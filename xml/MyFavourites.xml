@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">500</defaultcontrol>
-	<onload>ClearProperty(nimbus_fanart_art, home)</onload>
-	<onload>ClearProperty(nimbus_fanart_prop, home)</onload>
 	<backgroundcolor>background</backgroundcolor>
 	<views>50,52,55,500</views>
 	<menucontrol>9000</menucontrol>

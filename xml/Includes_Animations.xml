@@ -244,13 +244,13 @@
   </include>
 
 	<!-- <include name="ScrollFade">
-    <animation effect="fade" start="100" end="100" time="300" tween="cubic" reversible="true" condition="Control.HasFocus($PARAM[list_id]) + !Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
-    <animation effect="fade" start="100" end="0" time="300" tween="cubic" reversible="true" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + !Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(9000) + !Control.HasFocus(700) + !Control.HasFocus(733)">Conditional</animation>
-    <animation effect="slide" start="0,0" end="1920,0" time="375" tween="cubic" easing="inout" reversible="true" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + !Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(9000) + !Control.HasFocus(700) + !Control.HasFocus(733)">Conditional</animation>
+    <animation effect="fade" start="100" end="100" time="300" tween="cubic" reversible="true" condition="Control.HasFocus($PARAM[list_id]) + !Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+    <animation effect="fade" start="100" end="0" time="300" tween="cubic" reversible="true" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + !Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(9000) + !Control.HasFocus(700) + !Control.HasFocus(733)">Conditional</animation>
+    <animation effect="slide" start="0,0" end="1920,0" time="375" tween="cubic" easing="inout" reversible="true" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + !Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(9000) + !Control.HasFocus(700) + !Control.HasFocus(733)">Conditional</animation>
 	</include> -->
 
 	<include name="ScrollFade">
-		<animation condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(scrolltimer),1) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]">
+		<animation condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + ![Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]">
 			<effect type="fade" start="100" end="0" time="300" tween="cubic" reversible="true" />
 			<effect type="slide" start="0,0" end="1920,0" time="375" tween="cubic" reversible="true" />
 		</animation>
