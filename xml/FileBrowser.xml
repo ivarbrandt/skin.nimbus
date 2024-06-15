@@ -81,14 +81,15 @@
 					</control>
 					<control type="label">
 						<left>100</left>
-						<top>-1</top>
+						<top>0</top>
 						<right>20</right>
 						<height>70</height>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>12</textoffsety>
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
-						<textcolor>darkgrey</textcolor>
+						<textcolor>unfocused_text</textcolor>
 					</control>
 				</itemlayout>
 				<focusedlayout height="75" width="940">
@@ -110,10 +111,11 @@
 					</control>
 					<control type="label">
 						<left>100</left>
-						<top>-1</top>
+						<top>0</top>
 						<right>20</right>
 						<height>70</height>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>12</textoffsety>
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
@@ -146,7 +148,8 @@
 						<top>0</top>
 						<right>20</right>
 						<height>70</height>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>12</textoffsety>
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
@@ -175,7 +178,8 @@
 						<top>0</top>
 						<right>20</right>
 						<height>70</height>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>12</textoffsety>
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>

@@ -35,11 +35,7 @@
 						<onclick>Dialog.Close(all)</onclick>
 						<onclick>ActivateWindow(systeminfo)</onclick>
 					</item>
-					<item>
-						<label>$LOCALIZE[13012]</label>
-						<onclick>Quit()</onclick>
-						<visible>System.ShowExitButton</visible>
-					</item>
+					
 					<item>
 						<label>$LOCALIZE[13016]</label>
 						<onclick>Powerdown()</onclick>
@@ -92,6 +88,11 @@
 						<label>$LOCALIZE[13018]</label>
 						<onclick>InhibitIdleShutdown(false)</onclick>
 						<visible>System.HasShutdown + System.IdleShutdownInhibited</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[13012]</label>
+						<onclick>Quit()</onclick>
+						<visible>System.ShowExitButton</visible>
 					</item>
 				</content>
 			</control>

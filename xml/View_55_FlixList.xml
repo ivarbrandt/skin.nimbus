@@ -41,7 +41,7 @@
 					<ondown>55</ondown>
 					<viewtype label="$LOCALIZE[31107]">list</viewtype>
 					<focusedlayout height="list_item_height" width="608" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">
-						<include>TrailerAutoStop</include>
+						<include>TrailerControl</include>
 						<control type="image">
 							<left>0</left>
 							<right>0</right>

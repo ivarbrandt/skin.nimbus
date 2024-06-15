@@ -95,7 +95,8 @@
 						<right>25</right>
 						<bottom>0</bottom>
 						<texture colordiffuse="button_focus">masks/focus.png</texture>
-						<visible>Control.HasFocus(6)</visible>
+						<!-- <visible>Control.HasFocus(6)</visible> -->
+						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(6)">Conditional</animation>
 					</control>
 					<control type="image">
 						<left>37</left>

@@ -42,11 +42,13 @@
 			</include>
 			<control type="button" id="1000">
 				<description>button template</description>
+				<textoffsety>11</textoffsety>
 				<left>25</left>
-				<top></top>
+				<!-- <top></top> -->
 				<width>446</width>
 				<height>70</height>
 				<align>center</align>
+				<aligny>left</aligny>
 				<font>font32</font>
 				<textcolor>darkgrey</textcolor>
 				<focusedcolor>focused_text</focusedcolor>

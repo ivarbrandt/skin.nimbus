@@ -61,12 +61,12 @@
 						<top>0</top>
 						<left>40</left>
 						<right>40</right>
-						<onleft>noop</onleft>
-						<onright>noop</onright>
+						<onleft>11</onleft>
+						<onright>11</onright>
 						<onup>63</onup>
 						<ondown>63</ondown>
 						<orientation>horizontal</orientation>
-						<scrolltime>200</scrolltime>
+						<scrolltime tween="cubic">300</scrolltime>
 						<visible>Control.IsVisible(50) | Control.IsVisible(51)</visible>
 						<itemlayout height="50" width="368">
 							<control type="label">
@@ -74,7 +74,8 @@
 								<width>358</width>
 								<height>48</height>
 								<align>center</align>
-								<aligny>center</aligny>
+								<aligny>left</aligny>
+								<textoffsety>3</textoffsety>
 								<label>$INFO[ListItem.Label]</label>
 								<textcolor>lightgrey</textcolor>
 							</control>
@@ -94,7 +95,8 @@
 								<width>358</width>
 								<height>48</height>
 								<align>center</align>
-								<aligny>center</aligny>
+								<aligny>left</aligny>
+								<textoffsety>3</textoffsety>
 								<scroll>true</scroll>
 								<label>$INFO[ListItem.Label]</label>
 								<textcolor>focused_text</textcolor>

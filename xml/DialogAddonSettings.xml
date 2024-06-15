@@ -34,10 +34,11 @@
 				<height>80</height>
 				<width>345</width>
 				<textoffsetx>20</textoffsetx>
+				<textoffsety>19</textoffsety>
 				<textcolor>darkgrey</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
 				<align>center</align>
-				<aligny>center</aligny>
+				<aligny>left</aligny>
 				<font>font27_title</font>
 				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
 				<texturenofocus/>
@@ -137,11 +138,11 @@
 				<width>345</width>
 				<height>80</height>
 				<font>font27_title</font>
-				<aligny>center</aligny>
+				<aligny>left</aligny>
 				<align>center</align>
 				<onclick>SettingsLevelChange</onclick>
 				<textoffsetx>0</textoffsetx>
-				<textoffsety>0</textoffsety>
+				<textoffsety>19</textoffsety>
 				<textcolor>darkgrey</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
 				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>

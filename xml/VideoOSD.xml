@@ -29,6 +29,7 @@
         <onleft>715</onleft>
         <onright>708</onright>
         <control type="button" id="701">
+          <visible>Player.HasSceneMarkers | Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | [Player.SeekEnabled + VideoPlayer.Content(livetv)]</visible>
           <include>PlayerButton</include>
           <label>&#xf141;</label>
           <onclick>PlayerControl(Previous)</onclick>
@@ -37,6 +38,7 @@
           <include>PlayerButton</include>
           <label>&#xf087;</label>
           <onclick>PlayerControl(Rewind)</onclick>
+          <visible>[Player.SeekEnabled + !VideoPlayer.Content(livetv)] + !Player.Paused</visible>
         </control>
         <control type="togglebutton" id="703">
           <include>PlayerButton</include>
@@ -55,11 +57,13 @@
           <include>PlayerButton</include>
           <label>&#xf178;</label>
           <onclick>PlayerControl(Forward)</onclick>
+          <visible>[Player.SeekEnabled + !VideoPlayer.Content(livetv)] + !Player.Paused</visible>
         </control>
         <control type="button" id="706">
           <include>PlayerButton</include>
           <label>&#xf145;</label>
           <onclick>PlayerControl(Next)</onclick>
+          <visible>Player.HasSceneMarkers | Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | PVR.IsTimeShift</visible>
         </control>
       </control>
       <control type="grouplist" id="707">

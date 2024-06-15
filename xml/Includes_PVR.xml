@@ -417,11 +417,11 @@
 						<param name="flixlabel" value="$INFO[ListItem.StartDate]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.Genre)"/>
+						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.Genre) + !String.StartsWith(ListItem.Genre,Other)"/>
 						<param name="flixlabel" value="$INFO[ListItem.Genre]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartTime) + !Player.HasMedia"/>
+						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartTime)"/>
 						<param name="flixlabel" value="$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]"/>
 					</include>
 					<!-- <include content="FlixInfoIcon">
@@ -520,21 +520,34 @@
 			<control type="group">
 				<!-- <visible>!Window.IsVisible(10702)</visible> -->
 				<control type="label">
-					<include>OpenClose_Right</include>
 					<top>505</top>
-					<width>850</width>
+					<width>830</width>
 					<height>60</height>
 					<label>$VAR[PVRNextProgrammeLabel]</label>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>
-					<wrapmultiline>true</wrapmultiline>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
 					<font>font27</font>
-					<visible>!Window.IsVisible(10702)</visible>
+					<visible>![Player.HasMedia | Window.IsVisible(10702)]</visible>
 				</control>
 				<control type="label">
-					<include>OpenClose_Right</include>
+					<top>505</top>
+					<width>550</width>
+					<height>60</height>
+					<label>$VAR[PVRNextProgrammeLabel]</label>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>black</shadowcolor>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<font>font27</font>
+					<visible>Player.HasMedia + !Window.IsVisible(10702)</visible>
+				</control>
+				<control type="label">
 					<top>545</top>
 					<width>850</width>
 					<height>60</height>
@@ -745,7 +758,8 @@
 						<left>15</left>
 						<top>10</top>
 						<height>36</height>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>-3</textoffsety>
 						<font>font13</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
@@ -782,7 +796,8 @@
 						<left>15</left>
 						<top>10</top>
 						<height>36</height>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>-3</textoffsety>
 						<font>font13</font>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>

@@ -69,6 +69,7 @@
 					</include>
 				</control>
 				<control type="image">
+					<!-- <texture colordiffuse="b30a0b0b">masks/addons.png</texture> -->
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 					<!-- <bordersize>2</bordersize> -->
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus] | [$PARAM[focused] + Control.HasFocus(14100)]</visible>
@@ -242,7 +243,7 @@
 					<aspectratio scalediffuse="false">scale</aspectratio>
 					<bordertexture colordiffuse="$VAR[BorderColorVar]" border="20" infill="false">masks/poster-border.png</bordertexture>
 					<!-- <bordertexture colordiffuse="FF252525" border="7" infill="false">masks/poster-border.png</bordertexture> -->
-					<animation condition="Container($PARAM[list_id]).IsUpdating + !Skin.HasSetting(TrailerPlaying)" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation>
+					<animation condition="Container($PARAM[list_id]).IsUpdating + String.IsEmpty(Skin.String(TrailerPlaying))" effect="fade" time="700" start="50" end="100" pulse="true">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>21</left>
@@ -400,7 +401,7 @@
 						<include content="FlixMovieLayout">
 							<param name="focused" value="true" />
 						</include>
-						<include>TrailerAutoStop</include>
+						<include>TrailerControl</include>
 					</control>
 				</focusedlayout>
 				<itemlayout height="410" width="310" condition="Container.Content(artists) | Container.Content(albums)">

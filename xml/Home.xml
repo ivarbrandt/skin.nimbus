@@ -3,13 +3,13 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<onload>SetFocus(2000)</onload>
 	<backgroundcolor>background</backgroundcolor>
+	<onload>Skin.SetString(navigation_delay, true)</onload>
+	<onload>Skin.TimerStart(navigation_timer)</onload>
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
-	<onload>Skin.TimerStart(navigation_timer)</onload>
-	<onload>Skin.SetString(navigation_delay, true)</onload>
-	<!-- <onload condition="String.IsEmpty(Skin.String(navigation_delay))">Skin.TimerStart(widget_scroll_timer)</onload> -->
+	<onunload>Skin.SetString(navigation_delay, true)</onunload>
 	<controls>
 		<include>DefaultBackground</include>
 		<include>FlixFanart</include>
@@ -814,17 +814,44 @@
 					<include>OpenClose_Left</include>
 					<include content="FlixPanel"/>
 				</control>
+				<!-- <control type="label">
+					<top>100</top>
+					<left>300</left>
+					<height>100</height>
+					<width>600</width>
+					<label>NAVIGATION DELAY IS ACTIVE</label>
+					<font>fon32</font>
+					<visible>!String.IsEmpty(Skin.String(navigation_delay))</visible>
+				</control>
+				<control type="label">
+					<top>150</top>
+					<left>300</left>
+					<height>100</height>
+					<width>600</width>
+					<label>NAVIGATION TIMER IS ACTIVE</label>
+					<font>fon32</font>
+					<visible>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(navigation_timer),1)</visible>
+				</control>
+				<control type="label">
+					<top>200</top>
+					<left>300</left>
+					<height>100</height>
+					<width>600</width>
+					<label>WIDGET SCROLL TIMER IS ACTIVE</label>
+					<font>fon32</font>
+					<visible>!Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)</visible>
+				</control> -->
 				<include>osd_darkenBG</include>
 				<control type="group">
-					<animation condition="!ControlGroup(2000).HasFocus">
-						<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
-						<effect type="slide" start="-492,0" end="0,0" time="300" tween="cubic" easing="out" />
+					<animation type="VisibleChange">
+						<effect type="fade" start="0" end="100" time="375" tween="cubic" easing="in"/>
+						<effect type="slide" start="-40,0" end="0,0" time="375" tween="cubic" easing="out" />
 					</animation>
 					<include>OpenClose_Left</include>
 					<include content="ContentPanel">
 						<param name="width" value="900"/>
 					</include>
-					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
+					<visible allowhiddenfocus="true">Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)</visible>
 					<control type="fixedlist" id="9000">
 						<animation condition="Control.HasFocus(700) | Control.HasFocus(733)">
 							<effect type="slide" start="0,0" end="0,150" time="500" tween="cubic" easing="inout" reversible="true" />
@@ -837,7 +864,7 @@
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>Skin.SetString(navigation_delay, true)</onfocus>
-						<onunfocus>Skin.TimerStart(navigation_timer)</onunfocus>
+						<onright>Skin.TimerStart(navigation_timer)</onright>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 						<onleft condition="String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)">733</onleft>
 						<onback>700</onback>
@@ -940,7 +967,7 @@
 					</control>
 					<control type="fixedlist" id="700">
 						<visible allowhiddenfocus="true">Control.HasFocus(700)</visible>
-						<animation effect="slide" time="500" start="0,-370" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+						<include>MiniMenuAnimations</include>
 						<orientation>vertical</orientation>
 						<left>25</left>
 						<top>200</top>
@@ -1010,7 +1037,7 @@
 					</control>
 					<control type="fixedlist" id="733">
 						<visible allowhiddenfocus="true">Control.HasFocus(733)</visible>
-						<animation effect="slide" time="500" start="0,-370" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+						<include>MiniMenuAnimations</include>
 						<orientation>vertical</orientation>
 						<left>25</left>
 						<top>200</top>

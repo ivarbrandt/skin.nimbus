@@ -46,7 +46,7 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + Skin.HasSetting(TrailerPlaying)]</visible>
+					<visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 				</control>
 			</control>
 		</definition>
@@ -97,7 +97,7 @@
 						<param name="focused" value="true" />
 						<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>TrailerAutoStop</include>
+						<include>TrailerControl</include>
 					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
@@ -254,7 +254,7 @@
 		</definition>
 	</include>
 
-	<include name="WidgetListPVR">
+	<!-- <include name="WidgetListPVR">
 		<param name="item_treshold">0</param>
 		<param name="icon">$INFO[ListItem.Icon]</param>
 		<param name="label">$INFO[ListItem.Label]</param>
@@ -285,9 +285,7 @@
 					<control type="group">
 						<left>37</left>
 						<control type="image">
-							<!-- 319 -->
 							<width>315</width>
-							<!-- 340 -->
 							<height>315</height>
 							<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 							<bordersize>20</bordersize>
@@ -437,7 +435,7 @@
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 
 	<include name="HourlyItems">
 		<content>

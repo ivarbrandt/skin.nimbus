@@ -3,10 +3,11 @@
 	<include name="MediaMenuItemsCommon">
 		<width>470</width>
 		<textoffsetx>20</textoffsetx>
+		<textoffsety>17</textoffsety>
 		<top>0</top>
 		<height>80</height>
 		<radioposx>370</radioposx>
-		<aligny>center</aligny>
+		<aligny>left</aligny>
 		<textcolor>unfocused_text</textcolor>
 		<focusedcolor>focused_text</focusedcolor>
 		<invalidcolor>invalid</invalidcolor>
@@ -255,7 +256,7 @@
 	<include name="MediaMenuLabelCommon">
 		<width>470</width>
 		<textoffsetx>20</textoffsetx>
-		<textoffsety>15</textoffsety>
+		<textoffsety>10</textoffsety>
 		<height>50</height>
 		<radioposx>300</radioposx>
 		<font>font25_title</font>

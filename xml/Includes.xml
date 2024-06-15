@@ -302,7 +302,8 @@
 						<bottom>0</bottom>
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>16</textoffsety>
 						<textcolor>darkgrey</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
@@ -315,7 +316,7 @@
 					<right>25</right>
 					<bottom>0</bottom>
 					<texture colordiffuse="button_focus">$PARAM[diffuse]</texture>
-					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 				</control>
 				<control type="group">
 					<visible>ListItem.Property(PVR.IsRecordingTimer) | ListItem.Property(PVR.IsRemindingTimer)</visible>
@@ -356,7 +357,8 @@
 						<bottom>0</bottom>
 						<align>$PARAM[align]</align>
 						<font>$PARAM[font]</font>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>16</textoffsety>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>
 						<scroll>true</scroll>
@@ -505,11 +507,11 @@
 						<right>25</right>
 						<bottom>0</bottom>
 						<texture colordiffuse="button_focus">masks/focus-long.png</texture>
-						<animation effect="fade" start="100" end="0" time="0" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+						<animation effect="fade" start="100" end="0" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 					</control>
 					<control type="image">
 						<left>40</left>
-						<top>0</top>
+						<top>-3</top>
 						<width>32</width>
 						<bottom>0</bottom>
 						<aspectratio aligny="center">keep</aspectratio>
@@ -517,10 +519,11 @@
 					</control>
 					<control type="label">
 						<left>90</left>
-						<top>-5</top>
+						<top>0</top>
 						<bottom>0</bottom>
 						<right>20</right>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>11</textoffsety>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>focused_text</textcolor>
@@ -529,19 +532,21 @@
 					<control type="label">
 						<left>0</left>
 						<textoffsetx>30</textoffsetx>
-						<top>-5</top>
+						<top>0</top>
 						<bottom>0</bottom>
 						<right>0</right>
 						<align>right</align>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>11</textoffsety>
 						<label>$INFO[ListItem.Label2]</label>
+						<textcolor>focused_text</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 				</focusedlayout>
 				<itemlayout height="list_item_height">
 					<control type="image">
 						<left>40</left>
-						<top>0</top>
+						<top>-3</top>
 						<width>32</width>
 						<bottom>0</bottom>
 						<aspectratio aligny="center">keep</aspectratio>
@@ -549,10 +554,11 @@
 					</control>
 					<control type="label">
 						<left>90</left>
-						<top>-5</top>
+						<top>0</top>
 						<bottom>0</bottom>
 						<right>20</right>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>11</textoffsety>
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -560,13 +566,14 @@
 					<control type="label">
 						<left>0</left>
 						<textoffsetx>30</textoffsetx>
-						<top>-5</top>
+						<top>0</top>
 						<bottom>0</bottom>
 						<right>0</right>
 						<align>right</align>
-						<aligny>center</aligny>
+						<aligny>left</aligny>
+						<textoffsety>11</textoffsety>
 						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>grey</textcolor>
+							<textcolor>unfocused_text</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 				</itemlayout>
@@ -908,7 +915,7 @@
 					<width>1100</width>
 					<itemgap>10</itemgap>
 					<!-- <visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]</visible> -->
-					<visible>![Window.IsVisible(extendedprogressdialog) | Window.IsActive(fullscreenvideo) | Skin.HasSetting(TrailerPlaying)]</visible>
+					<visible>![Window.IsVisible(extendedprogressdialog) | Window.IsActive(fullscreenvideo) | !String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 					<animation effect="fade" time="150">VisibleChange</animation>
 					<control type="group">
 						<width>600</width>
@@ -1137,7 +1144,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>!Player.HasMedia + !Skin.HasSetting(TrailerPlaying)</visible>
+			<visible>!Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
 			<control type="image">
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
@@ -1232,6 +1239,7 @@
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
 				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
+				<visible>!Control.IsVisible(55)]</visible>
 				<bottom>0</bottom>
 				<control type="image">
 					<left>0</left>
@@ -1665,14 +1673,16 @@
 			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
-			<visible>!Player.HasMedia + !String.IsEmpty(ListItem.Art(fanart)) + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + [[Window.IsVisible(Home) | Window.IsVisible(1121)] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+			<!-- <visible>!Player.HasMedia + !String.IsEmpty(ListItem.Art(fanart)) + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + [[Window.IsVisible(Home) | Window.IsVisible(1121)] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible> -->
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+			<visible>[[Window.IsVisible(Home) | Window.IsVisible(1121)] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)] | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
 		</control>
 	</include>
 	
 	<include name="MiniMenuLabels">
 		<control type="label">
 			<visible>$PARAM[visible]</visible>
-			<animation effect="slide" time="500" start="0,-370" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+			<include>MiniMenuAnimations</include>
 			<top>$PARAM[top]</top>
 			<left>90</left>
 			<width>820</width>
@@ -1704,18 +1714,27 @@
 		</control>
 	</include>
 
-	<include name="TrailerAutoStop">
-		<control type="button">
+	<include name="TrailerControl">
+    <control type="button">
 			<visible>false</visible>
-			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Stop</onunfocus>
-			<onunfocus condition="Skin.HasSetting(TrailerPlaying)">Skin.Reset(TrailerPlaying)</onunfocus>
-		</control>
+			<onfocus condition="String.IsEqual(Skin.String(trailerSetting),2) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![$EXP[isSeason] | $EXP[isEpisode]]">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
+			<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
+    </control>
 	</include>
+
 
 	<include name="WallTimer">
 		<control type="button">
 			<visible>false</visible>
 			<onfocus>Skin.TimerStart(wall_scroll_timer)</onfocus>
+		</control>
+	</include>
+
+	<include name="PlaybackTimer">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus>Skin.TimerStart(end_playback_timer)</onfocus>
 		</control>
 	</include>
 

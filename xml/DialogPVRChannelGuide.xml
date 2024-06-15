@@ -44,7 +44,8 @@
 							<left>20</left>
 							<width>150</width>
 							<bottom>0</bottom>
-							<aligny>center</aligny>
+							<aligny>left</aligny>
+							<textoffsety>20</textoffsety>
 							<textcolor>grey</textcolor>
 							<label>$INFO[ListItem.StartTime]</label>
 						</control>
@@ -53,7 +54,8 @@
 							<width>610</width>
 							<bottom>0</bottom>
 							<align>right</align>
-							<aligny>center</aligny>
+							<aligny>left</aligny>
+							<textoffsety>20</textoffsety>
 							<textcolor>unfocused_text</textcolor>
 							<label>$VAR[PVRListItemSubLabel]</label>
 						</control>
@@ -73,7 +75,8 @@
 							<left>20</left>
 							<width>150</width>
 							<top>0</top>
-							<aligny>center</aligny>
+							<aligny>left</aligny>
+							<textoffsety>20</textoffsety>
 							<label>$INFO[ListItem.StartTime]</label>
 							<textcolor>focused_text</textcolor>
 						</control>
@@ -83,7 +86,8 @@
 							<width>610</width>
 							<top>0</top>
 							<align>right</align>
-							<aligny>center</aligny>
+							<aligny>left</aligny>
+							<textoffsety>20</textoffsety>
 							<label>$VAR[PVRListItemSubLabelFocused]</label>
 							<textcolor>focused_text</textcolor>
 							<scroll>true</scroll>

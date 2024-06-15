@@ -16,27 +16,48 @@
     <timer>
         <name>widget_scroll_timer</name>
         <description>Timer that is activated when a widget is focused</description>
-        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
+        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)</stop>
-        <!-- <onstart>Notification(skintimer, Timer started, 1000)</onstart>
-        <onstop>Notification(skintimer, Timer stopped, 1000)</onstop> -->
+        <!-- <onstart>Notification(skintimer, Widget scroll timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, Widget scroll timer stopped, 1000)</onstop> -->
     </timer>
     <timer>
         <name>navigation_timer</name>
         <description>Timer to clear the navigation tracking property</description>
-        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(navigation_timer),0.5)</stop>
+        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(navigation_timer),0.3)</stop>
         <onstop>Skin.Reset(navigation_delay)</onstop>
-        <!-- <onstart>Notification(skintimer, My timer was started, 1000)</onstart>
-        <onstop>Notification(skintimer, My timer was stopped, 1000)</onstop> -->
+        <!-- <onstart>Notification(skintimer, Navigation delay timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, Navigation delay timer stopped, 1000)</onstop> -->
     </timer>
     <timer>
         <name>wall_scroll_timer</name>
         <description>Timer to automatically return to Flix view</description>
-        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
+        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wall_scroll_timer),2)</stop>
         <onstop condition="Control.IsVisible(500) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(54)</onstop>
-        <!-- <onstart>Notification(skintimer, My timer was started, 1000)</onstart>
-        <onstop>Notification(skintimer, My timer was stopped, 1000)</onstop> -->
+        <!-- <onstart>Notification(skintimer, Wall scroll timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, Wall scroll timer stopped, 1000)</onstop> -->
     </timer>
+    <timer>
+        <name>end_playback_timer</name>
+        <description>Timer to automatically stop playback</description>
+        <start>Player.Paused + Skin.HasSetting(Enable.AutoEndPlayback)</start>
+        <reset>!Player.Paused + Skin.HasSetting(Enable.AutoEndPlayback)</reset>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(end_playback_timer),Skin.Numeric(PlaybackDelaySecs))</stop>
+        <onstop>PlayerControl(Stop)</onstop>
+        <!-- <onstart>Notification(skintimer, End playback timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, End playback timer stopped, 1000)</onstop> -->
+    </timer>
+    <timer>
+        <name>autoplay_trailer_timer</name>
+        <description>Timer to autoplay trailers</description>
+        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autoplay_trailer_timer),Skin.Numeric(TrailerDelaySecs))</stop>
+        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(54) | Control.HasFocus(55)]">Skin.SetString(TrailerPlaying, true)</onstop>
+        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(54) | Control.HasFocus(55)]">$VAR[AutoplayTrailerSource]</onstop>
+        <!-- <onstart>Notification(skintimer, Autoplay trailer timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, Autoplay trailer timer stopped, 1000)</onstop> -->
+    </timer>
+    
 </timers>

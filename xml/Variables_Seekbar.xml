@@ -24,7 +24,17 @@
 
 	<variable name="PlayerEndTimeVar">
 		<value condition="!VideoPlayer.Content(livetv)">$INFO[Player.FinishTime,$LOCALIZE[31080]: ] [COLOR accent_color][B]|[/B][/COLOR] $INFO[System.Time]</value>
-		<value condition="VideoPlayer.Content(livetv)">$INFO[System.Time]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[PVR.EpgEventFinishTime,$LOCALIZE[31080]: ] [COLOR accent_color][B]|[/B][/COLOR] $INFO[System.Time]</value>
+	</variable>
+
+	<variable name="PlayerTimeRemainingVar">
+		<value condition="String.IsEqual(Player.TimeRemaining(h), 0) + !VideoPlayer.Content(livetv)">$INFO[Player.TimeRemaining(mm:ss), -]</value>
+		<value condition="!String.IsEqual(Player.TimeRemaining(h), 0) + VideoPlayer.Content(livetv)">$INFO[PVR.EpgEventRemainingTime(mm:ss), -]</value>
+	</variable>
+
+	<variable name="PlayerElapsedTimeVar">
+		<value condition="!VideoPlayer.Content(livetv) + String.IsEqual(Player.Time(h), 0)">$INFO[Player.Time(mm:ss)]</value>
+		<value condition="VideoPlayer.Content(livetv) + String.IsEqual(Player.Time(h), 0)">$INFO[PVR.EpgEventElapsedTime]</value>
 	</variable>
 
 	<!-- <include name="OSDBackgroundTop-On">

@@ -3,6 +3,7 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<onload>Skin.TimerStart(widget_scroll_timer)</onload>
+	<onload>Skin.SetString(navigation_delay, true)</onload>
 	<onunload>Skin.SetString(navigation_delay, true)</onunload>
 	<controls>
 		<include>DefaultBackground</include>
@@ -103,7 +104,7 @@
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
 				<visible>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + !String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
-				<top>568</top>
+				<top>563</top>
 				<left>50</left>
 				<width>1815</width>
 				<aligny>center</aligny>
@@ -161,7 +162,7 @@
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onfocus>Skin.SetString(navigation_delay, true)</onfocus>
-						<onunfocus>Skin.TimerStart(navigation_timer)</onunfocus>
+						<onright>Skin.TimerStart(navigation_timer)</onright>
 						<onleft>9000</onleft>
 						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
 						<onup>700</onup>
@@ -177,7 +178,7 @@
 					</control>
 					<control type="fixedlist" id="700">
 						<visible allowhiddenfocus="true">Control.HasFocus(700) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
-						<animation effect="slide" time="500" start="0,-340" end="0,0" tween="cubic" easing="inout">VisibleChange</animation>
+						<include>MiniMenuAnimations</include>
 						<orientation>vertical</orientation>
 						<left>25</left>
 						<top>170</top>

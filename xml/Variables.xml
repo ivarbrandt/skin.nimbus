@@ -325,6 +325,10 @@
 		<value condition="!String.IsEmpty(Skin.String(OSDAutoCloseTime))">$INFO[Skin.String(OSDAutoCloseTime)]</value>
 		<value condition="String.IsEmpty(Skin.String(OSDAutoCloseTime))">4</value> <!-- Default value -->
 	</variable>
+	<variable name="SkinSettingEndPlaybackSecs">
+		<value condition="!String.IsEmpty(Skin.String(PlaybackDelaySecs))">$INFO[Skin.String(PlaybackDelaySecs)]</value>
+		<value condition="String.IsEmpty(Skin.String(PlaybackDelaySecs))">1800</value> <!-- Default value -->
+	</variable>
 	<variable name="VolumeIconVar">
 		<value condition="Player.Muted">dialogs/volume/mute.png</value>
 		<value condition="Integer.IsGreater(Player.Volume,66)">dialogs/volume/volume.png</value>

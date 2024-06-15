@@ -8,17 +8,8 @@
 	</variable>
 
 	<variable name="TrailerDelayTimeVar">
-    <!-- <value condition="String.IsEmpty(Skin.String(waitInterval))">3 seconds</value> -->
-    <value condition="String.IsEqual(Skin.String(waitInterval),0)">3 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),1)">5 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),2)">7 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),3)">9 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),4)">11 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),5)">13 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),6)">15 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),7)">20 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),8)">25 seconds</value>
-    <value condition="String.IsEqual(Skin.String(waitInterval),9)">30 seconds</value>
+    <value condition="!String.IsEmpty(Skin.String(TrailerDelaySecs))">$INFO[Skin.String(TrailerDelaySecs)]</value>
+    <value condition="String.IsEmpty(Skin.String(TrailerDelaySecs))">5</value> <!-- Default value -->
 	</variable>
 
 	<variable name="TrailerSettingToggleVar">
@@ -28,24 +19,22 @@
 		<value>Skin.SetString(trailerSetting,0)</value>
 	</variable>
 
-	<variable name="TrailerDelayToggleVar">
-		<!-- <value condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</value> -->
-		<value condition="String.IsEqual(Skin.String(waitInterval),0)">Skin.SetString(waitInterval,1)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),1)">Skin.SetString(waitInterval,2)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),2)">Skin.SetString(waitInterval,3)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),3)">Skin.SetString(waitInterval,4)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),4)">Skin.SetString(waitInterval,5)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),5)">Skin.SetString(waitInterval,6)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),6)">Skin.SetString(waitInterval,7)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),7)">Skin.SetString(waitInterval,8)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),8)">Skin.SetString(waitInterval,9)</value>
-		<value condition="String.IsEqual(Skin.String(waitInterval),9)">Skin.SetString(waitInterval,0)</value>
+	<variable name="TrailerSourceToggleVar">
+		<value condition="String.IsEqual(Skin.String(TrailerSource),0) + !String.IsEmpty(Skin.String(mdblist_api_key))">Skin.SetString(TrailerSource,1)</value>
+		<value condition="String.IsEqual(Skin.String(TrailerSource),1)">Skin.SetString(TrailerSource,0)</value>
+		<value>Skin.SetString(TrailerSource,0)</value>
 	</variable>
 
-	<!-- <variable name="TrailerDelayToggleVar">
-    <value condition="String.IsEqual(Skin.String(trailerSetting),0)">Skin.SetString(trailerSetting,1)</value>
-    <value condition="String.IsEqual(Skin.String(trailerSetting),1)">Skin.SetString(trailerSetting,2)</value>
-    <value condition="String.IsEqual(Skin.String(trailerSetting),2)">Skin.SetString(trailerSetting,0)</value>
-		<value>Skin.SetString(trailerSetting,0)</value>
-	</variable> -->
+	<variable name="TrailerSourceSettingVar">
+		<value condition="String.IsEqual(Skin.String(TrailerSource),0)">Default</value>
+		<value condition="String.IsEqual(Skin.String(TrailerSource),1)">MDbList</value>
+		<value>Default</value>
+	</variable>
+
+	<variable name="AutoplayTrailerSource">
+		<value condition="String.IsEqual(Skin.String(TrailerSource),0)">PlayMedia($INFO[ListItem.Trailer],1,noresume)</value>
+		<value condition="String.IsEqual(Skin.String(TrailerSource),1)">PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],1,noresume)</value>
+		<value>PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],1,noresume)</value>
+	</variable>
+
 </includes>

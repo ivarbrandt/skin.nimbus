@@ -36,12 +36,14 @@
 		<param name="height">70</param>
 		<param name="right">25</param>
 		<param name="textoffsetx">40</param>
+		<param name="textoffsety">12</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
+			<textoffsety>$PARAM[textoffsety]</textoffsety>
 			<top>0</top>
 			<height>$PARAM[height]</height>
 			<right>$PARAM[right]</right>
-			<aligny>center</aligny>
+			<aligny>left</aligny>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
 			<font>font32</font>
@@ -55,12 +57,14 @@
 		<param name="height">70</param>
 		<param name="right">25</param>
 		<param name="textoffsetx">40</param>
+		<param name="textoffsety">12</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
+			<textoffsety>$PARAM[textoffsety]</textoffsety>
 			<top>0</top>
 			<height>$PARAM[height]</height>
 			<right>$PARAM[right]</right>
-			<aligny>center</aligny>
+			<aligny>left</aligny>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>
 			<font>font32</font>
@@ -92,11 +96,13 @@
 	<include name="DialogSettingButton">
 		<param name="height">70</param>
 		<param name="textoffsetx">40</param>
+		<param name="textoffsety">11</param>
 		<definition>
 			<textoffsetx>$PARAM[textoffsetx]</textoffsetx>
+			<textoffsety>$PARAM[textoffsety]</textoffsety>
 			<top>0</top>
 			<height>$PARAM[height]</height>
-			<aligny>center</aligny>
+			<aligny>left</aligny>
 			<font>font14</font>
 			<invalidcolor>invalid</invalidcolor>
 			<selectedcolor>selected</selectedcolor>

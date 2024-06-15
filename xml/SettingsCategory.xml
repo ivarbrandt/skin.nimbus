@@ -97,7 +97,8 @@
 				<height>85</height>
 				<width>445</width>
 				<textoffsetx>40</textoffsetx>
-				<aligny>center</aligny>
+				<textoffsety>16</textoffsety>
+				<aligny>left</aligny>
 				<font>font37</font>
 				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
 				<texturenofocus />
