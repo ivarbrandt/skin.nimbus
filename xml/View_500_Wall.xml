@@ -112,7 +112,7 @@
 				</focusedlayout>
 			</control>
 			<control type="image">
-				<left>0</left>
+				<left>-50</left>
 				<bottom>0</bottom>
 				<width>110%</width>
 				<height>123</height>

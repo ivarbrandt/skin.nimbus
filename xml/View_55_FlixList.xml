@@ -97,7 +97,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
-							<top>4</top>
+							<top>-4</top>
 							<bottom>0</bottom>
 							<right>20</right>
 							<align>right</align>
