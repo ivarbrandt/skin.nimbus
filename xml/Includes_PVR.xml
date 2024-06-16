@@ -107,10 +107,9 @@
 					<left>20</left>
 					<top>66</top>
 					<width>70</width>
-					<height>12</height>
+					<height>8</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<colordiffuse>unfocused_text</colordiffuse>
 					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
 					<info>ListItem.Progress</info>
 				</control>
@@ -139,11 +138,12 @@
 					<left>20</left>
 					<top>66</top>
 					<width>70</width>
-					<height>12</height>
+					<height>8</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<colordiffuse>focused_text</colordiffuse>
-					<midtexture border="3">progress/texturebg_white.png</midtexture>
+					<texturebg>osd/ProgressBack.png</texturebg>
+					<midtexture>osd/Progress.png</midtexture>
 					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
 					<info>ListItem.Progress</info>
 				</control>
@@ -383,10 +383,10 @@
 				<width>434</width>
 				<left>1100</left>
 				<top>433</top>
-				<height>20</height>
+				<height>16</height>
 				<reveal>false</reveal>
-				<texturebg colordiffuse="player_cache" border="10">progress/back24.png</texturebg>
-				<midtexture colordiffuse="accent_color" border="10">progress/slider24.png</midtexture>
+				<texturebg colordiffuse="osd_light">osd/ProgressBack.png</texturebg>
+				<midtexture colordiffuse="accent_color">osd/Progress.png</midtexture>
 				<info>ListItem.Progress</info>
 				<visible>Window.IsVisible(Home) + Integer.IsGreater(ListItem.Progress,0) + !Player.HasMedia</visible>
 			</control>

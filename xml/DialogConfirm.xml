@@ -29,8 +29,6 @@
 				<width>855</width>
 				<height>24</height>
 				<info>System.Progressbar</info>
-				<texturebg colordiffuse="player_cache" border="10">progress/back24.png</texturebg>
-				<midtexture colordiffuse="accent_color" border="10">progress/slider24.png</midtexture>
 			</control>
 			<control type="grouplist" id="9000">
 				<orientation>horizontal</orientation>
