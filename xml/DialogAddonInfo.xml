@@ -27,8 +27,8 @@
 					<width>695</width>
 					<height>375</height>
 					<label></label>
-					<texturefocus colordiffuse="button_focus" >masks/landscape.png</texturefocus>
-					<texturenofocus colordiffuse="button_focus2" >masks/landscape-unfocused.png</texturenofocus>
+					<texturefocus colordiffuse="button_focus" >masks/big-landscape.png</texturefocus>
+					<texturenofocus colordiffuse="button_focus2" >masks/big-landscape-unfocused.png</texturenofocus>
 					<onup>50</onup>
 					<ondown>9000</ondown>
 					<onclick>SetProperty(TextViewer_Header,$LOCALIZE[31141] $INFO[ListItem.AddonVersion],home)</onclick>

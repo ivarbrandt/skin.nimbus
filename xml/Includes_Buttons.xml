@@ -259,8 +259,8 @@
 				<aligny>top</aligny>
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
-				<texturefocus colordiffuse="button_focus">masks/landscape.png</texturefocus>
-				<texturenofocus colordiffuse="button_focus2">masks/landscape-unfocused.png</texturenofocus>
+				<texturefocus colordiffuse="button_focus">masks/info-dialog-focused.png</texturefocus>
+				<texturenofocus colordiffuse="button_focus2">masks/info-dialog-unfocused.png</texturenofocus>
 				<textoffsetx>22</textoffsetx>
 				<textoffsety>78</textoffsety>
 				<radioposx>87</radioposx>
@@ -292,8 +292,8 @@
 				<aligny>top</aligny>
 				<textcolor>unfocused_text</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
-				<texturefocus colordiffuse="button_focus">masks/landscape.png</texturefocus>
-				<texturenofocus colordiffuse="button_focus2">masks/landscape-unfocused.png</texturenofocus>
+				<texturefocus colordiffuse="button_focus">masks/info-dialog-focused.png</texturefocus>
+				<texturenofocus colordiffuse="button_focus2">masks/info-dialog-unfocused.png</texturenofocus>
 				<textoffsetx>35</textoffsetx>
 				<textoffsety>78</textoffsety>
 				<radioposx>87</radioposx>
