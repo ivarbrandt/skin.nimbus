@@ -14,23 +14,6 @@
         <stop>!Player.Paused | Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1110_topbaroverlay),5)</stop>
     </timer>
     <timer>
-        <name>widget_scroll_timer</name>
-        <description>Timer that is activated when a widget is focused</description>
-        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)</stop>
-        <!-- <onstart>Notification(skintimer, Widget scroll timer started, 1000)</onstart>
-        <onstop>Notification(skintimer, Widget scroll timer stopped, 1000)</onstop> -->
-    </timer>
-    <timer>
-        <name>navigation_timer</name>
-        <description>Timer to clear the navigation tracking property</description>
-        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(navigation_timer),0.3)</stop>
-        <onstop>Skin.Reset(navigation_delay)</onstop>
-        <!-- <onstart>Notification(skintimer, Navigation delay timer started, 1000)</onstart>
-        <onstop>Notification(skintimer, Navigation delay timer stopped, 1000)</onstop> -->
-    </timer>
-    <timer>
         <name>wall_scroll_timer</name>
         <description>Timer to automatically return to Flix view</description>
         <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>

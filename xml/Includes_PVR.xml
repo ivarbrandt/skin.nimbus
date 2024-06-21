@@ -107,7 +107,7 @@
 					<left>20</left>
 					<top>66</top>
 					<width>70</width>
-					<height>8</height>
+					<height>7</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
@@ -138,7 +138,7 @@
 					<left>20</left>
 					<top>66</top>
 					<width>70</width>
-					<height>8</height>
+					<height>7</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<colordiffuse>focused_text</colordiffuse>
@@ -367,9 +367,9 @@
 		<control type="group">
 			<left>50</left>
 			<top>$PARAM[top]</top>
-			<visible>[Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + Window.IsVisible(Home)] | Control.IsVisible(50) + !ListItem.IsFolder</visible>
+			<visible>Window.IsVisible(Home) | Control.IsVisible(50) + !ListItem.IsFolder</visible>
 			<control type="image">
-				<top>160</top>
+				<top>200</top>
 				<left>1150</left>
 				<width>333</width>
 				<height>239</height>
@@ -378,17 +378,6 @@
 				<texture fallback="DefaultTVShows.png">$VAR[ChannelListEPGIconVar]</texture>
 				<visible>!String.IsEmpty(ListItem.ChannelName) + !Player.HasMedia</visible>
 				<fadetime>200</fadetime>
-			</control>
-			<control type="progress">
-				<width>434</width>
-				<left>1100</left>
-				<top>433</top>
-				<height>16</height>
-				<reveal>false</reveal>
-				<texturebg colordiffuse="osd_light">osd/ProgressBack.png</texturebg>
-				<midtexture colordiffuse="accent_color">osd/Progress.png</midtexture>
-				<info>ListItem.Progress</info>
-				<visible>Window.IsVisible(Home) + Integer.IsGreater(ListItem.Progress,0) + !Player.HasMedia</visible>
 			</control>
 			<control type="group">
 				<top>120</top>
@@ -412,7 +401,58 @@
 					<aligny>center</aligny>
 					<align>left</align>
 					<!-- <visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + $EXP[isContent] + !String.IsEmpty(ListItem.Genre)</visible> -->
-					<include content="FlixInfoIcon">
+					<control type="togglebutton">
+						<left>50</left>
+						<width>auto</width>
+						<top>56</top>
+						<height>49</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textoffsetx>14</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<font>FlixPanelIcon</font>
+						<textcolor>unfocused_text</textcolor>
+						<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
+						<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
+						<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+						<label>[LIGHT]$INFO[ListItem.StartDate][/LIGHT]</label>
+						<visible>!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartDate)</visible>
+					</control>
+					<control type="togglebutton">
+						<left>50</left>
+						<width>auto</width>
+						<top>56</top>
+						<height>49</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textoffsetx>14</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<font>FlixPanelIcon</font>
+						<textcolor>unfocused_text</textcolor>
+						<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
+						<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
+						<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+						<label>[LIGHT]$INFO[ListItem.Genre][/LIGHT]</label>
+						<visible>!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.Genre) + !String.StartsWith(ListItem.Genre,Other)</visible>
+					</control>
+					<control type="togglebutton">
+						<left>50</left>
+						<width>auto</width>
+						<top>56</top>
+						<height>49</height>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textoffsetx>14</textoffsetx>
+						<textoffsety>6</textoffsety>
+						<font>FlixPanelIcon</font>
+						<textcolor>unfocused_text</textcolor>
+						<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
+						<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
+						<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+						<label>[LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,][/LIGHT]</label>
+						<visible>!Window.IsVisible(Home) + !String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartTime)</visible>
+					</control>
+					<!-- <include content="FlixInfoIcon">
 						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartDate)"/>
 						<param name="flixlabel" value="$INFO[ListItem.StartDate]"/>
 					</include>
@@ -421,9 +461,9 @@
 						<param name="flixlabel" value="$INFO[ListItem.Genre]"/>
 					</include>
 					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartTime)"/>
+						<param name="visible" value="!Window.IsVisible(Home) + !String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartTime)"/>
 						<param name="flixlabel" value="$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]"/>
-					</include>
+					</include> -->
 					<!-- <include content="FlixInfoIcon">
 						<param name="visible" value="!String.IsEmpty(ListItem.Duration)"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]"/>

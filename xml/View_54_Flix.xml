@@ -46,10 +46,10 @@
 	</include>
 
 	<include name="FlixSquareLayout">
-		<param name="fallback_image">DefaultFolder.png</param>
+		<param name="fallback_icon">DefaultFolder.png</param>
 		<param name="main_label">$INFO[ListItem.Artist]</param>
 		<param name="sub_label">$INFO[ListItem.Title]</param>
-		<param name="single_label">$VAR[AddonsTitleVar]</param>
+		<param name="single_label">$INFO[ListItem.Label]</param>
 		<param name="focused">false</param>
 		<definition>
 			<control type="group">
@@ -57,10 +57,10 @@
 				<height>279</height>
 				<control type="group">
 					<control type="image">
-						<left>2</left>
+						<!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
 						<bordersize>-29</bordersize>
-						<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus] | [$PARAM[focused] + Control.HasFocus(14100)]</visible>
+						<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
 					<include content="GlowPulse">
@@ -72,7 +72,7 @@
 					<!-- <texture colordiffuse="b30a0b0b">masks/addons.png</texture> -->
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 					<!-- <bordersize>2</bordersize> -->
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus] | [$PARAM[focused] + Control.HasFocus(14100)]</visible>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 				</control>
 				<control type="image">
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
@@ -80,83 +80,53 @@
 					<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 					<visible>![$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
-					<visible>![$PARAM[focused] + Control.HasFocus(14100)]</visible>
+					<!-- <visible>![$PARAM[focused] + Control.HasFocus(14100)]</visible> -->
 				</control>
 				<control type="image">
-					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[FlixThumbVar]</texture>
+					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_icon]" background="true">$VAR[FlixThumbVar]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!ListItem.HasEPG</visible>
 				</control>
-				<control type="image">
-					<left>37</left>
-					<top>66</top>
-					<width>205</width>
-					<height>147</height>
-					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$VAR[FlixThumbVar]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>ListItem.HasEPG</visible>
-				</control>
-			</control>
-			<control type="group">
-				<visible>ControlGroup(15000).HasFocus</visible>
-				<left>5</left>
-				<top>280</top>
-				<width>280</width>
-				<height>75</height>
 				<control type="label">
-					<top>75</top>
+					<centerleft>50%</centerleft>
+					<top>285</top>
+					<width>240</width>
+					<height>75</height>
 					<align>center</align>
 					<aligny>center</aligny>
+					<label>$PARAM[single_label]</label>
+					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
 					<font>font25</font>
-					<label>$INFO[ListItem.Label] [COLOR accent_color][B]|[/B][/COLOR] $INFO[ListItem.Property(ShortDate)]</label>
+					<textcolor>unfocused_text</textcolor>
+					<visible>!String.IsEqual(ListItem.DBType,album)</visible>
 				</control>
-				<control type="label">
-					<align>center</align>
-					<aligny>center</aligny>
-					<font>font27</font>
-					<label>$INFO[ListItem.Label2]</label>
+				<control type="group">
+					<visible>String.IsEqual(ListItem.DBType,album)</visible>
+					<control type="label">
+						<left>29</left>
+						<top>256</top>
+						<width>224</width>
+						<label>$PARAM[sub_label]</label>
+						<font>font10</font>
+						<shadowcolor>text_shadow</shadowcolor>
+						<scroll>$PARAM[focused]</scroll>
+						<align>center</align>
+					</control>
+					<control type="label">
+						<left>29</left>
+						<top>284</top>
+						<width>224</width>
+						<label>$PARAM[main_label]</label>
+						<font>font12</font>
+						<shadowcolor>text_shadow</shadowcolor>
+						<scroll>$PARAM[focused]</scroll>
+						<align>center</align>
+					</control>
 				</control>
-			</control>
-			<control type="textbox">
-				<visible>!ControlGroup(15000).HasFocus</visible>
-				<left>5</left>
-				<top>285</top>
-				<width>280</width>
-				<height>75</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<label>$PARAM[single_label]</label>
-				<font>font25</font>
-				<textcolor>unfocused_text</textcolor>
-				<visible>!String.IsEqual(ListItem.DBType,album)</visible>
-			</control>
-			<control type="group">
-				<visible>String.IsEqual(ListItem.DBType,album)</visible>
-				<control type="label">
-					<left>29</left>
-					<top>256</top>
-					<width>224</width>
-					<label>$PARAM[sub_label]</label>
-					<font>font10</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<scroll>$PARAM[focused]</scroll>
-					<align>center</align>
+				<control type="group">
+					<left>133</left>
+					<top>2</top>
+					<include condition="Skin.HasSetting(circle_rating) | Skin.HasSetting(circle_userrating)">RatingCircle</include>
 				</control>
-				<control type="label">
-					<left>29</left>
-					<top>284</top>
-					<width>224</width>
-					<label>$PARAM[main_label]</label>
-					<font>font12</font>
-					<shadowcolor>text_shadow</shadowcolor>
-					<scroll>$PARAM[focused]</scroll>
-					<align>center</align>
-				</control>
-			</control>
-			<control type="group">
-				<left>133</left>
-				<top>2</top>
-				<include condition="Skin.HasSetting(circle_rating) | Skin.HasSetting(circle_userrating)">RatingCircle</include>
 			</control>
 		</definition>
 	</include>
@@ -234,7 +204,7 @@
 					<width>267</width>
 					<height>387</height>
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
-					<bordersize>-7</bordersize>
+					<bordersize>-11</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>

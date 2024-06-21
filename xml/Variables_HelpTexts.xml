@@ -34,7 +34,7 @@
 		<value condition="Control.HasFocus(6003)">Choose your preferred font style for text titles.</value>
 		<value condition="Control.HasFocus(6004)">Enabling this option will blur the background for media content. Disabling this option will use a default black background.</value>
 		<value condition="Control.HasFocus(6005)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40.</value>
-		<value condition="Control.HasFocus(6006)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. RECOMMENDED VALUES:[CR]FANART.TV ARTWORK: 2.0 | TMDB ARTWORK: 2.5</value>
+		<value condition="Control.HasFocus(6006)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. DEFAULT VALUE: 1.5</value>
 		<value condition="Control.HasFocus(6007)">Click to clear the blur cache. You can see the size of the cache in megabytes on the right. NOTE: The cache does not need to be cleared when changing the blur radius or saturation values in order for the changes to take effect.</value>
 		<value condition="Container(9000).HasFocus(7)">$LOCALIZE[31171]</value>
 	</variable>

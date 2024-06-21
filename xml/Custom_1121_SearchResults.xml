@@ -2,12 +2,18 @@
 <window type="SearchResults" id="1121">
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<onload>Skin.TimerStart(widget_scroll_timer)</onload>
-	<onload>Skin.SetString(navigation_delay, true)</onload>
-	<onunload>Skin.SetString(navigation_delay, true)</onunload>
 	<controls>
 		<include>DefaultBackground</include>
-		<include>FlixFanart</include>
+		<control type="multiimage">
+			<include>NetflixScreenDimensions</include>
+			<aspectratio>stretch</aspectratio>
+			<fadetime>500</fadetime>
+			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+			<animation effect="fade" time="400">VisibleChange</animation>
+			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+		</control>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
@@ -103,7 +109,7 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
-				<visible>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + !String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
+				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 				<top>563</top>
 				<left>50</left>
 				<width>1815</width>
@@ -161,8 +167,6 @@
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
-						<onfocus>Skin.SetString(navigation_delay, true)</onfocus>
-						<onright>Skin.TimerStart(navigation_timer)</onright>
 						<onleft>9000</onleft>
 						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
 						<onup>700</onup>

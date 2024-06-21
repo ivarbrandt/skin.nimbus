@@ -3,6 +3,7 @@
 	<include file="Defaults.xml" />
 	<include file="Expressions.xml" />
 	<include file="Includes_Home.xml" />
+	<include file="Includes_HomeLayouts.xml" />
 	<include file="Includes_Animations.xml" />
 	<include file="Includes_Games.xml" />
 	<include file="Includes_MediaMenu.xml" />
@@ -1140,7 +1141,7 @@
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
-				<texture colordiffuse="FF464646">$INFO[Window(home).Property(listitem_blurred)]</texture>
+				<texture colordiffuse="FF6E6E6E">$INFO[Window(home).Property(listitem_blurred)]</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -1153,7 +1154,7 @@
 				<visible>[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(500)]] | [!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(500) | Window.IsVisible(1100)] </visible>
 			</control>
 			<control type="image">
-				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + !ControlGroup(15000).HasFocus</visible>
+				<visible>[Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + String.IsEmpty(Listitem.Art(fanart)) + String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + !ControlGroup(15000).HasFocus</visible>
 				<include>NetflixScreenDimensions</include>
 				<depth>DepthBackground</depth>
 				<aspectratio>scale</aspectratio>
@@ -1611,8 +1612,8 @@
 				<control type="image">
 					<top>37</top>
 					<left>25</left>
-					<width>339</width>
-					<height>199</height>
+					<width>337</width>
+					<height>197</height>
 					<texture colordiffuse="button_focus">masks/landscape-glow.png</texture>
 					<bordersize>-23</bordersize>
 					<include>Animation_FocusTextureFade</include>
@@ -1664,7 +1665,7 @@
 		</control>
 	</include>
 
-	<include name="FlixFanart">
+	<!-- <include name="FlixFanart">
 		<control type="multiimage">
 			<include>NetflixScreenDimensions</include>
 			<aspectratio>stretch</aspectratio>
@@ -1673,11 +1674,11 @@
 			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 			<animation effect="fade" time="400">VisibleChange</animation>
 			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
-			<!-- <visible>!Player.HasMedia + !String.IsEmpty(ListItem.Art(fanart)) + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + [[Window.IsVisible(Home) | Window.IsVisible(1121)] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible> -->
+			<visible>!Player.HasMedia + !String.IsEmpty(ListItem.Art(fanart)) + [Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1) + [[Window.IsVisible(Home) | Window.IsVisible(1121)] + ![Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)]]] | [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
 			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
 			<visible>[[Window.IsVisible(Home) | Window.IsVisible(1121)] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_scroll_timer),1)] | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
 		</control>
-	</include>
+	</include> -->
 	
 	<include name="MiniMenuLabels">
 		<control type="label">
@@ -1694,7 +1695,7 @@
 		</control>
 	</include>
 
-	<include name="FlixInfoIcon">
+	<!-- <include name="FlixInfoIcon">
 		<control type="togglebutton">
 			<visible>$PARAM[visible]</visible>
 			<left>50</left>
@@ -1712,7 +1713,7 @@
 			<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
 			<label>[LIGHT]$PARAM[flixlabel][/LIGHT]</label>
 		</control>
-	</include>
+	</include> -->
 
 	<include name="TrailerControl">
     <control type="button">

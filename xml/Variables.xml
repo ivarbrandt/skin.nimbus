@@ -422,6 +422,8 @@
 		<value condition="Container.Content(genres) + Window.IsActive(videos)">$INFO[Skin.String(MovieGenreFanart.path)]$INFO[ListItem.Label]$INFO[Skin.String(MovieGenreFanart.ext)]</value>
 		<value condition="Window.IsActive(pictures) + String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.FolderPath]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_art))">$INFO[Window(home).Property(nimbus_fanart_art)]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_prop))">$INFO[Window(home).Property(nimbus_fanart_prop)]</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Property(FanartCode))">$INFO[Skin.String(WeatherFanart.path)]$INFO[Container.ListItem.Property(FanartCode)]$INFO[Skin.String(WeatherFanart.ext)]</value>
 		<value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
 		<value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
@@ -435,6 +437,7 @@
 	<variable name="ListWatchedIconVar">
 		<value condition="ListItem.IsRecording">windows/pvr/record.png</value>
 		<value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
+		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
 		<value condition="ListItem.IsCollection">overlays/set.png</value>
 		<value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value>
@@ -446,9 +449,9 @@
 		<value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
 		<value condition="ListItem.IsCollection">overlays/set.png</value>
 		<value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
-		<value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
 		<value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
 	</variable>
 	<variable name="ListPVRRecordingsIconVar">
 		<value condition="ListItem.IsRecording">windows/pvr/record.png</value>
@@ -609,8 +612,8 @@
 		<value condition="!String.IsEmpty(ListItem.AddonNews)">$LOCALIZE[31136]</value>
 	</variable>
 	<variable name="PVRNextProgrammeLabel">
-		<value condition="!String.IsEmpty(ListItem.NextStartTime) + !String.IsEmpty(ListItem.NextTitle)">Up next: $INFO[ListItem.NextStartTime]: $INFO[ListItem.NextTitle]</value>
-		<value condition="!String.IsEmpty(ListItem.NextTitle)">Up next: $INFO[ListItem.NextTitle]</value>
+		<value condition="!String.IsEmpty(ListItem.NextStartTime) + !String.IsEmpty(ListItem.NextTitle)">[COLOR grey]Up next:[/COLOR] $INFO[ListItem.NextStartTime]: $INFO[ListItem.NextTitle]</value>
+		<value condition="!String.IsEmpty(ListItem.NextTitle)">[COLOR grey]Up next:[/COLOR] $INFO[ListItem.NextTitle]</value>
 	</variable>
 	<variable name="PVRListItemSubLabel">
 		<value condition="ListItem.IsFolder">[COLOR grey]$INFO[ListItem.Timertype][/COLOR]</value>

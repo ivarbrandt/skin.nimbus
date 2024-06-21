@@ -6,7 +6,17 @@
 	<menucontrol>9000</menucontrol>
 	<controls>
 		<include>DefaultBackground</include>
-		<include>FlixFanart</include>
+		<control type="multiimage">
+			<include>NetflixScreenDimensions</include>
+			<aspectratio>stretch</aspectratio>
+			<fadetime>500</fadetime>
+			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+			<animation effect="fade" time="400">VisibleChange</animation>
+			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+			<visible>Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
+		</control>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<include>View_50_List</include>

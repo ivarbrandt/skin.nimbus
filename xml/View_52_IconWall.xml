@@ -94,8 +94,8 @@
 							<top>230</top>
 							<width>335</width>
 							<height>74</height>
-							<font>font12_title</font>
-							<label>[LIGHT]$INFO[ListItem.Label][/LIGHT]</label>
+							<font>font12</font>
+							<label>$INFO[ListItem.Label]</label>
 							<textcolor>unfocused_text</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
