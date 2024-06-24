@@ -4,6 +4,11 @@
   <onload condition="!VideoPlayer.Content(livetv)">SetFocus(703)</onload>
   <onload condition="VideoPlayer.Content(livetv)">SetFocus(704)</onload>
   <onunload>ClearProperty(LanguageNotification,home)</onunload>
+  <onload condition="VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOn,Skin.Reset(ToggleLabel),00:00:12,silent,loop)</onload>
+  <onload condition="VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOff,Skin.SetString(ToggleLabel,on),00:00:06,silent,loop)</onload>
+  <onunload>CancelAlarm(toggleLabelOn,silent)</onunload>
+  <onunload>CancelAlarm(toggleLabelOff,silent)</onunload>
+  <onunload>Skin.Reset(ToggleLabel)</onunload>
   <controls>
     <control type="label">
       <top>0</top>
@@ -263,7 +268,33 @@
           <orientation>vertical</orientation>
           <align>center</align>
           <itemgap>-3</itemgap>
+          <visible>VideoPlayer.Content(livetv) + VideoPlayer.HasEPG</visible>
           <control type="button" id="715">
+            <font>PlayerIconSmall</font>
+            <textoffsety>7</textoffsety>
+            <align>center</align>
+            <include>PlayerButton</include>
+            <label>&#xEE8A;</label>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(tvguide)</onclick>
+            <onleft>714</onleft>
+            <onright>716</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>48</height>
+            <width>48</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>-3</itemgap>
+          <control type="button" id="716">
             <font>PlayerIconSmall</font>
             <textoffsety>7</textoffsety>
             <align>center</align>

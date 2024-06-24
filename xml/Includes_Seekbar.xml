@@ -66,6 +66,36 @@
 			<align>center</align>
 			<label>$VAR[SeekLabel]</label>
 		</control>
+		<!-- <control type="label">
+			<top>47</top>
+			<left>120</left>
+			<width>auto</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>osd_light</textcolor>
+			<label>$VAR[Resolution_Label]$VAR[AudioCodec_Label]$VAR[AudioChannels_Label]</label>
+		</control> -->
+		<!-- <control type="image">
+			<top>20</top>
+			<left>120</left>
+			<width>175</width>
+			<height>68</height>
+			<texture colordiffuse="artwork_dim" background="true">$VAR[PlayerClearLogoVar]</texture>
+			<aspectratio align="left">keep</aspectratio>
+			<visible>String.IsEmpty(Skin.String(ToggleLabel))</visible>
+			<animation effect="fade" time="500">VisibleChange</animation>
+		</control> -->
+		<control type="label">
+			<top>47</top>
+			<left>120</left>
+			<width>auto</width>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>osd_light</textcolor>
+			<label>$VAR[NowPlayingLabelVar]</label>
+			<visible>String.IsEmpty(Skin.String(ToggleLabel))</visible>
+			<animation effect="fade" time="500">VisibleChange</animation>
+		</control>
 		<control type="label">
 			<top>47</top>
 			<left>120</left>
@@ -74,6 +104,8 @@
 			<font>PlayerTime</font>
 			<textcolor>osd_light</textcolor>
 			<label>$VAR[Resolution_Label]$VAR[AudioCodec_Label]$VAR[AudioChannels_Label]</label>
+			<visible>!String.IsEmpty(Skin.String(ToggleLabel))</visible>
+			<animation effect="fade" time="500">VisibleChange</animation>
 		</control>
 		<control type="label">
 			<top>120</top>

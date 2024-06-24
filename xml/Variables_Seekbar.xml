@@ -41,6 +41,12 @@
 		<value condition="VideoPlayer.Content(livetv) + !String.IsEqual(Player.TimeRemaining(h), 0)">$INFO[PVR.EpgEventRemainingTime, -]</value>
 	</variable>
 
+	<variable name="NowPlayingLabelVar">
+		<value condition="!VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.TVShowTitle] $VAR[Nimbus_Divider]$INFO[VideoPlayer.Season, S] $INFO[VideoPlayer.Episode,E, ]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Title] $VAR[Nimbus_Divider] $INFO[VideoPlayer.ChannelName]</value>
+	</variable>
+
 
 	<!-- <include name="OSDBackgroundTop-On">
     <top>0</top>
