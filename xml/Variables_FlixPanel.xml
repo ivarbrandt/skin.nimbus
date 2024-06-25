@@ -76,4 +76,45 @@
 		<value condition="$EXP[isTVShow] |  $EXP[isSeason] |  $EXP[isEpisode]">$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]</value>
 	</variable>
 
+	<variable name="EpisodeType">
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)">Series Premiere</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)">Season Premiere</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">Mid-Season Premiere</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)">Series Finale</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)">Season Finale</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">Mid-Season Finale</value>
+	</variable>
+
+	<variable name="EpisodeTypeTextColor">
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + [String.IsEqual(ListItem.Property(episode_type), series_premiere) | String.IsEqual(ListItem.Property(episode_type), season_premiere) | String.IsEqual(ListItem.Property(episode_type), mid_season_finale) | String.IsEqual(ListItem.Property(episode_type), mid_season_premiere) | String.IsEqual(ListItem.Property(episode_type), season_finale) | String.IsEqual(ListItem.Property(episode_type), series_finale)]">ffffffff</value>
+
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), series_premiere)">ff8fc5d9</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), season_premiere)">ff8fd9c5</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">ffc5d98f</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), series_finale)">ffc58fd9</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), season_finale)">ffd98fc5</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">ffd9c58f</value>
+	</variable>
+
+	<variable name="EpisodeTypeColor">
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), series_premiere)">ff116483</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), season_premiere)">ff118364</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">ff4c6017</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), series_finale)">ff641183</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), season_finale)">ff831164</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">ff836411</value>
+
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), series_premiere)">338fc5d9</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), season_premiere)">338fd9c5</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">33c5d98f</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), series_finale)">33c58fd9</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), season_finale)">33d98fc5</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">33d9c58f</value>
+	</variable>
+
+	<variable name="FlixIconColor">
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">FF2E2E2E</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur)">26CCCCCC</value>
+	</variable>
+
 </includes>
