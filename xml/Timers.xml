@@ -16,7 +16,7 @@
     <timer>
         <name>wall_scroll_timer</name>
         <description>Timer to automatically return to Flix view</description>
-        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
+        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wall_scroll_timer),2)</stop>
         <onstop condition="Control.IsVisible(500) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(54)</onstop>
         <!-- <onstart>Notification(skintimer, Wall scroll timer started, 1000)</onstart>
@@ -35,7 +35,7 @@
     <timer>
         <name>autoplay_trailer_timer</name>
         <description>Timer to autoplay trailers</description>
-        <start reset="true">[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | Control.HasFocus($PARAM[list_id])</start>
+        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autoplay_trailer_timer),Skin.Numeric(TrailerDelaySecs))</stop>
         <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(54) | Control.HasFocus(55)]">Skin.SetString(TrailerPlaying, true)</onstop>
         <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(54) | Control.HasFocus(55)]">$VAR[AutoplayTrailerSource]</onstop>

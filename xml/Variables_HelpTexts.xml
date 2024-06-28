@@ -12,6 +12,7 @@
 		<value condition="Control.HasFocus(63707)">Enabling this option will allow for one-click access to Wall view when pressing down in Flix view. This is useful for quick browsing larger lists. When scrolling is stopped in Wall view, the skin will automatically switch back to Flix view.</value>
 		<value condition="Control.HasFocus(63708)">Enabling this option will auto end playback after a custom number of minutes [B]IF[/B] playback is paused.</value>
 		<value condition="Control.HasFocus(63709)">Enter custom delay for ending playback.</value>
+		<value condition="Control.HasFocus(63710)">Click to unlock all views that have previously been locked. You can always re-lock a view in the View options of any window.</value>
 		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings.</value>
 		<value condition="Control.HasFocus(64700)">Set your desired search provider. This will use the selected addon for searches in the search window and default search dialog. This setting can be changed on the fly in the search window mini menu.</value>
 		<value condition="Control.HasFocus(64701)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>

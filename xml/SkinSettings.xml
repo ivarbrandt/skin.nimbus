@@ -287,6 +287,38 @@
 					<onclick>RunScript(script.nimbus.helper, mode=set_autoendplaybackdelay)</onclick>
 					<visible>Skin.HasSetting(Enable.AutoEndPlayback)</visible>
 				</control>
+				<!-- RESET FORCED VIEWS -->
+				<control type="button" id="63710">
+					<label>Reset forced views</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.Reset(Skin.ForcedView.)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.actors)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.addons)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.albums)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.artists)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.countries)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.directors)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.episodes.outside)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.episodes.inside)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.files)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.games)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.genres)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.images)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.mixed)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.movies)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.musicvideos)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.playlists)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.seasons)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.sets)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.songs)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.studios)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.tags)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.tvshows)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.unknown)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.videos)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.years)</onclick>
+					<onclick>Notification(Views Unlocked,All forced views have been reset)</onclick>
+				</control>
 			</control>
 
 			<control type="grouplist" id="647">

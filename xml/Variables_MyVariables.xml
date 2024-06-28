@@ -187,4 +187,42 @@
 		<value>$INFO[ListItem.Label]</value>
 	</variable>
 
+	<variable name="LockViewLabel">
+		<value condition="Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)">Lock view for episode lists</value>
+    <value condition="Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season)">Lock view for episodes</value>
+    <value condition="!Container.Content()">Lock view for $INFO[Container.Content]</value>
+    <value condition="Container.Content()">Lock view for menus</value>
+    <value>Lock view</value>
+	</variable>
+
+	<variable name="ForcedViewLabel">
+		<value condition="[Container.Content() + !String.IsEmpty(Skin.String(Skin.ForcedView.))]">[B]$INFO[Skin.String(Skin.ForcedView.)][/B]</value>
+		<value condition="[Container.Content(tags) + !String.IsEmpty(Skin.String(Skin.ForcedView.tags))]">[B]$INFO[Skin.String(Skin.ForcedView.tags)][/B]</value>
+		<value condition="[Container.Content(years) + !String.IsEmpty(Skin.String(Skin.ForcedView.years))]">[B]$INFO[Skin.String(Skin.ForcedView.years)][/B]</value>
+		<value condition="[Container.Content(genres) + !String.IsEmpty(Skin.String(Skin.ForcedView.genres))]">[B]$INFO[Skin.String(Skin.ForcedView.genres)][/B]</value>
+		<value condition="[Container.Content(countries) + !String.IsEmpty(Skin.String(Skin.ForcedView.countries))]">[B]$INFO[Skin.String(Skin.ForcedView.countries)][/B]</value>
+		<value condition="[Container.Content(studios) + !String.IsEmpty(Skin.String(Skin.ForcedView.studios))]">[B]$INFO[Skin.String(Skin.ForcedView.studios)][/B]</value>
+		<value condition="[Container.Content(playlists) + !String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]">[B]$INFO[Skin.String(Skin.ForcedView.playlists)][/B]</value>
+		<value condition="[Container.Content(movies) + !String.IsEmpty(Skin.String(Skin.ForcedView.movies))]">[B]$INFO[Skin.String(Skin.ForcedView.movies)][/B]</value>
+		<value condition="[Container.Content(sets) + !String.IsEmpty(Skin.String(Skin.ForcedView.sets))]">[B]$INFO[Skin.String(Skin.ForcedView.sets)][/B]</value>
+		<value condition="[Container.Content(tvshows) + !String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]">[B]$INFO[Skin.String(Skin.ForcedView.tvshows)][/B]</value>
+		<value condition="[Container.Content(seasons) + !String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]">[B]$INFO[Skin.String(Skin.ForcedView.seasons)][/B]</value>
+		<value condition="[Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]">[B]$INFO[Skin.String(Skin.ForcedView.episodes.outside)][/B]</value>
+		<value condition="[Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]">[B]$INFO[Skin.String(Skin.ForcedView.episodes.inside)][/B]</value>
+		<value condition="[Container.Content(artists) + !String.IsEmpty(Skin.String(Skin.ForcedView.artists))]">[B]$INFO[Skin.String(Skin.ForcedView.artists)][/B]</value>
+		<value condition="[Container.Content(albums) + !String.IsEmpty(Skin.String(Skin.ForcedView.albums))]">[B]$INFO[Skin.String(Skin.ForcedView.albums)][/B]</value>
+		<value condition="[Container.Content(songs) + !String.IsEmpty(Skin.String(Skin.ForcedView.songs))]">[B]$INFO[Skin.String(Skin.ForcedView.songs)][/B]</value>
+		<value condition="[Container.Content(musicvideos) + !String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]">[B]$INFO[Skin.String(Skin.ForcedView.musicvideos)][/B]</value>
+		<value condition="[Container.Content(addons) + !String.IsEmpty(Skin.String(Skin.ForcedView.addons))]">[B]$INFO[Skin.String(Skin.ForcedView.addons)][/B]</value>
+		<value condition="[Container.Content(actors) + !String.IsEmpty(Skin.String(Skin.ForcedView.actors))]">[B]$INFO[Skin.String(Skin.ForcedView.actors)][/B]</value>
+		<value condition="[Container.Content(directors) + !String.IsEmpty(Skin.String(Skin.ForcedView.directors))]">[B]$INFO[Skin.String(Skin.ForcedView.directors)][/B]</value>
+		<value condition="[Container.Content(files) + !String.IsEmpty(Skin.String(Skin.ForcedView.files))]">[B]$INFO[Skin.String(Skin.ForcedView.files)][/B]</value>
+		<value condition="[Container.Content(mixed) + !String.IsEmpty(Skin.String(Skin.ForcedView.mixed))]">[B]$INFO[Skin.String(Skin.ForcedView.mixed)][/B]</value>
+		<value condition="[Container.Content(images) + !String.IsEmpty(Skin.String(Skin.ForcedView.images))]">[B]$INFO[Skin.String(Skin.ForcedView.images)][/B]</value>
+		<value condition="[Container.Content(games) + !String.IsEmpty(Skin.String(Skin.ForcedView.games))]">[B]$INFO[Skin.String(Skin.ForcedView.games)][/B]</value>
+		<value condition="[Container.Content(unknown) + !String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">[B]$INFO[Skin.String(Skin.ForcedView.unknown)][/B]</value>
+		<value condition="[Container.Content(videos) + !String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">[B]$INFO[Skin.String(Skin.ForcedView.videos)][/B]</value>
+		<value>$INFO[Container.Viewmode]</value>
+	</variable>
+
 </includes>
