@@ -190,7 +190,7 @@
 					<param name="container_id" value="11100" />
 					<param name="posx" value="326" />
 					<param name="up_posy" value="-135" />
-					<param name="down_posy" value="400" />
+					<param name="down_posy" value="360" />
 				</include>
 			</control>
 		</control>

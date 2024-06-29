@@ -826,7 +826,7 @@
 			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
 			<!-- <texture colordiffuse="f5282828">colors/black.png</texture> -->
 			<!-- <texture colordiffuse="FC030303">colors/white.png</texture> -->
-			<texture colordiffuse="F7282828">colors/black.png</texture>
+			<texture colordiffuse="F2FFFFFF">colors/black.png</texture>
 			<visible>$PARAM[darken_bg]</visible>
 		</control>
 		<control type="button">
@@ -850,6 +850,18 @@
 				<textcolor>darkgrey</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
+		</control>
+	</include>
+
+	<include name="ContextFade">
+		<control type="image">
+			<left>-1920</left>
+			<top>-1080</top>
+			<width>5760</width>
+			<height>3240</height>
+			<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+			<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+			<texture colordiffuse="F2FFFFFF">colors/black.png</texture>
 		</control>
 	</include>
 

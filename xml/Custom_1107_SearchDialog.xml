@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1107">
 	<defaultcontrol>9000</defaultcontrol>
+	<coordinates>
+		<origin x="712" y="155"/>
+	</coordinates>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
+		<include>ContextFade</include>
 		<control type="group">
-			<centerleft>50%</centerleft>
-			<width>496</width>
-			<centertop>45%</centertop>
-			<height>600</height>
-			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="$LOCALIZE[137] [COLOR accent_color]|[/COLOR] $VAR[CurrentSearchProviderVar]" />
-				<param name="header_id" value="" />
+			<include content="CenterContext">
+				<param name="id" value="9000" />
 			</include>
+			<width>446</width>
+			<height max="780">auto</height>
+			<!-- <usecontrolcoords>true</usecontrolcoords> -->
+			<control type="label">
+				<top>-70</top>
+				<left>-225</left>
+				<width>896</width>
+				<height>70</height>
+				<font>font36_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<align>center</align>
+				<label>$VAR[CurrentSearchProviderVar]</label>
+			</control>
 			<control type="panel" id="9000">
 				<include>ButtonMenuList</include>
 				<content>
@@ -85,21 +97,19 @@
 						<label>YouTube</label>
 						<onclick>Dialog.Close(all)</onclick>
 						<onclick condition="System.AddonIsEnabled(plugin.video.youtube)">
-							ActivateWindow(videos,"plugin://plugin.video.youtube/kodion/search/list/",return)</onclick>
-						<onclick
-							condition="System.HasAddon(plugin.video.youtube) + !System.AddonIsEnabled(plugin.video.youtube)">
-							EnableAddon(plugin.video.youtube)</onclick>
+						ActivateWindow(videos,"plugin://plugin.video.youtube/kodion/search/list/",return)</onclick>
+						<onclick condition="System.HasAddon(plugin.video.youtube) + !System.AddonIsEnabled(plugin.video.youtube)">EnableAddon(plugin.video.youtube)</onclick>
 						<onclick condition="!System.HasAddon(plugin.video.youtube)">
-							InstallAddon(plugin.video.youtube)</onclick>
+						InstallAddon(plugin.video.youtube)</onclick>
 					</item>
 				</content>
 			</control>
 			<include content="UpDownArrows">
 				<param name="container_id" value="9000" />
-				<param name="posx" value="277.5" />
-				<param name="up_posy" value="-30" />
-				<param name="down_posy" value="710" />
-				</include>
+				<param name="posx" value="199" />
+				<param name="up_posy" value="-130" />
+				<param name="down_posy" value="790" />
+			</include>
 		</control>
 	</controls>
 </window>

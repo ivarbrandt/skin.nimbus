@@ -66,6 +66,15 @@
 			<align>center</align>
 			<label>$VAR[SeekLabel]</label>
 		</control>
+		<control type="label">
+			<visible>Player.IsTempo</visible>
+			<top>47</top>
+			<height>40</height>
+			<font>PlayerTime</font>
+			<textcolor>osd_light</textcolor>
+			<align>center</align>
+			<label>$LOCALIZE[31142]: $INFO[Player.PlaySpeed]</label>
+		</control>
 		<!-- <control type="label">
 			<top>47</top>
 			<left>120</left>

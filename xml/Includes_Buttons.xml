@@ -316,20 +316,19 @@
 	</include>
 	<include name="ButtonMenuList">
 		<left>0</left>
-		<top>65</top>
+		<top>0</top>
 		<width>496</width>
-		<height>600</height>
+		<height>780</height>
 		<onleft>9000</onleft>
 		<onright>9000</onright>
 		<onup>9000</onup>
 		<ondown>9000</ondown>
 		<orientation>vertical</orientation>
-		<itemlayout height="70" width="496">
+		<itemlayout height="70" width="446">
 			<control type="label">
-				<left>0</left>
 				<textoffsetx>20</textoffsetx>
-				<top>23</top>
-				<width>496</width>
+				<top>-3</top>
+				<width>446</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -338,19 +337,17 @@
 				<font>font32</font>
 			</control>
 		</itemlayout>
-		<focusedlayout height="70" width="496">
+		<focusedlayout height="70" width="446">
 			<control type="image">
-				<left>25</left>
-				<top>25</top>
+				<top></top>
 				<width>446</width>
 				<height>70</height>
 				<texture colordiffuse="button_focus">masks/focus.png</texture>
 			</control>
 			<control type="label">
-				<left>0</left>
 				<textoffsetx>20</textoffsetx>
-				<top>23</top>
-				<width>496</width>
+				<top>-3</top>
+				<width>446</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>

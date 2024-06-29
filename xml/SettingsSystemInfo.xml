@@ -202,6 +202,7 @@
 				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="grouplist">
+				<itemgap>4</itemgap>
 				<left>420</left>
 				<orientation>vertical</orientation>
 				<control type="label">
@@ -218,7 +219,7 @@
 				<control type="progress">
 					<description>Memory BAR</description>
 					<width>730</width>
-					<height>16</height>
+					<height>12</height>
 					<info>system.memory(used)</info>
 					<colordiffuse>unfocused_text</colordiffuse>
 				</control>
@@ -236,13 +237,14 @@
 				<control type="progress">
 					<description>CPU BAR</description>
 					<width>730</width>
-					<height>16</height>
+					<height>12</height>
 					<info>System.CPUUsage</info>
 					<visible>System.SupportsCPUUsage</visible>
 					<colordiffuse>unfocused_text</colordiffuse>
 				</control>
 			</control>
 			<control type="group">
+				<top>-5</top>
 				<animation effect="slide" end="0,-55" time="0" condition="!System.SupportsCPUUsage">Conditional</animation>
 				<control type="label">
 					<top>155</top>

@@ -177,7 +177,7 @@
 	<variable name="ContextMenuTitleVar">
 		<value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
 		<value condition="$EXP[isSeason]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
-		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
+		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode]</value>
 		<value>Context menu</value>
 	</variable>
 

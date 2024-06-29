@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>9000</defaultcontrol>
+	<coordinates>
+		<origin x="712" y="155"/>
+	</coordinates>
 	<include>Animation_DialogPopupOpenClose</include>
 	<controls>
+		<include>ContextFade</include>
 		<control type="group">
-			<centerleft>50%</centerleft>
-			<width>496</width>
-			<centertop>45%</centertop>
-			<height>600</height>
-			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="$LOCALIZE[31072]" />
-				<param name="header_id" value="2" />
+			<include content="CenterContext">
+				<param name="id" value="9000" />
 			</include>
+			<width>446</width>
+			<height max="780">auto</height>
+			<!-- <usecontrolcoords>true</usecontrolcoords> -->
+			<control type="label">
+				<top>-70</top>
+				<left>-225</left>
+				<width>896</width>
+				<height>70</height>
+				<font>font36_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<align>center</align>
+				<label>$LOCALIZE[31072]</label>
+			</control>
 			<control type="panel" id="9000">
 				<include>ButtonMenuList</include>
 				<content>
@@ -35,7 +47,6 @@
 						<onclick>Dialog.Close(all)</onclick>
 						<onclick>ActivateWindow(systeminfo)</onclick>
 					</item>
-					
 					<item>
 						<label>$LOCALIZE[13016]</label>
 						<onclick>Powerdown()</onclick>
@@ -98,9 +109,9 @@
 			</control>
 			<include content="UpDownArrows">
 				<param name="container_id" value="9000" />
-				<param name="posx" value="224" />
-				<param name="up_posy" value="-30" />
-				<param name="down_posy" value="660" />
+				<param name="posx" value="199" />
+				<param name="up_posy" value="-130" />
+				<param name="down_posy" value="790" />
 			</include>
 		</control>
 	</controls>

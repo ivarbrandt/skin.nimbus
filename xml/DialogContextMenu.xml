@@ -3,19 +3,24 @@
 	<defaultcontrol>996</defaultcontrol>
 	<include>Animation_DialogPopupOpenClose</include>
 	<coordinates>
-		<left>0</left>
-		<top>0</top>
+		<origin x="712" y="155"/>
 	</coordinates>
 	<controls>
+		<include>ContextFade</include>
 		<control type="group">
-			<top>175</top>
-			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="$VAR[ContextMenuTitleVar]" />
-				<param name="header_id" value="" />
+			<include content="CenterContext">
+				<param name="id" value="996" />
 			</include>
-		</control>
-		<control type="group">
-			<top>265</top>
+			<control type="label">
+				<top>-70</top>
+				<left>-225</left>
+				<width>896</width>
+				<height>70</height>
+				<font>font36_title</font>
+				<textcolor>unfocused_text</textcolor>
+				<align>center</align>
+				<label>$VAR[ContextMenuTitleVar]</label>
+			</control>
 			<control type="button">
 				<left>-1920</left>
 				<top>-1080</top>
@@ -25,30 +30,27 @@
 				<texturenofocus />
 				<onclick>Action(close)</onclick>
 			</control>
-			<!-- <animation effect="slide" end="0,75" time="0" condition="Window.IsActive(home)">conditional</animation> -->
 			<control type="grouplist" id="996">
 				<description>grouplist for context buttons</description>
-				<left>712</left>
+				<left>0</left>
 				<top>0</top>
-				<width>496</width>
-				<height max="560">auto</height>
+				<width>446</width>
+				<height max="780">auto</height>
 				<usecontrolcoords>true</usecontrolcoords>
 			</control>
 			<include content="UpDownArrows">
 				<param name="container_id" value="996" />
-				<param name="posx" value="940" />
-				<param name="up_posy" value="-120" />
-				<param name="down_posy" value="570" />
+				<param name="posx" value="199" />
+				<param name="up_posy" value="-130" />
+				<param name="down_posy" value="790" />
 			</include>
 			<control type="button" id="1000">
 				<description>button template</description>
-				<textoffsety>11</textoffsety>
-				<left>25</left>
-				<!-- <top></top> -->
+				<left>0</left>
+				<top></top>
 				<width>446</width>
 				<height>70</height>
 				<align>center</align>
-				<aligny>left</aligny>
 				<font>font32</font>
 				<textcolor>darkgrey</textcolor>
 				<focusedcolor>focused_text</focusedcolor>
