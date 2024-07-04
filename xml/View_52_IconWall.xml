@@ -5,6 +5,7 @@
 			<visible>Control.IsVisible(52)</visible>
 			<include>OpenClose_Right</include>
 			<include>Visible_Right</include>
+			<include>MediaMenuAnimations</include>
 			<control type="panel" id="52">
 				<centerleft>51.2%</centerleft>
 				<top>0</top>
@@ -65,7 +66,7 @@
 							<top>14</top>
 							<width>362</width>
 							<height>211</height>
-							<texture colordiffuse="button_focus">masks/landscape-glow.png</texture>
+							<texture colordiffuse="$VAR[FocusedColorVar]">masks/landscape-glow.png</texture>
 							<bordersize>-23</bordersize>
 							<include content="GlowPulse">
 								<param name="pos_x" value="199.5"/>

@@ -245,6 +245,7 @@
 		<param name="fallback_image"></param>
 		<param name="flip_bg">false</param>
 		<definition>
+			<include>MediaMenuAnimations</include>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include content="ContentPanel">

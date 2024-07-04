@@ -328,4 +328,15 @@
 		<animation effect="slide" start="0,0" end="0,10" time="0" condition="Integer.IsGreater(Container($PARAM[id]).NumItems,11)">Conditional</animation>
 	</include>
 
+	<include name="MediaMenuAnimations">
+		<animation condition="$EXP[sidebar_visible]" reversible="true">
+			<effect type="slide" start="0,0" end="470,0" time="500" tween="cubic" easing="inout" />
+		</animation>
+	</include>
+
+	<include name="ArtworkAnimations">
+		<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+		<animation effect="fade" time="400">VisibleChange</animation>
+	</include>
 </includes>

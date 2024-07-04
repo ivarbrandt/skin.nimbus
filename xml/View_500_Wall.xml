@@ -2,6 +2,7 @@
 <includes>
 	<include name="View_500_Wall">
 		<control type="group">
+			<include>MediaMenuAnimations</include>
 			<include>OpenClose_Right</include>
 			<left>21</left>
 			<visible>Control.IsVisible(500)</visible>
@@ -24,14 +25,14 @@
 				<visible>Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos) | Container.Content(images) | Container.Content(videos) | Container.Content(games)</visible>
 				<itemlayout height="387" width="268" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 					<control type="group">
-						<top>160</top>
+						<top>105</top>
 						<include>FlixMovieLayout</include>
 					</control>
 				</itemlayout>
 				<focusedlayout height="387" width="268" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
-						<top>160</top>
+						<top>105</top>
 						<include content="FlixMovieLayout">
 							<param name="focused" value="true" />
 						</include>
@@ -117,6 +118,8 @@
 				<width>110%</width>
 				<height>123</height>
 				<texture flipy="true">frame/InfoBar.png</texture>
+				<visible>!$EXP[sidebar_visible]</visible>
+				<animation effect="fade" start="0" end="100" time="500">VisibleChange</animation>
 			</control>
 		</control>
 	</include>

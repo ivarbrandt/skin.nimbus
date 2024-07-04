@@ -4,18 +4,41 @@
 	<backgroundcolor>background</backgroundcolor>
 	<views>50,52,54,55,500</views>
 	<menucontrol>9000</menucontrol>
+	<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.5)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.movies))">Skin.SetString(ArtworkChoice.movies,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.tvshows))">Skin.SetString(ArtworkChoice.tvshows,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.seasons))">Skin.SetString(ArtworkChoice.seasons,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.episodes))">Skin.SetString(ArtworkChoice.episodes,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.movies))">Skin.SetString(LandscapeFanart.movies,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.tvshows))">Skin.SetString(LandscapeFanart.tvshows,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.seasons))">Skin.SetString(LandscapeFanart.seasons,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.episodes))">Skin.SetString(LandscapeFanart.episodes,0)</onload>
 	<controls>
 		<include>DefaultBackground</include>
-		<control type="multiimage">
-			<include>NetflixScreenDimensions</include>
-			<aspectratio>stretch</aspectratio>
-			<fadetime>500</fadetime>
-			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
+		<control type="group">
+			<include>MediaMenuAnimations</include>
 			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
-			<visible>Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)</visible>
+			<control type="image">
+				<include>NetflixScreenDimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>500</fadetime>
+				<include>ArtworkAnimations</include>
+				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</texture>
+				<visible>[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]] | [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]
+				</visible>
+			</control>
+			<control type="image">
+				<include>BigLandscapeScreenDimensions</include>
+				<fadetime>500</fadetime>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[FlixLandscapeVar]</texture>
+				<bordersize>1</bordersize>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<include>ArtworkAnimations</include>
+				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="10" infill="false">masks/giant-border.png</bordertexture>
+				<visible>[Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [[$EXP[isContent] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]] ] | [!$EXP[isContent] + !Skin.HasSetting(Enable.BackgroundBlur)]]
+			</visible>
+			</control>
 		</control>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
@@ -32,6 +55,8 @@
 				<include>ListThumbInfoPanel</include>
 			</control>
 			<control type="group">
+				<include>MediaMenuAnimations</include>
+				<include>FlixPanel</include>
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<visible>Control.IsVisible(50) | Control.IsVisible(54) | [Control.IsVisible(501) + String.IsEqual(Skin.AspectRatio,21:9)]</visible>
@@ -41,7 +66,6 @@
 				</include> -->
 				<control type="group">
 					<!-- <width>550</width> -->
-					<include content="FlixPanel"/>
 					<control type="group">
 						<left>20</left>
 						<top>245</top>
@@ -75,7 +99,7 @@
 			<control type="group">
 				<include>MediaMenuCommon</include>
 				<control type="grouplist" id="9000">
-					<top>50</top>
+					<top>70</top>
 					<include>MediaMenuListCommon</include>
 					<control type="button" id="10">
 						<description>Watched Toggle</description>

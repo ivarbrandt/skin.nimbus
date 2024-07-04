@@ -26,21 +26,21 @@
 				<ondown>20</ondown>
 			</control>
 			<control type="button" id="10">
-				<animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
+				<!-- <animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="-200,0" time="300" tween="cubic" easing="in" />
-				</animation>
+				</animation> -->
 				<description>Default Category Button</description>
 				<height>80</height>
 				<width>345</width>
 				<textoffsetx>20</textoffsetx>
 				<textoffsety>19</textoffsety>
 				<textcolor>darkgrey</textcolor>
-				<focusedcolor>focused_text</focusedcolor>
+				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 				<align>center</align>
 				<aligny>left</aligny>
 				<font>font27_title</font>
-				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
 				<texturenofocus/>
 				<!-- <texturenofocus colordiffuse="button_focus2">masks/categorywidget-unfocused.png</texturenofocus> -->
 			</control>
@@ -65,7 +65,7 @@
 				<height>70</height>
 				<font>font12</font>
 				<align>justify</align>
-				<textcolor>button_focus</textcolor>
+				<textcolor>$VAR[FocusedColorVar]</textcolor>
 				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 			</control>
 			<control type="button" id="7">
@@ -84,7 +84,7 @@
 			<control type="image" id="11">
 				<description>separator image</description>
 				<height>3</height>
-				<texture colordiffuse="button_focus" border="3">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]" border="3">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="edit" id="12">
 				<include>DefaultAddonSettingsButton</include>
@@ -103,10 +103,10 @@
 				<include>DefaultAddonSettingsButton</include>
 			</control>
 			<control type="grouplist" id="9000">
-				<animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
+				<!-- <animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
-				</animation>
+				</animation> -->
 				<left>1530</left>
 				<top>92</top>
 				<orientation>vertical</orientation>
@@ -129,10 +129,10 @@
 				</include>
 			</control>
 			<control type="radiobutton" id="20">
-				<animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
+				<!-- <animation condition="ControlGroup(5).HasFocus | Control.HasFocus(60)">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="-200,0" time="300" tween="cubic" easing="in" />
-				</animation>
+				</animation> -->
 				<left>29</left>
 				<top>747</top>
 				<width>345</width>
@@ -144,8 +144,8 @@
 				<textoffsetx>0</textoffsetx>
 				<textoffsety>19</textoffsety>
 				<textcolor>darkgrey</textcolor>
-				<focusedcolor>focused_text</focusedcolor>
-				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
+				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
 				<texturenofocus />
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>
@@ -161,10 +161,10 @@
 				<textureradiooffnofocus/>
 			</control>
 			<control type="scrollbar" id="60">
-				<animation condition="ControlGroup(5).HasFocus">
+				<!-- <animation condition="ControlGroup(5).HasFocus">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
-				</animation>
+				</animation> -->
 				<left>1489</left>
 				<top>100</top>
 				<width>12</width>

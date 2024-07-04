@@ -245,9 +245,9 @@
 							<textoffsetx>40</textoffsetx>
 							<onclick>$PARAM[button_onclick]</onclick>
 							<align>center</align>
-							<texturefocus border="40" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
 							<texturenofocus border="40" colordiffuse="FF3d3d3d">buttons/dnfo.png</texturenofocus>
-							<focusedcolor>focused_text</focusedcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 							<visible>$PARAM[visible_1]</visible>
 						</control>
 						<control type="button" id="$PARAM[button_id]568">
@@ -258,9 +258,9 @@
 							<onclick>$PARAM[button2_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
-							<texturefocus border="40" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
 							<texturenofocus border="40" colordiffuse="FF3d3d3d" >buttons/dnfo.png</texturenofocus>
-							<focusedcolor>focused_text</focusedcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 							<visible>$PARAM[visible_2] + Window.IsActive(home)</visible>
 						</control>
 						<control type="button" id="$PARAM[button_id]569">
@@ -271,9 +271,9 @@
 							<onclick>$PARAM[button3_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
-							<texturefocus border="40" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
 							<texturenofocus border="40" colordiffuse="FF3d3d3d" >buttons/dnfo.png</texturenofocus>
-							<focusedcolor>focused_text</focusedcolor>
+							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 							<visible>$PARAM[visible_3] + Window.IsActive(1121)</visible>
 						</control>
 					</control>
@@ -667,9 +667,24 @@
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),0) | String.IsEqual(Skin.String(onBackSetting),2)">9000</onback>
 		<onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
 		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
+		<onfocus>ClearProperty(nimbus_landscape_art)</onfocus>
+		<onfocus>ClearProperty(nimbus_landscape_prop)</onfocus>
 		<!-- <onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus> -->
+		<!-- <onunfocus condition="String.IsEqual(Skin.String(HomeLandscapeFanart),1) | [!EXP[isContent] + String.IsEqual(Skin.String(HomeLandscapeFanart),0)]">SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
+		<onunfocus condition="String.IsEqual(Skin.String(HomeLandscapeFanart),1) | [!EXP[isContent] + String.IsEqual(Skin.String(HomeLandscapeFanart),0)]">SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
+
+		<onunfocus condition="String.IsEqual(Skin.String(HomeLandscapeFanart),0)">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)], home)</onunfocus>
+		<onunfocus condition="String.IsEqual(Skin.String(HomeLandscapeFanart),0)">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(landscape)], home)</onunfocus> -->
 		<onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
 		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
+		<!-- <onunfocus>SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)], home)</onunfocus>
+		<onunfocus>SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(landscape)], home)</onunfocus> -->
+		<onunfocus condition="$EXP[isContent] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)], home)</onunfocus>
+		<onunfocus condition="$EXP[isContent] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
+		<onunfocus condition="$EXP[isContent] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(landscape)], home)</onunfocus>
+		<onunfocus condition="$EXP[isContent] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
+		<onunfocus condition="!$EXP[isContent]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
+		<onunfocus condition="!$EXP[isContent]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
 		<preloaditems>2</preloaditems>
 	</include>
 
@@ -688,7 +703,7 @@
 					<width>300</width>
 					<height>300</height>
 					<aspectratio aligny="center">keep</aspectratio>
-					<texture colordiffuse="accent_color">loading.gif</texture>
+					<texture colordiffuse="$VAR[FocusedColorVar]">loading.gif</texture>
 				</control>
 				<!-- <control type="image">
 					<top>$PARAM[posy]</top>

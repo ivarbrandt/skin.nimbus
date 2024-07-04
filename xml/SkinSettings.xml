@@ -457,7 +457,6 @@
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_api_key)</onclick>
 				</control>
-				
 				<control type="radiobutton" id="64801">
 					<label>    - Metacritic</label>
 					<include>DefaultSettingButton</include>
@@ -600,6 +599,7 @@
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
 					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
+					<onclick>SetFocus(9000)</onclick>
 				</control>
 				<!-- BLUR RADIUS -->
 				<control type="button" id="6005">
@@ -625,7 +625,27 @@
 					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
-				<control type="button" id="6008">
+				<!-- TODO QUICK CONFIGURE -->
+				<control type="radiobutton" id="6008">
+					<label>Enable quick configure for homescreen artwork</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(Enable.ArtworkQuickConfigure)</onclick>
+					<selected>Skin.HasSetting(Enable.ArtworkQuickConfigure)</selected>
+				</control>
+				<control type="button" id="6009">
+					<label>Choose default background</label>
+					<label2>$INFO[Skin.String(CustomBackground)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=set_image)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<control type="button" id="6010">
+					<label>   - Restore default background</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.Reset(CustomBackground)</onclick>
+					<visible>!String.IsEmpty(Skin.String(CustomBackground)) + Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<control type="button" id="6011">
 					<label>$LOCALIZE[31131]</label>
 					<label2>$INFO[Skin.String(HomeFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -633,7 +653,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6009">
+				<control type="button" id="6012">
 					<label>$LOCALIZE[31062]</label>
 					<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -641,7 +661,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6010">
+				<control type="button" id="6013">
 					<label>$LOCALIZE[31149]</label>
 					<label2>$INFO[Skin.String(MovieGenreFanart.Name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -649,7 +669,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="radiobutton" id="6011">
+				<control type="radiobutton" id="6014">
 					<label>$LOCALIZE[31168]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
@@ -737,7 +757,7 @@
 				<top>130</top>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="image">
 				<description>Dialog Header image</description>
@@ -745,7 +765,7 @@
 				<bottom>134</bottom>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -783,7 +803,7 @@
 						<left>25</left>
 						<width>445</width>
 						<height>85</height>
-						<texture colordiffuse="button_focus">masks/focus.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">
@@ -795,7 +815,7 @@
 						<font>font37</font>
 						<aligny>left</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>focused_text</textcolor>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 					</control>
 				</focusedlayout>
 				<content>
@@ -860,10 +880,10 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[5] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[20077]" />
+			<param name="breadcrumbs_label" value="$LOCALIZE[5] [B]»[/B] $LOCALIZE[20077]" />
 		</include>
 		<include>BottomBar</include>
-		<control type="textbox" id="6">
+		<!-- <control type="textbox" id="6">
 			<include>OpenClose_Right</include>
 			<description>description area</description>
 			<left>510</left>
@@ -875,6 +895,20 @@
 			<textcolor>unfocused_text</textcolor>
 			<label>[COLOR accent_color]$VAR[SkinSettingsHelpTextVar][/COLOR]</label>
 			<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
+		</control> -->
+		<control type="textbox" id="6">
+			<include>OpenClose_Right</include>
+			<description>description area</description>
+			<left>510</left>
+			<bottom>27</bottom>
+			<width>1370</width>
+			<height>98</height>
+			<font>font12</font>
+			<align>justify</align>
+			<textcolor>$VAR[FocusedColorVar]</textcolor>
+			<label>$VAR[SkinSettingsHelpTextVar]</label>
+			<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
+			<!-- <visible>!Skin.HasSetting(Enable.BackgroundBlur)</visible> -->
 		</control>
 	</controls>
 </window>

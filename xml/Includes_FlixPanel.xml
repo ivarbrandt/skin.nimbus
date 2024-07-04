@@ -8,6 +8,7 @@
 			<control type="image">
 				<width>522</width>
 				<height>223</height>
+				<fadetime>200</fadetime>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
@@ -68,7 +69,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -83,7 +84,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -98,7 +99,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -113,7 +114,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -128,7 +129,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -143,7 +144,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -158,7 +159,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -173,7 +174,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -188,7 +189,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -203,7 +204,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>7</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>$VAR[EpisodeTypeTextColor]</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[EpisodeTypeColor]">masks/flixicon-filled.png</texturenofocus>
@@ -261,7 +262,7 @@
 					</control>
 				</control>
 				<control type="textbox" id="15500">
-					<height>230</height>
+					<height>237</height>
 					<width>600</width>
 					<label>$VAR[ListBoxInfoVar]</label>
 					<font>font27</font>
@@ -271,7 +272,7 @@
 				</control>
 				<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
 				<control type="textbox">
-					<height max="145">auto</height>
+					<height max="137">auto</height>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
 					<font>font27</font>
@@ -280,7 +281,7 @@
 					<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
 				</control>
 				<control type="textbox">
-					<height max="245">auto</height>
+					<height max="237">auto</height>
 					<width>600</width>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
@@ -290,7 +291,7 @@
 					<visible>Player.HasMedia</visible>
 				</control>
 				<control type="textbox">
-					<height max="175">auto</height>
+					<height max="167">auto</height>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
 					<font>font27</font>
@@ -325,7 +326,7 @@
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
-					<height>36</height>
+					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
@@ -349,7 +350,7 @@
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
-					<height>36</height>
+					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
@@ -373,7 +374,7 @@
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
-					<height>36</height>
+					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
@@ -397,7 +398,7 @@
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
-					<height>36</height>
+					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
@@ -421,7 +422,7 @@
 				</control>
 				<control type="label">
 					<width max="87">auto</width>
-					<height>36</height>
+					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
@@ -445,7 +446,7 @@
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
-					<height>36</height>
+					<height>38</height>
 					<align>left</align>
 					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
 					<font>font27</font>

@@ -23,14 +23,14 @@
 				<top>130</top>
 				<right>25</right>
 				<height>2</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="image">
 				<left>495</left>
 				<bottom>135</bottom>
 				<right>25</right>
 				<height>2</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 		</control>
 		<control type="button" id="7">
@@ -54,7 +54,7 @@
 		<control type="image" id="11">
 			<description>separator image</description>
 			<height>3</height>
-			<texture colordiffuse="button_focus" border="3">dialogs/separator-grey.png</texture>
+			<texture colordiffuse="$VAR[FocusedColorVar]" border="3">dialogs/separator-grey.png</texture>
 		</control>
 		<control type="label" id="14">
 			<description>Default Label</description>
@@ -100,7 +100,7 @@
 				<textoffsety>16</textoffsety>
 				<aligny>left</aligny>
 				<font>font37</font>
-				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
 				<texturenofocus />
 			</control>
 		</control>
@@ -127,7 +127,7 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[5]$INFO[Control.GetLabel(2), [COLOR accent_color][B]»[/B][/COLOR] ]" />
+			<param name="breadcrumbs_label" value="$LOCALIZE[5]$INFO[Control.GetLabel(2), [B]»[/B] ]" />
 		</include>
 		<include>BottomBar</include>
 		<control type="group">
@@ -142,7 +142,7 @@
 				<onclick>SettingsLevelChange</onclick>
 				<textoffsetx>100</textoffsetx>
 				<textoffsety>0</textoffsety>
-				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
 				<texturenofocus />
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>
@@ -153,10 +153,10 @@
 				<onup>3</onup>
 				<ondown>3</ondown>
 				<textcolor>unfocused_text</textcolor>
-				<focusedcolor>focused_text</focusedcolor>
-				<textureradioonfocus colordiffuse="focused_text">icons/settings.png</textureradioonfocus>
+				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/settings.png</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="unfocused_text">icons/settings.png</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="focused_text">icons/settings.png</textureradioofffocus>
+				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/settings.png</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="unfocused_text">icons/settings.png</textureradiooffnofocus>
 			</control>
 		</control>
@@ -171,7 +171,7 @@
 				<width>1370</width>
 				<font>font12</font>
 				<align>justify</align>
-				<textcolor>accent_color</textcolor>
+				<textcolor>$VAR[FocusedColorVar]</textcolor>
 				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 			</control>
 		</control>

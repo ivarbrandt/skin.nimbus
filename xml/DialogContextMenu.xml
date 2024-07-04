@@ -53,8 +53,8 @@
 				<align>center</align>
 				<font>font32</font>
 				<textcolor>darkgrey</textcolor>
-				<focusedcolor>focused_text</focusedcolor>
-				<texturefocus colordiffuse="button_focus">masks/focus.png</texturefocus>
+				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
 				<texturenofocus />
 			</control>
 		</control>

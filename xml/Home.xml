@@ -7,17 +7,38 @@
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
+	<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>
 	<controls>
 		<include>DefaultBackground</include>
-		<control type="multiimage">
-			<include>NetflixScreenDimensions</include>
-			<aspectratio>stretch</aspectratio>
-			<fadetime>500</fadetime>
-			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
+		<control type="group">
 			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+			<control type="multiimage">
+				<include>NetflixScreenDimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>500</fadetime>
+				<include>ArtworkAnimations</include>
+				<imagepath background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
+				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),0)</visible>
+			</control>
+			<control type="image">
+				<include>BigLandscapeScreenDimensions</include>
+				<fadetime>500</fadetime>
+				<include>ArtworkAnimations</include>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[HomeFanartVar]</texture>
+				<bordersize>1</bordersize>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="10" infill="false">masks/giant-border.png</bordertexture>
+				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + !ControlGroup(15000).HasFocus</visible>
+			</control>
+			<control type="multiimage">
+				<include>BigLandscapeScreenDimensions</include>
+				<fadetime>500</fadetime>
+				<include>ArtworkAnimations</include>
+				<imagepath colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[WeatherFanartVar]</imagepath>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + ControlGroup(15000).HasFocus</visible>
+			</control>
 		</control>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
@@ -536,6 +557,10 @@
 						<ondown>14100</ondown>
 						<preloaditems>2</preloaditems>
 						<movement>5</movement>
+						<onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
+						<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
+						<onfocus>ClearProperty(nimbus_landscape_art)</onfocus>
+						<onfocus>ClearProperty(nimbus_landscape_prop)</onfocus>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<orientation>horizontal</orientation>
 						<pagecontrol>14010</pagecontrol>
@@ -818,7 +843,8 @@
 					<!-- <width>550</width> -->
 					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					<include>OpenClose_Left</include>
-					<include content="FlixPanel"/>
+					<!-- <include content="FlixPanel"/> -->
+					<include>FlixPanel</include>
 				</control>
 				<include>osd_darkenBG</include>
 				<control type="group">
@@ -960,7 +986,7 @@
 						<include content="List">
               <param name="id" value="700" />
               <param name="height" value="50" />
-              <param name="img_top" value="11.5" />
+              <param name="img_top" value="9.5" />
               <param name="img_bottom" value="-10" />
               <param name="img_width" value="5" />
               <param name="img_left" value="50" />
@@ -1030,7 +1056,7 @@
 						<include content="List">
               <param name="id" value="733" />
               <param name="height" value="50" />
-              <param name="img_top" value="11.5" />
+              <param name="img_top" value="9.5" />
               <param name="img_bottom" value="-10" />
               <param name="img_width" value="5" />
               <param name="img_left" value="50" />
@@ -1038,14 +1064,27 @@
               <param name="unfocused_font" value="font27" />
             </include>
 						<content>
-							<item>
-								<label>main menu</label>
+							<!-- <item>
+								<label>edit $INFO[Container(9000).ListItem.Label] menu</label>
 								<onclick>$VAR[EditMainMenusVar]</onclick>
 							</item>
 							<item>
-								<label>widgets</label>
+								<label>edit $INFO[Container(9000).ListItem.Label] widgets</label>
 								<onclick>$VAR[EditWidgetsVar]</onclick>
-							</item>
+							</item> -->
+							<item>
+								<label>background blur</label>
+								<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
+						</item>
+							<item>
+								<label>artwork [COLOR accent_color]»[/COLOR] $VAR[HomeFanartSettingVar]</label>
+								<onclick>$VAR[HomeFanartToggleVar]</onclick>
+						</item>
+						<item>
+								<label>use [COLOR accent_color]»[/COLOR] $VAR[HomeLandscapeFanartSettingVar]</label>
+								<onclick>$VAR[HomeLandscapeFanartToggleVar]</onclick>
+								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+						</item>
 						</content>
 					</control>
 					<include content="MiniMenuLabels">
@@ -1053,11 +1092,11 @@
 						<param name="top" value="125"/>
 						<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
 					</include>
-					<include content="MiniMenuLabels">
+					<!-- <include content="MiniMenuLabels">
 						<param name="visible" value="Control.HasFocus(733)"/>
-						<param name="top" value="175"/>
-						<param name="label" value="[UPPERCASE]Edit $INFO[Container(9000).ListItem.Label] Section[/UPPERCASE]"/>
-					</include>
+						<param name="top" value="125"/>
+						<param name="label" value="[UPPERCASE]options[/UPPERCASE]"/>
+					</include> -->
 				</control>
 			</control>
 			<control type="group">

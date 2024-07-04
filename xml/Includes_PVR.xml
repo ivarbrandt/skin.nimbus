@@ -96,7 +96,7 @@
 			</control>
 		</definition>
 	</include>
-	<include name="PVRListItemLayouts">
+	<!-- <include name="PVRListItemLayouts">
 		<param name="only_label_condition">false</param>
 		<param name="has_info_icon">false</param>
 		<param name="has_status_icon">false</param>
@@ -131,7 +131,7 @@
 					<top>0</top>
 					<right>25</right>
 					<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
-					<texture colordiffuse="button_focus">masks/focus.png</texture>
+					<texture colordiffuse="$VAR[Focused]">masks/focus.png</texture>
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="progress">
@@ -160,6 +160,198 @@
 				</include>
 			</focusedlayout>
 		</definition>
+	</include> -->
+	<include name="PVRListItemLayouts">
+    <param name="only_label_condition">false</param>
+    <param name="has_info_icon">false</param>
+    <param name="has_status_icon">false</param>
+    <param name="info_update">0</param>
+    <definition>
+			<itemlayout height="101" width="918" infoupdate="$PARAM[info_update]">
+				<control type="progress">
+					<left>20</left>
+					<top>66</top>
+					<width>70</width>
+					<height>7</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
+					<info>ListItem.Progress</info>
+				</control>
+				<control type="group">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<bottom>0</bottom>
+					<control type="label">
+						<left>10</left>
+						<top>10</top>
+						<width>90</width>
+						<height>50</height>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font32_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.ChannelNumberLabel]</label>
+					</control>
+					<control type="label">
+						<left>105</left>
+						<right>180</right>
+						<top>10</top>
+						<height>30</height>
+						<aligny>top</aligny>
+						<textcolor>unfocused_text</textcolor>
+						<label>$PARAM[label1]</label>
+					</control>
+					<control type="label">
+						<left>105</left>
+						<right>180</right>
+						<top>10</top>
+						<height>30</height>
+						<align>right</align>
+						<aligny>top</aligny>
+						<textcolor>unfocused_text</textcolor>
+						<label>$PARAM[label2]</label>
+					</control>
+					<control type="label">
+						<left>105</left>
+						<right>180</right>
+						<top>53</top>
+						<height>30</height>
+						<font>font12</font>
+						<aligny>top</aligny>
+						<textcolor>unfocused_text</textcolor>
+						<label>$VAR[PVRListItemSubLabel]</label>
+					</control>
+					<control type="label">
+						<left>105</left>
+						<right>180</right>
+						<top>53</top>
+						<height>30</height>
+						<font>font12</font>
+						<align>right</align>
+						<aligny>top</aligny>
+						<textcolor>unfocused_text</textcolor>
+						<label>$INFO[ListItem.Comment]</label>
+					</control>
+					<control type="image">
+						<right>110</right>
+						<top>0</top>
+						<width>32</width>
+						<aligny>center</aligny>
+						<aspectratio align="center">keep</aspectratio>
+						<texture>$VAR[PVRStatusImageVar]</texture>
+						<visible>$PARAM[has_status_icon]</visible>
+					</control>
+					<control type="image">
+						<right>70</right>
+						<top>0</top>
+						<width>80</width>
+						<aligny>center</aligny>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!$PARAM[only_label_condition] | ListItem.IsParentFolder</visible>
+						<texture>$INFO[ListItem.ActualIcon]</texture>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="101" width="918" infoupdate="$PARAM[info_update]">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>25</right>
+					<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
+				</control>
+				<control type="progress">
+					<left>20</left>
+					<top>66</top>
+					<width>70</width>
+					<height>7</height>
+					<align>center</align>
+					<aligny>center</aligny>
+					<colordiffuse>$VAR[FocusedTextColorVar]</colordiffuse>
+					<texturebg>osd/ProgressBack.png</texturebg>
+					<midtexture>osd/Progress.png</midtexture>
+					<visible>ListItem.HasEpg + !$PARAM[has_info_icon]</visible>
+					<info>ListItem.Progress</info>
+				</control>
+				<control type="group">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<bottom>0</bottom>
+						<control type="label">
+							<left>10</left>
+							<top>10</top>
+							<width>90</width>
+							<height>50</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>font32_title</font>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<label>$INFO[ListItem.ChannelNumberLabel]</label>
+						</control>
+						<control type="label">
+							<left>105</left>
+							<right>180</right>
+							<top>10</top>
+							<height>30</height>
+							<aligny>top</aligny>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<label>$PARAM[label1]</label>
+						</control>
+						<control type="label">
+							<left>105</left>
+							<right>180</right>
+							<top>10</top>
+							<height>30</height>
+							<align>right</align>
+							<aligny>top</aligny>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<label>$PARAM[label2]</label>
+						</control>
+						<control type="label">
+							<left>105</left>
+							<right>180</right>
+							<top>53</top>
+							<height>30</height>
+							<font>font12</font>
+							<aligny>top</aligny>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<label>$VAR[PVRListItemSubLabelFocused]</label>
+						</control>
+						<control type="label">
+							<left>105</left>
+							<right>180</right>
+							<top>53</top>
+							<height>30</height>
+							<font>font12</font>
+							<align>right</align>
+							<aligny>top</aligny>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
+							<label>$INFO[ListItem.Comment]</label>
+						</control>
+						<control type="image">
+							<right>110</right>
+							<top>0</top>
+							<width>32</width>
+							<aligny>center</aligny>
+							<aspectratio align="center">keep</aspectratio>
+							<texture>$VAR[PVRStatusImageVar]</texture>
+							<visible>$PARAM[has_status_icon]</visible>
+						</control>
+						<control type="image">
+							<right>70</right>
+							<top>0</top>
+							<width>80</width>
+							<aligny>center</aligny>
+							<aspectratio align="center">keep</aspectratio>
+							<visible>!$PARAM[only_label_condition] | ListItem.IsParentFolder</visible>
+							<texture>$INFO[ListItem.ActualIcon]</texture>
+						</control>
+					</control>
+			</focusedlayout>
+    </definition>
 	</include>
 	<include name="ChannelManagerList">
 		<control type="grouplist">
@@ -376,7 +568,7 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<!-- <texture fallback="DefaultTVShows.png">masks/addons.png</texture> -->
 				<texture fallback="DefaultTVShows.png">$VAR[ChannelListEPGIconVar]</texture>
-				<visible>!String.IsEmpty(ListItem.ChannelName) + !Player.HasMedia</visible>
+				<visible>!Player.HasMedia + [!Skin.HasSetting(Enable.BackgroundBlur) + [!String.IsEmpty(ListItem.ChannelName)] | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide)]</visible>
 				<fadetime>200</fadetime>
 			</control>
 			<control type="group">
@@ -412,9 +604,7 @@
 						<textoffsety>6</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
-						<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
-						<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
 						<label>[LIGHT]$INFO[ListItem.StartDate][/LIGHT]</label>
 						<visible>!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartDate)</visible>
 					</control>
@@ -429,9 +619,7 @@
 						<textoffsety>6</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
-						<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
-						<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
 						<label>[LIGHT]$INFO[ListItem.Genre][/LIGHT]</label>
 						<visible>!String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.Genre) + !String.StartsWith(ListItem.Genre,Other)</visible>
 					</control>
@@ -446,9 +634,7 @@
 						<textoffsety>6</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="FF2E2E2E">masks/flixicon-filled.png</texturenofocus>
-						<alttexturenofocus border="13" colordiffuse="unfocused_text">masks/flixicon.png</alttexturenofocus>
-						<usealttexture>Skin.HasSetting(Enable.BackgroundBlur)</usealttexture>
+						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
 						<label>[LIGHT]$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,][/LIGHT]</label>
 						<visible>!Window.IsVisible(Home) + !String.IsEmpty(ListItem.Label) + !String.IsEmpty(ListItem.StartTime)</visible>
 					</control>
@@ -724,7 +910,7 @@
 						<height>45</height>
 						<font>font13</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>button_focus</textcolor>
+						<textcolor>$VAR[FocusedColorVar]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
@@ -737,7 +923,7 @@
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
 						<textoffsetx>10</textoffsetx>
-						<textcolor>button_focus</textcolor>
+						<textcolor>$VAR[FocusedColorVar]</textcolor>
 					</control>
 				</rulerlayout>
 				<channellayout height="62" width="$PARAM[channel_width]">
@@ -771,7 +957,7 @@
 						<height>60</height>
 						<font>font32_title</font>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
-						<textcolor>button_focus</textcolor>
+						<textcolor>$VAR[FocusedColorVar]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
@@ -781,7 +967,7 @@
 						<height>60</height>
 						<font>font13</font>
 						<label>$INFO[ListItem.ChannelName]</label>
-						<textcolor>button_focus</textcolor>
+						<textcolor>$VAR[FocusedColorVar]</textcolor>
 						<aligny>center</aligny>
 						<textoffsetx>10</textoffsetx>
 						<scroll>true</scroll>
@@ -792,7 +978,7 @@
 					<control type="image" id="2">
 						<width>58</width>
 						<height>58</height>
-						<texture colordiffuse="primary_background" border="3" fallback="windows/pvr/epg-genres/0.png">$INFO[ListItem.Property(GenreType),windows/pvr/epg-genres/,.png]</texture>
+						<texture colordiffuse="$VAR[EPGUnfocusedColorVar]" border="3" fallback="windows/pvr/epg-genres/0.png">$INFO[ListItem.Property(GenreType),windows/pvr/epg-genres/,.png]</texture>
 					</control>
 					<control type="label" id="1">
 						<left>15</left>
@@ -811,7 +997,7 @@
 						<width>16</width>
 						<height>16</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="button_focus">icons/pvr/premiere.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">icons/pvr/premiere.png</texture>
 					</control>
 					<control type="image">
 						<left>6</left>
@@ -828,7 +1014,7 @@
 						<left>2</left>
 						<width>54</width>
 						<height>54</height>
-						<texture colordiffuse="button_focus">masks/focus-PVR.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-PVR.png</texture>
 						<visible>Control.HasFocus($PARAM[control_id])</visible>
 					</control>
 					<!-- unfocused grid (back) -->
@@ -840,7 +1026,7 @@
 						<textoffsety>-3</textoffsety>
 						<font>font13</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>focused_text</textcolor>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 					</control>
 					<control type="image">
 						<visible>ListItem.IsNew | ListItem.IsPremiere | ListItem.IsFinale | ListItem.IsLive</visible>
@@ -849,7 +1035,7 @@
 						<width>16</width>
 						<height>16</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="button_focus">icons/pvr/premiere.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">icons/pvr/premiere.png</texture>
 					</control>
 					<control type="image">
 						<left>6</left>

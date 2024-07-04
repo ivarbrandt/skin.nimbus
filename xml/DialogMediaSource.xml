@@ -53,7 +53,7 @@
 					<bottom>0</bottom>
 					<right>25</right>
 					<visible>Control.HasFocus(10)</visible>
-					<texture colordiffuse="button_focus">masks/focus-long.png</texture>
+					<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
 				</control>
 				<control type="label">
 					<left>10</left>
@@ -62,7 +62,7 @@
 					<right>10</right>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
-					<textcolor>focused_text</textcolor>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 				</control>
 			</focusedlayout>
 		</control>

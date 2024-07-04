@@ -94,7 +94,7 @@
 						<top>0</top>
 						<right>25</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="button_focus">masks/focus.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
 						<!-- <visible>Control.HasFocus(6)</visible> -->
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(6)">Conditional</animation>
 					</control>
@@ -136,7 +136,7 @@
 						<scroll>true</scroll>
 						<font>font14</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>focused_text</textcolor>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 					</control>
 					<control type="textbox">
 						<left>165</left>
@@ -145,7 +145,7 @@
 						<height>67</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>focused_text</textcolor>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 					</control>
 				</focusedlayout>
 			</control>
@@ -158,10 +158,10 @@
 				<onleft condition="Control.IsVisible(6)">6</onleft>
 				<onright>9001</onright>
 				<orientation>vertical</orientation>
-				<animation condition="Control.HasFocus(3) | Control.HasFocus(6)">
+				<!-- <animation condition="Control.HasFocus(3) | Control.HasFocus(6)">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="300,0" time="300" tween="cubic" easing="in" />
-				</animation>
+				</animation> -->
 			</control>
 			<control type="label">
 				<left>581</left>
@@ -180,10 +180,10 @@
 			<onleft>61</onleft>
 			<itemgap>dialogbuttons_itemgap</itemgap>
 			<onright>3</onright>
-			<animation condition="Control.HasFocus(3) | Control.HasFocus(6) | Control.HasFocus(61)">
+			<!-- <animation condition="Control.HasFocus(3) | Control.HasFocus(6) | Control.HasFocus(61)">
 				<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 				<effect type="slide" start="0,0" end="350,0" time="300" tween="cubic" easing="in" />
-			</animation>
+			</animation> -->
 			<include content="DefaultDialogButton">
 				<param name="id" value="5" />
 				<param name="label" value="" />
@@ -265,7 +265,7 @@
 						</itemlayout>
 						<focusedlayout width="408" height="374">
 							<control type="image">
-								<texture colordiffuse="button_focus">masks/focus.png</texture>
+								<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
 								<visible>Control.HasFocus(3)</visible>
 							</control>
 							<control type="image">
@@ -354,7 +354,7 @@
 							<top>60</top>
 							<height>20</height>
 							<font>font23_narrow</font>
-							<textcolor>button_focus</textcolor>
+							<textcolor>$VAR[FocusedColorVar]</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 						</control>
@@ -481,7 +481,7 @@
 						<control type="image">
 							<width>444</width>
 							<height>250</height>
-							<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
+							<texture border="8" colordiffuse="$VAR[FocusedColorVar]">buttons/thumbnail_focused.png</texture>
 							<visible>Control.HasFocus(10811)</visible>
 						</control>
 					</control>
@@ -587,7 +587,7 @@
 						<control type="image">
 							<width>444</width>
 							<height>250</height>
-							<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
+							<texture border="8" colordiffuse="$VAR[FocusedColorVar]">buttons/thumbnail_focused.png</texture>
 							<visible>Control.HasFocus(10811)</visible>
 						</control>
 					</control>
@@ -694,7 +694,7 @@
 						<control type="image">
 							<width>444</width>
 							<height>250</height>
-							<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
+							<texture border="8" colordiffuse="$VAR[FocusedColorVar]">buttons/thumbnail_focused.png</texture>
 						</control>
 					</control>
 				</focusedlayout>

@@ -4,15 +4,29 @@
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
 		<include>DefaultBackground</include>
-		<control type="multiimage">
-			<include>NetflixScreenDimensions</include>
-			<aspectratio>stretch</aspectratio>
-			<fadetime>500</fadetime>
-			<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-			<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-			<animation effect="fade" time="400">VisibleChange</animation>
-			<imagepath background="true" colordiffuse="artwork_dim" diffuse="overlays/netflixfanartdiffuse.png">$VAR[MediaFanartVar]</imagepath>
-			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+		<control type="group">
+			<include>MediaMenuAnimations</include>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + ![Container.IsUpdating | String.IsEmpty(Skin.String(SearchInput))]</visible>
+			<control type="image">
+				<include>NetflixScreenDimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>500</fadetime>
+				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</texture>
+				<visible>!String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+			</control>
+			<control type="image">
+				<include>BigLandscapeScreenDimensions</include>
+				<fadetime>500</fadetime>
+				<include>ArtworkAnimations</include>
+				<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
+				<animation effect="fade" time="400">VisibleChange</animation>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[HomeFanartVar]</texture>
+				<bordersize>1</bordersize>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="10" infill="false">masks/giant-border.png</bordertexture>
+				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+			</control>
 		</control>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
@@ -234,7 +248,8 @@
 				<control type="group">
 					<!-- <width>550</width> -->
 					<visible allowhiddenfocus="true">[$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
-					<include content="FlixPanel"/>
+					<!-- <include content="FlixPanel"/> -->
+					<include>FlixPanel</include>
 				</control>
 			</control>
 			<control type="group">

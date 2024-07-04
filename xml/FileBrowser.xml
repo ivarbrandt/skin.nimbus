@@ -13,10 +13,10 @@
 				<param name="header_id" value="411" />
 			</include>
 			<control type="grouplist" id="9000">
-				<animation condition="Control.HasFocus(450) | Control.HasFocus(451) | Control.HasFocus(60)">
+				<!-- <animation condition="Control.HasFocus(450) | Control.HasFocus(451) | Control.HasFocus(60)">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
-				</animation>
+				</animation> -->
 				<left>990</left>
 				<top>95</top>
 				<width>400</width>
@@ -47,10 +47,10 @@
 				</include>
 			</control>
 			<control type="image">
-				<animation condition="![Control.HasFocus(450) | Control.HasFocus(451) | Control.HasFocus(60)]">
+				<!-- <animation condition="![Control.HasFocus(450) | Control.HasFocus(451) | Control.HasFocus(60)]">
 					<effect type="fade" start="100" end="0" time="300" tween="cubic" easing="in"/>
 					<effect type="slide" start="0,0" end="200,0" time="300" tween="cubic" easing="in" />
-				</animation>
+				</animation> -->
 				<left>1010</left>
 				<top>275</top>
 				<width>397</width>
@@ -99,14 +99,14 @@
 						<right>0</right>
 						<height>71</height>
 						<visible>Control.HasFocus(450)</visible>
-						<texture colordiffuse="button_focus">masks/focus-long.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
 					</control>
 					<control type="image">
 						<left>35</left>
 						<top>10</top>
 						<width>50</width>
 						<height>50</height>
-						<texture colordiffuse="focused_text">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
@@ -119,7 +119,7 @@
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
-						<textcolor>focused_text</textcolor>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 					</control>
 				</focusedlayout>
 			</control>
@@ -163,14 +163,14 @@
 						<right>0</right>
 						<height>71</height>
 						<visible>Control.HasFocus(451)</visible>
-						<texture colordiffuse="button_focus">masks/focus-long.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
 					</control>
 					<control type="image">
 						<left>35</left>
 						<top>10</top>
 						<width>50</width>
 						<height>50</height>
-						<texture colordiffuse="focused_text">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="$VAR[FocusedTextColorVar]">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
@@ -183,7 +183,7 @@
 						<selectedcolor>green</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<font>font32</font>
-						<textcolor>focused_text</textcolor>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 					</control>
 				</focusedlayout>
 			</control>

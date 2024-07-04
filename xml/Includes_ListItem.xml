@@ -49,7 +49,7 @@
 
   <include name="ListItem">
     <param name="focused">false</param>
-    <param name="img_top">7</param>
+    <param name="img_top">5</param>
     <param name="img_bottom">9</param>
     <param name="img_width">5</param>
     <param name="img_left">47</param>
@@ -62,7 +62,7 @@
           <bottom>$PARAM[img_bottom]</bottom>
           <width>$PARAM[img_width]</width>
           <left>$PARAM[img_left]</left>
-          <texture colordiffuse="accent_color">colors/white.png</texture>
+          <texture colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
           <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
         </control>
         <control type="group">
@@ -117,7 +117,7 @@
           <top>15</top>
           <bottom>10</bottom>
           <width>5</width>
-          <texture colordiffuse="accent_color">colors/white.png</texture>
+          <texture colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
         </control>
         <control type="group">
           <control type="label">

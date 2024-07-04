@@ -22,7 +22,7 @@
 				<bottom>0</bottom>
 				<width>1992</width>
 				<height>472</height>
-				<texture diffuse="masks/keyboard.png" colordiffuse="button_focus">colors/white.png</texture>
+				<texture diffuse="masks/keyboard.png" colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
 			</control>
 			<control type="image">
 				<left>-35</left>
@@ -48,7 +48,7 @@
 				<top>182</top>
 				<width>1546</width>
 				<height>104</height>
-				<texture diffuse="masks/focus-long.png" colordiffuse="button_focus">colors/white.png</texture>
+				<texture diffuse="masks/focus-long.png" colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
 			</control> -->
 			<!-- <control type="image">
 				<centerleft>50%</centerleft>
@@ -65,7 +65,7 @@
 				<font>font45</font>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>button_focus</textcolor>
+				<textcolor>$VAR[FocusedColorVar]</textcolor>
 				<texturefocus />
 				<texturenofocus />
 			</control>
@@ -445,11 +445,11 @@
 						<height>120</height>
 						<onup>160</onup>
 						<ondown>100</ondown>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/letters.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/letters.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="darkgrey">icons/keyboard/letters.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/accents.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/accents.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/accents.png</textureradiooffnofocus>
 						<radioposx>32l</radioposx>
 						<radiowidth>56</radiowidth>
@@ -461,11 +461,11 @@
 						<height>120</height>
 						<onup>161</onup>
 						<ondown>101</ondown>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/capslock.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/capslock.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="keyboard_selected">icons/keyboard/capslock.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/capslock.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/capslock.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/capslock.png</textureradiooffnofocus>
 						<radioposx>40</radioposx>
 						<radioposy>42</radioposy>
@@ -478,11 +478,11 @@
 						<height>120</height>
 						<onup>162</onup>
 						<ondown>102</ondown>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/shift.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/shift.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="keyboard_selected">icons/keyboard/shift.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/shift.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/shift.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/shift.png</textureradiooffnofocus>
 						<radioposx>42</radioposx>
 						<radiowidth>36</radiowidth>
@@ -510,11 +510,11 @@
 						<height>120</height>
 						<ondown>107</ondown>
 						<onup>167</onup>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/arrowleft.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="darkgrey">icons/keyboard/arrowleft.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/arrowleft.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/arrowleft.png</textureradiooffnofocus>
 						<radioposx>38</radioposx>
 						<radiowidth>36</radiowidth>
@@ -526,11 +526,11 @@
 						<height>120</height>
 						<ondown>108</ondown>
 						<onup>168</onup>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/arrowright.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="darkgrey">icons/keyboard/arrowright.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/arrowright.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/arrowright.png</textureradiooffnofocus>
 						<radioposx>45</radioposx>
 						<radiowidth>36</radiowidth>
@@ -542,11 +542,11 @@
 						<height>120</height>
 						<onup>169</onup>
 						<ondown>109</ondown>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/backspace.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/backspace.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="darkgrey">icons/keyboard/backspace.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/backspace.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/backspace.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/backspace.png</textureradiooffnofocus>
 						<radioposx>31</radioposx>
 						<radiowidth>51</radiowidth>
@@ -573,7 +573,7 @@
 						<top>0</top>
 						<width>480</width>
 						<height>60</height>
-						<texture diffuse="masks/focus.png" colordiffuse="button_focus">colors/white.png</texture>
+						<texture diffuse="masks/focus.png" colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
 					</control>
 					<control type="image">
 						<left>10</left>
@@ -608,7 +608,7 @@
 							<left>10</left>
 							<width>380</width>
 							<height>60</height>
-							<texture colordiffuse="button_focus">masks/focus.png</texture>
+							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
 							<include>Animation_FocusTextureFade</include>
 						</control>
 						<control type="label">
@@ -617,7 +617,7 @@
 							<width>400</width>
 							<height>60</height>
 							<label>$INFO[ListItem.Label]</label>
-							<textcolor>focused_text</textcolor>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<font>font14</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>

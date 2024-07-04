@@ -12,14 +12,14 @@
 				<left>25</left>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="image">
 				<bottom>134</bottom>
 				<left>25</left>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="button_focus" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="panel" id="2">
 				<top>148</top>
@@ -98,7 +98,7 @@
 							<top>5</top>
 							<width>320</width>
 							<height>380</height>
-							<texture colordiffuse="button_focus">masks/addons.png</texture>
+							<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
 						</control>
@@ -118,7 +118,7 @@
 							<align>center</align>
 							<aligny>top</aligny>
 							<label>$INFO[ListItem.Label]</label>
-							<textcolor>focused_text</textcolor>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 						</control>
 						<control type="label">
 							<left>10</left>
@@ -129,7 +129,7 @@
 							<align>center</align>
 							<aligny>top</aligny>
 							<label>$LOCALIZE[31029]:</label>
-							<textcolor>focused_text</textcolor>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<visible>!String.Contains(Listitem.Label,$LOCALIZE[20058])</visible>
 						</control>
 						<control type="label">
@@ -141,7 +141,7 @@
 							<align>center</align>
 							<aligny>top</aligny>
 							<label fallback="13170">$INFO[ListItem.Label2]</label>
-							<textcolor>focused_text</textcolor>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<visible>!String.Contains(Listitem.Label,$LOCALIZE[20058])</visible>
 						</control>
 					</control>
@@ -199,7 +199,7 @@
 					<control type="image">
 						<right>50</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="button_focus">masks/focus.png</texture>
+						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">
@@ -207,7 +207,7 @@
 						<right>30</right>
 						<bottom>0</bottom>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>focused_text</textcolor>
+						<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 						<font>font37</font>
 						<aligny>center</aligny>
 					</control>
