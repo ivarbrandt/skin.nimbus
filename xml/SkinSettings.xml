@@ -244,12 +244,12 @@
 					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
 				</control>
 				<!-- FOCUS COLOR -->
-				<control type="radiobutton" id="63704">
+				<!-- <control type="radiobutton" id="63704">
 					<label>Enable color theme for focus</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
-				</control>
+				</control> -->
 				<!-- CLOCK -->
 				<control type="radiobutton" id="63705">
 					<label>Enable current time in InfoLine</label>
@@ -286,38 +286,6 @@
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_autoendplaybackdelay)</onclick>
 					<visible>Skin.HasSetting(Enable.AutoEndPlayback)</visible>
-				</control>
-				<!-- RESET FORCED VIEWS -->
-				<control type="button" id="63710">
-					<label>Reset forced views</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.Reset(Skin.ForcedView.)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.actors)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.addons)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.albums)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.artists)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.countries)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.directors)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.episodes.outside)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.episodes.inside)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.files)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.games)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.genres)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.images)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.mixed)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.movies)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.musicvideos)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.playlists)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.seasons)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.sets)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.songs)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.studios)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.tags)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.tvshows)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.unknown)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.videos)</onclick>
-					<onclick>Skin.Reset(Skin.ForcedView.years)</onclick>
-					<onclick>Notification(Views Unlocked,All forced views have been reset)</onclick>
 				</control>
 			</control>
 
@@ -431,12 +399,6 @@
 					<selected>!Skin.HasSetting(HideUmbrellaTraktTVResults)</selected>
 					<visible>!Skin.HasSetting(NoSearchResultsWindow) + String.IsEqual(Skin.String(current_search_provider),2)</visible>
 				</control>
-				<control type="button" id="64714">
-					<label>Clear search history</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
-					<visible>!Skin.HasSetting(NoSearchResultsWindow)</visible>
-				</control>
 			</control>
 
 			<control type="grouplist" id="648">
@@ -497,18 +459,6 @@
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.TMDbRating)</onclick>
 					<selected>!Skin.HasSetting(Disable.TMDbRating)</selected>
-					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
-				</control>
-				<control type="button" id="64807">
-					<label>Clear MDbList API Key</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.SetString(mdblist_api_key,)</onclick>
-					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
-				</control>
-				<control type="button" id="64808">
-					<label>Clear ratings cache</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper,mode=delete_all_ratings)</onclick>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control>
 			</control>
@@ -593,16 +543,29 @@
 					<onclick>$VAR[TitleSettingToggleVar]</onclick>
 					<visible>!Skin.HasSetting(Enable.Clearlogo)</visible>
 				</control>
+				<control type="button" id="6004">
+					<label>Choose default background</label>
+					<label2>$INFO[Skin.String(CustomBackground)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=set_image)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<control type="button" id="6005">
+					<label>   - Restore default background</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.Reset(CustomBackground)</onclick>
+					<visible>!String.IsEmpty(Skin.String(CustomBackground)) + Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
 				<!-- BACKGROUND BLUR -->
-				<control type="radiobutton" id="6004">
-					<label>Enable background blur for media content</label>
+				<control type="radiobutton" id="6006">
+					<label>Enable background blur</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
 					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
 					<onclick>SetFocus(9000)</onclick>
 				</control>
 				<!-- BLUR RADIUS -->
-				<control type="button" id="6005">
+				<control type="button" id="6007">
 					<label>    - Set blur radius</label>
 					<label2>$INFO[Skin.String(BlurRadius)]</label2>
 					<include>DefaultSettingButton</include>
@@ -610,42 +573,21 @@
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<!-- BLUR SATURATION -->
-				<control type="button" id="6006">
+				<control type="button" id="6008">
 					<label>    - Set blur saturation</label>
 					<label2>$INFO[Skin.String(BlurSaturation)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
-				<!-- CLEAR IMAGE CACHE -->
-				<control type="button" id="6007">
-					<label>    - Clear blur cache</label>
-					<label2>$INFO[Skin.String(CacheSize)]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
-					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
-				</control>
 				<!-- TODO QUICK CONFIGURE -->
-				<control type="radiobutton" id="6008">
-					<label>Enable quick configure for homescreen artwork</label>
+				<control type="radiobutton" id="6009">
+					<label>Enable quick configure for home screen artwork</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Enable.ArtworkQuickConfigure)</onclick>
 					<selected>Skin.HasSetting(Enable.ArtworkQuickConfigure)</selected>
 				</control>
-				<control type="button" id="6009">
-					<label>Choose default background</label>
-					<label2>$INFO[Skin.String(CustomBackground)]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper, mode=set_image)</onclick>
-					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
-				</control>
 				<control type="button" id="6010">
-					<label>   - Restore default background</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.Reset(CustomBackground)</onclick>
-					<visible>!String.IsEmpty(Skin.String(CustomBackground)) + Skin.HasSetting(Enable.BackgroundBlur)</visible>
-				</control>
-				<control type="button" id="6011">
 					<label>$LOCALIZE[31131]</label>
 					<label2>$INFO[Skin.String(HomeFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -653,7 +595,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6012">
+				<control type="button" id="6011">
 					<label>$LOCALIZE[31062]</label>
 					<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -661,7 +603,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6013">
+				<control type="button" id="6012">
 					<label>$LOCALIZE[31149]</label>
 					<label2>$INFO[Skin.String(MovieGenreFanart.Name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -669,7 +611,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="radiobutton" id="6014">
+				<control type="radiobutton" id="6013">
 					<label>$LOCALIZE[31168]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
@@ -751,6 +693,76 @@
 				</control>
 			</control>
 
+			<control type="grouplist" id="640">
+				<top>133</top>
+				<left>25</left>
+				<right>0</right>
+				<bottom>140</bottom>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>640</onup>
+				<pagecontrol>60</pagecontrol>
+				<ondown>640</ondown>
+				<visible>Container(9000).HasFocus(9)</visible>
+				<!-- RESET FORCED VIEWS -->
+				<control type="button" id="6401">
+					<label>Reset forced views</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.Reset(Skin.ForcedView.)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.actors)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.addons)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.albums)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.artists)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.countries)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.directors)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.episodes.outside)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.episodes.inside)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.files)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.games)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.genres)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.images)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.mixed)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.movies)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.musicvideos)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.playlists)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.seasons)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.sets)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.songs)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.studios)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.tags)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.tvshows)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.unknown)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.videos)</onclick>
+					<onclick>Skin.Reset(Skin.ForcedView.years)</onclick>
+					<onclick>Notification(Views Unlocked,All forced views have been reset)</onclick>
+				</control>
+				<control type="button" id="6402">
+					<label>Clear blur cache</label>
+					<label2>$INFO[Skin.String(CacheSize)]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<control type="button" id="6403">
+					<label>Clear MDbList API Key</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SetString(mdblist_api_key,)</onclick>
+					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
+				</control>
+				<control type="button" id="6404">
+					<label>Clear ratings cache</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=delete_all_ratings)</onclick>
+					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
+				</control>
+				<control type="button" id="6405">
+					<label>Clear search history</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
+					<visible>!Skin.HasSetting(NoSearchResultsWindow)</visible>
+				</control>
+			</control>
+
 			<control type="image">
 				<description>Dialog Header image</description>
 				<left>25</left>
@@ -772,15 +784,15 @@
 			<depth>DepthContentPanel</depth>
 			<left>0</left>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
+			<!-- <include content="ContentPanel">
 				<param name="width" value="530" />
-			</include>
+			</include> -->
 			<control type="list" id="9000">
 				<description>button area</description>
 				<left>0</left>
 				<top>130</top>
 				<width>470</width>
-				<height>700</height>
+				<height>900</height>
 				<onleft>10000</onleft>
 				<onright>10000</onright>
 				<onup>9000</onup>
@@ -850,6 +862,11 @@
 					</item>
 					<item id="7">
 						<label>$LOCALIZE[31170]</label>
+						<!-- <label>OSD</label> -->
+						<onclick>noop</onclick>
+					</item>
+					<item id="9">
+						<label>Clear caches</label>
 						<!-- <label>OSD</label> -->
 						<onclick>noop</onclick>
 					</item>

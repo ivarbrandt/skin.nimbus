@@ -51,7 +51,7 @@
 			</control>
 			<control type="grouplist" id="9000">
 				<top>50</top>
-				<left>25</left>
+				<left>20</left>
 				<width>470</width>
 				<height>100%</height>
 				<onleft>9000</onleft>
@@ -266,9 +266,9 @@
 	<include name="MediaMenuCommon">
 		<include>OpenClose_Left</include>
 		<depth>DepthSideBlade</depth>
-		<left>-770</left>
+		<left>-570</left>
 		<animation type="Conditional" condition="$EXP[sidebar_visible]" reversible="true">
-			<effect type="slide" start="0" end="770" time="500" tween="cubic" easing="inout" />
+			<effect type="slide" start="0" end="570" time="500" tween="cubic" easing="inout" />
 		</animation>
 		<!-- <control type="image">
 			<width>4000</width>
@@ -278,13 +278,13 @@
 			<visible>$EXP[sidebar_visible] + !System.HasActiveModalDialog</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
 		</control> -->
-		<!-- <control type="image">
+		<control type="image">
 			<left>0</left>
 			<top>0</top>
-			<width>770</width>
+			<width>570</width>
 			<height>100%</height>
-			<texture colordiffuse="button_focus" border="0,0,52,0">lists/contentpanel-fade.png</texture>
-		</control> -->
+			<texture colordiffuse="$VAR[MediaMenuDiffuse]">masks/mediapanel.png</texture>
+		</control>
 		<control type="button" id="6131">
 			<left>0</left>
 			<top>0</top>
@@ -347,10 +347,10 @@
 	<include name="MediaMenuListCommon">
 		<!-- TODO Extend to full height by adding a transparent texture -->
 		<definition>
-			<left>25</left>
+			<left>20</left>
 			<top>100</top>
 			<width>470</width>
-			<height>480</height>
+			<height>100%</height>
 			<onleft>9000</onleft>
 			<onup>9000</onup>
 			<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
@@ -359,7 +359,7 @@
 			<onback>50</onback>
 			<control type="label" id="200">
 				<include>MediaMenuLabelCommon</include>
-				<label>$LOCALIZE[14018]</label>
+				<label>$LOCALIZE[14018]$VAR[ContentTypeLabel]</label>
 			</control>
 			<control type="button" id="6051">
 				<include>MediaMenuItemsCommon</include>

@@ -59,7 +59,7 @@
 		</control>
 		<control type="label">
 			<visible>!Window.IsActive(VideoOSD.xml)</visible>
-			<top>120</top>
+			<top>123</top>
 			<height>40</height>
 			<font>PlayerTime</font>
 			<textcolor>osd_light</textcolor>
@@ -96,7 +96,7 @@
 		</control> -->
 		<control type="label">
 			<top>47</top>
-			<left>120</left>
+			<left>123</left>
 			<width>auto</width>
 			<height>40</height>
 			<font>PlayerTime</font>
@@ -117,7 +117,7 @@
 			<animation effect="fade" time="500">VisibleChange</animation>
 		</control>
 		<control type="label">
-			<top>120</top>
+			<top>123</top>
 			<left>120</left>
 			<width>auto</width>
 			<height>40</height>
@@ -147,7 +147,7 @@
 			<label>$VAR[PlayerEndTimeVar]</label>
 		</control>
 		<control type="label">
-			<top>120</top>
+			<top>123</top>
 			<right>120</right>
 			<width>200</width>
 			<height>40</height>

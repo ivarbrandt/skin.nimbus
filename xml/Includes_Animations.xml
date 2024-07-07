@@ -330,7 +330,19 @@
 
 	<include name="MediaMenuAnimations">
 		<animation condition="$EXP[sidebar_visible]" reversible="true">
-			<effect type="slide" start="0,0" end="470,0" time="500" tween="cubic" easing="inout" />
+			<effect type="slide" start="0,0" end="515,0" time="500" tween="cubic" easing="inout" />
+		</animation>
+	</include>
+
+	<include name="MainMenuAnimations">
+		<animation condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+			<effect type="slide" start="0,0" end="469,0" time="500" tween="cubic" easing="inout" />
+		</animation>
+	</include>
+
+	<include name="SearchMenuAnimations">
+		<animation condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
+			<effect type="slide" start="0,0" end="531,0" time="500" tween="cubic" easing="inout" />
 		</animation>
 	</include>
 

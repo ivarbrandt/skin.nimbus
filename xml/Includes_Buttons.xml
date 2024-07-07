@@ -128,6 +128,8 @@
 		<height>100</height>
 		<aligny>center</aligny>
 		<textoffsetx>40</textoffsetx>
+		<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
+		<textcolor>darkgrey</textcolor>
 		<alttexturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dialogbutton-fo.png</alttexturefocus>
 		<alttexturenofocus border="40" colordiffuse="dialog_bg">buttons/dialogbutton-nofo.png</alttexturenofocus>
 	</include>
@@ -329,7 +331,7 @@
 		<itemlayout height="70" width="446">
 			<control type="label">
 				<textoffsetx>20</textoffsetx>
-				<top>-3</top>
+				<top>-1</top>
 				<width>446</width>
 				<height>70</height>
 				<align>center</align>

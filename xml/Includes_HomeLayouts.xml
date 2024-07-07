@@ -15,7 +15,7 @@
 					<control type="image">
 						<!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
-						<bordersize>-29</bordersize>
+						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
@@ -33,7 +33,7 @@
 				<control type="image">
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 					<bordersize>1</bordersize>
-					<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
+					<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">
@@ -73,7 +73,7 @@
 					<control type="image">
 						<!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
-						<bordersize>-29</bordersize>
+						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
@@ -91,7 +91,7 @@
 				<control type="image">
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 					<bordersize>1</bordersize>
-					<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
+					<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">
@@ -186,7 +186,7 @@
           <control type="image">
             <!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
-						<bordersize>-29</bordersize>
+						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
@@ -204,7 +204,7 @@
 				<control type="image">
           <texture colordiffuse="dialog_bg">masks/addons.png</texture>
 					<bordersize>1</bordersize>
-					<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
+					<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">
@@ -232,6 +232,15 @@
 						<aligny>center</aligny>
 						<font>font25</font>
 						<label>$INFO[ListItem.Label] [COLOR accent_color][B]|[/B][/COLOR] $INFO[ListItem.Property(ShortDate)]</label>
+						<visible>!Skin.HasSetting(Enable.BackgroundBlur)</visible>
+					</control>
+					<control type="label">
+						<top>355</top>
+						<align>center</align>
+						<aligny>center</aligny>
+						<font>font25</font>
+						<label>$INFO[ListItem.Label] [COLOR unfocused_text][B]|[/B][/COLOR] $INFO[ListItem.Property(ShortDate)]</label>
+						<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 					</control>
 					<control type="label">
             <top>320</top>

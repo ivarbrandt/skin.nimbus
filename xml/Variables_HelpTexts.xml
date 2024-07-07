@@ -12,32 +12,38 @@
 		<value condition="Control.HasFocus(63707)">Enabling this option will allow for one-click access to Wall view when pressing down in Flix view. This is useful for quick browsing larger lists. When scrolling is stopped in Wall view, the skin will automatically switch back to Flix view.</value>
 		<value condition="Control.HasFocus(63708)">Enabling this option will auto end playback after a custom number of minutes [B]IF[/B] playback is paused.</value>
 		<value condition="Control.HasFocus(63709)">Enter custom delay for ending playback.</value>
-		<value condition="Control.HasFocus(63710)">Click to unlock all views that have previously been locked. You can always re-lock a view in the View options of any window.</value>
 		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings.</value>
 		<value condition="Control.HasFocus(64700)">Set your desired search provider. This will use the selected addon for searches in the search window and default search dialog. This setting can be changed on the fly in the search window mini menu.</value>
 		<value condition="Control.HasFocus(64701)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
 		<value condition="Control.HasFocus(64702)">Set the search window behavior. OPEN KEYBOARD will open a keybaord when the Search button is clicked in the homescreen mini menu. OPEN SEARCH WINDOW will open the search window where you can see your search history, view TRAKT lists, etc.</value>
-		<value condition="Control.HasFocus(64703) | Control.HasFocus(64704) | Control.HasFocus(64705) | Control.HasFocus(64706) | Control.HasFocus(64707) | Control.HasFocus(64708) | Control.HasFocus(64709) | Control.HasFocus(64710)">Enabling or disable the showing of specific search widgets.</value>
-		<value condition="Control.HasFocus(64711)">Click to clear the search history. The search history can also be cleared via the mini menu in the search window.</value>
+		<value condition="Control.HasFocus(64703) | Control.HasFocus(64704) | Control.HasFocus(64705) | Control.HasFocus(64706) | Control.HasFocus(64707) | Control.HasFocus(64708) | Control.HasFocus(64709) | Control.HasFocus(64710) | Control.HasFocus(64711)">Enabling or disable the showing of specific search widgets.</value>
+		
 		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">Ratings and trailer settings.</value>
 		<value condition="Control.HasFocus(6480)">If you do not have a MDBList API key, please go to https://mdblist.com to sign up for a free API key.</value>
 		<value condition="Control.HasFocus(64801) | Control.HasFocus(64802) | Control.HasFocus(64803) | Control.HasFocus(64804) | Control.HasFocus(64805) | Control.HasFocus(64806)">Enabling or disable the showing of specific ratings.</value>
 		<value condition="Control.HasFocus(64807)">Remove your API key. This will remove and disable all ratings in the skin.</value>
-		<value condition="Control.HasFocus(64808)">Clear the ratings cache. This will remove all stored ratings in the database and fetch brand new ones when an item is focused. It is not recommended to use this often as retrieving new ratings is slower and involves more API calls.</value>
 		<value condition="Control.HasFocus(6301)">Toggle trailer viewing options. OFF: Disable all skin trailer functions. ONE-CLICK: Trailers are played by pressing a custom mapped button. AUTO: Trailers are automatically played after an item has been focused and the delay time has passed.</value>
 		<value condition="Control.HasFocus(6302)">Choose where to play trailers from. Default will use Kodi's built-in trailer method. MDbList will play trailers from the MDbList API. [B]NOTE:[/B] Default option does not require an API key whereas MDbList does.</value>
 		<value condition="Control.HasFocus(6303)">Click this to begin key mapping for one-click access to trailers. Follow the instructions provided in the notification window to map custom key.</value>
 		<value condition="Control.HasFocus(6304)">Set the amount of time to wait before playing the trailer.</value>
 		<value condition="Control.HasFocus(6305)">Enabling this option will show a small play icon at the beginning of the InfoLine. This icon works as a visual indication of when a trailer is loaded and ready to be played.</value>
 		<value condition="Container(9000).HasFocus(5)">$LOCALIZE[31129]</value>
-		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6008) | Control.HasFocus(6009) | Control.HasFocus(6010) | Control.HasFocus(6011)]">$LOCALIZE[31169]</value>
+		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6010) | Control.HasFocus(6011) | Control.HasFocus(6012) | Control.HasFocus(6013)]">$LOCALIZE[31169]</value>
 		<value condition="Control.HasFocus(6002)">Enabling this option will show clearlogos for media content. Disabling this option will use a default text title.</value>
 		<value condition="Control.HasFocus(6003)">Choose your preferred font style for text titles.</value>
-		<value condition="Control.HasFocus(6004)">Enabling this option will blur the background for media content. Disabling this option will use a default black background.</value>
-		<value condition="Control.HasFocus(6005)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40.</value>
-		<value condition="Control.HasFocus(6006)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. DEFAULT VALUE: 1.5</value>
-		<value condition="Control.HasFocus(6007)">Click to clear the blur cache. You can see the size of the cache in megabytes on the right. NOTE: The cache does not need to be cleared when changing the blur radius or saturation values in order for the changes to take effect.</value>
+		<value condition="Control.HasFocus(6004)">Click to set a custom background image.</value>
+		<value condition="Control.HasFocus(6005)">Click to restore background image to default.</value>
+		<value condition="Control.HasFocus(6006)">Enabling this option will blur the background. Disabling this option will use either a black background, or the color theme depending on the artwork configured. (Landscape = color theme, Fanart = Solid black background)</value>
+		<value condition="Control.HasFocus(6007)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40.</value>
+		<value condition="Control.HasFocus(6008)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. DEFAULT VALUE: 1.5</value>
+		<value condition="Control.HasFocus(6009)">Enabling this option will allow quick configuration of settings for home screen artwork. When this option is enabled, click left anywhere in the main menu to bring down the quick config menu.</value>
 		<value condition="Container(9000).HasFocus(7)">$LOCALIZE[31171]</value>
+		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Cache and reset related options.</value>
+		<value condition="Control.HasFocus(6401)">Click to unlock all views that have previously been locked. You can always re-lock a view in the View options of any window.</value>
+		<value condition="Control.HasFocus(6402)">Click clear the blur cache. You can see the cache size in megabytes on the right. NOTE: The cache does not need to be cleared when changing the blur radius or saturation values in order for the changes to take effect.</value>
+		<value condition="Control.HasFocus(6403)">Remove your API key. This will remove and disable all ratings in the skin.</value>
+		<value condition="Control.HasFocus(6404)">Clear the ratings cache. This will remove all stored ratings in the database and fetch brand new ones when an item is focused. It is not recommended to use this often as retrieving new ratings is slower and involves more API calls.</value>
+		<value condition="Control.HasFocus(6405)">Click to clear the search history. The search history can also be cleared via the mini menu in the search window.</value>
 	</variable>
   <variable name="PVRGuideControlsHelpTextVar">
 		<value condition="Control.HasFocus(600)">$LOCALIZE[19063]</value>

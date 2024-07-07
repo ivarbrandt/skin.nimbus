@@ -66,7 +66,7 @@
 							<left>0</left>
 							<width>730</width>
 							<top>0</top>
-							<texture colordiffuse="button_focus">masks/focus.png</texture>
+							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
 							<visible>Control.HasFocus(11)</visible>
 							<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
 						</control>
@@ -78,7 +78,7 @@
 							<aligny>left</aligny>
 							<textoffsety>20</textoffsety>
 							<label>$INFO[ListItem.StartTime]</label>
-							<textcolor>focused_text</textcolor>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 						</control>
 						<control type="label">
 							<height>86</height>
@@ -89,7 +89,7 @@
 							<aligny>left</aligny>
 							<textoffsety>20</textoffsety>
 							<label>$VAR[PVRListItemSubLabelFocused]</label>
-							<textcolor>focused_text</textcolor>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<scroll>true</scroll>
 						</control>
 						<control type="group">

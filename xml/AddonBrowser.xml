@@ -18,17 +18,17 @@
 				<include>NetflixScreenDimensions</include>
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
-				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[AddonsFanartVar]</texture>
-				<visible>!String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[CustomBackgroundImage]">$VAR[AddonsFanartVar]</texture>
+				<visible>!String.IsEqual(Skin.String(HomeArtworkChoice),1) + ![Window.IsVisible(addoninformation) | Control.IsVisible(52)]</visible>
 			</control>
 			<control type="image">
 				<include>BigLandscapeScreenDimensions</include>
 				<fadetime>500</fadetime>
-				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[AddonsFanartVar]</texture>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[CustomBackgroundImage]">$VAR[AddonsFanartVar]</texture>
 				<bordersize>1</bordersize>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="10" infill="false">masks/giant-border.png</bordertexture>
-				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
+				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + ![Window.IsVisible(addoninformation) | Control.IsVisible(52)]</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -112,13 +112,14 @@
 				</control>
 			</control>
 			<control type="group">
+				<left>20</left>
 				<height>78</height>
-				<bottom>0</bottom>
+				<bottom>50</bottom>
 				<visible>$EXP[sidebar_visible]</visible>
 				<animation effect="fade" time="300">VisibleChange</animation>
 				<include content="LeftAlignedInfo">
 					<!-- <param name="main_label" value="[B]$INFO[Window(AddonBrowser).Property(Updated)][/B]" /> -->
-					<param name="sub_label" value="[UPPERCASE][B]$LOCALIZE[31069] - [/UPPERCASE][COLOR unfocused_text]$INFO[Window(AddonBrowser).Property(Updated)][/B][/COLOR]" />
+					<param name="sub_label" value="[UPPERCASE][B]$LOCALIZE[31069][CR][/UPPERCASE][COLOR unfocused_text]$INFO[Window(AddonBrowser).Property(Updated)][/B][/COLOR]" />
 				</include>
 			</control>
 		</control>

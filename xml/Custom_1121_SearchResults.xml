@@ -6,25 +6,27 @@
 		<include>DefaultBackground</include>
 		<control type="group">
 			<include>MediaMenuAnimations</include>
-			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + ![Container.IsUpdating | String.IsEmpty(Skin.String(SearchInput))]</visible>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !String.IsEmpty(Skin.String(SearchInput))</visible>
 			<control type="image">
 				<include>NetflixScreenDimensions</include>
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
-				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</texture>
+				<include>ArtworkAnimations</include>
+				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[CustomBackgroundImage]">$VAR[HomeFanartVar]</texture>
 				<visible>!String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
 			</control>
 			<control type="image">
+				<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
+					<effect type="slide" start="0,0" end="-185,0" time="500" tween="cubic" easing="inout" />
+					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
+				</animation>
 				<include>BigLandscapeScreenDimensions</include>
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
-				<animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-				<animation effect="fade" time="400">VisibleChange</animation>
-				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[HomeFanartVar]</texture>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[CustomBackgroundImage]">$VAR[HomeFanartVar]</texture>
 				<bordersize>1</bordersize>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="10" infill="false">masks/giant-border.png</bordertexture>
+				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
 				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
 			</control>
 		</control>
@@ -32,6 +34,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
+				<include>SearchMenuAnimations</include>
 				<top>510</top>
 				<include>OpenClose_Right</include>
 				<!-- SEARCH RESULTS -->
@@ -123,6 +126,7 @@
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
+				<include>SearchMenuAnimations</include>
 				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 				<top>563</top>
 				<left>50</left>
@@ -136,7 +140,7 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<include>osd_darkenBG</include>
+				<!-- <include>osd_darkenBG</include> -->
 				<include content="ImageWidget" condition="!String.IsEmpty(Skin.String(DatabaseStatus))">
 					<param name="left">50</param>
 					<param name="text_label" value="Your search history is currently empty. Would you like to perform a new search or return to the home screen?" />
@@ -146,15 +150,16 @@
 					<param name="button_id" value="27400"/>
 				</include>
 				<control type="group">
-					<!-- <animation condition="!ControlGroup(2000).HasFocus" effect="slide" time="300" start="-492,0" end="0,0" tween="sine" easing="inout">Conditional</animation> -->
-					<animation condition="!ControlGroup(2000).HasFocus">
-						<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
-						<effect type="slide" start="-492,0" end="0,0" time="300" tween="cubic" easing="out" />
+					<left>-610</left>
+					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
+						<effect type="slide" start="0" end="610" time="500" tween="cubic" easing="inout" />
+						<!-- <effect type="fade" start="0" end="100" time="500" tween="cubic" easing="in"/> -->
 					</animation>
-					<include content="ContentPanel">
-						<param name="width" value="1100" />
+					<include content="MenuContentPanel">
+						<param name="width" value="670"/>
+						<!-- <param name="width" value="600"/> -->
 					</include>
-					<visible allowhiddenfocus="true">!ControlGroup(2000).HasFocus</visible>
+					<!-- <visible allowhiddenfocus="true">true</visible> -->
 					<control type="label">
 						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
 						<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
@@ -164,13 +169,13 @@
 						<aligny>center</aligny>
 						<height>98</height>
 						<font>font36_title</font>
-						<label>[UPPERCASE]Recent searches[/UPPERCASE]</label>
-						<textcolor>accent_color</textcolor>
+						<label>[LOWERCASE]Recent searches[/LOWERCASE]</label>
+						<textcolor>$VAR[FocusedColorVar]</textcolor>
 					</control>
 					<include content="MiniMenuLabels">
 						<param name="visible" value="Control.HasFocus(700)"/>
 						<param name="top" value="90"/>
-						<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
+						<param name="label" value="[LOWERCASE]Mini Menu[/LOWERCASE]"/>
 					</include>
 					<control type="fixedlist" id="9000">
 						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
@@ -188,6 +193,7 @@
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
 						<include content="List">
               <param name="id" value="9000" />
+              <param name="list_width" value="444" />
             </include>
 						<content>
 							<!-- SEARCH HISTORY -->
@@ -212,9 +218,10 @@
 						<movement>2</movement>
 						<include content="List">
               <param name="id" value="700" />
+							<param name="list_width" value="444" />
               <param name="height" value="50" />
-              <param name="img_top" value="11.5" />
-              <param name="img_bottom" value="-10" />
+              <param name="img_top" value="10" />
+              <param name="img_bottom" value="-8" />
               <param name="img_width" value="5" />
               <param name="img_left" value="50" />
               <param name="focused_font" value="font40_title" />
@@ -247,8 +254,12 @@
 				</control>
 				<control type="group">
 					<!-- <width>550</width> -->
-					<visible allowhiddenfocus="true">[$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
-					<!-- <include content="FlixPanel"/> -->
+					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+					<include>OpenClose_Left</include>
+					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
+						<effect type="slide" start="0,0" end="0,-610" time="500" tween="cubic" easing="inout" />
+						<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
+					</animation>
 					<include>FlixPanel</include>
 				</control>
 			</control>

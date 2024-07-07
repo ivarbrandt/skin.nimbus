@@ -137,6 +137,7 @@
 			<filename>Inter-Regular.ttf</filename>
 			<style>bold</style>
 			<size>23</size>
+			<!-- <aspect>0.97</aspect> -->
 		</font>
 		<font>
 			<name>font_flag</name>
@@ -154,6 +155,12 @@
 			<name>font20_title</name>
 			<filename>Inter-Regular.ttf</filename>
 			<size>18</size>
+			<style>bold</style>
+		</font>
+		<font>
+			<name>font18_title</name>
+			<filename>Inter-Regular.ttf</filename>
+			<size>20</size>
 			<style>bold</style>
 		</font>
 		<font>

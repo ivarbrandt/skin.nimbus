@@ -678,12 +678,23 @@
 				</control> -->
 				<control type="label" id="$PARAM[id]">
 					<label>$PARAM[sub_label]</label>
-					<textcolor>accent_color</textcolor>
+					<textcolor>$VAR[FocusedColorVar]</textcolor>
 					<font>font27_title</font>
 					<left>85</left>
 					<shadowcolor>text_shadow</shadowcolor>
 					<height>100</height>
 					<width>1400</width>
+					<visible>!Skin.HasSetting(Enable.BackgroundBlur)</visible>
+				</control>
+				<control type="label" id="$PARAM[id]">
+					<label>$PARAM[sub_label]</label>
+					<textcolor>unfocused_text</textcolor>
+					<font>font27_title</font>
+					<left>85</left>
+					<shadowcolor>text_shadow</shadowcolor>
+					<height>100</height>
+					<width>1400</width>
+					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 			</control>
 		</definition>
@@ -870,6 +881,7 @@
 		<!-- <param name="sublabel">$INFO[Container.SortMethod,$LOCALIZE[31022]: ,  ∙  ]$INFO[Container.CurrentItem,, / ]$INFO[Container.NumItems]</param> -->
 		<definition>
 			<control type="group">
+				<!-- <include>MediaMenuAnimations</include> -->
 				<animation effect="slide" end="0,-112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<depth>DepthBars</depth>
 				<!-- <animation effect="fade" start="0" end="100" time="300" condition="!Container.Scrolling">Conditional</animation> -->
@@ -893,6 +905,7 @@
 					<visible>Player.HasMedia</visible>
 				</control>
 				<control type="grouplist">
+					<animation condition="$EXP[sidebar_visible]" effect="slide" start="0,0" end="520,0" time="500" tween="cubic" easing="inout">Conditional</animation>
 					<width>1800</width>
 					<include content="TopBarLabels">
 						<param name="breadcrumbs_label" value="$PARAM[breadcrumbs_label]" />
@@ -1087,6 +1100,7 @@
 
 	<include name="TopBarLabels">
 		<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]</visible>
+		
 		<left>37</left>
 		<description>Left side of top bar</description>
 		<top>-7</top>
@@ -1148,8 +1162,8 @@
 			<control type="image">
 				<fadetime>500</fadetime>
 				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
-				<!-- <animation effect="fade" start="0" end="100" time="100">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
+				<!-- <animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
 				<animation effect="fade" time="400">VisibleChange</animation> -->
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
@@ -1547,6 +1561,27 @@
 		</definition>
 	</include>
 
+	<include name="MenuContentPanel">
+    <param name="width">500</param>
+    <param name="left">-40</param>
+    <param name="right"></param>
+    <param name="top">-40</param>
+    <param name="height">1160</param>
+    <param name="flipx">false</param>
+    <definition>
+			<!-- Content Panel Background -->
+			<control type="image">
+				<texture flipx="$PARAM[flipx]" colordiffuse="$VAR[MainMenuDiffuse]">masks/mediapanel.png</texture>
+				<bordersize>40</bordersize>
+				<width>$PARAM[width]</width>
+				<left>$PARAM[left]</left>
+				<right>$PARAM[right]</right>
+				<top>$PARAM[top]</top>
+				<height>$PARAM[height]</height>
+			</control>
+    </definition>
+	</include>
+
 	<include name="ContentPanel">
 		<param name="width">500</param>
 		<param name="left">-40</param>
@@ -1565,7 +1600,7 @@
 				<right>$PARAM[right]</right>
 				<top>$PARAM[top]</top>
 				<height>$PARAM[height]</height>
-				<visible>[Window.IsActive(Home) | Window.IsActive(1121)] + [Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)] | VideoPlayer.Content(LiveTV)</visible>
+				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 		</definition>
 	</include>
@@ -1707,7 +1742,7 @@
 				<!-- 270 -->
 				<height>198</height>
 				<texture colordiffuse="dialog_bg">masks/landscape.png</texture>
-				<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
+				<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/landscape-border.png</bordertexture>
 				<!-- <bordertexture colordiffuse="white" border="20" infill="false">masks/poster-border.png</bordertexture> -->
 				<bordersize>2</bordersize>
 			</control>

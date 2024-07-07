@@ -31,7 +31,7 @@
 							<!-- 245 -->
 							<height>209</height>
 							<texture colordiffuse="dialog_bg">masks/landscape.png</texture>
-							<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/poster-border.png</bordertexture>
+							<bordertexture colordiffuse="FF181818" border="20" infill="false">masks/landscape-border.png</bordertexture>
 							<bordersize>2</bordersize>
 						</control>
 						<!-- IMAGE CONTROL -->

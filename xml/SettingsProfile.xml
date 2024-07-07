@@ -171,9 +171,9 @@
 		<control type="group">
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
+			<!-- <include content="ContentPanel">
 				<param name="width" value="530" />
-			</include>
+			</include> -->
 			<control type="list" id="9000">
 				<left>25</left>
 				<top>130</top>

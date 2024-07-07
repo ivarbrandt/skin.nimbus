@@ -437,7 +437,8 @@
 		<value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value>
 		<value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
 	</variable>
-	<variable name="WallWatchedIconVar">
+	<!-- POSSIBLE POV FIX -->
+	<!-- <variable name="WallWatchedIconVar">
 		<value condition="ListItem.IsRecording">windows/pvr/record.png</value>
 		<value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
 		<value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
@@ -446,7 +447,18 @@
 		<value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
-	</variable>
+	</variable> -->
+	<variable name="WallWatchedIconVar">
+    <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
+    <value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
+    <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>
+    <value condition="ListItem.IsCollection">overlays/set.png</value>
+    <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
+    <value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
+    <value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <value condition="Integer.IsGreater(ListItem.Playcount,0) + [!String.IsEmpty(ListItem.ResumeTime) | !String.IsEmpty(ListItem.Property(ResumeTime))]">progress/unwatched/$INFO[ListItem.PercentPlayed,,.png]</value>
+    <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
+</variable>
 	<variable name="ListPVRRecordingsIconVar">
 		<value condition="ListItem.IsRecording">windows/pvr/record.png</value>
 		<value condition="ListItem.IsResumable">overlays/watched/resume.png</value>
@@ -512,9 +524,18 @@
 		<value>$LOCALIZE[19021] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[137]$INFO[Control.GetLabel(29), [COLOR accent_color][B]»[/B][/COLOR] ]$INFO[Control.GetLabel(30), ]</value>
 	</variable>
 	<variable name="BreadcrumbsPVRChannelsOSDVar">
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[BreadcrumbsPVRChannelsOSD.NoBlur]</value>
+		<value>$VAR[BreadcrumbsPVRChannelsOSD.Blur]</value>
+	</variable>
+	<variable name="BreadcrumbsPVRChannelsOSD.NoBlur">
 		<value condition="PVR.IsPlayingTV">$LOCALIZE[19020] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR accent_color][B]»[/B][/COLOR] $INFO[VideoPlayer.ChannelGroup]</value>
 		<value condition="PVR.IsPlayingRadio">$LOCALIZE[19021] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR accent_color][B]»[/B][/COLOR] $INFO[VideoPlayer.ChannelGroup]</value>
 		<value>$LOCALIZE[19019] [COLOR accent_color][B]»[/B][/COLOR] $INFO[VideoPlayer.ChannelGroup]</value>
+	</variable>
+	<variable name="BreadcrumbsPVRChannelsOSD.Blur">
+		<value condition="PVR.IsPlayingTV">$LOCALIZE[19020] [COLOR unfocused_text][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR unfocused_text][B]»[/B][/COLOR] $INFO[VideoPlayer.ChannelGroup]</value>
+		<value condition="PVR.IsPlayingRadio">$LOCALIZE[19021] [COLOR unfocused_text][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR unfocused_text][B]»[/B][/COLOR] $INFO[VideoPlayer.ChannelGroup]</value>
+		<value>$LOCALIZE[19019] [COLOR unfocused_text][B]»[/B][/COLOR] $INFO[VideoPlayer.ChannelGroup]</value>
 	</variable>
 	<variable name="BreadcrumbsGameVar">
 		<value>$LOCALIZE[15016]</value>

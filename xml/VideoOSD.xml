@@ -31,7 +31,7 @@
         <itemgap>8</itemgap>
         <orientation>horizontal</orientation>
         <align>center</align>
-        <onleft>715</onleft>
+        <onleft>716</onleft>
         <onright>708</onright>
         <control type="button" id="701">
           <visible>Player.HasSceneMarkers | Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | [Player.SeekEnabled + VideoPlayer.Content(livetv)]</visible>
@@ -303,7 +303,7 @@
             <onclick>SetProperty(settingslist_content,osd,home)</onclick>
             <onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
             <onclick>ActivateWindow(1101)</onclick>
-            <onleft>714</onleft>
+            <onleft>715</onleft>
             <onright condition="Control.IsVisible(703)">703</onright>
             <onright condition="!Control.IsVisible(703)">704</onright>
           </control>

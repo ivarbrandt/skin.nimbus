@@ -53,7 +53,7 @@
 					<font>font12</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<texturefocus border="20" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
+					<texturefocus border="20" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
 					<texturenofocus colordiffuse="button_focus2" border="20">buttons/dnfo.png</texturenofocus>
 					<label>$LOCALIZE[20181]</label>
 					<onleft>13</onleft>
@@ -69,7 +69,7 @@
 					<font>font12</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<texturefocus border="40" colordiffuse="button_focus">buttons/dfo.png</texturefocus>
+					<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
 					<texturenofocus colordiffuse="button_focus2" border="40">buttons/dnfo.png</texturenofocus>
 					<label>$LOCALIZE[20177]</label>
 					<angle>270</angle>
@@ -167,11 +167,11 @@
 						<description>prev button</description>
 						<width>125</width>
 						<height>125</height>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/arrowleft.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/arrowleft.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/arrowleft.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowleft.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/arrowleft.png</textureradiooffnofocus>
 						<radioposx>40</radioposx>
 						<radiowidth>36</radiowidth>
@@ -190,11 +190,11 @@
 						<description>next button</description>
 						<width>125</width>
 						<height>125</height>
-						<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="focused_text">icons/keyboard/arrowright.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="unfocused_text">icons/keyboard/arrowright.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="focused_text">icons/keyboard/arrowright.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/arrowright.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="unfocused_text">icons/keyboard/arrowright.png</textureradiooffnofocus>
 						<radioposx>45</radioposx>
 						<radiowidth>36</radiowidth>

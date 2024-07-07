@@ -76,9 +76,9 @@
 		<control type="group">
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
+			<!-- <include content="ContentPanel">
 				<param name="width" value="530" />
-			</include>
+			</include> -->
 			<control type="grouplist" id="3">
 				<description>button area</description>
 				<left>0</left>

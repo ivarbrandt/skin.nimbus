@@ -95,8 +95,8 @@
 				<orientation>vertical</orientation>
 				<texturesliderbackground />
 				<animation effect="slide" end="6,0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">conditional</animation>
-				<onleft>9000</onleft>
-				<onright>9000</onright>
+				<onleft>9100</onleft>
+				<onright>9100</onright>
 				<visible>Control.IsVisible(30)</visible>
 				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -116,16 +116,16 @@
 			<top>0</top>
 			<depth>DepthContentPanel</depth>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
+			<!-- <include content="ContentPanel">
 				<param name="width" value="480" />
-			</include>
-			<control type="grouplist" id="9000">
+			</include> -->
+			<control type="grouplist" id="9100">
 				<left>25</left>
 				<top>130</top>
 				<width>395</width>
 				<height>100%</height>
-				<onup>9000</onup>
-				<ondown>9000</ondown>
+				<onup>9100</onup>
+				<ondown>9100</ondown>
 				<onright>60</onright>
 				<control type="button" id="95">
 					<description>Button Summary Values</description>

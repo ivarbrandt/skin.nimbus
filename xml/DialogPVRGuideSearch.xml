@@ -24,7 +24,7 @@
 				<onright>9000</onright>
 				<onup>24</onup>
 				<ondown>10</ondown>
-				<colordiffuse>button_focus</colordiffuse>
+				<colordiffuse>$VAR[FocusedColorVar]</colordiffuse>
 			</control>
 			<control type="textbox">
 				<description>Search help</description>

@@ -24,7 +24,7 @@
 					<label>$LOCALIZE[31089]: [COLOR white]$INFO[Container(13).NumItems][/COLOR]</label>
 					<align>center</align>
 					<aligny>center</aligny>
-					<textcolor>button_focus</textcolor>
+					<textcolor>darkgrey</textcolor>
 				</control>
 				<control type="list" id="13">
 					<left>20</left>
@@ -37,14 +37,14 @@
 					<onright>73</onright>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime>200</scrolltime>
-					<itemlayout width="400" height="70">
+					<itemlayout width="400" height="71">
 						<control type="label">
 							<left>20</left>
 							<right>70</right>
 							<height>70</height>
 							<aligny>center</aligny>
 							<font>font27</font>
-							<textcolor>grey</textcolor>
+							<textcolor>darkgrey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="image">
@@ -58,14 +58,15 @@
 							<aspectratio>keep</aspectratio>
 						</control>
 					</itemlayout>
-					<focusedlayout width="400" height="70">
+					<focusedlayout width="400" height="71">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<right>0</right>
 							<bottom>0</bottom>
-							<texture colordiffuse="button_focus">masks/focus.png</texture>
-							<visible>Control.HasFocus(13)</visible>
+							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+							<!-- <visible>Control.HasFocus(13)</visible> -->
+							<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus(13)">conditional</animation>
 						</control>
 						<control type="label">
 							<left>20</left>
@@ -74,6 +75,7 @@
 							<aligny>center</aligny>
 							<font>font27</font>
 							<label>$INFO[ListItem.Label]</label>
+							<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 							<scroll>true</scroll>
 						</control>
 						<control type="image">
@@ -89,9 +91,9 @@
 					</focusedlayout>
 				</control>
 				<control type="scrollbar" id="73">
-					<left>420</left>
+					<left>425</left>
 					<top>75</top>
-					<width>12</width>
+					<width>7</width>
 					<height>815</height>
 					<onleft>13</onleft>
 					<onright>11</onright>

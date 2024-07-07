@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>9000</defaultcontrol>
-	<onload>SetFocus(2000)</onload>
 	<backgroundcolor>background</backgroundcolor>
 	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
@@ -18,20 +17,28 @@
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
-				<imagepath background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[HomeFanartVar]</imagepath>
+				<imagepath background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[CustomBackgroundImage]">$VAR[HomeFanartVar]</imagepath>
 				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),0)</visible>
 			</control>
 			<control type="image">
+				<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+					<effect type="slide" start="0,0" end="-200,0" time="500" tween="cubic" easing="inout" />
+					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
+				</animation>
 				<include>BigLandscapeScreenDimensions</include>
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
-				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[HomeFanartVar]</texture>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[CustomBackgroundImage]">$VAR[HomeFanartVar]</texture>
 				<bordersize>1</bordersize>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="10" infill="false">masks/giant-border.png</bordertexture>
+				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
 				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + !ControlGroup(15000).HasFocus</visible>
 			</control>
 			<control type="multiimage">
+				<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+					<effect type="slide" start="0,0" end="-200,0" time="500" tween="cubic" easing="inout" />
+					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
+				</animation>
 				<include>BigLandscapeScreenDimensions</include>
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
@@ -44,6 +51,7 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
+				<include>MainMenuAnimations</include>
 				<top>510</top>
 				<include>OpenClose_Right</include>
 				<control type="group" id="27000">
@@ -840,36 +848,40 @@
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<control type="group">
-					<!-- <width>550</width> -->
 					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					<include>OpenClose_Left</include>
-					<!-- <include content="FlixPanel"/> -->
+					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+						<effect type="slide" start="0,0" end="0,-540" time="500" tween="cubic" easing="inout" />
+						<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
+					</animation>
 					<include>FlixPanel</include>
 				</control>
-				<include>osd_darkenBG</include>
+				<!-- <include>osd_darkenBG</include> -->
 				<control type="group">
-					<animation type="VisibleChange">
-						<effect type="fade" start="0" end="100" time="375" tween="cubic" easing="in"/>
-						<effect type="slide" start="-40,0" end="0,0" time="375" tween="cubic" easing="out" />
+					<left>-540</left>
+					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+						<effect type="slide" start="0" end="540" time="500" tween="cubic" easing="inout" />
 					</animation>
 					<include>OpenClose_Left</include>
-					<include content="ContentPanel">
-						<param name="width" value="900"/>
+					<include content="MenuContentPanel">
+						<param name="width" value="600"/>
 					</include>
-					<visible allowhiddenfocus="true">Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)</visible>
+					<!-- <visible>true</visible> -->
+				
 					<control type="fixedlist" id="9000">
 						<animation condition="Control.HasFocus(700) | Control.HasFocus(733)">
-							<effect type="slide" start="0,0" end="0,150" time="500" tween="cubic" easing="inout" reversible="true" />
+							<effect type="slide" start="0,0" end="0,135" time="500" tween="cubic" easing="inout" reversible="true" />
 						</animation>
 						<left>25</left>
-						<top>250</top>
+						<top>200</top>
             <width>825</width>
 						<height>533</height>
 						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
-						<onleft condition="String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)">733</onleft>
+						<onleft condition="!Skin.HasSetting(Enable.ArtworkQuickConfigure) + [String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)]">733</onleft>
+						<onleft condition="Skin.HasSetting(Enable.ArtworkQuickConfigure)">733</onleft>
 						<onback>700</onback>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -973,7 +985,7 @@
 						<include>MiniMenuAnimations</include>
 						<orientation>vertical</orientation>
 						<left>25</left>
-						<top>200</top>
+						<top>150</top>
             <width>825</width>
 						<height>160</height>
 						<onup>700</onup>
@@ -986,8 +998,8 @@
 						<include content="List">
               <param name="id" value="700" />
               <param name="height" value="50" />
-              <param name="img_top" value="9.5" />
-              <param name="img_bottom" value="-10" />
+              <param name="img_top" value="10" />
+              <param name="img_bottom" value="-8" />
               <param name="img_width" value="5" />
               <param name="img_left" value="50" />
               <param name="focused_font" value="font40_title" />
@@ -1043,7 +1055,7 @@
 						<include>MiniMenuAnimations</include>
 						<orientation>vertical</orientation>
 						<left>25</left>
-						<top>200</top>
+						<top>150</top>
             <width>825</width>
 						<height>160</height>
 						<onup>733</onup>
@@ -1056,47 +1068,84 @@
 						<include content="List">
               <param name="id" value="733" />
               <param name="height" value="50" />
-              <param name="img_top" value="9.5" />
-              <param name="img_bottom" value="-10" />
+              <param name="img_top" value="10" />
+              <param name="img_bottom" value="-8" />
               <param name="img_width" value="5" />
               <param name="img_left" value="50" />
               <param name="focused_font" value="font40_title" />
               <param name="unfocused_font" value="font27" />
             </include>
 						<content>
-							<!-- <item>
-								<label>edit $INFO[Container(9000).ListItem.Label] menu</label>
+							<item>
+								<label>edit main menu</label>
 								<onclick>$VAR[EditMainMenusVar]</onclick>
+								<visible>!Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
 							</item>
 							<item>
-								<label>edit $INFO[Container(9000).ListItem.Label] widgets</label>
+								<label>edit widgets</label>
 								<onclick>$VAR[EditWidgetsVar]</onclick>
-							</item> -->
+								<visible>!Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
+							</item>
 							<item>
-								<label>background blur</label>
+								<label>toggle blur</label>
 								<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
+								<visible>Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
 						</item>
 							<item>
-								<label>artwork [COLOR accent_color]»[/COLOR] $VAR[HomeFanartSettingVar]</label>
+								<label>$VAR[HomeFanartSettingVar]</label>
 								<onclick>$VAR[HomeFanartToggleVar]</onclick>
+								<visible>Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
 						</item>
 						<item>
-								<label>use [COLOR accent_color]»[/COLOR] $VAR[HomeLandscapeFanartSettingVar]</label>
+								<label>$VAR[HomeLandscapeFanartSettingVar]</label>
 								<onclick>$VAR[HomeLandscapeFanartToggleVar]</onclick>
-								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+								<visible>Skin.HasSetting(Enable.ArtworkQuickConfigure) + String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
 						</item>
 						</content>
 					</control>
 					<include content="MiniMenuLabels">
 						<param name="visible" value="Control.HasFocus(700)"/>
-						<param name="top" value="125"/>
-						<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
+						<param name="top" value="75"/>
+						<param name="label" value="[LOWERCASE]Mini Menu[/LOWERCASE]"/>
 					</include>
-					<!-- <include content="MiniMenuLabels">
-						<param name="visible" value="Control.HasFocus(733)"/>
+					<include content="MiniMenuLabels">
+						<param name="visible" value="Control.HasFocus(733) + !Skin.HasSetting(Enable.ArtworkQuickConfigure)"/>
 						<param name="top" value="125"/>
-						<param name="label" value="[UPPERCASE]options[/UPPERCASE]"/>
-					</include> -->
+						<param name="label" value="[LOWERCASE]edit $INFO[Container(9000).ListItem.Label] section[/LOWERCASE]"/>
+					</include>
+					<control type="group">
+						<left>90</left>
+						<width>380</width>
+						<animation condition="Control.HasFocus(700) | Control.HasFocus(733)">
+							<effect type="slide" start="0,0" end="0,100" time="500" tween="cubic" easing="inout" reversible="true" />
+						</animation>
+						<control type="label">
+							<top>780</top>
+							<font>font40_title</font>
+							<label>$INFO[System.Time]</label>
+							<textcolor>unfocused_text</textcolor>
+						</control>
+						<control type="label">
+							<top>830</top>
+							<font>font27</font>
+							<label>$VAR[HomeMenuWeatherVar]</label>
+							<textcolor>darkgrey</textcolor>
+						</control>
+						<control type="label">
+							<top>865</top>
+							<font>font27</font>
+							<label>$INFO[System.Date(MMM d)], $INFO[System.Date(yyyy)]</label>
+							<textcolor>darkgrey</textcolor>
+							<visible>Weather.IsFetched</visible>
+						</control>
+						<!-- <control type="label">
+							<top>935</top>
+							<font>font27</font>
+							<label>Loading widgets...</label>
+							<textcolor>darkgrey</textcolor>
+							<animation condition="Weather.IsFetched" effect="fade" start="100" end="0" time="500" delay="2000">Conditional</animation>
+						</control> -->
+					</control>
 				</control>
 			</control>
 			<control type="group">
@@ -1110,7 +1159,7 @@
 					<param name="resolution_var" value="$VAR[ContainerResolutionFlagVar]" />
 				</include>
 				<control type="rss">
-					<animation effect="slide" end="0,90" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
+					<animation effect="slide" end="0,100" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 					<left>0</left>
 					<bottom>0</bottom>
 					<height>39</height>
@@ -1118,8 +1167,8 @@
 					<font>font12</font>
 					<urlset>1</urlset>
 					<hitrect x="-100" y="0" w="1" h="1" />
-					<titlecolor>button_focus</titlecolor>
-					<textcolor>button_focus</textcolor>
+					<titlecolor>$VAR[FocusedColorVar]</titlecolor>
+					<textcolor>$VAR[FocusedColorVar]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<headlinecolor>FFC0C0C0</headlinecolor>
 					<visible>Skin.HasSetting(hide_mediaflags) | !ControlGroup(2000).HasFocus</visible>

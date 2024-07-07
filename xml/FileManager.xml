@@ -16,9 +16,9 @@
 		<control type="group">
 			<left>0</left>
 			<include>OpenClose_Left</include>
-			<include content="ContentPanel">
+			<!-- <include content="ContentPanel">
 				<param name="width" value="872" />
-			</include>
+			</include> -->
 			<include content="FileManagerPanel">
 				<param name="list_id" value="20" />
 				<param name="scrollbar_id" value="60" />
@@ -42,11 +42,11 @@
 			<width>818</width>
 			<right>0</right>
 			<include>OpenClose_Right</include>
-			<include content="ContentPanel">
+			<!-- <include content="ContentPanel">
 				<param name="width" value="878" />
 				<param name="flipx" value="true" />
 				<param name="left" value="-20" />
-			</include>
+			</include> -->
 			<include content="FileManagerPanel">
 				<param name="list_id" value="21" />
 				<param name="scrollbar_id" value="61" />

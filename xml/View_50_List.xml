@@ -43,12 +43,12 @@
 			<control type="group">
 				<right>-32</right>
 				<!-- right content panel -->
-				<include content="ContentPanel">
+				<!-- <include content="ContentPanel">
 					<param name="left" value="-150" />
 					<param name="top" value="-20" />
 					<param name="width" value="806" />
 					<param name="flipx" value="true" />
-				</include>
+				</include> -->
 				<control type="group">
 					<visible>!Container.Content(songs)</visible>
 					<control type="image">
@@ -248,10 +248,10 @@
 			<include>MediaMenuAnimations</include>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
-				<include content="ContentPanel">
+				<!-- <include content="ContentPanel">
 					<param name="width" value="1106" />
 					<param name="flipx" value="$PARAM[flip_bg]" />
-				</include>
+				</include> -->
 				<include content="FlixPanel"/>
 				<!-- image control -->
 				<control type="image">

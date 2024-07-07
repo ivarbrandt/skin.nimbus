@@ -56,11 +56,7 @@
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 
-	<variable name="BorderColorVar">
-		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + [String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(ArtworkChoice),1)]">FF2E2E2E</value>
-		<value>FF5B5B5B</value>
-		<!-- <value>FF252525</value> -->
-	</variable>
+	
 
 	<variable name="FlixPosterVar">
 		<value condition="!$EXP[isEpisode]">$INFO[ListItem.Art(poster)]</value>
@@ -149,7 +145,7 @@
 
 	<variable name="TrailerReadyVar">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[TrailerReady.NoBlur]</value>
-    <value>$VAR[TrailerReady.NoBlur]</value>
+    <value>$VAR[TrailerReady.Blur]</value>
 	</variable>
 
 	<variable name="TrailerReady.NoBlur">
@@ -217,6 +213,56 @@
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">focused_text</value>
     <value>FF141515</value>
 	</variable>
+
+	<variable name="MainMenuSelectorColor">
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
+    <value>$INFO[Window(home).Property(listitem_color)]</value>
+	</variable>
+
+
+
+	<variable name="MediaMenuDiffuse">
+    <!-- Blur enabled -->
+    <value condition="Skin.HasSetting(Enable.BackgroundBlur)">80000000</value>
+    <!-- Movies -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)">FF101010</value>
+    <!-- TV Shows -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)">FF101010</value>
+    <!-- Seasons -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)">FF101010</value>
+    <!-- Episodes -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)">FF101010</value>
+    <!-- Non-content -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">FF101010</value>
+</variable>
+
+	<variable name="MainMenuDiffuse">
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0)">FF101010</value>
+    <value>80000000</value>
+    <!-- <value>660a0a0a</value> -->
+	</variable>
+
+	<variable name="BorderColorVar">
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + [String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(ArtworkChoice),1)]">FF2E2E2E</value>
+		<value>FF5B5B5B</value>
+		<!-- <value>FF252525</value> -->
+	</variable>
+
+	<variable name="HomeMenuWeatherVar">
+		<value condition="Weather.IsFetched">$INFO[System.Date(DDD)] [LIGHT]•[/LIGHT] $INFO[Weather.Temperature]</value>
+		<value>$INFO[System.Date(DDD)] [LIGHT]•[/LIGHT] $INFO[System.Date(mmm d)], $INFO[System.Date(yyyy)]</value>
+		<!-- <value>FF252525</value> -->
+	</variable>
+
+
+
+
 
 	<!-- <variable name="FocusedTextColorVar">
     <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + !Window.IsVisible(Home) + [String.IsEqual(Skin.String(ArtworkChoice.movies),0) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),0) | String.IsEqual(Skin.String(ArtworkChoice.seasons),0) | String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]">unfocused_text</value>
@@ -293,11 +339,11 @@
 	</variable>
 
 	<variable name="ContentTypeLabel">
-		<value condition="Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)">for episode lists</value>
-    <value condition="Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season)">for episodes</value>
-    <value condition="!Container.Content()">for $INFO[Container.Content]</value>
-    <value condition="Container.Content()">for menus</value>
-    <value>Lock view</value>
+		<value condition="Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)"> for episode lists</value>
+    <value condition="Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season)"> for episodes</value>
+    <value condition="!Container.Content()"> for $INFO[Container.Content]</value>
+    <value condition="Container.Content()"> for menus</value>
+    <value>$LOCALIZE[14018]</value>
 	</variable>
 
 	<variable name="ForcedViewLabel">

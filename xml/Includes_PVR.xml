@@ -2,7 +2,7 @@
 <includes>
 	<expression name="listitem_has_episode_info">!String.IsEmpty(ListItem.Episode) | !String.IsEmpty(ListItem.EpisodeName) | !String.IsEmpty(ListItem.Season)</expression>
 	<expression name="listitem_has_epg_event_info">!String.IsEmpty(ListItem.EpgEventTitle) | $EXP[listitem_has_episode_info]</expression>
-	<include name="PVRListItemLayout">
+	<!-- <include name="PVRListItemLayout">
 		<definition>
 			<control type="label">
 				<left>30</left>
@@ -95,7 +95,7 @@
 				<texture>$INFO[ListItem.ActualIcon]</texture>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 	<!-- <include name="PVRListItemLayouts">
 		<param name="only_label_condition">false</param>
 		<param name="has_info_icon">false</param>
@@ -364,14 +364,14 @@
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>button_focus</textcolor>
+				<textcolor>darkgrey</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>button_focus</textcolor>
+				<!-- <textcolor>$VAR[FocusedColorVar]</textcolor> -->
 				<label>: [COLOR white]$INFO[Container($PARAM[list_id]).Numitems][/COLOR]</label>
 			</control>
 		</control>
@@ -386,7 +386,7 @@
 			<onright>$PARAM[scrollbar_id]</onright>
 			<pagecontrol>$PARAM[scrollbar_id]</pagecontrol>
 			<scrolltime>200</scrolltime>
-			<itemlayout height="70" width="470">
+			<itemlayout height="67" width="470">
 				<control type="image">
 					<width>60</width>
 					<height>60</height>
@@ -403,17 +403,18 @@
 					<height>70</height>
 					<aligny>center</aligny>
 					<font>font27</font>
-					<textcolor>grey</textcolor>
+					<textcolor>darkgrey</textcolor>
 					<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="70" width="470">
+			<focusedlayout height="67" width="470">
 				<control type="image">
 					<left>0</left>
 					<right>0</right>
 					<bottom>0</bottom>
-					<texture colordiffuse="button_focus">masks/focus.png</texture>
-					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+					<!-- <visible>Control.HasFocus($PARAM[list_id])</visible> -->
+					<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus($PARAM[list_id])">conditional</animation>
 				</control>
 				<control type="image">
 					<width>60</width>
@@ -432,13 +433,14 @@
 					<font>font27</font>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.ChannelNumberLabel,[B],[/B] - ]$INFO[ListItem.ChannelName]</label>
+					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 				</control>
 			</focusedlayout>
 		</control>
 		<control type="scrollbar" id="$PARAM[scrollbar_id]">
-			<left>495</left>
+			<left>500</left>
 			<top>75</top>
-			<width>12</width>
+			<width>7</width>
 			<height>815</height>
 			<onleft>$PARAM[list_id]</onleft>
 			<onright>$PARAM[onright]</onright>
@@ -551,7 +553,7 @@
 				<height>16</height>
 				<info>PVR.EpgEventProgress</info>
 				<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
-				<midtexture colordiffuse="button_focus">colors/white.png</midtexture>
+				<midtexture colordiffuse="$VAR[FocusedColorVar]">colors/white.png</midtexture>
 			</control>
 		</control>
 	</include>
@@ -724,7 +726,7 @@
 			<control type="textbox">
 				<top>220</top>
 				<width>830</width>
-				<height>250</height>
+				<height>235</height>
 				<!-- <bottom>625</bottom> -->
 				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
 				<font>font27</font>
@@ -735,7 +737,7 @@
 			<control type="textbox">
 				<top>220</top>
 				<width>550</width>
-				<height>250</height>
+				<height>235</height>
 				<!-- <bottom>625</bottom> -->
 				<label>$VAR[FlagLabel,,[CR]]$INFO[ListItem.TimerType,[COLOR grey]$LOCALIZE[803]:[/COLOR] ,[CR]]$VAR[RecordingSizeLabel]$VAR[ExpirationDateTimeLabel]$INFO[ListItem.Plot,[CR]]</label>
 				<font>font27</font>
@@ -858,7 +860,7 @@
 				<height>40</height>
 				<aligny>center</aligny>
 				<label>$PARAM[label]:</label>
-				<textcolor>button_focus</textcolor>
+				<textcolor>$VAR[FocusedColorVar]</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
