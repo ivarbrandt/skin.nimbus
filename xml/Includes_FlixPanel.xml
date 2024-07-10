@@ -8,7 +8,6 @@
 			<control type="image">
 				<width>522</width>
 				<height>223</height>
-				<fadetime>200</fadetime>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
 				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>

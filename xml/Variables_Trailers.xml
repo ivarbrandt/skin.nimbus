@@ -32,9 +32,10 @@
 	</variable>
 
 	<variable name="AutoplayTrailerSource">
+		<value condition="$EXP[isEpisode] | $EXP[isSeason]"></value>
 		<value condition="String.IsEqual(Skin.String(TrailerSource),0)">PlayMedia($INFO[ListItem.Trailer],1,noresume)</value>
 		<value condition="String.IsEqual(Skin.String(TrailerSource),1)">PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],1,noresume)</value>
-		<value>PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],1,noresume)</value>
+		<value>PlayMedia($INFO[ListItem.Trailer],1,noresume)</value>
 	</variable>
 
 </includes>

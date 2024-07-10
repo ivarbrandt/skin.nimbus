@@ -7,7 +7,7 @@
 	<onload condition="String.IsEmpty(Skin.String(trailerSetting))">Skin.SetString(trailerSetting,0)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(titleSetting))">Skin.SetString(titleSetting,0)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(onBackSetting))">Skin.SetString(onBackSetting,0)</onload>	
+	<onload condition="String.IsEmpty(Skin.String(onBackSetting)) | String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onBackSetting,0)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(TrailerDelaySecs))">Skin.SetString(TrailerDelaySecs,5)</onload>
 	<onload condition="String.IsEmpty(Skin.String(PlaybackDelayMins))">Skin.SetString(PlaybackDelayMins,30)</onload>
@@ -545,7 +545,7 @@
 				</control>
 				<control type="button" id="6004">
 					<label>Choose default background</label>
-					<label2>$INFO[Skin.String(CustomBackground)]</label2>
+					<label2>$INFO[Skin.String(NimbusCustomBackground)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_image)</onclick>
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
@@ -553,8 +553,8 @@
 				<control type="button" id="6005">
 					<label>   - Restore default background</label>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.Reset(CustomBackground)</onclick>
-					<visible>!String.IsEmpty(Skin.String(CustomBackground)) + Skin.HasSetting(Enable.BackgroundBlur)</visible>
+					<onclick>Skin.Reset(NimbusCustomBackground)</onclick>
+					<visible>!String.IsEmpty(Skin.String(NimbusCustomBackground)) + Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<!-- BACKGROUND BLUR -->
 				<control type="radiobutton" id="6006">

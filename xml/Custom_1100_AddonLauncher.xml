@@ -189,7 +189,7 @@
 				<include content="MiniMenuLabels">
 					<param name="visible" value="Control.HasFocus(700)"/>
 					<param name="top" value="125"/>
-					<param name="label" value="[UPPERCASE]Mini Menu[/UPPERCASE]"/>
+					<param name="label" value="[LOWERCASE]Mini Menu[/LOWERCASE]"/>
 				</include>
 			</control>
 			<include content="TopBar">

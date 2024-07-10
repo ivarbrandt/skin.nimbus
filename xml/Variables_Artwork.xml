@@ -7,9 +7,9 @@
     <value condition="Control.IsVisible(50) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(500)">$VAR[FlixLandscapeVar]</value>
 	</variable>
 
-  <variable name="CustomBackgroundImage">
-		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEmpty(Skin.String(CustomBackground))">$INFO[Skin.String(CustomBackground)]</value>
-		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(CustomBackground))">special://skin/resources/fallback.jpg</value>
+  <variable name="NimbusCustomBackgroundImage">
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEmpty(Skin.String(NimbusCustomBackground))">$INFO[Skin.String(NimbusCustomBackground)]</value>
+		<value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(NimbusCustomBackground))">special://skin/resources/fallback.jpg</value>
 	</variable>
 
   <!-- <variable name="HomeFanartVar">
@@ -93,7 +93,7 @@
     <value condition="$EXP[isMovie] + String.IsEqual(Skin.String(ArtworkChoice.movies),0) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
     <value condition="$EXP[isTVShow] + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
     <value condition="$EXP[isSeason] + String.IsEqual(Skin.String(ArtworkChoice.seasons),0) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-    <value>$VAR[CustomBackgroundImage]</value>
+    <value>$VAR[NimbusCustomBackgroundImage]</value>
   </variable> -->
   
   <variable name="FanartToggleVar">

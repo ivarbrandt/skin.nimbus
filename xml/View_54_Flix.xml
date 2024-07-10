@@ -206,7 +206,7 @@
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
 					<bordersize>-10</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
-					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
+					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					<include content="GlowPulse">
 						<param name="pos_x" value="133.5"/>

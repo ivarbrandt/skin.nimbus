@@ -24,14 +24,14 @@
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
-				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[CustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
+				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
 				<visible>[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]] | [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]
 				</visible>
 			</control>
 			<control type="image">
 				<include>BigLandscapeScreenDimensions</include>
 				<fadetime>500</fadetime>
-				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[CustomBackgroundImage]">$VAR[FlixLandscapeVar]</texture>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[FlixLandscapeVar]</texture>
 				<bordersize>1</bordersize>
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<include>ArtworkAnimations</include>

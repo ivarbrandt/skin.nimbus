@@ -145,7 +145,7 @@
 
 	<variable name="TrailerReadyVar">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[TrailerReady.NoBlur]</value>
-    <value>$VAR[TrailerReady.Blur]</value>
+    <value>$VAR[TrailerReady.NoBlur]</value>
 	</variable>
 
 	<variable name="TrailerReady.NoBlur">
@@ -185,10 +185,10 @@
     <value>Open shutdown menu</value>
 	</variable>
 
-	<variable name="LoadingLabelsVar">
+	<!-- <variable name="LoadingLabelsVar">
     <value condition="Container.IsUpdating + Window.IsActive(home) + String.IsEmpty(Skin.String(TrailerPlaying))">Loading widgets...</value>
     <value condition="Container.IsUpdating + Window.IsActive(1121) + String.IsEmpty(Skin.String(TrailerPlaying))">Loading search results...</value>
-	</variable>
+	</variable> -->
 
 	<!-- <variable name="FocusedChoiceColorVar">
     <value condition="![Window.IsVisible(1100) | Skin.HasSetting(Disable.ColorThemeFocus)]">accent_color</value>
@@ -249,7 +249,7 @@
 	</variable>
 
 	<variable name="BorderColorVar">
-		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + [String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(ArtworkChoice),1)]">FF2E2E2E</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">FF2E2E2E</value>
 		<value>FF5B5B5B</value>
 		<!-- <value>FF252525</value> -->
 	</variable>
@@ -301,16 +301,14 @@
 		<value>Skin.SetString(titleSetting,0)</value>
 	</variable>
 
-	<variable name="OnBackSettingVar">
+	<!-- <variable name="OnBackSettingVar">
     <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Open main menu</value>
     <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Reset widget</value>
-    <value condition="String.IsEqual(Skin.String(onBackSetting),2)">Both</value>
 	</variable>
 
 	<variable name="OnBackSettingToggleVar">
-    <value condition="String.IsEqual(Skin.String(onBackSetting),0) + String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onBackSetting,1)</value>
-    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Skin.SetString(onBackSetting,2)</value>
-    <value condition="String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onBackSetting,0)</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Skin.SetString(onBackSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Skin.SetString(onBackSetting,0)</value>
     <value condition="!String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onBackSetting,0)</value>
 	</variable>
 
@@ -320,9 +318,29 @@
 	</variable>
 
 	<variable name="OnLeftSettingToggleVar">
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onLeftSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Skin.SetString(onLeftSetting,0)</value>
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onLeftSetting,1)</value>
+	</variable> -->
+
+	<variable name="OnBackSettingVar">
+    <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Open main menu</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Reset widget</value>
+	</variable>
+
+	<variable name="OnBackSettingToggleVar">
+    <value condition="String.IsEqual(Skin.String(onBackSetting),0) + String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onBackSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Skin.SetString(onBackSetting,0)</value>
+	</variable>
+
+	<variable name="OnLeftSettingVar">
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Open main menu</value>
+    <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Wrap to end</value>
+	</variable>
+
+	<variable name="OnLeftSettingToggleVar">
     <value condition="String.IsEqual(Skin.String(onLeftSetting),0) + String.IsEqual(Skin.String(onBackSetting),0)">Skin.SetString(onLeftSetting,1)</value>
     <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Skin.SetString(onLeftSetting,0)</value>
-    <value condition="String.IsEqual(Skin.String(onLeftSetting),0) + String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onLeftSetting,1)</value>
 	</variable>
 
 	<variable name="ContextMenuTitleVar">

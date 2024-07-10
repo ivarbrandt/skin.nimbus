@@ -1157,7 +1157,7 @@
 			<visible>Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
 			<control type="image" id="100000">
 				<visible>false</visible>
-				<texture fallback="$VAR[CustomBackgroundImage]">$VAR[BlurTextureVar]</texture>
+				<texture fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[BlurTextureVar]</texture>
 			</control>
 			<control type="image">
 				<fadetime>500</fadetime>
@@ -1878,7 +1878,7 @@
 	<include name="TrailerControl">
     <control type="button">
 			<visible>false</visible>
-			<onfocus condition="String.IsEqual(Skin.String(trailerSetting),2) + String.IsEmpty(Skin.String(TrailerPlaying)) + ![$EXP[isSeason] | $EXP[isEpisode]]">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
+			<onfocus condition="!Player.HasMedia + String.IsEqual(Skin.String(trailerSetting),2) + String.IsEmpty(Skin.String(TrailerPlaying))">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
 			<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
 			<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
     </control>

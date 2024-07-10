@@ -20,13 +20,13 @@
 				<width>1815</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<control type="label">
+				<!-- <control type="label">
 					<top>12</top>
 					<label>$VAR[LoadingLabelsVar]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
-				</control>
+				</control> -->
 				<control type="label">
 					<top>12</top>
 					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
@@ -35,7 +35,8 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
+					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<!-- <visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Skin.String(TrailerPlaying))]</visible> -->
 				</control>
 			</control>
 		</definition>
@@ -70,7 +71,7 @@
 						<left>33</left>
 						<top>15</top>
 						<include content="FlixMovieLayout">
-						<param name="list_id" value="$PARAM[list_id]" />
+							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
 				</itemlayout>
@@ -80,8 +81,8 @@
 						<left>33</left>
 						<top>15</top>
 						<include content="FlixMovieLayout">
-						<param name="focused" value="true" />
-						<param name="list_id" value="$PARAM[list_id]" />
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 						<include>TrailerControl</include>
 					</control>
@@ -154,7 +155,7 @@
 	</include>
 
 	<include name="WidgetListCategory">
-		<param name="item_limit">30</param>
+		<!-- <param name="item_limit">30</param> -->
 		<!-- <param name="icon_height">230</param> -->
 		<param name="icon">$PARAM[icon]</param>
 		<param name="visible">true</param>
@@ -197,9 +198,10 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
+						<include>TrailerControl</include>
 					</control>
 				</focusedlayout>
-				<content target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
+				<content target="$PARAM[widget_target]">$PARAM[content_path]</content>
 			</control>
 		</definition>
 	</include>
@@ -663,8 +665,8 @@
 		<onleft condition="String.IsEqual(Skin.String(onLeftSetting),0)">9000</onleft>
 		<onleft condition="String.IsEqual(Skin.String(onLeftSetting),1)">$PARAM[list_id]</onleft>
 		<onright>$PARAM[list_id]</onright>
-		<onback condition="String.IsEqual(Skin.String(onBackSetting),1) | String.IsEqual(Skin.String(onBackSetting),2)">SetFocus($PARAM[list_id],0,absolute)</onback>
-		<onback condition="String.IsEqual(Skin.String(onBackSetting),0) | String.IsEqual(Skin.String(onBackSetting),2)">9000</onback>
+		<onback condition="String.IsEqual(Skin.String(onBackSetting),1)">SetFocus($PARAM[list_id],0,absolute)</onback>
+		<onback condition="String.IsEqual(Skin.String(onBackSetting),0)">9000</onback>
 		<!-- <onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
 		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
 		<onfocus>ClearProperty(nimbus_landscape_art)</onfocus>
