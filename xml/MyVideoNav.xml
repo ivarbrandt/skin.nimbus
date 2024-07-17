@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">54</defaultcontrol>
+	<defaultcontrol always="true">50</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<views>50,52,54,55,500</views>
+	<views>50,52,54,55,56,500,501</views>
 	<menucontrol>9000</menucontrol>
 	<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
 	<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.5)</onload>	
@@ -14,6 +14,13 @@
 	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.tvshows))">Skin.SetString(LandscapeFanart.tvshows,0)</onload>
 	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.seasons))">Skin.SetString(LandscapeFanart.seasons,0)</onload>
 	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.episodes))">Skin.SetString(LandscapeFanart.episodes,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ListLandscape.movies))">Skin.SetString(ListLandscape.movies,1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ListLandscape.tvshows))">Skin.SetString(ListLandscape.tvshows,1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ListLandscape.seasons))">Skin.SetString(ListLandscape.seasons,1)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ListLandscape.episodes))">Skin.SetString(ListLandscape.episodes,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.movies))">Skin.SetString(ItemFanartChoice.movies,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.tvshows))">Skin.SetString(ItemFanartChoice.tvshows,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.seasons))">Skin.SetString(ItemFanartChoice.seasons,0)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -25,7 +32,7 @@
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
 				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
-				<visible>[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]] | [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + [Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)]
+				<visible>[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(56)]] | [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + [Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(55) | Control.IsVisible(56)]
 				</visible>
 			</control>
 			<control type="image">
@@ -36,7 +43,7 @@
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<include>ArtworkAnimations</include>
 				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-				<visible>[Control.IsVisible(54) | Control.IsVisible(50) | Control.IsVisible(55)] + [[$EXP[isContent] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]] ] | [!$EXP[isContent] + !Skin.HasSetting(Enable.BackgroundBlur)]]
+				<visible>[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + [[$EXP[isContent] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]] ] | [!$EXP[isContent] + !Skin.HasSetting(Enable.BackgroundBlur)]]
 			</visible>
 			</control>
 		</control>
@@ -45,12 +52,14 @@
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
 			<include>View_54_Flix</include>
-			<include>View_55_FlixList</include>
+			<include>View_55_FlixScape</include>
+			<include>View_56_FlixList</include>
 			<include>View_500_Wall</include>
+			<include>View_501_WallScape</include>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<visible>Control.IsVisible(55)</visible>
+				<visible>Control.IsVisible(56)</visible>
 				<include>Visible_Left</include>
 				<include>ListThumbInfoPanel</include>
 			</control>
@@ -59,7 +68,7 @@
 				<include>FlixPanel</include>
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<visible>Control.IsVisible(50) | Control.IsVisible(54) | [Control.IsVisible(501) + String.IsEqual(Skin.AspectRatio,21:9)]</visible>
+				<visible>Control.IsVisible(50) | Control.IsVisible(54) | Control.IsVisible(55) | [Control.IsVisible(501) + String.IsEqual(Skin.AspectRatio,21:9)]</visible>
 				<include>Visible_Left</include>
 				<!-- <include content="ContentPanel">
 					<param name="width" value="1106" />

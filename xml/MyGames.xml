@@ -2,7 +2,7 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<views>55,52,54,500,50</views>
+	<views>50,52,54,56,500,501</views>
 	<menucontrol>9000</menucontrol>
 	<controls>
 		<include>DefaultBackground</include>
@@ -11,13 +11,14 @@
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
 			<include>View_54_Flix</include>
-			<include>View_55_FlixList</include>
+			<include>View_56_FlixList</include>
 			<include>View_500_Wall</include>
+			<include>View_501_WallScape</include>
 			<include>CommonScrollbars</include>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<visible>Control.IsVisible(55)</visible>
+				<visible>Control.IsVisible(56)</visible>
 				<include>Visible_Left</include>
 				<include>ListThumbInfoPanel</include>
 			</control>

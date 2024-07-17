@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">55</defaultcontrol>
+	<defaultcontrol always="true">56</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<menucontrol>9000</menucontrol>
-	<views>55,503</views>
+	<views>56,503</views>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
-			<include>View_55_FlixList</include>
+			<include>View_56_FlixList</include>
 			<include condition="Window.IsActive(musicplaylist)">View_503_NowPlaying</include>
 			<include>CommonScrollbars</include>
 			<control type="group">

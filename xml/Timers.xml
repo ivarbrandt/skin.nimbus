@@ -15,10 +15,11 @@
     </timer>
     <timer>
         <name>wall_scroll_timer</name>
-        <description>Timer to automatically return to Flix view</description>
+        <description>Timer to automatically return to Flix/FlixScape view</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wall_scroll_timer),2)</stop>
         <onstop condition="Control.IsVisible(500) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(54)</onstop>
+        <onstop condition="Control.IsVisible(501) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(55)</onstop>
         <!-- <onstart>Notification(skintimer, Wall scroll timer started, 1000)</onstart>
         <onstop>Notification(skintimer, Wall scroll timer stopped, 1000)</onstop> -->
     </timer>
@@ -37,8 +38,8 @@
         <description>Timer to autoplay trailers</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autoplay_trailer_timer),Skin.Numeric(TrailerDelaySecs))</stop>
-        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(54) | Control.HasFocus(55)]">Skin.SetString(TrailerPlaying, true)</onstop>
-        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(54) | Control.HasFocus(55)]">$VAR[AutoplayTrailerSource]</onstop>
+        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(50) | Control.HasFocus(54) | Control.HasFocus(55) | Control.HasFocus(56)]">Skin.SetString(TrailerPlaying, true)</onstop>
+        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(50) | Control.HasFocus(54) | Control.HasFocus(55) | Control.HasFocus(56)]">$VAR[AutoplayTrailerSource]</onstop>
         <!-- <onstart>Notification(skintimer, Autoplay trailer timer started, 1000)</onstart>
         <onstop>Notification(skintimer, Autoplay trailer timer stopped, 1000)</onstop> -->
     </timer>

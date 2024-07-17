@@ -116,6 +116,9 @@
 							<param name="list_id" value="27019"/>
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="27001" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="27099"/>
 					</include>

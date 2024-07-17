@@ -6,8 +6,11 @@
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
+	<!-- <onload>RunScript(script.nimbus.helper,mode=set_widget_count)</onload> -->
 	<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
 	<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(HomeItemArtworkChoice))">Skin.SetString(HomeItemArtworkChoice,0)</onload>
+	<onload condition="String.IsEmpty(Skin.String(HomeEpisodeArtworkChoice))">Skin.SetString(HomeEpisodeArtworkChoice,0)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -96,6 +99,9 @@
 						<pagecontrol>19099</pagecontrol>
 						<include content="MovieWidgets" condition="!Skin.HasSetting(HomeMenuNoMoviesButton)" />
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="19001" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="19099"/>
 					</include>
@@ -114,6 +120,9 @@
 						<pagecontrol>22099</pagecontrol>
 						<include content="TVShowWidgets" condition="!Skin.HasSetting(HomeMenuNoTVShowsButton)" />
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="22001" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="22099"/>
 					</include>
@@ -132,6 +141,9 @@
 						<pagecontrol>23099</pagecontrol>
 						<include content="Custom1Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom1Button)" />
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="23001" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="23099"/>
 					</include>
@@ -150,6 +162,9 @@
 						<pagecontrol>24099</pagecontrol>
 						<include content="Custom2Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom2Button)" />
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="24001" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="24099"/>
 					</include>
@@ -168,6 +183,9 @@
 						<pagecontrol>25099</pagecontrol>
 						<include content="Custom3Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom3Button)" />
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="25001" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="25099"/>
 					</include>
@@ -244,6 +262,9 @@
 							<param name="onclick_action" value="$VAR[AlbumOnClickActionVar]"/>
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="7001" />
+					</include>
 					<include content="ImageWidget" condition="!Library.HasContent(music)">
 						<param name="left">500</param>
 						<param name="text_label" value="$LOCALIZE[31104]" />
@@ -329,6 +350,9 @@
 							<param name="list_id" value="8500"/>
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="8001" />
+					</include>
 					<include content="ImageWidget">
 						<param name="text_label" value="$LOCALIZE[31119]" />
 						<param name="left">500</param>
@@ -373,6 +397,9 @@
 							<param name="icon" value="DefaultPlaylist.png"/>
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="11001" />
+					</include>
 					<include content="ImageWidget">
 						<param name="text_label" value="$LOCALIZE[31105]" />
 						<param name="left">500</param>
@@ -451,6 +478,9 @@
 							<param name="list_id" value="12600"/>
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="12001" />
+					</include>
 					<include content="ImageWidget" condition="!System.HasPVRAddon">
 						<param name="left">500</param>
 						<param name="text_label" value="$LOCALIZE[31143]" />
@@ -525,6 +555,9 @@
 							<param name="list_id" value="13600"/>
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="13001" />
+					</include>
 					<include content="ImageWidget" condition="!System.HasPVRAddon">
 						<param name="text_label" value="$LOCALIZE[31143]" />
 						<param name="left">500</param>
@@ -661,6 +694,9 @@
 							<param name="ondown_id" value="20001" />
 						</include> -->
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="15001" />
+					</include>
 					<include content="ImageWidget" condition="String.IsEmpty(Weather.plugin)">
 						<param name="text_label" value="$LOCALIZE[31120]" />
 						<param name="button_label" value="$LOCALIZE[31121]" />
@@ -756,6 +792,9 @@
 							<!-- <param name="icon_height" value="70"/> -->
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="16001" />
+					</include>
 					<include content="ImageWidget" condition="!Library.HasContent(musicvideos)">
 						<param name="text_label" value="$LOCALIZE[31104]" />
 						<param name="left">500</param>
@@ -786,6 +825,9 @@
 							<!-- <param name="icon_height" value="110"/> -->
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="4001" />
+					</include>
 				</control>
 				<control type="group" id="17000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),games)</visible>
@@ -808,6 +850,9 @@
 							<param name="fallback_icon" value="DefaultAddonGame.png"/>
 						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="17001" />
+					</include>
 					<include content="ImageWidget">
 						<param name="text_label" value="$LOCALIZE[31162]" />
 						<param name="button_label" value="$LOCALIZE[31144]" />
@@ -869,8 +914,11 @@
 					<!-- <visible>true</visible> -->
 				
 					<control type="fixedlist" id="9000">
-						<animation condition="Control.HasFocus(700) | Control.HasFocus(733)">
+						<animation condition="Control.HasFocus(700)">
 							<effect type="slide" start="0,0" end="0,135" time="500" tween="cubic" easing="inout" reversible="true" />
+						</animation>
+						<animation condition="Control.HasFocus(733)">
+							<effect type="slide" start="0,0" end="-540,0" time="500" tween="cubic" easing="inout" reversible="true" />
 						</animation>
 						<left>25</left>
 						<top>200</top>
@@ -880,8 +928,8 @@
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
-						<onleft condition="!Skin.HasSetting(Enable.ArtworkQuickConfigure) + [String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)]">733</onleft>
-						<onleft condition="Skin.HasSetting(Enable.ArtworkQuickConfigure)">733</onleft>
+						<!-- <onleft condition="!Skin.HasSetting(Enable.ArtworkQuickConfigure) + [String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)]">733</onleft> -->
+						<onleft>733</onleft>
 						<onback>700</onback>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -1052,19 +1100,22 @@
 					</control>
 					<control type="fixedlist" id="733">
 						<visible allowhiddenfocus="true">Control.HasFocus(733)</visible>
-						<include>MiniMenuAnimations</include>
+						<!-- <include>MiniMenuAnimations</include> -->
+						<animation condition="Control.HasFocus(733)">
+							<effect type="slide" start="-540,0" end="0,0" time="500" tween="cubic" easing="inout" reversible="true" />
+						</animation>
 						<orientation>vertical</orientation>
 						<left>25</left>
 						<top>150</top>
             <width>825</width>
-						<height>160</height>
+						<height>533</height>
 						<onup>733</onup>
-						<ondown>9000</ondown>
+						<ondown>733</ondown>
 						<onleft>9000</onleft>
 						<onright>9000</onright>
 						<onback>9000</onback>
-						<focusposition>1</focusposition>
-						<movement>1</movement>
+						<focusposition>0</focusposition>
+						<movement>5</movement>
 						<include content="List">
               <param name="id" value="733" />
               <param name="height" value="50" />
@@ -1077,30 +1128,26 @@
             </include>
 						<content>
 							<item>
-								<label>edit main menu</label>
-								<onclick>$VAR[EditMainMenusVar]</onclick>
-								<visible>!Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
-							</item>
-							<item>
-								<label>edit widgets</label>
-								<onclick>$VAR[EditWidgetsVar]</onclick>
-								<visible>!Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
-							</item>
-							<item>
 								<label>toggle blur</label>
 								<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
-								<visible>Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
-						</item>
+							</item>
 							<item>
-								<label>$VAR[HomeFanartSettingVar]</label>
+								<label>style/$VAR[HomeFanartSettingVar]</label>
 								<onclick>$VAR[HomeFanartToggleVar]</onclick>
-								<visible>Skin.HasSetting(Enable.ArtworkQuickConfigure)</visible>
-						</item>
-						<item>
-								<label>$VAR[HomeLandscapeFanartSettingVar]</label>
+							</item>
+							<item>
+								<label>art/$VAR[HomeLandscapeFanartSettingVar]</label>
 								<onclick>$VAR[HomeLandscapeFanartToggleVar]</onclick>
-								<visible>Skin.HasSetting(Enable.ArtworkQuickConfigure) + String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
-						</item>
+								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+							</item>
+							<item>
+								<label>landscape widgets/$VAR[HomeItemArtworkChoiceSettingVar]</label>
+								<onclick>$VAR[HomeItemArtworkChoiceToggleVar]</onclick>
+							</item>
+							<item>
+								<label>episodes/$VAR[HomeEpisodeArtworkChoiceSettingVar]</label>
+								<onclick>$VAR[HomeEpisodeArtworkChoiceToggleVar]</onclick>
+							</item>
 						</content>
 					</control>
 					<include content="MiniMenuLabels">
@@ -1109,20 +1156,20 @@
 						<param name="label" value="[LOWERCASE]Mini Menu[/LOWERCASE]"/>
 					</include>
 					<include content="MiniMenuLabels">
-						<param name="visible" value="Control.HasFocus(733) + !Skin.HasSetting(Enable.ArtworkQuickConfigure)"/>
-						<param name="top" value="125"/>
-						<param name="label" value="[LOWERCASE]edit $INFO[Container(9000).ListItem.Label] section[/LOWERCASE]"/>
+						<param name="visible" value="Control.HasFocus(733)"/>
+						<param name="top" value="75"/>
+						<param name="label" value="[LOWERCASE]artwork settings[/LOWERCASE]"/>
 					</include>
 					<control type="group">
 						<left>90</left>
 						<width>380</width>
-						<animation condition="Control.HasFocus(700) | Control.HasFocus(733)">
-							<effect type="slide" start="0,0" end="0,100" time="500" tween="cubic" easing="inout" reversible="true" />
+						<animation condition="Control.HasFocus(700)">
+							<effect type="slide" start="0,0" end="0,93" time="500" tween="cubic" easing="inout" reversible="true" />
 						</animation>
 						<control type="label">
-							<top>780</top>
-							<font>font40_title</font>
-							<label>$INFO[System.Time]</label>
+							<top>787</top>
+							<font>font36_title</font>
+							<label>[LIGHT]$INFO[System.Time][/LIGHT]</label>
 							<textcolor>unfocused_text</textcolor>
 						</control>
 						<control type="label">

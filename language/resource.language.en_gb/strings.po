@@ -476,9 +476,21 @@ msgid "Flix"
 msgstr ""
 
 #. viewtype name
+#: /xml/View_55_FlixScape.xml
+msgctxt "#311011"
+msgid "FlixScape"
+msgstr ""
+
+#. viewtype name
 #: /xml/View_500_Wall.xml
 msgctxt "#31102"
 msgid "Wall"
+msgstr ""
+
+#. viewtype name
+#: /xml/View_501_WallScape.xml
+msgctxt "#311021"
+msgid "WallScape"
 msgstr ""
 
 #: /xml/SmartPlaylistRule.xml
@@ -502,7 +514,7 @@ msgid "Teletext"
 msgstr ""
 
 #. viewtype name
-#: /xml/View_55_FlixList.xml
+#: /xml/View_56_FlixList.xml
 msgctxt "#31107"
 msgid "FlixList"
 msgstr ""

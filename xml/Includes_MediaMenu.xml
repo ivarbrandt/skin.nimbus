@@ -354,7 +354,7 @@
 			<onleft>9000</onleft>
 			<onup>9000</onup>
 			<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
-			<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">55</onright>
+			<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">56</onright>
 			<ondown>9000</ondown>
 			<onback>50</onback>
 			<control type="label" id="200">
@@ -480,26 +480,40 @@
 			</control>
 			<control type="button" id="6055">
 				<include>MediaMenuItemsCommon</include>
-				<label>Artwork</label>
+				<label>Artwork (Main)</label>
 				<label2>[B]$VAR[FanartSettingVar][/B]</label2>
 				<onclick>$VAR[FanartToggleVar]</onclick>
-				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + [Control.IsVisible(54) | Control.IsVisible(55)]</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + [Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]</visible>
 			</control>
 			<control type="button" id="6056">
 				<include>MediaMenuItemsCommon</include>
 				<label>    - Use</label>
 				<label2>[B]$VAR[LandscapeFanartSettingVar][/B]</label2>
 				<onclick>$VAR[LandscapeFanartToggleVar]</onclick>
-				<visible>[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]]</visible>
+				<visible>![Control.IsVisible(500) | Control.IsVisible(501)] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]]</visible>
 			</control>
 			<control type="button" id="6057">
+				<include>MediaMenuItemsCommon</include>
+				<label>Artwork</label>
+				<label2>[B]$VAR[ListLandscapeSettingVar][/B]</label2>
+				<onclick>$VAR[ListLandscapeToggleVar]</onclick>
+				<visible>Control.IsVisible(50)</visible>
+			</control>
+			<control type="button" id="6058">
+				<include>MediaMenuItemsCommon</include>
+				<label>Artwork (Items)</label>
+				<label2>[B]$VAR[ItemFanartSettingVar][/B]</label2>
+				<onclick>$VAR[ItemFanartToggleVar]</onclick>
+				<visible>Control.IsVisible(55) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="button" id="6059">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31022]</label>
 				<label2>[B]$INFO[Container.SortMethod][/B]</label2>
 				<visible>Control.IsEnabled(3)</visible>
 				<onclick>SendClick(3)</onclick>
 			</control>
-			<control type="button" id="6058">
+			<control type="button" id="6060">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31032]</label>
 				<label2>[B]$INFO[Container.SortOrder][/B]</label2>

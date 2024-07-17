@@ -5,18 +5,37 @@
 		<value>[COLOR accent_color][B]|[/B][/COLOR]</value>
 	</variable>
 
-	<variable name="Flix_Divider">
+	<!-- <variable name="Flix_Divider">
 		<value>[COLOR $VAR[FocusedColorVar]][B]|[/B][/COLOR]</value>
-	</variable>
+	</variable> -->
 
 	<variable name="Nimbus_Codec_Divider">
 		<value condition="!String.IsEmpty(VideoPlayer.AudioChannels)">[COLOR accent_color][B]|[/B][/COLOR]</value>
 	</variable>
 
-	
+	<!-- <variable name="WidgetArrows19001">
+    <value condition="Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container(19001).Position) + !String.IsEqual(Container(19001).Position,1)">↕ </value>
+    <value condition="Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container(19001).Position) + String.IsEqual(Container(19001).Position,1)">↓ </value>
+    <value condition="!Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container(19001).Position) + !String.IsEqual(Container(19001).Position,1)">↑ </value>
+    <value>none</value>
+	</variable>
 
-	
-	
+	<variable name="WidgetNavigationArrows">
+    <value condition="String.IsEqual(Skin.String(CurrentContainerID),19001)">$VAR[WidgetArrows19001]</value>
+    <value>no_container</value>
+	</variable> -->
+
+	<!-- <variable name="WidgetArrows19001">
+    <value condition="Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container(19001).Position) + !String.IsEqual(Container(19001).Position,1)">&#xF53E;</value>
+    <value condition="Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container(19001).Position) + String.IsEqual(Container(19001).Position,1)">&#xF2E0;</value>
+    <value condition="!Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container(19001).Position) + !String.IsEqual(Container(19001).Position,1)">&#xF2EA;</value>
+	</variable>
+
+	<variable name="WidgetNavigationArrows">
+    <value condition="String.IsEqual(Skin.String(CurrentContainerID),19001)">$VAR[WidgetArrows19001]</value>
+    <value></value>
+	</variable> -->
+
 	<!-- Return a single genre -->
   <variable name="GenreVar">
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Action)">Action</value>
@@ -51,18 +70,7 @@
 		<value>$INFO[Container($PARAM[id]).ListItem.Status]</value>
 	</variable>
 
-  <variable name="ClearlogoVar">
-		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
-		<value>$INFO[ListItem.Art(clearlogo)]</value>
-	</variable>
-
-	
-
-	<variable name="FlixPosterVar">
-		<value condition="!$EXP[isEpisode]">$INFO[ListItem.Art(poster)]</value>
-		<value condition="$EXP[isEpisode]">$INFO[ListItem.Art(season.poster)]</value>
-		<value>$INFO[ListItem.Art(poster)]</value>
-	</variable>
+  
 
 	<!-- <variable name="FlixCrumbsVar">
 		<value condition="!SKin.HasSetting(Enable.BackgroundBlur) + !Window.IsVisible(Home) + [String.IsEqual(Skin.String(ArtworkChoice.movies),0) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),0) | String.IsEqual(Skin.String(ArtworkChoice.seasons),0) | String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]">$VAR[FlixCrumbs.NoBlur]</value>
@@ -80,24 +88,22 @@
 	
 
 	<variable name="FlixCrumbs.NoBlur">
-		<value condition="[$EXP[isEpisode] + !Control.IsVisible(55) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="[$EXP[isEpisode] + Control.IsVisible(55) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]</value>
-		<value condition="[$EXP[isEpisode] + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]</value>
-		<!-- <value condition="[$EXP[isEpisode] + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]</value> -->
-		<value condition="$EXP[isSeason]">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] Season ]</value>
-		<value condition="![$EXP[isEpisode] | $EXP[isMovie]] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
-		<value condition="$EXP[isMovie] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEqual(Window(Home).Property(LandscapeWidgetFocused),true)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEqual(Window(Home).Property(LandscapeWidgetFocused),true)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]</value>
+		<value condition="!$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEqual(Window(Home).Property(LandscapeWidgetFocused),true)">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isSeason] + !Control.IsVisible(56) + !String.IsEmpty(ListItem.Genre) + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice.seasons),0)]">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] Season ]</value>
+    <value condition="$EXP[isTVShow] + !Control.IsVisible(56) + !String.IsEmpty(ListItem.Genre) + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice.tvshows),0)]">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
+    <value condition="$EXP[isMovie] + !Control.IsVisible(56) + !String.IsEmpty(ListItem.Genre) + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice.movies),0)]">$INFO[ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
 		<!-- <value condition="$EXP[isMovie] + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value> -->
 	</variable>
 
 	<variable name="FlixCrumbs.Blur">
-		<value condition="[$EXP[isEpisode] + !Control.IsVisible(55) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR unfocused_text][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
-		<value condition="[$EXP[isEpisode] + Control.IsVisible(55) + !String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR unfocused_text][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]</value>
-		<value condition="[$EXP[isEpisode] + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]</value>
-		<!-- <value condition="[$EXP[isEpisode] + String.StartsWith(Container.PluginCategory,Season)] + !String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] S]$INFO[Container($PARAM[list_id]).ListItem.Episode, E]</value> -->
-		<value condition="$EXP[isSeason]">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] Season ]</value>
-		<value condition="![$EXP[isEpisode] | $EXP[isMovie]] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
-		<value condition="$EXP[isMovie] + !String.IsEmpty(ListItem.Genre)">$INFO[ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEqual(Window(Home).Property(LandscapeWidgetFocused),true)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR unfocused_text][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isEpisode] + Control.IsVisible(56) + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEqual(Window(Home).Property(LandscapeWidgetFocused),true)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR unfocused_text][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]</value>
+		<value condition="!$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEqual(Window(Home).Property(LandscapeWidgetFocused),true)">$INFO[ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
+		<value condition="$EXP[isSeason] + !Control.IsVisible(56) + !String.IsEmpty(ListItem.Genre) + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice.seasons),0)]">$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR unfocused_text][B]|[/B][/COLOR] Season ]</value>
+    <value condition="$EXP[isTVShow] + !Control.IsVisible(56) + !String.IsEmpty(ListItem.Genre) + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice.tvshows),0)]">$INFO[ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
+    <value condition="$EXP[isMovie] + !Control.IsVisible(56) + !String.IsEmpty(ListItem.Genre) + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice.movies),0)]">$INFO[ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
 		<!-- <value condition="$EXP[isMovie] + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value> -->
 	</variable>
 
@@ -145,7 +151,7 @@
 
 	<variable name="TrailerReadyVar">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[TrailerReady.NoBlur]</value>
-    <value>$VAR[TrailerReady.NoBlur]</value>
+    <value>$VAR[TrailerReady.Blur]</value>
 	</variable>
 
 	<variable name="TrailerReady.NoBlur">
@@ -344,9 +350,21 @@
 	</variable>
 
 	<variable name="ContextMenuTitleVar">
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[ContextMenuTitle.NoBlur]</value>
+		<value>$VAR[ContextMenuTitle.Blur]</value>
+	</variable>
+
+	<variable name="ContextMenuTitle.NoBlur">
 		<value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
 		<value condition="$EXP[isSeason]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] $INFO[ListItem.Title]</value>
 		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle] [COLOR accent_color]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode]</value>
+		<value>Context menu</value>
+	</variable>
+	
+	<variable name="ContextMenuTitle.Blur">
+		<value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
+		<value condition="$EXP[isSeason]">$INFO[ListItem.TVShowTitle] [COLOR unfocused_text]|[/COLOR] $INFO[ListItem.Title]</value>
+		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle] [COLOR unfocused_text]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode]</value>
 		<value>Context menu</value>
 	</variable>
 

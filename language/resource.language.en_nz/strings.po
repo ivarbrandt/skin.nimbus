@@ -373,9 +373,19 @@ msgid "Flix"
 msgstr "Flix"
 
 #. viewtype name
+msgctxt "#311011"
+msgid "FlixScape"
+msgstr "FlixScape"
+
+#. viewtype name
 msgctxt "#31102"
 msgid "Wall"
 msgstr "Wall"
+
+#. viewtype name
+msgctxt "#311021"
+msgid "WallScape"
+msgstr "WallScape"
 
 msgctxt "#31103"
 msgid "Enter text here..."

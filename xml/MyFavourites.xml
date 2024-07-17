@@ -4,7 +4,7 @@
 	<onload>ClearProperty(nimbus_fanart_art, home)</onload>
 	<onload>ClearProperty(nimbus_fanart_prop, home)</onload>
 	<backgroundcolor>background</backgroundcolor>
-	<views>50,52,55,500</views>
+	<views>50,52,56,500,501</views>
 	<menucontrol>9000</menucontrol>
 	<controls>
 		<include>DefaultBackground</include>
@@ -12,13 +12,14 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
-			<include>View_55_FlixList</include>
+			<include>View_56_FlixList</include>
 			<include>View_500_Wall</include>
+			<include>View_501_WallScape</include>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<include>Visible_Left</include>
-				<visible>Control.IsVisible(55)</visible>
+				<visible>Control.IsVisible(56)</visible>
 				<include>ListThumbInfoPanel</include>
 			</control>
 			<include content="TopBar">

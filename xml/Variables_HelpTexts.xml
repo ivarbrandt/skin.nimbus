@@ -8,10 +8,11 @@
 		<value condition="Control.HasFocus(63703)">Configure what pressing the left button on the home screen widgets will do. If the current focus positon is on the first item in the widget, OPEN MAIN MENU will open the main menu, WRAP TO END will set the focus position to the LAST item in the widget.</value>
 		<value condition="Control.HasFocus(63704)">Enabling this option will set the focus frame around items to use the color from the current color theme. This setting applies to all menu items such as posters and category widgets but it excludes list items. If this option is disabled it will use the color from the default color theme.</value>
 		<value condition="Control.HasFocus(63705)">Enabling this option will show the current time in the InfoLine located right above the widget items. This will show in the homescreen, search window, and all video windows.</value>
-		<value condition="Control.HasFocus(63706)">Enabling this option will show colored studio logos for media content in the FlixPanel.</value>
-		<value condition="Control.HasFocus(63707)">Enabling this option will allow for one-click access to Wall view when pressing down in Flix view. This is useful for quick browsing larger lists. When scrolling is stopped in Wall view, the skin will automatically switch back to Flix view.</value>
-		<value condition="Control.HasFocus(63708)">Enabling this option will auto end playback after a custom number of minutes [B]IF[/B] playback is paused.</value>
-		<value condition="Control.HasFocus(63709)">Enter custom delay for ending playback.</value>
+		<value condition="Control.HasFocus(63706)">Enabling this option will show navigation arrows next to the InfoLine on the left side of the homescreen. Navigation arrows show widget position: Two down arrows: First widget (top of list) | Two up arrows: Last widget (bottom of list) | Up and down arrow: Middle widgets (more above and below)</value>
+		<value condition="Control.HasFocus(63707)">Enabling this option will show colored studio logos for media content in the FlixPanel.</value>
+		<value condition="Control.HasFocus(63708)">Enabling this option will allow for one-click access to Wall/WallScape view when pressing down in Flix/FlixScape view. This is useful for quick browsing larger lists. When scrolling is stopped in Wall/WallScape view, the skin will automatically switch back to Flix/FlixScape view.</value>
+		<value condition="Control.HasFocus(63709)">Enabling this option will auto end playback after a custom number of minutes [B]IF[/B] playback is paused.</value>
+		<value condition="Control.HasFocus(63710)">Enter custom delay for ending playback.</value>
 		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings.</value>
 		<value condition="Control.HasFocus(64700)">Set your desired search provider. This will use the selected addon for searches in the search window and default search dialog. This setting can be changed on the fly in the search window mini menu.</value>
 		<value condition="Control.HasFocus(64701)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
@@ -28,7 +29,7 @@
 		<value condition="Control.HasFocus(6304)">Set the amount of time to wait before playing the trailer.</value>
 		<value condition="Control.HasFocus(6305)">Enabling this option will show a small play icon at the beginning of the InfoLine. This icon works as a visual indication of when a trailer is loaded and ready to be played.</value>
 		<value condition="Container(9000).HasFocus(5)">$LOCALIZE[31129]</value>
-		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6010) | Control.HasFocus(6011) | Control.HasFocus(6012) | Control.HasFocus(6013)]">$LOCALIZE[31169]</value>
+		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6009) | Control.HasFocus(6010) | Control.HasFocus(6011) | Control.HasFocus(6012)]">$LOCALIZE[31169]</value>
 		<value condition="Control.HasFocus(6002)">Enabling this option will show clearlogos for media content. Disabling this option will use a default text title.</value>
 		<value condition="Control.HasFocus(6003)">Choose your preferred font style for text titles.</value>
 		<value condition="Control.HasFocus(6004)">Click to set a custom background image.</value>
@@ -36,7 +37,6 @@
 		<value condition="Control.HasFocus(6006)">Enabling this option will blur the background. Disabling this option will use either a black background, or the color theme depending on the artwork configured. (Landscape = color theme, Fanart = Solid black background)</value>
 		<value condition="Control.HasFocus(6007)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40.</value>
 		<value condition="Control.HasFocus(6008)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. DEFAULT VALUE: 1.5</value>
-		<value condition="Control.HasFocus(6009)">Enabling this option will allow quick configuration of settings for home screen artwork. When this option is enabled, click left anywhere in the main menu to bring down the quick config menu.</value>
 		<value condition="Container(9000).HasFocus(7)">$LOCALIZE[31171]</value>
 		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Cache and reset related options.</value>
 		<value condition="Control.HasFocus(6401)">Click to unlock all views that have previously been locked. You can always re-lock a view in the View options of any window.</value>

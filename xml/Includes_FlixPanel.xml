@@ -2,6 +2,7 @@
 <includes>
 	<include name="FlixPanel">
 		<control type="group">
+			<visible>!Control.IsVisible(50)</visible>
 			<left>50</left>
 			<width>785</width>
 			<top>45</top>
@@ -271,7 +272,7 @@
 				</control>
 				<include condition="!String.IsEmpty(Skin.String(mdblist_api_key))" content="HorizontalRatings"/>
 				<control type="textbox">
-					<height max="137">auto</height>
+					<height max="135">auto</height>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
 					<font>font27</font>
@@ -280,7 +281,7 @@
 					<visible>![String.IsEmpty(Skin.String(mdblist_api_key)) | Player.HasMedia]</visible>
 				</control>
 				<control type="textbox">
-					<height max="237">auto</height>
+					<height max="235">auto</height>
 					<width>600</width>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
@@ -290,7 +291,7 @@
 					<visible>Player.HasMedia</visible>
 				</control>
 				<control type="textbox">
-					<height max="167">auto</height>
+					<height max="165">auto</height>
 					<bottom>70</bottom>
 					<label>$VAR[InfoPanelBottom]</label>
 					<font>font27</font>

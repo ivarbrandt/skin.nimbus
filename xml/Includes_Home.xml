@@ -35,7 +35,21 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<visible>Skin.HasSetting(Disable.WidgetNavigationArrows) + Control.HasFocus($PARAM[list_id])</visible>
+					<animation condition="!Control.HasFocus(9000)" effect="fade" time="500">Conditional</animation>
+					<!-- <visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Skin.String(TrailerPlaying))]</visible> -->
+				</control>
+				<control type="label">
+					<left>33</left>
+					<top>12</top>
+					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>!Skin.HasSetting(Disable.WidgetNavigationArrows) + Control.HasFocus($PARAM[list_id])</visible>
+					<animation condition="!Control.HasFocus(9000)" effect="fade" time="500">Conditional</animation>
 					<!-- <visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Skin.String(TrailerPlaying))]</visible> -->
 				</control>
 			</control>
@@ -81,6 +95,60 @@
 						<left>33</left>
 						<top>15</top>
 						<include content="FlixMovieLayout">
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+						<include>TrailerControl</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+			</control>
+		</definition>
+	</include>
+
+	<include name="WidgetListLandscape">
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="posy" value="240"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>107</top>
+				<onright>$PARAM[list_id]</onright>
+				<orientation>horizontal</orientation>
+				<movement>2</movement>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<right>0</right>
+				<height>1100</height>
+				<onfocus>SetProperty(LandscapeWidgetFocused,true,Home)</onfocus>
+				<onfocus condition="$EXP[isEpisode]">SetProperty(LandscapeInfoEpisode,true,Home)</onfocus>
+				<onunfocus>ClearProperty(LandscapeWidgetFocused,Home)</onunfocus>
+				<onunfocus>ClearProperty(LandscapeInfoEpisode,Home)</onunfocus>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<itemlayout width="613" height="393" >
+					<control type="group">
+						<left>35</left>
+						<top>15</top>
+						<include content="FlixScapeMovieLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="613" height="393" >
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>35</left>
+						<top>15</top>
+						<include content="FlixScapeMovieLayout">
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
@@ -667,27 +735,19 @@
 		<onright>$PARAM[list_id]</onright>
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),1)">SetFocus($PARAM[list_id],0,absolute)</onback>
 		<onback condition="String.IsEqual(Skin.String(onBackSetting),0)">9000</onback>
-		<!-- <onfocus>ClearProperty(nimbus_fanart_art)</onfocus>
-		<onfocus>ClearProperty(nimbus_fanart_prop)</onfocus>
-		<onfocus>ClearProperty(nimbus_landscape_art)</onfocus>
-		<onfocus>ClearProperty(nimbus_landscape_prop)</onfocus>
-		<onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
-		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(landscape)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
-		<onunfocus condition="!$EXP[isContent]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
-		<onunfocus condition="!$EXP[isContent]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus> -->
+		<onfocus condition="!Skin.HasSetting(Disable.WidgetNavigationArrows)">RunScript(script.nimbus.helper,mode=set_widget_count,$PARAM[list_id])</onfocus>
 
-		
 		<onfocus>ClearProperty(nimbus_episode_thumb,home)</onfocus>
+		<onfocus>ClearProperty(nimbus_episode_fanart,home)</onfocus>
+		<onfocus>ClearProperty(nimbus_episode_landscape,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_fanart_art,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_fanart_prop,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_landscape_art,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_landscape_prop,home)</onfocus>
 
 		<onunfocus condition="$EXP[isEpisode]">SetProperty(nimbus_episode_thumb,$INFO[Container($PARAM[list_id]).ListItem(0).Art(thumb)],home)</onunfocus>
+		<onunfocus condition="$EXP[isEpisode]">SetProperty(nimbus_episode_fanart,$INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)],home)</onunfocus>
+		<onunfocus condition="$EXP[isEpisode]">SetProperty(nimbus_episode_landscape,$INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)],home)</onunfocus>
 		<onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
 		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
 		<onunfocus condition="$EXP[isContent] + !$EXP[isEpisode] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)], home)</onunfocus>

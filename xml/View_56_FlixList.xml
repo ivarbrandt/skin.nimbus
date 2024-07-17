@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="View_55_FlixList">
+	<include name="View_56_FlixList">
 		<!-- <param name="bottom_offset">list_bottom_offset</param> -->
 		<definition>
 			<control type="group">
 				<include>OpenClose_Right</include>
-				<visible>Control.IsVisible(55)</visible>
+				<visible>Control.IsVisible(56)</visible>
 				<include>Visible_Right</include>
 				<include>MediaMenuAnimations</include>
 				<control type="label">
 					<left>50</left>
 					<top>600</top>
 					<width>1815</width>
-					<label>$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$VAR[FlixCategory]</label>
+					<label>$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$VAR[FlixCategory]$VAR[FlixCrumbsVar]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
@@ -30,16 +30,16 @@
 					<align>left</align>
 					<visible>!$EXP[isPlugin]</visible>
 				</control>
-				<control type="panel" id="55">
+				<control type="panel" id="56">
 					<left>50</left>
 					<top>list_top_offset</top>			
 					<bottom>70</bottom>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<pagecontrol>531</pagecontrol>
-					<onright>55</onright>
+					<onright>56</onright>
 					<onleft>531</onleft>
-					<onup>55</onup>
-					<ondown>55</ondown>
+					<onup>56</onup>
+					<ondown>56</ondown>
 					<viewtype label="$LOCALIZE[31107]">list</viewtype>
 					<visible>[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + [String.StartsWith(Container.PluginCategory,Season) | [!String.StartsWith(Container.PluginCategory,Season) + !String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$LOCALIZE[31101])]] + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | [Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | [Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | [Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | [ !Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres) ]</visible>
 					<focusedlayout height="list_item_height" width="608" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">
@@ -49,7 +49,7 @@
 							<right>0</right>
 							<bottom>0</bottom>
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
-							<visible>Control.HasFocus(55)</visible>
+							<visible>Control.HasFocus(56)</visible>
 						</control>
 						<control type="image">
 							<left>25</left>
@@ -204,7 +204,7 @@
 							<right>0</right>
 							<bottom>0</bottom>
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
-							<visible>Control.HasFocus(55)</visible>
+							<visible>Control.HasFocus(56)</visible>
 						</control>
 							<control type="image">
 							<left>25</left>
@@ -278,7 +278,7 @@
 							<right>0</right>
 							<bottom>0</bottom>
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
-							<visible>Control.HasFocus(55)</visible>
+							<visible>Control.HasFocus(56)</visible>
 						</control>
 						<control type="image">
 							<left>20</left>
@@ -337,7 +337,7 @@
 				<left>0</left>
 				<right>0</right>
 				<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
-				<visible>Control.hasFocus(55)</visible>
+				<visible>Control.hasFocus(56)</visible>
 			</control>
 			<control type="label">
 				<left>35</left>
@@ -382,7 +382,7 @@
 				<right>0</right>
 				<bottom>0</bottom>
 				<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
-				<visible>Control.HasFocus(55)</visible>
+				<visible>Control.HasFocus(56)</visible>
 			</control>
 			<control type="image">
 				<left>20</left>
