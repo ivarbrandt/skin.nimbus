@@ -1,0 +1,138 @@
+[B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added changelog viewing to Skin settings > Extras
+- Improved blurring algorithm and performance. Recommend clearing blur cache. If the images are too bright/colorful, lower the saturation setting in Skin settings > Artwork display > Set blur saturation
+- Opened up List view to the rest of the skin (menus, addons, favorites, etc)
+- Replaced optional view locking with auto view locking. Click the Viewtype button till you find your preferred view and then the skin will auto lock it.
+- Opened up custom background image to rest of skin. No need to have blur enabled.
+- Fixed a few artwork inconsistencies
+- Unified background viewing experience across the skin. Navigating across the skin during playback will hopefully be more pleasant.
+- Slight redesign for List view (movies, tvshows, seasons, episodes)
+- Added separate clearlogo option for List view (movies, tvshows, seasons, episodes)
+- Fixed fallback artwork for List view
+- Redesigned PVR InfoPanel
+- Other changes/fixes
+
+[B][COLOR FFFFFFFF]Version 0.1.12[/COLOR][/B]
+- Added 3 new views for movies, tvshows, seasons, and episodes (List, FlixScape, WallScape)
+- Added new Landscape widget
+- Added optional artwork for different content types in FlixScape view and Landscape widget
+- Added optional widget navigation arrows
+- Removed artwork quick configure setting (pressing left anywhere in the home menu now will open home artwork settings)
+- Removed slide window animations
+- Added separate artwork settings for new List view
+- Updated skin help texts to reflect new features
+- Updated autotrailers to play fullscreen in List view
+- Updated poster and landscape views for other types of content
+- Added conditional view locking to new WallScape and Wall views. This allow views to be locked to Flix or FlixScape and still be able to access their respective wall views by just clicking down.
+- Other changes/fixes
+
+[B][COLOR FFFFFFFF]Version 0.1.11[/COLOR][/B]
+- Updated custom background image variable and strings to not clash with FENtastic
+- Removed loading labels and pulsing animations after trailers are played (we'll see how this goes)
+- Added one-click and auto trailer support to square widgets
+- Fixed auto trailers starting when trailer is already playing from another source
+- Fixed auto trailers playing on seasons and episodes
+- Removed "Both" (main menu + reset widget) from on back options
+- New media panel and home menu design
+- Changed totalwatched/totalepisodes to episodes remaining for tvshows and seasons
+- Added optional quick configure menu for home screen artwork
+- Updated skin help texts
+- Changed skin font
+- Added comprehensive artwork options (See guide on my Github for details)
+- Added optional custom fallback image for blur mode.
+- Updated some label text positioning for new font
+- Added blur, artwork type, clearlogo, and font setting shortcuts to media menu
+- New slide out design for media menu
+- Fixed crumbs for all content types
+- Lots of other small fixes/changes
+
+[B][COLOR FFFFFFFF]Version 0.1.10[/COLOR][/B]
+- Refactored context menu, search dialog, and shutdown menu
+- Fixed context menu bug related to TRAKT options context menu on TMDbHelper
+- Removed episode title from episode context menu header
+- Fixed bug where OSD would remain visible when adjusting playback speed
+- Added playback speed label to VideoOSD
+- Adjusted progress bar height in a few windows
+- Other small changes/fixes
+
+[B][COLOR FFFFFFFF]Version 0.1.09[/COLOR][/B]
+- Added optional view locking
+- Fixed small bug in timers
+
+[B][COLOR FFFFFFFF]Version 0.1.08[/COLOR][/B]
+- Added episode type to FlixPanel (season premiere, season finale, etc)
+
+[B][COLOR FFFFFFFF]Version 0.1.07[/COLOR][/B]
+- Added alternating info label for VideoOSD
+
+[B][COLOR FFFFFFFF]Version 0.1.06[/COLOR][/B]
+- New PVR widget design
+- Reverted back to old widget transitions and fanart properties/functionality
+- Removed ScrollFade animations and changed Poster_Slide animations back to previous values
+- Updated WeatherWidget design
+- Removed PVR progress from fanart window
+- Fixed progress indicators for POV addon
+- Updated textures to actual sizes (should reduce load on GPU as upscaling is no longer needed)
+- Added two new textures for buttons
+
+[B][COLOR FFFFFFFF]Version 0.1.05[/COLOR][/B]
+- Fixed texture visibility conditions for movies, tvshows, seasons, and episodes
+- Fixed elapsed and remaining time
+- Changed default progress controls
+
+[B][COLOR FFFFFFFF]Version 0.1.04[/COLOR][/B]
+- Fixed text centering across skin
+- Moved trailer logic to skin
+- improved trailer logic
+- Added trailer source option
+- Refactored Skin settings
+- Updated help texts
+- Fixed PVR OSD progress bar and markers
+- Fixed main/mini menu animations
+- Changed TrailerPlaying boolean to skin string
+- Moved Exit button in shutdown menu to bottom
+- Updated Seekbar for Live TV content
+- Made group selector in PVRGuide circular
+- Added auto end plackback option
+
+[B][COLOR FFFFFFFF]Version 0.1.03[/COLOR][/B]
+- Increased line spacing for plot font
+- Fixed label width for square widgets
+- Reverted back to old OSD progress bar
+
+[B][COLOR FFFFFFFF]Version 0.1.02[/COLOR][/B]
+- Removed unused multiimage controls
+- Renamed timers and skin strings for navigation delay
+- Cleaned up unused fanart properties
+- Fixed netflix fanart and fullscreen background visibilty conditions
+
+[B][COLOR FFFFFFFF]Version 0.1.01[/COLOR][/B]
+- Removed clearing of fanart property
+- Various alignment fixes
+- Changed font to normal instead of light
+- Removed bolding for focused items across the skin
+- New progress bar textures
+- Redesigned OSD progress bar
+
+[B][COLOR FFFFFFFF]Version 0.1.0[/COLOR][/B]
+Fixed widget labels not showing when unfocused/scrolling
+
+[B][COLOR FFFFFFFF]Version 0.0.99[/COLOR][/B]
+- Fixed widget labels showing during trailer playback
+
+[B][COLOR FFFFFFFF]Version 0.0.98[/COLOR][/B]
+- Added automatic return to Flix view from Wall view
+- Added optional one-click access to Wall view
+- Fixed various scrollbar bugs in Wall view
+- Added Scroll Fade feature for home and search windows
+- Added POV and Seren search functionality
+- Added TRAKT lists functionality
+
+[B][COLOR FFFFFFFF]Version 0.0.97[/COLOR][/B]
+- Updated most PVR windows to skin design
+- Added new textures for homescreen PVR progress
+- Added codec divider
+- Modified a few PVR specific variables
+- Added PVRChannelGuide and PVROSDChannel buttons 
+- Added quick access for subtitle offset
+- Grouped PVR specific/non-specific buttons

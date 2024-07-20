@@ -70,22 +70,10 @@
 		<value>$INFO[Container($PARAM[id]).ListItem.Status]</value>
 	</variable>
 
-  
-
-	<!-- <variable name="FlixCrumbsVar">
-		<value condition="!SKin.HasSetting(Enable.BackgroundBlur) + !Window.IsVisible(Home) + [String.IsEqual(Skin.String(ArtworkChoice.movies),0) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),0) | String.IsEqual(Skin.String(ArtworkChoice.seasons),0) | String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]">$VAR[FlixCrumbs.NoBlur]</value>
-    <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + !Window.IsVisible(Home) + [String.IsEqual(Skin.String(ArtworkChoice.movies),1) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]">$VAR[FlixCrumbs.NoBlur]</value>
-    <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + [Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEqual(Skin.String(HomeArtworkChoice),1)">$VAR[FlixCrumbs.NoBlur]</value>
-    <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + [Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEqual(Skin.String(HomeArtworkChoice),0)">$VAR[FlixCrumbs.NoBlur]</value>
-    <value>$VAR[FlixCrumbs.Blur]</value>
-	</variable> -->
-
 	<variable name="FlixCrumbsVar">
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[FlixCrumbs.NoBlur]</value>
     <value>$VAR[FlixCrumbs.Blur]</value>
 	</variable>
-
-	
 
 	<variable name="FlixCrumbs.NoBlur">
 		<value condition="$EXP[isEpisode] + ![Control.IsVisible(55) | Control.IsVisible(56)] + !String.StartsWith(Container.PluginCategory,Season) + !String.IsEmpty(ListItem.Genre) + !String.IsEqual(Window(Home).Property(LandscapeWidgetFocused),true)">$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Season, [COLOR accent_color][B]|[/B][/COLOR] ]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, [COLOR accent_color][B]|[/B][/COLOR] ]</value>
@@ -106,8 +94,6 @@
     <value condition="$EXP[isMovie] + !Control.IsVisible(56) + !String.IsEmpty(ListItem.Genre) + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice.movies),0)]">$INFO[ListItem.Title, [COLOR unfocused_text][B]|[/B][/COLOR] ]</value>
 		<!-- <value condition="$EXP[isMovie] + String.IsEmpty(ListItem.Genre)">$INFO[Container($PARAM[list_id]).ListItem.Label, [B]|[/B] ]</value> -->
 	</variable>
-
-
 
 	<variable name="FlixCategory">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[FlixCategory.NoBlur]</value>
@@ -204,7 +190,6 @@
     <value>FFC1C1C1</value>
 	</variable> -->
 
-
 	<variable name="EPGUnfocusedColorVar">
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">primary_background</value>
     <value>dialog_bg</value>
@@ -224,8 +209,6 @@
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
     <value>$INFO[Window(home).Property(listitem_color)]</value>
 	</variable>
-
-
 
 	<variable name="MediaMenuDiffuse">
     <!-- Blur enabled -->
@@ -266,18 +249,6 @@
 		<!-- <value>FF252525</value> -->
 	</variable>
 
-
-
-
-
-	<!-- <variable name="FocusedTextColorVar">
-    <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + !Window.IsVisible(Home) + [String.IsEqual(Skin.String(ArtworkChoice.movies),0) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),0) | String.IsEqual(Skin.String(ArtworkChoice.seasons),0) | String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]">unfocused_text</value>
-    <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + !Window.IsVisible(Home) + [String.IsEqual(Skin.String(ArtworkChoice.movies),1) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]">unfocused_text</value>
-    <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + [Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEqual(Skin.String(HomeArtworkChoice),1)">unfocused_text</value>
-    <value condition="!SKin.HasSetting(Enable.BackgroundBlur) + [Window.IsVisible(Home) | Window.IsVisible(1121)] + String.IsEqual(Skin.String(HomeArtworkChoice),0)">unfocused_text</value>
-    <value>focused_text</value>
-	</variable> -->
-
 	<variable name="EditMainMenusVar">
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),movies)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=movie.main_menu)</value>
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),tvshows)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=tvshow.main_menu)</value>
@@ -306,28 +277,6 @@
 		<value condition="String.IsEqual(Skin.String(titleSetting),2)">Skin.SetString(titleSetting,0)</value>
 		<value>Skin.SetString(titleSetting,0)</value>
 	</variable>
-
-	<!-- <variable name="OnBackSettingVar">
-    <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Open main menu</value>
-    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Reset widget</value>
-	</variable>
-
-	<variable name="OnBackSettingToggleVar">
-    <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Skin.SetString(onBackSetting,1)</value>
-    <value condition="String.IsEqual(Skin.String(onBackSetting),1)">Skin.SetString(onBackSetting,0)</value>
-    <value condition="!String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onBackSetting,0)</value>
-	</variable>
-
-	<variable name="OnLeftSettingVar">
-	<value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Open main menu</value>
-	<value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Wrap to end</value>
-	</variable>
-
-	<variable name="OnLeftSettingToggleVar">
-    <value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onLeftSetting,1)</value>
-    <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Skin.SetString(onLeftSetting,0)</value>
-    <value condition="String.IsEqual(Skin.String(onLeftSetting),0)">Skin.SetString(onLeftSetting,1)</value>
-	</variable> -->
 
 	<variable name="OnBackSettingVar">
     <value condition="String.IsEqual(Skin.String(onBackSetting),0)">Open main menu</value>
@@ -382,6 +331,11 @@
     <value>$LOCALIZE[14018]</value>
 	</variable>
 
+	<variable name="ListLandscapeHeaderVar">
+    <value condition="$EXP[isPlugin]">$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$VAR[FlixCategory]</value>
+    <value condition="!$EXP[isPlugin]">$VAR[ClockCrumbs]$INFO[Container.FolderName]</value>
+	</variable>
+
 	<variable name="ForcedViewLabel">
 		<value condition="[Container.Content() + !String.IsEmpty(Skin.String(Skin.ForcedView.))]">[B]$INFO[Skin.String(Skin.ForcedView.)][/B]</value>
 		<value condition="[Container.Content(tags) + !String.IsEmpty(Skin.String(Skin.ForcedView.tags))]">[B]$INFO[Skin.String(Skin.ForcedView.tags)][/B]</value>
@@ -407,27 +361,10 @@
 		<value condition="[Container.Content(mixed) + !String.IsEmpty(Skin.String(Skin.ForcedView.mixed))]">[B]$INFO[Skin.String(Skin.ForcedView.mixed)][/B]</value>
 		<value condition="[Container.Content(images) + !String.IsEmpty(Skin.String(Skin.ForcedView.images))]">[B]$INFO[Skin.String(Skin.ForcedView.images)][/B]</value>
 		<value condition="[Container.Content(games) + !String.IsEmpty(Skin.String(Skin.ForcedView.games))]">[B]$INFO[Skin.String(Skin.ForcedView.games)][/B]</value>
+		<value condition="[Container.Content(favourites) + !String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]">[B]$INFO[Skin.String(Skin.ForcedView.favourites)][/B]</value>
 		<value condition="[Container.Content(unknown) + !String.IsEmpty(Skin.String(Skin.ForcedView.unknown))]">[B]$INFO[Skin.String(Skin.ForcedView.unknown)][/B]</value>
 		<value condition="[Container.Content(videos) + !String.IsEmpty(Skin.String(Skin.ForcedView.videos))]">[B]$INFO[Skin.String(Skin.ForcedView.videos)][/B]</value>
 		<value>$INFO[Container.Viewmode]</value>
 	</variable>	
-
-	<!-- <variable name="HomeFanartVar">
-    <value condition="!String.Isempty(ListItem.Thumb) + $EXP[isEpisode]">$INFO[ListItem.Thumb]</value>
-    <value condition="[!String.IsEmpty(ListItem.Art(fanart)) + [!String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(HomeLandscapeFanart),1)]] | [String.IsEqual(Skin.String(HomeArtworkChoice),1) + String.IsEqual(Skin.String(HomeLandscapeFanart),0) + String.IsEmpty(ListItem.Art(landscape)) + !String.IsEmpty(ListItem.Art(fanart))] | [!$EXP[isContent] + !String.IsEmpty(ListItem.Art(fanart))]">$INFO[ListItem.Art(fanart)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + String.IsEqual(Skin.String(HomeLandscapeFanart),0)">$INFO[ListItem.Art(landscape)]</value>
-    <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
-    <value condition="Container.Content(genres) + Window.IsActive(videos)">$INFO[Skin.String(MovieGenreFanart.path)]$INFO[ListItem.Label]$INFO[Skin.String(MovieGenreFanart.ext)]</value>
-    <value condition="Window.IsActive(pictures) + String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.FolderPath]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + [!String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(HomeLandscapeFanart),1)]">$INFO[Window(home).Property(nimbus_fanart_art)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_prop) + [!String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(HomeLandscapeFanart),1)]">$INFO[Window(home).Property(nimbus_fanart_prop)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_landscape_art)) + String.IsEqual(Skin.String(HomeLandscapeFanart),0)">$INFO[Window(home).Property(nimbus_landscape_art)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_landscape_prop)) + String.IsEqual(Skin.String(HomeLandscapeFanart),0)">$INFO[Window(home).Property(nimbus_landscape_prop)]</value>
-    <value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
-    <value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
-    <value>$INFO[Container.Art(fanart)]</value>
-	</variable> -->
-
-
 
 </includes>

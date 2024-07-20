@@ -206,7 +206,7 @@
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
 							<visible>Control.HasFocus(56)</visible>
 						</control>
-							<control type="image">
+						<control type="image">
 							<left>25</left>
 							<top>24</top>
 							<width>23</width>

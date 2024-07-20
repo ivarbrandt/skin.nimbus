@@ -32,8 +32,19 @@
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
 				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
-				<visible>[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(56)]] | [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + [Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(55) | Control.IsVisible(56)]
-				</visible>
+					<visible>
+						![Control.IsVisible(50) | Control.IsVisible(52)] + 
+						[
+							[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(56)] + !String.IsEqual(Skin.String(HomeArtworkChoice),1)] | 
+							[[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | 
+								[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | 
+								[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | 
+								[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + 
+							 [Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]] | 
+							[!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + 
+							 [!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0)]]
+						]
+						</visible>
 			</control>
 			<control type="image">
 				<include>BigLandscapeScreenDimensions</include>
@@ -43,8 +54,16 @@
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<include>ArtworkAnimations</include>
 				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-				<visible>[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + [[$EXP[isContent] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]] ] | [!$EXP[isContent] + !Skin.HasSetting(Enable.BackgroundBlur)]]
-			</visible>
+			<visible>
+				[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
+				[
+					[$EXP[isContent] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+					[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+					[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+					[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]]] | 
+					[!$EXP[isContent] + String.IsEqual(Skin.String(HomeArtworkChoice),1)]
+				]
+				</visible>
 			</control>
 		</control>
 		<control type="group">

@@ -11,7 +11,7 @@
 			<include>MediaMenuAnimations</include>
 			<control type="image">
 				<left>70</left>
-				<bottom>90</bottom>
+				<bottom>240</bottom>
 				<width>930</width>
 				<height>523</height>
 				<fadetime>500</fadetime>
@@ -19,56 +19,52 @@
 				<bordersize>1</bordersize>
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<include>ArtworkAnimations</include>
+				<animation condition="!$EXP[isContent]" reversible="true">
+					<effect type="slide" start="0,0" end="0,-38.5" time="500" tween="cubic" easing="inout" />
+				</animation>
 				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-				<visible>!Player.HasMedia</visible>
+				<visible>!Player.HasMedia + !Container.Content(addons)</visible>
 			</control>
 			<control type="image">
-				<top>70</top>
-				<left>185</left>
+				<left>159</left>
+				<bottom>190</bottom>
 				<width>700</width>
-				<height>271</height>
-				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
-				<aspectratio align="center">keep</aspectratio>
-				<visible>!Player.HasMedia + [!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
+				<height>700</height>
+				<fadetime>500</fadetime>
+				<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<include>ArtworkAnimations</include>
+				<visible>!Player.HasMedia + Container.Content(addons)</visible>
 			</control>
 			<control type="group">
-				<top>80</top>
-				<left>70</left>
-				<height>263</height>
-				<width>930</width>
-				<visible>!Player.HasMedia + [String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
-				<control type="textbox">
-					<aligny>center</aligny>
-					<font>font52_title</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>$VAR[SubstituteLabel]</label>
-					<align>center</align>
-					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-					<visible>String.IsEqual(Skin.String(titleSetting),0)</visible>
+				<visible>!Player.HasMedia + [!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.LandscapeClearlogo)] + [$EXP[isContent] | Container.Content(addons)] + [[Container.Content(movies) + String.IsEqual(Skin.String(ListLandscape.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListLandscape.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListLandscape.seasons),1)] | [Container.Content(episodes) + [String.IsEqual(Skin.String(ListLandscape.episodes),0) | String.IsEqual(Skin.String(ListLandscape.episodes),1)]]]</visible>
+				<animation condition="!$EXP[isContent]" reversible="true">
+					<effect type="slide" start="0,0" end="0,-38.5" time="500" tween="cubic" easing="inout" />
+				</animation>
+				<control type="image">
+					<top>589</top>
+					<left>71</left>
+					<width>928</width>
+					<height>250</height>
+					<texture colordiffuse="A8FFFFFF" background="true">overlays/overlayfade-ls.png</texture>
 				</control>
-				<control type="textbox">
-					<aligny>center</aligny>
-					<font>font_title_eng</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>$VAR[SubstituteLabel]</label>
-					<align>center</align>
-					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-					<visible>String.IsEqual(Skin.String(titleSetting),1)</visible>
-				</control>
-				<control type="textbox">
-					<aligny>center</aligny>
-					<font>font_title_west</font>
-					<textcolor>unfocused_text</textcolor>
-					<label>$VAR[SubstituteLabel]</label>
-					<align>center</align>
-					<autoscroll delay="2000" time="2000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-					<visible>String.IsEqual(Skin.String(titleSetting),2)</visible>
+				<control type="image">
+					<top>674</top>
+					<left>120</left>
+					<width>300</width>
+					<height>116</height>
+					<fadetime>300</fadetime>
+					<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				</control>
 			</control>
 				<control type="grouplist">
+					<animation condition="!$EXP[isContent]" reversible="true">
+						<effect type="slide" start="0,0" end="0,-38.5" time="500" tween="cubic" easing="inout" />
+					</animation>
 					<width>930</width>
 					<left>70</left>
-					<top>390</top>
+					<top>239.5</top>
 					<height>38</height>
 					<orientation>horizontal</orientation>
 					<itemgap>20</itemgap>
@@ -234,64 +230,19 @@
 						</control>
 					</control>
 				</control>
-			<control type="label">
-				<animation condition="Player.HasMedia" reversible="true">
-					<effect type="slide" start="0,0" end="-1000,0" time="500" tween="cubic" easing="inout" />
-				</animation>
-				<left>1048</left>
-				<top>80</top>
-				<width>1815</width>
-				<label>$VAR[TrailerReadyVar]$VAR[ClockCrumbs]$VAR[BreadcrumbsVideoVar]$VAR[FlixCategory]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>left</align>
-				<visible>$EXP[isPlugin]</visible>
-			</control>
-			<control type="label">
-				<animation condition="Player.HasMedia" reversible="true">
-					<effect type="slide" start="0,0" end="-1000,0" time="500" tween="cubic" easing="inout" />
-				</animation>
-				<left>1048</left>
-				<top>80</top>
-				<width>1815</width>
-				<label>$VAR[ClockCrumbs]$INFO[Container.FolderName]</label>
-				<font>font27</font>
-				<textcolor>unfocused_text</textcolor>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>left</align>
-				<visible>!$EXP[isPlugin]</visible>
-			</control>
 			<include content="ListContainer">
 				<param name="list_id" value="50" />
 				<param name="left" value="1018" />
 				<param name="viewtype_label" value="$LOCALIZE[535]" />
 			</include>
-			<!-- <control type="group">
-				<depth>DepthContentPanel</depth>
-				<control type="group">
-					<left>-41</left>
-					<width>634</width>
-					<include content="RightListPanel">
-						<param name="list_id" value="50" />
-					</include>
-					<control type="scrollbar" id="50600">
-						<left>1041</left>
-						<top>491</top>
-						<width>7</width>
-						<bottom>110</bottom>
-						<onleft>9000</onleft>
-						<onright>50</onright>
-						<orientation>vertical</orientation>
-						<animation effect="fade" start="100" end="0" time="500" tween="sine" condition="![Control.HasFocus(50600) | Container.Scrolling]">conditional</animation>
-					</control>
-				</control>
-			</control> -->
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<control type="group">
 					<right>0</right>
 					<width>634</width>
+					<!-- <include content="RightListPanel">
+						<param name="list_id" value="50" />
+					</include> -->
 					<control type="scrollbar" id="50600">
 						<right>-7</right>
 						<top>80</top>
@@ -404,141 +355,428 @@
 		<param name="left">45</param>
 		<param name="right">0</param>
 		<definition>
-			<control type="fixedlist" id="$PARAM[list_id]">
-				<animation condition="Player.HasMedia" reversible="true">
-					<effect type="slide" start="0,0" end="-1000,0" time="500" tween="cubic" easing="inout" />
-				</animation>
+			<control type="group">
 				<left>$PARAM[left]</left>
 				<right>$PARAM[right]</right>
-				<top>120</top>
-				<bottom>90</bottom>
-				<movement>6</movement>
-				<focusposition>5</focusposition>
-				<scrolltime tween="cubic" easing="out">500</scrolltime>
-				<orientation>vertical</orientation>
-				<pagecontrol>$PARAM[list_id]600</pagecontrol>
-				<onleft>9000</onleft>
-				<!-- <onleft>$PARAM[list_id]600</onleft> -->
-				<onright>$PARAM[list_id]600</onright>
-				<onup>$PARAM[list_id]</onup>
-				<ondown>$PARAM[list_id]</ondown>
-				<width>1950</width>
-				<viewtype label="$PARAM[viewtype_label]">list</viewtype>
-				<!-- <visible>Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible> -->
-				<visible>[Container.Content(artists) + [String.IsEqual(Skin.String(Skin.ForcedView.artists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.artists))]] | [Container.Content(albums) + [String.IsEqual(Skin.String(Skin.ForcedView.albums),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.albums))]] | [Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | [Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(images) + [String.IsEqual(Skin.String(Skin.ForcedView.images),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.images))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]]</visible>
-				<!-- <visible>[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + [String.StartsWith(Container.PluginCategory,Season) | [!String.StartsWith(Container.PluginCategory,Season) + !String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$LOCALIZE[31101])]] + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | [Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | [Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | [Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | [ !Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres) ]</visible> -->
-				<focusedlayout height="210" width="610">
-					<!-- <control type="image">
-						<left>0</left>
-						<right>0</right>
-						<top>0</top>
-						<bottom>0</bottom>
-						<texture colordiffuse="button_focus">masks/focus.png</texture>
-						<visible>Control.HasFocus($PARAM[list_id])</visible>
-					</control> -->
-					<control type="label">
-						<left>70</left>
-						<width>810</width>
-						<centertop>13%</centertop>
-						<bottom>0</bottom>
-						<aligny>center</aligny>
-						<scroll>true</scroll>
-						<scrollspeed>300</scrollspeed>
-						<font>font36_title</font>
-						<label>$VAR[ListLabelVar]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-					<control type="label">
-						<left>33</left>
-						<width>810</width>
-						<centertop>33%</centertop>
-						<bottom>0</bottom>
-						<aligny>center</aligny>
-						<scroll>true</scroll>
-						<scrollspeed>300</scrollspeed>
-						<font>font27</font>
-						<label>$VAR[InfoPanelTop]</label>
-						<textcolor>unfocused_text</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-					<control type="textbox">
-						<top>97</top>
-						<left>33</left>
-						<width>810</width>
-						<!-- <height>300</height> -->
-						<!-- <centertop>33%</centertop> -->
-						<bottom>13</bottom>
-						<aligny>center</aligny>
-						<font>font27</font>
-						<label>$VAR[InfoPanelBottom]</label>
-						<textcolor>unfocused_text</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-						<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-					</control>
-					<!-- <control type="label">
-						<top>0</top>
-						<bottom>0</bottom>
-						<left>100</left>
-						<width>785</width>
-						<align>right</align>
-						<aligny>center</aligny>
-						<font>font32</font>
-						<label>[B]$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,][/B]</label>
-						<animation effect="fade" start="70" end="100" time="300" reversible="false">Focus</animation>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control> -->
-					<control type="image">
-						<left>33</left>
-						<top>17</top>
-						<width>21</width>
-						<height>21</height>
-						<texture>$VAR[ListWatchedIconVar]</texture>
-						<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
-					</control>
-					<control type="image">
-						<left>33</left>
-						<top>17</top>
-						<width>21</width>
-						<height>21</height>
-						<texture>$VAR[ListWatchedIconVar]</texture>
-						<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
-						<animation effect="fade" time="150">VisibleChange</animation>
-						<visible>Control.HasFocus($PARAM[list_id])</visible>
-					</control>
-					<include>TrailerControl</include>
-				</focusedlayout>
-				<itemlayout height="67" width="610">
-					<control type="label">
-						<left>70</left>
-						<width>810</width>
-						<top>0</top>
-						<bottom>0</bottom>
-						<aligny>center</aligny>
-						<font>font32</font>
-						<textcolor>darkgrey</textcolor>
-						<label>$VAR[ListLabelVar]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-					<!-- <control type="label">
-						<left>20</left>
-						<width>785</width>
-						<top>0</top>
-						<bottom>0</bottom>
-						<align>right</align>
-						<aligny>center</aligny>
-						<font>font27</font>
-						<textcolor>darkgrey</textcolor>
-						<label>$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control> -->
-					<control type="image">
-						<left>33</left>
-						<centertop>52%</centertop>
-						<width>21</width>
-						<height>21</height>
-						<texture colordiffuse="darkgrey">$VAR[ListWatchedIconVar]</texture>
-					</control>
-				</itemlayout>
+				<animation effect="slide" start="0,0" end="-75,0" tween="cubic" easing="in" time="500" condition="Container.Content(addons)">Conditional</animation>
+				<control type="label">
+					<include>ListLandscapeSlideAnimations</include>
+					<left>30</left>
+					<top>80</top>
+					<width>810</width>
+					<label>$VAR[ListLandscapeHeaderVar]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<align>left</align>
+				</control>
+				<control type="fixedlist" id="$PARAM[list_id]">
+					<top>120</top>
+					<bottom>90</bottom>
+					<movement>6</movement>
+					<focusposition>5</focusposition>
+					<scrolltime tween="cubic" easing="out">500</scrolltime>
+					<orientation>vertical</orientation>
+					<pagecontrol>$PARAM[list_id]600</pagecontrol>
+					<onleft>9000</onleft>
+					<!-- <onleft>$PARAM[list_id]600</onleft> -->
+					<onright>$PARAM[list_id]600</onright>
+					<onup>$PARAM[list_id]</onup>
+					<ondown>$PARAM[list_id]</ondown>
+					<width>1950</width>
+					<viewtype label="$PARAM[viewtype_label]">list</viewtype>
+					<!-- <visible>Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible> -->
+					<!-- <visible>[Container.Content(artists) + [String.IsEqual(Skin.String(Skin.ForcedView.artists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.artists))]] | [Container.Content(albums) + [String.IsEqual(Skin.String(Skin.ForcedView.albums),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.albums))]] | [Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | [Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(images) + [String.IsEqual(Skin.String(Skin.ForcedView.images),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.images))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]]</visible> -->
+					<visible>[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | [Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | [Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | [Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | [Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | [ !Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres) ]</visible>
+					<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(videos)" height="210" width="610">
+						<!-- <control type="image">
+							<left>0</left>
+							<right>0</right>
+							<top>0</top>
+							<bottom>0</bottom>
+							<texture colordiffuse="button_focus">masks/focus.png</texture>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control> -->
+						<control type="label">
+							<left>70</left>
+							<width>810</width>
+							<centertop>13%</centertop>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font36_title</font>
+							<label>$VAR[ListLabelVar]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="label">
+							<left>33</left>
+							<width>810</width>
+							<centertop>33%</centertop>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font27</font>
+							<label>$VAR[InfoPanelTop]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="textbox">
+							<top>97</top>
+							<left>33</left>
+							<width>810</width>
+							<!-- <height>300</height> -->
+							<!-- <centertop>33%</centertop> -->
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font27</font>
+							<label>$VAR[InfoPanelBottom]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+						</control>
+						<control type="image">
+							<left>33</left>
+							<top>17</top>
+							<width>21</width>
+							<height>21</height>
+							<texture>$VAR[ListWatchedIconVar]</texture>
+							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
+						</control>
+						<control type="image">
+							<left>33</left>
+							<top>17</top>
+							<width>21</width>
+							<height>21</height>
+							<texture>$VAR[ListWatchedIconVar]</texture>
+							<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
+							<animation effect="fade" time="150">VisibleChange</animation>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<include>TrailerControl</include>
+					</focusedlayout>
+					<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(videos)" height="67" width="610">
+						<control type="label">
+							<left>70</left>
+							<width>810</width>
+							<top>0</top>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<font>font32</font>
+							<textcolor>darkgrey</textcolor>
+							<label>$VAR[ListLabelVar]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="image">
+							<left>33</left>
+							<centertop>52%</centertop>
+							<width>21</width>
+							<height>21</height>
+							<texture colordiffuse="darkgrey">$VAR[ListWatchedIconVar]</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)" height="67" width="610">
+						<!-- <control type="image">
+							<left>0</left>
+							<right>0</right>
+							<top>0</top>
+							<bottom>0</bottom>
+							<texture colordiffuse="button_focus">masks/focus.png</texture>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control> -->
+						<control type="label">
+							<left>86</left>
+							<width>787</width>
+							<top>0</top>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font36_title</font>
+							<label>$VAR[ListLabelVar]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="label">
+							<left>49</left>
+							<width>787</width>
+							<centertop>33%</centertop>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font27</font>
+							<label>$VAR[InfoPanelTop]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="textbox">
+							<top>86</top>
+							<left>56</left>
+							<width>787</width>
+							<!-- <height>300</height> -->
+							<!-- <centertop>33%</centertop> -->
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font27</font>
+							<label>$VAR[InfoPanelBottom]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+						</control>
+						<control type="image">
+							<left>26</left>
+							<centertop>50%</centertop>
+							<width>50</width>
+							<height>50</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
+						</control>
+						<control type="image">
+							<left>26</left>
+							<centertop>50%</centertop>
+							<width>50</width>
+							<height>50</height>
+							<aspectratio>keep</aspectratio>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
+							<animation effect="fade" time="150">VisibleChange</animation>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+					</focusedlayout>
+					<itemlayout condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)" height="67" width="610">
+						<control type="label">
+							<left>86</left>
+							<width>787</width>
+							<top>0</top>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<font>font32</font>
+							<textcolor>darkgrey</textcolor>
+							<label>$VAR[ListLabelVar]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="image">
+							<left>26</left>
+							<centertop>50%</centertop>
+							<width>50</width>
+							<height>50</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="darkgrey">$INFO[ListItem.Icon]</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content()" height="67" width="610">
+						<!-- <control type="image">
+							<left>0</left>
+							<right>0</right>
+							<top>0</top>
+							<bottom>0</bottom>
+							<texture colordiffuse="button_focus">masks/focus.png</texture>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control> -->
+						<control type="label">
+							<left>86</left>
+							<width>787</width>
+							<top>0</top>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font36_title</font>
+							<label>$VAR[ListLabelVar]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="label">
+							<left>49</left>
+							<width>787</width>
+							<centertop>33%</centertop>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font27</font>
+							<label>$VAR[InfoPanelTop]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="textbox">
+							<top>86</top>
+							<left>56</left>
+							<width>787</width>
+							<!-- <height>300</height> -->
+							<!-- <centertop>33%</centertop> -->
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font27</font>
+							<label>$VAR[InfoPanelBottom]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+						</control>
+						<control type="image">
+							<left>26</left>
+							<top>8.5</top>
+							<height>50</height>
+							<width>50</width>
+							<aspectratio>keep</aspectratio>
+							<aligny>center</aligny>
+							<texture>$INFO[ListItem.Icon]</texture>
+							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
+						</control>
+						<control type="image">
+							<left>26</left>
+							<top>8.5</top>
+							<height>50</height>
+							<width>50</width>
+							<aspectratio>keep</aspectratio>
+							<aligny>center</aligny>
+							<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
+							<animation effect="fade" time="150">VisibleChange</animation>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+					</focusedlayout>
+					<itemlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content()" height="67" width="610">
+						<control type="label">
+							<left>86</left>
+							<width>787</width>
+							<top>0</top>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<font>font32</font>
+							<textcolor>darkgrey</textcolor>
+							<label>$VAR[ListLabelVar]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="image">
+							<left>26</left>
+							<top>8.5</top>
+							<height>50</height>
+							<width>50</width>
+							<aspectratio>keep</aspectratio>
+							<aligny>center</aligny>
+							<texture colordiffuse="darkgrey">$INFO[ListItem.Icon]</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout condition="Container.Content(addons)" height="210" width="610">
+						<!-- <control type="image">
+							<left>0</left>
+							<right>0</right>
+							<top>0</top>
+							<bottom>0</bottom>
+							<texture colordiffuse="button_focus">masks/focus.png</texture>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control> -->
+						<control type="label">
+							<left>79</left>
+							<width>700</width>
+							<centertop>13%</centertop>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font36_title</font>
+							<label>$INFO[ListItem.Label]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="label">
+							<left>33</left>
+							<width>810</width>
+							<centertop>33%</centertop>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<scroll>true</scroll>
+							<scrollspeed>300</scrollspeed>
+							<font>font27</font>
+							<label>$VAR[AddonsLabel2Var]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="textbox">
+							<top>97</top>
+							<left>33</left>
+							<width>810</width>
+							<!-- <height>300</height> -->
+							<!-- <centertop>33%</centertop> -->
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font27</font>
+							<label>$VAR[ListBoxInfoVar]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+						</control>
+						<control type="image">
+							<right>-220</right>
+							<centertop>12.5%</centertop>
+							<width>30</width>
+							<height>30</height>
+							<texture>$VAR[AddonsOriginVar]</texture>
+							<aspectratio>keep</aspectratio>
+							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
+						</control>
+						<control type="image">
+							<right>-220</right>
+							<centertop>12.5%</centertop>
+							<width>30</width>
+							<height>30</height>
+							<texture>$VAR[AddonsOriginVar]</texture>
+							<aspectratio>keep</aspectratio>
+							<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
+							<animation effect="fade" time="150">VisibleChange</animation>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<control type="image">
+							<left>33</left>
+							<centertop>12.5%</centertop>
+							<width>33</width>
+							<height>30</height>
+							<texture>$VAR[AddonsListIconVar]</texture>
+							<aspectratio>keep</aspectratio>
+							<animation effect="fade" start="30" end="100" time="300" reversible="false">Focus</animation>
+						</control>
+						<control type="image">
+							<left>33</left>
+							<centertop>12.5%</centertop>
+							<width>33</width>
+							<height>30</height>
+							<texture>$VAR[AddonsListIconVar]</texture>
+							<aspectratio>keep</aspectratio>
+							<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
+							<animation effect="fade" time="150">VisibleChange</animation>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+					</focusedlayout>
+					<itemlayout condition="Container.Content(addons)" height="67" width="610">
+						<control type="label">
+							<left>79</left>
+							<width>810</width>
+							<top>0</top>
+							<bottom>0</bottom>
+							<aligny>center</aligny>
+							<font>font32</font>
+							<textcolor>darkgrey</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="image">
+							<right>-220</right>
+							<centertop>50%</centertop>
+							<width>30</width>
+							<height>30</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="darkgrey">$VAR[AddonsOriginVar]</texture>
+						</control>
+						<control type="image">
+							<left>33</left>
+							<centertop>50%</centertop>
+							<width>33</width>
+							<height>33</height>
+							<aspectratio>keep</aspectratio>
+							<texture colordiffuse="darkgrey">$VAR[AddonsListIconVar]</texture>
+						</control>
+					</itemlayout>
+				</control>
 			</control>
 		</definition>
 	</include>

@@ -1232,75 +1232,12 @@
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-				<!-- <visible>[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56) | Control.IsVisible(500)]] | 
-					[!Skin.HasSetting(Enable.BackgroundBlur) + 
-							[Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(501) | 
-							 Window.IsVisible(1100) | 
-							 [[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
-									 [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-										[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-										[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-										[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-									 ]
-							 ]
-							]
-					] </visible> -->
-					<!-- <visible>
-						[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)]] | 
-						[!Skin.HasSetting(Enable.BackgroundBlur) + 
-								[Control.IsVisible(500) | Control.IsVisible(501) | 
-								 Window.IsVisible(1100) | 
-								 [[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
-										[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
-								 ] |
-								 [[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
-										[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-										 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-										 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-										 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-										]
-								 ] |
-								 [!Window.IsVisible(Home) + !Window.IsVisible(1121) + 
-										[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-										 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-										 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-										 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-										]
-								 ]
-								]
-						]
-				</visible> -->
-				<!-- <visible>
-					[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)] | Control.IsVisible(400)] | 
-					[!Skin.HasSetting(Enable.BackgroundBlur) + 
-							[Control.IsVisible(500) | Control.IsVisible(501) | 
-							 Window.IsVisible(1100) | 
-							 [[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
-									[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
-							 ] |
-							 [[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
-									[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-									 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-									 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-									 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-									]
-							 ] |
-							 [!Window.IsVisible(Home) + !Window.IsVisible(1121) + 
-									[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-									 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-									 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-									 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-									]
-								]
-							]
-						]
-				</visible> -->
 				<visible>
 					!Skin.HasSetting(Enable.BackgroundBlur) + 
 					[
 							[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)] | Control.IsVisible(400)] | 
 							[
-									[Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(501) | 
+									[[Control.IsVisible(50) + ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)]] | Control.IsVisible(500) | Control.IsVisible(501) | 
 									 Window.IsVisible(1100) | 
 									 [[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
 											[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
@@ -1328,7 +1265,7 @@
 
 					
 			</control>
-			<control type="image">
+			<!-- <control type="image">
 				<visible>
 					!Skin.HasSetting(Enable.BackgroundBlur) + 
         [
@@ -1345,7 +1282,56 @@
 				<aspectratio>scale</aspectratio>
 				<texture diffuse="overlays/netflixfanartdiffuse.png" colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
 				<animation effect="fade" time="400">VisibleChange</animation>
-			</control>
+			</control> -->
+		</control>
+	</include>
+
+	<include name="FullScreenDimensions">
+		<left>0</left>
+		<top>0</top>
+		<width>100%</width>
+		<height>100%</height>
+	</include>
+
+	<include name="NetflixScreenDimensions">
+		<right>-3</right>
+		<top>-3</top>
+		<width>1300</width>
+		<height>731</height>
+	</include>
+
+	<include name="NetflixScreenVideoDimensions">
+		<right>-3</right>
+		<top>-72</top>
+		<width>1410</width>
+		<height>793</height>
+	</include>
+
+	<include name="BigLandscapeScreenDimensions">
+		<right>50</right>
+		<top>50</top>
+		<width>930</width>
+		<height>523</height>
+	</include>
+
+	<include name="PVRBackground">
+		<control type="image">
+			<include>NetflixScreenDimensions</include>
+			<include>MediaMenuAnimations</include>
+			<aspectratio>stretch</aspectratio>
+			<fadetime>500</fadetime>
+			<texture background="true" diffuse="overlays/netflixfanartdiffuse.png">$VAR[NimbusCustomBackgroundImage]</texture>
+			<visible>!Player.HasMedia + String.IsEqual(Skin.String(HomeArtworkChoice),0)</visible>
+		</control>
+		<control type="image">
+			<include>BigLandscapeScreenDimensions</include>
+			<include>MediaMenuAnimations</include>
+			<fadetime>500</fadetime>
+			<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[NimbusCustomBackgroundImage]</texture>
+			<bordersize>1</bordersize>
+			<aspectratio scalediffuse="false">scale</aspectratio>
+			<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
+			<visible>!Player.HasMedia + String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
 		</control>
 	</include>
 
@@ -1355,11 +1341,15 @@
 				<visible>Player.HasVideo</visible>
 				<control type="videowindow">
 					<depth>DepthBackground</depth>
-					<right>-3</right>
-					<top>-72</top>
-					<width>1410</width>
-					<height>793</height>
+					<include>NetflixScreenVideoDimensions</include>
 					<visible>!Slideshow.IsActive</visible>
+					<visible>Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)</visible>
+				</control>
+				<control type="videowindow">
+					<depth>DepthBackground</depth>
+					<include>FullScreenDimensions</include>
+					<visible>!Slideshow.IsActive</visible>
+					<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)]</visible>
 				</control>
 				<control type="image">
 					<right>-3</right>
@@ -1367,6 +1357,12 @@
 					<width>1410</width>
 					<height>730</height>
 					<texture colordiffuse="black">overlays/netflixtrailerdiffuse.png</texture>
+					<visible>Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)</visible>
+				</control>
+				<control type="image">
+					<include>FullScreenDimensions</include>
+					<texture colordiffuse="99000000">colors/white.png</texture>
+					<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)]</visible>
 				</control>
 				<control type="visualisation">
 					<include>FullScreenDimensions</include>
@@ -1425,7 +1421,7 @@
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
 				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
-				<visible>!Control.IsVisible(56)</visible>
+				<visible>![Control.IsVisible(50) | Control.IsVisible(56)]</visible>
 				<bottom>0</bottom>
 				<control type="image">
 					<left>0</left>
@@ -1531,27 +1527,6 @@
 				</control>
 			</control>
 		</control>
-	</include>
-
-	<include name="FullScreenDimensions">
-		<left>0</left>
-		<top>0</top>
-		<width>100%</width>
-		<height>100%</height>
-	</include>
-
-	<include name="NetflixScreenDimensions">
-		<right>-3</right>
-		<top>-3</top>
-		<width>1300</width>
-		<height>731</height>
-	</include>
-
-	<include name="BigLandscapeScreenDimensions">
-		<right>50</right>
-		<top>50</top>
-		<width>930</width>
-		<height>523</height>
 	</include>
 
 	<include name="FocusableProgressBar">

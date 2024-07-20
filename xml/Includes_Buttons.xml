@@ -241,9 +241,9 @@
 				<radioposy>0</radioposy>
 				<radiowidth>40</radiowidth>
 				<radioheight>40</radioheight>
-				<textureradioonfocus>$PARAM[icon_on]</textureradioonfocus>
+				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon_on]</textureradioonfocus>
 				<textureradioonnofocus colordiffuse="grey">$PARAM[icon_on]</textureradioonnofocus>
-				<textureradioofffocus>$PARAM[icon_off]</textureradioofffocus>
+				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon_off]</textureradioofffocus>
 				<textureradiooffnofocus colordiffuse="grey">$PARAM[icon_off]</textureradiooffnofocus>
 				<selected>$PARAM[selected]</selected>
 			</control>

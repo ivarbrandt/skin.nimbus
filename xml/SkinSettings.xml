@@ -555,13 +555,12 @@
 					<label2>$INFO[Skin.String(NimbusCustomBackground)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_image)</onclick>
-					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<control type="button" id="6005">
 					<label>   - Restore default background</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.Reset(NimbusCustomBackground)</onclick>
-					<visible>!String.IsEmpty(Skin.String(NimbusCustomBackground)) + Skin.HasSetting(Enable.BackgroundBlur)</visible>
+					<visible>!String.IsEmpty(Skin.String(NimbusCustomBackground))</visible>
 				</control>
 				<!-- BACKGROUND BLUR -->
 				<control type="radiobutton" id="6006">
@@ -741,7 +740,6 @@
 					<label2>$INFO[Skin.String(CacheSize)]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=clear_image_cache)</onclick>
-					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<control type="button" id="6403">
 					<label>Clear MDbList API Key</label>
@@ -759,7 +757,24 @@
 					<label>Clear search history</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
-					<visible>!Skin.HasSetting(NoSearchResultsWindow)</visible>
+				</control>
+			</control>
+
+			<control type="grouplist" id="641">
+				<top>133</top>
+				<left>25</left>
+				<right>0</right>
+				<bottom>140</bottom>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>641</onup>
+				<pagecontrol>60</pagecontrol>
+				<ondown>641</ondown>
+				<visible>Container(9000).HasFocus(10)</visible>
+				<control type="button" id="6410">
+					<label>View changelog</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=show_changelog)</onclick>
 				</control>
 			</control>
 
@@ -862,12 +877,14 @@
 					</item>
 					<item id="7">
 						<label>$LOCALIZE[31170]</label>
-						<!-- <label>OSD</label> -->
 						<onclick>noop</onclick>
 					</item>
 					<item id="9">
 						<label>Clear caches</label>
-						<!-- <label>OSD</label> -->
+						<onclick>noop</onclick>
+					</item>
+					<item id="10">
+						<label>Extras</label>
 						<onclick>noop</onclick>
 					</item>
 				</content>
