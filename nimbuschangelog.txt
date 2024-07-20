@@ -1,6 +1,7 @@
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
 - Added changelog viewing to Skin settings > Extras
-- Improved blurring algorithm and performance. Recommend clearing blur cache. If the images are too bright/colorful, lower the saturation setting in Skin settings > Artwork display > Set blur saturation
+- Improved blurring algo and performance. Recommend clearing blur cache. If the images are too bright/colorful, lower the saturation setting in Skin settings > Artwork display > Set blur saturation
+- Changed default blur and saturation values for new blur algo
 - Opened up List view to the rest of the skin (menus, addons, favorites, etc)
 - Replaced optional view locking with auto view locking. Click the Viewtype button till you find your preferred view and then the skin will auto lock it.
 - Opened up custom background image to rest of skin. No need to have blur enabled.

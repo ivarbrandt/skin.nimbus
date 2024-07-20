@@ -35,7 +35,7 @@
 		<value condition="Control.HasFocus(6004)">Click to set a custom background image.</value>
 		<value condition="Control.HasFocus(6005)">Click to restore background image to default.</value>
 		<value condition="Control.HasFocus(6006)">Enabling this option will blur the background. Disabling this option will use either a black background, or the color theme depending on the artwork configured. (Landscape = color theme, Fanart = Solid black background)</value>
-		<value condition="Control.HasFocus(6007)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40.</value>
+		<value condition="Control.HasFocus(6007)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40. DEFAULT VALUE: 30</value>
 		<value condition="Control.HasFocus(6008)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. DEFAULT VALUE: 1.5</value>
 		<value condition="Container(9000).HasFocus(7)">$LOCALIZE[31171]</value>
 		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Cache and reset related options.</value>
