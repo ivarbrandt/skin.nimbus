@@ -367,4 +367,12 @@
 		<value>$INFO[Container.Viewmode]</value>
 	</variable>	
 
+	<variable name="APIKeyLabel">
+    <value condition="String.IsEqual(Skin.String(checking_api_key),true)">Checking API Key...</value>
+    <value condition="String.IsEqual(Skin.String(valid_api_key),true)">*************************</value>
+    <value condition="Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(valid_api_key)) + !String.IsEmpty(Skin.String(mdblist_api_key))">[COLOR red]INVALID API KEY[/COLOR]</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEmpty(Skin.String(valid_api_key)) + !String.IsEmpty(Skin.String(mdblist_api_key))">INVALID API KEY</value>
+    <value condition="String.IsEmpty(Skin.String(mdblist_api_key))">Enter key</value>
+	</variable>
+
 </includes>

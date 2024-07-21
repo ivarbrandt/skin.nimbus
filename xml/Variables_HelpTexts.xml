@@ -20,8 +20,12 @@
 		<value condition="Control.HasFocus(64703) | Control.HasFocus(64704) | Control.HasFocus(64705) | Control.HasFocus(64706) | Control.HasFocus(64707) | Control.HasFocus(64708) | Control.HasFocus(64709) | Control.HasFocus(64710) | Control.HasFocus(64711)">Enabling or disable the showing of specific search widgets.</value>
 		
 		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">Ratings and trailer settings.</value>
-		<value condition="Control.HasFocus(6480)">If you do not have a MDBList API key, please go to https://mdblist.com to sign up for a free API key.</value>
-		<value condition="Control.HasFocus(64801) | Control.HasFocus(64802) | Control.HasFocus(64803) | Control.HasFocus(64804) | Control.HasFocus(64805) | Control.HasFocus(64806)">Enabling or disable the showing of specific ratings.</value>
+		3vfnf74hymhc0tpzkizms3slp
+		<value condition="Control.HasFocus(6480) + String.IsEmpty(Skin.String(mdblist_api_key))">Click to enter your API key to activate ratings and an optional trailer source. If you do not have an API key, please go to https://mdblist.com to sign up for a free one.</value>
+		<value condition="Control.HasFocus(6480) + !String.IsEmpty(Skin.String(mdblist_api_key))">Click to change your API key. If you would like to completely clear it, enter an empty API key.</value>
+		<value condition="Control.HasFocus(64801)">Click to show all ratings. If you'd like to completely remove ratings, enter an empty API key above.</value>
+		<value condition="Control.HasFocus(64802)">Click to hide all ratings. If you'd like to completely remove ratings, enter an empty API key above.</value>
+		<value condition="Control.HasFocus(64803) | Control.HasFocus(64804) | Control.HasFocus(64805) | Control.HasFocus(64806) | Control.HasFocus(64807) | Control.HasFocus(64808)">Enabling or disable the showing of specific ratings.</value>
 		<value condition="Control.HasFocus(64807)">Remove your API key. This will remove and disable all ratings in the skin.</value>
 		<value condition="Control.HasFocus(6301)">Toggle trailer viewing options. OFF: Disable all skin trailer functions. ONE-CLICK: Trailers are played by pressing a custom mapped button. AUTO: Trailers are automatically played after an item has been focused and the delay time has passed.</value>
 		<value condition="Control.HasFocus(6302)">Choose where to play trailers from. Default will use Kodi's built-in trailer method. MDbList will play trailers from the MDbList API. [B]NOTE:[/B] Default option does not require an API key whereas MDbList does.</value>

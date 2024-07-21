@@ -20,7 +20,7 @@
 	</variable>
 
 	<variable name="TrailerSourceToggleVar">
-		<value condition="String.IsEqual(Skin.String(TrailerSource),0) + !String.IsEmpty(Skin.String(mdblist_api_key))">Skin.SetString(TrailerSource,1)</value>
+		<value condition="String.IsEqual(Skin.String(TrailerSource),0) + !String.IsEmpty(Skin.String(valid_api_key))">Skin.SetString(TrailerSource,1)</value>
 		<value condition="String.IsEqual(Skin.String(TrailerSource),1)">Skin.SetString(TrailerSource,0)</value>
 		<value>Skin.SetString(TrailerSource,0)</value>
 	</variable>

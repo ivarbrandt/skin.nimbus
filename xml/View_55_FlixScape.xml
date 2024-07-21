@@ -5,7 +5,7 @@
 		<param name="focused">false</param>
 		<definition>
 			<control type="group">
-				<visible>String.IsEmpty(ListItem.Art(poster))</visible>
+				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
 				<control type="image">
 					<left>19</left>
 					<top>11</top>
@@ -27,7 +27,7 @@
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 					<autoscroll time="3000" delay="4000" repeat="3000">$PARAM[focused] + Control.HasFocus($PARAM[list_id])</autoscroll>
-					<visible>!ListItem.IsParentFolder + $PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
+					<visible>!ListItem.IsParentFolder + [$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 				</control>
 				<control type="textbox">
 					<left>333</left>
@@ -39,7 +39,7 @@
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
 					<textcolor>unfocused_text</textcolor>
-					<visible>!ListItem.IsParentFolder + ![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
+					<visible>!ListItem.IsParentFolder + [!$PARAM[focused] | [!Control.HasFocus($PARAM[list_id]) + ![Control.IsVisible(55) | Control.IsVisible(501)]]]</visible>
 				</control>
 				<control type="image">
 					<left>30</left>
@@ -63,7 +63,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
+				<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
 				<control type="image">
 					<top>-3</top>
 					<left>3</left>
@@ -104,71 +104,46 @@
 					<width>94</width>
 					<height>94</height>
 					<texture>overlays/overlaybg-fs.png</texture>
-					<!-- <visible>
-            [
-              Listitem.IsCollection | 
-              ListItem.IsPlaying | 
-              [
-                Integer.IsGreater(ListItem.Playcount,0) + 
-                [
-                  Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | 
-                  !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice),0)
-                ]
-              ] | 
-              [
-                !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + 
-                !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)
-              ]
-            ] + 
-            !$EXP[isEpisode] + 
-            [
-              Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | 
-              !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice),0)
-            ]
-            </visible> -->
-						<visible>
-							[
-									Listitem.IsCollection | 
-									ListItem.IsPlaying | 
-									[
-											Integer.IsGreater(ListItem.Playcount,0) + 
-											[
-													Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | 
-													!Window.IsVisible(Home) + 
-													[
-															[$EXP[isMovie] + String.IsEqual(Skin.String(ItemFanartChoice.movies),0)] | 
-															[$EXP[isTVShow] + String.IsEqual(Skin.String(ItemFanartChoice.tvshows),0)] | 
-															[$EXP[isSeason] + String.IsEqual(Skin.String(ItemFanartChoice.seasons),0)]
-													]
-											]
-									] | 
-									[
-											!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + 
-											!Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)
-									]
-							] + 
-							!$EXP[isEpisode] + 
-							[
-									Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | 
-									!Window.IsVisible(Home) + 
-									[
-											[$EXP[isMovie] + String.IsEqual(Skin.String(ItemFanartChoice.movies),0)] | 
-											[$EXP[isTVShow] + String.IsEqual(Skin.String(ItemFanartChoice.tvshows),0)] | 
-											[$EXP[isSeason] + String.IsEqual(Skin.String(ItemFanartChoice.seasons),0)]
-									]
-							]
-						</visible>
+					<visible>
+						[
+								Listitem.IsCollection | 
+								ListItem.IsPlaying | 
+								[
+										Integer.IsGreater(ListItem.Playcount,0) + 
+										[
+												Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | 
+												!Window.IsVisible(Home) + 
+												[
+														[$EXP[isMovie] + String.IsEqual(Skin.String(ItemFanartChoice.movies),0)] | 
+														[$EXP[isTVShow] + String.IsEqual(Skin.String(ItemFanartChoice.tvshows),0)] | 
+														[$EXP[isSeason] + String.IsEqual(Skin.String(ItemFanartChoice.seasons),0)]
+												]
+										]
+								] | 
+								[
+										!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + 
+										!Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)
+								]
+						] + 
+						!$EXP[isEpisode] + 
+						[
+								Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | 
+								!Window.IsVisible(Home) + 
+								[
+										[$EXP[isMovie] + String.IsEqual(Skin.String(ItemFanartChoice.movies),0)] | 
+										[$EXP[isTVShow] + String.IsEqual(Skin.String(ItemFanartChoice.tvshows),0)] | 
+										[$EXP[isSeason] + String.IsEqual(Skin.String(ItemFanartChoice.seasons),0)]
+								]
+						]
+					</visible>
 					<animation condition="[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]" effect="fade" time="0" start="100" end="0">Conditional</animation>
 				</control>
-        
 				<control type="image">
 					<left>21</left>
 					<top>282</top>
 					<width>580</width>
 					<height>55</height>
-					<texture colordiffuse="99FFFFFF">overlays/overlayfade-fs.png</texture>
-					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-					<!-- <visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] + [![$EXP[isEpisode]] + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice),0)]]</visible> -->
+					<texture colordiffuse="A8FFFFFF">overlays/overlayfade-fs.png</texture>
 					<visible>
 						[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + 
 						[!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] + 
@@ -186,15 +161,12 @@
 					</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
-
         <control type="image">
 					<left>21</left>
 					<top>217</top>
 					<width>580</width>
 					<height>120</height>
-					<texture colordiffuse="99FFFFFF">overlays/overlayfade-fs-ep.png</texture>
-					<visible>!String.IsEmpty(ListItem.Art(poster))</visible>
-					<!-- <visible>$EXP[isEpisode] | Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice),1)</visible> -->
+					<texture colordiffuse="A8FFFFFF">overlays/overlayfade-fs-ep.png</texture>
 					<visible>
 						$EXP[isEpisode] | 
 						Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1) | 
@@ -206,9 +178,6 @@
 						]
 					</visible>
 				</control>
-
-        
-				
         <control type="group">
           <left>40</left>
           <top>255</top>
@@ -216,7 +185,6 @@
           <control type="label">
             <left>9</left>
             <top>25</top>
-            <!-- <visible>!$EXP[isEpisode] + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice),1)]</visible> -->
 						<visible>
 							!$EXP[isEpisode] + 
 							[
@@ -299,7 +267,6 @@
 				<width>23</width>
 				<height>23</height>
 				<texture>$VAR[WallWatchedIconVar]</texture>
-        <!-- <visible>!$EXP[isEpisode] + [Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice),0)]</visible> -->
 				<visible>
 					!$EXP[isEpisode] + 
 					[
@@ -319,7 +286,6 @@
 				<width>23</width>
 				<height>23</height>
 				<texture>$VAR[WallWatchedIconVar]</texture>
-        <!-- <visible>$EXP[isEpisode] | Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1) | !Window.IsVisible(Home) + String.IsEqual(Skin.String(ItemFanartChoice),1)</visible> -->
 				<visible>
 					$EXP[isEpisode] | 
 					Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1) | 

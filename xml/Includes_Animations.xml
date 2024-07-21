@@ -343,6 +343,22 @@
     <animation effect="slide" start="0,0" end="0,335" time="0" condition="Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)">Conditional</animation>
 	</include>
 
+	<include name="ListLandscapeArtworkSlide">
+    <animation condition="
+			!$EXP[isContent] | 
+			[
+					[String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
+					[String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
+					[String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
+					[String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
+					[String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
+					[String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
+			]" 
+			reversible="true">
+			<effect type="slide" start="0,0" end="0,-38.5" time="500" tween="cubic" easing="inout" />
+		</animation>
+	</include>
+
 	<include name="MediaMenuAnimations">
 		<animation condition="$EXP[sidebar_visible]" reversible="true">
 			<effect type="slide" start="0,0" end="515,0" time="500" tween="cubic" easing="inout" />

@@ -1,4 +1,12 @@
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added automatic artwork setting for episode widgets. Poster = Thumb, Landscape = Fanart
+- Added API Key Validator. Ratings will now only be activated when entering a valid MDbList API key.
+- Removed Clear MDbList API key option. You can now clear it by entering in an empty key.
+- Removed auto view lock notification
+- Expanded artwork and views for better compatibility with other addons
+- Fixed various bugs
+
+[B][COLOR FFFFFFFF]Version 0.1.13[/COLOR][/B]
 - Added changelog viewing to Skin settings > Extras
 - Improved blurring algo and performance. Recommend clearing blur cache. If the images are too bright/colorful, lower the saturation setting in Skin settings > Artwork display > Set blur saturation
 - Changed default blur and saturation values for new blur algo

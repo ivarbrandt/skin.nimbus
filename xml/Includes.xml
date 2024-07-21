@@ -395,7 +395,7 @@
 		</control>
 	</include>
 
-	<include name="MediaFlag">
+	<!-- <include name="MediaFlag">
 		<param name="width">115</param>
 		<param name="height">60</param>
 		<param name="visible">true</param>
@@ -407,12 +407,12 @@
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture colordiffuse="artwork_dim">$PARAM[texture]</texture>
 				<visible>$PARAM[visible]</visible>
-				<!-- <visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(501)]</visible> -->
+				<visible>![Skin.HasSetting(TrailerPlaying) | Window.IsVisible(12003) | Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(50) | Control.IsVisible(500) | Control.IsVisible(501)]</visible>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 
-	<include name="MediaFlags">
+	<!-- <include name="MediaFlags">
 		<param name="infolabel_prefix"></param>
 		<param name="resolution_var">$VAR[ResolutionFlagVar]</param>
 		<definition>
@@ -425,7 +425,7 @@
 				<itemgap>10</itemgap>
 				<width>1900</width>
 				<usecontrolcoords>true</usecontrolcoords>
-				<!-- <control type="group">
+				<control type="group">
 					<width>140</width>
 					<visible>[System.AddonIsEnabled(resource.images.studios.white) | System.AddonIsEnabled(resource.images.studios.coloured)] + !String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio)</visible>
 					<include condition="!Skin.HasSetting(Disable.ColorStudio)" content="MediaFlag">
@@ -434,7 +434,7 @@
 					<include condition="Skin.HasSetting(Disable.ColorStudio)" content="MediaFlag">
 						<param name="texture" value="$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]" />
 					</include>
-				</control> -->
+				</control>
 				<include content="MediaFlag">
 					<param name="texture" value="$INFO[ListItem.VideoCodec,flags/videocodec/,.png]" />
 					<param name="visible" value="!String.IsEmpty($PARAM[infolabel_prefix]ListItem.VideoCodec)" />
@@ -461,7 +461,7 @@
 				</include>
 			</control>
 		</definition>
-	</include>
+	</include> -->
 
 	<include name="WeatherIconMyWeather">
 		<control type="group">
@@ -1923,6 +1923,20 @@
 		<control type="button">
 			<visible>false</visible>
 			<onfocus>Skin.TimerStart(end_playback_timer)</onfocus>
+		</control>
+	</include>
+
+	<include name="SetLandscapeArtworkProperties">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus>SetProperty(LandscapeWidgetFocused,true,Home)</onfocus>
+		</control>
+	</include>
+	
+	<include name="ClearLandscapeProperties">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus>ClearProperty(LandscapeWidgetFocused,Home)</onfocus>
 		</control>
 	</include>
 

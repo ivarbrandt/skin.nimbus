@@ -6,11 +6,11 @@
   <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
-	<!-- <onload>RunScript(script.nimbus.helper,mode=set_widget_count)</onload> -->
 	<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
 	<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>
 	<onload condition="String.IsEmpty(Skin.String(HomeItemArtworkChoice))">Skin.SetString(HomeItemArtworkChoice,0)</onload>
 	<onload condition="String.IsEmpty(Skin.String(HomeEpisodeArtworkChoice))">Skin.SetString(HomeEpisodeArtworkChoice,0)</onload>
+	<onload condition="!String.IsEmpty(Skin.String(mdblist_api_key)) + String.IsEmpty(Skin.String(valid_api_key))">RunScript(script.nimbus.helper, mode=check_api_key_on_load)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -889,6 +889,17 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="" />
 			</include>
+			<!-- <control type="textbox" id="9999">
+				<include>MainMenuAnimations</include>
+				<left>50</left>
+				<top>560</top>
+				<width>1500</width>
+				<height>1000</height>
+				<font>font12</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<label>LIE: $INFO[Window(Home).Property(LandscapeInfoEpisode)] | LWF: $INFO[Window(Home).Property(LandscapeWidgetFocused)] | HAC: $INFO[Skin.String(HomeArtworkChoice)] | NET: $INFO[Window(home).Property(nimbus_episode_thumb)] | NEF: $INFO[Window(home).Property(nimbus_episode_fanart)] | Selected: $INFO[Container(9000).ListItem.Property(SelectedArtwork)]</label>
+				<visible>true</visible>
+			</control> -->
 			<!-- <include>BottomBar</include> -->
 			<control type="group">
 				<depth>DepthContentPanel</depth>
@@ -1147,6 +1158,7 @@
 							<item>
 								<label>episodes/$VAR[HomeEpisodeArtworkChoiceSettingVar]</label>
 								<onclick>$VAR[HomeEpisodeArtworkChoiceToggleVar]</onclick>
+								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
 							</item>
 						</content>
 					</control>

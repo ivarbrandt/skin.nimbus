@@ -19,11 +19,9 @@
 				<bordersize>1</bordersize>
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<include>ArtworkAnimations</include>
-				<animation condition="!$EXP[isContent]" reversible="true">
-					<effect type="slide" start="0,0" end="0,-38.5" time="500" tween="cubic" easing="inout" />
-				</animation>
+				<include>ListLandscapeArtworkSlide</include>
 				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-				<visible>!Player.HasMedia + !Container.Content(addons)</visible>
+				<visible>!Player.HasMedia + !Container.Content(addons) | String.StartsWith(Container.PluginName,plugin.video.otaku)</visible>
 			</control>
 			<control type="image">
 				<left>159</left>
@@ -34,13 +32,11 @@
 				<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
 				<aspectratio scalediffuse="false">keep</aspectratio>
 				<include>ArtworkAnimations</include>
-				<visible>!Player.HasMedia + Container.Content(addons)</visible>
+				<visible>!Player.HasMedia + Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)</visible>
 			</control>
 			<control type="group">
 				<visible>!Player.HasMedia + [!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.LandscapeClearlogo)] + [$EXP[isContent] | Container.Content(addons)] + [[Container.Content(movies) + String.IsEqual(Skin.String(ListLandscape.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListLandscape.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListLandscape.seasons),1)] | [Container.Content(episodes) + [String.IsEqual(Skin.String(ListLandscape.episodes),0) | String.IsEqual(Skin.String(ListLandscape.episodes),1)]]]</visible>
-				<animation condition="!$EXP[isContent]" reversible="true">
-					<effect type="slide" start="0,0" end="0,-38.5" time="500" tween="cubic" easing="inout" />
-				</animation>
+				<include>ListLandscapeArtworkSlide</include>
 				<control type="image">
 					<top>589</top>
 					<left>71</left>
@@ -59,9 +55,7 @@
 				</control>
 			</control>
 				<control type="grouplist">
-					<animation condition="!$EXP[isContent]" reversible="true">
-						<effect type="slide" start="0,0" end="0,-38.5" time="500" tween="cubic" easing="inout" />
-					</animation>
+					<include>ListLandscapeArtworkSlide</include>
 					<width>930</width>
 					<left>70</left>
 					<top>239.5</top>
@@ -219,7 +213,17 @@
 						<orientation>horizontal</orientation>
 						<itemgap>12</itemgap>
 						<align>right</align>
-						<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
+						<visible>
+							Skin.HasSetting(Enable.StudioLogos) + 
+							[
+									[!String.IsEmpty(Window.Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+									[!String.IsEmpty(Window.Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+									[!String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+									[!String.IsEmpty(Window.Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+									[!String.IsEmpty(Window.Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+									[!String.IsEmpty(Window.Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+							]
+					</visible>
 						<control type="image">
 							<top>-1</top>
 							<width>70</width>
@@ -358,7 +362,7 @@
 			<control type="group">
 				<left>$PARAM[left]</left>
 				<right>$PARAM[right]</right>
-				<animation effect="slide" start="0,0" end="-75,0" tween="cubic" easing="in" time="500" condition="Container.Content(addons)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-75,0" tween="cubic" easing="in" time="500" condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)">Conditional</animation>
 				<control type="label">
 					<include>ListLandscapeSlideAnimations</include>
 					<left>30</left>
@@ -497,33 +501,6 @@
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
-						<control type="label">
-							<left>49</left>
-							<width>787</width>
-							<centertop>33%</centertop>
-							<bottom>0</bottom>
-							<aligny>center</aligny>
-							<scroll>true</scroll>
-							<scrollspeed>300</scrollspeed>
-							<font>font27</font>
-							<label>$VAR[InfoPanelTop]</label>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-						</control>
-						<control type="textbox">
-							<top>86</top>
-							<left>56</left>
-							<width>787</width>
-							<!-- <height>300</height> -->
-							<!-- <centertop>33%</centertop> -->
-							<bottom>13</bottom>
-							<aligny>center</aligny>
-							<font>font27</font>
-							<label>$VAR[InfoPanelBottom]</label>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
 						<control type="image">
 							<left>26</left>
 							<centertop>50%</centertop>
@@ -566,7 +543,7 @@
 							<texture colordiffuse="darkgrey">$INFO[ListItem.Icon]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content()" height="67" width="610">
+					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610">
 						<!-- <control type="image">
 							<left>0</left>
 							<right>0</right>
@@ -586,33 +563,6 @@
 							<font>font36_title</font>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
-						</control>
-						<control type="label">
-							<left>49</left>
-							<width>787</width>
-							<centertop>33%</centertop>
-							<bottom>0</bottom>
-							<aligny>center</aligny>
-							<scroll>true</scroll>
-							<scrollspeed>300</scrollspeed>
-							<font>font27</font>
-							<label>$VAR[InfoPanelTop]</label>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-						</control>
-						<control type="textbox">
-							<top>86</top>
-							<left>56</left>
-							<width>787</width>
-							<!-- <height>300</height> -->
-							<!-- <centertop>33%</centertop> -->
-							<bottom>13</bottom>
-							<aligny>center</aligny>
-							<font>font27</font>
-							<label>$VAR[InfoPanelBottom]</label>
-							<textcolor>unfocused_text</textcolor>
-							<shadowcolor>text_shadow</shadowcolor>
-							<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 						</control>
 						<control type="image">
 							<left>26</left>
@@ -636,7 +586,7 @@
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content()" height="67" width="610">
+					<itemlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610">
 						<control type="label">
 							<left>86</left>
 							<width>787</width>
@@ -658,7 +608,7 @@
 							<texture colordiffuse="darkgrey">$INFO[ListItem.Icon]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(addons)" height="210" width="610">
+					<focusedlayout condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)" height="210" width="610">
 						<!-- <control type="image">
 							<left>0</left>
 							<right>0</right>
@@ -747,7 +697,7 @@
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout condition="Container.Content(addons)" height="67" width="610">
+					<itemlayout condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610">
 						<control type="label">
 							<left>79</left>
 							<width>810</width>

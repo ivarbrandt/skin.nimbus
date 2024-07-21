@@ -99,6 +99,7 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 						<include>TrailerControl</include>
+						<include>ClearLandscapeProperties</include>
 					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
@@ -125,10 +126,6 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
 				<height>1100</height>
-				<onfocus>SetProperty(LandscapeWidgetFocused,true,Home)</onfocus>
-				<onfocus condition="$EXP[isEpisode]">SetProperty(LandscapeInfoEpisode,true,Home)</onfocus>
-				<onunfocus>ClearProperty(LandscapeWidgetFocused,Home)</onunfocus>
-				<onunfocus>ClearProperty(LandscapeInfoEpisode,Home)</onunfocus>
 				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include content="WidgetListCommon">
@@ -153,6 +150,7 @@
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 						<include>TrailerControl</include>
+						<include>SetLandscapeArtworkProperties</include>
 					</control>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
@@ -215,6 +213,7 @@
 							<param name="focused" value="true" />
 						</include>
 					</control>
+					<include>ClearLandscapeProperties</include>
 				</focusedlayout>
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[item_limit]">$PARAM[content_path]</content>
 				<include>$PARAM[content_include]</include>
@@ -267,6 +266,7 @@
 							<param name="focused" value="true" />
 						</include>
 						<include>TrailerControl</include>
+						<include>ClearLandscapeProperties</include>
 					</control>
 				</focusedlayout>
 				<content target="$PARAM[widget_target]">$PARAM[content_path]</content>

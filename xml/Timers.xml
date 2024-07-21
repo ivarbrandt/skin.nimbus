@@ -31,7 +31,7 @@
         <onstop condition="Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season)">Skin.SetString(Skin.ForcedView.episodes.inside,$INFO[Container.Viewmode])</onstop>
         <onstop condition="!Container.Content(episodes)">Skin.SetString(Skin.ForcedView.$INFO[Container.Content],$INFO[Container.Viewmode])</onstop>
         <!-- <onstop>Notification(View Locked,$INFO[Container.Content] - $INFO[Container.Viewmode],3000)</onstop> -->
-        <onstop>Notification(View locked$VAR[ContentTypeLabel], [UPPERCASE]$INFO[Container.Viewmode][/UPPERCASE], 2000)</onstop>
+        <!-- <onstop>Notification(View locked$VAR[ContentTypeLabel], [UPPERCASE]$INFO[Container.Viewmode][/UPPERCASE], 2000)</onstop> -->
     </timer>
     <timer>
         <name>end_playback_timer</name>

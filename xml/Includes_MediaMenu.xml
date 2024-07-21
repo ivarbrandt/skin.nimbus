@@ -425,7 +425,7 @@
 				<include>MediaMenuItemsCommon</include>
 				<onclick>Skin.ToggleSetting(Enable.LandscapeClearlogo)</onclick>
 				<selected>Skin.HasSetting(Enable.LandscapeClearlogo)</selected>
-				<visible>Control.IsVisible(50) + [Container.Content(movies) + String.IsEqual(Skin.String(ListLandscape.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListLandscape.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListLandscape.seasons),1)] | [Container.Content(episodes) + [String.IsEqual(Skin.String(ListLandscape.episodes),0) | String.IsEqual(Skin.String(ListLandscape.episodes),1)]]</visible>
+				<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="button" id="6054">
 				<include>MediaMenuItemsCommon</include>
