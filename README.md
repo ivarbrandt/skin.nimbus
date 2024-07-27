@@ -1,9 +1,6 @@
 # Nimbus Skin for Kodi Omega
 
-  ![Viewtypes](resources/images/flix.jpg)
-  
-  ![Viewtypes](resources/images/flix1.jpg)
-
+ https://rb.gy/l9zpkl
 
 ## INFO
 
