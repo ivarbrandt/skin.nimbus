@@ -198,13 +198,13 @@
 					<top>-7</top>
 					<left>5</left>
 					<width>267</width>
-					<height>387</height>
+					<height>388</height>
 					<!-- <top>-19</top>
 					<left>-7</left>
 					<width>290</width>
 					<height>411</height> -->
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
-					<bordersize>-12</bordersize>
+					<bordersize>-10</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -352,6 +352,9 @@
 							<param name="focused" value="true" />
 						</include>
 						<include>TrailerControl</include>
+						<include condition="![Window.IsVisible(Home) | Window.IsVisible(1121)]" content="ForceColorUpdateLayoutID">
+							<param name="layout_id" value="6"/>
+						</include>
 					</control>
 				</focusedlayout>
 				<!-- <itemlayout height="410" width="310" condition="Container.Content(artists) | Container.Content(albums)">

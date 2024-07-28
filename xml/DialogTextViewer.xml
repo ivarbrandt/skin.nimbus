@@ -15,10 +15,10 @@
 				<centerleft>50%</centerleft>
 				<top>85</top>
 				<width>1120</width>
-				<height>847</height>
+				<height>824</height>
 				<shadowcolor>black</shadowcolor>
 				<pagecontrol>3000</pagecontrol>
-				<font>font32</font>
+				<!-- <font>font32</font> -->
 				<textcolor>darkgrey</textcolor>
 			</control>
 			<control type="scrollbar" id="3000">

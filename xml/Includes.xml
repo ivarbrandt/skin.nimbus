@@ -78,6 +78,8 @@
 						<top>0</top>
 						<bottom>7</bottom>
 						<width>12</width>
+						<texturesliderbar colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbarfocus>
 						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
 						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
 						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
@@ -85,13 +87,15 @@
 						<orientation>vertical</orientation>
 						<texturesliderbackground />
 						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(531)]">conditional</animation>
-						<visible>Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(56) | Control.IsVisible(501)</visible>
+						<visible>Control.IsVisible(52) | Control.IsVisible(56)</visible>
 					</control>
 					<control type="scrollbar" id="532">
 						<left>35</left>
 						<top>-542</top>
 						<bottom>155</bottom>
 						<width>12</width>
+						<texturesliderbar colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbarfocus>
 						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
 						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
 						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
@@ -115,6 +119,8 @@
 						<height>12</height>
 						<texturesliderbackground />
 						<onup>50</onup>
+						<texturesliderbar colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbarfocus>
 						<ondown condition="Control.IsVisible(54)">Container.SetViewMode(500)</ondown>
 						<ondown condition="Control.IsVisible(55)">Container.SetViewMode(501)</ondown>
 						<orientation>horizontal</orientation>
@@ -747,8 +753,8 @@
 				<top>100</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="unfocused_text">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="unfocused_text">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturenofocus>
 				<visible>Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container($PARAM[container_id]).Position) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -758,8 +764,8 @@
 				<top>89</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="unfocused_text" flipy="true">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="unfocused_text" flipy="true">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturenofocus>
 				<visible>!String.IsEqual(Container($PARAM[container_id]).Position,1) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -769,8 +775,8 @@
 				<top>89</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="unfocused_text">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="unfocused_text">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturenofocus>
 				<visible>String.IsEqual(Container($PARAM[container_id]).Position,1) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -780,8 +786,8 @@
 				<top>100</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="unfocused_text" flipy="true">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="unfocused_text" flipy="true">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturenofocus>
 				<visible>Integer.IsEqual(Container($PARAM[container_id]).Position,Skin.Numeric(TotalWidgetCount)) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -1232,7 +1238,7 @@
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-				<visible>
+				<!-- <visible>
 					!Skin.HasSetting(Enable.BackgroundBlur) + 
 					[
 							[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)] | Control.IsVisible(400)] | 
@@ -1259,7 +1265,45 @@
 									]
 							]
 					]
-			</visible>
+			</visible> -->
+			<visible>
+				!Skin.HasSetting(Enable.BackgroundBlur) + 
+				[
+						[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)] | Control.IsVisible(400)] | 
+						[
+								[[Control.IsVisible(50) + 
+									![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)] + 
+									![
+										[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+										[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+										[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+										[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+										[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] |
+										[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
+									]
+								] | Control.IsVisible(500) | Control.IsVisible(501) | 
+								 Window.IsVisible(1100) | 
+								 [[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
+										[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
+								 ] |
+								 [[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
+										[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+										 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+										 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+										 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
+										]
+								 ] |
+								 [!Window.IsVisible(Home) + !Window.IsVisible(1121) + 
+										[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+										 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+										 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+										 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
+										]
+								 ]
+								]
+						]
+				]
+				</visible>
 
 
 
@@ -1289,8 +1333,8 @@
 	<include name="FullScreenDimensions">
 		<left>0</left>
 		<top>0</top>
-		<width>100%</width>
-		<height>100%</height>
+		<width>101%</width>
+		<height>101%</height>
 	</include>
 
 	<include name="NetflixScreenDimensions">
@@ -1938,6 +1982,33 @@
 			<visible>false</visible>
 			<onfocus>ClearProperty(LandscapeWidgetFocused,Home)</onfocus>
 		</control>
+	</include>
+			
+	<include name="ForceColorUpdate">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus condition="Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + !$EXP[infodialog_active]">SetFocus(50)</onfocus>
+		</control>
+	</include>
+
+	<include name="ForceColorUpdateLayoutID">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus>Skin.SetString(LastFocusedLayout,$PARAM[layout_id])</onfocus>
+		</control>
+	</include>
+
+	<include name="PassiveForceColorUpdate">
+    <param name="prefix" default=""/>
+    <param name="timer_name" default="color_update_timer"/>
+    <definition>
+			<control type="button">
+				<visible>false</visible>
+				<onfocus>SetProperty($PARAM[prefix]LastFocusedColor,$INFO[Window(home).Property(listitem_color)],home)</onfocus>
+				<onfocus condition="!String.IsEqual(Skin.String($PARAM[prefix]LastFocusedLayout),$PARAM[layout_id])">Skin.SetString($PARAM[prefix]LastFocusedLayout,$PARAM[layout_id])</onfocus>
+				<onfocus condition="String.IsEmpty(Window(home).Property(listitem_color)) | !String.IsEqual(Window(home).Property($PARAM[prefix]LastFocusedColor),Window(home).Property(listitem_color)) | !String.IsEqual(Skin.String($PARAM[prefix]LastFocusedLayout),$PARAM[layout_id])">Skin.TimerStart($PARAM[timer_name])</onfocus>
+			</control>
+    </definition>
 	</include>
 
 </includes>

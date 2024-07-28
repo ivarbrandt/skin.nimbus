@@ -5,34 +5,38 @@
 	<depth>DepthDialog+</depth>
 	<controls>
 		<control type="group">
-			<height>400</height>
+			<height>1000</height>
 			<centertop>50%</centertop>
 			<centerleft>50%</centerleft>
-			<width>915</width>
+			<width>1800</width>
 			<include content="DialogBackgroundCommons">
-				<param name="header_label" value="Nimbus Setup" />
+				<param name="header_label" value="Welcome to Nimbus" />
 				<param name="header_id" value="1" />
 			</include>
 			<control type="textbox" id="9">
-				<left>30</left>
+				<left>0</left>
 				<top>100</top>
-				<width>855</width>
-				<height>165</height>
-				<label>Navigate to skin settings to set up main menu items and widgets</label>
+				<width>1800</width>
+				<height>1000</height>
+				<textcolor>darkgrey</textcolor>
+				<label>Nimbus is a light artwork centric skin that can be customized to suit various tastes.[CR][CR]After clicking OK on the button below, navigate to skin settings to set up main menu items/widgets and configure the skin to your likings. Every setting has a small help text at the bottom of the screen to help you understand how it works and what the setting does. [CR]In order to keep the skin as clean as possible, I have implemented various easily accessible hidden menus throughout the skin. Their locations and functions are as follows:[CR][CR]• Left on home screen main menu = home screen artwork settings[CR]• Up on homescreen main menu = settings mini menu[CR]• Up on search window = search window toggles/options mini menu[CR]• Up on addon-launcher main menu = quick settings/addon browser[CR][CR]These have been set up this way so that you may quick access the settings for that specific area of the skin that you are in. Because of this setup, not all settings for the skin are in Skin settings. You'll find other settings/config toggles in the hidden menus and in the View options panel in video windows.[CR][CR]Aside from setting the view type, there you can customize artwork style, clearlogo, artwork used, and toggle blur on/off. Please note that the views are auto locking so whenever you set a view it will be locked for the content type that you see in the View options panel.[CR]Also, feel free to set different artwork/options for different content types (movies,tvshows) etc as Nimbus will remember your preferences for each content type in the video windows and home screen.[CR][CR]If you need to access this welcome screen again, you may do so in Skin settings » Extras.</label>
 				<autoscroll time="3000" delay="4000" repeat="5000">true</autoscroll>
 			</control>
 			<control type="button" id="100">
-				<left>300</left>
-				<top>250</top>
+				<visible>!Skin.HasSetting(firsttimerun)</visible>
+				<centerleft>50%</centerleft>
+				<top>870</top>
 				<width>300</width>
 				<height>100</height>
 				<label>OK</label>
 				<font>font25_title</font>
 				<textoffsetx>20</textoffsetx>
+				<textoffsety>31</textoffsety>
 				<onclick>Skin.Setbool(firsttimerun)</onclick>
 				<onclick>back</onclick>
-				<onclick>RunScript(script.nimbus.helper,mode=remake_all_widgets)</onclick>
+				<onclick>RunScript(script.nimbus.helper,mode=remake_all_cpaths)</onclick>
 				<align>center</align>
+				<aligny>left</aligny>
 				<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dialogbutton-fo.png</texturefocus>
 				<texturenofocus border="40" colordiffuse="button_focus2">buttons/dialogbutton-nofo.png</texturenofocus>
 			</control>

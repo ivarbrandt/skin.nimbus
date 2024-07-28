@@ -13,7 +13,6 @@
 				<height>279</height>
 				<control type="group">
 					<control type="image">
-						<!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
@@ -25,9 +24,7 @@
 					</include>
 				</control>
 				<control type="image">
-					<!-- <texture colordiffuse="b30a0b0b">masks/addons.png</texture> -->
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
-					<!-- <bordersize>2</bordersize> -->
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
@@ -71,7 +68,6 @@
 				<height>279</height>
 				<control type="group">
 					<control type="image">
-						<!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
@@ -83,9 +79,7 @@
 					</include>
 				</control>
 				<control type="image">
-					<!-- <texture colordiffuse="b30a0b0b">masks/addons.png</texture> -->
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
-					<!-- <bordersize>2</bordersize> -->
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
@@ -184,7 +178,6 @@
 				<height>279</height>
 				<control type="group">
           <control type="image">
-            <!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
@@ -196,9 +189,7 @@
 					</include>
 				</control>
 				<control type="image">
-          <!-- <texture colordiffuse="b30a0b0b">masks/addons.png</texture> -->
 					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
-					<!-- <bordersize>2</bordersize> -->
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">

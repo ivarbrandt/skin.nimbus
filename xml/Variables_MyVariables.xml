@@ -205,10 +205,16 @@
     <value>FF141515</value>
 	</variable>
 
-	<variable name="MainMenuSelectorColor">
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
-    <value>$INFO[Window(home).Property(listitem_color)]</value>
+	<variable name="MenuSelectorColor">
+    <value condition="!Player.HasMedia + !Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
+    <value condition="!Player.HasMedia">$INFO[Window(home).Property(listitem_color)]</value>
+    <value>FFD9D9D9</value>
 	</variable>
+
+	<!-- <variable name="ListLandscapeDiffuseColor">
+    <value condition="[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">FFE9E9E9</value>
+    <value>FFBFBFBF</value>
+	</variable> -->
 
 	<variable name="MediaMenuDiffuse">
     <!-- Blur enabled -->
@@ -297,6 +303,36 @@
     <value condition="String.IsEqual(Skin.String(onLeftSetting),0) + String.IsEqual(Skin.String(onBackSetting),0)">Skin.SetString(onLeftSetting,1)</value>
     <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Skin.SetString(onLeftSetting,0)</value>
 	</variable>
+
+	<variable name="OSDAudioButtonSettingVar">
+    <value condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),0)">Next audio track</value>
+    <value condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),1)">Open audio settings</value>
+	</variable>
+
+	<variable name="OSDAudioButtonSettingToggleVar">
+    <value condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),0)">Skin.SetString(OSDAudioButtonSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),1)">Skin.SetString(OSDAudioButtonSetting,0)</value>
+	</variable>
+
+	<variable name="OSDSubtitleButtonSettingVar">
+    <value condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),0)">Next subtitle</value>
+    <value condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),1)">Open subtitle settings</value>
+	</variable>
+
+	<variable name="OSDSubtitleButtonSettingToggleVar">
+    <value condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),0)">Skin.SetString(OSDSubtitleButtonSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),1)">Skin.SetString(OSDSubtitleButtonSetting,0)</value>
+	</variable>
+
+	<!-- <variable name="FocusOptionSettingVar">
+    <value condition="String.IsEqual(Skin.String(FocusOptionSetting),0)">Frame</value>
+    <value condition="String.IsEqual(Skin.String(FocusOptionSetting),1)">Selector</value>
+	</variable>
+
+	<variable name="FocusOptionSettingToggleVar">
+    <value condition="String.IsEqual(Skin.String(FocusOptionSetting),0)">Skin.SetString(FocusOptionSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(FocusOptionSetting),1)">Skin.SetString(FocusOptionSetting,0)</value>
+	</variable> -->
 
 	<variable name="ContextMenuTitleVar">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[ContextMenuTitle.NoBlur]</value>

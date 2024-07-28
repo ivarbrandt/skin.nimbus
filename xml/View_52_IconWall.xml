@@ -60,6 +60,9 @@
 				<focusedlayout height="305" width="440" condition="Container.Content() | Container.Content(files) | Container.Content(tags) | Container.Content(playlists) | [Container.Content(studios) + System.AddonIsEnabled(resource.images.studios.white)]">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
+						<include content="ForceColorUpdateLayoutID">
+							<param name="layout_id" value="5"/>
+						</include>
 						<top>120</top>
 						<control type="image">
 							<left>14</left>

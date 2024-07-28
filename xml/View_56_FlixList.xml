@@ -44,12 +44,15 @@
 					<visible>[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + [String.StartsWith(Container.PluginCategory,Season) | [!String.StartsWith(Container.PluginCategory,Season) + !String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$LOCALIZE[31101])]] + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | [Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | [Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | [Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$LOCALIZE[31107]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | [ !Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres) ]</visible>
 					<focusedlayout height="list_item_height" width="608" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">
 						<include>TrailerControl</include>
+						<include content="ForceColorUpdateLayoutID">
+							<param name="layout_id" value="8"/>
+						</include>
 						<control type="image">
 							<left>0</left>
 							<right>0</right>
 							<bottom>0</bottom>
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
-							<visible>Control.HasFocus(56)</visible>
+							<animation effect="fade" start="100" end="40" time="40" condition="!Control.HasFocus(56)">Conditional</animation>
 						</control>
 						<control type="image">
 							<left>25</left>
@@ -199,12 +202,15 @@
 						</control>
 					</itemlayout>
 					<focusedlayout height="list_item_height" width="608" condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos)+ !Container.Content(favourites)">
+						<include content="ForceColorUpdateLayoutID">
+							<param name="layout_id" value="11"/>
+						</include>
 						<control type="image">
 							<left>0</left>
 							<right>0</right>
 							<bottom>0</bottom>
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
-							<visible>Control.HasFocus(56)</visible>
+							<animation effect="fade" start="100" end="40" time="40" condition="!Control.HasFocus(56)">Conditional</animation>
 						</control>
 						<control type="image">
 							<left>25</left>
@@ -273,12 +279,15 @@
 						</control>
 					</itemlayout>
 					<focusedlayout height="list_item_height" width="608" condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content()">
+						<include content="ForceColorUpdateLayoutID">
+							<param name="layout_id" value="12"/>
+						</include>
 						<control type="image">
 							<left>0</left>
 							<right>0</right>
 							<bottom>0</bottom>
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
-							<visible>Control.HasFocus(56)</visible>
+							<animation effect="fade" start="100" end="40" time="40" condition="!Control.HasFocus(56)">Conditional</animation>
 						</control>
 						<control type="image">
 							<left>20</left>
@@ -337,7 +346,7 @@
 				<left>0</left>
 				<right>0</right>
 				<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
-				<visible>Control.hasFocus(56)</visible>
+				<animation effect="fade" start="100" end="40" time="40" condition="!Control.HasFocus(56)">Conditional</animation>
 			</control>
 			<control type="label">
 				<left>35</left>
@@ -377,12 +386,15 @@
 	</include>
 	<include name="AddonsListLayout">
 		<focusedlayout height="list_item_height" width="913" condition="Container.Content(addons)">
+			<include content="ForceColorUpdateLayoutID">
+				<param name="layout_id" value="13"/>
+			</include>
 			<control type="image">
 				<left>0</left>
 				<right>0</right>
 				<bottom>0</bottom>
 				<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
-				<visible>Control.HasFocus(56)</visible>
+				<animation effect="fade" start="100" end="40" time="40" condition="!Control.HasFocus(56)">Conditional</animation>
 			</control>
 			<control type="image">
 				<left>20</left>

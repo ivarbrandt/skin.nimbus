@@ -2,15 +2,7 @@
 <window>
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
-	<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
-  <onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
-	<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
-	<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
-	<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(HomeItemArtworkChoice))">Skin.SetString(HomeItemArtworkChoice,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(HomeEpisodeArtworkChoice))">Skin.SetString(HomeEpisodeArtworkChoice,0)</onload>
-	<onload condition="!String.IsEmpty(Skin.String(mdblist_api_key)) + String.IsEmpty(Skin.String(valid_api_key))">RunScript(script.nimbus.helper, mode=check_api_key_on_load)</onload>
+	<include>NimbusSkinStringsInitialization</include>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">

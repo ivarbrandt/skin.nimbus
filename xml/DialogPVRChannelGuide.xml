@@ -67,8 +67,7 @@
 							<width>730</width>
 							<top>0</top>
 							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
-							<visible>Control.HasFocus(11)</visible>
-							<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
+							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(11)">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>86</height>
@@ -100,7 +99,7 @@
 								<left>10</left>
 								<top>105</top>
 								<width>715</width>
-								<height>190</height>
+								<height>178</height>
 								<label>$INFO[ListItem.Plot]</label>
 								<autoscroll time="3000" delay="4000" repeat="5000">Skin.HasSetting(AutoScroll)</autoscroll>
 							</control>

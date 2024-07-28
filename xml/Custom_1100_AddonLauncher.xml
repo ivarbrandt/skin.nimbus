@@ -82,6 +82,7 @@
 					<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,130" tween="cubic" easing="inout">Conditional</animation>
 					<include content="List">
 						<param name="id" value="9000" />
+						<param name="layout_id" value="15" />
 					</include>
 					<content>
 						<item id="1">

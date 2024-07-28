@@ -74,7 +74,7 @@
 					<width>646</width>
 					<height>384</height> -->
 					<texture colordiffuse="$VAR[FocusedColorVar]">masks/flixscape-glow.png</texture>
-					<bordersize>-17</bordersize>
+					<bordersize>-15</bordersize>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -363,6 +363,9 @@
 							<param name="focused" value="true" />
 						</include>
 						<include>TrailerControl</include>
+						<include condition="![Window.IsVisible(Home) | Window.IsVisible(1121)]" content="ForceColorUpdateLayoutID">
+							<param name="layout_id" value="7"/>
+						</include>
 					</control>
 				</focusedlayout>
 			</control>

@@ -809,4 +809,51 @@
 		</control>
 	</include>
 
+	<include name="NimbusSkinStringsInitialization">
+		<onload condition="!Skin.HasSetting(firsttimerun)">ActivateWindow(1112)</onload>
+		<onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
+		<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
+		<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
+		<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,30)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.5)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(trailerSetting))">Skin.SetString(trailerSetting,0)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(titleSetting))">Skin.SetString(titleSetting,0)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(onBackSetting)) | String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onBackSetting,0)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(TrailerDelaySecs))">Skin.SetString(TrailerDelaySecs,5)</onload>
+		<onload condition="String.IsEmpty(Skin.String(PlaybackDelayMins))">Skin.SetString(PlaybackDelayMins,30)</onload>
+		<onload condition="String.IsEmpty(Skin.String(PlaybackDelaySecs))">Skin.SetString(PlaybackDelaySecs,1800)</onload>
+		<onload condition="String.IsEmpty(Skin.String(TrailerSource))">Skin.SetString(TrailerSource,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OSDSubtitleButtonSetting))">Skin.SetString(OSDSubtitleButtonSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.movies))">Skin.SetString(ArtworkChoice.movies,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(HomeItemArtworkChoice))">Skin.SetString(HomeItemArtworkChoice,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(HomeEpisodeArtworkChoice))">Skin.SetString(HomeEpisodeArtworkChoice,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.tvshows))">Skin.SetString(ArtworkChoice.tvshows,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.seasons))">Skin.SetString(ArtworkChoice.seasons,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.episodes))">Skin.SetString(ArtworkChoice.episodes,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.movies))">Skin.SetString(ListArtworkChoice.movies,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.tvshows))">Skin.SetString(ListArtworkChoice.tvshows,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.seasons))">Skin.SetString(ListArtworkChoice.seasons,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.episodes))">Skin.SetString(ListArtworkChoice.episodes,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.addons))">Skin.SetString(ListArtworkChoice.addons,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.))">Skin.SetString(ListArtworkChoice.,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.movies))">Skin.SetString(LandscapeFanart.movies,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.tvshows))">Skin.SetString(LandscapeFanart.tvshows,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.seasons))">Skin.SetString(LandscapeFanart.seasons,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.episodes))">Skin.SetString(LandscapeFanart.episodes,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListLandscape.movies))">Skin.SetString(ListLandscape.movies,1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListLandscape.tvshows))">Skin.SetString(ListLandscape.tvshows,1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListLandscape.seasons))">Skin.SetString(ListLandscape.seasons,1)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListLandscape.episodes))">Skin.SetString(ListLandscape.episodes,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.movies))">Skin.SetString(ItemFanartChoice.movies,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.tvshows))">Skin.SetString(ItemFanartChoice.tvshows,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.seasons))">Skin.SetString(ItemFanartChoice.seasons,0)</onload>
+		<onload condition="!String.IsEmpty(Skin.String(mdblist_api_key)) + String.IsEmpty(Skin.String(valid_api_key))">RunScript(script.nimbus.helper, mode=check_api_key_on_load)</onload>
+	</include>
+
 </includes>

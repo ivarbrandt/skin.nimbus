@@ -48,6 +48,9 @@
 							<param name="focused" value="true" />
 						</include>
 						<include>WallTimer</include>
+						<include content="ForceColorUpdateLayoutID">
+							<param name="layout_id" value="9"/>
+						</include>
 					</control>
 				</focusedlayout>
 				<!-- <itemlayout height="301" width="300" condition="Container.Content(episodes) | Container.Content(videos) | [Container.Content(musicvideos) + !Skin.HasSetting(show_musicvideoposter)]">

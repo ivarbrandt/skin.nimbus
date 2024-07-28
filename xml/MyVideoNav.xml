@@ -4,23 +4,6 @@
 	<backgroundcolor>background</backgroundcolor>
 	<views>50,52,54,55,56,500,501</views>
 	<menucontrol>9000</menucontrol>
-	<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,40)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.5)</onload>	
-	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.movies))">Skin.SetString(ArtworkChoice.movies,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.tvshows))">Skin.SetString(ArtworkChoice.tvshows,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.seasons))">Skin.SetString(ArtworkChoice.seasons,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.episodes))">Skin.SetString(ArtworkChoice.episodes,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.movies))">Skin.SetString(LandscapeFanart.movies,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.tvshows))">Skin.SetString(LandscapeFanart.tvshows,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.seasons))">Skin.SetString(LandscapeFanart.seasons,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.episodes))">Skin.SetString(LandscapeFanart.episodes,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ListLandscape.movies))">Skin.SetString(ListLandscape.movies,1)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ListLandscape.tvshows))">Skin.SetString(ListLandscape.tvshows,1)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ListLandscape.seasons))">Skin.SetString(ListLandscape.seasons,1)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ListLandscape.episodes))">Skin.SetString(ListLandscape.episodes,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.movies))">Skin.SetString(ItemFanartChoice.movies,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.tvshows))">Skin.SetString(ItemFanartChoice.tvshows,0)</onload>
-	<onload condition="String.IsEmpty(Skin.String(ItemFanartChoice.seasons))">Skin.SetString(ItemFanartChoice.seasons,0)</onload>
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -32,19 +15,19 @@
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
 				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[MediaFanartVar]</texture>
-					<visible>
-						![Control.IsVisible(50) | Control.IsVisible(52)] + 
-						[
-							[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(56)] + !String.IsEqual(Skin.String(HomeArtworkChoice),1)] | 
-							[[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | 
-								[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | 
-								[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | 
-								[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + 
-							 [Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]] | 
-							[!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + 
-							 [!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0)]]
-						]
-						</visible>
+				<visible>
+					![Control.IsVisible(50) | Control.IsVisible(52) | $EXP[infodialog_active]] + 
+					[
+						[!$EXP[isContent] + Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(54) | Control.IsVisible(56)] + !String.IsEqual(Skin.String(HomeArtworkChoice),1)] | 
+						[[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)] | 
+						[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)] | 
+						[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)]] + 
+						[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)]] | 
+						[!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + 
+						[!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0)]]
+					]
+				</visible>
 			</control>
 			<control type="image">
 				<include>BigLandscapeScreenDimensions</include>
@@ -54,15 +37,16 @@
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<include>ArtworkAnimations</include>
 				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-			<visible>
-				[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
-				[
-					[$EXP[isContent] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-					[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-					[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-					[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]]] | 
-					[!$EXP[isContent] + String.IsEqual(Skin.String(HomeArtworkChoice),1)]
-				]
+				<visible>
+					!$EXP[infodialog_active] + 
+					[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
+					[
+							[$EXP[isContent] + [[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+							[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+							[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+							[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]]] | 
+							[!$EXP[isContent] + String.IsEqual(Skin.String(HomeArtworkChoice),1)]
+					]
 				</visible>
 			</control>
 		</control>

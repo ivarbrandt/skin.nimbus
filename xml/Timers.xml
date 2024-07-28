@@ -53,5 +53,25 @@
         <!-- <onstart>Notification(skintimer, Autoplay trailer timer started, 1000)</onstart>
         <onstop>Notification(skintimer, Autoplay trailer timer stopped, 1000)</onstop> -->
     </timer>
+    <timer>
+        <name>color_update_timer</name>
+        <description>Timer to force a color update (runs once)</description>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(color_update_timer),1)</stop>
+        <onstop condition="Control.HasFocus(50)">SetFocus(50)</onstop>
+        <!-- <onstop>Skin.SetString(ColorHasBeenUpdated,true)</onstop> -->
+        <!-- <onstart>Notification(skintimer, Force update timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, Force update timer stopped, 1000)</onstop> -->
+    </timer>
+    <timer>
+        <name>home_color_update_timer</name>
+        <description>Timer to force a color update on the home screen (runs once)</description>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(home_color_update_timer),1)</stop>
+        <onstop condition="Control.HasFocus(9000)">SetFocus(9000)</onstop>
+        <onstop condition="Control.HasFocus(700)">SetFocus(700)</onstop>
+        <onstop condition="Control.HasFocus(733)">SetFocus(733)</onstop>
+        <!-- <onstop>Skin.SetString(ColorHasBeenUpdated,true)</onstop> -->
+        <!-- <onstart>Notification(skintimer, Force update home timer started, 1000)</onstart>
+        <onstop>Notification(skintimer, Force update home timer stopped, 1000)</onstop> -->
+    </timer>
     
 </timers>

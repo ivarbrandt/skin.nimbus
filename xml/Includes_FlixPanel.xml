@@ -308,9 +308,9 @@
 					<textcolor>unfocused_text</textcolor>
 					<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 					<visible>
-						String.IsEmpty(Skin.String(valid_api_key)) | 
+						!Player.HasMedia + 
 						[
-								![Player.HasMedia] + 
+								String.IsEmpty(Skin.String(valid_api_key)) | 
 								[
 										[String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
 										[String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
