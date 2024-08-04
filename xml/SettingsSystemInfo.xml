@@ -186,7 +186,7 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[130]" />
+			<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[130][/COLOR]" />
 		</include>
 		<include>BottomBar</include>
 		<control type="group">
@@ -221,7 +221,8 @@
 					<width>730</width>
 					<height>12</height>
 					<info>system.memory(used)</info>
-					<colordiffuse>unfocused_text</colordiffuse>
+					<colordiffuse>$VAR[MenuSelectorColor]</colordiffuse>
+					<!-- <midtexture colordiffuse="$VAR[MenuSelectorColor]">osd/Progress.png</midtexture> -->
 				</control>
 				<control type="label">
 					<description>CPU Text</description>

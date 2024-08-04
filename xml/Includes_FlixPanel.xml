@@ -61,7 +61,7 @@
 					<aligny>center</aligny>
 					<align>left</align>
 					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + $EXP[isContent] + !String.IsEmpty(ListItem.Genre)</visible>
-					<control type="togglebutton">
+					<!-- <control type="togglebutton">
 						<left>50</left>
 						<width>auto</width>
 						<top>56</top>
@@ -73,9 +73,9 @@
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.Year][/LIGHT]</label>
+						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.Premiered][/LIGHT]</label>
 						<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.year) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isTVShow]]</visible>
-					</control>
+					</control> -->
 					<control type="togglebutton">
 						<left>50</left>
 						<width>auto</width>
@@ -89,7 +89,7 @@
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
 						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.Premiered][/LIGHT]</label>
-						<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + $EXP[isEpisode]</visible>
+						<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + $EXP[isContent]</visible>
 					</control>
 					<control type="togglebutton">
 						<left>50</left>
@@ -247,7 +247,7 @@
 						<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isSeason]]"/>
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ]"/>
 					</include> -->
-					<control type="group">
+					<!-- <control type="group">
 						<control type="image">
 							<top>-4</top>
 							<left>-12</left>
@@ -259,7 +259,7 @@
 							<visible>true</visible>
 							<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
 						</control>
-					</control>
+					</control> -->
 				</control>
 				<control type="textbox" id="15500">
 					<height>237</height>
@@ -281,12 +281,12 @@
 					<visible>
 						![String.IsEmpty(Skin.String(valid_api_key)) | Player.HasMedia] + 
 						[
-								[!String.IsEmpty(Window.Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
 						]
 					</visible>
 				</control>
@@ -312,12 +312,12 @@
 						[
 								String.IsEmpty(Skin.String(valid_api_key)) | 
 								[
-										[String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
-										[String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
-										[String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
-										[String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
-										[String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
-										[String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
+										[String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
+										[String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
+										[String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
+										[String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
+										[String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
+										[String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
 								]
 						]
 					</visible>
@@ -337,12 +337,12 @@
 				!String.IsEmpty(ListItem.Genre) + 
 				$EXP[isContent] + 
 				[
-						[!String.IsEmpty(Window.Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
-						[!String.IsEmpty(Window.Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
-						[!String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
-						[!String.IsEmpty(Window.Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
-						[!String.IsEmpty(Window.Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
-						[!String.IsEmpty(Window.Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+						[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+						[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+						[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+						[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+						[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+						[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
 				]
 			</visible>
 			<control type="grouplist">
@@ -350,21 +350,21 @@
 				<orientation>horizontal</orientation>
 				<itemgap>5</itemgap>
 				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+				<visible>![String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
 				<control type="image">
 					<width>50</width>
 					<height>38</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.metascoreImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
 					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.metascore)]%</label>
+					<label>$INFO[Window(Home).Property(nimbus.metascore)]%</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -374,21 +374,21 @@
 				<orientation>horizontal</orientation>
 				<itemgap>5</itemgap>
 				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+				<visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
 				<control type="image">
 					<width>50</width>
 					<height>38</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
 					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
+					<label>$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -398,21 +398,21 @@
 				<orientation>horizontal</orientation>
 				<itemgap>2</itemgap>
 				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+				<visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
 				<control type="image">
 					<width>45</width>
 					<height>38</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="80">auto</width>
 					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
+					<label>$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -422,21 +422,21 @@
 				<orientation>horizontal</orientation>
 				<itemgap>5</itemgap>
 				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+				<visible>![String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
 				<control type="image">
 					<width>74</width>
 					<height>38</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.imdbImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.imdbImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
 					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
+					<label>$INFO[Window(Home).Property(nimbus.imdbRating)]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -446,21 +446,21 @@
 				<orientation>horizontal</orientation>
 				<itemgap>8</itemgap>
 				<align>left</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+				<visible>![String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
 				<control type="image">
 					<width>29</width>
 					<height>35</height>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.popularImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.popularImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="87">auto</width>
 					<height>38</height>
 					<align>left</align>
 					<aligny>center</aligny>
-					<label>$INFO[Window.Property(nimbus.popularRating)]</label>
+					<label>$INFO[Window(Home).Property(nimbus.popularRating)]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
@@ -470,20 +470,20 @@
 				<orientation>horizontal</orientation>
 				<itemgap>12</itemgap>
 				<align>right</align>
-				<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+				<visible>![String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
 				<control type="image">
 					<top>-3</top>
 					<width>60</width>
 					<aspectratio>keep</aspectratio>
 					<align>left</align>
 					<aligny>center</aligny>
-					<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+					<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tmdbImage)]</texture>
 				</control>
 				<control type="label">
 					<width max="60">auto</width>
 					<height>38</height>
 					<align>left</align>
-					<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
+					<label>$INFO[Window(Home).Property(nimbus.tmdbRating)]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>

@@ -15,8 +15,8 @@
 				<width>700</width>
 				<height>80</height>
 				<label>$INFO[Skin.String(ListArtworkChoice.)]</label>
-			</control>
-			<control type="label">
+			</control> -->
+			<!-- <control type="label">
 				<left>300</left>
 				<top>150</top>
 				<width>700</width>
@@ -48,7 +48,7 @@
 							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
 							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
 							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] |
+							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
 							[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
 							[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
 					]
@@ -74,12 +74,12 @@
 							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
 					] +
 					[
-							[String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
-							[String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
-							[String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
-							[String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
-							[String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
-							[String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
+							[String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
+							[String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
+							[String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
+							[String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
+							[String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
+							[String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
 					]" 
 					reversible="true">
 					<effect type="slide" start="0,0" end="100,0" delay="200" time="500" tween="cubic" easing="inout" />
@@ -107,7 +107,7 @@
 							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
 							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
 							[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
 							[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 					]
@@ -222,21 +222,21 @@
 						<orientation>horizontal</orientation>
 						<itemgap>5</itemgap>
 						<align>left</align>
-						<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
 						<control type="image">
 							<width>50</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<align>left</align>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.metascoreImage)]</texture>
 						</control>
 						<control type="label">
 							<width max="80">auto</width>
 							<height>38</height>
 							<align>left</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.metascore)]%</label>
+							<label>$INFO[Window(Home).Property(nimbus.metascore)]%</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -246,21 +246,21 @@
 						<orientation>horizontal</orientation>
 						<itemgap>5</itemgap>
 						<align>left</align>
-						<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
 						<control type="image">
 							<width>50</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<align>left</align>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoImage)]</texture>
 						</control>
 						<control type="label">
 							<width max="80">auto</width>
 							<height>38</height>
 							<align>left</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
+							<label>$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -270,21 +270,21 @@
 						<orientation>horizontal</orientation>
 						<itemgap>2</itemgap>
 						<align>left</align>
-						<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
 						<control type="image">
 							<width>45</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<align>left</align>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</texture>
 						</control>
 						<control type="label">
 							<width max="80">auto</width>
 							<height>38</height>
 							<align>left</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
+							<label>$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -294,21 +294,21 @@
 						<orientation>horizontal</orientation>
 						<itemgap>5</itemgap>
 						<align>left</align>
-						<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
 						<control type="image">
 							<width>74</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<align>left</align>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.imdbImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.imdbImage)]</texture>
 						</control>
 						<control type="label">
 							<width max="60">auto</width>
 							<height>38</height>
 							<align>left</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
+							<label>$INFO[Window(Home).Property(nimbus.imdbRating)]</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -318,21 +318,21 @@
 						<orientation>horizontal</orientation>
 						<itemgap>8</itemgap>
 						<align>left</align>
-						<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
 						<control type="image">
 							<width>29</width>
 							<height>35</height>
 							<aspectratio>keep</aspectratio>
 							<align>left</align>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.popularImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.popularImage)]</texture>
 						</control>
 						<control type="label">
 							<width max="87">auto</width>
 							<height>38</height>
 							<align>left</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.popularRating)]</label>
+							<label>$INFO[Window(Home).Property(nimbus.popularRating)]</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -342,38 +342,39 @@
 						<orientation>horizontal</orientation>
 						<itemgap>12</itemgap>
 						<align>right</align>
-						<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
 						<control type="image">
 							<top>-3</top>
 							<width>60</width>
 							<aspectratio>keep</aspectratio>
 							<align>left</align>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tmdbImage)]</texture>
 						</control>
 						<control type="label">
 							<width max="60">auto</width>
 							<height>38</height>
 							<align>left</align>
-							<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
+							<label>$INFO[Window(Home).Property(nimbus.tmdbRating)]</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
 					</control>
-					<control type="grouplist">
+					<!-- <control type="grouplist">
 						<width>80</width>
 						<orientation>horizontal</orientation>
 						<itemgap>12</itemgap>
 						<align>right</align>
 						<visible>
 							Skin.HasSetting(Enable.StudioLogos) + 
+							!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio) + 
 							[
-									[!String.IsEmpty(Window.Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
-									[!String.IsEmpty(Window.Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
-									[!String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
-									[!String.IsEmpty(Window.Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
-									[!String.IsEmpty(Window.Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
-									[!String.IsEmpty(Window.Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+									[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
 							]
 						</visible>
 						<control type="image">
@@ -384,13 +385,13 @@
 							<aligny>center</aligny>
 							<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
 						</control>
-					</control>
+					</control> -->
 				</control>
 				<control type="grouplist">
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<width>150</width>
 					<left>835</left>
-					<bottom>75</bottom>
+					<top>80</top>
 					<height>915</height>
 					<orientation>vertical</orientation>
 					<itemgap>33</itemgap>
@@ -410,14 +411,14 @@
 					<control type="group">
 						<width>150</width>
 						<height>38</height>
-						<visible>![String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
 						<control type="image">
 							<left>0</left>
 							<width>50</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.metascoreImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.metascoreImage)]</texture>
 						</control>
 						<control type="label">
 							<right>0</right>
@@ -425,7 +426,7 @@
 							<height>38</height>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.metascore)]%</label>
+							<label>$INFO[Window(Home).Property(nimbus.metascore)]%</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -433,14 +434,14 @@
 					<control type="group">
 						<width>150</width>
 						<height>38</height>
-						<visible>![String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
 						<control type="image">
 							<left>0</left>
 							<width>50</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoImage)]</texture>
 						</control>
 						<control type="label">
 							<right>0</right>
@@ -448,7 +449,7 @@
 							<height>38</height>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.tomatoMeter)]%</label>
+							<label>$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -456,14 +457,14 @@
 					<control type="group">
 						<width>150</width>
 						<height>38</height>
-						<visible>![String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
 						<control type="image">
 							<left>0</left>
 							<width>45</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tomatoUserImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</texture>
 						</control>
 						<control type="label">
 							<right>0</right>
@@ -471,7 +472,7 @@
 							<height>38</height>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.tomatoUserMeter)]%</label>
+							<label>$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -479,14 +480,14 @@
 					<control type="group">
 						<width>150</width>
 						<height>38</height>
-						<visible>![String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
 						<control type="image">
 							<left>0</left>
 							<width>74</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.imdbImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.imdbImage)]</texture>
 						</control>
 						<control type="label">
 							<right>0</right>
@@ -494,7 +495,7 @@
 							<height>38</height>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.imdbRating)]</label>
+							<label>$INFO[Window(Home).Property(nimbus.imdbRating)]</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -502,14 +503,14 @@
 					<control type="group">
 						<width>150</width>
 						<height>38</height>
-						<visible>![String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
 						<control type="image">
 							<left>0</left>
 							<width>29</width>
 							<height>35</height>
 							<aspectratio>keep</aspectratio>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.popularImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.popularImage)]</texture>
 						</control>
 						<control type="label">
 							<right>0</right>
@@ -517,7 +518,7 @@
 							<height>38</height>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.popularRating)]</label>
+							<label>$INFO[Window(Home).Property(nimbus.popularRating)]</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
@@ -525,14 +526,14 @@
 					<control type="group">
 						<width>150</width>
 						<height>38</height>
-						<visible>![String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
 						<control type="image">
 							<left>0</left>
 							<width>60</width>
 							<height>38</height>
 							<aspectratio>keep</aspectratio>
 							<aligny>center</aligny>
-							<texture colordiffuse="artwork_dim">$INFO[Window.Property(nimbus.tmdbImage)]</texture>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tmdbImage)]</texture>
 						</control>
 						<control type="label">
 							<right>0</right>
@@ -540,14 +541,14 @@
 							<height>38</height>
 							<align>right</align>
 							<aligny>center</aligny>
-							<label>$INFO[Window.Property(nimbus.tmdbRating)]</label>
+							<label>$INFO[Window(Home).Property(nimbus.tmdbRating)]</label>
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
 					</control>
-					<control type="label">
+					<!-- <control type="label">
 						<width>1</width>
-						<height>-50</height>  <!-- Adjust this value to fine-tune spacing -->
+						<height>-50</height>
 						<label></label>
 					</control>
 					<control type="image">
@@ -559,16 +560,17 @@
 						<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
 						<visible>
 							Skin.HasSetting(Enable.StudioLogos) + 
+							!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio) + 
 							[
-								[!String.IsEmpty(Window.Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
-								[!String.IsEmpty(Window.Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
 							]
 						</visible>
-					</control>
+					</control> -->
 				</control>
 				<include content="ListContainer">
 					<param name="list_id" value="50" />
@@ -621,7 +623,7 @@
 								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
 								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
-								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | 
+								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
 								[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
 							]">Conditional</animation>
 							<!-- Animation for left-side scrollbar -->
@@ -635,16 +637,16 @@
 								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
 								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
-								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | 
+								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
 								[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
 							]">Conditional</animation>
-							<animation type="Conditional" condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">
+							<animation type="Conditional" condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">
 								<effect type="slide" start="0,0" end="-1927,0" time="0" />
 							</animation>
-							<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onleft>
-							<onright condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
-							<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
-							<onright condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
+							<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onleft>
+							<onright condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
+							<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
+							<onright condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
 					</control>
 				</control>
 			</control>
@@ -762,12 +764,12 @@
 						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
 					] +
 					[
-						[String.IsEmpty(Window.Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
-						[String.IsEmpty(Window.Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
-						[String.IsEmpty(Window.Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
-						[String.IsEmpty(Window.Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
-						[String.IsEmpty(Window.Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
-							[String.IsEmpty(Window.Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
+						[String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
+							[String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
 					]" 
 					reversible="true">
 					<effect type="slide" start="0,0" end="-100,0" delay="200" time="500" tween="cubic" easing="inout" />
@@ -780,6 +782,8 @@
 							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
 							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]
 						]] |
+						[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
+						[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
 						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
 						[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 					]" reversible="false">
@@ -792,7 +796,7 @@
 					<width>810</width>
 					<label>$VAR[ListLandscapeHeaderVar]</label>
 					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
+					<textcolor>$VAR[MenuSelectorColor]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>left</align>
 				</control>
@@ -804,35 +808,55 @@
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
 					<orientation>vertical</orientation>
 					<pagecontrol>50600</pagecontrol>
-					<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
-					<onright condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onright>
-					<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onleft>
-					<onright condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onright>
+					<!-- LANDSCAPE + POSTER -->
+					<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
+							<!-- ONRIGHT SCROLLBAR -->
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),0) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content()]">50600</onright>
+							<!-- ONRIGHT TRAILER -->
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$VAR[AutoplayTrailerSource]</onright>
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">Skin.SetString(TrailerPlaying, true)</onright>
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content()]">50600</onright>
+							<!-- ONRIGHT INFORMATION -->
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),2) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">info</onright>
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),2) + [Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content()]">50600</onright>
+
+
+					<!-- FANART -->
+					<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onleft>
+							<!-- ONRIGHT SCROLLBAR -->
+							<!-- <onright condition="String.IsEqual(Skin.String(OnRightSetting),0) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onright> -->
+							<!-- ONRIGHT TRAILER -->
+							<!-- <onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]">$VAR[AutoplayTrailerSource]</onright>
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + String.IsEmpty(TrailerPlaying) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]">Skin.SetString(TrailerPlaying, true)</onright>
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onright> -->
+							<!-- ONRIGHT INFORMATION -->
+							<!-- <onright condition="String.IsEqual(Skin.String(OnRightSetting),2) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]">info</onright>
+							<onright condition="String.IsEqual(Skin.String(OnRightSetting),2) + [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onright> -->
 					<onup>$PARAM[list_id]</onup>
 					<ondown>$PARAM[list_id]</ondown>
 					<width>1950</width>
 					<viewtype label="$PARAM[viewtype_label]">list</viewtype>
-					<!-- <onunfocus>Skin.Reset(ColorUpdatePerformed)</onunfocus> -->
-					<!-- <onfocus>Skin.TimerStart(color_update_timer)</onfocus> -->
-					<!-- <onfocus>AlarmClock(ColorUpdate,SetFocus(50),00:00:06)</onfocus> -->
-					<!-- <visible>Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)</visible> -->
-					<!-- <visible>[Container.Content(artists) + [String.IsEqual(Skin.String(Skin.ForcedView.artists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.artists))]] | [Container.Content(albums) + [String.IsEqual(Skin.String(Skin.ForcedView.albums),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.albums))]] | [Container.Content(sets) + [String.IsEqual(Skin.String(Skin.ForcedView.sets),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.sets))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | [Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(images) + [String.IsEqual(Skin.String(Skin.ForcedView.images),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.images))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]]</visible> -->
-					<visible>[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | [Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | [Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | [Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | [Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | [ !Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres) ]</visible>
-					<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(videos)" height="210" width="610">
-						<include>ForceColorUpdate</include>
-						<include content="ForceColorUpdateLayoutID">
-							<param name="layout_id" value="1"/>
-						</include>
+					<visible>[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | [Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | [Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | [Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | [Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | [ !Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres)]</visible>
+					<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(videos)" height="210" width="610" infoupdate="30">
 						<control type="image">
 							<top>-4</top>
-							<bottom>3</bottom>
+							<bottom>7</bottom>
 							<width>5</width>
 							<left>10</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
-							<visible>Control.HasFocus(50) + !Control.HasFocus(50600)</visible>
-							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus(50)">Conditional</animation>
+							<visible>$EXP[isContent] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
+							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 						</control>
-						<!-- <control type="label">
+						<control type="image">
+							<top>-4</top>
+							<height>61</height>
+							<width>5</width>
+							<left>10</left>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
+							<visible>!$EXP[isContent] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
+							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+						</control>
+						<control type="label">
 							<left>70</left>
 							<width>810</width>
 							<centertop>13%</centertop>
@@ -843,8 +867,8 @@
 							<font>font36_title</font>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
-						</control> -->
-						<control type="textbox">
+						</control>
+						<!-- <control type="textbox">
 							<left>70</left>
 							<width>810</width>
 							<centertop>13%</centertop>
@@ -854,7 +878,7 @@
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="3000" time="3000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
+						</control> -->
 						<control type="label">
 							<left>33</left>
 							<width>810</width>
@@ -863,9 +887,9 @@
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>300</scrollspeed>
-							<font>font27</font>
+							<font>font23</font>
 							<label>$VAR[InfoPanelTop]</label>
-							<textcolor>unfocused_text</textcolor>
+							<textcolor>$VAR[MenuSelectorColor]</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="textbox">
@@ -874,11 +898,11 @@
 							<width>810</width>
 							<bottom>13</bottom>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font23</font>
 							<label>$VAR[InfoPanelBottom]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
-							<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+							<autoscroll delay="7000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 						</control>
 						<control type="image">
 							<left>33</left>
@@ -918,19 +942,17 @@
 							<texture colordiffuse="darkgrey">$VAR[ListWatchedIconVar]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)" height="67" width="610">
-						<include condition="Skin.HasSetting(Enable.BackgroundBlur)" content="PassiveForceColorUpdate">
-							<param name="layout_id" value="2"/>
-						</include>
+					<focusedlayout condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)" height="67" width="610" infoupdate="300">
 						<control type="image">
 							<top>-4</top>
 							<bottom>3</bottom>
 							<width>5</width>
 							<left>10</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
-							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(50)">Conditional</animation>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 						</control>
-						<!-- <control type="label">
+						<control type="label">
 							<left>29</left>
 							<width>844</width>
 							<top>0</top>
@@ -941,8 +963,8 @@
 							<font>font36_title</font>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
-						</control> -->
-						<control type="textbox">
+						</control>
+						<!-- <control type="textbox">
 							<left>29</left>
 							<width>844</width>
 							<centertop>50%</centertop>
@@ -952,7 +974,7 @@
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="3000" time="3000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
+						</control> -->
 					</focusedlayout>
 					<itemlayout condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)" height="67" width="610">
 						<control type="label">
@@ -967,19 +989,17 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610">
-						<include condition="Skin.HasSetting(Enable.BackgroundBlur)" content="PassiveForceColorUpdate">
-							<param name="layout_id" value="3"/>
-						</include>
+					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610" infoupdate="300">
 						<control type="image">
 							<top>-4</top>
 							<bottom>3</bottom>
 							<width>5</width>
 							<left>10</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
-							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(50)">Conditional</animation>
+							<visible>Control.HasFocus($PARAM[list_id])</visible>
+							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 						</control>
-						<!-- <control type="label">
+						<control type="label">
 							<left>29</left>
 							<width>844</width>
 							<top>0</top>
@@ -990,8 +1010,8 @@
 							<font>font36_title</font>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
-						</control> -->
-						<control type="textbox">
+						</control>
+						<!-- <control type="textbox">
 							<left>29</left>
 							<width>844</width>
 							<centertop>50%</centertop>
@@ -1001,7 +1021,7 @@
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="3000" time="3000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
+						</control> -->
 					</focusedlayout>
 					<itemlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610">
 						<control type="label">
@@ -1016,20 +1036,17 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)" height="210" width="610">
-						<include>ForceColorUpdate</include>
-						<include content="ForceColorUpdateLayoutID">
-							<param name="layout_id" value="4"/>
-						</include>
+					<focusedlayout condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)" height="210" width="610" infoupdate="30">
 						<control type="image">
 							<top>-4</top>
-							<bottom>3</bottom>
+							<bottom>7</bottom>
 							<width>5</width>
 							<left>10</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
-							<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(50)">Conditional</animation>
+							<visible>Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
+							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 						</control>
-						<!-- <control type="label">
+						<control type="label">
 							<left>79</left>
 							<width>700</width>
 							<centertop>13%</centertop>
@@ -1040,8 +1057,8 @@
 							<font>font36_title</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
-						</control> -->
-						<control type="textbox">
+						</control>
+						<!-- <control type="textbox">
 							<left>79</left>
 							<width>700</width>
 							<centertop>13%</centertop>
@@ -1051,8 +1068,8 @@
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="3000" time="3000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
-						<!-- <control type="label">
+						</control> -->
+						<control type="label">
 							<left>33</left>
 							<width>810</width>
 							<centertop>33%</centertop>
@@ -1060,12 +1077,12 @@
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>300</scrollspeed>
-							<font>font27</font>
+							<font>font23</font>
 							<label>$VAR[AddonsLabel2Var]</label>
-							<textcolor>unfocused_text</textcolor>
+							<textcolor>$VAR[MenuSelectorColor]</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
-						</control> -->
-						<control type="textbox">
+						</control>
+						<!-- <control type="textbox">
 							<left>33</left>
 							<width>810</width>
 							<centertop>33%</centertop>
@@ -1076,14 +1093,14 @@
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="3000" time="3000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
-						</control>
+						</control> -->
 						<control type="textbox">
 							<top>97</top>
 							<left>33</left>
 							<width>810</width>
 							<bottom>13</bottom>
 							<aligny>center</aligny>
-							<font>font27</font>
+							<font>font23</font>
 							<label>$VAR[ListBoxInfoVar]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>

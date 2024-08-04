@@ -227,7 +227,7 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[10034]" />
+			<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[10034][/COLOR]" />
 		</include>
 		<include>BottomBar</include>
 	</controls>

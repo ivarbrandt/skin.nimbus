@@ -201,10 +201,14 @@
 		<value>DefaultStudios.png</value>
 	</variable>
 	<variable name="AddonsLabel2Var">
-		<value condition="ListItem.Property(addon.downloading)">$INFO[ListItem.Property(addon.status)]</value>
-		<value condition="!Container.SortMethod(1)">$INFO[ListItem.Label2]</value>
-		<value condition="String.IsEqual(ListItem.Path,addons://all/)">$INFO[ListItem.AddonOrigin,, - ]$INFO[ListItem.AddonVersion]</value>
-		<value>$INFO[ListItem.AddonCreator,, - ]$INFO[ListItem.AddonVersion]</value>
+    <value condition="ListItem.Property(addon.downloading)">[COLOR unfocused_text]$INFO[ListItem.Property(addon.status)][/COLOR]</value>
+    <value condition="!Container.SortMethod(1)">$INFO[ListItem.Label2]</value>
+    <value condition="String.IsEqual(ListItem.Path,addons://all/) + !String.IsEmpty(ListItem.AddonOrigin) + !String.IsEmpty(ListItem.AddonVersion)">[COLOR unfocused_text]$INFO[ListItem.AddonOrigin][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonCreator) + !String.IsEmpty(ListItem.AddonVersion)">[COLOR unfocused_text]$INFO[ListItem.AddonCreator][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonOrigin)">[COLOR unfocused_text]$INFO[ListItem.AddonOrigin][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonCreator)">[COLOR unfocused_text]$INFO[ListItem.AddonCreator][/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonVersion)">[COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR]</value>
+    <value></value>
 	</variable>
 	<variable name="RatingSettingLabel2Var">
 		<value condition="Skin.HasSetting(circle_rating)">$LOCALIZE[563]</value>
@@ -472,32 +476,32 @@
   </variable>
 	<!-- Breadcrumbs -->
 	<variable name="BreadcrumbsVideoVar">
-		<value condition="Container.Content(movies) | String.StartsWith(container.folderpath,library://video/movies/) | String.StartsWith(container.folderpath,videodb://movies)">$LOCALIZE[20342]</value>
-		<value condition="Container.Content(musicvideos) | String.StartsWith(container.folderpath,library://video/musicvideos/) | String.StartsWith(container.folderpath,videodb://musicvideos)">$LOCALIZE[20389]</value>
-		<value condition="Container.Content(tvshows) | String.StartsWith(container.folderpath,library://video/tvshows/) | String.StartsWith(container.folderpath,videodb://tvshows)">TV Shows</value>
-		<value condition="Container.Content(seasons)">TV Shows</value>
-		<value condition="Container.Content(episodes)">TV Shows</value>
-		<value>$LOCALIZE[3]</value>
+		<value condition="Container.Content(movies) | String.StartsWith(container.folderpath,library://video/movies/) | String.StartsWith(container.folderpath,videodb://movies)">[COLOR unfocused_text]$LOCALIZE[20342][/COLOR]</value>
+		<value condition="Container.Content(musicvideos) | String.StartsWith(container.folderpath,library://video/musicvideos/) | String.StartsWith(container.folderpath,videodb://musicvideos)">[COLOR unfocused_text]$LOCALIZE[20389][/COLOR]</value>
+		<value condition="Container.Content(tvshows) | String.StartsWith(container.folderpath,library://video/tvshows/) | String.StartsWith(container.folderpath,videodb://tvshows)">[COLOR unfocused_text]TV Shows[/COLOR]</value>
+		<value condition="Container.Content(seasons)">[COLOR unfocused_text]TV Shows[/COLOR]</value>
+		<value condition="Container.Content(episodes)">[COLOR unfocused_text]TV Shows[/COLOR]</value>
+		<value>[COLOR unfocused_text]$LOCALIZE[3][/COLOR]</value>
 	</variable>
-	<variable name="BreadcrumbsPVRChannelsVar">
+	<!-- <variable name="BreadcrumbsPVRChannelsVar">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[BreadcrumbsPVRChannels.NoBlur]</value>
 		<value>$VAR[BreadcrumbsPVRChannels.Blur]</value>
-	</variable>
+	</variable> -->
 	<variable name="BreadcrumbsPVRChannels.NoBlur">
 		<value condition="Window.IsActive(TVChannels)">$LOCALIZE[19020] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR accent_color][B]»[/B][/COLOR] $INFO[Control.GetLabel(29)]</value>
 		<value>$LOCALIZE[19021] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR accent_color][B]»[/B][/COLOR] $INFO[Control.GetLabel(29)]</value>
 	</variable>
-	<variable name="BreadcrumbsPVRChannels.Blur">
-		<value condition="Window.IsActive(TVChannels)">$LOCALIZE[19020] [COLOR unfocused_text][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR unfocused_text][B]»[/B][/COLOR] $INFO[Control.GetLabel(29)]</value>
-		<value>$LOCALIZE[19021] [COLOR unfocused_text][B]»[/B][/COLOR] $LOCALIZE[19019] [COLOR unfocused_text][B]»[/B][/COLOR] $INFO[Control.GetLabel(29)]</value>
+	<variable name="BreadcrumbsPVRChannelsVar">
+		<value condition="Window.IsActive(TVChannels)">[COLOR unfocused_text]$LOCALIZE[19020][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[Control.GetLabel(29)][/COLOR]</value>
+		<value>[COLOR unfocused_text]$LOCALIZE[19021][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19019][/COLOR] [B]»[/B] [COLOR unfocused_text]$INFO[Control.GetLabel(29)][/COLOR]</value>
 	</variable>
-	<variable name="BreadcrumbsPVRGuideVar">
+	<!-- <variable name="BreadcrumbsPVRGuideVar">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[BreadcrumbsPVRGuide.NoBlur]</value>
 		<value>$VAR[BreadcrumbsPVRGuide.Blur]</value>
-	</variable>
-	<variable name="BreadcrumbsPVRGuide.NoBlur">
-		<value condition="Window.IsActive(TVGuide)">$LOCALIZE[19020] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[19069]</value>
-		<value>$LOCALIZE[19021] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[19069]</value>
+	</variable> -->
+	<variable name="BreadcrumbsPVRGuideVar">
+		<value condition="Window.IsActive(TVGuide)">[COLOR unfocused_text]$LOCALIZE[19020][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19069][/COLOR]</value>
+		<value>[COLOR unfocused_text]$LOCALIZE[19021][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[19069][/COLOR]</value>
 	</variable>
 	<variable name="BreadcrumbsPVRGuide.NoBlur">
 		<value condition="Window.IsActive(TVGuide)">$LOCALIZE[19020] [COLOR accent_color][B]»[/B][/COLOR] $LOCALIZE[19069]</value>

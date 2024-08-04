@@ -753,8 +753,8 @@
 				<top>100</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[MenuSelectorColor]">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[MenuSelectorColor]">overlays/arrowdown1.png</texturenofocus>
 				<visible>Integer.IsGreater(Skin.Numeric(TotalWidgetCount),Container($PARAM[container_id]).Position) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -764,8 +764,8 @@
 				<top>89</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[MenuSelectorColor]" flipy="true">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[MenuSelectorColor]" flipy="true">overlays/arrowdown1.png</texturenofocus>
 				<visible>!String.IsEqual(Container($PARAM[container_id]).Position,1) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -775,8 +775,8 @@
 				<top>89</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[FocusedColorVar]">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[MenuSelectorColor]">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[MenuSelectorColor]">overlays/arrowdown1.png</texturenofocus>
 				<visible>String.IsEqual(Container($PARAM[container_id]).Position,1) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -786,8 +786,8 @@
 				<top>100</top>
 				<width>33</width>
 				<height>33</height>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[FocusedColorVar]" flipy="true">overlays/arrowdown1.png</texturenofocus>
+				<texturefocus colordiffuse="$VAR[MenuSelectorColor]" flipy="true">overlays/arrowdown1.png</texturefocus>
+				<texturenofocus colordiffuse="$VAR[MenuSelectorColor]" flipy="true">overlays/arrowdown1.png</texturenofocus>
 				<visible>Integer.IsEqual(Container($PARAM[container_id]).Position,Skin.Numeric(TotalWidgetCount)) + Control.IsVisible($PARAM[container_id])</visible>
 				<visible>$PARAM[visible]</visible>
 			</control>
@@ -1085,8 +1085,8 @@
 						<width>auto</width>
 						<aligny>center</aligny>
 						<align>right</align>
-						<label>$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]  • </label>
-						<textcolor>unfocused_text</textcolor>
+						<label>[COLOR unfocused_text]$INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits][/COLOR]  • </label>
+						<textcolor>$VAR[MenuSelectorColor]</textcolor>
 						<visible>Skin.HasSetting(show_weatherinfo) + Weather.IsFetched + ![String.IsEqual(Weather.FanartCode,na)]</visible>
 					</control>
 					<control type="label">
@@ -1180,13 +1180,13 @@
 			<visible>!String.IsEmpty(Container.ShowTitle) + !String.IsEqual(Container.ShowTitle,Container.FolderName)</visible>
 		</control>
 		<control type="label">
-			<label>$INFO[Container.FolderName, [B]»[/B] ]</label>
+			<label> [B]»[/B] [COLOR unfocused_text]$INFO[Container.FolderName][/COLOR]</label>
 			<include>BreadcrumbsLabel</include>
 			<visible>![Container.Content()]</visible>
 			<visible>![Window.IsActive(MyPVRChannels.xml) | Window.IsActive(MyPVRTimers.xml) | Window.IsActive(MyPVRRecordings.xml) | Window.IsActive(MyPVRSearch.xml) | Window.IsActive(MyVideoNav.xml)]</visible>
 		</control>
 		<control type="label">
-			<label>$INFO[Container.PluginCategory, [B]»[/B] ]</label>
+			<label> [B]»[/B] [COLOR unfocused_text]$INFO[Container.PluginCategory][/COLOR]</label>
 			<include>BreadcrumbsLabel</include>
 			<visible>!String.isempty(Container.PluginCategory)</visible>
 		</control>
@@ -1204,7 +1204,7 @@
 	</include>
 	<include name="BreadcrumbsLabel">
 		<font>font45</font>
-		<textcolor>unfocused_text</textcolor>
+		<textcolor>$VAR[MenuSelectorColor]</textcolor>
 		<shadowcolor>text_shadow</shadowcolor>
 		<top>7</top>
 		<height>100</height>
@@ -1278,7 +1278,8 @@
 										[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 										[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
 										[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
-										[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] |
+										[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
+										[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
 										[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
 									]
 								] | Control.IsVisible(500) | Control.IsVisible(501) | 
@@ -1488,7 +1489,7 @@
 						<height>36</height>
 						<animation effect="rotate" end="-90" center="auto" time="200" reversible="true" condition="Control.IsVisible(51) | Control.IsVisible(53)">Conditional</animation>
 						<texturefocus colordiffuse="button_focus">frame/menu-nofo.png</texturefocus>
-						<texturenofocus colordiffuse="FFCCCCCC">frame/menu-nofo.png</texturenofocus>
+						<texturenofocus colordiffuse="unfocused_text">frame/menu-nofo.png</texturenofocus>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<onclick>SetFocus(9000)</onclick>
 						<visible>!Control.IsVisible(6160)</visible>
@@ -1499,7 +1500,7 @@
 						<width>36</width>
 						<height>36</height>
 						<texturefocus colordiffuse="button_focus">icons/menu.png</texturefocus>
-						<texturenofocus colordiffuse="FFCCCCCC">icons/menu.png</texturenofocus>
+						<texturenofocus colordiffuse="unfocused_text">icons/menu.png</texturenofocus>
 						<animation effect="fade" time="200">VisibleChange</animation>
 						<onclick>SetFocus(9000)</onclick>
 						<visible>Window.IsActive(MyPVRGuide.xml)</visible>
@@ -1878,7 +1879,7 @@
 					<height>400</height>
 					<label>$INFO[ListItem.Label]</label>
 					<font>font27</font>
-					<textcolor>FFCCCCCC</textcolor>
+					<textcolor>unfocused_text</textcolor>
 					<align>center</align>
 				</control>
 			</control>
@@ -1912,9 +1913,9 @@
 		</control>
 	</include> -->
 	
-	<include name="MiniMenuLabels">
+	<include name="MiniMenu700Labels">
 		<control type="label">
-			<visible>$PARAM[visible]</visible>
+			<visible>Control.HasFocus(700)</visible>
 			<include>MiniMenuAnimations</include>
 			<top>$PARAM[top]</top>
 			<left>90</left>
@@ -1922,7 +1923,22 @@
 			<aligny>center</aligny>
 			<height>98</height>
 			<font>font32_title</font>
-			<label>$PARAM[label]</label>
+			<label>$VAR[MiniMenuCase700Var]</label>
+			<textcolor>$VAR[FocusedColorVar]</textcolor>
+		</control>
+	</include>
+
+	<include name="MiniMenu733Labels">
+		<control type="label">
+			<visible>Control.HasFocus(733)</visible>
+			<include>MiniMenuAnimations</include>
+			<top>$PARAM[top]</top>
+			<left>90</left>
+			<width>820</width>
+			<aligny>center</aligny>
+			<height>98</height>
+			<font>font32_title</font>
+			<label>$VAR[MiniMenuCase733Var]</label>
 			<textcolor>$VAR[FocusedColorVar]</textcolor>
 		</control>
 	</include>
@@ -1947,10 +1963,19 @@
 		</control>
 	</include> -->
 
-	<include name="TrailerControl">
+	<!-- <include name="TrailerControl">
     <control type="button">
 			<visible>false</visible>
 			<onfocus condition="!Player.HasMedia + String.IsEqual(Skin.String(trailerSetting),2) + String.IsEmpty(Skin.String(TrailerPlaying))">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
+			<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
+    </control>
+	</include> -->
+
+	<include name="TrailerControl">
+    <control type="button">
+			<visible>false</visible>
+			<onfocus condition="String.IsEqual(Skin.String(trailerSetting),2)">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
 			<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
 			<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
     </control>
@@ -1982,33 +2007,6 @@
 			<visible>false</visible>
 			<onfocus>ClearProperty(LandscapeWidgetFocused,Home)</onfocus>
 		</control>
-	</include>
-			
-	<include name="ForceColorUpdate">
-		<control type="button">
-			<visible>false</visible>
-			<onfocus condition="Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + !$EXP[infodialog_active]">SetFocus(50)</onfocus>
-		</control>
-	</include>
-
-	<include name="ForceColorUpdateLayoutID">
-		<control type="button">
-			<visible>false</visible>
-			<onfocus>Skin.SetString(LastFocusedLayout,$PARAM[layout_id])</onfocus>
-		</control>
-	</include>
-
-	<include name="PassiveForceColorUpdate">
-    <param name="prefix" default=""/>
-    <param name="timer_name" default="color_update_timer"/>
-    <definition>
-			<control type="button">
-				<visible>false</visible>
-				<onfocus>SetProperty($PARAM[prefix]LastFocusedColor,$INFO[Window(home).Property(listitem_color)],home)</onfocus>
-				<onfocus condition="!String.IsEqual(Skin.String($PARAM[prefix]LastFocusedLayout),$PARAM[layout_id])">Skin.SetString($PARAM[prefix]LastFocusedLayout,$PARAM[layout_id])</onfocus>
-				<onfocus condition="String.IsEmpty(Window(home).Property(listitem_color)) | !String.IsEqual(Window(home).Property($PARAM[prefix]LastFocusedColor),Window(home).Property(listitem_color)) | !String.IsEqual(Skin.String($PARAM[prefix]LastFocusedLayout),$PARAM[layout_id])">Skin.TimerStart($PARAM[timer_name])</onfocus>
-			</control>
-    </definition>
 	</include>
 
 </includes>

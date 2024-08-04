@@ -21,13 +21,29 @@
       <texturenofocus/>
     </control>
     <control type="group">
+			<visible>Skin.HasSetting(Enable.BackgroundBlur) + !Player.HasMedia</visible>
+			<control type="image" id="100000">
+				<visible>false</visible>
+				<texture fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[FlixPosterVar]</texture>
+			</control>
+			<control type="image">
+				<fadetime>500</fadetime>
+				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
+				<depth>DepthBackground</depth>
+				<include>FullScreenDimensions</include>
+				<aspectratio>scale</aspectratio>
+				<texture colordiffuse="FF6E6E6E">$INFO[Window(home).Property(listitem_blurred)]</texture>
+			</control>
+		</control>
+    <control type="group">
       <animation type="WindowOpen">
-          <effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
+        <effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" />
       </animation>
       <animation type="WindowClose">
-          <effect type="fade" start="100" end="0" time="400" tween="sine" easing="inout" />
+        <effect type="fade" start="100" end="0" time="400" tween="sine" easing="inout" />
       </animation>
       <animation effect="fade" start="100" end="0" time="200" condition="Window.IsActive(DialogSelect.xml) | Window.IsActive(FileBrowser.xml)">Conditional</animation>
+      <!-- <visible>!Player.HasMedia</visible> -->
       <control type="image">
         <include>FullScreenDimensions</include>
         <aspectratio>stretch</aspectratio>
@@ -51,25 +67,30 @@
           <left>50</left>
           <width>370</width>
           <onleft>back</onleft>
-          <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),cast)">50</onright>
+          <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),cast)">SetFocus(50,0)</onright>
+          <onright condition="String.IsEqual(Container(20000).ListItem.Property(id),moreinfo)">SetFocus(53,0)</onright>
           <include content="List">
             <param name="id" value="20000" />
           </include>
           <content>
             <item>
               <visible>Control.IsVisible(8)</visible>
-              <label>208</label>
+              <label>$VAR[VideoInfoPlayButtonLabelVar]</label>
               <onclick>SendClick(8)</onclick>
             </item>
             <item>
               <visible>Control.IsVisible(11)</visible>
               <label>20410</label>
-              <!-- <onclick>RunScript(script.nimbus.helper, mode=play_trailer)</onclick> -->
-              <onclick>SendClick(11)</onclick>
+              <onclick>$VAR[AutoplayTrailerSource]</onclick>
+              <onclick>Dialog.Close(all)</onclick>
             </item>
             <item>
               <label>206</label>
               <property name="id">cast</property>
+            </item>
+            <item>
+              <label>Info</label>
+              <property name="id">moreinfo</property>
             </item>
             <item>
               <label>Art</label>
@@ -82,6 +103,20 @@
             </item>
           </content>
         </control>
+        <control type="image">
+          <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
+          <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
+          <width>520</width>
+          <height>780</height>
+          <top>160</top>
+          <bottom>0</bottom>
+          <right>120.5</right>
+          <aspectratio scalediffuse="false">scale</aspectratio>
+          <texture diffuse="masks/poster-big.png" colordiffuse="artwork_dim">$VAR[FlixPosterVar]</texture>
+          <bordersize>1</bordersize>
+          <bordertexture colordiffuse="FF5B5B5B" border="20" infill="false">masks/poster-big-border.png</bordertexture>
+          <visible>!String.IsEqual(Container(20000).ListItem.Property(id),cast)</visible>
+        </control>
         <control type="group">
           <visible>String.IsEmpty(Container(20000).ListItem.Property(id))</visible>
           <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
@@ -90,17 +125,6 @@
           <left>410</left>
           <bottom>160</bottom>
           <right>140</right>
-          <control type="image">
-            <width>520</width>
-            <height>780</height>
-            <top>0</top>
-            <bottom>0</bottom>
-            <right>-20</right>
-            <aspectratio scalediffuse="false">scale</aspectratio>
-            <texture diffuse="masks/poster-big.png" colordiffuse="artwork_dim">$VAR[FlixPosterVar]</texture>
-            <bordersize>1</bordersize>
-            <bordertexture colordiffuse="FF5B5B5B" border="20" infill="false">masks/poster-big-border.png</bordertexture>
-          </control>
           <control type="grouplist">
             <left>12.5</left>
             <width>780</width>
@@ -108,7 +132,7 @@
             <bottom>0</bottom>
             <orientation>vertical</orientation>
             <align>center</align>
-            <itemgap>10</itemgap>
+            <itemgap>7</itemgap>
             <control type="image">
               <!-- <width>780</width> -->
               <height>233</height>
@@ -146,14 +170,177 @@
               <aligny>center</aligny>
               <label>[I]$INFO[ListItem.Genre][/I]</label>
             </control>
+            <control type="grouplist">
+              <height>38</height>
+              <orientation>horizontal</orientation>
+              <itemgap>20</itemgap>
+              <aligny>center</aligny>
+              <align>center</align>
+              <visible>
+                !Player.HasMedia + 
+                !String.IsEmpty(ListItem.Genre) + 
+                $EXP[isContent] + 
+                [
+                    [!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+                    [!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+                    [!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+                    [!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+                    [!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+                    [!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+                ]
+              </visible>
+              <control type="grouplist">
+                <width>130</width>
+                <orientation>horizontal</orientation>
+                <itemgap>5</itemgap>
+                <align>left</align>
+                <visible>![String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)]</visible>
+                <control type="image">
+                  <width>50</width>
+                  <height>38</height>
+                  <aspectratio>keep</aspectratio>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.metascoreImage)]</texture>
+                </control>
+                <control type="label">
+                  <width max="80">auto</width>
+                  <height>38</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[Window(Home).Property(nimbus.metascore)]%</label>
+                  <font>font27</font>
+                  <textcolor>unfocused_text</textcolor>
+                </control>
+              </control>
+              <control type="grouplist">
+                <width>130</width>
+                <orientation>horizontal</orientation>
+                <itemgap>5</itemgap>
+                <align>left</align>
+                <visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)]</visible>
+                <control type="image">
+                  <width>50</width>
+                  <height>38</height>
+                  <aspectratio>keep</aspectratio>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoImage)]</texture>
+                </control>
+                <control type="label">
+                  <width max="80">auto</width>
+                  <height>38</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</label>
+                  <font>font27</font>
+                  <textcolor>unfocused_text</textcolor>
+                </control>
+              </control>
+              <control type="grouplist">
+                <width>130</width>
+                <orientation>horizontal</orientation>
+                <itemgap>2</itemgap>
+                <align>left</align>
+                <visible>![String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)]</visible>
+                <control type="image">
+                  <width>45</width>
+                  <height>38</height>
+                  <aspectratio>keep</aspectratio>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</texture>
+                </control>
+                <control type="label">
+                  <width max="80">auto</width>
+                  <height>38</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</label>
+                  <font>font27</font>
+                  <textcolor>unfocused_text</textcolor>
+                </control>
+              </control>
+              <control type="grouplist">
+                <width>130</width>
+                <orientation>horizontal</orientation>
+                <itemgap>5</itemgap>
+                <align>left</align>
+                <visible>![String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)]</visible>
+                <control type="image">
+                  <width>74</width>
+                  <height>38</height>
+                  <aspectratio>keep</aspectratio>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.imdbImage)]</texture>
+                </control>
+                <control type="label">
+                  <width max="60">auto</width>
+                  <height>38</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[Window(Home).Property(nimbus.imdbRating)]</label>
+                  <font>font27</font>
+                  <textcolor>unfocused_text</textcolor>
+                </control>
+              </control>
+              <control type="grouplist">
+                <width>130</width>
+                <orientation>horizontal</orientation>
+                <itemgap>8</itemgap>
+                <align>left</align>
+                <visible>![String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
+                <control type="image">
+                  <width>29</width>
+                  <height>35</height>
+                  <aspectratio>keep</aspectratio>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.popularImage)]</texture>
+                </control>
+                <control type="label">
+                  <width max="87">auto</width>
+                  <height>38</height>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <label>$INFO[Window(Home).Property(nimbus.popularRating)]</label>
+                  <font>font27</font>
+                  <textcolor>unfocused_text</textcolor>
+                </control>
+              </control>
+              <control type="grouplist">
+                <width>118</width>
+                <orientation>horizontal</orientation>
+                <itemgap>12</itemgap>
+                <align>right</align>
+                <visible>![String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+                <control type="image">
+                  <top>-3</top>
+                  <width>60</width>
+                  <aspectratio>keep</aspectratio>
+                  <align>left</align>
+                  <aligny>center</aligny>
+                  <texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tmdbImage)]</texture>
+                </control>
+                <control type="label">
+                  <width max="60">auto</width>
+                  <height>38</height>
+                  <align>left</align>
+                  <label>$INFO[Window(Home).Property(nimbus.tmdbRating)]</label>
+                  <font>font27</font>
+                  <textcolor>unfocused_text</textcolor>
+                </control>
+              </control>
+            </control>
             <control type="textbox">
               <visible>!String.IsEmpty(ListItem.Plot)</visible>
-              <height max="350">auto</height>
+              <height max="370">auto</height>
               <font>font32</font>
               <textcolor>darkgrey</textcolor>
               <align>center</align>
               <label>$INFO[ListItem.Plot]</label>
-              <autoscroll delay="10000" time="5000" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
+              <autoscroll delay="10000" time="4700" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>
             </control>
           </control>
         </control>
@@ -182,7 +369,7 @@
             <aspectratio>keep</aspectratio>
             <texture>loading.gif</texture>
           </control>
-          <control type="list" id="50">
+          <control type="fixedlist" id="50">
             <onright condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !$EXP[isSet]">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</onright>
             <onright condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !$EXP[isSet]">EnableAddon(script.embuary.info)</onright>
             <onright condition="!System.HasAddon(script.embuary.info) + !$EXP[isSet]">InstallAddon(script.embuary.info)</onright>
@@ -194,18 +381,149 @@
             <height>940</height>
             <!-- <height>850</height> -->
             <onleft>20000</onleft>
+            <movement>4</movement>
+            <focusposition>4</focusposition>
             <include content="CastItem">
               <param name="id" value="50" />
               <param name="MainLabel" value="$INFO[ListItem.Label]" />
               <param name="SubLabel" value="$INFO[ListItem.Label2]" />
             </include>
           </control>
-          <!-- <include content="UpDownArrows">
+          <include content="UpDownArrows">
             <param name="container_id" value="50" />
-            <param name="posx" value="246" />
-            <param name="up_posy" value="80" />
-            <param name="down_posy" value="960" />
-          </include> -->
+            <param name="posx" value="222" />
+            <param name="up_posy" value="30" />
+            <param name="down_posy" value="1000" />
+          </include>
+        </control>
+        <control type="group">
+          <visible>String.IsEqual(Container(20000).ListItem.Property(id),moreinfo)</visible>
+          <animation effect="fade" start="0" end="100" time="300" delay="300">Visible</animation>
+          <animation effect="fade" start="100" end="0" time="300">Hidden</animation>
+          <left>620</left>
+          <width>1160</width>
+          <control type="image">
+            <visible>Container(53).IsUpdating</visible>
+            <animation effect="fade" start="0" end="100" time="100" delay="2000" reversible="false">Visible</animation>
+            <width>120</width>
+            <aspectratio>keep</aspectratio>
+            <texture>loading.gif</texture>
+          </control>
+          <control type="fixedlist" id="53">
+            <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
+            <include content="CenterList104">
+                <param name="id" value="53" />
+            </include>
+            <top>67</top>
+            <height>940</height>
+            <onleft>20000</onleft>
+            <movement>4</movement>
+            <focusposition>4</focusposition>
+            <itemlayout width="540" height="104">
+              <include content="ListItemTwoLine">
+                <param name="id" value="53" />
+                <param name="MainLabel" value="$INFO[ListItem.Label]" />
+                <param name="SubLabel" value="$INFO[ListItem.Label2]" />
+              </include>
+            </itemlayout>
+            <focusedlayout width="540" height="104">
+              <include content="ListItemTwoLine">
+                <param name="id" value="53" />
+                <param name="focused" value="true" />
+                <param name="MainLabel" value="$INFO[ListItem.Label]" />
+                <param name="SubLabel" value="$INFO[ListItem.Label2]" />
+              </include>
+            </focusedlayout>
+            <content>
+              <item>
+                <label>$LOCALIZE[20339]</label>
+                <label2>$INFO[ListItem.Director]</label2>
+                <onclick condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !$EXP[isSet]">EnableAddon(script.embuary.info)</onclick>
+                <onclick condition="!System.HasAddon(script.embuary.info) + !$EXP[isSet]">InstallAddon(script.embuary.info)</onclick>
+                <onclick condition="System.AddonIsEnabled(script.embuary.info)">RunScript(script.embuary.info,call=person,query='$ESCINFO[ListItem.Director]')</onclick>
+                <visible>!String.IsEmpty(ListItem.Director)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[20417]</label>
+                <label2>$INFO[ListItem.Writer]</label2>
+                <onclick condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !$EXP[isSet]">EnableAddon(script.embuary.info)</onclick>
+                <onclick condition="!System.HasAddon(script.embuary.info) + !$EXP[isSet]">InstallAddon(script.embuary.info)</onclick>
+                <onclick condition="System.AddonIsEnabled(script.embuary.info)">RunScript(script.embuary.info,call=person,query='$ESCINFO[ListItem.Writer]')</onclick>
+                <visible>!String.IsEmpty(ListItem.Writer)</visible>
+              </item>
+              <item>
+                <label>$VAR[FirstAiredLabel]</label>
+                <label2>$INFO[ListItem.Premiered]</label2>
+                <visible>!String.IsEmpty(ListItem.Premiered)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[563]</label>
+                <label2>$INFO[ListItem.RatingAndVotes]</label2>
+                <visible>!String.IsEmpty(ListItem.RatingAndVotes)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[515]</label>
+                <label2>$INFO[ListItem.Genre]</label2>
+                <visible>!String.IsEmpty(ListItem.Genre)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[31017]</label>
+                <label2>$INFO[ListItem.Mpaa]</label2>
+                <visible>!String.IsEmpty(ListItem.Mpaa)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[29909]</label>
+                <label2>$INFO[ListItem.Studio]</label2>
+                <visible>!String.IsEmpty(ListItem.Studio)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[31048]</label>
+                <label2>$VAR[I_Available]</label2>
+                <visible>$EXP[isTVShow]</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[20457]</label>
+                <label2>$INFO[ListItem.Set]</label2>
+                <visible>!String.IsEmpty(ListItem.Set)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[20459]</label>
+                <label2>$INFO[ListItem.Tag]</label2>
+                <visible>!String.IsEmpty(ListItem.Tag)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[126]</label>
+                <label2>$INFO[ListItem.Status]</label2>
+                <visible>!String.IsEmpty(ListItem.Status)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[21875]</label>
+                <label2>$INFO[ListItem.Country]</label2>
+                <visible>!String.IsEmpty(ListItem.Country)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[570]</label>
+                <label2>$INFO[ListItem.DateAdded]</label2>
+                <visible>!String.IsEmpty(ListItem.DateAdded) + [$EXP[isEpisode] | $EXP[isMovie] | String.IsEqual(ListItem.DBType,musicvideo) | $EXP[isVideo]]</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[576]</label>
+                <label2>$INFO[ListItem.PlayCount]</label2>
+                <visible>!String.IsEmpty(ListItem.PlayCount)</visible>
+              </item>
+              <item>
+                <label>$LOCALIZE[564]</label>
+                <label2>$INFO[ListItem.DBType]</label2>
+                <visible>!$EXP[noDBType]</visible>
+              </item>
+            </content>
+          </control>
+          <include content="UpDownArrows">
+            <param name="container_id" value="53" />
+            <param name="posx" value="222" />
+            <param name="up_posy" value="30" />
+            <param name="down_posy" value="1000" />
+          </include>
         </control>
       </control>
     </control>

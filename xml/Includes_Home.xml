@@ -29,9 +29,9 @@
 				</control> -->
 				<control type="label">
 					<top>12</top>
-					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
+					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]</label>
 					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
+					<textcolor>$VAR[MenuSelectorColor]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
@@ -42,9 +42,9 @@
 				<control type="label">
 					<left>33</left>
 					<top>12</top>
-					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs]$PARAM[label]$PARAM[label_focus]</label>
+					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]</label>
 					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
+					<textcolor>$VAR[MenuSelectorColor]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
@@ -774,7 +774,7 @@
 					<width>300</width>
 					<height>300</height>
 					<aspectratio aligny="center">keep</aspectratio>
-					<texture colordiffuse="$VAR[FocusedColorVar]">loading.gif</texture>
+					<texture colordiffuse="$VAR[MenuSelectorColor]">loading.gif</texture>
 				</control>
 				<!-- <control type="image">
 					<top>$PARAM[posy]</top>
@@ -828,6 +828,10 @@
 		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDSubtitleButtonSetting))">Skin.SetString(OSDSubtitleButtonSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(MenuCaseSetting))">Skin.SetString(MenuCaseSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OnDownSetting))">Skin.SetString(OnDownSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(InfoLineColorThemeSetting))">Skin.SetString(InfoLineColorThemeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.movies))">Skin.SetString(ArtworkChoice.movies,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>
@@ -841,6 +845,8 @@
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.seasons))">Skin.SetString(ListArtworkChoice.seasons,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.episodes))">Skin.SetString(ListArtworkChoice.episodes,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.addons))">Skin.SetString(ListArtworkChoice.addons,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.files))">Skin.SetString(ListArtworkChoice.files,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.favourites))">Skin.SetString(ListArtworkChoice.favourites,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.))">Skin.SetString(ListArtworkChoice.,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.movies))">Skin.SetString(LandscapeFanart.movies,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(LandscapeFanart.tvshows))">Skin.SetString(LandscapeFanart.tvshows,0)</onload>

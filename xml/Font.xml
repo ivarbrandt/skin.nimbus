@@ -34,6 +34,11 @@
 			<linespacing>0.8</linespacing>
 		</font>
 		<font>
+			<name>font23</name>
+			<filename>Inter-Regular.ttf</filename>
+			<size>25</size>
+		</font>
+		<font>
 			<name>font25</name>
 			<filename>Inter-Regular.ttf</filename>
 			<size>23</size>
@@ -137,7 +142,7 @@
 			<filename>Inter-Regular.ttf</filename>
 			<style>bold</style>
 			<size>23</size>
-			<!-- <aspect>0.97</aspect> -->
+			<!-- <aspect>0.87</aspect> -->
 		</font>
 		<font>
 			<name>font_flag</name>

@@ -350,7 +350,7 @@
 			<left>20</left>
 			<top>100</top>
 			<width>470</width>
-			<height>100%</height>
+			<height>900</height>
 			<onleft>9000</onleft>
 			<onup>9000</onup>
 			<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">50</onright>
@@ -466,7 +466,6 @@
 				<label>Background blur</label>
 				<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
 				<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 			</control>
 			<control type="button" id="6057">
 				<include>MediaMenuItemsCommon</include>
@@ -480,7 +479,7 @@
 				<label>Layout</label>
 				<label2>[B]$VAR[ListArtworkSettingVar][/B]</label2>
 				<onclick>$VAR[ListArtworkToggleVar]</onclick>
-				<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons) | Container.Content]</visible>
+				<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content]</visible>
 			</control>
 			<control type="button" id="6059">
 				<include>MediaMenuItemsCommon</include>
@@ -514,12 +513,26 @@
 			</control>
 			<control type="button" id="6062">
 				<include>MediaMenuItemsCommon</include>
+				<label>On down action</label>
+				<label2>[B]$VAR[OnDownSettingVar][/B]</label2>
+				<onclick>$VAR[OnDownToggleVar]</onclick>
+				<visible>[Control.IsVisible(54) | Control.IsVisible(55)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+			</control>
+			<control type="button" id="6063">
+				<include>MediaMenuItemsCommon</include>
+				<label>On right action</label>
+				<label2>[B]$VAR[OnRightSettingVar][/B]</label2>
+				<onclick>$VAR[OnRightToggleVar]</onclick>
+				<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+			</control>
+			<control type="button" id="6064">
+				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31022]</label>
 				<label2>[B]$INFO[Container.SortMethod][/B]</label2>
 				<visible>Control.IsEnabled(3)</visible>
 				<onclick>SendClick(3)</onclick>
 			</control>
-			<control type="button" id="6063">
+			<control type="button" id="6065">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31032]</label>
 				<label2>[B]$INFO[Container.SortOrder][/B]</label2>

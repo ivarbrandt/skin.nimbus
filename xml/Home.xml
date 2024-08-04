@@ -572,7 +572,7 @@
 						<top>90</top>
 						<label>$VAR[HomescreenFlixCrumbs]</label>
 						<font>font27</font>
-						<textcolor>unfocused_text</textcolor>
+						<textcolor>$VAR[MenuSelectorColor]</textcolor>
 						<shadowcolor>text_shadow</shadowcolor>
 						<scroll>true</scroll>
 						<scrollspeed>100</scrollspeed>
@@ -1058,17 +1058,17 @@
             </include>
 						<content>
 							<item>
-								<label>exit kodi</label>
+								<label>Exit kodi</label>
 								<onclick>Quit()</onclick>
 								<visible>Skin.HasSetting(OneClickClose)</visible>
 							</item>
 							<item>
-								<label>shutdown menu</label>
+								<label>Shutdown menu</label>
 								<onclick>ActivateWindow(shutdownmenu)</onclick>
 								<visible>!Skin.HasSetting(OneClickClose)</visible>
 							</item>
 							<item>
-								<label>settings</label>
+								<label>Settings</label>
 								<onclick>ActivateWindow(settings)</onclick>
 							</item>
 							<!-- <item>
@@ -1080,22 +1080,11 @@
 								<onclick>ActivateWindowAndFocus(appearancesettings, -100,0,-76,0)</onclick>
 							</item> -->
 							<item>
-								<label>search</label>
-								<onclick>ActivateWindow(1107)</onclick>
-								<visible>Skin.HasSetting(NoSearchResultsWindow)</visible>
+								<label>Search</label>
+								<onclick>$VAR[SearchButtonActionVar]</onclick>
 							</item>
 							<item>
-								<label>search</label>
-								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
-								<visible>!Skin.HasSetting(NoSearchResultsWindow) + Skin.HasSetting(DefaultSearchWindowBehavior)</visible>
-							</item>
-							<item>
-								<label>search</label>
-								<onclick>RunScript(script.nimbus.helper,mode=open_search_window)</onclick>
-								<visible>!Skin.HasSetting(NoSearchResultsWindow) + !Skin.HasSetting(DefaultSearchWindowBehavior)</visible>
-							</item>
-							<item>
-								<label>fullscreen</label>
+								<label>Fullscreen</label>
 								<onclick>Fullscreen</onclick>
 								<visible>Player.HasMedia</visible>
 							</item>
@@ -1131,38 +1120,34 @@
             </include>
 						<content>
 							<item>
-								<label>toggle blur</label>
+								<label>Toggle blur</label>
 								<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
 							</item>
 							<item>
-								<label>style/$VAR[HomeFanartSettingVar]</label>
+								<label>Style/$VAR[HomeFanartSettingVar]</label>
 								<onclick>$VAR[HomeFanartToggleVar]</onclick>
 							</item>
 							<item>
-								<label>art/$VAR[HomeLandscapeFanartSettingVar]</label>
+								<label>Art/$VAR[HomeLandscapeFanartSettingVar]</label>
 								<onclick>$VAR[HomeLandscapeFanartToggleVar]</onclick>
 								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
 							</item>
 							<item>
-								<label>landscape widgets/$VAR[HomeItemArtworkChoiceSettingVar]</label>
+								<label>Landscape widgets/$VAR[HomeItemArtworkChoiceSettingVar]</label>
 								<onclick>$VAR[HomeItemArtworkChoiceToggleVar]</onclick>
 							</item>
 							<item>
-								<label>episodes/$VAR[HomeEpisodeArtworkChoiceSettingVar]</label>
+								<label>Episodes/$VAR[HomeEpisodeArtworkChoiceSettingVar]</label>
 								<onclick>$VAR[HomeEpisodeArtworkChoiceToggleVar]</onclick>
 								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
 							</item>
 						</content>
 					</control>
-					<include content="MiniMenuLabels">
-						<param name="visible" value="Control.HasFocus(700)"/>
+					<include content="MiniMenu700Labels">
 						<param name="top" value="75"/>
-						<param name="label" value="[LOWERCASE]Mini Menu[/LOWERCASE]"/>
 					</include>
-					<include content="MiniMenuLabels">
-						<param name="visible" value="Control.HasFocus(733)"/>
+					<include content="MiniMenu733Labels">
 						<param name="top" value="75"/>
-						<param name="label" value="[LOWERCASE]artwork settings[/LOWERCASE]"/>
 					</include>
 					<control type="group">
 						<left>90</left>

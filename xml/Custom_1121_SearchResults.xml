@@ -172,13 +172,11 @@
 						<aligny>center</aligny>
 						<height>98</height>
 						<font>font36_title</font>
-						<label>[LOWERCASE]Recent searches[/LOWERCASE]</label>
+						<label>$VAR[RecentSearchesCaseVar]</label>
 						<textcolor>$VAR[FocusedColorVar]</textcolor>
 					</control>
-					<include content="MiniMenuLabels">
-						<param name="visible" value="Control.HasFocus(700)"/>
+					<include content="MiniMenu700Labels">
 						<param name="top" value="90"/>
-						<param name="label" value="[LOWERCASE]Mini Menu[/LOWERCASE]"/>
 					</include>
 					<control type="fixedlist" id="9000">
 						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
@@ -236,19 +234,19 @@
 								<onclick>$VAR[CurrentSearchProviderToggleVar]</onclick>
 							</item>
 							<item>
-								<label>new search</label>
+								<label>New search</label>
 								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
 							</item>
 							<item>
-								<label>trakt lists</label>
+								<label>Trakt lists</label>
 								<onclick>$VAR[TRAKTButtonActionsVar]</onclick>
 							</item>
 							<item>
-								<label>clear search history</label>
+								<label>Clear search history</label>
 								<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
 							</item>
 							<item>
-								<label>fullscreen</label>
+								<label>Fullscreen</label>
 								<onclick>Fullscreen</onclick>
 								<visible>Player.HasMedia</visible>
 							</item>

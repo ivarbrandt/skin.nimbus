@@ -231,6 +231,20 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
 				</control>
+				<!-- MENU ITEMS CASE -->
+				<control type="button" id="63704">
+					<label>Menu items case</label>
+					<label2>$VAR[MenuCaseSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[MenuCaseToggleVar]</onclick>
+				</control>
+				<!-- ACCENT COLOR THEME -->
+				<control type="button" id="63705">
+					<label>Accent color theme</label>
+					<label2>$VAR[InfoLineColorThemeSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[InfoLineColorThemeToggleVar]</onclick>
+				</control>
 				<!-- FOCUS COLOR -->
 				<!-- <control type="radiobutton" id="63704">
 					<label>Enable color theme for focus</label>
@@ -239,43 +253,36 @@
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control> -->
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63705">
+				<control type="radiobutton" id="63706">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- WIDGET NAVIGATION -->
-				<control type="radiobutton" id="63706">
+				<control type="radiobutton" id="63707">
 					<label>Enable widget navigation arrows</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.WidgetNavigationArrows)</selected>
 					<onclick>Skin.ToggleSetting(Disable.WidgetNavigationArrows)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
-				<control type="radiobutton" id="63707">
+				<!-- <control type="radiobutton" id="63707">
 					<label>Enable studio logos in FlixPanel</label>
 					<include>DefaultSettingButton</include>
 					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
 					<onclick>Skin.ToggleSetting(Enable.StudioLogos)</onclick>
 					<selected>Skin.HasSetting(Enable.StudioLogos)</selected>
-				</control>
-				<!-- FLIX VIEW ON DOWN -->
-				<control type="radiobutton" id="63708">
-					<label>Enable one-click switch to Wall/WallScape view (Flix and FlixScape views only)</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.OneClickWallView)</selected>
-					<onclick>Skin.ToggleSetting(Disable.OneClickWallView)</onclick>
-				</control>
+				</control> -->
 				<!-- AUTO END PLAYBACK -->
-				<control type="radiobutton" id="63709">
+				<control type="radiobutton" id="63708">
 					<label>Enable auto ending of playback</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.AutoEndPlayback)</selected>
 					<onclick>Skin.ToggleSetting(Enable.AutoEndPlayback)</onclick>
 				</control>
 				<!-- SET DELAY -->
-				<control type="button" id="63710">
+				<control type="button" id="63709">
 					<label>    - Set delay (minutes)</label>
 					<label2>$INFO[Skin.String(PlaybackDelayMins)]</label2>
 					<include>DefaultSettingButton</include>
@@ -941,7 +948,7 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[5] [B]»[/B] $LOCALIZE[20077]" />
+			<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[5][/COLOR] [B]»[/B] [COLOR unfocused_text]$LOCALIZE[20077][/COLOR]" />
 		</include>
 		<include>BottomBar</include>
 		<!-- <control type="textbox" id="6">

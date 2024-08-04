@@ -5,15 +5,10 @@
     <param name="height">75</param>
     <param name="home_layout_id">14</param>
     <definition>
-      <focusedlayout height="$PARAM[height]">
+      <focusedlayout height="$PARAM[height]" infoupdate="300">
         <control type="group">
           <animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
         </control>
-        <include condition="Skin.HasSetting(Enable.BackgroundBlur)" content="PassiveForceColorUpdate">
-          <param name="prefix" value="Home"/>
-          <param name="layout_id" value="$PARAM[layout_id]"/>
-          <param name="timer_name" value="home_color_update_timer"/>
-        </include>
         <include content="ListItem">
           <param name="id" value="$PARAM[id]" />
           <param name="focused" value="true" />
@@ -37,14 +32,14 @@
 
   <include name="CastItem">
     <definition>
-      <itemlayout width="540" height="104" condition="String.IsEqual(Container($PARAM[hub]).ListItem.Property(level$PARAM[level].listType),twoline)">
+      <itemlayout width="540" height="104">
         <include content="ListItemTwoLine">
           <param name="id" value="$PARAM[id]" />
           <param name="MainLabel" value="$PARAM[MainLabel]" />
           <param name="SubLabel" value="$PARAM[SubLabel]" />
         </include>
       </itemlayout>
-      <focusedlayout width="540" height="104" condition="String.IsEqual(Container($PARAM[hub]).ListItem.Property(level$PARAM[level].listType),twoline)">
+      <focusedlayout width="540" height="104">
         <include content="ListItemTwoLine">
           <param name="id" value="$PARAM[id]" />
           <param name="focused" value="true" />
@@ -52,6 +47,32 @@
           <param name="SubLabel" value="$PARAM[SubLabel]" />
         </include>
       </focusedlayout>
+    </definition>
+  </include>
+
+  <include name="MoreInfoItems">
+    <!-- <param name="id" default="53" />
+    <param name="hub" default="0" />
+    <param name="level" default="0" /> -->
+    <definition>
+      <control type="list" id="$PARAM[id]">
+        <itemlayout width="540" height="104">
+          <include content="ListItemTwoLine">
+            <param name="id" value="$PARAM[id]" />
+            <param name="MainLabel" value="$INFO[ListItem.Label]" />
+            <param name="SubLabel" value="$INFO[ListItem.Label2]" />
+          </include>
+        </itemlayout>
+        <focusedlayout width="540" height="104">
+          <include content="ListItemTwoLine">
+            <param name="id" value="$PARAM[id]" />
+            <param name="focused" value="true" />
+            <param name="MainLabel" value="$INFO[ListItem.Label]" />
+            <param name="SubLabel" value="$INFO[ListItem.Label2]" />
+          </include>
+        </focusedlayout>
+        <content>$PARAM[content]</content>
+      </control>
     </definition>
   </include>
 
@@ -85,7 +106,7 @@
             <aligny>center</aligny>
             <font>$PARAM[unfocused_font]</font>
             <textcolor>darkgrey</textcolor>
-            <label>[LOWERCASE]$INFO[ListItem.Label][/LOWERCASE]</label>
+            <label>$VAR[MenuCaseVar]</label>
             <shadowcolor>text_shadow</shadowcolor>
             <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
           </control>
@@ -97,7 +118,7 @@
             <width>$PARAM[list_width]</width>
             <aligny>center</aligny>
             <font>$PARAM[focused_font]</font>
-            <label>[LOWERCASE]$INFO[ListItem.Label][/LOWERCASE]</label>
+            <label>$VAR[MenuCaseVar]</label>
             <textcolor>unfocused_text</textcolor>
             <!-- <textcolor>FFFFFFFF</textcolor> -->
             <shadowcolor>text_shadow</shadowcolor>
@@ -114,7 +135,7 @@
             <aligny>center</aligny>
             <font>$PARAM[unfocused_font]</font>
             <textcolor>darkgrey</textcolor>
-            <label>[LOWERCASE]$INFO[ListItem.Label][/LOWERCASE]</label>
+            <label>$VAR[MenuCaseVar]</label>
             <shadowcolor>text_shadow</shadowcolor>
             <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
           </control>
@@ -156,6 +177,8 @@
             <font>font37</font>
             <textcolor>white</textcolor>
             <label>[B]$PARAM[MainLabel][/B]</label>
+            <scroll>true</scroll>
+            <scrollspeed>75</scrollspeed>
           </control>
         </control>
         <control type="label">
@@ -168,6 +191,21 @@
           <font>font27</font>
           <textcolor>darkgrey</textcolor>
           <label>$PARAM[SubLabel]</label>
+          <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
+        </control>
+        <control type="label">
+          <animation effect="slide" start="0,0" end="32,0" time="0" condition="[$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]">Conditional</animation>
+          <bottom>24</bottom>
+          <height>25</height>
+          <left>20</left>
+          <right>0</right>
+          <aligny>top</aligny>
+          <font>font27</font>
+          <textcolor>darkgrey</textcolor>
+          <label>$PARAM[SubLabel]</label>
+          <visible>Control.HasFocus($PARAM[id]) + $PARAM[focused]</visible>
+          <scroll>true</scroll>
+          <scrollspeed>75</scrollspeed>
         </control>
       </control>
     </definition>

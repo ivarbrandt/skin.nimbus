@@ -172,25 +172,23 @@
 					</include>
 					<content>
 						<item>
-							<label>browser</label>
+							<label>Browser</label>
 							<onclick>ActivateWindow(addonbrowser,root)</onclick>
 							<visible>Skin.HasSetting(OneClickClose)</visible>
 						</item>
 						<item>
-							<label>updates | $INFO[System.AddonUpdateCount]</label>
+							<label>Updates | $INFO[System.AddonUpdateCount]</label>
 							<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
 							<visible>Integer.IsGreater(Container(8000).NumItems,0)</visible>
 						</item>
 						<item>
-							<label>settings</label>
+							<label>Settings</label>
 							<onclick>ActivateWindow(systemsettings,addons)</onclick>
 						</item>
 					</content>
 				</control>
-				<include content="MiniMenuLabels">
-					<param name="visible" value="Control.HasFocus(700)"/>
+				<include content="MiniMenu700Labels">
 					<param name="top" value="125"/>
-					<param name="label" value="[LOWERCASE]Mini Menu[/LOWERCASE]"/>
 				</include>
 			</control>
 			<include content="TopBar">

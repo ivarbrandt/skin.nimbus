@@ -609,7 +609,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>6</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -624,7 +624,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>6</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -639,7 +639,7 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>6</textoffsety>
+						<textoffsety>8</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>unfocused_text</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
@@ -786,7 +786,7 @@
 					<width>850</width>
 					<height>60</height>
 					<label>$VAR[ClockCrumbs]$VAR[BreadcrumbsPVRChannelsVar]</label>
-					<textcolor>unfocused_text</textcolor>
+					<textcolor>$VAR[MenuSelectorColor]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>
@@ -800,7 +800,7 @@
 					<width>850</width>
 					<height>60</height>
 					<label>$VAR[ClockCrumbs]$VAR[BreadcrumbsPVRGuideVar]</label>
-					<textcolor>unfocused_text</textcolor>
+					<textcolor>$VAR[MenuSelectorColor]</textcolor>
 					<shadowcolor>black</shadowcolor>
 					<align>left</align>
 					<aligny>center</aligny>
