@@ -1,9 +1,23 @@
-Nimbus Helper: Latest: v0.0.37 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.38 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
 [B]I've added a video to the main skin page on my Github that shows how to configure artwork settings for the home screen and video windows. It also serves as a nice overview of the skin. If you are having trouble with the new layouts/views/features in recent updates, I recommend you go check it out.[/B]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added ratings and Info tab to Information screen
+- Added optional case setting for menus (Default, UPPERCASE, lowercase, Capitalized)
+- Added optional on right actions for List view (Scrollbar, Play trailer, Information)
+Added optional on down actions for Flix/Flixscape views (Scrollbar, Wall, Play trailer, Information)
+- Added optional accent color theme. Choose between Default or Adaptive. See Skin settings [B]»[/B] Customization for more info.
+- Changed release year/first aired date format from YYYY to MM/DD/YYYY
+- Fixed List view not working with some content types
+- Fixed various trailer related bugs
+- Updated skin help texts
+- Removed studio logos
+- Numerous other changes/fixes
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.15[/COLOR][/B]
 - Added Poster and Fanart layouts to List View
 - Added color changing selector to all List views, removed icons for menus
 - Fixed ancient poster glow bug
