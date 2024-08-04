@@ -18,7 +18,7 @@
 				<top>181</top>
 				<width>457</width>
 				<height>60</height>
-				<texture colordiffuse="primary_background" border="2">masks/focus.png</texture>
+				<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
 			</control>
 			<control type="label" id="4">
 				<description>Edit Text</description>
@@ -29,14 +29,14 @@
 				<font>font37</font>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>unfocused_text</textcolor>
+				<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 			</control>
 			<control type="textbox" id="1">
 				<left>20</left>
 				<top>80</top>
 				<width>505</width>
 				<height>90</height>
-				<textcolor>unfocused_text</textcolor>
+				<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 			</control>

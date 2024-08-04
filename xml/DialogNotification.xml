@@ -35,7 +35,7 @@
       </control>
       <control type="image">
         <width>5</width>
-        <texture colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
+        <texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
       </control>
       <control type="label" id="401">
         <top>2</top>
