@@ -212,10 +212,9 @@
 	</variable>
 
 	<variable name="MenuSelectorColor">
-		<value condition="String.IsEmpty(Window(home).Property(listitem_color))">unfocused_text</value>
+		<value condition="String.IsEmpty(Window(home).Property(listitem_color)) | String.IsEqual(Skin.String(InfoLineColorThemeSetting),1)">unfocused_text</value>
     <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
     <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">$INFO[Window(home).Property(listitem_color)]</value>
-    <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),1)">unfocused_text</value>
 	</variable>
 
 	<variable name="MediaMenuDiffuse">
