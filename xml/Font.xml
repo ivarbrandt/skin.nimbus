@@ -141,8 +141,8 @@
 			<name>FlixPanelIcon</name>
 			<filename>Inter-Regular.ttf</filename>
 			<style>bold</style>
-			<size>23</size>
-			<!-- <aspect>0.87</aspect> -->
+			<size>22</size>
+			
 		</font>
 		<font>
 			<name>font_flag</name>

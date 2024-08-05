@@ -75,8 +75,17 @@
 	</variable>
 	<!-- Runtime -->
 	<variable name="RI_Runtime">
-		<value condition="!String.IsEmpty(ListItem.Duration) + $EXP[isMovie]"> • [COLOR unfocused_text]$INFO[ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m][/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Duration) + [$EXP[isTVShow] |  $EXP[isSeason] |  $EXP[isEpisode]]"> • [COLOR unfocused_text]$INFO[ListItem.Duration(mins),,m][/COLOR]</value>
+    <!-- MOVIES -->
+    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)"> • [COLOR unfocused_text]$INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins][/COLOR]</value>
+    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)"> • [COLOR unfocused_text]$INFO[ListItem.Duration(h),, hrs] 1 min[/COLOR]</value>
+    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)"> • [COLOR unfocused_text]$INFO[ListItem.Duration(h),, hrs][/COLOR]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)"> • [COLOR unfocused_text]1 hr $INFO[ListItem.Duration(m),, mins][/COLOR]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)"> • [COLOR unfocused_text]1 hr 1 min[/COLOR]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)"> • [COLOR unfocused_text]1 hr[/COLOR]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)"> • [COLOR unfocused_text]$INFO[ListItem.Duration(m),, mins][/COLOR]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)"> • [COLOR unfocused_text]1 min[/COLOR]</value>
+    <!-- TVSHOWS, SEASONS, EPISODES -->
+    <value condition="[$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + !String.IsEmpty(ListItem.Duration)"> • [COLOR unfocused_text]$INFO[ListItem.Duration(mins),, mins][/COLOR]</value>
 	</variable>
 	<variable name="RI_EpisodeType">
 		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR unfocused_text]Series Premiere[/COLOR]</value>
@@ -113,11 +122,11 @@
 
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]</value>
 		<!-- SHOWS -->
 		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_TotalSeasons]$VAR[RI_EpisodesRemaining]$VAR[RI_Status]</value>
 		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[Season_Mpaa]$VAR[RI_Network]$VAR[RI_Runtime]$VAR[RI_EpisodesRemaining]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[Season_Mpaa]$VAR[RI_Network]$VAR[RI_Runtime]$VAR[RI_EpisodesRemaining]</value>
 		<!-- EPISODES -->
 		<value condition="!ListItem.IsCollection + $EXP[isEpisode]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_SeasonEpisode]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
 	</variable>
@@ -128,9 +137,17 @@
 	</variable>
 
 	<variable name="FlixPanelRuntime">
-		<!-- MOVIES, TVSHOWS, SEASONS, EPISODES, COLLECTIONS -->
-		<value condition="$EXP[isMovie]">$INFO[Container($PARAM[id]).ListItem.Duration(h),,h] $INFO[ListItem.Duration(m),,m]</value>
-		<value condition="$EXP[isTVShow] |  $EXP[isSeason] |  $EXP[isEpisode]">$INFO[Container($PARAM[id]).ListItem.Duration(mins),,m]</value>
+    <!-- MOVIES -->
+    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins]</value>
+    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] 1 min</value>
+    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hrs]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] $INFO[ListItem.Duration(m),, mins]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] 1 min</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hr]</value>
+    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(m),, mins]</value>
+    <!-- <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)">1 min</value> -->
+    <!-- TVSHOWS, SEASONS, EPISODES -->
+    <value condition="$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]">$INFO[ListItem.Duration(mins),, mins]</value>
 	</variable>
 
 	<variable name="EpisodeType">

@@ -360,11 +360,33 @@
 							<textcolor>unfocused_text</textcolor>
 						</control>
 					</control>
-					<!-- <control type="grouplist">
-						<width>80</width>
-						<orientation>horizontal</orientation>
-						<itemgap>12</itemgap>
-						<align>right</align>
+					<control type="group">
+						<width>49</width>
+						<height>35</height>
+						<visible>
+							String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
+							[
+									[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+							]
+						</visible>
+						<control type="image">
+							<left>14</left>
+							<top>0</top>
+							<width>35</width>
+							<height>35</height>
+							<fadetime>0</fadetime>
+							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+						</control>
+					</control>
+					<!-- <control type="group">
+						<width>92</width>
+						<height>38</height>
 						<visible>
 							Skin.HasSetting(Enable.StudioLogos) + 
 							!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio) + 
@@ -378,11 +400,12 @@
 							]
 						</visible>
 						<control type="image">
-							<top>-1</top>
-							<width>70</width>
-							<aspectratio>scale</aspectratio>
-							<align>left</align>
-							<aligny>center</aligny>
+							<left>7</left>
+							<top>0</top>
+							<width>75</width>
+							<height>38</height>
+							<fadetime>0</fadetime>
+							<aspectratio align="left" aligny="center">scale</aspectratio>
 							<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
 						</control>
 					</control> -->
@@ -391,7 +414,7 @@
 					<animation effect="fade" time="400">VisibleChange</animation>
 					<width>150</width>
 					<left>835</left>
-					<top>80</top>
+					<bottom>90</bottom>
 					<height>915</height>
 					<orientation>vertical</orientation>
 					<itemgap>33</itemgap>
@@ -546,6 +569,70 @@
 							<textcolor>unfocused_text</textcolor>
 						</control>
 					</control>
+					<control type="label">
+						<width>1</width>
+						<height>-37</height>
+						<label></label>
+					</control>
+					<control type="image">
+						<width>150</width>
+						<height>45</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+						<visible>
+							String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
+							[
+									[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+									[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+							]
+						</visible>
+					</control>
+					<!-- <control type="grouplist">
+						<width>150</width>
+						<height>70</height>
+						<orientation>horizontal</orientation>
+						<align>center</align>
+						<itemgap>0</itemgap>
+						<control type="image">
+							<width>75</width>
+							<height>45</height>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+							<visible>
+								String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
+								[
+										[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+								]
+							</visible>
+						</control>
+						<control type="image">
+							<width>75</width>
+							<height>70</height>
+							<aspectratio align="right" aligny="top">keep</aspectratio>
+							<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
+							<visible>
+								Skin.HasSetting(Enable.StudioLogos) + 
+								!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio) + 
+								[
+										[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+										[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+								]
+							</visible>
+						</control>
+					</control> -->
 					<!-- <control type="label">
 						<width>1</width>
 						<height>-50</height>

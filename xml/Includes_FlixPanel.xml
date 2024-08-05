@@ -4,7 +4,7 @@
 		<control type="group">
 			<visible>!Control.IsVisible(50) + [!Player.HasVideo | !$EXP[sidebar_visible]]</visible>
 			<left>50</left>
-			<width>785</width>
+			<width>790</width>
 			<top>45</top>
 			<control type="image">
 				<width>522</width>
@@ -61,21 +61,34 @@
 					<aligny>center</aligny>
 					<align>left</align>
 					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + $EXP[isContent] + !String.IsEmpty(ListItem.Genre)</visible>
-					<!-- <control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.Premiered][/LIGHT]</label>
-						<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.year) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isTVShow]]</visible>
-					</control> -->
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + $EXP[isContent]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$VAR[GenreVar]"/>
+						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre) + !$EXP[isEpisode]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
+						<param name="visible" value="!ListItem.IsCollection + !$EXP[isTVShow] + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, season]"/>
+						<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + $EXP[isTVShow]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, seasons]"/>
+						<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + $EXP[isTVShow]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$VAR[StatusVar]"/>
+						<param name="visible" value="!String.IsEmpty(ListItem.Status) + !ListItem.IsCollection + $EXP[isTVShow]"/>
+					</include>
 					<control type="togglebutton">
 						<left>50</left>
 						<width>auto</width>
@@ -84,179 +97,39 @@
 						<align>left</align>
 						<aligny>top</aligny>
 						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.Premiered][/LIGHT]</label>
-						<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + $EXP[isContent]</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.MPAA][/LIGHT]</label>
-						<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]]</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$VAR[GenreVar][/LIGHT]</label>
-						<visible>!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre) + !$EXP[isEpisode]</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$VAR[FlixPanelRuntime][/LIGHT]</label>
-						<visible>!ListItem.IsCollection + !$EXP[isTVShow] + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, season][/LIGHT]</label>
-						<visible>!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + $EXP[isTVShow]</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, seasons][/LIGHT]</label>
-						<visible>!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + $EXP[isTVShow]</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$VAR[StatusVar][/LIGHT]</label>
-						<visible>!String.IsEmpty(ListItem.Status) + !ListItem.IsCollection + $EXP[isTVShow]</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>FlixPanelIcon</font>
-						<textcolor>unfocused_text</textcolor>
-						<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ][/LIGHT]</label>
-						<visible>!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isSeason] | [$EXP[isEpisode] + String.IsEmpty(ListItem.Property(episode_type))]]</visible>
-					</control>
-					<control type="togglebutton">
-						<left>50</left>
-						<width>auto</width>
-						<top>56</top>
-						<height>49</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>14</textoffsetx>
-						<textoffsety>8</textoffsety>
+						<textoffsety>9.5</textoffsety>
 						<font>FlixPanelIcon</font>
 						<textcolor>$VAR[EpisodeTypeTextColor]</textcolor>
 						<texturenofocus border="13" colordiffuse="$VAR[EpisodeTypeColor]">masks/flixicon-filled.png</texturenofocus>
-						<label>[LIGHT]$VAR[EpisodeType][/LIGHT]</label>
+						<label>[UPPERCASE]$VAR[EpisodeType][/UPPERCASE]</label>
 						<visible>!String.IsEmpty(ListItem.Property(episode_type))</visible>
 					</control>
-					<!-- <include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.year) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isTVShow]]"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.year]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + $EXP[isEpisode]"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]]"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre)"/>
-						<param name="flixlabel" value="$VAR[GenreVar]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!ListItem.IsCollection + !$EXP[isTVShow] + !String.IsEmpty(Container($PARAM[id]).ListItem.Duration)"/>
-						<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + $EXP[isTVShow]"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, season]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(Container($PARAM[id]).ListItem.Property(TotalSeasons),1) + !ListItem.IsCollection + $EXP[isTVShow]"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Property(TotalSeasons),, seasons]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Status) + !ListItem.IsCollection + $EXP[isTVShow]"/>
-						<param name="flixlabel" value="$VAR[StatusVar]"/>
-					</include>
-					<include content="FlixInfoIcon">
-						<param name="visible" value="!String.IsEmpty(ListItem.Duration) + !ListItem.IsCollection + [$EXP[isMovie] | $EXP[isSeason]]"/>
-						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.EndTime,$LOCALIZE[31080]: ]"/>
-					</include> -->
+					<control type="group">
+            <width>35</width>
+            <height>35</height>
+            <visible>String.IsEqual(ListItem.Property(belongs_to_collection),true)</visible>
+            <control type="image">
+							<top>6</top>
+							<left>7</left>
+							<width>35</width>
+							<height>35</height>
+							<fadetime>0</fadetime>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+            </control>
+					</control>
 					<!-- <control type="group">
+						<width>110</width>
+						<height>56</height>
+						<visible>!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Studio)</visible>
 						<control type="image">
 							<top>-4</top>
-							<left>-12</left>
+							<left>15</left>
 							<width>110</width>
 							<height>56</height>
 							<fadetime>0</fadetime>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
 							<texture colordiffuse="artwork_dim">$INFO[$PARAM[infolabel_prefix]ListItem.Studio,resource://resource.images.studios.coloured/,.png]</texture>
-							<visible>true</visible>
 							<visible>Skin.HasSetting(Enable.StudioLogos)</visible>
 						</control>
 					</control> -->
