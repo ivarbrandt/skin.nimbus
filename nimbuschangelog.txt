@@ -4,6 +4,15 @@ ________________________________________________________________________________
 [B]I've added a video to the main skin page on my Github that shows how to configure artwork settings for the home screen and video windows. It also serves as a nice overview of the skin. If you are having trouble with the new layouts/views/features in recent updates, I recommend you go check it out.[/B]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added collection icon to most views and FlixPanel. With a quick glance, this allows seeing whether or not a movie belongs to collection. For use with FEN Light only.
+- Capitalized and bolded infolabels in FlixPanel
+- Changed duration for movies to more specific format
+- Removed 'Ends at:' infolabel across the skin
+- Other small adjustments
+
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.16[/COLOR][/B]
 - Added ratings and Info tab to Information screen
 - Added optional case setting for menus (Default, UPPERCASE, lowercase, Capitalized)
 - Added optional on right actions for List view (Scrollbar, Play trailer, Information)
