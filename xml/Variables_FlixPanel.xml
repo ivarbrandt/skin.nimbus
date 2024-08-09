@@ -3,31 +3,129 @@
   <!-- RATINGS INFOPANEL VARIABLES -->
 
 	<variable name="_Genre">
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Action)"> • [COLOR unfocused_text]Action[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Adventure)"> • [COLOR unfocused_text]Adventure[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Animation)"> • [COLOR unfocused_text]Animation[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedy[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Crime)"> • [COLOR unfocused_text]Crime[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Documentary)"> • [COLOR unfocused_text]Documentary[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Drama[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Family)"> • [COLOR unfocused_text]Family[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Fantasy[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Kids)"> • [COLOR unfocused_text]Kids[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,History)"> • [COLOR unfocused_text]History[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Horror)"> • [COLOR unfocused_text]Horror[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Music)"> • [COLOR unfocused_text]Music[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Mystery)"> • [COLOR unfocused_text]Mystery[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,News)"> • [COLOR unfocused_text]News[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Reality)"> • [COLOR unfocused_text]Reality[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Romance)"> • [COLOR unfocused_text]Romance[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Science Fiction)"> • [COLOR unfocused_text]Sci-Fi[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Sci-Fi)"> • [COLOR unfocused_text]Sci-Fi[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Soap)"> • [COLOR unfocused_text]Soap[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Talk)"> • [COLOR unfocused_text]Talk[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,TV Movie)"> • [COLOR unfocused_text]TV Movie[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Thriller[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,War)"> • [COLOR unfocused_text]War[/COLOR]</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Western)"> • [COLOR unfocused_text]Western[/COLOR]</value>
+		<!-- Specific Genre Combinations -->
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,History)"> • [COLOR unfocused_text]Historical Docudrama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Historical Dramedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Crime)"> • [COLOR unfocused_text]Crime Docudrama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Animated Dramedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Crime Dramedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Romantic Dramedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sports) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Sports Dramedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Animated Rom-Com[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Action Rom-Com[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Sci-Fi Rom-Com[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Ecchi) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Ecchi Rom-Com[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Slice of Life Rom-Com[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Sci-Fi Rom-Com[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Musical Rom-Com[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Musical Dramedy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,War) + !String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedic War Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,War) + !String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedic War Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Historical War Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Politics) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Fantastical War Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Historical War Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]War Thriller[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Western Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Action) + !String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Western-Action[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Politics)"> • [COLOR unfocused_text]Political Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Politics) + !String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,War) + !String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]War Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Politics) + !String.Contains(ListItem.Genre,Adventure) + !String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]War Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Kids) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Sci-Fi Fantasy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Kids) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Sci-Fi Kids[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Drama) + !String.Contains(ListItem.Genre,Thriller) + !String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Adventure)"> • [COLOR unfocused_text]Action-Adventure[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Adventure-Fantasy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Animated Comedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Action-Comedy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Sci-Fi Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Action Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Action-Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,History)"> • [COLOR unfocused_text]Action-History[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Horror)"> • [COLOR unfocused_text]Action-Horror[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,War)"> • [COLOR unfocused_text]War-Action[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Romance)"> • [COLOR unfocused_text]Romantic Western[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedic Western[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Adventure)"> • [COLOR unfocused_text]Western-Adventure[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Romantic Comedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Dramedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Docudrama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Crime Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Crime-Fantasy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Dark Fantasy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) +  !String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,History)"> • [COLOR unfocused_text]Historical Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Thriller) + String.Contains(ListItem.Genre,Romance)"> • [COLOR unfocused_text]Romantic Thriller[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Psychological) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Psychological Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Romance)"> • [COLOR unfocused_text]Romantic Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Documentary)"> • [COLOR unfocused_text]Musical Documentary[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,Documentary)"> • [COLOR unfocused_text]Historical Documentary[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Documentary)"> • [COLOR unfocused_text]Comedic Documentary[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Documentary)"> • [COLOR unfocused_text]Crime Documentary[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Crime Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Mystery) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Mystery Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Crime-Comedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Fantasy) + String.Contains(ListItem.Genre,Adventure)"> • [COLOR unfocused_text]Fantasy-Adventure[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Western Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Musical Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Musical Comedy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Horror-Comedy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Horror Thriller[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Mystery)"> • [COLOR unfocused_text]Horror Mystery[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Action)"> • [COLOR unfocused_text]Sci-Fi Action[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Action)"> • [COLOR unfocused_text]Sci-Fi Action[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedic Sci-Fi[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedic Sci-Fi[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Horror)"> • [COLOR unfocused_text]Sci-Fi Horror[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Horror)"> • [COLOR unfocused_text]Sci-Fi Horror[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Sci-Fi Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Sci-Fi Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Sci-Fi Fantasy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Sci-Fi Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Adventure)"> • [COLOR unfocused_text]Sci-Fi Adventure[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Adventure)"> • [COLOR unfocused_text]Sci-Fi Adventure[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Comedic Fantasy[/COLOR]</value>
+		<!-- <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedic Animation[/COLOR]</value> -->
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Animated Fantasy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Action-Fantasy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Musical Fantasy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Family)"> • [COLOR unfocused_text]Animation-Family[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Family) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Science Fiction)"> • [COLOR unfocused_text]Animated Sci-Fi[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Family) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Sci-Fi)"> • [COLOR unfocused_text]Animated Sci-Fi[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Thriller) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Dramatic Thriller[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Horror Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Crime)"> • [COLOR unfocused_text]Action-Crime[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Adventure Thriller[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Supernatural) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Supernatural Comedy[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Supernatural) + String.Contains(ListItem.Genre,Action)"> • [COLOR unfocused_text]Supernatural Action[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Supernatural) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Supernatural Drama[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedy-Slice of Life[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Mystery)"> • [COLOR unfocused_text]Mystery-Slice of Life[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Romance)"> • [COLOR unfocused_text]Romantic Slice of Life[/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Drama-Slice of Life[/COLOR]</value>
+    <!-- Single Genres (fallback) -->
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Action)"> • [COLOR unfocused_text]Action[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Adventure)"> • [COLOR unfocused_text]Adventure[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Animation)"> • [COLOR unfocused_text]Animation[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Comedy)"> • [COLOR unfocused_text]Comedy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Crime)"> • [COLOR unfocused_text]Crime[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Documentary)"> • [COLOR unfocused_text]Documentary[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Drama)"> • [COLOR unfocused_text]Drama[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Family)"> • [COLOR unfocused_text]Family[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Fantasy)"> • [COLOR unfocused_text]Fantasy[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Kids)"> • [COLOR unfocused_text]Kids[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,History)"> • [COLOR unfocused_text]History[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Horror)"> • [COLOR unfocused_text]Horror[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Music)"> • [COLOR unfocused_text]Music[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Mystery)"> • [COLOR unfocused_text]Mystery[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,News)"> • [COLOR unfocused_text]News[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Reality)"> • [COLOR unfocused_text]Reality[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Romance)"> • [COLOR unfocused_text]Romance[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Science Fiction)"> • [COLOR unfocused_text]Sci-Fi[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Sci-Fi)"> • [COLOR unfocused_text]Sci-Fi[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Soap)"> • [COLOR unfocused_text]Soap[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Talk)"> • [COLOR unfocused_text]Talk[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,TV Movie)"> • [COLOR unfocused_text]TV Movie[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Thriller)"> • [COLOR unfocused_text]Thriller[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,War)"> • [COLOR unfocused_text]War[/COLOR]</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Western)"> • [COLOR unfocused_text]Western[/COLOR]</value>
 	</variable>
 
 
@@ -42,6 +140,10 @@
 	<!-- MPAA Rating -->
 	<variable name="RI_Mpaa">
 		<value condition="!String.IsEmpty(ListItem.Mpaa)"> • [COLOR unfocused_text]$INFO[ListItem.Mpaa][/COLOR]</value>
+	</variable>
+	<!-- Rating -->
+	<variable name="RI_Rating">
+		<value condition="!String.IsEmpty(ListItem.Rating)"> • [COLOR unfocused_text]$INFO[ListItem.Rating]★[/COLOR]</value>
 	</variable>
 	<variable name="Season_Mpaa">
 		<value condition="!String.IsEmpty(ListItem.Mpaa)">[COLOR unfocused_text]$INFO[ListItem.Mpaa][/COLOR]</value>
@@ -58,6 +160,15 @@
 	<variable name="RI_Network">
 		<value condition="!String.IsEmpty(ListItem.Studio)"> • [COLOR unfocused_text]$INFO[ListItem.Studio][/COLOR]</value>
 	</variable>
+	<!-- Movie Collection -->
+	<variable name="RI_MovieCollection">
+		<value condition="String.IsEqual(ListItem.Property(belongs_to_collection),true) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]"> • [COLOR unfocused_text]Collection[/COLOR]</value>
+	</variable>
+	<!-- Watched Progress -->
+	<variable name="RI_WatchedProgress">
+		<!-- <value condition="[!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + $EXP[isEpisode]">[COLOR unfocused_text]$INFO[ListItem.Property(WatchedProgress)]% watched[/COLOR]</value> -->
+		<value condition="[!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)]"> • [COLOR unfocused_text]$INFO[ListItem.Property(WatchedProgress)]% watched[/COLOR]</value>
+	</variable>
 	<!-- Total Seasons -->
 	<variable name="RI_TotalSeasons">
 		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsEqual(Container.ListItem.Property(TotalSeasons),1)"> • [COLOR unfocused_text]$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36904]][/COLOR]</value>
@@ -69,9 +180,15 @@
 		<value condition="!String.IsEmpty(ListItem.Property(TotalSeasons)) + Integer.IsGreater(ListItem.Property(TotalSeasons),1)">$INFO[ListItem.Property(TotalSeasons),, $LOCALIZE[36905]]$INFO[ListItem.Property(TotalEpisodes), (, $LOCALIZE[20453])]</value>
 	</variable>
 	<!-- Status -->
+	<variable name="TVShowStatusIcon">
+		<value condition="!String.IsEmpty(ListItem.Status) + String.StartsWith(ListItem.Status,Returning)">icons/returning.png</value>
+		<value condition="!String.IsEmpty(ListItem.Status) + String.StartsWith(ListItem.Status,Ended)">icons/ended.png</value>
+		<value condition="!String.IsEmpty(ListItem.Status) + String.StartsWith(ListItem.Status,Canceled)">icons/canceled.png</value>
+		<!-- <value> • [COLOR unfocused_text]$INFO[Container.ListItem.Status][/COLOR]</value> -->
+	</variable>
 	<variable name="RI_Status">
-		<value condition="!String.IsEmpty(ListItem.Status) + String.StartsWith(ListItem.Status,Returning)"> • [COLOR unfocused_text]Returning[/COLOR]</value>
-		<value> • [COLOR unfocused_text]$INFO[Container.ListItem.Status][/COLOR]</value>
+		<value condition="!String.IsEmpty(ListItem.Status) + String.StartsWith(ListItem.Status,Returning) + [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)]"> • [COLOR unfocused_text]Returning[/COLOR]</value>
+		<value condition="[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)]"> • [COLOR unfocused_text]$INFO[Container.ListItem.Status][/COLOR]</value>
 	</variable>
 	<!-- Runtime -->
 	<variable name="RI_Runtime">
@@ -97,7 +214,7 @@
 	</variable>
 	
 	<variable name="RI_EpisodesRemaining">
-		<value condition="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes))"> • [COLOR unfocused_text]$INFO[ListItem.Property(UnwatchedEpisodes),, remaining][/COLOR]</value>
+		<value condition="Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + !String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + !String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)"> • [COLOR unfocused_text]$INFO[ListItem.Property(UnwatchedEpisodes),, remaining][/COLOR]</value>
 		<!-- <value condition="!String.IsEmpty(ListItem.Duration) + [$EXP[isTVShow] |  $EXP[isSeason] |  $EXP[isEpisode]]">$INFO[ListItem.Duration(mins), • ,m]</value> -->
 	</variable>
 	<variable name="RI_SeasonEpisode">
@@ -122,13 +239,18 @@
 
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie] + [String.IsEmpty(ListItem.Property(WatchedProgress)) + Integer.IsEqual(ListItem.Property(WatchedProgress),0)]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_MovieCollection]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie] + [!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)]">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]</value>
 		<!-- SHOWS -->
 		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_TotalSeasons]$VAR[RI_EpisodesRemaining]$VAR[RI_Status]</value>
 		<!-- SEASONS -->
-		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[Season_Mpaa]$VAR[RI_Network]$VAR[RI_Runtime]$VAR[RI_EpisodesRemaining]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]$VAR[RI_EpisodesRemaining]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_SeasonEpisode]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [String.IsEmpty(ListItem.Property(WatchedProgress)) + Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [String.IsEmpty(ListItem.Property(WatchedProgress)) + Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
+
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_SeasonEpisode]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
 	</variable>
 	
 	<variable name="InfoPanelBottom">

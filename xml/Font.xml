@@ -138,11 +138,17 @@
 		</font>
 		<!-- Title Fonts -->
 		<font>
+			<name>font10_title</name>
+			<filename>Inter-Regular.ttf</filename>
+			<size>21</size>
+			<style>bold</style>
+		</font>
+		<font>
 			<name>FlixPanelIcon</name>
 			<filename>Inter-Regular.ttf</filename>
 			<style>bold</style>
 			<size>22</size>
-			
+			<aspect>0.93</aspect>
 		</font>
 		<font>
 			<name>font_flag</name>

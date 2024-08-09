@@ -1023,8 +1023,12 @@
 							</item>
 							<item>
 								<label>$LOCALIZE[8]</label>
-								<onclick condition="String.IsEmpty(Weather.Plugin)">ActivateWindow(servicesettings,weather)</onclick>
+								<!-- <onclick condition="!String.IsEmpty(Weather.Plugin) + String.IsEmpty(Window(Home).Property(weather_cycling))">Notification(Weather, Location cycling enabled, 2000)</onclick> -->
+								<onclick condition="!String.IsEmpty(Weather.Plugin) + String.IsEmpty(Window(Home).Property(weather_cycling))">SetProperty(weather_cycling,true,home)</onclick>
+								<onclick condition="!String.IsEmpty(Weather.Plugin) + String.IsEmpty(Window(Home).Property(weather_cycling))">ReplaceWindow(Weather)</onclick>
+								<onclick condition="!String.IsEmpty(Weather.Plugin)">Notification(Weather, Cycling to next location..., 2000)</onclick>
 								<onclick condition="!String.IsEmpty(Weather.Plugin)">Weather.LocationNext</onclick>
+								<onclick condition="String.IsEmpty(Weather.Plugin)">ReplaceWindow(servicesettings,weather)</onclick>
 								<property name="menu_id">$NUMBER[15000]</property>
 								<property name="id">weather</property>
 								<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
@@ -1182,6 +1186,19 @@
 							<animation condition="Weather.IsFetched" effect="fade" start="100" end="0" time="500" delay="2000">Conditional</animation>
 						</control> -->
 					</control>
+					<control type="label">
+						<animation effect="fade" time="300">Visible</animation>
+						<bottom>410</bottom>
+						<left>528</left>
+						<width>1000</width>
+						<aligny>center</aligny>
+						<height>98</height>
+						<font>font32_title</font>
+						<label>[COLOR grey][LIGHT]Current location: [/LIGHT][/COLOR][UPPERCASE]$INFO[Weather.Location][/UPPERCASE]</label>
+						<!-- <label>[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]</label> -->
+						<textcolor>$VAR[MenuSelectorColor]</textcolor>
+						<visible>!String.IsEmpty(Weather.Plugin) + !Control.IsVisible(733) + Weather.IsFetched + String.IsEqual(Container(9000).ListItem.Property(id),weather) + !ControlGroup(2000).HasFocus</visible>
+					</control>
 				</control>
 			</control>
 			<control type="group">
@@ -1211,24 +1228,6 @@
 					<animation effect="fade" time="300">VisibleChange</animation>
 				</control>
 			</control>
-			<!-- <include content="MiniMenuLabels">
-				<param name="visible" value="!String.IsEmpty(Weather.Plugin) + Weather.IsFetched + String.IsEqual(Container(9000).ListItem.Property(id),weather) + !ControlGroup(2000).HasFocus"/>
-				<param name="top" value="50"/>
-				<param name="label" value="[UPPERCASE][COLOR grey]Current location:[/COLOR] [COLOR unfocused_text]$INFO[Weather.Location][/COLOR][/UPPERCASE]"/>
-			</include>
-			<include content="MiniMenuLabels">
-				<param name="visible" value="!String.IsEmpty(Weather.Plugin) + Weather.IsFetched + String.IsEqual(Container(9000).ListItem.Property(id),weather) + !ControlGroup(2000).HasFocus"/>
-				<param name="top" value="100"/>
-				<param name="label" value="[COLOR grey]Click OK to cycle between locations[/COLOR]"/>
-			</include> -->
-			<!-- <control type="label">
-				<left>75</left>
-				<top>100</top>
-				<width>500</width>
-				<height>75</height>
-				<label>[UPPERCASE]Current location: $INFO[Weather.Location][/UPPERCASE]</label>
-				<font>font37</font>
-			</control> -->
 		</control>
 	</controls>
 </window>

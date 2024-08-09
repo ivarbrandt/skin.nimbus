@@ -659,13 +659,19 @@
 					<onclick>Skin.SetNumeric(OSDAutoCloseTime)</onclick>
 					<enable>Skin.HasSetting(OSDAutoClose)</enable>
 				</control>
-				<control type="button" id="6222">
+				<control type="radiobutton" id="6222">
+					<label>Show OSD while paused</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.PauseOSD)</selected>
+					<onclick>Skin.ToggleSetting(Disable.PauseOSD)</onclick>
+				</control>
+				<control type="button" id="6223">
 					<label>Audio button action</label>
 					<label2>$VAR[OSDAudioButtonSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OSDAudioButtonSettingToggleVar]</onclick>
 				</control>
-				<control type="button" id="6223">
+				<control type="button" id="6224">
 					<label>Subtitle button action</label>
 					<label2>$VAR[OSDSubtitleButtonSettingVar]</label2>
 					<include>DefaultSettingButton</include>

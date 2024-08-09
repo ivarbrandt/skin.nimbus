@@ -27,8 +27,8 @@
 		<font>PlayerIcon</font>
 		<align>left</align>
 		<aligny>top</aligny>
-		<textoffsetx>4</textoffsetx>
-		<textoffsety>4</textoffsety>
+		<textoffsetx>3</textoffsetx>
+		<textoffsety>6</textoffsety>
 		<texturefocus border="3" colordiffuse="accent_color">osd/Button.png</texturefocus>
 		<alttexturefocus border="3" colordiffuse="accent_color">osd/Button.png</alttexturefocus>
 	</include>

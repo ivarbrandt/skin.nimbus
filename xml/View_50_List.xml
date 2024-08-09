@@ -45,12 +45,12 @@
 				<visible>
 					!Player.HasMedia + 
 					[
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
-							[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
-							[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
+						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
+						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
+						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
+						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
+						[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
 					]
 				</visible>
 			</control>
@@ -68,18 +68,18 @@
 				<animation condition="
 					$EXP[isContent] + 
 					[
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
+						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
+						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
+						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
 					] +
 					[
-							[String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
-							[String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
-							[String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
-							[String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
-							[String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
-							[String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
+						[String.IsEmpty(Window(Home).Property(nimbus.metascore)) | Skin.HasSetting(Disable.MetacriticRating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) | Skin.HasSetting(Disable.RTCRating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
+						[String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
 					]" 
 					reversible="true">
 					<effect type="slide" start="0,0" end="100,0" delay="200" time="500" tween="cubic" easing="inout" />
@@ -96,7 +96,11 @@
 				</visible>
 			</control>
 			<control type="image">
-				<include>FullScreenDimensions</include>
+				<!-- <include>FullScreenDimensions</include> -->
+				<left>150</left>
+				<top>0</top>
+				<width>101%</width>
+				<height>101%</height>
 				<fadetime>500</fadetime>
 				<texture colordiffuse="artwork_dim" diffuse="overlays/fanart-diffuse.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
 				<aspectratio>stretch</aspectratio>
@@ -104,12 +108,12 @@
 				<visible>
 					!Player.HasMedia + 
 					[
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
-							[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
-							[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
+						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
+						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
+						[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
 					]
 				</visible>
 				</control>
@@ -366,12 +370,12 @@
 						<visible>
 							String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
 							[
-									[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
 							]
 						</visible>
 						<control type="image">
@@ -381,7 +385,33 @@
 							<height>35</height>
 							<fadetime>0</fadetime>
 							<aspectratio align="center" aligny="center">keep</aspectratio>
-							<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+							<texture>icons/collection.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<width>92</width>
+						<height>38</height>
+						<visible>
+							!String.IsEmpty(ListItem.Status) + 
+							!String.IsEqual(Container.PluginName,plugin.video.otaku) + 
+							$EXP[isTVShow] +
+							[
+								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+							]
+						</visible>
+						<control type="image">
+							<left>7</left>
+							<top>0</top>
+							<width>51</width>
+							<height>36</height>
+							<fadetime>0</fadetime>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<texture colordiffuse="artwork_dim">$VAR[TVShowStatusIcon]</texture>
 						</control>
 					</control>
 					<!-- <control type="group">
@@ -578,16 +608,35 @@
 						<width>150</width>
 						<height>45</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+						<texture>icons/collection.png</texture>
 						<visible>
 							String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
 							[
-									[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
-									[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
+							]
+						</visible>
+					</control>
+					<control type="image">
+						<width>150</width>
+						<height>45</height>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<texture colordiffuse="artwork_dim">$VAR[TVShowStatusIcon]</texture>
+						<visible>
+							!String.IsEmpty(ListItem.Status) + 
+							!String.IsEqual(Container.PluginName,plugin.video.otaku) + 
+							$EXP[isTVShow] +
+							[
+								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) + !Skin.HasSetting(Disable.RTARating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) + !Skin.HasSetting(Disable.IMDbRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.popularRating)) + !Skin.HasSetting(Disable.IMDbPopularRating)] | 
+								[!String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) + !Skin.HasSetting(Disable.TMDbRating)]
 							]
 						</visible>
 					</control>
@@ -856,24 +905,20 @@
 						[String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter)) | Skin.HasSetting(Disable.RTARating)] + 
 						[String.IsEmpty(Window(Home).Property(nimbus.imdbRating)) | Skin.HasSetting(Disable.IMDbRating)] + 
 						[String.IsEmpty(Window(Home).Property(nimbus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)] + 
-							[String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
+						[String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]
 					]" 
 					reversible="true">
 					<effect type="slide" start="0,0" end="-100,0" delay="200" time="500" tween="cubic" easing="inout" />
 				</animation>
 				<animation condition="
-					[
-						[$EXP[isContent] + [
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]
-						]] |
-						[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
-						[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
-						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
-						[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
-					]" reversible="false">
+					[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+					[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+					[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+					[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+					[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
+					[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
+					[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
+					[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]" reversible="false">
 					<effect type="slide" start="0,0" end="-930,0" time="0" tween="cubic" easing="inout" />
 				</animation>
 				<control type="label">
@@ -928,8 +973,8 @@
 						<control type="image">
 							<top>-4</top>
 							<bottom>7</bottom>
-							<width>5</width>
-							<left>10</left>
+							<width>4</width>
+							<left>11</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
 							<visible>$EXP[isContent] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
@@ -937,8 +982,8 @@
 						<control type="image">
 							<top>-4</top>
 							<height>61</height>
-							<width>5</width>
-							<left>10</left>
+							<width>4</width>
+							<left>11</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
 							<visible>!$EXP[isContent] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
@@ -1031,7 +1076,7 @@
 					</itemlayout>
 					<focusedlayout condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)" height="67" width="610" infoupdate="300">
 						<control type="image">
-							<top>-4</top>
+							<top>-1</top>
 							<bottom>3</bottom>
 							<width>5</width>
 							<left>10</left>
@@ -1078,7 +1123,7 @@
 					</itemlayout>
 					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610" infoupdate="300">
 						<control type="image">
-							<top>-4</top>
+							<top>-1</top>
 							<bottom>3</bottom>
 							<width>5</width>
 							<left>10</left>
@@ -1127,8 +1172,8 @@
 						<control type="image">
 							<top>-4</top>
 							<bottom>7</bottom>
-							<width>5</width>
-							<left>10</left>
+							<width>4</width>
+							<left>11</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
 							<visible>Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>

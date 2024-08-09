@@ -1238,35 +1238,7 @@
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
 				<texture colordiffuse="primary_background">special://skin/extras/backgrounds/primary.jpg</texture>
-				<!-- <visible>
-					!Skin.HasSetting(Enable.BackgroundBlur) + 
-					[
-							[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)] | Control.IsVisible(400)] | 
-							[
-									[[Control.IsVisible(50) + ![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)]] | Control.IsVisible(500) | Control.IsVisible(501) | 
-									 Window.IsVisible(1100) | 
-									 [[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
-											[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
-									 ] |
-									 [[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
-											[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-											 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-											 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-											 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-											]
-									 ] |
-									 [!Window.IsVisible(Home) + !Window.IsVisible(1121) + 
-											[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-											 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-											 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-											 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-											]
-									 ]
-									]
-							]
-					]
-			</visible> -->
-			<visible>
+			<!-- <visible>
 				!Skin.HasSetting(Enable.BackgroundBlur) + 
 				[
 						[![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)] | Control.IsVisible(400)] | 
@@ -1278,7 +1250,8 @@
 										[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 										[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
 										[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
-										[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
+										[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | 
+										[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
 										[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
 										[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
 									]
@@ -1304,7 +1277,49 @@
 								]
 						]
 				]
-				</visible>
+				</visible> -->
+				<visible>
+					!Skin.HasSetting(Enable.BackgroundBlur) + 
+					[
+							[Control.IsVisible(50) + 
+									![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)] + 
+									![
+											[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+											[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+											[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+											[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+											[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | 
+											[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
+											[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
+											[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
+									]
+							] |
+							[!Control.IsVisible(50) + 
+									[
+											Control.IsVisible(500) | 
+											Control.IsVisible(501) | 
+											Window.IsVisible(1100) | 
+											[[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
+													[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
+											] |
+											[[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
+													[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+													 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+													 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+													 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
+													]
+											] |
+											[!Window.IsVisible(Home) + !Window.IsVisible(1121) + 
+													[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+													 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+													 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+													 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
+													]
+											]
+									]
+							]
+					]
+			</visible>
 
 
 
@@ -1950,9 +1965,9 @@
 			<top>56</top>
 			<height>49</height>
 			<align>left</align>
-			<aligny>top</aligny>
+			<aligny>center</aligny>
 			<textoffsetx>14</textoffsetx>
-			<textoffsety>9.5</textoffsety>
+			<!-- <textoffsety>9.1</textoffsety> -->
 			<font>FlixPanelIcon</font>
 			<textcolor>unfocused_text</textcolor>
 			<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>

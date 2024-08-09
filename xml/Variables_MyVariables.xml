@@ -38,31 +38,129 @@
 
 	<!-- Return a single genre -->
   <variable name="GenreVar">
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Action)">Action</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Adventure)">Adventure</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Animation)">Animation</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Comedy)">Comedy</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Crime)">Crime</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Documentary)">Documentary</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Drama)">Drama</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Family)">Family</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Fantasy)">Fantasy</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Kids)">Kids</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,History)">History</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Horror)">Horror</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Music)">Music</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Mystery)">Mystery</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,News)">News</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Reality)">Reality</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Romance)">Romance</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Science Fiction)">Sci-Fi</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Sci-Fi)">Sci-Fi</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Soap)">Soap</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Talk)">Talk</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,TV Movie)">TV Movie</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Thriller)">Thriller</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,War)">War</value>
-		<value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Western)">Western</value>
+		<!-- Specific Genre Combinations -->
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,History)">Historical Docudrama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Historical Dramedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Crime)">Crime Docudrama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Animated Dramedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Crime Dramedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Romantic Dramedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sports) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Sports Dramedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Animated Rom-Com</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Action Rom-Com</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Sci-Fi Rom-Com</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Ecchi) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Ecchi Rom-Com</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Slice of Life Rom-Com</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Sci-Fi Rom-Com</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Musical Rom-Com</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Drama)">Musical Dramedy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,War) + !String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Comedic War Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,War) + !String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Comedy)">Comedic War Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama)">Historical War Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Politics) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Fantasy)">Fantastical War Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Thriller)">Historical War Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Thriller)">War Thriller</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Thriller)">Western Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Action) + !String.Contains(ListItem.Genre,Thriller)">Western-Action</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Politics)">Political Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Politics) + !String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,War) + !String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Drama)">War Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Politics) + !String.Contains(ListItem.Genre,Adventure) + !String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,War) + String.Contains(ListItem.Genre,Drama)">War Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Kids) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Fantasy)">Sci-Fi Fantasy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Kids) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Fantasy)">Sci-Fi Kids</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Drama) + !String.Contains(ListItem.Genre,Thriller) + !String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Adventure)">Action-Adventure</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Fantasy)">Adventure-Fantasy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Comedy)">Animated Comedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Comedy)">Action-Comedy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Thriller)">Sci-Fi Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Thriller)">Action Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Drama)">Action-Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,History)">Action-History</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Horror)">Action-Horror</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,War)">War-Action</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Romance)">Romantic Western</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Comedy)">Comedic Western</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Adventure)">Western-Adventure</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Romance) + String.Contains(ListItem.Genre,Comedy)">Romantic Comedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Drama)">Dramedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Documentary) + String.Contains(ListItem.Genre,Drama)">Docudrama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Drama)">Crime Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Fantasy)">Crime-Fantasy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Fantasy)">Dark Fantasy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) +  !String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,History)">Historical Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Thriller) + String.Contains(ListItem.Genre,Romance)">Romantic Thriller</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Psychological) + String.Contains(ListItem.Genre,Drama)">Psychological Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Drama) + String.Contains(ListItem.Genre,Romance)">Romantic Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Documentary)">Musical Documentary</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,History) + String.Contains(ListItem.Genre,Documentary)">Historical Documentary</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Documentary)">Comedic Documentary</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Documentary)">Crime Documentary</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Thriller)">Crime Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Mystery) + String.Contains(ListItem.Genre,Thriller)">Mystery Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Comedy)">Crime-Comedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Fantasy) + String.Contains(ListItem.Genre,Adventure)">Fantasy-Adventure</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Western) + String.Contains(ListItem.Genre,Drama)">Western Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Drama)">Musical Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Comedy)">Musical Comedy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Comedy)">Horror-Comedy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Crime) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Thriller)">Horror Thriller</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Mystery)">Horror Mystery</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Action)">Sci-Fi Action</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Action)">Sci-Fi Action</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Comedy)">Comedic Sci-Fi</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Comedy)">Comedic Sci-Fi</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Horror)">Sci-Fi Horror</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Horror)">Sci-Fi Horror</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Drama)">Sci-Fi Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Drama)">Sci-Fi Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Fantasy)">Sci-Fi Fantasy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Thriller)">Sci-Fi Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Adventure)">Sci-Fi Adventure</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Adventure)">Sci-Fi Adventure</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Fantasy)">Comedic Fantasy</value>
+		<!-- <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Comedy)">Comedic Animation</value> -->
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Fantasy)">Animated Fantasy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Fantasy)">Action-Fantasy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Fantasy)">Musical Fantasy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Family)">Animation-Family</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Family) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Science Fiction)">Animated Sci-Fi</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + !String.Contains(ListItem.Genre,Family) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Sci-Fi)">Animated Sci-Fi</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Thriller) + String.Contains(ListItem.Genre,Drama)">Dramatic Thriller</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Horror) + String.Contains(ListItem.Genre,Drama)">Horror Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Crime)">Action-Crime</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Adventure) + String.Contains(ListItem.Genre,Thriller)">Adventure Thriller</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Supernatural) + String.Contains(ListItem.Genre,Comedy)">Supernatural Comedy</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Supernatural) + String.Contains(ListItem.Genre,Action)">Supernatural Action</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Supernatural) + String.Contains(ListItem.Genre,Drama)">Supernatural Drama</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Comedy)">Comedy-Slice of Life</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Mystery)">Mystery-Slice of Life</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Romance)">Romantic Slice of Life</value>
+		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Slice of Life) + String.Contains(ListItem.Genre,Drama)">Drama-Slice of Life</value>
+    <!-- Single Genres (fallback) -->
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Action)">Action</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Adventure)">Adventure</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Animation)">Animation</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Comedy)">Comedy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Crime)">Crime</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Documentary)">Documentary</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Drama)">Drama</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Family)">Family</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Fantasy)">Fantasy</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Kids)">Kids</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,History)">History</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Horror)">Horror</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Music)">Music</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Mystery)">Mystery</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,News)">News</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Reality)">Reality</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Romance)">Romance</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Science Fiction)">Sci-Fi</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Sci-Fi)">Sci-Fi</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Soap)">Soap</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Talk)">Talk</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,TV Movie)">TV Movie</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Thriller)">Thriller</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,War)">War</value>
+    <value condition="!String.IsEmpty(ListItem.Genre) + String.StartsWith(ListItem.Genre,Western)">Western</value>
 	</variable>
 
 	<variable name="StatusVar">
@@ -101,8 +199,8 @@
 	</variable> -->
 
 	<variable name="FlixCategory">
-    <value condition="!String.IsEmpty(Container.PluginCategory) + !String.StartsWith(Container.PluginCategory,Season)"> [B]»[/B] [COLOR unfocused_text]$INFO[Container.PluginCategory][/COLOR]</value>
-    <value condition="!String.IsEmpty(Container($PARAM[list_id]).ListItem.TVShowTitle) + String.StartsWith(Container.PluginCategory,Season)"> [B]»[/B] [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
+    <value condition="!String.IsEmpty(Container.PluginCategory) + [!String.StartsWith(Container.PluginCategory,Season)]"> [B]»[/B] [COLOR unfocused_text]$INFO[Container.PluginCategory][/COLOR]</value>
+    <value condition="!String.IsEmpty(Container.PluginCategory) + String.StartsWith(Container.PluginCategory,Season) + $EXP[isEpisode]"> [B]»[/B] [COLOR unfocused_text]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/COLOR]</value>
     <value></value>
 	</variable>
 
@@ -140,6 +238,11 @@
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[TrailerReady.NoBlur]</value>
     <value>$VAR[TrailerReady.Blur]</value>
 	</variable>
+
+	<!-- <variable name="WeatherLocationCyclingLabel">
+		<value condition="!String.IsEmpty(Window(Home).Property(weather_cycling))">[COLOR grey][LIGHT]Current location[/LIGHT][/COLOR][CR][COLOR $VAR[MenuSelectorColor]][UPPERCASE]$INFO[Weather.Location][/UPPERCASE][/COLOR]</value>
+    <value>[COLOR grey]Click OK to activate location cycling[/COLOR]</value>
+	</variable> -->
 
 	<variable name="TrailerReady.NoBlur">
     <value condition="String.IsEqual(Skin.String(trailerSetting),1) + ![$EXP[isEpisode] | $EXP[isSeason]] + Skin.HasSetting(Enable.TrailerReadyIcon) + !String.IsEmpty(Window(Home).Property(nimbus.trailer_ready))">▶ </value>
@@ -212,27 +315,32 @@
 	</variable>
 
 	<variable name="MenuSelectorColor">
-		<value condition="String.IsEmpty(Window(home).Property(listitem_color)) | String.IsEqual(Skin.String(InfoLineColorThemeSetting),1)">unfocused_text</value>
-    <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
-    <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">$INFO[Window(home).Property(listitem_color)]</value>
+		<value condition="Player.HasMedia | String.IsEmpty(Window(home).Property(listitem_color)) | String.IsEqual(Skin.String(InfoLineColorThemeSetting),1)">unfocused_text</value>
+    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
+    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">$INFO[Window(home).Property(listitem_color)]</value>
 	</variable>
 
 	<variable name="MediaMenuDiffuse">
     <!-- Blur enabled -->
     <value condition="Skin.HasSetting(Enable.BackgroundBlur)">80000000</value>
     <!-- Movies -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)">FF101010</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)">80050505</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)">FF101010</value>
     <!-- TV Shows -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)">FF101010</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)">80050505</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)">FF101010</value>
     <!-- Seasons -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)">FF101010</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)">80050505</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)">FF101010</value>
     <!-- Episodes -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)">FF101010</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)">80050505</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)">FF101010</value>
     <!-- Non-content -->
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(ListArtworkChoice.),2) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">FF101010</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">80050505</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">FF101010</value>
 	</variable>

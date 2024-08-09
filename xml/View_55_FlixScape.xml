@@ -136,7 +136,14 @@
 								]
 						]
 					</visible>
-					<animation condition="[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]" effect="fade" time="0" start="100" end="0">Conditional</animation>
+					<animation condition="
+						[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + 
+						[
+								[String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | 
+								[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + !Integer.IsGreater(ListItem.Playcount,0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] |
+								[!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]
+						]
+						" effect="fade" time="0" start="100" end="0">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>21</left>
@@ -147,7 +154,14 @@
 					<visible>
 						[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + 
 						[!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] + 
-						[![$EXP[isEpisode]] + 
+						!String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1) + 
+						[
+								[$EXP[isMovie]] | 
+								[[$EXP[isTVShow] | $EXP[isSeason]] + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)] | 
+								[!$EXP[isMovie] + !$EXP[isTVShow] + !$EXP[isSeason] + !$EXP[isEpisode]]
+						] + 
+						[
+								!$EXP[isEpisode] + 
 								[
 										Window.IsVisible(Home) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) | 
 										!Window.IsVisible(Home) + 
@@ -158,7 +172,7 @@
 										]
 								]
 						]
-					</visible>
+				</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
         <control type="image">
@@ -206,7 +220,7 @@
           </control>
           <control type="label">
             <visible>$EXP[isEpisode]</visible>
-            <label>[LIGHT]$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, | ][/LIGHT]</label>
+            <label>$INFO[Container($PARAM[list_id]).ListItem.Season]$INFO[Container($PARAM[list_id]).ListItem.Episode,x,]$INFO[Container($PARAM[list_id]).ListItem.Title, | ]</label>
             <font>font25_title</font>
             <shadowcolor>text_shadow</shadowcolor>
             <align>left</align>
@@ -216,8 +230,8 @@
           <control type="label">
             <visible>$EXP[isEpisode]</visible>
             <top>35</top>
-            <label>$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle]</label>
-            <font>font10</font>
+            <label>[LIGHT]$INFO[Container($PARAM[list_id]).ListItem.TVShowTitle][/LIGHT]</label>
+            <font>font10_title</font>
             <shadowcolor>text_shadow</shadowcolor>
             <align>left</align>
             <scroll>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</scroll>
@@ -248,7 +262,10 @@
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
-					<visible>!String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes))</visible>
+					<visible>
+						Integer.IsGreater(ListItem.Property(WatchedEpisodes),0) + 
+						!String.IsEqual(ListItem.Property(WatchedEpisodes),ListItem.Property(TotalEpisodes)) + 
+						!String.IsEqual(ListItem.Property(UnWatchedEpisodes),-1)</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 				<!-- <control type="image">
@@ -296,7 +313,14 @@
 							[$EXP[isSeason] + String.IsEqual(Skin.String(ItemFanartChoice.seasons),1)]
 					]
 				</visible>
-        <animation condition="[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]" effect="fade" time="0" start="100" end="0">Conditional</animation>
+        <animation condition="
+					[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + 
+					[
+							[String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | 
+							[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + !Integer.IsGreater(ListItem.Playcount,0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] |
+							[!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]
+					]
+						" effect="fade" time="0" start="100" end="0">Conditional</animation>
 			</control>
 			<!-- <control type="group">
 				<left>188</left>
@@ -339,8 +363,8 @@
 				<orientation>horizontal</orientation>
 				<movement>2</movement>
 				<onup>9000</onup>
-				<ondown condition="!$EXP[isEpisode] + String.IsEqual(Skin.String(OnDownSetting),0)">5199</ondown>
-				<ondown condition="!$EXP[isEpisode] + String.IsEqual(Skin.String(OnDownSetting),1)">Container.SetViewMode(501)</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),0)">5199</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),1)">Container.SetViewMode(501)</ondown>
 				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + String.IsEmpty(TrailerPlaying)">Skin.SetString(TrailerPlaying, true)</ondown>
 				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2)">$VAR[AutoplayTrailerSource]</ondown>
 				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),3)">info</ondown>

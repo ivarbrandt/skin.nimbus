@@ -192,7 +192,7 @@
 				</include>
 			</control>
 			<include content="TopBar">
-				<param name="breadcrumbs_label" value="$LOCALIZE[24001]" />
+				<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[24001][/COLOR]" />
 			</include>
 			<!-- <include>BottomBar</include> -->
 			<control type="group">

@@ -4,7 +4,7 @@
 		<control type="group">
 			<visible>!Control.IsVisible(50) + [!Player.HasVideo | !$EXP[sidebar_visible]]</visible>
 			<left>50</left>
-			<width>790</width>
+			<width>785</width>
 			<top>45</top>
 			<control type="image">
 				<width>522</width>
@@ -67,11 +67,15 @@
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + [$EXP[isContent]]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + $EXP[isContent]"/>
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$VAR[GenreVar]"/>
-						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre) + !$EXP[isEpisode]"/>
+						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre) + String.IsEmpty(ListItem.Property(episode_type)) + $EXP[isContent]"/>
+					</include>
+					<include content="FlixInfoIcon">
+						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Rating]★"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Rating) + !ListItem.IsCollection + $EXP[isEpisode]"/>
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
@@ -87,7 +91,7 @@
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$VAR[StatusVar]"/>
-						<param name="visible" value="!String.IsEmpty(ListItem.Status) + !ListItem.IsCollection + $EXP[isTVShow]"/>
+						<param name="visible" value="!String.IsEmpty(ListItem.Status) + String.Contains(Container.PluginName,plugin.video.otaku) + !ListItem.IsCollection + $EXP[isTVShow]"/>
 					</include>
 					<control type="togglebutton">
 						<left>50</left>
@@ -105,18 +109,33 @@
 						<visible>!String.IsEmpty(ListItem.Property(episode_type))</visible>
 					</control>
 					<control type="group">
-            <width>35</width>
-            <height>35</height>
+            <width>45</width>
+            <height>45</height>
             <visible>String.IsEqual(ListItem.Property(belongs_to_collection),true)</visible>
             <control type="image">
-							<top>6</top>
+							<top>5</top>
 							<left>7</left>
-							<width>35</width>
-							<height>35</height>
+							<width>38</width>
+							<height>38</height>
 							<fadetime>0</fadetime>
 							<aspectratio align="left" aligny="center">keep</aspectratio>
-							<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+							<texture>icons/collection.png</texture>
             </control>
+					</control>
+					<control type="group">
+						<width>110</width>
+						<height>56</height>
+						<visible>!String.IsEmpty(ListItem.Status) + !String.IsEqual(Container.PluginName,plugin.video.otaku) + $EXP[isTVShow]</visible>
+						<control type="image">
+							<top>7</top>
+							<left>7</left>
+							<width>51</width>
+							<height>36</height>
+							<fadetime>0</fadetime>
+							<aspectratio align="left" aligny="center">keep</aspectratio>
+							<texture colordiffuse="artwork_dim">$VAR[TVShowStatusIcon]</texture>
+							<!-- <visible>Skin.HasSetting(Enable.StudioLogos)</visible> -->
+						</control>
 					</control>
 					<!-- <control type="group">
 						<width>110</width>
