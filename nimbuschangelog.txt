@@ -1,9 +1,26 @@
-Nimbus Helper: Latest: v0.0.38 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.39 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
 [B]I've added a video to the main skin page on my Github that shows how to configure artwork settings for the home screen and video windows. It also serves as a nice overview of the skin. If you are having trouble with the new layouts/views/features in recent updates, I recommend you go check it out.[/B]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added genre classification system. Nimbus will now try to classify the movie/tvshow based on the genres that the item contains. For example, if an item contains the genres War,History,and Drama, Nimbus will display "Historical War Drama" for the genre.
+- Changed color algorithm. HIGHLY RECOMMEND clearing blur cache.
+- Changed movie collection icon
+- Replaced text based Status icon for tvshows with visual icons:
+  • Green sprout = Returning Series
+  • Sunset = Ended
+  • Tree trunk = Canceled
+- Added option to hide OSD when playback is paused. You can find this in the OSD section in Skin settings.
+- Added collection label to movies in List view (Fanart)
+- Added percent watched label for movies/tvshows in List view
+- Added default episode rating for episodes to all views
+- Made Nimbus fully compatible with other FEN forks
+- Fixed location cycling for weather widget. Click the Weather main menu item to cycle to the next location.
+- Other fixes/changes
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.17[/COLOR][/B]
 - Added collection icon to most views and FlixPanel. With a quick glance, this allows seeing whether or not a movie belongs to a collection. For use with FEN Light only.
 - Capitalized and bolded infolabels in FlixPanel
 - Changed duration for movies to more specific format
