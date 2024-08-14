@@ -1,9 +1,25 @@
-Nimbus Helper: Latest: v0.0.39 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.40 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
-[B]I've added a video to the main skin page on my Github that shows how to configure artwork settings for the home screen and video windows. It also serves as a nice overview of the skin. If you are having trouble with the new layouts/views/features in recent updates, I recommend you go check it out.[/B]
-
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added optional modular OSD. Choose which elements to show in Skin settings [B]»[/B] On screen display.
+- Various changes to visibility of OSD buttons
+- Added optional extending of auto color scheme to the rest of the skin
+- Integrated movie collection logic into Nimbus. This requires clearing the ratings cache and restarting Kodi.
+- Reverted collection icon to previous one
+- Added new collection icon for movies that are the first in the collection. You'll see the same collection icon as normal but with the number '1' in it.
+- Fixed home screen getting 'stuck' sometimes
+- Added option to disable home screen quick config menu for artwork settings. You can find this in Skin settings [B]»[/B] Artwork display.
+- Added fading of screen elements while trailers are playing
+- Added ability to end trailer on down if on down action is Play Trailer and trailer is currently playing in Flix/FlixScape
+- Removed collection icon when inside a movie collection
+- Removed OSDInfo screen
+- Fixed trailers restarting while playing on the home screen
+- Added fallbacks for mixed content. I recommend using FlixScape view when viewing mixed content/universes.
+- Other small changes/fixes/adjustments
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.18[/COLOR][/B]
 - Added genre classification system. Nimbus will now try to classify the movie/tvshow based on the genres that the item contains. For example, if an item contains the genres War,History,and Drama, Nimbus will display "Historical War Drama" for the genre.
 - Changed color algorithm. HIGHLY RECOMMEND clearing blur cache.
 - Changed movie collection icon
@@ -210,7 +226,7 @@ ________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.0.97[/COLOR][/B]
 - Updated most PVR windows to skin design
-- Added new textures for homescreen PVR progress
+- Added new textures for home screen PVR progress
 - Added codec divider
 - Modified a few PVR specific variables
 - Added PVRChannelGuide and PVROSDChannel buttons 
