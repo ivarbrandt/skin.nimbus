@@ -368,7 +368,7 @@
 						<width>49</width>
 						<height>35</height>
 						<visible>
-							!String.EndsWith(Container.PluginCategory,Collection) + 
+							!String.EndsWith(Container.PluginCategory,Collection) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)] +  
 							[
 								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -610,7 +610,7 @@
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
 						<visible>
-							!String.EndsWith(Container.PluginCategory,Collection) + 
+							!String.EndsWith(Container.PluginCategory,Collection) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)] + 
 							[
 								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -652,7 +652,7 @@
 							<aspectratio align="left" aligny="center">keep</aspectratio>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
 							<visible>
-								String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + 
+								String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)] + 
 								[
 										[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 										[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 

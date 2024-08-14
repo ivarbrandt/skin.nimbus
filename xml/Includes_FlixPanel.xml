@@ -111,7 +111,7 @@
 					<control type="group">
             <width>35</width>
             <height>35</height>
-            <visible>!String.EndsWith(Container.PluginCategory,Collection)</visible>
+            <visible>!String.EndsWith(Container.PluginCategory,Collection) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)]</visible>
             <control type="image">
 							<top>6</top>
 							<left>7</left>
