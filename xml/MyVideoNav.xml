@@ -4,6 +4,7 @@
 	<backgroundcolor>background</backgroundcolor>
 	<views>50,52,54,55,56,500,501</views>
 	<menucontrol>9000</menucontrol>
+	<!-- <onunload condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunload> -->
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
@@ -51,6 +52,7 @@
 			</control>
 		</control>
 		<control type="group">
+			<include>TrailerPlayingFade</include>
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>

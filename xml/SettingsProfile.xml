@@ -12,14 +12,14 @@
 				<left>25</left>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="image">
 				<bottom>134</bottom>
 				<left>25</left>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="panel" id="2">
 				<top>148</top>
@@ -98,7 +98,7 @@
 							<top>5</top>
 							<width>320</width>
 							<height>380</height>
-							<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons.png</texture>
 							<bordersize>20</bordersize>
 							<include>Animation_FocusTextureFade</include>
 						</control>
@@ -199,7 +199,7 @@
 					<control type="image">
 						<right>50</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">

@@ -54,7 +54,7 @@
 				<font>font32</font>
 				<textcolor>darkgrey</textcolor>
 				<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texturefocus>
 				<texturenofocus />
 			</control>
 		</control>

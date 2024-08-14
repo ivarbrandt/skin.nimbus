@@ -13,7 +13,7 @@
 				<height>279</height>
 				<control type="group">
 					<control type="image">
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -41,12 +41,13 @@
 					<centerleft>50%</centerleft>
 					<top>285</top>
 					<width>240</width>
-					<height>75</height>
+					<height>65</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$VAR[AddonsTitleVar]</label>
 					<font>font25</font>
 					<textcolor>unfocused_text</textcolor>
+					<autoscroll delay="2000" time="3000" repeat="2000">$PARAM[focused] + Skin.HasSetting(autoscroll)</autoscroll>
 				</control>
 			</control>
 		</definition>
@@ -68,7 +69,7 @@
 				<height>279</height>
 				<control type="group">
 					<control type="image">
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -152,6 +153,7 @@
             <width>200</width>
             <height>7</height>
             <info>ListItem.PercentPlayed</info>
+						<midtexture colordiffuse="$VAR[FocusColorTheme]">osd/Progress.png</midtexture>
           </control>
           <control type="progress">
             <centerleft>50%</centerleft>
@@ -159,6 +161,7 @@
             <width>200</width>
             <height>7</height>
             <info>ListItem.Progress</info>
+						<midtexture colordiffuse="$VAR[FocusColorTheme]">osd/Progress.png</midtexture>
           </control>
         </control>
 			</control>
@@ -178,7 +181,7 @@
 				<height>279</height>
 				<control type="group">
           <control type="image">
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>

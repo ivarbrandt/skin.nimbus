@@ -326,7 +326,7 @@
 					<top>0</top>
 					<right>25</right>
 					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusedColorVar]">$PARAM[diffuse]</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">$PARAM[diffuse]</texture>
 					<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 				</control>
 				<control type="group">
@@ -517,7 +517,7 @@
 						<top>0</top>
 						<right>25</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus-long.png</texture>
 						<animation effect="fade" start="100" end="0" time="40" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 					</control>
 					<control type="image">
@@ -622,7 +622,7 @@
 								</include>
 							</control>
 						</itemlayout>
-						<focusedlayout height="375" width="350">
+						<focusedlayout height="375" width="350" infoupdate="30">
 							<control type="group">
 								<left>25</left>
 								<top>150</top>
@@ -687,7 +687,7 @@
 				</control> -->
 				<control type="label" id="$PARAM[id]">
 					<label>$PARAM[sub_label]</label>
-					<textcolor>$VAR[FocusedColorVar]</textcolor>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<font>font27_title</font>
 					<left>85</left>
 					<shadowcolor>text_shadow</shadowcolor>
@@ -1021,7 +1021,7 @@
 								<width>32</width>
 								<height>32</height>
 								<aspectratio>keep</aspectratio>
-								<texture colordiffuse="$VAR[FocusedColorVar]">$VAR[NowPlayingIconVar]</texture>
+								<texture colordiffuse="$VAR[FocusColorTheme]">$VAR[NowPlayingIconVar]</texture>
 							</control>
 							<control type="label">
 								<label>$INFO[Player.Title]</label>
@@ -1227,7 +1227,7 @@
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
-				<texture colordiffuse="FF6E6E6E">$INFO[Window(home).Property(listitem_blurred)]</texture>
+				<texture colordiffuse="FF5F5F5F">$INFO[Window(home).Property(listitem_blurred)]</texture>
 			</control>
 		</control>
 		
@@ -1281,45 +1281,49 @@
 				<visible>
 					!Skin.HasSetting(Enable.BackgroundBlur) + 
 					[
-							[Control.IsVisible(50) + 
-									![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)] + 
-									![
-											[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-											[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-											[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-											[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
-											[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | 
-											[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
-											[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
-											[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
-									]
+						[Control.IsVisible(50) + 
+							![Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)] + 
+							![
+								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | 
+								[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
+								[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
+								[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
+								]
 							] |
 							[!Control.IsVisible(50) + 
-									[
-											Control.IsVisible(500) | 
-											Control.IsVisible(501) | 
-											Window.IsVisible(1100) | 
-											[[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
-													[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
-											] |
-											[[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
-													[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-													 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-													 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-													 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-													]
-											] |
-											[!Window.IsVisible(Home) + !Window.IsVisible(1121) + 
-													[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
-													 [Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
-													 [Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
-													 [Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
-													]
-											]
+								[
+									Control.IsVisible(400) |
+									Control.IsVisible(500) | 
+									Control.IsVisible(501) | 
+									Window.IsVisible(1100) | 
+									[[Window.IsVisible(Home) | Window.IsVisible(1121) | !$EXP[isContent]] + 
+										[String.IsEqual(Skin.String(HomeArtworkChoice),1)]
+									] |
+									[[Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56)] + 
+										[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+										[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+										[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+										[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
+										]
+									] |
+									[!Window.IsVisible(Home) + !Window.IsVisible(1121) + 
+										[[Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)] | 
+										[Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)] | 
+										[Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)] | 
+										[Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)]
+										]
 									]
-							]
+								]
+							] |
+							[!Control.IsVisible(50) + !Control.IsVisible(54) + !Control.IsVisible(55) + !Control.IsVisible(56) + 
+							!Window.IsVisible(Home) + !Window.IsVisible(1121) + !$EXP[isContent]]
 					]
 			</visible>
+			
 
 
 
@@ -1854,7 +1858,7 @@
 				<align>center</align>
 			</control>
 		</itemlayout>
-		<focusedlayout height="230" width="370">
+		<focusedlayout height="230" width="370" infoupdate="300">
 			<control type="group">
 				<depth>DepthContentPopout</depth>
 				<control type="image">
@@ -1862,8 +1866,8 @@
 					<left>25</left>
 					<width>337</width>
 					<height>197</height>
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/landscape-glow.png</texture>
-					<bordersize>-23</bordersize>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/landscape-glow.png</texture>
+					<bordersize>-25</bordersize>
 					<include>Animation_FocusTextureFade</include>
 					<include content="GlowPulse">
 						<param name="pos_x" value="205.5"/>
@@ -1939,7 +1943,7 @@
 			<height>98</height>
 			<font>font32_title</font>
 			<label>$VAR[MiniMenuCase700Var]</label>
-			<textcolor>$VAR[FocusedColorVar]</textcolor>
+			<textcolor>$VAR[FocusColorTheme]</textcolor>
 		</control>
 	</include>
 
@@ -1954,7 +1958,7 @@
 			<height>98</height>
 			<font>font32_title</font>
 			<label>$VAR[MiniMenuCase733Var]</label>
-			<textcolor>$VAR[FocusedColorVar]</textcolor>
+			<textcolor>$VAR[FocusColorTheme]</textcolor>
 		</control>
 	</include>
 
@@ -1976,14 +1980,51 @@
 		</control>
 	</include>
 
-	<include name="TrailerControl">
+	<include name="DO_FlixInfoIcon">
+		<control type="togglebutton">
+			<left>50</left>
+			<width>auto</width>
+			<top>56</top>
+			<height>54</height>
+			<align>center</align>
+			<!-- <aligny>center</aligny> -->
+			<textoffsetx>16</textoffsetx>
+			<textoffsety>10.3</textoffsety>
+			<font>PlayerCodecs</font>
+			<textcolor>unfocused_text</textcolor>
+			<texturenofocus border="13" colordiffuse="$VAR[FlixIconColor]">masks/flixicon-filled.png</texturenofocus>
+			<label>[UPPERCASE][LIGHT]$PARAM[flixlabel][/LIGHT][/UPPERCASE]</label>
+			<visible>$PARAM[visible]</visible>
+		</control>
+	</include>
+
+	<include name="HomeTrailerControl">
     <control type="button">
 			<visible>false</visible>
-			<onfocus condition="String.IsEqual(Skin.String(trailerSetting),2)">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
+			<onfocus condition="!Player.HasMedia + String.IsEqual(Skin.String(trailerSetting),2) + String.IsEmpty(Skin.String(TrailerPlaying))">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
 			<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
 			<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
     </control>
 	</include>
+
+	<include name="VideoTrailerControl">
+    <control type="button">
+			<visible>false</visible>
+			<onfocus condition="String.IsEqual(Skin.String(trailerSetting),2) + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia)) + !VideoPlayer.Content(livetv)">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
+			<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
+    </control>
+	</include>
+
+	<!-- <include name="TrailerControl">
+    <control type="button">
+			<visible>false</visible>
+			<onfocus condition="String.IsEqual(Skin.String(trailerSetting),2) + [Window.IsVisible(Home) | Window.IsVisible(1121)] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
+			<onfocus condition="String.IsEqual(Skin.String(trailerSetting),2) + ![Window.IsVisible(Home) | Window.IsVisible(1121)]">Skin.TimerStart(autoplay_trailer_timer)</onfocus>
+			<onunfocus condition="Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</onunfocus>
+			<onunfocus condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onunfocus>
+    </control>
+	</include> -->
 
 	<include name="WallTimer">
 		<control type="button">

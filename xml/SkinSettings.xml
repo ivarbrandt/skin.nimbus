@@ -241,9 +241,16 @@
 				<!-- ACCENT COLOR THEME -->
 				<control type="button" id="63705">
 					<label>Accent color theme</label>
-					<label2>$VAR[InfoLineColorThemeSettingVar]</label2>
+					<label2>$VAR[MenuSelectorColorThemeSettingVar]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>$VAR[InfoLineColorThemeToggleVar]</onclick>
+					<onclick>$VAR[MenuSelectorColorThemeToggleVar]</onclick>
+				</control>
+				<!-- FOCUS COLOR THEME -->
+				<control type="button" id="63706">
+					<label>Focus color theme</label>
+					<label2>$VAR[FocusColorThemeSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[FocusColorThemeToggleVar]</onclick>
 				</control>
 				<!-- FOCUS COLOR -->
 				<!-- <control type="radiobutton" id="63704">
@@ -253,14 +260,14 @@
 					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
 				</control> -->
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63706">
+				<control type="radiobutton" id="63707">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- WIDGET NAVIGATION -->
-				<control type="radiobutton" id="63707">
+				<control type="radiobutton" id="63708">
 					<label>Enable widget navigation arrows</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.WidgetNavigationArrows)</selected>
@@ -275,14 +282,14 @@
 					<selected>Skin.HasSetting(Enable.StudioLogos)</selected>
 				</control> -->
 				<!-- AUTO END PLAYBACK -->
-				<control type="radiobutton" id="63708">
+				<control type="radiobutton" id="63709">
 					<label>Enable auto ending of playback</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.AutoEndPlayback)</selected>
 					<onclick>Skin.ToggleSetting(Enable.AutoEndPlayback)</onclick>
 				</control>
 				<!-- SET DELAY -->
-				<control type="button" id="63709">
+				<control type="button" id="63710">
 					<label>    - Set delay (minutes)</label>
 					<label2>$INFO[Skin.String(PlaybackDelayMins)]</label2>
 					<include>DefaultSettingButton</include>
@@ -585,7 +592,6 @@
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
 					<selected>Skin.HasSetting(Enable.BackgroundBlur)</selected>
-					<onclick>SetFocus(9000)</onclick>
 				</control>
 				<!-- BLUR RADIUS -->
 				<control type="button" id="6007">
@@ -603,7 +609,13 @@
 					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
-				<control type="button" id="6009">
+				<control type="radiobutton" id="6009">
+					<label>Enable quick config menu for home screen artwork</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(Disable.QuickConfig)</onclick>
+					<selected>!Skin.HasSetting(Disable.QuickConfig)</selected>
+				</control>
+				<control type="button" id="6010">
 					<label>$LOCALIZE[31131]</label>
 					<label2>$INFO[Skin.String(HomeFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -611,7 +623,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6010">
+				<control type="button" id="6011">
 					<label>$LOCALIZE[31062]</label>
 					<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -619,7 +631,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6011">
+				<control type="button" id="6012">
 					<label>$LOCALIZE[31149]</label>
 					<label2>$INFO[Skin.String(MovieGenreFanart.Name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -627,7 +639,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="radiobutton" id="6012">
+				<control type="radiobutton" id="6013">
 					<label>$LOCALIZE[31168]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
@@ -659,23 +671,138 @@
 					<onclick>Skin.SetNumeric(OSDAutoCloseTime)</onclick>
 					<enable>Skin.HasSetting(OSDAutoClose)</enable>
 				</control>
-				<control type="radiobutton" id="6222">
-					<label>Show OSD while paused</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.PauseOSD)</selected>
-					<onclick>Skin.ToggleSetting(Disable.PauseOSD)</onclick>
-				</control>
-				<control type="button" id="6223">
+				<control type="button" id="6222">
 					<label>Audio button action</label>
 					<label2>$VAR[OSDAudioButtonSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OSDAudioButtonSettingToggleVar]</onclick>
 				</control>
-				<control type="button" id="6224">
+				<control type="button" id="6223">
 					<label>Subtitle button action</label>
 					<label2>$VAR[OSDSubtitleButtonSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OSDSubtitleButtonSettingToggleVar]</onclick>
+				</control>
+				<control type="radiobutton" id="6224">
+					<label>Show OSD while paused</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.PauseOSD)</selected>
+					<onclick>Skin.ToggleSetting(Disable.PauseOSD)</onclick>
+				</control>
+				<control type="button" id="6225">
+					<label>OSD style</label>
+					<label2>$VAR[OSDStyleSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[OSDStyleToggleVar]</onclick>
+				</control>
+				<control type="button" id="6226">
+					<label>Show all OSD elements</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.Reset(Disable.OSDClearlogo)</onclick>
+					<onclick>Skin.Reset(Disable.OSDTitle)</onclick>
+					<onclick>Skin.Reset(Disable.OSDStudiologo)</onclick>
+					<onclick>Skin.Reset(Disable.OSDEpisodeInfo)</onclick>
+					<onclick>Skin.Reset(Disable.OSDEpisodePlot)</onclick>
+					<onclick>Skin.Reset(Disable.OSDMoviePlot)</onclick>
+					<onclick>Skin.Reset(Disable.OSDEndTime)</onclick>
+					<onclick>Skin.Reset(Disable.OSDRatings)</onclick>
+					<onclick>Skin.Reset(Disable.OSDVideoCodec)</onclick>
+					<onclick>Skin.Reset(Disable.OSDAudioCodec)</onclick>
+					<onclick>Skin.Reset(Disable.OSDAudioChannels)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="button" id="6227">
+					<label>Hide all OSD elements</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SetBool(Disable.OSDClearlogo)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDTitle)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDStudiologo)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDEpisodeInfo)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDEpisodePlot)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDMoviePlot)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDEndTime)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDRatings)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDVideoCodec)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDAudioCodec)</onclick>
+					<onclick>Skin.SetBool(Disable.OSDAudioChannels)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6228">
+					<label>    - Clearlogo</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDClearlogo)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDClearlogo)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6229">
+					<label>        - Title label</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDTitle)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDTitle)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1) + Skin.HasSetting(Disable.OSDClearlogo)</visible>
+				</control>
+				<control type="radiobutton" id="6230">
+					<label>    - Studio logo</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDStudiologo)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDStudiologo)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6231">
+					<label>    - Episode info (SxE • Title)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDEpisodeInfo)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDEpisodeInfo)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6232">
+					<label>    - Episode plot</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDEpisodePlot)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDEpisodePlot)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6233">
+					<label>    - Movie plot</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDMoviePlot)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDMoviePlot)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6234">
+					<label>    - End time</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDEndTime)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDEndTime)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6235">
+					<label>    - Ratings</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDRatings)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDRatings)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6236">
+					<label>    - Video codec</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDVideoCodec)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDVideoCodec)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6237">
+					<label>    - Audio codec</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDAudioCodec)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDAudioCodec)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+				</control>
+				<control type="radiobutton" id="6238">
+					<label>    - Audio channels</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDAudioChannels)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDAudioChannels)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
 			</control>
 
@@ -824,7 +951,7 @@
 				<top>130</top>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="image">
 				<description>Dialog Header image</description>
@@ -832,7 +959,7 @@
 				<bottom>134</bottom>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -865,12 +992,12 @@
 						<textoffsety>16</textoffsety>
 					</control>
 				</itemlayout>
-				<focusedlayout height="85" width="470">
+				<focusedlayout height="85" width="470" infoupdate="300">
 					<control type="image">
 						<left>25</left>
 						<width>445</width>
 						<height>85</height>
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(9000)">Conditional</animation>
 					</control>
 					<control type="label">

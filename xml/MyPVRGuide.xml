@@ -36,7 +36,7 @@
 							<top>0</top>
 							<width>364</width>
 							<height>50</height>
-							<texture colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
 							<visible>Control.HasFocus(11)</visible>
 						</control>
 						<control type="image">
@@ -87,7 +87,7 @@
 								<top>0</top>
 								<width>366</width>
 								<height>50</height>
-								<texture colordiffuse="$VAR[FocusedColorVar]">colors/white.png</texture>
+								<texture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</texture>
 								<animation effect="fade" end="30" condition="true">Conditional</animation>
 								<visible>!Control.HasFocus(11)</visible>
 							</control>

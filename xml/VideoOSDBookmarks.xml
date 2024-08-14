@@ -17,6 +17,9 @@
 			<top>450</top>
 			<bottom>0</bottom>
 			<height>550</height>
+			<animation condition="String.IsEqual(Skin.String(OSDStyleSetting),1)" reversible="true">
+        <effect type="slide" start="0,0" end="0,-100" time="500" tween="cubic" easing="inout" />
+      </animation>
 			<control type="image">
 				<top>-20</top>
 				<left>0</left>
@@ -25,6 +28,7 @@
 				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 				<texture colordiffuse="e0080808">colors/white.png</texture>
+				<visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
 			</control>
 			<control type="textbox">
 				<left>0</left>
@@ -92,7 +96,7 @@
 							<top>255</top>
 							<width>290</width>
 							<height>40</height>
-							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<label>$INFO[ListItem.Label][CR]$INFO[ListItem.Label2]</label>
 							<font>font12</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
@@ -125,7 +129,7 @@
 							<top>255</top>
 							<width>290</width>
 							<height>40</height>
-							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<label>$INFO[ListItem.Label][CR]$INFO[ListItem.Label2]</label>
 							<font>font12</font>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>

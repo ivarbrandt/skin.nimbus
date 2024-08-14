@@ -18,8 +18,9 @@
       <label>$INFO[VideoPlayer.AudioStreamCount]</label>
     </control>
     <!-- <include content="OSDBackground"/> -->
-    <include content="OSDInfo"/>
+    <include content="OSDBackgrounds"/>
     <control type="group">
+      <visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
       <bottom>0</bottom>
       <height>220</height>
       <include content="Seekbar"/>
@@ -85,7 +86,7 @@
           <orientation>vertical</orientation>
           <align>center</align>
           <itemgap>-3</itemgap>
-          <visible>!VideoPlayer.Content(livetv)</visible>
+          <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
           <control type="button" id="708">
             <font>PlayerIconSmall</font>
             <textoffsety>7</textoffsety>
@@ -114,7 +115,7 @@
           <orientation>vertical</orientation>
           <align>center</align>
           <itemgap>-3</itemgap>
-          <visible>!VideoPlayer.Content(livetv)</visible>
+          <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
           <control type="button" id="709">
             <font>PlayerIconSmall</font>
             <textoffsety>7</textoffsety>
@@ -142,14 +143,13 @@
           <orientation>vertical</orientation>
           <align>center</align>
           <itemgap>-3</itemgap>
-          <visible>!VideoPlayer.Content(livetv)</visible>
           <control type="button" id="710">
             <font>PlayerIconSmall</font>
             <textoffsety>7</textoffsety>
             <align>center</align>
             <include>PlayerButton</include>
             <label>&#xf448;</label>
-            <onclick>Skin.ToggleSetting(Enable.OSDInfo)</onclick>
+            <onclick>$VAR[OSDStyleToggleVar]</onclick>
             <onleft>709</onleft>
             <onright>711</onright>
           </control>
@@ -160,14 +160,14 @@
             <width>48</width>
             <font>Font22</font>
             <align>center</align>
-            <label>[CAPITALIZE]$VAR[OSDInfoToggle][/CAPITALIZE]</label>
+            <label></label>
           </control>
         </control>
         <control type="grouplist">
           <orientation>vertical</orientation>
           <align>center</align>
           <itemgap>-3</itemgap>
-          <visible>!VideoPlayer.Content(livetv) + !Player.Paused</visible>
+          <visible>!Player.Paused + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]</visible>
           <control type="togglebutton" id="711">
             <font>PlayerIconSmall</font>
             <textoffsety>7</textoffsety>
@@ -315,6 +315,339 @@
             <height>48</height>
             <width>48</width>
             <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+      </control>
+    </control>
+
+
+    <control type="group">
+      <visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
+      <bottom>0</bottom>
+      <height>220</height>
+      <include content="OD_Seekbar"/>
+      <control type="grouplist" id="700">
+        <bottom>37</bottom>
+        <height>74</height>
+        <left>99</left>
+        <width>100%</width>
+        <itemgap>27</itemgap>
+        <orientation>horizontal</orientation>
+        <align>left</align>
+        <onleft>716</onleft>
+        <onright>708</onright>
+        <control type="radiobutton" id="701">
+          <include content="OSDButton">
+            <param name="texture" value="osd/fullscreen/buttons/previous.png"/>
+          </include>
+          <onclick>PlayerControl(Previous)</onclick>
+          <visible>Player.HasSceneMarkers | Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | [Player.SeekEnabled + VideoPlayer.Content(livetv)]</visible>
+        </control>
+        <control type="radiobutton" id="702">
+          <include content="OSDButton">
+            <param name="texture" value="osd/fullscreen/buttons/rewind.png"/>
+          </include>
+          <onclick>PlayerControl(Rewind)</onclick>
+          <visible>[Player.SeekEnabled + !VideoPlayer.Content(livetv)] + !Player.Paused</visible>
+        </control>
+        <control type="group" id="703">
+          <width>64</width>
+          <height>62</height>
+          <visible>Player.PauseEnabled</visible>
+          <control type="button" id="7031">
+            <left>0</left>
+            <top>0</top>
+            <width>64</width>
+            <height>62</height>
+            <label></label>
+            <font></font>
+            <texturefocus colordiffuse="button_focus">osd/fullscreen/buttons/button-fo.png</texturefocus>
+            <texturenofocus colordiffuse="4da0a0a0">osd/fullscreen/buttons/button-fo.png</texturenofocus>
+            <onleft>702</onleft>
+            <onright>704</onright>
+            <onup>87</onup>
+            <ondown>noop</ondown>
+            <onclick>PlayerControl(Play)</onclick>
+            <animation center="32,31" effect="zoom" end="100" reversible="false" start="90" time="480" tween="back">Focus</animation>
+          </control>
+          <control type="image">
+            <left>12</left>
+            <top>11</top>
+            <width>40</width>
+            <height>40</height>
+            <visible>!Control.HasFocus(7031)</visible>
+            <texture colordiffuse="b0c8c8c8">$VAR[PlayerControlsPlayImageVar]</texture>
+          </control>
+          <control type="image">
+            <left>12</left>
+            <top>11</top>
+            <width>40</width>
+            <height>40</height>
+            <animation center="32,31" effect="zoom" end="100" reversible="false" start="90" time="480" tween="back" condition="Control.HasFocus(7031)">Conditional</animation>
+            <visible>Control.HasFocus(7031)</visible>
+            <texture colordiffuse="focused_text">$VAR[PlayerControlsPlayImageVar]</texture>
+          </control>
+        </control>
+        <control type="radiobutton" id="704">
+          <include content="OSDButton">
+            <param name="texture" value="osd/fullscreen/buttons/stop.png"/>
+          </include>
+          <onclick>PlayerControl(Stop)</onclick>
+        </control>
+        <control type="radiobutton" id="705">
+          <include content="OSDButton">
+            <param name="texture" value="osd/fullscreen/buttons/forward.png"/>
+          </include>
+          <onclick>PlayerControl(Forward)</onclick>
+          <visible>[Player.SeekEnabled + !VideoPlayer.Content(livetv)] + !Player.Paused</visible>
+        </control>
+        <control type="radiobutton" id="706">
+          <include content="OSDButton">
+            <param name="texture" value="osd/fullscreen/buttons/next.png"/>
+          </include>
+          <onclick>PlayerControl(Next)</onclick>
+          <visible>Player.HasSceneMarkers | Player.ChapterCount | Integer.IsGreater(Playlist.Length(video),1) | PVR.IsTimeShift</visible>
+        </control>
+      </control>
+      <control type="grouplist" id="707">
+        <bottom>37</bottom>
+        <height>74</height>
+        <right>99</right>
+        <width>100%</width>
+        <itemgap>27</itemgap>
+        <orientation>horizontal</orientation>
+        <align>right</align>
+        <usecontrolcoords>true</usecontrolcoords>
+        <onleft>703</onleft>
+        <onright>701</onright>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+          <control type="radiobutton" id="708">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/speak.png"/>
+            </include>
+            <!-- <onclick condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),0)">SetProperty(LanguageNotification,true,home)</onclick>
+            <onunfocus condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),0)">ClearProperty(LanguageNotification,home)</onunfocus> -->
+            <onclick condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),0)">AudioNextLanguage</onclick>
+            <onclick condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),1)">ActivateWindow(osdaudiosettings)</onclick>
+            <onleft condition="Control.IsVisible(703)">703</onleft>
+            <onleft condition="!Control.IsVisible(703)">704</onleft>
+            <onright>709</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
+            <align>center</align>
+            <label>[CAPITALIZE]$INFO[VideoPlayer.AudioLanguage][/CAPITALIZE]</label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+          <control type="radiobutton" id="709">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/subtitles.png"/>
+            </include>
+            <!-- <onclick condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),0)">SetProperty(LanguageNotification,true,home)</onclick>
+            <onunfocus condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),0)">ClearProperty(LanguageNotification,home)</onunfocus> -->
+            <onclick condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),0)">NextSubtitle</onclick>
+            <onclick condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),1)">ActivateWindow(osdsubtitlesettings)</onclick>
+            <onleft>708</onleft>
+            <onright>710</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
+            <align>center</align>
+            <label>[CAPITALIZE]$VAR[VideoPlayerSubtitleLanguage][/CAPITALIZE]</label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <control type="radiobutton" id="710">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/info.png"/>
+            </include>
+            <onclick>$VAR[OSDStyleToggleVar]</onclick>
+            <!-- <onclick condition="!Skin.HasSetting(Enable.DetailedOSD)">Notification(OSD, Detailed OSD enabled, 1000)</onclick>
+            <onclick condition="Skin.HasSetting(Enable.DetailedOSD)">Notification(OSD, Detailed OSD disabled, 1000)</onclick> -->
+            <onleft>709</onleft>
+            <onright>711</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <visible>!Player.Paused + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]</visible>
+          <control type="radiobutton" id="711">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/subtitledelay.png"/>
+            </include>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+            <onclick>SubTitleDelay</onclick>
+            <onleft>710</onleft>
+            <onright>712</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <visible>!VideoPlayer.Content(livetv)</visible>
+          <control type="radiobutton" id="712">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/bookmarks.png"/>
+            </include>
+            <onclick>ActivateWindow(videobookmarks)</onclick>
+            <onleft>711</onleft>
+            <onright>713</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <visible>VideoPlayer.Content(livetv)</visible>
+          <control type="radiobutton" id="713">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/pvrosdchannels.png"/>
+            </include>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+            <onclick>ActivateWindow(PVROSDChannels)</onclick>
+            <onleft>712</onleft>
+            <onright>714</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <visible>VideoPlayer.Content(livetv) + VideoPlayer.HasEPG</visible>
+          <control type="radiobutton" id="714">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/pvrosdguide.png"/>
+            </include>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(pvrchannelguide)</onclick>
+            <onleft>713</onleft>
+            <onright>715</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font22</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <visible>VideoPlayer.Content(livetv) + VideoPlayer.HasEPG</visible>
+          <control type="radiobutton" id="715">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/guide.png"/>
+            </include>
+            <onclick>Dialog.Close(VideoOSD)</onclick>
+						<onclick>ActivateWindow(tvguide)</onclick>
+            <onleft>714</onleft>
+            <onright>716</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
+            <align>center</align>
+            <label></label>
+          </control>
+        </control>
+        <control type="grouplist">
+          <orientation>vertical</orientation>
+          <align>center</align>
+          <itemgap>12</itemgap>
+          <width>64</width>
+          <control type="radiobutton" id="716">
+            <include content="OSDButton">
+              <param name="texture" value="osd/fullscreen/buttons/settings.png"/>
+            </include>
+            <onclick>SetProperty(settingslist_content,osd,home)</onclick>
+            <onclick>SetProperty(settingslist_header,$LOCALIZE[5],home)</onclick>
+            <onclick>ActivateWindow(1101)</onclick>
+            <onleft>715</onleft>
+            <onright condition="Control.IsVisible(703)">703</onright>
+            <onright condition="!Control.IsVisible(703)">704</onright>
+          </control>
+          <control type="label">
+            <top>0</top>
+            <left>0</left>
+            <height>64</height>
+            <width>64</width>
+            <font>Font12</font>
             <align>center</align>
             <label></label>
           </control>

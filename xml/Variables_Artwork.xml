@@ -106,6 +106,7 @@
   </variable>
 
   <variable name="ListLandscapeVar">
+    <!-- <value condition="$EXP[isMovie] + Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)">$INFO[ListItem.Art(fanart)]</value> -->
     <value condition="$EXP[isMovie] + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)">$INFO[ListItem.Art(fanart)]</value>
     <value condition="$EXP[isMovie] + String.IsEqual(Skin.String(ListLandscape.movies),0) + !String.IsEmpty(Listitem.Art(landscape))">$INFO[Listitem.Art(landscape)]</value>
     <value condition="$EXP[isMovie] + String.IsEqual(Skin.String(ListLandscape.movies),0) + String.IsEmpty(Listitem.Art(landscape))">$INFO[ListItem.Art(fanart)]</value>
@@ -135,7 +136,6 @@
     <value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !$EXP[isEpisode] + String.IsEqual(Skin.String(HomeItemArtworkChoice),0) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     <value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !$EXP[isEpisode] + String.IsEqual(Skin.String(HomeItemArtworkChoice),1) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(fanart)]</value>
     <value condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + $EXP[isEpisode] + !String.IsEmpty(ListItem.Art(Thumb))">$INFO[ListItem.Thumb]</value>
-    
     <!-- Other windows -->
     <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(movies) + String.IsEqual(Skin.String(ItemFanartChoice.movies),0) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(movies) + String.IsEqual(Skin.String(ItemFanartChoice.movies),1) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(fanart)]</value>
@@ -143,6 +143,10 @@
     <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(tvshows) + String.IsEqual(Skin.String(ItemFanartChoice.tvshows),1) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(fanart)]</value>
     <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(seasons) + String.IsEqual(Skin.String(ItemFanartChoice.seasons),0) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(seasons) + String.IsEqual(Skin.String(ItemFanartChoice.seasons),1) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(fanart)]</value>
+    <!-- Fallbacks/Universes (mixed content) -->
+    <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + $EXP[isMovie] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+    <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + $EXP[isTVShow] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+    <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + $EXP[isSeason] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
     <value condition="![Window.IsVisible(Home) | Window.IsVisible(1121)] + Container.Content(episodes) + !String.IsEmpty(ListItem.Art(Thumb))">$INFO[ListItem.Thumb]</value>
     <value>$INFO[ListItem.Art(fanart)]</value>
   </variable>

@@ -368,7 +368,7 @@
 						<width>49</width>
 						<height>35</height>
 						<visible>
-							String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
+							!String.EndsWith(Container.PluginCategory,Collection) + 
 							[
 								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -385,7 +385,7 @@
 							<height>35</height>
 							<fadetime>0</fadetime>
 							<aspectratio align="center" aligny="center">keep</aspectratio>
-							<texture>icons/collection.png</texture>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
 						</control>
 					</control>
 					<control type="group">
@@ -608,9 +608,9 @@
 						<width>150</width>
 						<height>45</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture>icons/collection.png</texture>
+						<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
 						<visible>
-							String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
+							!String.EndsWith(Container.PluginCategory,Collection) + 
 							[
 								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -650,9 +650,9 @@
 							<width>75</width>
 							<height>45</height>
 							<aspectratio align="left" aligny="center">keep</aspectratio>
-							<texture colordiffuse="$VAR[MenuSelectorColor]">icons/collection.png</texture>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
 							<visible>
-								String.IsEqual(ListItem.Property(belongs_to_collection),true) + 
+								String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + 
 								[
 										[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 										[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -1052,7 +1052,7 @@
 							<animation effect="fade" time="150">VisibleChange</animation>
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
-						<include>TrailerControl</include>
+						<include>VideoTrailerControl</include>
 					</focusedlayout>
 					<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(videos)" height="67" width="610">
 						<control type="label">
@@ -1121,7 +1121,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610" infoupdate="300">
+					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)" height="67" width="610" infoupdate="300">
 						<control type="image">
 							<top>-1</top>
 							<bottom>3</bottom>
@@ -1155,7 +1155,7 @@
 							<autoscroll delay="3000" time="3000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
 						</control> -->
 					</focusedlayout>
-					<itemlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610">
+					<itemlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)" height="67" width="610">
 						<control type="label">
 							<left>29</left>
 							<width>844</width>
@@ -1168,7 +1168,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)" height="210" width="610" infoupdate="30">
+					<focusedlayout condition="Container.Content(addons) + ![String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)]" height="210" width="610" infoupdate="30">
 						<control type="image">
 							<top>-4</top>
 							<bottom>7</bottom>
@@ -1275,7 +1275,7 @@
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku)" height="67" width="610">
+					<itemlayout condition="Container.Content(addons) + ![String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)]" height="67" width="610">
 						<control type="label">
 							<left>79</left>
 							<width>810</width>

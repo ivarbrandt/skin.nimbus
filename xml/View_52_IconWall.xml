@@ -57,7 +57,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout height="305" width="440" condition="Container.Content() | Container.Content(files) | Container.Content(tags) | Container.Content(playlists) | [Container.Content(studios) + System.AddonIsEnabled(resource.images.studios.white)]">
+				<focusedlayout height="305" width="440" condition="Container.Content() | Container.Content(files) | Container.Content(tags) | Container.Content(playlists) | [Container.Content(studios) + System.AddonIsEnabled(resource.images.studios.white)]" infoupdate="300">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>120</top>
@@ -66,8 +66,8 @@
 							<top>14</top>
 							<width>362</width>
 							<height>211</height>
-							<texture colordiffuse="$VAR[FocusedColorVar]">masks/landscape-glow.png</texture>
-							<bordersize>-23</bordersize>
+							<texture colordiffuse="$VAR[FocusColorTheme]">masks/landscape-glow.png</texture>
+							<bordersize>-25</bordersize>
 							<include content="GlowPulse">
 								<param name="pos_x" value="199.5"/>
 								<param name="pos_y" value="122.5"/>

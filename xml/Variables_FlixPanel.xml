@@ -161,8 +161,18 @@
 		<value condition="!String.IsEmpty(ListItem.Studio)"> • [COLOR unfocused_text]$INFO[ListItem.Studio][/COLOR]</value>
 	</variable>
 	<!-- Movie Collection -->
+	<!-- <variable name="RI_MovieCollection">
+		<value condition="String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + !String.EndsWith(Container.PluginCategory,Collection) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]"> • [COLOR unfocused_text]Collection[/COLOR]</value>
+	</variable> -->
 	<variable name="RI_MovieCollection">
-		<value condition="String.IsEqual(ListItem.Property(belongs_to_collection),true) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]"> • [COLOR unfocused_text]Collection[/COLOR]</value>
+		<value condition="String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]"> • [COLOR unfocused_text]1|Collection[/COLOR]</value>
+		<value condition="String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]"> • [COLOR unfocused_text]Collection[/COLOR]</value>
+		<value condition="String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + !String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) + !String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)]"> • [COLOR unfocused_text]Collection[/COLOR]</value>
+	</variable>
+	<variable name="CollectionStatus">
+		<value condition="String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true)">icons/collection_first.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)">icons/collection.png</value>
+		<value condition="String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + !String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) + !String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)">icons/collection.png</value>
 	</variable>
 	<!-- Watched Progress -->
 	<variable name="RI_WatchedProgress">

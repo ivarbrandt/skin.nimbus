@@ -369,20 +369,18 @@
             <aspectratio>keep</aspectratio>
             <texture>loading.gif</texture>
           </control>
-          <control type="fixedlist" id="50">
+          <control type="list" id="50">
             <onright condition="System.AddonIsEnabled(script.embuary.info) + Control.HasFocus(50) + !$EXP[isSet]">RunScript(script.embuary.info,call=person,query='$ESCINFO[Container(50).ListItem.Label]')</onright>
             <onright condition="System.HasAddon(script.embuary.info) + !System.AddonIsEnabled(script.embuary.info) + !$EXP[isSet]">EnableAddon(script.embuary.info)</onright>
             <onright condition="!System.HasAddon(script.embuary.info) + !$EXP[isSet]">InstallAddon(script.embuary.info)</onright>
             <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
             <include content="CenterList104">
-                <param name="id" value="50" />
+              <param name="id" value="50" />
             </include>
             <top>67</top>
             <height>940</height>
             <!-- <height>850</height> -->
             <onleft>20000</onleft>
-            <movement>4</movement>
-            <focusposition>4</focusposition>
             <include content="CastItem">
               <param name="id" value="50" />
               <param name="MainLabel" value="$INFO[ListItem.Label]" />
@@ -409,16 +407,14 @@
             <aspectratio>keep</aspectratio>
             <texture>loading.gif</texture>
           </control>
-          <control type="fixedlist" id="53">
+          <control type="list" id="53">
             <animation effect="fade" start="0" end="100" time="400">VisibleChange</animation>
             <include content="CenterList104">
-                <param name="id" value="53" />
+              <param name="id" value="53" />
             </include>
             <top>67</top>
             <height>940</height>
             <onleft>20000</onleft>
-            <movement>4</movement>
-            <focusposition>4</focusposition>
             <itemlayout width="540" height="104">
               <include content="ListItemTwoLine">
                 <param name="id" value="53" />

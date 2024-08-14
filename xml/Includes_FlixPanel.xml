@@ -109,17 +109,17 @@
 						<visible>!String.IsEmpty(ListItem.Property(episode_type))</visible>
 					</control>
 					<control type="group">
-            <width>45</width>
-            <height>45</height>
-            <visible>String.IsEqual(ListItem.Property(belongs_to_collection),true)</visible>
+            <width>35</width>
+            <height>35</height>
+            <visible>!String.EndsWith(Container.PluginCategory,Collection)</visible>
             <control type="image">
-							<top>5</top>
+							<top>6</top>
 							<left>7</left>
-							<width>38</width>
-							<height>38</height>
+							<width>35</width>
+							<height>35</height>
 							<fadetime>0</fadetime>
 							<aspectratio align="left" aligny="center">keep</aspectratio>
-							<texture>icons/collection.png</texture>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
             </control>
 					</control>
 					<control type="group">

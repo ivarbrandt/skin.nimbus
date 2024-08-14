@@ -5,6 +5,8 @@
 		<orientation>vertical</orientation>
 		<height>99999</height>
 		<itemgap>-100</itemgap>
+		<onup>20000</onup>
+		<ondown>20001</ondown>
 		<usecontrolcoords>true</usecontrolcoords>
 	</include>
 
@@ -89,7 +91,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="263" height="393" >
+				<focusedlayout width="263" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>33</left>
@@ -98,7 +100,7 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>TrailerControl</include>
+						<include>HomeTrailerControl</include>
 						<include>ClearLandscapeProperties</include>
 					</control>
 				</focusedlayout>
@@ -140,7 +142,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="613" height="393" >
+				<focusedlayout width="613" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>35</left>
@@ -149,7 +151,7 @@
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
-						<include>TrailerControl</include>
+						<include>HomeTrailerControl</include>
 						<include>SetLandscapeArtworkProperties</include>
 					</control>
 				</focusedlayout>
@@ -200,7 +202,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393">
+				<focusedlayout width="306" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>26</top>
@@ -258,14 +260,14 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393">
+				<focusedlayout width="306" height="393" infoupdate="300">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<include content="WidgetListCategoryLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
 						</include>
-						<include>TrailerControl</include>
+						<include>HomeTrailerControl</include>
 						<include>ClearLandscapeProperties</include>
 					</control>
 				</focusedlayout>
@@ -315,7 +317,7 @@
 							<textoffsetx>40</textoffsetx>
 							<onclick>$PARAM[button_onclick]</onclick>
 							<align>center</align>
-							<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">buttons/dfo.png</texturefocus>
 							<texturenofocus border="40" colordiffuse="FF3d3d3d">buttons/dnfo.png</texturenofocus>
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 							<visible>$PARAM[visible_1]</visible>
@@ -328,7 +330,7 @@
 							<onclick>$PARAM[button2_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
-							<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">buttons/dfo.png</texturefocus>
 							<texturenofocus border="40" colordiffuse="FF3d3d3d" >buttons/dnfo.png</texturenofocus>
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 							<visible>$PARAM[visible_2] + Window.IsActive(home)</visible>
@@ -341,7 +343,7 @@
 							<onclick>$PARAM[button3_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
-							<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dfo.png</texturefocus>
+							<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">buttons/dfo.png</texturefocus>
 							<texturenofocus border="40" colordiffuse="FF3d3d3d" >buttons/dnfo.png</texturenofocus>
 							<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 							<visible>$PARAM[visible_3] + Window.IsActive(1121)</visible>
@@ -357,7 +359,7 @@
 		<param name="item_limit">15</param>
 		<!-- <param name="icon_height">230</param> -->
 		<param name="icon">$PARAM[icon]</param>
-		<param name="info_update">0</param>
+		<param name="info_update">300</param>
 		<param name="visible">true</param>
 		<definition>
 			<include content="CategoryLabel">
@@ -441,7 +443,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393">
+				<focusedlayout width="306" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<include content="WeatherWidgetLayout">
@@ -814,6 +816,7 @@
 		<onload condition="Skin.HasSetting(firsttimerun)">RunScript(script.nimbus.helper,mode=check_for_update&amp;skin_id=skin.nimbus)</onload>
 		<onload>RunScript(script.nimbus.helper,mode=check_for_profile_change&amp;skin_id=skin.nimbus)</onload>
 		<onload>RunScript(script.nimbus.helper,mode=modify_keymap)</onload>
+		<onload condition="!String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</onload>
 		<onload condition="String.IsEmpty(Skin.String(BlurRadius))">Skin.SetString(BlurRadius,30)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(BlurSaturation))">Skin.SetString(BlurSaturation,1.5)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(trailerSetting))">Skin.SetString(trailerSetting,0)</onload>	
@@ -828,10 +831,12 @@
 		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDSubtitleButtonSetting))">Skin.SetString(OSDSubtitleButtonSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OSDStyleSetting))">Skin.SetString(OSDStyleSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MenuCaseSetting))">Skin.SetString(MenuCaseSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnDownSetting))">Skin.SetString(OnDownSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload>
-		<onload condition="String.IsEmpty(Skin.String(InfoLineColorThemeSetting))">Skin.SetString(InfoLineColorThemeSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(MenuSelectorColorThemeSetting))">Skin.SetString(MenuSelectorColorThemeSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(FocusColorThemeSetting))">Skin.SetString(FocusColorThemeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.movies))">Skin.SetString(ArtworkChoice.movies,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>

@@ -40,7 +40,7 @@
 			<control type="image" id="11">
 				<description>separator image</description>
 				<height>3</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="3">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="3">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="edit" id="12">
 				<include>DefaultSettingButton</include>

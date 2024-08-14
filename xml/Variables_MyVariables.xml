@@ -6,7 +6,7 @@
 	</variable>
 
 	<!-- <variable name="Flix_Divider">
-		<value>[COLOR $VAR[FocusedColorVar]][B]|[/B][/COLOR]</value>
+		<value>[COLOR $VAR[FocusColorTheme]][B]|[/B][/COLOR]</value>
 	</variable> -->
 
 	<variable name="Nimbus_Codec_Divider">
@@ -310,14 +310,28 @@
 	</variable>
 
 	<variable name="FocusedTextColorVar">
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">focused_text</value>
-    <value>FF141515</value>
+    <value condition="Player.HasVideo + Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(FocusColorThemeSetting),0)">FF141515</value>
+    <value condition="Player.HasVideo + String.IsEqual(Skin.String(FocusColorThemeSetting),1)">FF141415</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">FF141415</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">focused_text</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEmpty(Window(home).Property(listitem_color)) + !Player.HasVideo">$INFO[Window(home).Property(listitem_textcolor)]</value>
+    <value>focused_text</value>
 	</variable>
 
 	<variable name="MenuSelectorColor">
-		<value condition="Player.HasMedia | String.IsEmpty(Window(home).Property(listitem_color)) | String.IsEqual(Skin.String(InfoLineColorThemeSetting),1)">unfocused_text</value>
-    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">accent_color</value>
-    <value condition="!Player.HasMedia + String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">$INFO[Window(home).Property(listitem_color)]</value>
+    <value condition="Player.HasVideo + String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),1)">unfocused_text</value>
+    <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),1)">unfocused_text</value>
+    <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">button_focus</value>
+    <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEmpty(Window(home).Property(listitem_color)) + !Player.HasVideo">$INFO[Window(home).Property(listitem_color)]</value>
+    <value>unfocused_text</value>
+	</variable>
+
+	<variable name="FocusColorTheme">
+    <value condition="Player.HasVideo + String.IsEqual(Skin.String(FocusColorThemeSetting),1)">unfocused_text</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">unfocused_text</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">button_focus</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur) + !String.IsEmpty(Window(home).Property(listitem_color)) + !Player.HasVideo">$INFO[Window(home).Property(listitem_color)]</value>
+    <value>unfocused_text</value>
 	</variable>
 
 	<variable name="MediaMenuDiffuse">
@@ -346,6 +360,7 @@
 	</variable>
 
 	<variable name="MainMenuDiffuse">
+    <value condition="Player.HasVideo">FF101010</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),1)">80050505</value>
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0)">FF101010</value>
     <value>80000000</value>
@@ -353,6 +368,7 @@
 	</variable>
 
 	<variable name="BorderColorVar">
+		<value condition="Player.HasVideo">FF2E2E2E</value>
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">FF2E2E2E</value>
 		<value>FF5B5B5B</value>
 		<!-- <value>FF252525</value> -->
@@ -413,6 +429,16 @@
     <value condition="String.IsEqual(Skin.String(onLeftSetting),1)">Skin.SetString(onLeftSetting,0)</value>
 	</variable>
 
+	<variable name="OSDStyleSettingVar">
+    <value condition="String.IsEqual(Skin.String(OSDStyleSetting),0)">Default</value>
+    <value condition="String.IsEqual(Skin.String(OSDStyleSetting),1)">Modular</value>
+	</variable>
+
+	<variable name="OSDStyleToggleVar">
+    <value condition="String.IsEqual(Skin.String(OSDStyleSetting),0)">Skin.SetString(OSDStyleSetting,1)</value>
+    <value condition="String.IsEqual(Skin.String(OSDStyleSetting),1)">Skin.SetString(OSDStyleSetting,0)</value>
+	</variable>
+
 	<variable name="OSDAudioButtonSettingVar">
     <value condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),0)">Next audio track</value>
     <value condition="String.IsEqual(Skin.String(OSDAudioButtonSetting),1)">Open audio settings</value>
@@ -459,15 +485,26 @@
 		<value condition="String.IsEqual(Skin.String(OnRightSetting),2)">Skin.SetString(OnRightSetting,0)</value>
 	</variable>
 
-	<variable name="InfoLineColorThemeSettingVar">
-    <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">Accent</value>
-    <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">Adaptive</value>
-    <value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),1)">Disabled</value>
+	<variable name="MenuSelectorColorThemeSettingVar">
+    <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">Accent</value>
+    <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">Adaptive</value>
+    <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),1)">Disabled</value>
 	</variable>
 
-	<variable name="InfoLineColorThemeToggleVar">
-		<value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),0)">Skin.SetString(InfoLineColorThemeSetting,1)</value>
-		<value condition="String.IsEqual(Skin.String(InfoLineColorThemeSetting),1)">Skin.SetString(InfoLineColorThemeSetting,0)</value>
+	<variable name="MenuSelectorColorThemeToggleVar">
+		<value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),0)">Skin.SetString(MenuSelectorColorThemeSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),1)">Skin.SetString(MenuSelectorColorThemeSetting,0)</value>
+	</variable>
+
+	<variable name="FocusColorThemeSettingVar">
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">Accent</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">Adaptive</value>
+    <value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">Disabled</value>
+	</variable>
+
+	<variable name="FocusColorThemeToggleVar">
+		<value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),0)">Skin.SetString(FocusColorThemeSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">Skin.SetString(FocusColorThemeSetting,0)</value>
 	</variable>
 
 	<variable name="MenuCaseSettingVar">

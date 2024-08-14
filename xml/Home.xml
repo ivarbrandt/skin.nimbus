@@ -4,6 +4,20 @@
 	<backgroundcolor>background</backgroundcolor>
 	<include>NimbusSkinStringsInitialization</include>
 	<controls>
+		<control type="button" id="20000">
+			<include>HiddenObject</include>
+			<animation effect="fade" time="300" start="100" end="0">Focus</animation>
+			<onfocus>SetFocus(2000)</onfocus>
+			<onclick>noop</onclick>
+			<visible allowhiddenfocus="true">Control.HasFocus(20000)</visible>
+		</control>
+		<control type="button" id="20001">
+			<include>HiddenObject</include>
+			<animation effect="fade" time="300" start="100" end="0">Focus</animation>
+			<onfocus>SetFocus(2000)</onfocus>
+			<onclick>noop</onclick>
+			<visible allowhiddenfocus="true">Control.HasFocus(20001)</visible>
+		</control>
 		<include>DefaultBackground</include>
 		<control type="group">
 			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
@@ -43,9 +57,18 @@
 			</control>
 		</control>
 		<control type="group">
+			<include>TrailerPlayingFade</include>
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
+				<animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
+					<effect type="slide" end="0,20" time="60" tween="sine" />
+					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
+				</animation>
+				<animation type="Conditional" condition="Control.IsVisible(20001)" reversible="false">
+					<effect type="slide" end="0,-20" time="60" tween="sine" />
+					<effect type="slide" end="0,20" time="180" tween="sine" delay="80" />
+				</animation>
 				<include>MainMenuAnimations</include>
 				<top>510</top>
 				<include>OpenClose_Right</include>
@@ -932,7 +955,7 @@
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 						<!-- <onleft condition="!Skin.HasSetting(Enable.ArtworkQuickConfigure) + [String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)]">733</onleft> -->
-						<onleft>733</onleft>
+						<onleft condition="!Skin.HasSetting(Disable.QuickConfig)">733</onleft>
 						<onback>700</onback>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -1220,8 +1243,8 @@
 					<font>font12</font>
 					<urlset>1</urlset>
 					<hitrect x="-100" y="0" w="1" h="1" />
-					<titlecolor>$VAR[FocusedColorVar]</titlecolor>
-					<textcolor>$VAR[FocusedColorVar]</textcolor>
+					<titlecolor>$VAR[FocusColorTheme]</titlecolor>
+					<textcolor>$VAR[FocusColorTheme]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<headlinecolor>FFC0C0C0</headlinecolor>
 					<visible>Skin.HasSetting(hide_mediaflags) | !ControlGroup(2000).HasFocus</visible>

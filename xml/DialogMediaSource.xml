@@ -53,7 +53,7 @@
 					<bottom>0</bottom>
 					<right>25</right>
 					<visible>Control.HasFocus(10)</visible>
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus-long.png</texture>
 				</control>
 				<control type="label">
 					<left>10</left>

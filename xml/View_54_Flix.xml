@@ -58,7 +58,7 @@
 				<control type="group">
 					<control type="image">
 						<!-- <left>2</left> -->
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/addons-glow.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
@@ -141,8 +141,8 @@
 					<top>11</top>
 					<width>236</width>
 					<height>354</height>
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster.png</texture>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/poster.png</texture>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -203,9 +203,9 @@
 					<left>-7</left>
 					<width>290</width>
 					<height>411</height> -->
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/poster-glow.png</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/poster-glow.png</texture>
 					<bordersize>-10</bordersize>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					<include content="GlowPulse">
@@ -341,8 +341,10 @@
 				<onup>9000</onup>
 				<ondown condition="!$EXP[isEpisode] + String.IsEqual(Skin.String(OnDownSetting),0)">5199</ondown>
 				<ondown condition="!$EXP[isEpisode] + String.IsEqual(Skin.String(OnDownSetting),1)">Container.SetViewMode(500)</ondown>
-				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + String.IsEmpty(TrailerPlaying)">Skin.SetString(TrailerPlaying, true)</ondown>
-				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2)">$VAR[AutoplayTrailerSource]</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + String.IsEmpty(Skin.String(TrailerPlaying))">Skin.SetString(TrailerPlaying, true)</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))">$VAR[AutoplayTrailerSource]</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</ondown>
 				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),3)">info</ondown>
 				<viewtype label="31101">icon</viewtype>
 				<preloaditems>2</preloaditems>
@@ -360,7 +362,7 @@
 						<include>FlixMovieLayout</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="263" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<focusedlayout width="263" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>33</left>
@@ -368,7 +370,7 @@
 						<include content="FlixMovieLayout">
 							<param name="focused" value="true" />
 						</include>
-						<include>TrailerControl</include>
+						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
 				<!-- <itemlayout height="410" width="310" condition="Container.Content(artists) | Container.Content(albums)">

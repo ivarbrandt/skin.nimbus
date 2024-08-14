@@ -23,14 +23,14 @@
 				<top>130</top>
 				<right>25</right>
 				<height>2</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="image">
 				<left>495</left>
 				<bottom>135</bottom>
 				<right>25</right>
 				<height>2</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 		</control>
 		<control type="button" id="7">
@@ -54,7 +54,7 @@
 		<control type="image" id="11">
 			<description>separator image</description>
 			<height>3</height>
-			<texture colordiffuse="$VAR[FocusedColorVar]" border="3">dialogs/separator-grey.png</texture>
+			<texture colordiffuse="$VAR[FocusColorTheme]" border="3">dialogs/separator-grey.png</texture>
 		</control>
 		<control type="label" id="14">
 			<description>Default Label</description>
@@ -100,7 +100,7 @@
 				<textoffsety>16</textoffsety>
 				<aligny>left</aligny>
 				<font>font37</font>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texturefocus>
 				<texturenofocus />
 			</control>
 		</control>
@@ -142,7 +142,7 @@
 				<onclick>SettingsLevelChange</onclick>
 				<textoffsetx>100</textoffsetx>
 				<textoffsety>0</textoffsety>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texturefocus>
 				<texturenofocus />
 				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>

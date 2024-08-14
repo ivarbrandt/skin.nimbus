@@ -64,7 +64,7 @@
 							<top>0</top>
 							<right>0</right>
 							<bottom>0</bottom>
-							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 							<!-- <visible>Control.HasFocus(13)</visible> -->
 							<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus(13)">conditional</animation>
 						</control>

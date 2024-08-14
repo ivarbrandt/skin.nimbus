@@ -28,7 +28,7 @@
 					<width>695</width>
 					<height>375</height>
 					<label></label>
-					<texturefocus colordiffuse="$VAR[FocusedColorVar]" >masks/big-landscape.png</texturefocus>
+					<texturefocus colordiffuse="$VAR[FocusColorTheme]" >masks/big-landscape.png</texturefocus>
 					<texturenofocus colordiffuse="dialog_bg" >masks/big-landscape-unfocused.png</texturenofocus>
 					<onup>50</onup>
 					<ondown>9000</ondown>
@@ -117,7 +117,7 @@
 							<top>16</top>
 							<width>393</width>
 							<height>228</height>
-							<texture colordiffuse="$VAR[FocusedColorVar]">masks/landscape.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">masks/landscape.png</texture>
 						</control>
 						<control type="image">
 							<left>-12</left>
@@ -278,7 +278,7 @@
 						<aligny>top</aligny>
 						<textcolor>unfocused_text</textcolor>
 						<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
-						<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/landscape.png</texturefocus>
+						<texturefocus colordiffuse="$VAR[FocusColorTheme]">masks/landscape.png</texturefocus>
 						<texturenofocus colordiffuse="dialog_bg">masks/landscape-unfocused.png</texturenofocus>
 						<textoffsetx>35</textoffsetx>
 						<textoffsety>76</textoffsety>

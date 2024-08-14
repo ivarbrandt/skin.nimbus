@@ -259,7 +259,7 @@
 					<left>0</left>
 					<top>0</top>
 					<right>25</right>
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 					<visible>Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="progress">
@@ -371,7 +371,7 @@
 				<height>70</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<!-- <textcolor>$VAR[FocusedColorVar]</textcolor> -->
+				<!-- <textcolor>$VAR[FocusColorTheme]</textcolor> -->
 				<label>: [COLOR white]$INFO[Container($PARAM[list_id]).Numitems][/COLOR]</label>
 			</control>
 		</control>
@@ -412,7 +412,7 @@
 					<left>0</left>
 					<right>0</right>
 					<bottom>0</bottom>
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 					<!-- <visible>Control.HasFocus($PARAM[list_id])</visible> -->
 					<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus($PARAM[list_id])">conditional</animation>
 				</control>
@@ -553,7 +553,7 @@
 				<height>16</height>
 				<info>PVR.EpgEventProgress</info>
 				<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
-				<midtexture colordiffuse="$VAR[FocusedColorVar]">colors/white.png</midtexture>
+				<midtexture colordiffuse="$VAR[FocusColorTheme]">colors/white.png</midtexture>
 			</control>
 		</control>
 	</include>
@@ -808,7 +808,7 @@
 				<height>40</height>
 				<aligny>center</aligny>
 				<label>$PARAM[label]:</label>
-				<textcolor>$VAR[FocusedColorVar]</textcolor>
+				<textcolor>$VAR[FocusColorTheme]</textcolor>
 			</control>
 			<control type="label">
 				<width>auto</width>
@@ -860,7 +860,7 @@
 						<height>45</height>
 						<font>font13</font>
 						<label>$INFO[ListItem.Label]</label>
-						<textcolor>$VAR[FocusedColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
@@ -873,7 +873,7 @@
 						<label>$INFO[ListItem.Label]</label>
 						<textcolor>unfocused_text</textcolor>
 						<textoffsetx>10</textoffsetx>
-						<textcolor>$VAR[FocusedColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 					</control>
 				</rulerlayout>
 				<channellayout height="62" width="$PARAM[channel_width]">
@@ -907,7 +907,7 @@
 						<height>60</height>
 						<font>font32_title</font>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
-						<textcolor>$VAR[FocusedColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<align>center</align>
 						<aligny>center</aligny>
 					</control>
@@ -917,7 +917,7 @@
 						<height>60</height>
 						<font>font13</font>
 						<label>$INFO[ListItem.ChannelName]</label>
-						<textcolor>$VAR[FocusedColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<aligny>center</aligny>
 						<textoffsetx>10</textoffsetx>
 						<scroll>true</scroll>
@@ -947,7 +947,7 @@
 						<width>16</width>
 						<height>16</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[FocusedColorVar]">icons/pvr/premiere.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">icons/pvr/premiere.png</texture>
 					</control>
 					<control type="image">
 						<left>6</left>
@@ -964,7 +964,7 @@
 						<left>2</left>
 						<width>54</width>
 						<height>54</height>
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-PVR.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus-PVR.png</texture>
 						<visible>Control.HasFocus($PARAM[control_id])</visible>
 					</control>
 					<!-- unfocused grid (back) -->
@@ -985,7 +985,7 @@
 						<width>16</width>
 						<height>16</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="$VAR[FocusedColorVar]">icons/pvr/premiere.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">icons/pvr/premiere.png</texture>
 					</control>
 					<control type="image">
 						<left>6</left>

@@ -37,7 +37,7 @@
 				<onclick>RunScript(script.nimbus.helper,mode=remake_all_cpaths)</onclick>
 				<align>center</align>
 				<aligny>left</aligny>
-				<texturefocus border="40" colordiffuse="$VAR[FocusedColorVar]">buttons/dialogbutton-fo.png</texturefocus>
+				<texturefocus border="40" colordiffuse="$VAR[FocusColorTheme]">buttons/dialogbutton-fo.png</texturefocus>
 				<texturenofocus border="40" colordiffuse="button_focus2">buttons/dialogbutton-nofo.png</texturenofocus>
 			</control>
 		</control>

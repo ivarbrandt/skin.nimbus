@@ -94,7 +94,7 @@
 						<top>0</top>
 						<right>25</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 						<!-- <visible>Control.HasFocus(6)</visible> -->
 						<animation effect="fade" start="100" end="50" time="40" condition="!Control.HasFocus(6)">Conditional</animation>
 					</control>
@@ -265,7 +265,7 @@
 						</itemlayout>
 						<focusedlayout width="408" height="374">
 							<control type="image">
-								<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+								<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 								<visible>Control.HasFocus(3)</visible>
 							</control>
 							<control type="image">
@@ -354,7 +354,7 @@
 							<top>60</top>
 							<height>20</height>
 							<font>font23_narrow</font>
-							<textcolor>$VAR[FocusedColorVar]</textcolor>
+							<textcolor>$VAR[FocusColorTheme]</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<align>center</align>
 						</control>
@@ -481,7 +481,7 @@
 						<control type="image">
 							<width>444</width>
 							<height>250</height>
-							<texture border="8" colordiffuse="$VAR[FocusedColorVar]">buttons/thumbnail_focused.png</texture>
+							<texture border="8" colordiffuse="$VAR[FocusColorTheme]">buttons/thumbnail_focused.png</texture>
 							<visible>Control.HasFocus(10811)</visible>
 						</control>
 					</control>
@@ -587,7 +587,7 @@
 						<control type="image">
 							<width>444</width>
 							<height>250</height>
-							<texture border="8" colordiffuse="$VAR[FocusedColorVar]">buttons/thumbnail_focused.png</texture>
+							<texture border="8" colordiffuse="$VAR[FocusColorTheme]">buttons/thumbnail_focused.png</texture>
 							<visible>Control.HasFocus(10811)</visible>
 						</control>
 					</control>
@@ -694,7 +694,7 @@
 						<control type="image">
 							<width>444</width>
 							<height>250</height>
-							<texture border="8" colordiffuse="$VAR[FocusedColorVar]">buttons/thumbnail_focused.png</texture>
+							<texture border="8" colordiffuse="$VAR[FocusColorTheme]">buttons/thumbnail_focused.png</texture>
 						</control>
 					</control>
 				</focusedlayout>

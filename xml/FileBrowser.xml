@@ -99,7 +99,7 @@
 						<right>0</right>
 						<height>71</height>
 						<visible>Control.HasFocus(450)</visible>
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus-long.png</texture>
 					</control>
 					<control type="image">
 						<left>35</left>
@@ -163,7 +163,7 @@
 						<right>0</right>
 						<height>71</height>
 						<visible>Control.HasFocus(451)</visible>
-						<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus-long.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus-long.png</texture>
 					</control>
 					<control type="image">
 						<left>35</left>

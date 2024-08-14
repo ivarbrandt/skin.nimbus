@@ -108,7 +108,7 @@
 				<top>-3</top>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -199,7 +199,7 @@
 				<top>30</top>
 				<right>25</right>
 				<height>3</height>
-				<texture colordiffuse="$VAR[FocusedColorVar]" border="2">dialogs/separator-grey.png</texture>
+				<texture colordiffuse="$VAR[FocusColorTheme]" border="2">dialogs/separator-grey.png</texture>
 			</control>
 			<control type="grouplist">
 				<itemgap>4</itemgap>

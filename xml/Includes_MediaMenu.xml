@@ -11,9 +11,9 @@
 		<textcolor>unfocused_text</textcolor>
 		<focusedcolor>$VAR[FocusedTextColorVar]</focusedcolor>
 		<invalidcolor>invalid</invalidcolor>
-		<texturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texturefocus>
+		<texturefocus colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texturefocus>
 		<texturenofocus />
-		<alttexturefocus colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</alttexturefocus>
+		<alttexturefocus colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</alttexturefocus>
 		<alttexturenofocus></alttexturenofocus>
 	</include>
 	<include name="PVRQuickNavItemsCommon">
@@ -25,7 +25,7 @@
 				<align>center</align>
 				<aligny>center</aligny>
 				<font></font>
-				<texturefocus colordiffuse="$VAR[FocusedColorVar]">buttons/roundbutton-fo.png</texturefocus>
+				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
 				<texturenofocus />
 				<radioposx>26</radioposx>
 				<radioposy>0</radioposy>
@@ -261,7 +261,7 @@
 		<radioposx>300</radioposx>
 		<font>font25_title</font>
 		<aligny>top</aligny>
-		<textcolor>$VAR[FocusedColorVar]</textcolor>
+		<textcolor>$VAR[FocusColorTheme]</textcolor>
 	</include>
 	<include name="MediaMenuCommon">
 		<include>OpenClose_Left</include>

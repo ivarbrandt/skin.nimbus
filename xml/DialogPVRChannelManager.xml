@@ -86,7 +86,7 @@
 							<left>0</left>
 							<right>0</right>
 							<bottom>0</bottom>
-							<texture colordiffuse="$VAR[FocusedColorVar]">masks/focus.png</texture>
+							<texture colordiffuse="$VAR[FocusColorTheme]">masks/focus.png</texture>
 							<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus(20)">conditional</animation>
 						</control>
 						<control type="image">
@@ -146,7 +146,7 @@
 						<font>font12</font>
 						<label>$LOCALIZE[31097]</label>
 						<aligny>center</aligny>
-						<textcolor>$VAR[FocusedColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="radiobutton" id="7">
@@ -209,7 +209,7 @@
 						<font>font12</font>
 						<label>$LOCALIZE[31021]</label>
 						<aligny>center</aligny>
-						<textcolor>$VAR[FocusedColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="button" id="35">

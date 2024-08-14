@@ -24,7 +24,7 @@
 					<width>333</width>
 					<height>333</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="$VAR[FocusedColorVar]">loading.gif</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">loading.gif</texture>
 				</control>
 				<control type="image">
 					<centerleft>50%</centerleft>

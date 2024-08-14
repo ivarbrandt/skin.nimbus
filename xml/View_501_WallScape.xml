@@ -42,7 +42,7 @@
 						<include>FlixScapeMovieLayout</include>
 					</control>
 				</itemlayout>
-				<focusedlayout height="365" width="617" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<focusedlayout height="365" width="617" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
             <left>20</left>

@@ -173,7 +173,7 @@
 						<height>98</height>
 						<font>font36_title</font>
 						<label>$VAR[RecentSearchesCaseVar]</label>
-						<textcolor>$VAR[FocusedColorVar]</textcolor>
+						<textcolor>$VAR[FocusColorTheme]</textcolor>
 					</control>
 					<include content="MiniMenu700Labels">
 						<param name="top" value="90"/>

@@ -365,6 +365,10 @@
 		</animation>
 	</include>
 
+	<include name="TrailerPlayingFade">
+		<animation effect="fade" start="100" end="30" time="700" condition="!Control.IsVisible(50) + Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Conditional</animation>
+	</include>
+
 	<include name="MainMenuAnimations">
 		<animation condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
 			<effect type="slide" start="0,0" end="469,0" time="500" tween="cubic" easing="inout" />

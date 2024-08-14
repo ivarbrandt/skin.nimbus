@@ -84,6 +84,12 @@
 			<aspect>0.98</aspect>
 		</font>
 		<font>
+			<name>PlayerCodecs</name>
+			<filename>Nick-Titling.ttf</filename>
+			<size>25</size>
+			<aspect>0.96</aspect>
+		</font>
+		<font>
 			<name>font32</name>
 			<filename>Inter-Regular.ttf</filename>
 			<size>30</size>

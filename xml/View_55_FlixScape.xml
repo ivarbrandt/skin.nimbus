@@ -11,8 +11,8 @@
 					<top>11</top>
 					<width>582</width>
 					<height>327</height>
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/flixscape.png</texture>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/flixscape.png</texture>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 					<visible>!Container($PARAM[list_id]).IsUpdating</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
@@ -73,9 +73,9 @@
 					<left>-12</left>
 					<width>646</width>
 					<height>384</height> -->
-					<texture colordiffuse="$VAR[FocusedColorVar]">masks/flixscape-glow.png</texture>
+					<texture colordiffuse="$VAR[FocusColorTheme]">masks/flixscape-glow.png</texture>
 					<bordersize>-15</bordersize>
-					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]] + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
 					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					<include content="GlowPulse">
@@ -365,8 +365,10 @@
 				<onup>9000</onup>
 				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),0)">5199</ondown>
 				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),1)">Container.SetViewMode(501)</ondown>
-				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + String.IsEmpty(TrailerPlaying)">Skin.SetString(TrailerPlaying, true)</ondown>
-				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2)">$VAR[AutoplayTrailerSource]</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + String.IsEmpty(Skin.String(TrailerPlaying))">Skin.SetString(TrailerPlaying, true)</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))">$VAR[AutoplayTrailerSource]</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</ondown>
+				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),2) + Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Stop</ondown>
 				<ondown condition="String.IsEqual(Skin.String(OnDownSetting),3)">info</ondown>
 				<viewtype label="311011">icon</viewtype>
 				<preloaditems>2</preloaditems>
@@ -383,7 +385,7 @@
 						<include>FlixScapeMovieLayout</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="613" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]">
+				<focusedlayout width="613" condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | [Container.Content(musicvideos) + Skin.HasSetting(show_musicvideoposter)]" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>35</left>
@@ -391,7 +393,7 @@
 						<include content="FlixScapeMovieLayout">
 							<param name="focused" value="true" />
 						</include>
-						<include>TrailerControl</include>
+						<include>VideoTrailerControl</include>
 					</control>
 				</focusedlayout>
 			</control>
