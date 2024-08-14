@@ -2,6 +2,10 @@ Nimbus Helper: Latest: v0.0.40 | Installed: v$INFO[System.AddonVersion(script.ni
 _____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Small bug fix
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.19[/COLOR][/B]
 - Added optional modular OSD. Choose which elements to show in Skin settings [B]»[/B] On screen display.
 - Various changes to visibility of OSD buttons
 - Added optional extending of auto color scheme to the rest of the skin
