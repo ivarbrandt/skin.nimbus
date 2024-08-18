@@ -2,6 +2,14 @@ Nimbus Helper: Latest: v0.0.40 | Installed: v$INFO[System.AddonVersion(script.ni
 _____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Increased general compatibility with other addons
+- Separated on down actions in Flix/FlixScape for movies/tvshows and seasons/episodes
+- Fixed a few bugs related to the visibility of the collection icon
+- Added an adaptive universal List layout for other addons
+- Other fixes
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.20[/COLOR][/B]
 - Small bug fix
 _____________________________________________________________________________________________
 
