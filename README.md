@@ -4,5 +4,5 @@
 
 ## INFO
 
-- This is currently under development and is only available for Kodi Omega.
-- I will not be accepting **ANY** feature requests for this skin. It comes as is.
+Kodi File Manager Source: [https://ivarbrandt.github.io/repository.ivarbrandt/](https://ivarbrandt.github.io/repository.ivarbrandt/)
+
