@@ -40,7 +40,4 @@
 		<value>PlayMedia($INFO[ListItem.Trailer],1,noresume)</value>
 	</variable>
 
-	<!-- ondown options
-	mainmenu case options -->
-
 </includes>

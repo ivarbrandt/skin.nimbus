@@ -212,6 +212,7 @@
 	<variable name="SubstituteLabel">
     <value condition="$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | Container.Content(addons)">$INFO[ListItem.Label]</value>
     <value condition="$EXP[isEpisode]">$INFO[ListItem.TVshowTitle]</value>
+		<value>$INFO[ListItem.Title]</value>
 	</variable>
 
 	<variable name="DialogInfoTitle">
@@ -459,30 +460,52 @@
     <value condition="String.IsEqual(Skin.String(OSDSubtitleButtonSetting),1)">Skin.SetString(OSDSubtitleButtonSetting,0)</value>
 	</variable>
 
-	<variable name="OnDownSettingVar">
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),1)">Wall</value>
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),2)">Play trailer</value>
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),3)">Information</value>
+	<variable name="OnDownSettingVar.MovieTV">
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),0)">Scrollbar</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),1)">Wall</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),2)">Play trailer</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),3)">Information</value>
 	</variable>
 
-	<variable name="OnDownToggleVar">
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),0)">Skin.SetString(OnDownSetting,1)</value>
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),1)">Skin.SetString(OnDownSetting,2)</value>
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),2)">Skin.SetString(OnDownSetting,3)</value>
-		<value condition="String.IsEqual(Skin.String(OnDownSetting),3)">Skin.SetString(OnDownSetting,0)</value>
+	<variable name="OnDownSettingVar.Other">
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),0)">Scrollbar</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),1)">Wall</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),2)">Information</value>
 	</variable>
 
-	<variable name="OnRightSettingVar">
-		<value condition="String.IsEqual(Skin.String(OnRightSetting),0)">Scrollbar</value>
-		<value condition="String.IsEqual(Skin.String(OnRightSetting),1)">Play trailer</value>
-		<value condition="String.IsEqual(Skin.String(OnRightSetting),2)">Information</value>
+	<variable name="OnDownToggleVar.MovieTV">
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),0)">Skin.SetString(OnDownSetting.MovieTV,1)</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),1)">Skin.SetString(OnDownSetting.MovieTV,2)</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),2)">Skin.SetString(OnDownSetting.MovieTV,3)</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.MovieTV),3)">Skin.SetString(OnDownSetting.MovieTV,0)</value>
 	</variable>
 
-	<variable name="OnRightToggleVar">
-		<value condition="String.IsEqual(Skin.String(OnRightSetting),0)">Skin.SetString(OnRightSetting,1)</value>
-		<value condition="String.IsEqual(Skin.String(OnRightSetting),1)">Skin.SetString(OnRightSetting,2)</value>
-		<value condition="String.IsEqual(Skin.String(OnRightSetting),2)">Skin.SetString(OnRightSetting,0)</value>
+	<variable name="OnDownToggleVar.Other">
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),0)">Skin.SetString(OnDownSetting.Other,1)</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),1)">Skin.SetString(OnDownSetting.Other,2)</value>
+		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),2)">Skin.SetString(OnDownSetting.Other,0)</value>
+	</variable>
+
+	<variable name="OnRightSettingVar.MovieTV">
+		<value condition="String.IsEmpty(Skin.String(OnRightSetting.MovieTV)) | String.IsEqual(Skin.String(OnRightSetting.MovieTV),0)">Scrollbar</value>
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.MovieTV),1)">Play trailer</value>
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.MovieTV),2)">Information</value>
+	</variable>
+
+	<variable name="OnRightSettingVar.Other">
+		<value condition="String.IsEmpty(Skin.String(OnRightSetting.Other)) | String.IsEqual(Skin.String(OnRightSetting.Other),0)">Scrollbar</value>
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.Other),1)">Information</value>
+	</variable>
+
+	<variable name="OnRightToggleVar.MovieTV">
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.MovieTV),0)">Skin.SetString(OnRightSetting.MovieTV,1)</value>
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.MovieTV),1)">Skin.SetString(OnRightSetting.MovieTV,2)</value>
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.MovieTV),2)">Skin.SetString(OnRightSetting.MovieTV,0)</value>
+	</variable>
+
+	<variable name="OnRightToggleVar.Other">
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.Other),0)">Skin.SetString(OnRightSetting.Other,1)</value>
+		<value condition="String.IsEqual(Skin.String(OnRightSetting.Other),1)">Skin.SetString(OnRightSetting.Other,0)</value>
 	</variable>
 
 	<variable name="MenuSelectorColorThemeSettingVar">

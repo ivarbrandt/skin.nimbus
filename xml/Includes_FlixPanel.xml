@@ -11,12 +11,12 @@
 				<height>223</height>
 				<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
 				<aspectratio align="center">keep</aspectratio>
-				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
+				<visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.Clearlogo)]</visible>
 			</control>
 			<control type="group">
 				<height>263</height>
 				<width>600</width>
-				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)] + [$EXP[isContent] | Container.Content(addons)]</visible>
+				<visible>[String.IsEmpty(ListItem.Art(clearlogo)) | !Skin.HasSetting(Enable.Clearlogo)]</visible>
 				<control type="textbox">
 					<aligny>center</aligny>
 					<font>font52_title</font>
@@ -60,18 +60,18 @@
 					<itemgap>12</itemgap>
 					<aligny>center</aligny>
 					<align>left</align>
-					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + $EXP[isContent] + !String.IsEmpty(ListItem.Genre)</visible>
+					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + !String.IsEmpty(ListItem.Genre)</visible>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection + $EXP[isContent]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection"/>
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection + $EXP[isContent]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection"/>
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$VAR[GenreVar]"/>
-						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre) + String.IsEmpty(ListItem.Property(episode_type)) + $EXP[isContent]"/>
+						<param name="visible" value="!ListItem.IsCollection + !String.IsEmpty(Container($PARAM[id]).ListItem.Genre) + String.IsEmpty(ListItem.Property(episode_type))"/>
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Rating]★"/>
@@ -109,10 +109,11 @@
 						<visible>!String.IsEmpty(ListItem.Property(episode_type))</visible>
 					</control>
 					<control type="group">
-            <width>35</width>
-            <height>35</height>
-            <visible>!String.EndsWith(Container.PluginCategory,Collection) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)]</visible>
-            <control type="image">
+						<width>35</width>
+						<height>35</height>
+						<visible>[!String.EndsWith(Container.PluginCategory,Collection) + !String.EndsWith(Container.PluginCategory,Saga) | String.IsEqual(Container.PluginCategory,Movies Collection)] + String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true)</visible>
+						<animation effect="fade" time="300">VisibleChange</animation>
+						<control type="image">
 							<top>6</top>
 							<left>7</left>
 							<width>35</width>
@@ -120,7 +121,7 @@
 							<fadetime>0</fadetime>
 							<aspectratio align="left" aligny="center">keep</aspectratio>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
-            </control>
+						</control>
 					</control>
 					<control type="group">
 						<width>110</width>
@@ -160,13 +161,13 @@
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<autoscroll delay="7000" time="3000" repeat="7000">true</autoscroll>
-					<visible>![$EXP[isContent] | String.IsEqual(ListItem.DBType,song)]</visible>
+					<visible>![$EXP[isContent] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)] | String.IsEqual(ListItem.DBType,song)]</visible>
 				</control>
 				<include condition="!String.IsEmpty(Skin.String(valid_api_key))" content="HorizontalRatings"/>
 				<control type="textbox">
 					<height max="135">auto</height>
 					<bottom>70</bottom>
-					<label>$VAR[InfoPanelBottom]</label>
+					<label>$VAR[RI_Plot]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -186,7 +187,7 @@
 					<height max="235">auto</height>
 					<width>600</width>
 					<bottom>70</bottom>
-					<label>$VAR[InfoPanelBottom]</label>
+					<label>$VAR[RI_Plot]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -195,7 +196,7 @@
 				<control type="textbox">
 					<height max="165">auto</height>
 					<bottom>70</bottom>
-					<label>$VAR[InfoPanelBottom]</label>
+					<label>$VAR[RI_Plot]</label>
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 					<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
@@ -357,7 +358,29 @@
 					<textcolor>unfocused_text</textcolor>
 				</control>
 			</control>
-			<control type="grouplist">
+			<control type="group">
+				<width>130</width>
+				<visible>![String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+				<control type="image">
+					<left>7</left>
+					<width>60</width>
+					<height>38</height>
+					<aspectratio>keep</aspectratio>
+					<aligny>center</aligny>
+					<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tmdbImage)]</texture>
+				</control>
+				<control type="label">
+					<left>80</left>
+					<width>55</width>
+					<height>38</height>
+					<align>left</align>
+					<aligny>center</aligny>
+					<label>$INFO[Window(Home).Property(nimbus.tmdbRating)]</label>
+					<font>font27</font>
+					<textcolor>unfocused_text</textcolor>
+				</control>
+			</control>
+			<!-- <control type="grouplist">
 				<width>118</width>
 				<orientation>horizontal</orientation>
 				<itemgap>12</itemgap>
@@ -379,7 +402,11 @@
 					<font>font27</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
-			</control>
+			</control> -->
 		</control>
 	</include>
+
+
+	
+
 </includes>

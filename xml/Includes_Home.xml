@@ -833,7 +833,10 @@
 		<onload condition="String.IsEmpty(Skin.String(OSDSubtitleButtonSetting))">Skin.SetString(OSDSubtitleButtonSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDStyleSetting))">Skin.SetString(OSDStyleSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MenuCaseSetting))">Skin.SetString(MenuCaseSetting,0)</onload>
-		<onload condition="String.IsEmpty(Skin.String(OnDownSetting))">Skin.SetString(OnDownSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OnDownSetting.MovieTV))">Skin.SetString(OnDownSetting.MovieTV,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OnDownSetting.Other))">Skin.SetString(OnDownSetting.Other,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.MovieTV))">Skin.SetString(OnRightSetting.MovieTV,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.Other))">Skin.SetString(OnRightSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MenuSelectorColorThemeSetting))">Skin.SetString(MenuSelectorColorThemeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(FocusColorThemeSetting))">Skin.SetString(FocusColorThemeSetting,0)</onload>
@@ -849,6 +852,7 @@
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.tvshows))">Skin.SetString(ListArtworkChoice.tvshows,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.seasons))">Skin.SetString(ListArtworkChoice.seasons,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.episodes))">Skin.SetString(ListArtworkChoice.episodes,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.videos))">Skin.SetString(ListArtworkChoice.videos,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.addons))">Skin.SetString(ListArtworkChoice.addons,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.files))">Skin.SetString(ListArtworkChoice.files,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ListArtworkChoice.favourites))">Skin.SetString(ListArtworkChoice.favourites,0)</onload>

@@ -479,7 +479,7 @@
 				<label>Layout</label>
 				<label2>[B]$VAR[ListArtworkSettingVar][/B]</label2>
 				<onclick>$VAR[ListArtworkToggleVar]</onclick>
-				<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content]</visible>
+				<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(videos) | Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content]</visible>
 			</control>
 			<control type="button" id="6059">
 				<include>MediaMenuItemsCommon</include>
@@ -514,25 +514,39 @@
 			<control type="button" id="6062">
 				<include>MediaMenuItemsCommon</include>
 				<label>On down action</label>
-				<label2>[B]$VAR[OnDownSettingVar][/B]</label2>
-				<onclick>$VAR[OnDownToggleVar]</onclick>
-				<visible>[Control.IsVisible(54) | Control.IsVisible(55)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+				<label2>[B]$VAR[OnDownSettingVar.MovieTV][/B]</label2>
+				<onclick>$VAR[OnDownToggleVar.MovieTV]</onclick>
+				<visible>[Control.IsVisible(54) | Control.IsVisible(55)] + [[Container.Content(movies) + !String.StartsWith(Container.PluginName,plugin.video.the-loop)] | Container.Content(tvshows)]</visible>
 			</control>
 			<control type="button" id="6063">
 				<include>MediaMenuItemsCommon</include>
-				<label>On right action</label>
-				<label2>[B]$VAR[OnRightSettingVar][/B]</label2>
-				<onclick>$VAR[OnRightToggleVar]</onclick>
-				<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+				<label>On down action</label>
+				<label2>[B]$VAR[OnDownSettingVar.Other][/B]</label2>
+				<onclick>$VAR[OnDownToggleVar.Other]</onclick>
+				<visible>[Control.IsVisible(54) | Control.IsVisible(55)] + [Container.Content(seasons) | Container.Content(episodes)]</visible>
 			</control>
 			<control type="button" id="6064">
+				<include>MediaMenuItemsCommon</include>
+				<label>On right action</label>
+				<label2>[B]$VAR[OnRightSettingVar.MovieTV][/B]</label2>
+				<onclick>$VAR[OnRightToggleVar.MovieTV]</onclick>
+				<visible>Control.IsVisible(50) + [[Container.Content(movies) + !String.StartsWith(Container.PluginName,plugin.video.the-loop)] | Container.Content(tvshows)]</visible>
+			</control>
+			<control type="button" id="6065">
+				<include>MediaMenuItemsCommon</include>
+				<label>On right action</label>
+				<label2>[B]$VAR[OnRightSettingVar.Other][/B]</label2>
+				<onclick>$VAR[OnRightToggleVar.Other]</onclick>
+				<visible>Control.IsVisible(50) + [Container.Content(seasons) | Container.Content(episodes)]</visible>
+			</control>
+			<control type="button" id="6066">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31022]</label>
 				<label2>[B]$INFO[Container.SortMethod][/B]</label2>
 				<visible>Control.IsEnabled(3)</visible>
 				<onclick>SendClick(3)</onclick>
 			</control>
-			<control type="button" id="6065">
+			<control type="button" id="6067">
 				<include>MediaMenuItemsCommon</include>
 				<label>$LOCALIZE[31032]</label>
 				<label2>[B]$INFO[Container.SortOrder][/B]</label2>

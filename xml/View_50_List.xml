@@ -14,7 +14,7 @@
 				<top>100</top>
 				<width>700</width>
 				<height>80</height>
-				<label>$INFO[Skin.String(ListArtworkChoice.)]</label>
+				<label>$INFO[Container.Content]</label>
 			</control> -->
 			<!-- <control type="label">
 				<left>300</left>
@@ -48,7 +48,8 @@
 						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
 						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
 						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | 
+						[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
 						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
 						[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
 					]
@@ -97,7 +98,7 @@
 			</control>
 			<control type="image">
 				<!-- <include>FullScreenDimensions</include> -->
-				<left>150</left>
+				<left>0</left>
 				<top>0</top>
 				<width>101%</width>
 				<height>101%</height>
@@ -341,7 +342,7 @@
 							<textcolor>unfocused_text</textcolor>
 						</control>
 					</control>
-					<control type="grouplist">
+					<!-- <control type="grouplist">
 						<width>118</width>
 						<orientation>horizontal</orientation>
 						<itemgap>12</itemgap>
@@ -363,12 +364,36 @@
 							<font>font27</font>
 							<textcolor>unfocused_text</textcolor>
 						</control>
+					</control> -->
+					<control type="group">
+						<width>117</width>
+						<visible>![String.IsEmpty(Window(Home).Property(nimbus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
+						<control type="image">
+							<left>7</left>
+							<width>60</width>
+							<height>38</height>
+							<aspectratio>keep</aspectratio>
+							<aligny>center</aligny>
+							<texture colordiffuse="artwork_dim">$INFO[Window(Home).Property(nimbus.tmdbImage)]</texture>
+						</control>
+						<control type="label">
+							<left>80</left>
+							<width>55</width>
+							<height>38</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[Window(Home).Property(nimbus.tmdbRating)]</label>
+							<font>font27</font>
+							<textcolor>unfocused_text</textcolor>
+						</control>
 					</control>
 					<control type="group">
 						<width>49</width>
 						<height>35</height>
+						<animation effect="fade" time="300">VisibleChange</animation>
 						<visible>
-							!String.EndsWith(Container.PluginCategory,Collection) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)] +  
+							[!String.EndsWith(Container.PluginCategory,Collection) + !String.EndsWith(Container.PluginCategory,Saga) | String.IsEqual(Container.PluginCategory,Movies Collection)] + 
+							String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + 
 							[
 								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -609,8 +634,10 @@
 						<height>45</height>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
+						<animation effect="fade" time="300">VisibleChange</animation>
 						<visible>
-							!String.EndsWith(Container.PluginCategory,Collection) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)] + 
+							[!String.EndsWith(Container.PluginCategory,Collection) + !String.EndsWith(Container.PluginCategory,Saga) | String.IsEqual(Container.PluginCategory,Movies Collection)] + 
+							String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + 
 							[
 								[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 								[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -652,7 +679,8 @@
 							<aspectratio align="left" aligny="center">keep</aspectratio>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
 							<visible>
-								String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + [String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) | String.IsEqual(Window(Home).Property(nimbus.first_in_collection),true) | String.IsEqual(Window(Home).Property(nimbus.collection_follow_up),true)] + 
+								$EXP[isMovie] + 
+								![String.EndsWith(Container.PluginCategory,Collection) | String.EndsWith(Container.PluginCategory,Saga)] + 
 								[
 										[!String.IsEmpty(Window(Home).Property(nimbus.metascore)) + !Skin.HasSetting(Disable.MetacriticRating)] | 
 										[!String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter)) + !Skin.HasSetting(Disable.RTCRating)] | 
@@ -759,6 +787,7 @@
 								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
 								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
+								[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] |  
 								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
 								[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
 							]">Conditional</animation>
@@ -773,16 +802,17 @@
 								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
 								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
+								[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | 
 								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
 								[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
 							]">Conditional</animation>
-							<animation type="Conditional" condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">
+							<animation type="Conditional" condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">
 								<effect type="slide" start="0,0" end="-1927,0" time="0" />
 							</animation>
-							<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onleft>
-							<onright condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
-							<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
-							<onright condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
+							<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onleft>
+							<onright condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
+							<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
+							<onright condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
 					</control>
 				</control>
 			</control>
@@ -914,7 +944,8 @@
 					[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
 					[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 					[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-					[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] |
+					[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
+					[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | 
 					[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
 					[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
 					[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
@@ -941,20 +972,20 @@
 					<orientation>vertical</orientation>
 					<pagecontrol>50600</pagecontrol>
 					<!-- LANDSCAPE + POSTER -->
-					<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
+					<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
 							<!-- ONRIGHT SCROLLBAR -->
-							<onright condition="String.IsEqual(Skin.String(OnRightSetting),0) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content()]">50600</onright>
-							<!-- ONRIGHT TRAILER -->
-							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$VAR[AutoplayTrailerSource]</onright>
-							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">Skin.SetString(TrailerPlaying, true)</onright>
-							<onright condition="String.IsEqual(Skin.String(OnRightSetting),1) + [Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content()]">50600</onright>
+							<onright condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.MovieTV),0)">50600</onright>
+							<onright condition="![$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.Other),0)">50600</onright>
+							<!-- ONRIGHT TRAILER (MOVIES/TVSHOWS) -->
+							<onright condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.MovieTV),1)">$VAR[AutoplayTrailerSource]</onright>
+							<onright condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.MovieTV),1)">Skin.SetString(TrailerPlaying, true)</onright>
 							<!-- ONRIGHT INFORMATION -->
-							<onright condition="String.IsEqual(Skin.String(OnRightSetting),2) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">info</onright>
-							<onright condition="String.IsEqual(Skin.String(OnRightSetting),2) + [Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content()]">50600</onright>
-
-
+							<onright condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.MovieTV),2)">info</onright>
+							<onright condition="![$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.Other),1) + [Container.Content(seasons) | Container.Content(episodes)]">info</onright>
+							<!-- ONRIGHT OTHER CONTENT -->
+							<onright condition="![$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnRightSetting.Other),1) + [Container.Content(addons) | Container.Content(files) | Container.Content(favourites) | Container.Content()]">50600</onright>
 					<!-- FANART -->
-					<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onleft>
+					<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onleft>
 							<!-- ONRIGHT SCROLLBAR -->
 							<!-- <onright condition="String.IsEqual(Skin.String(OnRightSetting),0) + [Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50600</onright> -->
 							<!-- ONRIGHT TRAILER -->
@@ -968,15 +999,49 @@
 					<ondown>$PARAM[list_id]</ondown>
 					<width>1950</width>
 					<viewtype label="$PARAM[viewtype_label]">list</viewtype>
-					<visible>[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | [Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | [Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | [Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | [Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | [Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | [Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | [Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | [Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | [Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | [Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | [Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | [Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | [Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | [Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | [ !Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres)]</visible>
-					<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(videos)" height="210" width="610" infoupdate="30">
+					<visible>
+						[Container.Content(tvshows) + [String.IsEqual(Skin.String(Skin.ForcedView.tvshows),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.tvshows))]] | 
+
+						[Container.Content(seasons) + [String.IsEqual(Skin.String(Skin.ForcedView.seasons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.seasons))]] | 
+						
+						[Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.outside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.outside))]] | 
+						
+						[Container.Content(episodes) + String.StartsWith(Container.PluginCategory,Season) + [String.IsEqual(Skin.String(Skin.ForcedView.episodes.inside),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.episodes.inside))]] | 
+						
+						[Container.Content(movies) + [String.IsEqual(Skin.String(Skin.ForcedView.movies),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.movies))]] | 
+						
+						[Container.Content(musicvideos) + [String.IsEqual(Skin.String(Skin.ForcedView.musicvideos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicvideos))]] | 
+						
+						[Container.Content(videos) + [String.IsEqual(Skin.String(Skin.ForcedView.videos),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videos))]] | 
+						
+						[Container.Content(games) + [String.IsEqual(Skin.String(Skin.ForcedView.games),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.games))]] | 
+						
+						[Container.Content(videoplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.videoplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.videoplaylist))]] | 
+						
+						[Container.Content(musicplaylist) + [String.IsEqual(Skin.String(Skin.ForcedView.musicplaylist),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.musicplaylist))]] | 
+						
+						[Container.Content(genres) + [String.IsEqual(Skin.String(Skin.ForcedView.genres),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.genres))]] | 
+						
+						[Container.Content(playlists) + [String.IsEqual(Skin.String(Skin.ForcedView.playlists),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.playlists))]] | 
+						
+						[Container.Content(favourites) + [String.IsEqual(Skin.String(Skin.ForcedView.favourites),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.favourites))]] | 
+						
+						[Container.Content() + [String.IsEqual(Skin.String(Skin.ForcedView.),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.))]] | 
+						
+						[Container.Content(songs) + [String.IsEqual(Skin.String(Skin.ForcedView.songs),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.songs))]] | 
+						
+						[Container.Content(addons) + [String.IsEqual(Skin.String(Skin.ForcedView.addons),$PARAM[viewtype_label]) | String.IsEmpty(Skin.String(Skin.ForcedView.addons))]] | 
+						
+						[!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites) + !Container.Content(genres)]
+					</visible>
+					<focusedlayout condition="[Container.Content(movies) + !String.StartsWith(Container.PluginName,plugin.video.the-loop)] | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)" height="210" width="610" infoupdate="30">
 						<control type="image">
 							<top>-4</top>
 							<bottom>7</bottom>
 							<width>4</width>
 							<left>11</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
-							<visible>$EXP[isContent] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
+							<visible>!String.IsEmpty(ListItem.Plot) + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 						</control>
 						<control type="image">
@@ -985,9 +1050,27 @@
 							<width>4</width>
 							<left>11</left>
 							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
-							<visible>!$EXP[isContent] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
+							<visible>String.IsEmpty(ListItem.Plot) + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
 							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
 						</control>
+						<!-- <control type="image">
+							<top>-4</top>
+							<bottom>7</bottom>
+							<width>4</width>
+							<left>11</left>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
+							<visible>[$EXP[isContent] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)]] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
+							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+						</control>
+						<control type="image">
+							<top>-4</top>
+							<height>61</height>
+							<width>4</width>
+							<left>11</left>
+							<texture colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texture>
+							<visible>![$EXP[isContent] | [Container.Content(episodes) + !String.StartsWith(Container.PluginCategory,Season)]] + Control.HasFocus($PARAM[list_id]) + !Control.HasFocus(50600)</visible>
+							<animation effect="fade" start="100" end="0" time="300" condition="!Control.HasFocus($PARAM[list_id])">Conditional</animation>
+						</control> -->
 						<control type="label">
 							<left>70</left>
 							<width>810</width>
@@ -1031,10 +1114,24 @@
 							<bottom>13</bottom>
 							<aligny>center</aligny>
 							<font>font23</font>
-							<label>$VAR[InfoPanelBottom]</label>
+							<label>$VAR[RI_Plot]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="7000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+							<visible>!String.StartsWith(Container.PluginName,plugin.video.dramacool)</visible>
+						</control>
+						<control type="textbox">
+							<top>65</top>
+							<left>33</left>
+							<width>810</width>
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font23</font>
+							<label>$VAR[RI_Plot]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<autoscroll delay="7000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+							<visible>String.StartsWith(Container.PluginName,plugin.video.dramacool)</visible>
 						</control>
 						<control type="image">
 							<left>33</left>
@@ -1054,7 +1151,7 @@
 						</control>
 						<include>VideoTrailerControl</include>
 					</focusedlayout>
-					<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist) | Container.Content(videos)" height="67" width="610">
+					<itemlayout condition="[Container.Content(movies) + !String.StartsWith(Container.PluginName,plugin.video.the-loop)] | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)" height="67" width="610">
 						<control type="label">
 							<left>70</left>
 							<width>810</width>
@@ -1121,7 +1218,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)" height="67" width="610" infoupdate="300">
+					<focusedlayout condition="!String.IsEqual(Window(Home).Property(CurrentFolder),addons) + [Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video)]" height="67" width="610" infoupdate="300">
 						<control type="image">
 							<top>-1</top>
 							<bottom>3</bottom>
@@ -1155,7 +1252,7 @@
 							<autoscroll delay="3000" time="3000" repeat="3000">Skin.HasSetting(autoscroll)</autoscroll>
 						</control> -->
 					</focusedlayout>
-					<itemlayout condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)" height="67" width="610">
+					<itemlayout condition="!String.IsEqual(Window(Home).Property(CurrentFolder),addons) + [Container.Content(playlists) | Container.Content(favourites) | Container.Content() | String.StartsWith(Container.PluginName,plugin.video)]" height="67" width="610">
 						<control type="label">
 							<left>29</left>
 							<width>844</width>
@@ -1168,7 +1265,8 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout condition="Container.Content(addons) + ![String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)]" height="210" width="610" infoupdate="30">
+					<!-- <focusedlayout condition="Container.Content(addons) + ![String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)]" height="210" width="610" infoupdate="30"> -->
+						<focusedlayout condition="String.IsEqual(Window(Home).Property(CurrentFolder),addons) | [Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video)]" height="210" width="610" infoupdate="30">
 						<control type="image">
 							<top>-4</top>
 							<bottom>7</bottom>
@@ -1275,7 +1373,7 @@
 							<visible>Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 					</focusedlayout>
-					<itemlayout condition="Container.Content(addons) + ![String.StartsWith(Container.PluginName,plugin.video.otaku) | String.StartsWith(Container.PluginName,plugin.video.scrubsv2)]" height="67" width="610">
+					<itemlayout condition="String.IsEqual(Window(Home).Property(CurrentFolder),addons) | [Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video)]" height="67" width="610">
 						<control type="label">
 							<left>79</left>
 							<width>810</width>
@@ -1322,7 +1420,7 @@
 				</include> -->
 				<include content="FlixPanel"/>
 				<!-- image control -->
-				<control type="image">
+				<!-- <control type="image">
 					<left>50</left>
 					<top>73</top>
 					<width>540</width>
@@ -1331,7 +1429,7 @@
 					<fadetime>300</fadetime>
 					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$INFO[ListItem.Icon]</texture>
 					<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | String.IsEqual(ListItem.DBType,song)] + !Container.Content(addons)</visible>
-				</control>
+				</control> -->
 				<control type="image">
 					<left>30</left>
 					<top>110</top>
