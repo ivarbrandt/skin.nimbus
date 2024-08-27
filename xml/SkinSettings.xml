@@ -119,63 +119,120 @@
 					<onclick>RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom3.widget)</onclick>
 					<visible>!Skin.HasSetting(HomeMenuNoCustom3Button)</visible>
 				</control>
-				<!-- MUSIC -->
+				<!-- CUSTOM 4 -->
 				<control type="radiobutton" id="629">
+					<label>$INFO[Skin.String(MenuCustom4Label)]</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(HomeMenuNoCustom4Button)</selected>
+					<onclick>Skin.ToggleSetting(HomeMenuNoCustom4Button)</onclick>
+				</control>
+				<control type="button" id="6290">
+					<label>   - Set main menu path</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom4.main_menu)</onclick>
+					<visible>!Skin.HasSetting(HomeMenuNoCustom4Button)</visible>
+				</control>
+				<control type="button" id="6291">
+					<label>   - Set widgets</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom4.widget)</onclick>
+					<visible>!Skin.HasSetting(HomeMenuNoCustom4Button)</visible>
+				</control>
+				<!-- CUSTOM 5 -->
+				<control type="radiobutton" id="630">
+					<label>$INFO[Skin.String(MenuCustom5Label)]</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(HomeMenuNoCustom5Button)</selected>
+					<onclick>Skin.ToggleSetting(HomeMenuNoCustom5Button)</onclick>
+				</control>
+				<control type="button" id="6300">
+					<label>   - Set main menu path</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom5.main_menu)</onclick>
+					<visible>!Skin.HasSetting(HomeMenuNoCustom5Button)</visible>
+				</control>
+				<control type="button" id="6301">
+					<label>   - Set widgets</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom5.widget)</onclick>
+					<visible>!Skin.HasSetting(HomeMenuNoCustom5Button)</visible>
+				</control>
+				<!-- CUSTOM 6 -->
+				<control type="radiobutton" id="631">
+					<label>$INFO[Skin.String(MenuCustom6Label)]</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(HomeMenuNoCustom6Button)</selected>
+					<onclick>Skin.ToggleSetting(HomeMenuNoCustom6Button)</onclick>
+				</control>
+				<control type="button" id="6310">
+					<label>   - Set main menu path</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom6.main_menu)</onclick>
+					<visible>!Skin.HasSetting(HomeMenuNoCustom6Button)</visible>
+				</control>
+				<control type="button" id="6311">
+					<label>   - Set widgets</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom6.widget)</onclick>
+					<visible>!Skin.HasSetting(HomeMenuNoCustom6Button)</visible>
+				</control>
+				<!-- MUSIC -->
+				<control type="radiobutton" id="632">
 					<label>$LOCALIZE[31008]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(home_no_categories_widget)</selected>
 					<onclick>Skin.ToggleSetting(home_no_categories_widget)</onclick>
 				</control>
-				<control type="radiobutton" id="6290">
+				<control type="radiobutton" id="6320">
 					<label>$LOCALIZE[2]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoMusicButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoMusicButton)</onclick>
 				</control>
 				<!-- MUSIC VIDEOS -->
-				<control type="radiobutton" id="6291">
+				<control type="radiobutton" id="6321">
 					<label>$LOCALIZE[20389]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoMusicVideoButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoMusicVideoButton)</onclick>
 				</control>
 				<!-- PVR -->
-				<control type="radiobutton" id="6292">
+				<control type="radiobutton" id="6322">
 					<label>$LOCALIZE[19020]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoTVButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoTVButton)</onclick>
 				</control>
 				<!-- radio -->
-				<control type="radiobutton" id="6293">
+				<control type="radiobutton" id="6323">
 					<label>$LOCALIZE[19021]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoRadioButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoRadioButton)</onclick>
 				</control>
 				<!-- addons -->
-				<control type="radiobutton" id="6294">
+				<control type="radiobutton" id="6324">
 					<label>$LOCALIZE[24001]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoProgramsButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoProgramsButton)</onclick>
 				</control>
 				<!-- pictures -->
-				<control type="radiobutton" id="6295">
+				<control type="radiobutton" id="6325">
 					<label>$LOCALIZE[1]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoPicturesButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoPicturesButton)</onclick>
 				</control>
 				<!-- videos -->
-				<control type="radiobutton" id="6296">
+				<control type="radiobutton" id="6326">
 					<label>$LOCALIZE[3]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoVideosButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoVideosButton)</onclick>
 				</control>
 				<!-- games -->
-				<control type="radiobutton" id="6297">
+				<control type="radiobutton" id="6327">
 					<label>$LOCALIZE[15016]</label>
 					<visible>System.GetBool(gamesgeneral.enable)</visible>
 					<include>DefaultSettingButton</include>
@@ -183,14 +240,14 @@
 					<onclick>Skin.ToggleSetting(HomeMenuNoGamesButton)</onclick>
 				</control>
 				<!-- favorites -->
-				<control type="radiobutton" id="6298">
+				<control type="radiobutton" id="6328">
 					<label>$LOCALIZE[10134]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoFavButton)</selected>
 					<onclick>Skin.ToggleSetting(HomeMenuNoFavButton)</onclick>
 				</control>
 				<!-- weather -->
-				<control type="radiobutton" id="6299">
+				<control type="radiobutton" id="6329">
 					<label>$LOCALIZE[8]</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(HomeMenuNoWeatherButton)</selected>

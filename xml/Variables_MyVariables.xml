@@ -387,6 +387,9 @@
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom1)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom1.main_menu)</value>
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom2)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom2.main_menu)</value>
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom3)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom3.main_menu)</value>
+	<value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom4)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom4.main_menu)</value>
+	<value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom5)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom5.main_menu)</value>
+	<value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom6)">RunScript(script.nimbus.helper,mode=manage_main_menu_path&amp;cpath_setting=custom6.main_menu)</value>
 	</variable>
 
 	<variable name="EditWidgetsVar">
@@ -395,6 +398,9 @@
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom1)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom1.widget)</value>
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom2)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom2.widget)</value>
     <value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom3)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom3.widget)</value>
+	<value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom4)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom4.widget)</value>
+	<value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom5)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom5.widget)</value>
+	<value condition="String.IsEqual(Container(9000).ListItem.Property(id),custom6)">RunScript(script.nimbus.helper,mode=manage_widgets&amp;cpath_setting=custom6.widget)</value>
 	</variable>
 	
 	<variable name="TitleSettingVar">

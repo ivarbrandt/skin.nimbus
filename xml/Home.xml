@@ -205,6 +205,69 @@
 						<param name="scrollbar_id" value="25099"/>
 					</include>
 				</control>
+				<!-- CUSTOM 4 -->
+				<control type="group" id="26000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),custom4)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="custom4"/>
+					</include>
+					<control type="grouplist" id="26001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="26001" />
+						</include>
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>26099</pagecontrol>
+						<include content="Custom4Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom4Button)" />
+					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="26001" />
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="26099"/>
+					</include>
+				</control>
+				<!-- CUSTOM 5 -->
+				<control type="group" id="27000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),custom5)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="custom5"/>
+					</include>
+					<control type="grouplist" id="27001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="27001" />
+						</include>
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>27099</pagecontrol>
+						<include content="Custom5Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom5Button)" />
+					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="27001" />
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="27099"/>
+					</include>
+				</control>
+				<!-- CUSTOM 6 -->
+				<control type="group" id="28000">
+					<visible>String.IsEqual(Container(9000).ListItem.Property(id),custom6)</visible>
+					<include content="Visible_Right_Delayed">
+						<param name="id" value="custom6"/>
+					</include>
+					<control type="grouplist" id="28001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="28001" />
+						</include>
+						<include>WidgetGroupListCommon</include>
+						<pagecontrol>28099</pagecontrol>
+						<include content="Custom6Widgets" condition="!Skin.HasSetting(HomeMenuNoCustom6Button)" />
+					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="28001" />
+					</include>
+					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
+						<param name="scrollbar_id" value="28099"/>
+					</include>
+				</control>
 				<control type="group" id="7000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),music)</visible>
 					<include content="Visible_Right_Delayed">
@@ -974,6 +1037,12 @@
 							<include content="Custom2MainMenu" condition="!Skin.HasSetting(HomeMenuNoCustom2Button)" />
 							<!-- CUSTOM 3 25000 -->
 							<include content="Custom3MainMenu" condition="!Skin.HasSetting(HomeMenuNoCustom3Button)" />
+							<!-- CUSTOM 4 26000 -->
+							<include content="Custom4MainMenu" condition="!Skin.HasSetting(HomeMenuNoCustom4Button)" />
+							<!-- CUSTOM 5 27000 -->
+							<include content="Custom5MainMenu" condition="!Skin.HasSetting(HomeMenuNoCustom5Button)" />	
+							<!-- CUSTOM 6 28000 -->
+							<include content="Custom6MainMenu" condition="!Skin.HasSetting(HomeMenuNoCustom6Button)" />	
 							<item>
 								<label>$LOCALIZE[2]</label>
 								<onclick>ActivateWindow(Music,root,return)</onclick>
