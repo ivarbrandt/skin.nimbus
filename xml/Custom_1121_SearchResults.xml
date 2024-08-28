@@ -229,22 +229,22 @@
               <param name="unfocused_font" value="font27" />
             </include>
 						<content>
-							<item>
+							<!-- <item>
 								<label>$VAR[CurrentSearchProviderVar]</label>
 								<onclick>$VAR[CurrentSearchProviderToggleVar]</onclick>
-							</item>
+							</item>  -->
 							<item>
-								<label>New search</label>
-								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
+								<label>Clear search history</label>
+								<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
 							</item>
 							<item>
 								<label>Trakt lists</label>
 								<onclick>$VAR[TRAKTButtonActionsVar]</onclick>
 							</item>
-							<item>
-								<label>Clear search history</label>
-								<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
-							</item>
+								<item>
+								<label>New search</label>
+								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
+							</item>							
 							<item>
 								<label>Fullscreen</label>
 								<onclick>Fullscreen</onclick>

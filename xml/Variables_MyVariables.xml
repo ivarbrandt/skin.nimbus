@@ -558,10 +558,10 @@
 	</variable>
 
 	<variable name="MiniMenuCase700Var">
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),0)">Mini menu</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),1)">[UPPERCASE]Mini menu[/UPPERCASE]</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),2)">[LOWERCASE]Mini menu[/LOWERCASE]</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),3)">[CAPITALIZE]Mini menu[/CAPITALIZE]</value>
+		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),0)">Search</value>
+		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),1)">[UPPERCASE]Search[/UPPERCASE]</value>
+		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),2)">[LOWERCASE]Search[/LOWERCASE]</value>
+		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),3)">[CAPITALIZE]Search[/CAPITALIZE]</value>
 	</variable>
 
 	<variable name="MiniMenuCase733Var">

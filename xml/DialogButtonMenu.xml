@@ -28,6 +28,11 @@
 				<include>ButtonMenuList</include>
 				<content>
 					<item>
+					<label>Settings</label>
+					<onclick>Dialog.Close(all)</onclick>
+					<onclick>ActivateWindow(settings)</onclick>
+					</item>
+					<item>
 						<label>Reload skin</label>
 						<onclick>Dialog.Close(all)</onclick>
 						<onclick>ReloadSkin()</onclick>
