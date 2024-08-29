@@ -4,10 +4,16 @@ xml/script-nimbus-main_menu_tvshows.xml
 xml/script-nimbus-main_menu_custom1.xml
 xml/script-nimbus-main_menu_custom2.xml
 xml/script-nimbus-main_menu_custom3.xml
+xml/script-nimbus-main_menu_custom4.xml
+xml/script-nimbus-main_menu_custom5.xml
+xml/script-nimbus-main_menu_custom6.xml
 xml/script-nimbus-widget_movies.xml
 xml/script-nimbus-widget_tvshows.xml
 xml/script-nimbus-widget_custom1.xml
 xml/script-nimbus-widget_custom2.xml
 xml/script-nimbus-widget_custom3.xml
+xml/script-nimbus-widget_custom4.xml
+xml/script-nimbus-widget_custom5.xml
+xml/script-nimbus-widget_custom6.xml
 xml/script-nimbus-search_history.xml
 xml/script-skinshortcuts-includes.xml
