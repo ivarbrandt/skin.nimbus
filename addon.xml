@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.nimbus" version="0.1.22" name="Nimbus"
+<addon id="skin.nimbusx8" version="0.1.22" name="NimbusX8"
 	provider-name="Ivar Brandt">
 	<requires>
 		<import addon="xbmc.gui" version="5.17.0" />
-		<import addon="script.nimbus.helper" />
+		<import addon="script.nimbus.helperx8" />
 	</requires>
 	<extension point="xbmc.gui.skin" debugging="false">
 		<res width="1920" height="1440" aspect="4:3" default="false" folder="xml" />
@@ -22,11 +22,11 @@
 			<icon>resources/icon.png</icon>
 			<fanart>resources/fanart.png</fanart>
 		</assets>
-		<summary lang="en_GB">Nimbus skin by Ivar Brandt</summary>
-		<summary lang="en_NZ">Nimbus skin by Ivar Brandt</summary>
-		<summary lang="en_US">Nimbus skin by Ivar Brandt</summary>
-		<description lang="en_GB">Nimbus Skin</description>
-		<description lang="en_NZ">Nimbus Skin</description>
-		<description lang="en_US">Nimbus Skin</description>
+		<summary lang="en_GB">Modded Nimbus skin by Ivar Brandt</summary>
+		<summary lang="en_NZ">Modded Nimbus skin by Ivar Brandt</summary>
+		<summary lang="en_US">Modded Nimbus skin by Ivar Brandt</summary>
+		<description lang="en_GB">Modded Nimbus Skin</description>
+		<description lang="en_NZ">Modded Nimbus Skin</description>
+		<description lang="en_US">Modded Nimbus Skin</description>
 	</extension>
 </addon>
