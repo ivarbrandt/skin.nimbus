@@ -234,17 +234,18 @@
 								<onclick>$VAR[CurrentSearchProviderToggleVar]</onclick>
 							</item>  -->
 							<item>
-								<label>Clear search history</label>
-								<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
+								<label>New search</label>
+								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
 							</item>
 							<item>
 								<label>Trakt lists</label>
 								<onclick>$VAR[TRAKTButtonActionsVar]</onclick>
 							</item>
-								<item>
-								<label>New search</label>
-								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
-							</item>							
+							<item>
+								<label>Clear history</label>
+								<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
+							</item>
+															
 							<item>
 								<label>Fullscreen</label>
 								<onclick>Fullscreen</onclick>
