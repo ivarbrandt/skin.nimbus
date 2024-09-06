@@ -1,7 +1,19 @@
-Nimbus Helper: Latest: v0.0.41 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.42 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
+[B]There is a 60-70% chance that at some point in the future I will redesign/overhaul the home screen and widgets. This would be done in favor of a more widget friendly design. This would mean the removal of the Netflix-like home screen layout. The views that carry this style won't be affected. If you prefer the current layout then I recommend saving a zip of the skin. If you are seeing this message after the possible changes have taken place, no worries. I will have provided a link to the latest version of the skin on my Github before the design updates took place.[/B]
+
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added new PosterFlow view
+- Made persistent home screen artwork optional. You can find this new setting in Skin settings [B]»[/B] Artwork display.
+- Resized a few elements for the modular OSD
+- Fixed a few compatibility bugs with FEN forks
+- Made artwork a bit less restrictive
+- Fixed media sidemenu coloring
+- Other changes/fixes
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.22[/COLOR][/B]
 - Bug fixes
 _____________________________________________________________________________________________
 
