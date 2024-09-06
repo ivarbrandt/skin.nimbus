@@ -24,7 +24,7 @@
 
 		<!-- ARTWORK SECTION -->
 		<value condition="Container(9000).HasFocus(6) + !ControlGroup(10000).HasFocus">Artwork settings</value>
-		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6010) | Control.HasFocus(6011) | Control.HasFocus(6012) | Control.HasFocus(6013)]">$LOCALIZE[31169]</value>
+		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6011) | Control.HasFocus(6012) | Control.HasFocus(6013) | Control.HasFocus(6014)]">$LOCALIZE[31169]</value>
 		<value condition="Control.HasFocus(6002)">Enabling this option will show clearlogos for media content. Disabling this option will use a default text title.</value>
 		<value condition="Control.HasFocus(6003)">Choose your preferred font style for text titles.</value>
 		<value condition="Control.HasFocus(6004)">Click to set a custom background image.</value>
@@ -33,6 +33,7 @@
 		<value condition="Control.HasFocus(6007)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40. DEFAULT VALUE: 30</value>
 		<value condition="Control.HasFocus(6008)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. DEFAULT VALUE: 1.5</value>
 		<value condition="Control.HasFocus(6009)">This option enables the quick config menu on the home screen to easily configure the artwork settings. Press left while the main menu is focused to access it.</value>
+		<value condition="Control.HasFocus(6010)">This option enables the 'saving' of the home screen artwork when widgets lose focus. It will save the current landscape/fanart while scrolling the main menu etc. Disbaling this option will reset the artwork to the custom background image when widgets lose focus.</value>
 
 		<!-- RATINGS SECTION -->
 		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">Ratings settings</value>

@@ -5,6 +5,7 @@
     <!-- <value condition="ControlGroup(12000).HasFocus | Window.IsVisible(tvguide) | Window.IsVisible(tvchannels)">$VAR[ChannelListEPGIconVar]</value> -->
     <value condition="Window.IsVisible(Home) | Window.IsVisible(1121)">$VAR[HomeFanartVar]</value>
     <value condition="Control.IsVisible(50)">$VAR[ListArtworkVar]</value>
+    <value condition="Control.IsVisible(51)">$VAR[PosterFlowColorVar]</value>
     <value condition="Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)">$VAR[FlixLandscapeVar]</value>
 	</variable>
 

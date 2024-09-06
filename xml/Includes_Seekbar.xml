@@ -273,7 +273,9 @@
 				<control type="image">
 					<left>99</left>
 					<top>-763</top>
-					<height>153</height>
+					<width>550</width>
+					<height>213</height>
+					<!-- <height>153</height> -->
 					<texture>$VAR[DetailedOSDLogoVar]</texture>
 					<aspectratio align="left" aligny="top">keep</aspectratio>
 				</control>

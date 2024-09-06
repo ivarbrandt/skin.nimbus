@@ -27,6 +27,7 @@
 	<include file="script-nimbus-widget_custom3.xml" />
 	<include file="script-nimbus-search_history.xml" />
 	<include file="View_50_List.xml" />
+	<include file="View_51_PosterFlow.xml" />
 	<include file="View_52_IconWall.xml" />
 	<include file="View_54_Flix.xml" />
 	<include file="View_55_FlixScape.xml" />
@@ -107,10 +108,10 @@
 					</control>
 				</control>
 				<control type="group">
-					<left>60</left>
+					<left>0</left>
 					<right>0</right>
 					<bottom>-7</bottom>
-					<width>94%</width>
+					<width>100%</width>
 					<height>60</height>
 					<control type="scrollbar" id="5199">
 						<left>0</left>
@@ -121,10 +122,10 @@
 						<onup>50</onup>
 						<texturesliderbar colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbar>
 						<texturesliderbarfocus colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbarfocus>
-						<ondown condition="Control.IsVisible(54)">Container.SetViewMode(500)</ondown>
+						<ondown condition="Control.IsVisible(51) | Control.IsVisible(54)">Container.SetViewMode(500)</ondown>
 						<ondown condition="Control.IsVisible(55)">Container.SetViewMode(501)</ondown>
 						<orientation>horizontal</orientation>
-						<visible>Control.IsVisible(54) | Control.IsVisible(55)</visible>
+						<visible>Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55)</visible>
 						<animation effect="slide" end="0,6" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(5199) | Container.Scrolling]">conditional</animation>
 						<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 						<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
@@ -945,7 +946,7 @@
 				<depth>DepthBars</depth>
 				<!-- <animation effect="fade" start="0" end="100" time="300" condition="!Container.Scrolling">Conditional</animation> -->
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
-				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)] | Window.IsVisible(extendedprogressdialog)</visible>
+				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)] | Window.IsVisible(extendedprogressdialog)</visible>
 				<control type="image">
 					<!-- <visible>Window.IsVisible(extendedprogressdialog)</visible> -->
 					<left>0</left>
@@ -1158,7 +1159,7 @@
 	</include>
 
 	<include name="TopBarLabels">
-		<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)]</visible>
+		<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)]</visible>
 		
 		<left>37</left>
 		<description>Left side of top bar</description>
@@ -1320,7 +1321,7 @@
 								]
 							] |
 							[!Control.IsVisible(50) + !Control.IsVisible(54) + !Control.IsVisible(55) + !Control.IsVisible(56) + 
-							!Window.IsVisible(Home) + !Window.IsVisible(1121) + !$EXP[isContent]]
+							!Window.IsVisible(Home) + !Window.IsVisible(1121) + !$EXP[isContent] | Control.IsVisible(51)]
 					]
 			</visible>
 			
@@ -2030,6 +2031,13 @@
 		<control type="button">
 			<visible>false</visible>
 			<onfocus>Skin.TimerStart(wall_scroll_timer)</onfocus>
+		</control>
+	</include>
+
+	<include name="PosterFlowScrollTimer">
+		<control type="button">
+			<visible>false</visible>
+			<onfocus>Skin.TimerStart(posterflow_scroll_timer)</onfocus>
 		</control>
 	</include>
 

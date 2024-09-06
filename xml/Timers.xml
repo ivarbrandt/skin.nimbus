@@ -24,6 +24,14 @@
         <onstop>Notification(skintimer, Wall scroll timer stopped, 1000)</onstop> -->
     </timer>
     <timer>
+        <name>posterflow_scroll_timer</name>
+        <description>Timer to automatically display information on PosterFlow view after scrolling</description>
+        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)</stop>
+        <!-- <onstart>Notification(postertimer, Poster scroll timer started, 1000)</onstart>
+        <onstop>Notification(postertimer, Poster scroll timer stopped, 1000)</onstop> -->
+    </timer>
+    <timer>
         <name>autolock_view_timer</name>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autolock_view_timer),1)</stop>
@@ -48,8 +56,8 @@
         <description>Timer to autoplay trailers</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
         <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(autoplay_trailer_timer),Skin.Numeric(TrailerDelaySecs))</stop>
-        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(50) | Control.HasFocus(54) | Control.HasFocus(55) | Control.HasFocus(56)]">Skin.SetString(TrailerPlaying, true)</onstop>
-        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(50) | Control.HasFocus(54) | Control.HasFocus(55) | Control.HasFocus(56)]">$VAR[AutoplayTrailerSource]</onstop>
+        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(50) | Control.HasFocus(51) | Control.HasFocus(54) | Control.HasFocus(55) | Control.HasFocus(56)]">Skin.SetString(TrailerPlaying, true)</onstop>
+        <onstop condition="!String.IsEmpty(ListItem.IMDBNumber) + String.StartsWith(ListItem.IMDBNumber,tt) + [ControlGroup(2000).HasFocus | Control.HasFocus(50) | Control.HasFocus(51) | Control.HasFocus(54) | Control.HasFocus(55) | Control.HasFocus(56)]">$VAR[AutoplayTrailerSource]</onstop>
         <!-- <onstart>Notification(skintimer, Autoplay trailer timer started, 1000)</onstart>
         <onstop>Notification(skintimer, Autoplay trailer timer stopped, 1000)</onstop> -->
     </timer>

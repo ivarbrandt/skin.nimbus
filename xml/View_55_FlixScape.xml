@@ -5,7 +5,7 @@
 		<param name="focused">false</param>
 		<definition>
 			<control type="group">
-				<visible>String.IsEmpty(ListItem.Art(fanart))</visible>
+				<visible>String.IsEmpty(ListItem.Art(fanart)) + String.IsEmpty(ListItem.Art(landscape))</visible>
 				<control type="image">
 					<left>19</left>
 					<top>11</top>
@@ -63,7 +63,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Art(fanart))</visible>
+				<visible>!String.IsEmpty(ListItem.Art(fanart)) | !String.IsEmpty(ListItem.Art(landscape))</visible>
 				<control type="image">
 					<top>-3</top>
 					<left>3</left>
@@ -172,7 +172,7 @@
 										]
 								]
 						]
-				</visible>
+					</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
         <control type="image">

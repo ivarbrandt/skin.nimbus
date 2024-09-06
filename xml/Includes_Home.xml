@@ -747,17 +747,17 @@
 		<onfocus>ClearProperty(nimbus_landscape_art,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_landscape_prop,home)</onfocus>
 
-		<onunfocus condition="$EXP[isEpisode]">SetProperty(nimbus_episode_thumb,$INFO[Container($PARAM[list_id]).ListItem(0).Art(thumb)],home)</onunfocus>
-		<onunfocus condition="$EXP[isEpisode]">SetProperty(nimbus_episode_fanart,$INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)],home)</onunfocus>
-		<onunfocus condition="$EXP[isEpisode]">SetProperty(nimbus_episode_landscape,$INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)],home)</onunfocus>
-		<onunfocus>SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
-		<onunfocus>SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + !$EXP[isEpisode] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + !$EXP[isEpisode] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + !$EXP[isEpisode] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(landscape)], home)</onunfocus>
-		<onunfocus condition="$EXP[isContent] + !$EXP[isEpisode] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
-		<onunfocus condition="!$EXP[isContent]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
-		<onunfocus condition="!$EXP[isContent]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isEpisode]">SetProperty(nimbus_episode_thumb,$INFO[Container($PARAM[list_id]).ListItem(0).Art(thumb)],home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isEpisode]">SetProperty(nimbus_episode_fanart,$INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)],home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isEpisode]">SetProperty(nimbus_episode_landscape,$INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)],home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork)">SetProperty(nimbus_fanart_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork)">SetProperty(nimbus_fanart_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isContent] + !$EXP[isEpisode] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(landscape)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isContent] + !$EXP[isEpisode] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Art(fanart))]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isContent] + !$EXP[isEpisode] + ![String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(landscape)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isContent] + !$EXP[isEpisode] + [String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(landscape)) + !String.IsEmpty(Container($PARAM[list_id]).ListItem(0).Property(fanart))]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + !$EXP[isContent]">SetProperty(nimbus_landscape_art, $INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)], home)</onunfocus>
+		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + !$EXP[isContent]">SetProperty(nimbus_landscape_prop, $INFO[Container($PARAM[list_id]).ListItem(0).Property(fanart)], home)</onunfocus>
 		<preloaditems>2</preloaditems>
 	</include>
 
@@ -835,6 +835,8 @@
 		<onload condition="String.IsEmpty(Skin.String(MenuCaseSetting))">Skin.SetString(MenuCaseSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnDownSetting.MovieTV))">Skin.SetString(OnDownSetting.MovieTV,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnDownSetting.Other))">Skin.SetString(OnDownSetting.Other,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(PosterFlowOnDownSetting.MovieTV))">Skin.SetString(PosterFlowOnDownSetting.MovieTV,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(PosterFlowOnDownSetting.Other))">Skin.SetString(PosterFlowOnDownSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.MovieTV))">Skin.SetString(OnRightSetting.MovieTV,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.Other))">Skin.SetString(OnRightSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload>

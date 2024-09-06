@@ -335,29 +335,51 @@
     <value>unfocused_text</value>
 	</variable>
 
+	<variable name="PosterFlowColorVar">
+    <value condition="$EXP[sidebar_visible] | Control.HasFocus(5199)">$INFO[Container(51).ListItem.Art(poster)]</value>
+    <value condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + !Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">$INFO[Container(51).ListItem.Art(poster)]</value>
+    <value condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">$INFO[Container(51).ListItem.Art(fanart)]</value>
+    <value condition="Skin.HasSetting(Disable.PosterFlowAutoInfo)">$INFO[Container(51).ListItem.Art(poster)]</value>
+	</variable>
+
 	<variable name="MediaMenuDiffuse">
+		<value condition="Player.HasVideo">FF101010</value>
     <!-- Blur enabled -->
     <value condition="Skin.HasSetting(Enable.BackgroundBlur)">80000000</value>
+		<!-- Blur disabled -->
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + [Control.IsVisible(51) | Control.IsVisible(52) | Control.IsVisible(500) | Control.IsVisible(501)]">80050505</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(ListArtworkChoice.),2)">FF101010</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + !String.IsEqual(Skin.String(ListArtworkChoice.),2)">80050505</value>
     <!-- Movies -->
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)">FF101010</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)">80050505</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)">FF101010</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)">FF101010</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(movies) + String.IsEqual(Skin.String(ArtworkChoice.movies),0)">FF101010</value>
     <!-- TV Shows -->
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)">FF101010</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)">80050505</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)">FF101010</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)">FF101010</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(tvshows) + String.IsEqual(Skin.String(ArtworkChoice.tvshows),0)">FF101010</value>
     <!-- Seasons -->
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)">FF101010</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)">80050505</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)">FF101010</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)">FF101010</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(seasons) + String.IsEqual(Skin.String(ArtworkChoice.seasons),0)">FF101010</value>
     <!-- Episodes -->
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)">FF101010</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)">80050505</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)">FF101010</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)">FF101010</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),1)">80050505</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + Container.Content(episodes) + String.IsEqual(Skin.String(ArtworkChoice.episodes),0)">FF101010</value>
     <!-- Non-content -->
-		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(ListArtworkChoice.),2) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">FF101010</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">80050505</value>
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">FF101010</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(ListArtworkChoice.),0)">80050505</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(ListArtworkChoice.),1)">80050505</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + Control.IsVisible(50) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(ListArtworkChoice.),2)">FF101010</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(HomeArtworkChoice),1)">80050505</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(50) + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)] + String.IsEqual(Skin.String(HomeArtworkChoice),0)">FF101010</value>
 	</variable>
 
 	<variable name="MainMenuDiffuse">
@@ -366,6 +388,12 @@
     <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + String.IsEqual(Skin.String(HomeArtworkChoice),0)">FF101010</value>
     <value>80000000</value>
     <!-- <value>660a0a0a</value> -->
+	</variable>
+
+	<variable name="PosterFlowArtworkDiffuse">
+    <value condition="Skin.HasSetting(Disable.PosterFlowArtworkDimming)">FFE9E9E9</value>
+    <value condition="Skin.HasSetting(Enable.SpineClearlogo)">FF4C4C4C</value>
+    <value>FF777777</value>
 	</variable>
 
 	<variable name="BorderColorVar">
@@ -484,6 +512,32 @@
 		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),0)">Skin.SetString(OnDownSetting.Other,1)</value>
 		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),1)">Skin.SetString(OnDownSetting.Other,2)</value>
 		<value condition="String.IsEqual(Skin.String(OnDownSetting.Other),2)">Skin.SetString(OnDownSetting.Other,0)</value>
+	</variable>
+
+	<variable name="PosterFlowOnDownSettingVar.MovieTV">
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),0)">Scrollbar</value>
+		<!-- <value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),1)">Wall</value> -->
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),1)">Play trailer</value>
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),2)">Information</value>
+	</variable>
+
+	<variable name="PosterFlowOnDownSettingVar.Other">
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.Other),0)">Scrollbar</value>
+		<!-- <value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.Other),1)">Wall</value> -->
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.Other),1)">Information</value>
+	</variable>
+
+	<variable name="PosterFlowOnDownToggleVar.MovieTV">
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),0)">Skin.SetString(PosterFlowOnDownSetting.MovieTV,1)</value>
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),1)">Skin.SetString(PosterFlowOnDownSetting.MovieTV,2)</value>
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),2)">Skin.SetString(PosterFlowOnDownSetting.MovieTV,0)</value>
+		<!-- <value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.MovieTV),3)">Skin.SetString(PosterFlowOnDownSetting.MovieTV,0)</value> -->
+	</variable>
+
+	<variable name="PosterFlowOnDownToggleVar.Other">
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.Other),0)">Skin.SetString(PosterFlowOnDownSetting.Other,1)</value>
+		<value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.Other),1)">Skin.SetString(PosterFlowOnDownSetting.Other,0)</value>
+		<!-- <value condition="String.IsEqual(Skin.String(PosterFlowOnDownSetting.Other),2)">Skin.SetString(PosterFlowOnDownSetting.Other,0)</value> -->
 	</variable>
 
 	<variable name="OnRightSettingVar.MovieTV">
@@ -629,10 +683,10 @@
     <value condition="String.IsEqual(Skin.String(FocusOptionSetting),1)">Skin.SetString(FocusOptionSetting,0)</value>
 	</variable> -->
 
-	<variable name="ContextMenuTitleVar">
+	<!-- <variable name="ContextMenuTitleVar">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">$VAR[ContextMenuTitle.NoBlur]</value>
 		<value>$VAR[ContextMenuTitle.Blur]</value>
-	</variable>
+	</variable> -->
 
 	<variable name="ContextMenuTitle.NoBlur">
 		<value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
@@ -641,10 +695,10 @@
 		<value>Context menu</value>
 	</variable>
 	
-	<variable name="ContextMenuTitle.Blur">
+	<variable name="ContextMenuTitleVar">
 		<value condition="$EXP[isMovie] | $EXP[isTVShow]">$INFO[ListItem.Title]</value>
 		<value condition="$EXP[isSeason]">$INFO[ListItem.TVShowTitle] [COLOR unfocused_text]|[/COLOR] $INFO[ListItem.Title]</value>
-		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle] [COLOR unfocused_text]|[/COLOR] S$INFO[ListItem.Season] E$INFO[ListItem.Episode]</value>
+		<value condition="$EXP[isEpisode]">$INFO[ListItem.TVShowTitle] [COLOR unfocused_text]|[/COLOR] $INFO[ListItem.Season]x$INFO[ListItem.Episode]</value>
 		<value>Context menu</value>
 	</variable>
 

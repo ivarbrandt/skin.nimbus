@@ -367,6 +367,11 @@ msgid "Select your Kodi user profile[CR]to login and continue"
 msgstr "Select your Kodi user profile[CR]to login and continue"
 
 #. viewtype name
+msgctxt "#310981"
+msgid "PosterFlow"
+msgstr ""
+
+#. viewtype name
 msgctxt "#31099"
 msgid "IconWall"
 msgstr ""

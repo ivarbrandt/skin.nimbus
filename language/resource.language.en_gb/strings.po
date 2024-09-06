@@ -458,6 +458,12 @@ msgid "Select your Kodi user profile[CR]to login and continue"
 msgstr ""
 
 #. viewtype name
+#: /xml/View_51_PosterFlow.xml
+msgctxt "#310981"
+msgid "PosterFlow"
+msgstr ""
+
+#. viewtype name
 #: /xml/View_52_IconWall.xml
 msgctxt "#31099"
 msgid "IconWall"

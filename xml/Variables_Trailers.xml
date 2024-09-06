@@ -33,10 +33,10 @@
 
 	<variable name="AutoplayTrailerSource">
 		<value condition="$EXP[isEpisode] | $EXP[isSeason]"></value>
-		<value condition="!Control.IsVisible(50) + String.IsEqual(Skin.String(TrailerSource),0)">PlayMedia($INFO[ListItem.Trailer],1,noresume)</value>
-		<value condition="!Control.IsVisible(50) + String.IsEqual(Skin.String(TrailerSource),1)">PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],1,noresume)</value>
-		<value condition="[Control.IsVisible(50) | Window.IsVisible(movieinformation)] + String.IsEqual(Skin.String(TrailerSource),0)">PlayMedia($INFO[ListItem.Trailer],0,noresume)</value>
-		<value condition="[Control.IsVisible(50) | Window.IsVisible(movieinformation)] + String.IsEqual(Skin.String(TrailerSource),1)">PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],0,noresume)</value>
+		<value condition="![Control.IsVisible(50) | Control.IsVisible(51)] + String.IsEqual(Skin.String(TrailerSource),0)">PlayMedia($INFO[ListItem.Trailer],1,noresume)</value>
+		<value condition="![Control.IsVisible(50) | Control.IsVisible(51)] + String.IsEqual(Skin.String(TrailerSource),1)">PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],1,noresume)</value>
+		<value condition="[Control.IsVisible(50) | Control.IsVisible(51) | Window.IsVisible(movieinformation)] + String.IsEqual(Skin.String(TrailerSource),0)">PlayMedia($INFO[ListItem.Trailer],0,noresume)</value>
+		<value condition="[Control.IsVisible(50) | Control.IsVisible(51) | Window.IsVisible(movieinformation)] + String.IsEqual(Skin.String(TrailerSource),1)">PlayMedia($INFO[Skin.String(TrailerPlaybackURL)],0,noresume)</value>
 		<value>PlayMedia($INFO[ListItem.Trailer],1,noresume)</value>
 	</variable>
 

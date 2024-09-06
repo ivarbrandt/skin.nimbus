@@ -322,8 +322,8 @@
 	</variable>
 
 	<variable name="FlixIconColor">
-    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + ![String.IsEqual(Skin.String(ArtworkChoice.movies),1) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ArtworkChoice.episodes),1) | String.IsEqual(Skin.String(HomeArtworkChoice),1)]">FF2E2E2E</value>
-    <value condition="Skin.HasSetting(Enable.BackgroundBlur) | [!Skin.HasSetting(Enable.BackgroundBlur) + [String.IsEqual(Skin.String(ArtworkChoice.movies),1) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ArtworkChoice.episodes),1) | String.IsEqual(Skin.String(HomeArtworkChoice),1)]]">26CCCCCC</value>
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur) + !Control.IsVisible(51) + ![String.IsEqual(Skin.String(ArtworkChoice.movies),1) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ArtworkChoice.episodes),1) | String.IsEqual(Skin.String(HomeArtworkChoice),1)]">FF2E2E2E</value>
+    <value condition="Skin.HasSetting(Enable.BackgroundBlur) | [!Skin.HasSetting(Enable.BackgroundBlur) + [String.IsEqual(Skin.String(ArtworkChoice.movies),1) | String.IsEqual(Skin.String(ArtworkChoice.tvshows),1) | String.IsEqual(Skin.String(ArtworkChoice.seasons),1) | String.IsEqual(Skin.String(ArtworkChoice.episodes),1) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] | Control.IsVisible(51)]">26CCCCCC</value>
 	</variable>
 
 </includes>

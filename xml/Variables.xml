@@ -483,11 +483,11 @@
 		<value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
 		<value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
 		<!-- TV Shows -->
-		<value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
+		<value condition="[$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<!-- Movies -->
-		<value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
-		<value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.Playcount,0) + [!String.IsEmpty(ListItem.ResumeTime) | !String.IsEmpty(ListItem.Property(ResumeTime))]">progress/unwatched/$INFO[ListItem.PercentPlayed,,.png]</value>
-		<value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
+		<value condition="$EXP[isMovie] + !String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+		<value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Playcount,0) + [!String.IsEmpty(ListItem.ResumeTime) | !String.IsEmpty(ListItem.Property(ResumeTime))]">progress/unwatched/$INFO[ListItem.PercentPlayed,,.png]</value>
+		<value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<!-- Fallback for any other content type -->
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
