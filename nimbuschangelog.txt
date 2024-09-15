@@ -1,9 +1,34 @@
-Nimbus Helper: Latest: v0.0.42 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.43 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
-[B]There is a 60-70% chance that at some point in the future I will redesign/overhaul the home screen and widgets. This would be done in favor of a more widget friendly design. This would mean the removal of the Netflix-like home screen layout. The views that carry this style won't be affected. If you prefer the current layout then I recommend saving a zip of the skin. If you are seeing this message after the possible changes have taken place, no worries. I will have provided a link to the latest version of the skin on my Github before the design updates took place.[/B]
-
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added new multi-widget home layout design. If you prefer the Netflix layout, you can find the zips for the latest versions of the skin and helper before these changes were made in the pinned post on my Github.
+- Removed Netflix style art and landscape artwork options from home and search windows. The artwork configuration within video windows is now independent of the home screen. The only section in the home screen that retained the Netflix layout is Weather. I recommend using Weather Fanart - Multi with this section. You can get it in the Kodi repo.
+- Added stacked widgets. If you don't know what these are, see my Github for instructions on how to set them up. Stacked widgets are available for every widget type but some work better with other content. Movies/tvshows/seasons work best with poster/landscape. Episodes work best with landscape. Providers/genres/years/networks work best with category/square. Please keep in mind that stacked widgets are like having 20 widgets in 1. Due to this they will load slower on each Kodi start up compared to standalone widgets. This is completely normal.
+- Redesigned PVR widget
+- Added color adaptive category widget
+- Added color adaptive background for dialog windows
+- Added color adaptive button menus to home, search, and addon-launcher windows
+- Added Widget Options section to Skin settings. Configure all the new widget options here.
+- Added optional widget specific auto info widget panel. The delay on this is customizable. See Skin settings [B]»[/B] Widget options for details on how this works.
+- Added BOTH to on back widget action
+- Added content panel texture to addon-launcher window
+- Added stacked widget for TRAKT results in search window
+- Added configurable delay for auto info in PosterFlow view
+- Added configurable delay for returning to Flix/FlixScape view from Wall/WallScape view
+- Updated home layout to work with color themes when blur is disabled
+- Updated one-click and auto-trailer logic to work with new home layout. Trailers played from the home and search windows will now play in fullscreen. Upon pressing back during a fullscreen trailer, the trailer will not end. Click stop within the player or long press back/backspace to end the trailer.
+- Moved cache clearing section in Skin settings into Extras
+- Moved clock from main menu to top-right hand corner of the screen
+- Fixed quite a few compatibility bugs with Umbrella
+- Increased number of visible main menu items to 10
+- Removed hidden mini menu from home, search, and addon-launcher windows
+- Removed background blur toggle from video windows
+- Removed widget navigation arrows
+- Other changes/fixes
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.23[/COLOR][/B]
 - Added new PosterFlow view
 - Made persistent home screen artwork optional. You can find this new setting in Skin settings [B]»[/B] Artwork display.
 - Resized a few elements for the modular OSD
