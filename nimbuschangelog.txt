@@ -1,7 +1,11 @@
-Nimbus Helper: Latest: v0.0.43 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.44 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Reverted skin and helper back to Netflix layout
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.24[/COLOR][/B]
 - Added new multi-widget home layout design. If you prefer the Netflix layout, you can find the zips for the latest versions of the skin and helper before these changes were made in the pinned post on my Github.
 - Removed Netflix style art and landscape artwork options from home and search windows. The artwork configuration within video windows is now independent of the home screen. The only section in the home screen that retained the Netflix layout is Weather. I recommend using Weather Fanart - Multi with this section. You can get it in the Kodi repo.
 - Added stacked widgets. If you don't know what these are, see my Github for instructions on how to set them up. Stacked widgets are available for every widget type but some work better with other content. Movies/tvshows/seasons work best with poster/landscape. Episodes work best with landscape. Providers/genres/years/networks work best with category/square. Please keep in mind that stacked widgets are like having 20 widgets in 1. Due to this they will load slower on each Kodi start up compared to standalone widgets. This is completely normal.
