@@ -15,7 +15,7 @@
 				<bottom>0</bottom>
 				<width>100%</width>
 				<height>300%</height>
-				<texture colordiffuse="$VAR[MenuSelectorColor]" flipy="true">colors/commons.png</texture>
+				<texture colordiffuse="F7282828" flipy="true">colors/black.png</texture>
 			</control>
 			<!-- <control type="image">
 				<left>-35</left>
@@ -464,7 +464,7 @@
 						<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
 						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/capslock.png</textureradioonfocus>
-						<textureradioonnofocus colordiffuse="$VAR[MenuSelectorColor]">icons/keyboard/capslock.png</textureradioonnofocus>
+						<textureradioonnofocus colordiffuse="keyboard_selected">icons/keyboard/capslock.png</textureradioonnofocus>
 						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/capslock.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/capslock.png</textureradiooffnofocus>
 						<radioposx>40</radioposx>
@@ -481,7 +481,7 @@
 						<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
 						<texturenofocus />
 						<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/shift.png</textureradioonfocus>
-						<textureradioonnofocus colordiffuse="$VAR[MenuSelectorColor]">icons/keyboard/shift.png</textureradioonnofocus>
+						<textureradioonnofocus colordiffuse="keyboard_selected">icons/keyboard/shift.png</textureradioonnofocus>
 						<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">icons/keyboard/shift.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/shift.png</textureradiooffnofocus>
 						<radioposx>42</radioposx>
@@ -496,9 +496,9 @@
 						<ondown>104</ondown>
 						<texturefocus />
 						<texturenofocus />
-						<textureradioonfocus colordiffuse="$VAR[MenuSelectorColor]">icons/keyboard/spacebar.png</textureradioonfocus>
+						<textureradioonfocus colordiffuse="keyboard_selected">icons/keyboard/spacebar.png</textureradioonfocus>
 						<textureradioonnofocus colordiffuse="darkgrey">icons/keyboard/spacebar.png</textureradioonnofocus>
-						<textureradioofffocus colordiffuse="$VAR[MenuSelectorColor]">icons/keyboard/spacebar.png</textureradioofffocus>
+						<textureradioofffocus colordiffuse="keyboard_selected">icons/keyboard/spacebar.png</textureradioofffocus>
 						<textureradiooffnofocus colordiffuse="darkgrey">icons/keyboard/spacebar.png</textureradiooffnofocus>
 						<radioposx>34</radioposx>
 						<radiowidth>328</radiowidth>

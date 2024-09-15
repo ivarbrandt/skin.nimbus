@@ -1420,7 +1420,7 @@
 				</include> -->
 				<include content="FlixPanel"/>
 				<!-- image control -->
-				<control type="image">
+				<!-- <control type="image">
 					<left>50</left>
 					<top>73</top>
 					<width>540</width>
@@ -1428,8 +1428,8 @@
 					<aspectratio aligny="center">keep</aspectratio>
 					<fadetime>300</fadetime>
 					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$INFO[ListItem.Icon]</texture>
-					<visible>!String.IsEqual(Container.PluginName,plugin.video.dramacool) + ![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | String.IsEqual(ListItem.DBType,song)] + !Container.Content(addons)</visible>
-				</control>
+					<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | String.IsEqual(ListItem.DBType,song)] + !Container.Content(addons)</visible>
+				</control> -->
 				<control type="image">
 					<left>30</left>
 					<top>110</top>

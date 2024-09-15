@@ -199,33 +199,6 @@
 		</definition>
 	</include>
 	<include name="IconButton">
-    <param name="height">100</param>
-    <param name="visible">true</param>
-    <definition>
-			<control type="radiobutton" id="$PARAM[control_id]">
-				<width>100</width>
-				<height>$PARAM[height]</height>
-				<align>center</align>
-				<aligny>center</aligny>
-				<onclick>$PARAM[onclick]</onclick>
-				<onclick>$PARAM[onclick_2]</onclick>
-				<font></font>
-				<label>$PARAM[label]</label>
-				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[FocusColorTheme]">buttons/dark-button.png</texturenofocus>
-				<radioposx>33</radioposx>
-				<radioposy>0</radioposy>
-				<radiowidth>33</radiowidth>
-				<radioheight>33</radioheight>
-				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioonfocus>
-				<textureradioonnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradioonnofocus>
-				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon]</textureradioofffocus>
-				<textureradiooffnofocus colordiffuse="unfocused_text">$PARAM[icon]</textureradiooffnofocus>
-				<visible>$PARAM[visible]</visible>
-			</control>
-    </definition>
-	</include>
-	<!-- <include name="IconButton">
 		<param name="height">120</param>
 		<param name="visible">true</param>
 		<definition>
@@ -251,12 +224,12 @@
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
-	</include> -->
+	</include>
 	<include name="BottomMainMenuToggleItem">
-    <param name="height">100</param>
-    <definition>
+		<param name="height">120</param>
+		<definition>
 			<control type="radiobutton" id="$PARAM[control_id]">
-				<width>100</width>
+				<width>120</width>
 				<height>$PARAM[height]</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -264,18 +237,18 @@
 				<font></font>
 				<label>$PARAM[label]</label>
 				<texturefocus colordiffuse="$VAR[FocusColorTheme]">buttons/roundbutton-fo.png</texturefocus>
-				<texturenofocus colordiffuse="$VAR[FocusColorTheme]">buttons/dark-button.png</texturenofocus>
-				<radioposx>33</radioposx>
+				<texturenofocus />
+				<radioposx>40</radioposx>
 				<radioposy>0</radioposy>
-				<radiowidth>33</radiowidth>
-				<radioheight>33</radioheight>
+				<radiowidth>40</radiowidth>
+				<radioheight>40</radioheight>
 				<textureradioonfocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon_on]</textureradioonfocus>
-				<textureradioonnofocus colordiffuse="unfocused_text">$PARAM[icon_on]</textureradioonnofocus>
+				<textureradioonnofocus colordiffuse="grey">$PARAM[icon_on]</textureradioonnofocus>
 				<textureradioofffocus colordiffuse="$VAR[FocusedTextColorVar]">$PARAM[icon_off]</textureradioofffocus>
-				<textureradiooffnofocus colordiffuse="unfocused_text">$PARAM[icon_off]</textureradiooffnofocus>
+				<textureradiooffnofocus colordiffuse="grey">$PARAM[icon_off]</textureradiooffnofocus>
 				<selected>$PARAM[selected]</selected>
 			</control>
-    </definition>
+		</definition>
 	</include>
 	<include name="InfoDialogButton">
 		<!-- 262 -->

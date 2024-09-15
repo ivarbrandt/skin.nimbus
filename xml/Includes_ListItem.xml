@@ -105,7 +105,7 @@
             <width>$PARAM[list_width]</width>
             <aligny>center</aligny>
             <font>$PARAM[unfocused_font]</font>
-            <textcolor>54CCCCCC</textcolor>
+            <textcolor>darkgrey</textcolor>
             <label>$VAR[MenuCaseVar]</label>
             <shadowcolor>text_shadow</shadowcolor>
             <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>
@@ -134,7 +134,7 @@
             <width>$PARAM[list_width]</width>
             <aligny>center</aligny>
             <font>$PARAM[unfocused_font]</font>
-            <textcolor>54CCCCCC</textcolor>
+            <textcolor>darkgrey</textcolor>
             <label>$VAR[MenuCaseVar]</label>
             <shadowcolor>text_shadow</shadowcolor>
             <visible>!Control.HasFocus($PARAM[id]) | !$PARAM[focused]</visible>

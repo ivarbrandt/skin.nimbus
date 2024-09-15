@@ -10,49 +10,36 @@
         <top>26</top>
         <left>56</left>
 				<width>279</width>
-				<height>139</height>
+				<height>279</height>
 				<control type="group">
 					<control type="image">
-						<texture colordiffuse="$VAR[FocusColorTheme]">masks/category-glow.png</texture>
-						<bordersize>-21</bordersize>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons-glow.png</texture>
+						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
 					<include content="GlowPulse">
 						<param name="pos_x" value="139.5"/>
-						<param name="pos_y" value="69.5"/>
+						<param name="pos_y" value="139.5"/>
 					</include>
 				</control>
 				<control type="image">
-					<texture colordiffuse="dialog_bg">masks/category.png</texture>
+					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
-					<texture colordiffuse="80000000">masks/category.png</texture>
-					<bordersize>2</bordersize>
-					<bordertexture colordiffuse="$VAR[FocusColorTheme]" border="10" infill="false">masks/category-border.png</bordertexture>
+					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
+					<bordersize>1</bordersize>
+					<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">
-					<centertop>37%</centertop>
-					<centerleft>50%</centerleft>
-					<width>90</width>
-					<height>90</height>
-					<texture diffuse="masks/category.png" colordiffuse="artwork_dim" background="true">$PARAM[icon]</texture>
-					<aspectratio aligny="bottom" align="center">scale</aspectratio>
-					<visible>!$EXP[isContent]</visible>
+					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true">$PARAM[icon]</texture>
+					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image">
-					<centertop>50%</centertop>
+				<control type="textbox">
 					<centerleft>50%</centerleft>
-					<texture diffuse="masks/category.png" colordiffuse="artwork_dim" background="true">$PARAM[icon]</texture>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<visible>$EXP[isContent]</visible>
-				</control>
-				<control type="label">
-					<centerleft>50%</centerleft>
-					<!-- 145 -->
-					<top>75</top>
+					<top>285</top>
 					<width>240</width>
 					<height>65</height>
 					<align>center</align>
@@ -60,9 +47,7 @@
 					<label>$VAR[AddonsTitleVar]</label>
 					<font>font25</font>
 					<textcolor>unfocused_text</textcolor>
-					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
-					<scrollspeed>50</scrollspeed>
-					<visible>!$EXP[isContent]</visible>
+					<autoscroll delay="2000" time="3000" repeat="2000">$PARAM[focused] + Skin.HasSetting(autoscroll)</autoscroll>
 				</control>
 			</control>
 		</definition>
@@ -73,36 +58,35 @@
 		<param name="icon">$INFO[ListItem.Icon]</param>
     <param name="label">$INFO[ListItem.Label]</param>
 		<param name="label2">$INFO[ListItem.Title]</param>
-		<param name="label3">$INFO[ListItem.StartTime]</param>
-		<param name="label4">$INFO[ListItem.EndTime]</param>
+		<param name="label3">$INFO[ListItem.StartTime]$INFO[ListItem.EndTime, - ,]</param>
 		<!-- <param name="label4">[COLOR grey]Ends:[/COLOR] $INFO[ListItem.EndTime]</param> -->
 		<param name="focused">false</param>
 		<definition>
 			<control type="group">
         <top>26</top>
         <left>56</left>
-				<width>434</width>
+				<width>279</width>
 				<height>279</height>
 				<control type="group">
 					<control type="image">
-						<texture colordiffuse="$VAR[FocusColorTheme]">masks/pvr-glow.png</texture>
+						<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons-glow.png</texture>
 						<bordersize>-26</bordersize>
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
 					<include content="GlowPulse">
-						<param name="pos_x" value="217"/>
+						<param name="pos_x" value="139.5"/>
 						<param name="pos_y" value="139.5"/>
 					</include>
 				</control>
 				<control type="image">
-					<texture colordiffuse="dialog_bg">masks/pvr.png</texture>
+					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
-					<texture colordiffuse="80000000">masks/pvr.png</texture>
-					<bordersize>2</bordersize>
-					<bordertexture colordiffuse="$VAR[FocusColorTheme]" border="10" infill="false">masks/pvr-border.png</bordertexture>
+					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
+					<bordersize>1</bordersize>
+					<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">
@@ -110,26 +94,25 @@
           <centerleft>50%</centerleft>
           <width>153</width>
           <height>110</height>
-					<!-- <texture align="center" aligny="center" colordiffuse="artwork_dim" fallback="DefaultTVShows.png" background="true">masks/addons.png</texture> -->
-					<texture align="center" aligny="top" colordiffuse="artwork_dim" diffuse="masks/pvr.png" fallback="DefaultTVShows.png" background="true">$PARAM[icon]</texture>
+					<texture align="center" aligny="center" colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="DefaultTVShows.png" background="true">$PARAM[icon]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="label">
 					<centerleft>50%</centerleft>
 					<top>130</top>
-					<width>370</width>
+					<width>240</width>
 					<height>75</height>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>[LIGHT]$PARAM[label][/LIGHT]</label>
+					<label>$PARAM[label]</label>
           <scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
-					<font>font25_title</font>
+					<font>font25</font>
 					<textcolor>unfocused_text</textcolor>
 				</control>
 				<control type="label">
 					<centerleft>50%</centerleft>
 					<top>165</top>
-					<width>370</width>
+					<width>240</width>
 					<height>75</height>
 					<align>center</align>
 					<aligny>center</aligny>
@@ -139,25 +122,13 @@
 					<textcolor>unfocused_text</textcolor>
 				</control>
 				<control type="label">
-					<centerleft>-13%</centerleft>
-					<top>207</top>
-					<width>370</width>
+					<centerleft>50%</centerleft>
+					<top>285</top>
+					<width>240</width>
 					<height>75</height>
-					<align>right</align>
+					<align>center</align>
 					<aligny>center</aligny>
 					<label>$PARAM[label3]</label>
-          <scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
-					<font>font25</font>
-					<textcolor>unfocused_text</textcolor>
-				</control>
-				<control type="label">
-					<centerleft>113%</centerleft>
-					<top>207</top>
-					<width>370</width>
-					<height>75</height>
-					<align>left</align>
-					<aligny>center</aligny>
-					<label>$PARAM[label4]</label>
           <scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
 					<font>font25</font>
 					<textcolor>unfocused_text</textcolor>
@@ -179,7 +150,7 @@
           <control type="progress">
             <centerleft>50%</centerleft>
             <top>243</top>
-            <width>150</width>
+            <width>200</width>
             <height>7</height>
             <info>ListItem.PercentPlayed</info>
 						<midtexture colordiffuse="$VAR[FocusColorTheme]">osd/Progress.png</midtexture>
@@ -187,7 +158,7 @@
           <control type="progress">
             <centerleft>50%</centerleft>
             <top>243</top>
-            <width>150</width>
+            <width>200</width>
             <height>7</height>
             <info>ListItem.Progress</info>
 						<midtexture colordiffuse="$VAR[FocusColorTheme]">osd/Progress.png</midtexture>
@@ -225,9 +196,9 @@
 					<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 				<control type="image">
-          <texture colordiffuse="80000000">masks/addons.png</texture>
-					<bordersize>2</bordersize>
-					<bordertexture colordiffuse="$VAR[FocusColorTheme]" border="10" infill="false">masks/addons-border.png</bordertexture>
+          <texture colordiffuse="dialog_bg">masks/addons.png</texture>
+					<bordersize>1</bordersize>
+					<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 				</control>
 				<control type="image">

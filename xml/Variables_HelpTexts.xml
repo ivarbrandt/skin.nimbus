@@ -8,35 +8,23 @@
 		<!-- GENERAL CONFIGURATION SECTION -->
 		<value condition="Container(9000).HasFocus(5)">$LOCALIZE[31129]</value>
 
-		<!-- WIDGET OPTIONS SECTION -->
-		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Widget related options</value>
-		<value condition="Control.HasFocus(64001)">Configure what pressing the back button on the home screen widgets will do. OPEN MAIN MENU will save the current focus postion and then open the main menu. RESET WIDGET will return the focus position back to the first item in the widget. BOTH will simultaneously reset the widget and open the main menu.</value>
-		<value condition="Control.HasFocus(64002)">Configure what pressing the left button on the home screen widgets will do. If the current focus positon is on the first item in the widget, OPEN MAIN MENU will open the main menu, WRAP TO END will set the focus position to the LAST item in the widget.</value>
-		<value condition="Control.HasFocus(64003)">Set the display style for landscape widgets. DEFAULT = Landscape. FANART = Fanart.</value>
-		<value condition="Control.HasFocus(64004)">Set the delay for loading a stacked widget. This is the amount of time that Nimbus will count down to before triggering the loading of the focused item in the stacked category widget. If set to 3000, then Nimbus will wait 3 seconds after a stacked category item is focused. If the focus hasn't changed at the end of those 3 seconds, the stacked widget will begin loading.</value>
-		<value condition="Control.HasFocus(64005)">Enabling this option will show a countdown timer for the stacked widget delay. The timer will show in the label of the main stacked widget below the stacked category widget. When the timer hits 0, the stacked widget will begin loading.</value>
-		<value condition="Control.HasFocus(64006)">Enabling this option will show the widget info panel after a set amount of time has passed and the item has not changed focus.</value>
-		<value condition="Control.HasFocus(64007)">Set the delay in seconds to wait before showing the widget info panel. The timer for this counts down to 0. If the item changes focus before the timer hits 0, then the timer is reset and the info won't be displayed. NOTE: The widget info panel is only available for poster and landscape widgets.</value>
-		<value condition="Control.HasFocus(64008)">Show clearlogo in the widget info panel.</value>
-		<value condition="Control.HasFocus(64009)">Show studio logos in the widget info panel.</value>
-		<value condition="Control.HasFocus(64010)">Show item title in the InfoLine. Depending on the type of widget, this will show the movie/tvshow/episode title as well as season and episode numbers.</value>
-		<value condition="Control.HasFocus(64011)">Enabling this option will dim the unfocused widget rows and show the focused widget row in full color and brightness.</value>
-		<value condition="Control.HasFocus(64012)">Enabling this option will dim the entire widget section when the main menu gains focus.</value>
-
 		<!-- CUSTOMIZATION SECTION -->
 		<value condition="Container(9000).HasFocus(2) + !ControlGroup(10000).HasFocus">Various skin settings.</value>
-		<value condition="Control.HasFocus(63701)">Configure what the power button in the home screen button menu does. OPEN SHUTDOWN MENU is the default option for Kodi. This will open the shutdown menu when the power button in the home screen button menu is clicked. EXIT will close Kodi with one click. NOTE: The home screen label will change according which option is set.</value>
-		<value condition="Control.HasFocus(63704)">Set the case for menu items.</value>
-		<value condition="Control.HasFocus(63705)">Set the accent color theme for the selector color in the main menus, button menus, list views, dialog backgrounds, and separators in the top bar/InfoLine across the skin. Blur disabled + Accent = selected skin color theme accents. Blur enabled + Adaptive = color changing accents. Color will adapt to current artwork. Disabled = no accents.</value>
+		<value condition="Control.HasFocus(63701)">Configure what the power button in the home screen mini menu does. OPEN SHUTDOWN MENU is the default option for Kodi. This will open the shutdown menu when the power button in the home screen mini menu is clicked. EXIT will close Kodi with one click. NOTE: The home screen label will change according which option is set.</value>
+		<value condition="Control.HasFocus(63702)">Configure what pressing the back button on the home screen widgets will do. OPEN MAIN MENU will save the current focus postion and then open the main menu. RESET WIDGET will return the focus position back to the first item in the widget.</value>
+		<value condition="Control.HasFocus(63703)">Configure what pressing the left button on the home screen widgets will do. If the current focus positon is on the first item in the widget, OPEN MAIN MENU will open the main menu, WRAP TO END will set the focus position to the LAST item in the widget.</value>
+		<value condition="Control.HasFocus(63704)">Set the case for menu items. This affects main menu items as well as mini menu items.</value>
+		<value condition="Control.HasFocus(63705)">Set the accent color theme for the selector color in the main/mini menus, list views, and separators in the top bar/InfoLine across the skin. Blur disabled + Accent = selected skin color theme accents. Blur enabled + Adaptive = color changing accents. Color will adapt to current artwork. Disabled = no accents.</value>
 		<value condition="Control.HasFocus(63706)">Set the accent color theme for the focus frames, menus, and rest of the skin. Blur disabled + Accent = selected skin color theme accents. Blur enabled + Adaptive = color changing accents. Color will adapt to current artwork. Disabled = no accents.</value>
-		<value condition="Control.HasFocus(63707)">Enabling this option will show the current time in the InfoLine located right above the widget items. This will show only in the video windows.</value>
+		<value condition="Control.HasFocus(63707)">Enabling this option will show the current time in the InfoLine located right above the widget items. This will show in the home screen, search window, and all video windows.</value>
 		<value condition="Control.HasFocus(63708)">Enabling this option will show navigation arrows next to the InfoLine on the left side of the home screen. Navigation arrows show widget position: Two down arrows: First widget (top of list) | Two up arrows: Last widget (bottom of list) | Up and down arrow: Middle widgets (more above and below)</value>
+		<!-- <value condition="Control.HasFocus(63707)">Enabling this option will show colored studio logos for media content in the FlixPanel.</value> -->
 		<value condition="Control.HasFocus(63709)">Enabling this option will auto end playback after a custom number of minutes [B]IF[/B] playback is paused.</value>
 		<value condition="Control.HasFocus(63710)">Enter custom delay for ending playback.</value>
 
 		<!-- ARTWORK SECTION -->
 		<value condition="Container(9000).HasFocus(6) + !ControlGroup(10000).HasFocus">Artwork settings</value>
-		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6010) | Control.HasFocus(6011) | Control.HasFocus(6012) | Control.HasFocus(6013)]">$LOCALIZE[31169]</value>
+		<value condition="Container(9000).HasFocus(6) + [Control.HasFocus(6011) | Control.HasFocus(6012) | Control.HasFocus(6013) | Control.HasFocus(6014)]">$LOCALIZE[31169]</value>
 		<value condition="Control.HasFocus(6002)">Enabling this option will show clearlogos for media content. Disabling this option will use a default text title.</value>
 		<value condition="Control.HasFocus(6003)">Choose your preferred font style for text titles.</value>
 		<value condition="Control.HasFocus(6004)">Click to set a custom background image.</value>
@@ -44,7 +32,8 @@
 		<value condition="Control.HasFocus(6006)">Enabling this option will blur the background. Disabling this option will use either a black background, or the color theme depending on the artwork configured. (Landscape = color theme, Fanart = Solid black background)</value>
 		<value condition="Control.HasFocus(6007)">This option sets the intensity of the background blur. Higher values will wash out more detail. Lower values will keep more detail. RECOMMENDED VALUES: 2-40. DEFAULT VALUE: 30</value>
 		<value condition="Control.HasFocus(6008)">This option sets the color intensity of the background blur. Higher values will create more saturated intense colors. Lower values will create less intense, more neutral colors. DEFAULT VALUE: 1.5</value>
-		<value condition="Control.HasFocus(6009)">This option enables the 'saving' of the home screen artwork when widgets lose focus. It will save the current landscape/fanart for blurring while scrolling the main menu etc. Disbaling this option will reset the blurred background to the custom background image when widgets lose focus.</value>
+		<value condition="Control.HasFocus(6009)">This option enables the quick config menu on the home screen to easily configure the artwork settings. Press left while the main menu is focused to access it.</value>
+		<value condition="Control.HasFocus(6010)">This option enables the 'saving' of the home screen artwork when widgets lose focus. It will save the current landscape/fanart while scrolling the main menu etc. Disbaling this option will reset the artwork to the custom background image when widgets lose focus.</value>
 
 		<!-- RATINGS SECTION -->
 		<value condition="Container(9000).HasFocus(4) + !ControlGroup(10000).HasFocus">Ratings settings</value>
@@ -65,9 +54,9 @@
 
 		<!-- SEARCH SECTION -->
 		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings</value>
-		<value condition="Control.HasFocus(64700)">Set your desired search provider. This will use the selected addon for searches in the search window and default search dialog. This setting can be changed on the fly in the search window button menu.</value>
+		<value condition="Control.HasFocus(64700)">Set your desired search provider. This will use the selected addon for searches in the search window and default search dialog. This setting can be changed on the fly in the search window mini menu.</value>
 		<value condition="Control.HasFocus(64701)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
-		<value condition="Control.HasFocus(64702)">Set the search window behavior. OPEN KEYBOARD will open a keyboard when the Search button is clicked in the home screen button menu. OPEN SEARCH WINDOW will open the search window where you can see your search history, view TRAKT lists, etc.</value>
+		<value condition="Control.HasFocus(64702)">Set the search window behavior. OPEN KEYBOARD will open a keyboard when the Search button is clicked in the home screen mini menu. OPEN SEARCH WINDOW will open the search window where you can see your search history, view TRAKT lists, etc.</value>
 		<value condition="Control.HasFocus(64703) | Control.HasFocus(64704) | Control.HasFocus(64705) | Control.HasFocus(64706) | Control.HasFocus(64707) | Control.HasFocus(64708) | Control.HasFocus(64709) | Control.HasFocus(64710) | Control.HasFocus(64711)">Enabling or disable the showing of specific search widgets.</value>
 
 		<!-- OSD SECTION -->
@@ -76,14 +65,14 @@
 		<value condition="Control.HasFocus(6225)">Choose OSD style. Default is a simple small text-based OSD. Modular can customized with different OSD elements. Choose which elements to show/hide below. You can quickly change the OSD style during playback by clicking the Info icon in the OSD.</value>
 		<value condition="Control.HasFocus(6228) | Control.HasFocus(6229) | Control.HasFocus(6230) | Control.HasFocus(6231) | Control.HasFocus(6232) | Control.HasFocus(6233) | Control.HasFocus(6234) | Control.HasFocus(6235) | Control.HasFocus(6236) | Control.HasFocus(6237) | Control.HasFocus(6238)">Enable or disable the showing of specific OSD elements.</value>
 
-		<!-- EXTRAS SECTION -->
-		<value condition="Container(9000).HasFocus(10) + !ControlGroup(10000).HasFocus">Extras and cache related options</value>
-		<value condition="Control.HasFocus(64101)">Click to view the changelog. The changelog will also let you know if the helper is up to date.</value>
-		<value condition="Control.HasFocus(64102)">Click to view welcome screen.</value>
-		<value condition="Control.HasFocus(64103)">Click to unlock all views that have previously been locked. You can always re-lock a view in the View options of any window.</value>
-		<value condition="Control.HasFocus(64104)">Click to clear the blur cache. You can see the cache size in megabytes on the right. NOTE: The cache does not need to be cleared when changing the blur radius or saturation values in order for the changes to take effect.</value>
-		<value condition="Control.HasFocus(64105)">Clear the ratings cache. This will remove all stored ratings in the database and fetch brand new ones when an item is focused. It is not recommended to use this often as retrieving new ratings is slower and involves more API calls.</value>
-		<value condition="Control.HasFocus(64106)">Click to clear the search history. The search history can also be cleared via the top-left buttons in the search window.</value>
+		<!-- CACHE SECTION -->
+		<value condition="Container(9000).HasFocus(9) + !ControlGroup(10000).HasFocus">Cache and reset related options</value>
+		<value condition="Control.HasFocus(6401)">Click to unlock all views that have previously been locked. You can always re-lock a view in the View options of any window.</value>
+		<value condition="Control.HasFocus(6402)">Click clear the blur cache. You can see the cache size in megabytes on the right. NOTE: The cache does not need to be cleared when changing the blur radius or saturation values in order for the changes to take effect.</value>
+		<value condition="Control.HasFocus(6403)">Remove your API key. This will remove and disable all ratings in the skin.</value>
+		<value condition="Control.HasFocus(6404)">Clear the ratings cache. This will remove all stored ratings in the database and fetch brand new ones when an item is focused. It is not recommended to use this often as retrieving new ratings is slower and involves more API calls.</value>
+		<value condition="Control.HasFocus(6405)">Click to clear the search history. The search history can also be cleared via the mini menu in the search window.</value>
+
 	</variable>
 
   <variable name="PVRGuideControlsHelpTextVar">

@@ -15,22 +15,22 @@
 	</variable>
 
   <variable name="HomeFanartVar">
-    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Thumb) + String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused))">$INFO[ListItem.Thumb]</value>
-    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(fanart)) + !String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused))">$INFO[ListItem.Art(fanart)]</value>
-    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_thumb)) + String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused))">$INFO[Window(home).Property(nimbus_episode_thumb)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_fanart)) + !String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused))">$INFO[Window(home).Property(nimbus_episode_fanart)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_landscape))">$INFO[Window(home).Property(nimbus_episode_landscape)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(fanart)) | [String.IsEmpty(ListItem.Art(landscape)) + !String.IsEmpty(ListItem.Art(fanart))] | [!$EXP[isContent] + !String.IsEmpty(ListItem.Art(fanart))]">$INFO[ListItem.Art(fanart)]</value>
-    <value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Thumb) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Thumb]</value>
+    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + !String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Art(fanart)]</value>
+    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Art(landscape)]</value>
+    <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_thumb)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[Window(home).Property(nimbus_episode_thumb)]</value>
+    <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_fanart)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + !String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[Window(home).Property(nimbus_episode_fanart)]</value>
+    <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_landscape)) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[Window(home).Property(nimbus_episode_landscape)]</value>
+    <value condition="[!String.IsEmpty(ListItem.Art(fanart)) + [!String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(HomeLandscapeFanart),1)]] | [String.IsEqual(Skin.String(HomeArtworkChoice),1) + String.IsEqual(Skin.String(HomeLandscapeFanart),0) + String.IsEmpty(ListItem.Art(landscape)) + !String.IsEmpty(ListItem.Art(fanart))] | [!$EXP[isContent] + !String.IsEmpty(ListItem.Art(fanart))]">$INFO[ListItem.Art(fanart)]</value>
+    <value condition="!String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + String.IsEqual(Skin.String(HomeLandscapeFanart),0)">$INFO[ListItem.Art(landscape)]</value>
     <value condition="Window.IsActive(musicinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo)">$INFO[Window(home).Property(infobackground)]</value>
     <value condition="Container.Content(genres) + Window.IsActive(videos)">$INFO[Skin.String(MovieGenreFanart.path)]$INFO[ListItem.Label]$INFO[Skin.String(MovieGenreFanart.ext)]</value>
     <value condition="Window.IsActive(pictures) + String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.FolderPath]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_art))">$INFO[Window(home).Property(nimbus_fanart_art)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_prop))">$INFO[Window(home).Property(nimbus_fanart_prop)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_landscape_art))">$INFO[Window(home).Property(nimbus_landscape_art)]</value>
-    <value condition="!String.IsEmpty(Window(home).Property(nimbus_landscape_prop))">$INFO[Window(home).Property(nimbus_landscape_prop)]</value>
-    <value condition="!String.IsEmpty(Container.ListItem.Property(FanartCode))">$INFO[Skin.String(WeatherFanart.path)]$INFO[Container.ListItem.Property(FanartCode)]$INFO[Skin.String(WeatherFanart.ext)]</value>
+    <value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_art)) + [!String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(HomeLandscapeFanart),1)]">$INFO[Window(home).Property(nimbus_fanart_art)]</value>
+    <value condition="!String.IsEmpty(Window(home).Property(nimbus_fanart_prop)) + [!String.IsEqual(Skin.String(HomeArtworkChoice),1) | String.IsEqual(Skin.String(HomeLandscapeFanart),1)]">$INFO[Window(home).Property(nimbus_fanart_prop)]</value>
+    <value condition="!String.IsEmpty(Window(home).Property(nimbus_landscape_art)) + String.IsEqual(Skin.String(HomeLandscapeFanart),0)">$INFO[Window(home).Property(nimbus_landscape_art)]</value>
+    <value condition="!String.IsEmpty(Window(home).Property(nimbus_landscape_prop)) + String.IsEqual(Skin.String(HomeLandscapeFanart),0)">$INFO[Window(home).Property(nimbus_landscape_prop)]</value>
+    <value condition="!String.IsEmpty(Container.ListItem.Property(FanartCode)) + String.IsEqual(Skin.String(HomeArtworkChoice),0)">$INFO[Skin.String(WeatherFanart.path)]$INFO[Container.ListItem.Property(FanartCode)]$INFO[Skin.String(WeatherFanart.ext)]</value>
     <value condition="!String.IsEmpty(Container.Art(tvshow.fanart))">$INFO[Container.Art(tvshow.fanart)]</value>
     <value condition="!String.IsEmpty(Container.Art(artist.fanart))">$INFO[Container.Art(artist.fanart)]</value>
     <value>$INFO[Container.Art(fanart)]</value>
@@ -240,6 +240,31 @@
     <value condition="Container.Content(seasons) + String.IsEqual(Skin.String(ItemFanartChoice.seasons),1)">Fanart</value>
   </variable>
 
+  <!-- <variable name="HomeEpisodeArtworkChoiceToggleVar">
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),0)">Skin.SetString(HomeEpisodeArtworkChoice,1)</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),1)">Skin.SetString(HomeEpisodeArtworkChoice,2)</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">Skin.SetString(HomeEpisodeArtworkChoice,0)</value>
+  </variable>
+  
+  <variable name="HomeEpisodeArtworkChoiceSettingVar">
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),0)">Default</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),1)">Fanart</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">Landscape</value>
+  </variable>	 -->
+
+  <variable name="HomeEpisodeArtworkChoiceToggleVar">
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),0)">Skin.SetString(HomeEpisodeArtworkChoice,1)</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),1) + !String.IsEqual(Skin.String(HomeArtworkChoice),0)">Skin.SetString(HomeEpisodeArtworkChoice,2)</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),1) + String.IsEqual(Skin.String(HomeArtworkChoice),0)">Skin.SetString(HomeEpisodeArtworkChoice,0)</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">Skin.SetString(HomeEpisodeArtworkChoice,0)</value>
+  </variable>
+
+  <variable name="HomeEpisodeArtworkChoiceSettingVar">
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),0)">Default</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),1)">Fanart</value>
+    <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2) + !String.IsEqual(Skin.String(HomeArtworkChoice),0)">Landscape</value>
+  </variable>
+
   <variable name="HomeItemArtworkChoiceToggleVar">
     <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeItemArtworkChoice),0)">Skin.SetString(HomeItemArtworkChoice,1)</value>
     <value condition="!Container.Content(episodes) + String.IsEqual(Skin.String(HomeItemArtworkChoice),1)">Skin.SetString(HomeItemArtworkChoice,0)</value>
@@ -270,5 +295,29 @@
     <value condition="[[Container.Content(movies) + String.IsEqual(Skin.String(LandscapeFanart.movies),1)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(LandscapeFanart.tvshows),1)] | [Container.Content(seasons) + String.IsEqual(Skin.String(LandscapeFanart.seasons),1)] | [Container.Content(episodes) + String.IsEqual(Skin.String(LandscapeFanart.episodes),1)]]">Fanart</value>
     <value condition="Container.Content(episodes) + String.IsEqual(Skin.String(LandscapeFanart.episodes),2)">Landscape</value>
   </variable>
-
+  
+  <variable name="HomeFanartToggleVar">
+    <value condition="String.IsEqual(Skin.String(HomeArtworkChoice),0)">Skin.SetString(HomeArtworkChoice,1)</value>
+    <value condition="String.IsEqual(Skin.String(HomeArtworkChoice),1)">Skin.SetString(HomeArtworkChoice,0)</value>
+  </variable>
+  
+  <variable name="HomeFanartSettingVar">
+    <value condition="String.IsEqual(Skin.String(HomeArtworkChoice),0)">Fanart</value>
+    <value condition="String.IsEqual(Skin.String(HomeArtworkChoice),1)">Landscape</value>
+  </variable>
+  
+  <variable name="HomeLandscapeFanartToggleVar">
+    <value condition="String.IsEqual(Skin.String(HomeLandscapeFanart),0)">Skin.SetString(HomeLandscapeFanart,1)</value>
+    <value condition="String.IsEqual(Skin.String(HomeLandscapeFanart),1)">Skin.SetString(HomeLandscapeFanart,0)</value>
+  </variable>
+  
+  <variable name="HomeLandscapeFanartSettingVar">
+    <value condition="String.IsEqual(Skin.String(HomeLandscapeFanart),0)">Default</value>
+    <value condition="String.IsEqual(Skin.String(HomeLandscapeFanart),1)">Fanart</value>
+  </variable>
+  
+  <variable name="BlurStateVar">
+    <value condition="!Skin.HasSetting(Enable.BackgroundBlur)">Disabled</value>
+    <value condition="Skin.HasSetting(Enable.BackgroundBlur)">Enabled</value>
+  </variable>
 </includes>

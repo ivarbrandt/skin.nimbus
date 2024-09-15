@@ -5,10 +5,37 @@
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
+			<include>MediaMenuAnimations</include>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !String.IsEmpty(Skin.String(SearchInput))</visible>
+			<control type="image">
+				<include>NetflixScreenDimensions</include>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>500</fadetime>
+				<include>ArtworkAnimations</include>
+				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[HomeFanartVar]</texture>
+				<visible>!String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+			</control>			
+			<control type="image">
+				<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
+					<effect type="slide" start="0,0" end="-185,0" time="500" tween="cubic" easing="inout" />
+					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
+				</animation>
+				<include>BigLandscapeScreenDimensions</include>
+				<fadetime>500</fadetime>
+				<include>ArtworkAnimations</include>
+				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[HomeFanartVar]</texture>
+				<bordersize>1</bordersize>
+				<aspectratio scalediffuse="false">scale</aspectratio>
+				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
+				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+			</control>
+		</control>
+		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
 				<include>SearchMenuAnimations</include>
+				<top>510</top>
 				<include>OpenClose_Right</include>
 				<!-- SEARCH RESULTS -->
 				<control type="group" id="27000">
@@ -16,6 +43,9 @@
 						<param name="id" value="movies"/>
 					</include>
 					<control type="grouplist" id="27001">
+						<include content="Animation_Widget_Poster_Slide">
+							<param name="container" value="27001" />
+						</include>
 					<visible allowhiddenfocus="true">!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>27099</pagecontrol>
@@ -67,43 +97,28 @@
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="27016"/>
             </include>
-            <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+            <include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
 							<param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
-							<param name="widget_header" value="TRAKT Lists"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="27017"/>
-						</include>
-						<include content="WidgetListPosterStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-							<param name="content_path" value="$INFO[Window(1121).Property(nimbus.27017.path)]"/>
-							<param name="widget_header" value="$INFO[Window(1121).Property(nimbus.27017.label)]"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="270171"/>
-						</include>
-						<include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+              <param name="widget_header" value="TRAKT Lists"/>
+              <param name="widget_target" value="videos"/>
+              <param name="list_id" value="27017"/>
+            </include>
+						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
 							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=movies&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
 							<param name="widget_header" value="TRAKT Lists (Movies)"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="27018"/>
 						</include>
-						<include content="WidgetListPosterStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-							<param name="content_path" value="$INFO[Window(1121).Property(nimbus.27018.path)]"/>
-							<param name="widget_header" value="$INFO[Window(1121).Property(nimbus.27018.label)]"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="270181"/>
-						</include>
-						<include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
 							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=tvshows&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
 							<param name="widget_header" value="TRAKT Lists (TV Shows)"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="27019"/>
 						</include>
-						<include content="WidgetListPosterStacked" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-							<param name="content_path" value="$INFO[Window(1121).Property(nimbus.27019.path)]"/>
-							<param name="widget_header" value="$INFO[Window(1121).Property(nimbus.27019.label)]"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="270191"/>
-						</include>
 					</control>
+					<include content="WidgetUpDownArrows">
+						<param name="container_id" value="27001" />
+					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
 						<param name="scrollbar_id" value="27099"/>
 					</include>
@@ -112,19 +127,18 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="" />
 			</include>
-			<include>BottomBar</include>
+			<!-- <include>BottomBar</include> -->
 			<control type="label">
 				<include>SearchMenuAnimations</include>
-				<visible>!String.IsEmpty(Skin.String(SearchInput)) + Control.HasFocus(27011) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
-				<top>35</top>
+				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
+				<top>563</top>
 				<left>50</left>
 				<width>1815</width>
 				<aligny>center</aligny>
 				<height>40</height>
-				<font>font37</font>
+				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
-				<animation effect="fade" time="300">VisibleChange</animation>
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
@@ -140,15 +154,17 @@
 				</include>
 				<control type="group">
 					<left>-610</left>
-					<animation type="Conditional" condition="!ControlGroup(2000).HasFocus" reversible="true">
+					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
 						<effect type="slide" start="0" end="610" time="500" tween="cubic" easing="inout" />
+						<!-- <effect type="fade" start="0" end="100" time="500" tween="cubic" easing="in"/> -->
 					</animation>
 					<include content="MenuContentPanel">
-						<param name="width" value="611"/>
+						<param name="width" value="670"/>
 						<!-- <param name="width" value="600"/> -->
 					</include>
 					<!-- <visible allowhiddenfocus="true">true</visible> -->
 					<control type="label">
+						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
 						<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
 						<top>200</top>
 						<left>90</left>
@@ -159,12 +175,16 @@
 						<label>$VAR[RecentSearchesCaseVar]</label>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 					</control>
+					<include content="MiniMenu700Labels">
+						<param name="top" value="90"/>
+					</include>
 					<control type="fixedlist" id="9000">
+						<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,150" tween="cubic" easing="inout">Conditional</animation>
 						<left>25</left>
 						<top>300</top>
 						<width>825</width>
-						<height>677</height>
-						<movement>8</movement>
+						<height>533</height>
+						<movement>6</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onleft>9000</onleft>
@@ -181,72 +201,67 @@
 							<include content="SearchHistory" />
 						</content>
 					</control>
-					<control type="group">
-						<left>65</left>
-						<top>70</top>
-						<width>343</width>
-						<height>140</height>
-						<control type="grouplist" id="700">
-							<orientation>horizontal</orientation>
-							<itemgap>-19</itemgap>
-							<width>343</width>
-							<height>100</height>
-							<onup>SetFocus(9000,99,absolute)</onup>
-							<ondown>SetFocus(9000,0,absolute)</ondown>
-							<onright condition="!String.IsEmpty(Skin.String(SearchInput))">2000</onright>
-							<onback>9000</onback>
-							<align>left</align>
-							<include content="IconButton">
-								<param name="control_id" value="801" />
-								<param name="onclick" value="$VAR[CurrentSearchProviderToggleVar]" />
-								<param name="icon" value="icons/submenu/cycleproviders.png" />
-							</include>
-							<include content="IconButton">
-								<param name="control_id" value="802" />
-								<param name="onclick" value="RunScript(script.nimbus.helper,mode=search_input)" />
-								<param name="icon" value="icons/submenu/search.png" />
-							</include>
-							<include content="IconButton">
-								<param name="control_id" value="803" />
-								<param name="onclick" value="$VAR[TRAKTButtonActionsVar]" />
-								<param name="icon" value="icons/submenu/trakt.png" />
-							</include>
-							<include content="IconButton">
-								<param name="control_id" value="804" />
-								<param name="onclick" value="RunScript(script.nimbus.helper,mode=remove_all_spaths)" />
-								<param name="icon" value="icons/submenu/trash.png" />
-							</include>
-							<include content="IconButton">
-								<param name="control_id" value="805" />
-								<param name="onclick" value="Fullscreen" />
-								<param name="icon" value="icons/submenu/fullscreen.png" />
-								<param name="visible" value="Player.HasMedia" />
-							</include>
-						</control>
-						<control type="label">
-							<left>17</left>
-							<top>-30</top>
-							<width>340</width>
-							<height>30</height>
-							<font>font12</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<textcolor>grey</textcolor>
-							<label>$VAR[SearchSubmenuButtonLabelsVar]</label>
-						</control>
-						<control type="label">
-							<left>17</left>
-							<top>100</top>
-							<width>340</width>
-							<height>30</height>
-							<font>font12</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<textcolor>grey</textcolor>
-							<label>Click to cycle providers</label>
-							<visible>Control.HasFocus(801)</visible>
-						</control>
+					<control type="fixedlist" id="700">
+						<visible allowhiddenfocus="true">Control.HasFocus(700) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
+						<include>MiniMenuAnimations</include>
+						<orientation>vertical</orientation>
+						<left>25</left>
+						<top>170</top>
+						<width>825</width>
+						<height>160</height>
+						<onup>700</onup>
+						<ondown>9000</ondown>
+						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
+						<onright condition="String.IsEmpty(Skin.String(SearchInput))">9000</onright>
+						<onleft>9000</onleft>
+						<onback>9000</onback>
+						<focusposition>0</focusposition>
+						<movement>2</movement>
+						<include content="List">
+              <param name="id" value="700" />
+							<param name="list_width" value="444" />
+              <param name="height" value="50" />
+              <param name="img_top" value="10" />
+              <param name="img_bottom" value="-8" />
+              <param name="img_width" value="5" />
+              <param name="img_left" value="50" />
+              <param name="focused_font" value="font40_title" />
+              <param name="unfocused_font" value="font27" />
+            </include>
+						<content>
+							<item>
+								<label>$VAR[CurrentSearchProviderVar]</label>
+								<onclick>$VAR[CurrentSearchProviderToggleVar]</onclick>
+							</item>
+							<item>
+								<label>New search</label>
+								<onclick>RunScript(script.nimbus.helper,mode=search_input)</onclick>
+							</item>
+							<item>
+								<label>Trakt lists</label>
+								<onclick>$VAR[TRAKTButtonActionsVar]</onclick>
+							</item>
+							<item>
+								<label>Clear search history</label>
+								<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
+							</item>
+							<item>
+								<label>Fullscreen</label>
+								<onclick>Fullscreen</onclick>
+								<visible>Player.HasMedia</visible>
+							</item>
+						</content>
 					</control>
+				</control>
+				<control type="group">
+					<!-- <width>550</width> -->
+					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+					<include>OpenClose_Left</include>
+					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
+						<effect type="slide" start="0,0" end="0,-610" time="500" tween="cubic" easing="inout" />
+						<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
+					</animation>
+					<include>FlixPanel</include>
 				</control>
 			</control>
 			<control type="group">

@@ -217,6 +217,20 @@
 					<onclick>Skin.ToggleSetting(OneClickClose)</onclick>
 					<selected>Skin.HasSetting(OneClickClose)</selected>
 				</control>
+				<!-- HOMESCREEN ON BACK -->
+				<control type="button" id="63702">
+					<label>Home screen widget on back action</label>
+					<label2>$VAR[OnBackSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[OnBackSettingToggleVar]</onclick>
+				</control>
+				<!-- HOMESCREEN ON LEFT -->
+				<control type="button" id="63703">
+					<label>Home screen widget on left action</label>
+					<label2>$VAR[OnLeftSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
+				</control>
 				<!-- MENU ITEMS CASE -->
 				<control type="button" id="63704">
 					<label>Menu items case</label>
@@ -238,12 +252,26 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[FocusColorThemeToggleVar]</onclick>
 				</control>
+				<!-- FOCUS COLOR -->
+				<!-- <control type="radiobutton" id="63704">
+					<label>Enable color theme for focus</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
+					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
+				</control> -->
 				<!-- CLOCK -->
 				<control type="radiobutton" id="63707">
-					<label>Show current time in InfoLine</label>
+					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
+				</control>
+				<!-- WIDGET NAVIGATION -->
+				<control type="radiobutton" id="63708">
+					<label>Enable widget navigation arrows</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.WidgetNavigationArrows)</selected>
+					<onclick>Skin.ToggleSetting(Disable.WidgetNavigationArrows)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
 				<!-- <control type="radiobutton" id="63707">
@@ -254,14 +282,14 @@
 					<selected>Skin.HasSetting(Enable.StudioLogos)</selected>
 				</control> -->
 				<!-- AUTO END PLAYBACK -->
-				<control type="radiobutton" id="63708">
+				<control type="radiobutton" id="63709">
 					<label>Enable auto ending of playback</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.AutoEndPlayback)</selected>
 					<onclick>Skin.ToggleSetting(Enable.AutoEndPlayback)</onclick>
 				</control>
 				<!-- SET DELAY -->
-				<control type="button" id="63709">
+				<control type="button" id="63710">
 					<label>    - Set delay (minutes)</label>
 					<label2>$INFO[Skin.String(PlaybackDelayMins)]</label2>
 					<include>DefaultSettingButton</include>
@@ -582,12 +610,18 @@
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
 				<control type="radiobutton" id="6009">
+					<label>Enable quick config menu for home screen artwork</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(Disable.QuickConfig)</onclick>
+					<selected>!Skin.HasSetting(Disable.QuickConfig)</selected>
+				</control>
+				<control type="radiobutton" id="6010">
 					<label>Enable persistent home screen artwork</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.PersistentArtwork)</onclick>
 					<selected>!Skin.HasSetting(Disable.PersistentArtwork)</selected>
 				</control>
-				<control type="button" id="6010">
+				<control type="button" id="6011">
 					<label>$LOCALIZE[31131]</label>
 					<label2>$INFO[Skin.String(HomeFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -595,7 +629,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6011">
+				<control type="button" id="6012">
 					<label>$LOCALIZE[31062]</label>
 					<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -603,7 +637,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6012">
+				<control type="button" id="6013">
 					<label>$LOCALIZE[31149]</label>
 					<label2>$INFO[Skin.String(MovieGenreFanart.Name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -611,7 +645,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="radiobutton" id="6013">
+				<control type="radiobutton" id="6014">
 					<label>$LOCALIZE[31168]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>
@@ -716,7 +750,6 @@
 				<control type="radiobutton" id="6230">
 					<label>    - Studio logo</label>
 					<include>DefaultSettingButton</include>
-					<onclick condition="!System.HasAddon(resource.images.studios.coloured)">InstallAddon(resource.images.studios.coloured)</onclick>
 					<selected>!Skin.HasSetting(Disable.OSDStudiologo)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDStudiologo)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
@@ -838,116 +871,8 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>640</ondown>
 				<visible>Container(9000).HasFocus(9)</visible>
-				<!-- HOMESCREEN ON BACK -->
-				<control type="button" id="64001">
-					<label>Home screen widget on back action</label>
-					<label2>$VAR[OnBackSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[OnBackSettingToggleVar]</onclick>
-				</control>
-				<!-- HOMESCREEN ON LEFT -->
-				<control type="button" id="64002">
-					<label>Home screen widget on left action</label>
-					<label2>$VAR[OnLeftSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
-				</control>
-				<!-- LANDSCAE DISPLAY STYLE -->
-				<control type="button" id="64003">
-					<label>Landscape display style</label>
-					<label2>$VAR[HomeItemArtworkChoiceSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[HomeItemArtworkChoiceToggleVar]</onclick>
-				</control>
-				<!-- STACKED WIDGET DELAY -->
-				<control type="button" id="64004">
-					<label>Set stacked widget load delay in milliseconds (1000ms = 1 second)</label>
-					<label2>$INFO[Skin.String(nimbus_category_widget_delay),, milliseconds]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.SetNumeric(nimbus_category_widget_delay)</onclick>
-				</control>
-				<!-- COUNTDOWN TIMER -->
-				<control type="radiobutton" id="64005">
-					<label>Show countdown timer for stacked widget load delay</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(nimbus_category_widget_display_delay)</selected>
-					<onclick>Skin.ToggleSetting(nimbus_category_widget_display_delay)</onclick>
-				</control>
-				<!-- AUTO INFO -->
-				<control type="radiobutton" id="64006">
-					<label>Enable auto info</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.WidgetAutoInfo)</selected>
-					<onclick>Skin.ToggleSetting(Disable.WidgetAutoInfo)</onclick>
-				</control>
-				<control type="button" id="64007">
-					<label>    - Set delay (seconds)</label>
-					<label2>$VAR[SkinSettingWidgetAutoInfoDelay]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.SetNumeric(WidgetAutoInfoDelay)</onclick>
-					<visible>!Skin.HasSetting(Disable.WidgetAutoInfo)</visible>
-				</control>
-				<control type="radiobutton" id="64008">
-					<label>    - Clearlogo</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.WidgetClearlogo)</selected>
-					<onclick>Skin.ToggleSetting(Enable.WidgetClearlogo)</onclick>
-					<visible>!Skin.HasSetting(Disable.WidgetAutoInfo)</visible>
-				</control>
-				<control type="radiobutton" id="64009">
-					<label>    - Studio logo</label>
-					<include>DefaultSettingButton</include>
-					<onclick condition="!System.HasAddon(resource.images.studios.white)">InstallAddon(resource.images.studios.white)</onclick>
-					<selected>Skin.HasSetting(Enable.WidgetStudioLogos)</selected>
-					<onclick>Skin.ToggleSetting(Enable.WidgetStudioLogos)</onclick>
-					<visible>!Skin.HasSetting(Disable.WidgetAutoInfo)</visible>
-				</control>
-				<!-- ITEM TITLE -->
-				<control type="radiobutton" id="64010">
-					<label>Show item title in InfoLine</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.WidgetInfoLineTitle)</selected>
-					<onclick>Skin.ToggleSetting(Disable.WidgetInfoLineTitle)</onclick>
-				</control>
-				<!-- DIM WIDGETS -->
-				<control type="radiobutton" id="64011">
-					<label>Dim unfocused widgets</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.WidgetDimming)</selected>
-					<onclick>Skin.ToggleSetting(Disable.WidgetDimming)</onclick>
-				</control>
-				<control type="radiobutton" id="64012">
-					<label>Dim widgets on main menu focus</label>
-					<include>DefaultSettingButton</include>
-					<selected>Skin.HasSetting(Enable.MainMenuWidgetDimming)</selected>
-					<onclick>Skin.ToggleSetting(Enable.MainMenuWidgetDimming)</onclick>
-				</control>
-				
-			</control>
-
-			<control type="grouplist" id="641">
-				<top>133</top>
-				<left>25</left>
-				<right>0</right>
-				<bottom>140</bottom>
-				<onleft>9000</onleft>
-				<onright>60</onright>
-				<onup>641</onup>
-				<pagecontrol>60</pagecontrol>
-				<ondown>641</ondown>
-				<visible>Container(9000).HasFocus(10)</visible>
-				<control type="button" id="64101">
-					<label>View changelog</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper,mode=show_changelog)</onclick>
-				</control>
-				<control type="button" id="64102">
-					<label>View welcome screen</label>
-					<include>DefaultSettingButton</include>
-					<onclick>ActivateWindow(1112)</onclick>
-				</control>
 				<!-- RESET FORCED VIEWS -->
-				<control type="button" id="64103">
+				<control type="button" id="6401">
 					<label>Reset forced views</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.Reset(Skin.ForcedView.)</onclick>
@@ -978,7 +903,7 @@
 					<onclick>Skin.Reset(Skin.ForcedView.years)</onclick>
 					<onclick>Notification(Views Unlocked,All forced views have been reset)</onclick>
 				</control>
-				<control type="button" id="64104">
+				<control type="button" id="6402">
 					<label>Clear blur cache</label>
 					<label2>$INFO[Skin.String(CacheSize)]</label2>
 					<include>DefaultSettingButton</include>
@@ -991,15 +916,38 @@
 					<onclick>Skin.SetString(TrailerSource,0)</onclick>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control> -->
-				<control type="button" id="64105">
+				<control type="button" id="6403">
 					<label>Clear ratings cache</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper,mode=delete_all_ratings)</onclick>
 				</control>
-				<control type="button" id="64106">
+				<control type="button" id="6404">
 					<label>Clear search history</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
+				</control>
+			</control>
+
+			<control type="grouplist" id="641">
+				<top>133</top>
+				<left>25</left>
+				<right>0</right>
+				<bottom>140</bottom>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>641</onup>
+				<pagecontrol>60</pagecontrol>
+				<ondown>641</ondown>
+				<visible>Container(9000).HasFocus(10)</visible>
+				<control type="button" id="6410">
+					<label>View changelog</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=show_changelog)</onclick>
+				</control>
+				<control type="button" id="6411">
+					<label>View welcome screen</label>
+					<include>DefaultSettingButton</include>
+					<onclick>ActivateWindow(1112)</onclick>
 				</control>
 			</control>
 
@@ -1080,10 +1028,6 @@
 						<label>General configuration</label>
 						<onclick>noop</onclick>
 					</item>
-					<item id="9">
-						<label>Widget options</label>
-						<onclick>noop</onclick>
-					</item>
 					<item id="2">
 						<label>Customization</label>
 						<onclick>noop</onclick>
@@ -1106,6 +1050,10 @@
 					</item>
 					<item id="7">
 						<label>$LOCALIZE[31170]</label>
+						<onclick>noop</onclick>
+					</item>
+					<item id="9">
+						<label>Clear caches</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="10">
