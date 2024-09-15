@@ -19,16 +19,7 @@
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
 				<texture background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[AddonsFanartVar]</texture>
-				<visible>!String.IsEqual(Skin.String(HomeArtworkChoice),1) + ![Window.IsVisible(addoninformation) | Control.IsVisible(52) | Control.IsVisible(50)]</visible>
-			</control>
-			<control type="image">
-				<include>BigLandscapeScreenDimensions</include>
-				<fadetime>500</fadetime>
-				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[AddonsFanartVar]</texture>
-				<bordersize>1</bordersize>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + ![Window.IsVisible(addoninformation) | Control.IsVisible(52) | Control.IsVisible(50)]</visible>
+				<visible>![Window.IsVisible(addoninformation) | Control.IsVisible(52) | Control.IsVisible(50)]</visible>
 			</control>
 		</control>
 		<control type="group">

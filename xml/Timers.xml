@@ -14,10 +14,18 @@
         <stop>!Player.Paused | Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(1110_topbaroverlay),5)</stop>
     </timer> -->
     <timer>
+        <name>widget_autoinfo_timer</name>
+        <description>Timer to automatically show info for widgets</description>
+        <start reset="true">Control.HasFocus($PARAM[list_id])</start>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(widget_autoinfo_timer),Skin.Numeric(WidgetAutoInfoDelay))</stop>
+        <!-- <onstart>Notification(widgetimer, Widget autoinfo timer started, 1000)</onstart>
+        <onstop>Notification(widgetimer, Widget autoinfo timer stopped, 1000)</onstop> -->
+    </timer>
+    <timer>
         <name>wall_scroll_timer</name>
         <description>Timer to automatically return to Flix/FlixScape view</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wall_scroll_timer),2)</stop>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(wall_scroll_timer),Skin.Numeric(RevertFromWallDelay))</stop>
         <onstop condition="Control.IsVisible(500) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(54)</onstop>
         <onstop condition="Control.IsVisible(501) + ![Control.HasFocus(532) | ControlGroup(9000).HasFocus]">Container.SetViewMode(55)</onstop>
         <!-- <onstart>Notification(skintimer, Wall scroll timer started, 1000)</onstart>
@@ -27,7 +35,7 @@
         <name>posterflow_scroll_timer</name>
         <description>Timer to automatically display information on PosterFlow view after scrolling</description>
         <start reset="true">Control.HasFocus($PARAM[list_id])</start>
-        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)</stop>
+        <stop>Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))</stop>
         <!-- <onstart>Notification(postertimer, Poster scroll timer started, 1000)</onstart>
         <onstop>Notification(postertimer, Poster scroll timer stopped, 1000)</onstop> -->
     </timer>

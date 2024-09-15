@@ -565,7 +565,7 @@
 			</animation>
 			<left>50</left>
 			<top>$PARAM[top]</top>
-			<visible>Window.IsVisible(Home) | Control.IsVisible(50) + !ListItem.IsFolder</visible>
+			<visible>Control.IsVisible(50) + !ListItem.IsFolder + [!Player.HasVideo | !$EXP[sidebar_visible]]</visible>
 			<control type="image">
 				<top>50</top>
 				<left>0</left>

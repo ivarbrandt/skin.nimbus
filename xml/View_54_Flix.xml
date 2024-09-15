@@ -75,16 +75,30 @@
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 				</control>
 				<control type="image">
-					<texture colordiffuse="dialog_bg">masks/addons.png</texture>
+					<texture colordiffuse="80000000">masks/addons.png</texture>
 					<bordersize>1</bordersize>
-					<bordertexture colordiffuse="FF181818" border="10" infill="false">masks/addons-border.png</bordertexture>
+					<bordertexture colordiffuse="$VAR[FocusColorTheme]" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 					<visible>![$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 					<!-- <visible>![$PARAM[focused] + Control.HasFocus(14100)]</visible> -->
 				</control>
-				<control type="image">
+				<!-- <control type="image">
 					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_icon]" background="true">$VAR[FlixThumbVar]</texture>
 					<aspectratio>keep</aspectratio>
+				</control> -->
+				<control type="image">
+					<centertop>50%</centertop>
+					<centerleft>50%</centerleft>
+					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true">$VAR[FlixThumbVar]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>!$EXP[isContent]</visible>
+				</control>
+				<control type="image">
+					<centertop>50%</centertop>
+					<centerleft>50%</centerleft>
+					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true">$VAR[FlixThumbVar]</texture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<visible>$EXP[isContent]</visible>
 				</control>
 				<control type="label">
 					<centerleft>50%</centerleft>
@@ -230,13 +244,13 @@
 					<width>94</width>
 					<height>94</height>
 					<texture>overlays/overlaybg.png</texture>
-					<visible>Listitem.IsCollection | ListItem.IsPlaying | Integer.IsGreater(ListItem.Playcount,0) | [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]</visible>
+					<visible>Listitem.IsCollection | ListItem.IsPlaying | Integer.IsGreater(ListItem.Playcount,0) | !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
 					<animation condition="
 						[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + 
 						[
-								[String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | 
-								[[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + !Integer.IsGreater(ListItem.Playcount,0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] |
-								[!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]
+								[$EXP[isMovie] + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | 
+								[[$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + !Integer.IsGreater(ListItem.Playcount,0) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] |
+								[!$EXP[isMovie] + !$EXP[isTVShow] + !$EXP[isSeason] + !$EXP[isEpisode] + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]
 						]
 						" effect="fade" time="0" start="100" end="0">Conditional</animation>
 					</control>
@@ -259,7 +273,6 @@
 							!Integer.IsLess(ListItem.Property(UnWatchedEpisodes),0)
 						] | 
 							[[$EXP[isMovie] | $EXP[isEpisode]] + 
-							!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + 
 							!Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress), 0)
 							]
 						]
@@ -274,7 +287,7 @@
 					<font>font18_title</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<align>right</align>
-					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]</visible>
+					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode]] + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 				</control>
 			</control>
@@ -356,7 +369,7 @@
 				<movement>6</movement>
 				<onup>9000</onup>
 				<ondown condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnDownSetting.MovieTV),0)">5199</ondown>
-				<ondown condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnDownSetting.MovieTV),1)">Container.SetViewMode(500)</ondown>
+				<ondown condition="[$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason]] + String.IsEqual(Skin.String(OnDownSetting.MovieTV),1)">Container.SetViewMode(500)</ondown>
 				<ondown condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnDownSetting.MovieTV),2) + String.IsEmpty(Skin.String(TrailerPlaying))">Skin.SetString(TrailerPlaying, true)</ondown>
 				<ondown condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnDownSetting.MovieTV),2) + !Player.HasMedia + String.IsEmpty(Skin.String(TrailerPlaying))">$VAR[AutoplayTrailerSource]</ondown>
 				<ondown condition="[$EXP[isMovie] | $EXP[isTVShow]] + String.IsEqual(Skin.String(OnDownSetting.MovieTV),2) + Player.HasMedia + !String.IsEmpty(Skin.String(TrailerPlaying))">Skin.Reset(TrailerPlaying)</ondown>

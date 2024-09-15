@@ -79,7 +79,7 @@
             <effect type="slide" start="-200,0" end="0,0" time="1159" tween="quadratic"/>
           </animation>
           <control type="image">
-            <animation condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + !Control.HasFocus(5199) + !$EXP[sidebar_visible] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">
+            <animation condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + !Control.HasFocus(5199) + !$EXP[sidebar_visible] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))">
               <effect type="fade" start="100" end="0" time="300" tween="cubic" easing="out" reversible="true" />
             </animation>
             <width>720</width>
@@ -89,7 +89,7 @@
             <visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]]</visible>
           </control>
           <control type="image">
-            <animation condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + !Control.HasFocus(5199) + !$EXP[sidebar_visible] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">
+            <animation condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + !Control.HasFocus(5199) + !$EXP[sidebar_visible] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))">
               <effect type="fade" start="100" end="0" time="300" tween="cubic" easing="out" reversible="true" />
             </animation>
             <width>720</width>
@@ -116,7 +116,7 @@
               <aspectratio align="center" aligny="center">keep</aspectratio>
               <visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
               <visible>![$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]] + String.IsEmpty(Skin.String(TrailerPlaying))</visible>
-              <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.SpineClearlogo) + !Skin.HasSetting(Disable.PosterFlowArtworkDimming)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | Container.Content(addons)] + !$EXP[sidebar_visible]</visible>
+              <visible>[!String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.SpineClearlogo) + !Skin.HasSetting(Disable.PosterFlowArtworkDimming)] + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isEpisode] | Container.Content(addons)] + !$EXP[sidebar_visible]</visible>
             </control>
           </control>
           <control type="image">
@@ -125,15 +125,14 @@
             <width>250</width>
             <height>250</height>
             <texture>overlays/overlaybg-big-poster.png</texture>
-            
             <visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]] | Skin.HasSetting(Disable.PosterFlowArtworkDimming)</visible>
-            <visible>Listitem.IsCollection | ListItem.IsPlaying | Integer.IsGreater(ListItem.Playcount,0) | [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]</visible>
+            <visible>Listitem.IsCollection | ListItem.IsPlaying | Integer.IsGreater(ListItem.Playcount,0) | !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
             <animation condition="
               [[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]] + 
               [
-                  [String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | 
-                  [[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + !Integer.IsGreater(ListItem.Playcount,0) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] |
-                  [!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,tvshow) + !String.IsEqual(ListItem.DBType,season) + !String.IsEqual(ListItem.DBType,episode) + !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]
+                  [$EXP[isMovie] + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] | 
+                  [[$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + !Integer.IsGreater(ListItem.Playcount,0) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)] |
+                  [!$EXP[isMovie] + !$EXP[isTVShow] + !$EXP[isSeason] + !$EXP[isEpisode] + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]
               ]
               " effect="fade" time="0" start="100" end="0">Conditional
             </animation>
@@ -157,7 +156,6 @@
                 !Integer.IsLess(ListItem.Property(UnWatchedEpisodes),0)
               ] | 
                 [[$EXP[isMovie] | $EXP[isEpisode]] + 
-                !String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + 
                 !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress), 0)
                 ]
               ]
@@ -173,7 +171,7 @@
             <shadowcolor>text_shadow</shadowcolor>
             <textcolor>unfocused_text</textcolor>
             <align>right</align>
-            <visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode]] + [!String.IsEmpty(Container($PARAM[id]).ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)]</visible>
+            <visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | $PARAM[focused] + [Control.IsVisible(51) | Control.IsVisible(500)]] + [$EXP[isMovie] | $EXP[isEpisode]] + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
             <include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
           </control>
           <control type="label">
@@ -240,7 +238,7 @@
 			<top>0</top>
 			<visible>Control.IsVisible(51)</visible>
       <control type="group">
-        <animation condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + !Control.HasFocus(5199) + !$EXP[sidebar_visible] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">
+        <animation condition="!Skin.HasSetting(Disable.PosterFlowAutoInfo) + !Control.HasFocus(5199) + !$EXP[sidebar_visible] + Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))">
           <effect type="fade" start="100" end="0" time="300" tween="cubic" reversible="true" />
         </animation>
         <animation type="Hidden">
@@ -363,10 +361,10 @@
         <animation type="Visible">
           <effect type="fade" start="0" end="100" time="300" delay="500" tween="cubic" easing="out"/>
         </animation>
-        <animation type="Conditional" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">
+        <!-- <animation type="Conditional" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))">
           <effect type="fade" start="0" end="100" time="300" tween="cubic" easing="out"/>
-        </animation>
-        <animation type="Conditional" condition="!Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">
+        </animation> -->
+        <animation type="Conditional" condition="!Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))">
           <effect type="fade" start="100" end="0" time="0"/>
         </animation>
 				<!-- <include>FullScreenDimensions</include> -->
@@ -387,10 +385,10 @@
         <!-- <animation type="Hidden">
           <effect type="fade" start="100" end="0" time="0"/>
         </animation> -->
-        <animation type="Conditional" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">
+        <animation type="Conditional" condition="Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))">
           <effect type="fade" start="0" end="100" time="300" tween="cubic" easing="out"/>
         </animation>
-        <animation type="Conditional" condition="!Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),2)">
+        <animation type="Conditional" condition="!Integer.IsGreaterOrEqual(Skin.TimerElapsedSecs(posterflow_scroll_timer),Skin.Numeric(PosterFlowAutoInfoDelay))">
           <effect type="fade" start="100" end="0" time="0"/>
         </animation>
         <top>160</top>

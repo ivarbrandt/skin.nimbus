@@ -29,12 +29,12 @@
 	<include name="WeatherPanel">
 		<control type="group" id="16678">
 			<description>Weather info</description>
-			<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+			<animation type="Conditional" condition="!ControlGroup(2000).HasFocus" reversible="true">
 				<effect type="slide" start="0,0" end="0,-560" time="500" tween="cubic" easing="inout" />
 				<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
 			</animation>
 			<left>50</left>
-			<top>-511</top>
+			<top>-3</top>
 			<height>360</height>
 			<visible>!String.IsEmpty(Weather.plugin) + ControlGroup(2000).HasFocus</visible>
 			<include content="BigWeatherLabel">

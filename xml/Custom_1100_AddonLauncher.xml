@@ -64,25 +64,24 @@
 			</control>
 			<control type="group">
 				<include>OpenClose_Left</include>
-				<include content="ContentPanel">
-					<param name="width" value="523" />
+				<include content="MenuContentPanel">
+					<param name="width" value="475" />
 				</include>
 				<control type="fixedlist" id="9000">
 					<left>25</left>
 					<top>250</top>
 					<width>462</width>
-					<height>533</height>
+					<height>733</height>
 					<pagecontrol>70</pagecontrol>
-					<movement>6</movement>
+					<movement>9</movement>
 					<focusposition>0</focusposition>
 					<onup>700</onup>
 					<ondown>9000</ondown>
 					<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<animation condition="Control.HasFocus(700)" effect="slide" time="500" start="0,0" end="0,130" tween="cubic" easing="inout">Conditional</animation>
 					<include content="List">
 						<param name="id" value="9000" />
-						<param name="layout_id" value="15" />
+						<param name="list_width" value="310" />
 					</include>
 					<content>
 						<item id="1">
@@ -145,56 +144,55 @@
 						</item>
 					</content>
 				</control>
-				<control type="fixedlist" id="700">
-					<visible allowhiddenfocus="true">Control.HasFocus(700)</visible>
-					<include>MiniMenuAnimations</include>
-					<orientation>vertical</orientation>
-					<left>25</left>
-					<top>200</top>
-					<width>825</width>
-					<height>160</height>
-					<onup>700</onup>
-					<ondown>9000</ondown>
-					<onleft>9000</onleft>
-					<onright>9000</onright>
-					<onback>9000</onback>
-					<focusposition>0</focusposition>
-					<movement>2</movement>
-					<include content="List">
-						<param name="id" value="700" />
-						<param name="height" value="50" />
-						<param name="img_top" value="11.5" />
-						<param name="img_bottom" value="-10" />
-						<param name="img_width" value="5" />
-						<param name="img_left" value="50" />
-						<param name="focused_font" value="font40_title" />
-						<param name="unfocused_font" value="font27" />
-					</include>
-					<content>
-						<item>
-							<label>Browser</label>
-							<onclick>ActivateWindow(addonbrowser,root)</onclick>
-							<visible>Skin.HasSetting(OneClickClose)</visible>
-						</item>
-						<item>
-							<label>Updates | $INFO[System.AddonUpdateCount]</label>
-							<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
-							<visible>Integer.IsGreater(Container(8000).NumItems,0)</visible>
-						</item>
-						<item>
-							<label>Settings</label>
-							<onclick>ActivateWindow(systemsettings,addons)</onclick>
-						</item>
-					</content>
+				<control type="group">
+					<left>65</left>
+					<top>130</top>
+					<width>343</width>
+					<height>140</height>
+					<control type="grouplist" id="700">
+						<orientation>horizontal</orientation>
+						<itemgap>-19</itemgap>
+						<width>343</width>
+						<height>100</height>
+						<onup>SetFocus(9000,99,absolute)</onup>
+						<ondown>SetFocus(9000,0,absolute)</ondown>
+						<onright>400</onright>
+						<onback>9000</onback>
+						<align>left</align>
+						<include content="IconButton">
+							<param name="control_id" value="801" />
+							<param name="onclick" value="ActivateWindow(addonbrowser,root)" />
+							<param name="icon" value="icons/submenu/addons.png" />
+						</include>
+						<include content="IconButton">
+							<param name="control_id" value="802" />
+							<param name="onclick" value="ActivateWindow(addonbrowser,addons://outdated/,return)" />
+							<param name="icon" value="icons/submenu/updates.png" />
+							<param name="visible" value="Integer.IsGreater(System.AddonUpdateCount,0)" />
+						</include>
+						<include content="IconButton">
+							<param name="control_id" value="803" />
+							<param name="onclick" value="ActivateWindow(systemsettings,addons)" />
+							<param name="icon" value="icons/submenu/settings.png" />
+						</include>
+					</control>
+					<control type="label">
+						<left>17</left>
+						<top>-30</top>
+						<width>340</width>
+						<height>30</height>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textcolor>grey</textcolor>
+						<label>$VAR[AddonLauncherSubmenuButtonLabelsVar]</label>
+					</control>
 				</control>
-				<include content="MiniMenu700Labels">
-					<param name="top" value="125"/>
-				</include>
 			</control>
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="[COLOR unfocused_text]$LOCALIZE[24001][/COLOR]" />
 			</include>
-			<!-- <include>BottomBar</include> -->
+			<include>BottomBar</include>
 			<control type="group">
 				<left>-10000</left>
 				<include content="InfoList">
