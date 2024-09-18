@@ -77,7 +77,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
 				<height>1100</height>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -128,7 +128,7 @@
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
 				<height>1100</height>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -185,7 +185,7 @@
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<visible>$PARAM[visible]</visible>
@@ -248,7 +248,7 @@
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<visible>$PARAM[visible]</visible>
@@ -382,19 +382,19 @@
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<itemlayout width="306" height="393" infoupdate="$PARAM[info_update]">
+				<itemlayout width="306" height="393">
 					<control type="group">
 						<include content="WidgetListPVRLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393" infoupdate="$PARAM[info_update]">
+				<focusedlayout width="306" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<include content="WidgetListPVRLayout">
@@ -430,7 +430,7 @@
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)">Conditional</animation>
+				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<visible>$PARAM[visible]</visible>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
@@ -827,6 +827,8 @@
 		<onload condition="String.IsEmpty(Skin.String(TrailerDelaySecs))">Skin.SetString(TrailerDelaySecs,5)</onload>
 		<onload condition="String.IsEmpty(Skin.String(PlaybackDelayMins))">Skin.SetString(PlaybackDelayMins,30)</onload>
 		<onload condition="String.IsEmpty(Skin.String(PlaybackDelaySecs))">Skin.SetString(PlaybackDelaySecs,1800)</onload>
+		<onload condition="String.IsEmpty(Skin.String(PosterFlowAutoInfoDelay))">Skin.SetString(PosterFlowAutoInfoDelay,2)</onload>
+		<onload condition="String.IsEmpty(Skin.String(RevertFromWallDelay))">Skin.SetString(RevertFromWallDelay,2)</onload>
 		<onload condition="String.IsEmpty(Skin.String(TrailerSource))">Skin.SetString(TrailerSource,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
@@ -839,9 +841,10 @@
 		<onload condition="String.IsEmpty(Skin.String(PosterFlowOnDownSetting.Other))">Skin.SetString(PosterFlowOnDownSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.MovieTV))">Skin.SetString(OnRightSetting.MovieTV,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.Other))">Skin.SetString(OnRightSetting.Other,0)</onload>
-		<onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload>
+		<!-- <onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload> -->
 		<onload condition="String.IsEmpty(Skin.String(MenuSelectorColorThemeSetting))">Skin.SetString(MenuSelectorColorThemeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(FocusColorThemeSetting))">Skin.SetString(FocusColorThemeSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(DialogBackgroundSetting))">Skin.SetString(DialogBackgroundSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(ArtworkChoice.movies))">Skin.SetString(ArtworkChoice.movies,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(HomeArtworkChoice))">Skin.SetString(HomeArtworkChoice,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(HomeLandscapeFanart))">Skin.SetString(HomeLandscapeFanart,0)</onload>

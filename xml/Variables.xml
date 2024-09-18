@@ -210,6 +210,16 @@
     <value condition="!String.IsEmpty(ListItem.AddonVersion)">[COLOR unfocused_text]$INFO[ListItem.AddonVersion][/COLOR]</value>
     <value></value>
 	</variable>
+	<variable name="AddonsLabel3Var">
+    <value condition="ListItem.Property(addon.downloading)">$INFO[ListItem.Property(addon.status)]</value>
+    <value condition="!Container.SortMethod(1)">$INFO[ListItem.Label2]</value>
+    <value condition="String.IsEqual(ListItem.Path,addons://all/) + !String.IsEmpty(ListItem.AddonOrigin) + !String.IsEmpty(ListItem.AddonVersion)">$INFO[ListItem.AddonOrigin] [B]»[/B] $INFO[ListItem.AddonVersion]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonCreator) + !String.IsEmpty(ListItem.AddonVersion)">$INFO[ListItem.AddonCreator] [B]»[/B] $INFO[ListItem.AddonVersion]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonOrigin)">$INFO[ListItem.AddonOrigin]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonCreator)">$INFO[ListItem.AddonCreator]</value>
+    <value condition="!String.IsEmpty(ListItem.AddonVersion)">$INFO[ListItem.AddonVersion]</value>
+    <value></value>
+	</variable>
 	<variable name="RatingSettingLabel2Var">
 		<value condition="Skin.HasSetting(circle_rating)">$LOCALIZE[563]</value>
 		<value condition="Skin.HasSetting(circle_userrating)">$LOCALIZE[38018]</value>
@@ -349,6 +359,14 @@
 		<value condition="!String.IsEmpty(Skin.String(PlaybackDelaySecs))">$INFO[Skin.String(PlaybackDelaySecs)]</value>
 		<value condition="String.IsEmpty(Skin.String(PlaybackDelaySecs))">1800</value> <!-- Default value -->
 	</variable>
+	<variable name="SkinSettingPosterFlowAutoInfoDelay">
+		<value condition="!String.IsEmpty(Skin.String(PosterFlowAutoInfoDelay))">$INFO[Skin.String(PosterFlowAutoInfoDelay)]</value>
+		<value condition="String.IsEmpty(Skin.String(PosterFlowAutoInfoDelay))">2</value> <!-- Default value -->
+	</variable>
+	<variable name="SkinSettingRevertFromWallDelay">
+		<value condition="!String.IsEmpty(Skin.String(RevertFromWallDelay))">$INFO[Skin.String(RevertFromWallDelay)]</value>
+		<value condition="String.IsEmpty(Skin.String(RevertFromWallDelay))">2</value> <!-- Default value -->
+	</variable>
 	<variable name="VolumeIconVar">
 		<value condition="Player.Muted">dialogs/volume/mute.png</value>
 		<value condition="Integer.IsGreater(Player.Volume,66)">dialogs/volume/volume.png</value>
@@ -447,19 +465,19 @@
     <!-- TV Shows -->
     <value condition="[String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,season) | String.IsEqual(ListItem.DBType,episode)] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
     <!-- Movies -->
-    <value condition="String.IsEqual(ListItem.DBType,movie) + !String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <value condition="String.IsEqual(ListItem.DBType,movie) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
     <value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.Playcount,0) + [!String.IsEmpty(ListItem.ResumeTime) | !String.IsEmpty(ListItem.Property(ResumeTime))]">progress/unwatched/$INFO[ListItem.PercentPlayed,,.png]</value>
     <value condition="String.IsEqual(ListItem.DBType,movie) + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
     <!-- Fallback for any other content type -->
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
-    <value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
     <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
 </variable>
 
 <variable name="ListWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
-    <value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
     <value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value>
     <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
@@ -485,12 +503,12 @@
 		<!-- TV Shows -->
 		<value condition="[$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<!-- Movies -->
-		<value condition="$EXP[isMovie] + !String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+		<value condition="$EXP[isMovie] + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
 		<value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Playcount,0) + [!String.IsEmpty(ListItem.ResumeTime) | !String.IsEmpty(ListItem.Property(ResumeTime))]">progress/unwatched/$INFO[ListItem.PercentPlayed,,.png]</value>
 		<value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<!-- Fallback for any other content type -->
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
-		<value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+		<value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
 	</variable>
 	<variable name="WallWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
@@ -499,7 +517,7 @@
     <value condition="ListItem.IsCollection">overlays/set.png</value>
     <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
     <value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
-    <value condition="!String.IsEmpty(Container.ListItem.Property(WatchedProgress)) + !Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
+    <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
     <value condition="Integer.IsGreater(ListItem.Playcount,0) + [!String.IsEmpty(ListItem.ResumeTime) | !String.IsEmpty(ListItem.Property(ResumeTime))]">progress/unwatched/$INFO[ListItem.PercentPlayed,,.png]</value>
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 	</variable>

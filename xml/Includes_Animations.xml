@@ -263,28 +263,6 @@
 		<animation effect="slide" end="0,-563.5" time="0" tween="cubic" easing="inout" reversible="true" condition="Integer.IsGreater(Container($PARAM[container]).Position,100)">Conditional</animation>
   </include>
 
-	<!-- <include name="MainMenuAnimations">
-		<animation type="Visible" reversible="False">
-			<effect type="fade" start="0" end="100" time="300" tween="cubic" easing="in"/>
-			<effect type="slide" start="-40,0" end="0,0" time="300" tween="cubic" easing="out" />
-		</animation>
-		<animation type="Hidden" reversible="False">
-			<effect type="fade" start="100" end="0" time="100" tween="cubic" easing="out"/>
-			<effect type="slide" start="0,0" end="-40,0" time="300" tween="cubic" easing="in" />
-		</animation>
-	</include> -->
-
-	<include name="MiniMenuAnimations">
-		<animation type="Visible" reversible="False">
-			<effect type="fade" start="0" end="100" time="500" tween="cubic" easing="in"/>
-			<effect type="slide" time="500" start="0,-200" end="0,0" tween="cubic" easing="inout" />
-		</animation>
-		<animation type="Hidden" reversible="False">
-			<effect type="fade" start="100" end="0" time="500" tween="cubic" easing="out"/>
-			<effect type="slide" time="500" start="0,0" end="0,-200" tween="cubic" easing="inout" />
-		</animation>
-	</include>
-
 	<include name="CenterList72">
 		<animation effect="slide" start="0,0" end="0,504" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,1)">Conditional</animation>
 		<animation effect="slide" start="0,0" end="0,468" time="0" condition="Integer.IsEqual(Container($PARAM[id]).NumItems,2)">Conditional</animation>
@@ -370,13 +348,13 @@
 	</include>
 
 	<include name="MainMenuAnimations">
-		<animation condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+		<animation condition="!ControlGroup(2000).HasFocus + !Control.IsVisible(20000) + !Control.IsVisible(20001)" reversible="true">
 			<effect type="slide" start="0,0" end="469,0" time="500" tween="cubic" easing="inout" />
 		</animation>
 	</include>
 
 	<include name="SearchMenuAnimations">
-		<animation condition="Control.HasFocus(9000) | Control.HasFocus(700)" reversible="true">
+		<animation condition="!ControlGroup(2000).HasFocus + !Control.IsVisible(20000) + !Control.IsVisible(20001)" reversible="true">
 			<effect type="slide" start="0,0" end="531,0" time="500" tween="cubic" easing="inout" />
 		</animation>
 	</include>

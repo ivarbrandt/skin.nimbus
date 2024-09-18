@@ -252,22 +252,22 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[FocusColorThemeToggleVar]</onclick>
 				</control>
-				<!-- FOCUS COLOR -->
-				<!-- <control type="radiobutton" id="63704">
-					<label>Enable color theme for focus</label>
+				<!-- DAILOG COLOR THEME -->
+				<control type="button" id="63707">
+					<label>Dialog background color theme</label>
+					<label2>$VAR[DialogBackgroundSettingVar]</label2>
 					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.ColorThemeFocus)</selected>
-					<onclick>Skin.ToggleSetting(Disable.ColorThemeFocus)</onclick>
-				</control> -->
+					<onclick>$VAR[DialogBackgroundToggleVar]</onclick>
+				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63707">
+				<control type="radiobutton" id="63708">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
 				</control>
 				<!-- WIDGET NAVIGATION -->
-				<control type="radiobutton" id="63708">
+				<control type="radiobutton" id="63709">
 					<label>Enable widget navigation arrows</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.WidgetNavigationArrows)</selected>
@@ -282,14 +282,14 @@
 					<selected>Skin.HasSetting(Enable.StudioLogos)</selected>
 				</control> -->
 				<!-- AUTO END PLAYBACK -->
-				<control type="radiobutton" id="63709">
+				<control type="radiobutton" id="63710">
 					<label>Enable auto ending of playback</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.AutoEndPlayback)</selected>
 					<onclick>Skin.ToggleSetting(Enable.AutoEndPlayback)</onclick>
 				</control>
 				<!-- SET DELAY -->
-				<control type="button" id="63710">
+				<control type="button" id="63711">
 					<label>    - Set delay (minutes)</label>
 					<label2>$INFO[Skin.String(PlaybackDelayMins)]</label2>
 					<include>DefaultSettingButton</include>
@@ -609,19 +609,41 @@
 					<onclick>RunScript(script.nimbus.helper, mode=set_blursaturation)</onclick>
 					<visible>Skin.HasSetting(Enable.BackgroundBlur)</visible>
 				</control>
-				<control type="radiobutton" id="6009">
-					<label>Enable quick config menu for home screen artwork</label>
+				<!-- HOME SCREEN ARTWORK STYLE -->
+				<control type="button" id="6009">
+					<label>Home screen artwork style</label>
+					<label2>$VAR[HomeFanartSettingVar]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.QuickConfig)</onclick>
-					<selected>!Skin.HasSetting(Disable.QuickConfig)</selected>
+					<onclick>$VAR[HomeFanartToggleVar]</onclick>
 				</control>
-				<control type="radiobutton" id="6010">
+				<control type="button" id="6010">
+					<label>    - Artwork type for movies/tvshows/seasons (Landscape)</label>
+					<label2>$VAR[HomeLandscapeFanartSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[HomeLandscapeFanartToggleVar]</onclick>
+					<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+				</control>
+				<control type="button" id="6011">
+					<label>    - Artwork type for episodes (Landscape)</label>
+					<label2>$VAR[HomeEpisodeArtworkChoiceSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[HomeEpisodeArtworkChoiceToggleVar]</onclick>
+					<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
+				</control>
+				<!-- HOME SCREEN ITEM ARTWORK STYLE -->
+				<control type="button" id="6012">
+					<label>Home screen landscape widget artwork type (movies/tvshows/seasons)</label>
+					<label2>$VAR[HomeItemArtworkChoiceSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[HomeItemArtworkChoiceToggleVar]</onclick>
+				</control>
+				<control type="radiobutton" id="6013">
 					<label>Enable persistent home screen artwork</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(Disable.PersistentArtwork)</onclick>
 					<selected>!Skin.HasSetting(Disable.PersistentArtwork)</selected>
 				</control>
-				<control type="button" id="6011">
+				<control type="button" id="6014">
 					<label>$LOCALIZE[31131]</label>
 					<label2>$INFO[Skin.String(HomeFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -629,7 +651,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6012">
+				<control type="button" id="6015">
 					<label>$LOCALIZE[31062]</label>
 					<label2>$INFO[Skin.String(WeatherFanart.name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -637,7 +659,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="button" id="6013">
+				<control type="button" id="6016">
 					<label>$LOCALIZE[31149]</label>
 					<label2>$INFO[Skin.String(MovieGenreFanart.Name)]</label2>
 					<include>DefaultSettingButton</include>
@@ -645,7 +667,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select) + !System.AddonIsEnabled(script.image.resource.select)">EnableAddon(script.image.resource.select)</onclick>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 				</control>
-				<control type="radiobutton" id="6014">
+				<control type="radiobutton" id="6017">
 					<label>$LOCALIZE[31168]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.ToggleSetting(show_musicvideoposter)</onclick>

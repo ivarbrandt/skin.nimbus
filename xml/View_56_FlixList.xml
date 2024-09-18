@@ -348,7 +348,7 @@
 							<width>50</width>
 							<bottom>10</bottom>
 							<aspectratio>keep</aspectratio>
-							<texture diffuse="masks/addons.png">$INFO[ListItem.Icon]</texture>
+							<texture colordiffuse="$VAR[FocusedTextColorVar]" diffuse="masks/addons.png">$INFO[ListItem.Icon]</texture>
 						</control>
 						<control type="label">
 							<left>90</left>
@@ -468,7 +468,7 @@
 				<align>right</align>
 				<aligny>center</aligny>
 				<font>font27</font>
-				<label>$VAR[AddonsLabel2Var]</label>
+				<label>$VAR[AddonsLabel3Var]</label>
 				<textcolor>$VAR[FocusedTextColorVar]</textcolor>
 				<scroll>true</scroll>
 			</control>
@@ -504,7 +504,7 @@
 				<right>70</right>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$VAR[AddonsLabel2Var]</label>
+				<label>$VAR[AddonsLabel3Var]</label>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>

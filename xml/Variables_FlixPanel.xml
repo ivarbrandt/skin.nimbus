@@ -179,8 +179,7 @@
 	</variable>
 	<!-- Watched Progress -->
 	<variable name="RI_WatchedProgress">
-		<!-- <value condition="[!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + $EXP[isEpisode]">[COLOR unfocused_text]$INFO[ListItem.Property(WatchedProgress)]% watched[/COLOR]</value> -->
-		<value condition="[!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)]"> • [COLOR unfocused_text]$INFO[ListItem.Property(WatchedProgress)]% watched[/COLOR]</value>
+		<value condition="!Integer.IsEqual(ListItem.Property(WatchedProgress),0)"> • [COLOR unfocused_text]$INFO[ListItem.Property(WatchedProgress)]% watched[/COLOR]</value>
 	</variable>
 	<!-- Total Seasons -->
 	<variable name="RI_TotalSeasons">
@@ -252,18 +251,18 @@
 
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie] + [String.IsEmpty(ListItem.Property(WatchedProgress)) + Integer.IsEqual(ListItem.Property(WatchedProgress),0)]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_MovieCollection]$VAR[RI_Runtime]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isMovie] + [!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)]">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie] + Integer.IsEqual(ListItem.Property(WatchedProgress),0)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_MovieCollection]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie] + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]</value>
 		<!-- SHOWS -->
 		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_TotalSeasons]$VAR[RI_EpisodesRemaining]$VAR[RI_Status]</value>
 		<!-- SEASONS -->
 		<value condition="!ListItem.IsCollection + $EXP[isSeason]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Runtime]$VAR[RI_EpisodesRemaining]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [String.IsEmpty(ListItem.Property(WatchedProgress)) + Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating]$VAR[RI_Runtime]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [String.IsEmpty(ListItem.Property(WatchedProgress)) + Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + Integer.IsEqual(ListItem.Property(WatchedProgress),0) + String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
 
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + [!String.IsEmpty(ListItem.Property(WatchedProgress)) + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)] + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_SeasonEpisode]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_SeasonEpisode]$VAR[RI_Mpaa]$VAR[RI_Rating]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isEpisode] + !Integer.IsEqual(ListItem.Property(WatchedProgress),0) + !String.IsEmpty(ListItem.Property(episode_type))">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_SeasonEpisode]$VAR[RI_Runtime]$VAR[RI_EpisodeType]</value>
 	</variable>
 	
 	<variable name="InfoPanelBottom">

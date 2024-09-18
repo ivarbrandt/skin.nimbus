@@ -559,13 +559,14 @@
 	</include>
 	<include name="PVRInfoPanel">
 		<control type="group">
-			<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+			<animation type="Conditional" condition="Control.HasFocus(9000)" reversible="true">
 				<effect type="slide" start="0,0" end="0,-540" time="500" tween="cubic" easing="inout" />
 				<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
 			</animation>
 			<left>50</left>
 			<top>$PARAM[top]</top>
-			<visible>Window.IsVisible(Home) | Control.IsVisible(50) + !ListItem.IsFolder</visible>
+			<!-- <visible>Window.IsVisible(Home) | Control.IsVisible(50) + !ListItem.IsFolder</visible> -->
+			<visible>Window.IsVisible(Home) | Control.IsVisible(50) + !ListItem.IsFolder + [!Player.HasVideo | !$EXP[sidebar_visible]]</visible>
 			<control type="image">
 				<top>50</top>
 				<left>0</left>

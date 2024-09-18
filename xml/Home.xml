@@ -30,7 +30,7 @@
 				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),0) + !$EXP[infodialog_active]</visible>
 			</control>
 			<control type="image">
-				<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+				<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)" reversible="true">
 					<effect type="slide" start="0,0" end="-200,0" time="500" tween="cubic" easing="inout" />
 					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
 				</animation>
@@ -44,7 +44,7 @@
 				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + !ControlGroup(15000).HasFocus + !$EXP[infodialog_active]</visible>
 			</control>
 			<control type="multiimage">
-				<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+				<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)" reversible="true">
 					<effect type="slide" start="0,0" end="-200,0" time="500" tween="cubic" easing="inout" />
 					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
 				</animation>
@@ -921,7 +921,7 @@
 				<control type="group">
 					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					<include>OpenClose_Left</include>
-					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+					<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)" reversible="true">
 						<effect type="slide" start="0,0" end="0,-540" time="500" tween="cubic" easing="inout" />
 						<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
 					</animation>
@@ -930,7 +930,7 @@
 				<!-- <include>osd_darkenBG</include> -->
 				<control type="group">
 					<left>-540</left>
-					<animation type="Conditional" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(733)" reversible="true">
+					<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.IsVisible(20000) + !Control.IsVisible(20001)" reversible="true">
 						<effect type="slide" start="0" end="540" time="500" tween="cubic" easing="inout" />
 					</animation>
 					<include>OpenClose_Left</include>
@@ -938,19 +938,12 @@
 						<param name="width" value="600"/>
 					</include>
 					<!-- <visible>true</visible> -->
-				
 					<control type="fixedlist" id="9000">
-						<animation condition="Control.HasFocus(700)">
-							<effect type="slide" start="0,0" end="0,135" time="500" tween="cubic" easing="inout" reversible="true" />
-						</animation>
-						<animation condition="Control.HasFocus(733)">
-							<effect type="slide" start="0,0" end="-540,0" time="500" tween="cubic" easing="inout" reversible="true" />
-						</animation>
 						<left>25</left>
-						<top>200</top>
+						<top>215</top>
             <width>825</width>
-						<height>533</height>
-						<movement>6</movement>
+						<height>580</height>
+						<movement>7</movement>
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
@@ -1058,130 +1051,65 @@
 							</item>
 						</content>
 					</control>
-					<control type="fixedlist" id="700">
-						<visible allowhiddenfocus="true">Control.HasFocus(700)</visible>
-						<include>MiniMenuAnimations</include>
-						<orientation>vertical</orientation>
-						<left>25</left>
-						<top>150</top>
-            <width>825</width>
-						<height>160</height>
-						<onup>700</onup>
-						<ondown>9000</ondown>
-						<onleft>9000</onleft>
-						<onright>9000</onright>
-						<onback>9000</onback>
-						<focusposition>1</focusposition>
-						<movement>1</movement>
-						<include content="List">
-              <param name="id" value="700" />
-              <param name="height" value="50" />
-              <param name="img_top" value="10" />
-              <param name="img_bottom" value="-8" />
-              <param name="img_width" value="5" />
-              <param name="img_left" value="50" />
-              <param name="focused_font" value="font40_title" />
-              <param name="unfocused_font" value="font27" />
-            </include>
-						<content>
-							<item>
-								<label>Exit kodi</label>
-								<onclick>Quit()</onclick>
-								<visible>Skin.HasSetting(OneClickClose)</visible>
-							</item>
-							<item>
-								<label>Shutdown menu</label>
-								<onclick>ActivateWindow(shutdownmenu)</onclick>
-								<visible>!Skin.HasSetting(OneClickClose)</visible>
-							</item>
-							<item>
-								<label>Settings</label>
-								<onclick>ActivateWindow(settings)</onclick>
-							</item>
-							<!-- <item>
-								<label>skin settings</label>
-								<onclick>ActivateWindow(skinsettings)</onclick>
-							</item> -->
-							<!-- <item>
-								<label>change color theme</label>
-								<onclick>ActivateWindowAndFocus(appearancesettings, -100,0,-76,0)</onclick>
-							</item> -->
-							<item>
-								<label>Search</label>
-								<onclick>$VAR[SearchButtonActionVar]</onclick>
-							</item>
-							<item>
-								<label>Fullscreen</label>
-								<onclick>Fullscreen</onclick>
-								<visible>Player.HasMedia</visible>
-							</item>
-						</content>
-					</control>
-					<control type="fixedlist" id="733">
-						<visible allowhiddenfocus="true">Control.HasFocus(733)</visible>
-						<!-- <include>MiniMenuAnimations</include> -->
-						<animation condition="Control.HasFocus(733)">
-							<effect type="slide" start="-540,0" end="0,0" time="500" tween="cubic" easing="inout" reversible="true" />
-						</animation>
-						<orientation>vertical</orientation>
-						<left>25</left>
-						<top>150</top>
-            <width>825</width>
-						<height>533</height>
-						<onup>733</onup>
-						<ondown>733</ondown>
-						<onleft>9000</onleft>
-						<onright>9000</onright>
-						<onback>9000</onback>
-						<focusposition>0</focusposition>
-						<movement>5</movement>
-						<include content="List">
-              <param name="id" value="733" />
-              <param name="height" value="50" />
-              <param name="img_top" value="10" />
-              <param name="img_bottom" value="-8" />
-              <param name="img_width" value="5" />
-              <param name="img_left" value="50" />
-              <param name="focused_font" value="font40_title" />
-              <param name="unfocused_font" value="font27" />
-            </include>
-						<content>
-							<item>
-								<label>Toggle blur</label>
-								<onclick>Skin.ToggleSetting(Enable.BackgroundBlur)</onclick>
-							</item>
-							<item>
-								<label>Style/$VAR[HomeFanartSettingVar]</label>
-								<onclick>$VAR[HomeFanartToggleVar]</onclick>
-							</item>
-							<item>
-								<label>Art/$VAR[HomeLandscapeFanartSettingVar]</label>
-								<onclick>$VAR[HomeLandscapeFanartToggleVar]</onclick>
-								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
-							</item>
-							<item>
-								<label>Landscape widgets/$VAR[HomeItemArtworkChoiceSettingVar]</label>
-								<onclick>$VAR[HomeItemArtworkChoiceToggleVar]</onclick>
-							</item>
-							<item>
-								<label>Episodes/$VAR[HomeEpisodeArtworkChoiceSettingVar]</label>
-								<onclick>$VAR[HomeEpisodeArtworkChoiceToggleVar]</onclick>
-								<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1)</visible>
-							</item>
-						</content>
-					</control>
-					<include content="MiniMenu700Labels">
-						<param name="top" value="75"/>
-					</include>
-					<include content="MiniMenu733Labels">
-						<param name="top" value="75"/>
-					</include>
 					<control type="group">
+						<left>65</left>
+						<top>70</top>
+						<width>343</width>
+						<height>140</height>
+						<control type="grouplist" id="700">
+							<orientation>horizontal</orientation>
+							<itemgap>-19</itemgap>
+							<width>343</width>
+							<height>100</height>
+							<onup>SetFocus(9000,99,absolute)</onup>
+							<ondown>SetFocus(9000,0,absolute)</ondown>
+							<onright>2000</onright>
+							<onback>9000</onback>
+							<align>left</align>
+							<include content="IconButton">
+								<param name="control_id" value="801" />
+								<param name="onclick" value="$VAR[HomePowerButtonActionVar]" />
+								<param name="icon" value="icons/submenu/power.png" />
+							</include>
+							<include content="IconButton">
+								<param name="control_id" value="802" />
+								<param name="onclick" value="ActivateWindow(settings)" />
+								<param name="icon" value="icons/submenu/settings.png" />
+							</include>
+							<include content="IconButton">
+								<param name="control_id" value="803" />
+								<param name="onclick" value="$VAR[HomeSearchButtonActionVar]" />
+								<param name="icon" value="icons/submenu/search.png" />
+							</include>
+							<include content="IconButton">
+								<param name="control_id" value="804" />
+								<param name="onclick" value="ActivateWindow(addonbrowser,addons://outdated/,return)" />
+								<param name="icon" value="icons/submenu/updates.png" />
+								<param name="visible" value="Integer.IsGreater(System.AddonUpdateCount,0)" />
+							</include>
+							<include content="IconButton">
+								<param name="control_id" value="805" />
+								<param name="onclick" value="Fullscreen" />
+								<param name="icon" value="icons/submenu/fullscreen.png" />
+								<param name="visible" value="Player.HasMedia" />
+							</include>
+						</control>
+						<control type="label">
+							<left>17</left>
+							<top>-30</top>
+							<width>340</width>
+							<height>30</height>
+							<font>font12</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>grey</textcolor>
+							<label>$VAR[HomeSubmenuButtonLabelsVar]</label>
+						</control>
+					</control>
+					<control type="group">
+						<top>90</top>
 						<left>90</left>
 						<width>380</width>
-						<animation condition="Control.HasFocus(700)">
-							<effect type="slide" start="0,0" end="0,93" time="500" tween="cubic" easing="inout" reversible="true" />
-						</animation>
 						<control type="label">
 							<top>787</top>
 							<font>font36_title</font>

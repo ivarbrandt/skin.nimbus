@@ -117,7 +117,6 @@
     <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Sci-Fi) + String.Contains(ListItem.Genre,Adventure)">Sci-Fi Adventure</value>
     <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Science Fiction) + String.Contains(ListItem.Genre,Adventure)">Sci-Fi Adventure</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Comedy) + String.Contains(ListItem.Genre,Fantasy)">Comedic Fantasy</value>
-		<!-- <value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Comedy)">Comedic Animation</value> -->
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Animation) + String.Contains(ListItem.Genre,Fantasy)">Animated Fantasy</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Action) + String.Contains(ListItem.Genre,Fantasy)">Action-Fantasy</value>
 		<value condition="!String.IsEmpty(ListItem.Genre) + String.Contains(ListItem.Genre,Music) + String.Contains(ListItem.Genre,Fantasy)">Musical Fantasy</value>
@@ -397,9 +396,9 @@
 	</variable>
 
 	<variable name="BorderColorVar">
-		<value condition="Player.HasVideo">FF2E2E2E</value>
-		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">FF2E2E2E</value>
-		<value>FF5B5B5B</value>
+		<!-- <value condition="Player.HasVideo">FF2E2E2E</value>
+		<value condition="!Skin.HasSetting(Enable.BackgroundBlur)">FF2E2E2E</value> -->
+		<value>FF2E2E2E</value>
 		<!-- <value>FF252525</value> -->
 	</variable>
 
@@ -584,6 +583,31 @@
 		<value condition="String.IsEqual(Skin.String(FocusColorThemeSetting),1)">Skin.SetString(FocusColorThemeSetting,0)</value>
 	</variable>
 
+	<variable name="WeatherWidgetUnfocusedTextureColorVar">
+    <value condition="String.IsEqual(Skin.String(HomeArtworkChoice),0)">BF050505</value>
+    <value condition="String.IsEqual(Skin.String(HomeArtworkChoice),1)">80000000</value>
+	</variable>
+
+	<variable name="DialogBackgroundColorVar">
+    <value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),0)">F2FFFFFF</value>
+    <value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),1)">$VAR[MenuSelectorColor]</value>
+	</variable>
+
+	<variable name="DialogBackgroundTextureVar">
+    <value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),0)">colors/black.png</value>
+    <value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),1)">colors/commons.png</value>
+	</variable>
+
+	<variable name="DialogBackgroundSettingVar">
+    <value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),0)">Dark</value>
+    <value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),1)">Adaptive</value>
+	</variable>
+
+	<variable name="DialogBackgroundToggleVar">
+		<value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),0)">Skin.SetString(DialogBackgroundSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(DialogBackgroundSetting),1)">Skin.SetString(DialogBackgroundSetting,0)</value>
+	</variable>
+
 	<variable name="MenuCaseSettingVar">
 		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),0)">Default</value>
 		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),1)">UPPERCASE</value>
@@ -605,20 +629,6 @@
 		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),3)">[CAPITALIZE]$INFO[ListItem.Label][/CAPITALIZE]</value>
 	</variable>
 
-	<variable name="MiniMenuCase700Var">
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),0)">Mini menu</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),1)">[UPPERCASE]Mini menu[/UPPERCASE]</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),2)">[LOWERCASE]Mini menu[/LOWERCASE]</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),3)">[CAPITALIZE]Mini menu[/CAPITALIZE]</value>
-	</variable>
-
-	<variable name="MiniMenuCase733Var">
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),0)">Artwork settings</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),1)">[UPPERCASE]Artwork settings[/UPPERCASE]</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),2)">[LOWERCASE]Artwork settings[/LOWERCASE]</value>
-		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),3)">[CAPITALIZE]Artwork settings[/CAPITALIZE]</value>
-	</variable>
-
 	<variable name="RecentSearchesCaseVar">
 		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),0)">Recent searches</value>
 		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),1)">[UPPERCASE]Recent searches[/UPPERCASE]</value>
@@ -626,11 +636,49 @@
 		<value condition="String.IsEqual(Skin.String(MenuCaseSetting),3)">[CAPITALIZE]Recent searches[/CAPITALIZE]</value>
 	</variable>
 
-	<variable name="SearchButtonActionVar">
+	<!-- MAIN MENU SUBMENU BUTTONS -->
+	<variable name="HomePowerButtonActionVar">
+		<value condition="Skin.HasSetting(OneClickClose)">Quit()</value>
+		<value>ActivateWindow(shutdownmenu)</value>
+	</variable>
+
+	<variable name="HomeSearchButtonActionVar">
 		<value condition="!Skin.HasSetting(NoSearchResultsWindow) + !Skin.HasSetting(DefaultSearchWindowBehavior)">RunScript(script.nimbus.helper,mode=open_search_window)</value>
 		<value condition="!Skin.HasSetting(NoSearchResultsWindow) + Skin.HasSetting(DefaultSearchWindowBehavior)">RunScript(script.nimbus.helper,mode=search_input)</value>
 		<value condition="Skin.HasSetting(NoSearchResultsWindow)">ActivateWindow(1107)</value>
 	</variable>
+
+	<!-- MAIN MENU SUBMENU BUTTON LABELS -->
+	<variable name="HomeSubmenuButtonLabelsVar">
+		<value condition="Control.HasFocus(801) + Skin.HasSetting(OneClickClose)">Exit Kodi</value>
+		<value condition="Control.HasFocus(801) + !Skin.HasSetting(OneClickClose)">Open shutdownmenu</value>
+		<value condition="Control.HasFocus(802)">Open settings</value>
+		<value condition="Control.HasFocus(803) + !Skin.HasSetting(NoSearchResultsWindow) + !Skin.HasSetting(DefaultSearchWindowBehavior)">Open search window</value>
+		<value condition="Control.HasFocus(803) + !Skin.HasSetting(NoSearchResultsWindow) + Skin.HasSetting(DefaultSearchWindowBehavior)">Open search input</value>
+		<value condition="Control.HasFocus(803) + Skin.HasSetting(NoSearchResultsWindow)">Open search dialog</value>
+		<value condition="Control.HasFocus(804) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
+		<value condition="Control.HasFocus(804) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
+		<value condition="Control.HasFocus(805)">Toggle fullscreen</value>
+	</variable>
+
+	<!-- ADDON LAUNCHER SUBMENU BUTTON LABELS -->
+	<variable name="AddonLauncherSubmenuButtonLabelsVar">
+		<value condition="Control.HasFocus(801)">Open addon browser</value>
+		<value condition="Control.HasFocus(802) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
+		<value condition="Control.HasFocus(802) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
+		<value condition="Control.HasFocus(803)">Open system addon settings</value>
+	</variable>
+
+	<!-- SEARCH WINDOW SUBMENU BUTTON LABELS -->
+	<variable name="SearchSubmenuButtonLabelsVar">
+		<value condition="Control.HasFocus(801)">Search provider: [B]$VAR[CurrentSearchProviderVar][/B]</value>
+		<value condition="Control.HasFocus(802)">Perform a new search</value>
+		<value condition="Control.HasFocus(803)">Open TRAKT lists</value>
+		<value condition="Control.HasFocus(804)">Clear search history</value>
+		<value condition="Control.HasFocus(805)">Toggle fullscreen</value>
+	</variable>
+	
+	
 
 	<!-- <variable name="ListSelectorColorSettingVar">
     <value condition="String.IsEqual(Skin.String(ListSelectorColorSetting),0)">Default</value>
