@@ -1,7 +1,23 @@
-Nimbus Helper: Latest: v0.0.44 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.45 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added color adaptive square widget
+- Added optional color adaptive background for dialog windows
+- Added color adaptive button menus to home, search, and addon-launcher windows
+- Added content panel texture to addon-launcher window
+- Added configurable delay for auto info in PosterFlow view
+- Added configurable delay for returning to Flix/FlixScape view from Wall/WallScape view
+- Moved home artwork settings config to Skin settings [B]»[/B] Artwork display
+- Fixed quite a few compatibility bugs with Umbrella
+- Increased number of visible main menu items to 8
+- Removed hidden mini menu from home, search, and addon-launcher windows
+- Removed background blur toggle from video windows
+- Fixed search window bug
+- Other changes/fixes
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.25[/COLOR][/B]
 - Reverted skin and helper back to Netflix layout
 _____________________________________________________________________________________________
 
