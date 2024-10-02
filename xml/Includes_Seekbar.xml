@@ -276,8 +276,19 @@
 					<width>550</width>
 					<height>213</height>
 					<!-- <height>153</height> -->
-					<texture>$VAR[DetailedOSDLogoVar]</texture>
+					<texture>$VAR[PlayerClearLogoVar]</texture>
 					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<visible>!VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.OSDClearlogo)</visible>
+				</control>
+				<control type="image">
+					<left>99</left>
+					<top>-763</top>
+					<width>350</width>
+					<height>136</height>
+					<!-- <height>153</height> -->
+					<texture>$INFO[Player.Icon]</texture>
+					<aspectratio align="left" aligny="top">keep</aspectratio>
+					<visible>VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.OSDClearlogo)</visible>
 				</control>
 				<control type="textbox">
 					<top>-763</top>
@@ -289,7 +300,7 @@
 					<align>left</align>
 					<aligny>center</aligny>
 					<label>$VAR[NowPlayingBreadcrumbsVar]</label>
-					<visible>!VideoPlayer.Content(livetv) + [String.IsEmpty(Player.Art(clearlogo)) | [Skin.HasSetting(Disable.OSDClearlogo) + !Skin.HasSetting(Disable.OSDTitle)]]</visible>
+					<visible>!VideoPlayer.Content(livetv) + [[String.IsEmpty(Player.Art(clearlogo)) + String.IsEmpty(Player.Art(tvshow.clearlogo))] | [Skin.HasSetting(Disable.OSDClearlogo) + !Skin.HasSetting(Disable.OSDTitle)]]</visible>
 				</control>
 				<control type="image">
 					<top>-763</top>

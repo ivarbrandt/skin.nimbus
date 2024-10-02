@@ -60,89 +60,89 @@
 				<top>510</top>
 				<include>OpenClose_Right</include>
 				<!-- SEARCH RESULTS -->
-				<control type="group" id="27000">
+				<control type="group" id="19000">
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="movies"/>
 					</include>
-					<control type="grouplist" id="27001">
+					<control type="grouplist" id="19001">
 						<include content="Animation_Widget_Poster_Slide">
-							<param name="container" value="27001" />
+							<param name="container" value="19001" />
 						</include>
 					<visible allowhiddenfocus="true">!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
 						<include>WidgetGroupListCommon</include>
-						<pagecontrol>27099</pagecontrol>
+						<pagecontrol>19099</pagecontrol>
 						<include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieResults)">
               <param name="content_path" value="$VAR[SearchProviderMoviesVar]"/>
               <param name="widget_header" value="$LOCALIZE[342]"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27011"/>
+              <param name="list_id" value="19011"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowResults)">
               <param name="content_path" value="$VAR[SearchProviderTVShowsVar]"/>
               <param name="widget_header" value="TV Shows"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27012"/>
+              <param name="list_id" value="19012"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HideCollectionsResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),3)]">
               <param name="content_path" value="$VAR[SearchProviderCollectionsVar]"/>
               <param name="widget_header" value="Collections"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27013"/>
+              <param name="list_id" value="19013"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
               <param name="content_path" value="$VAR[SearchProviderPeopleVar]"/>
               <param name="widget_header" value="Actors/Actresses"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27014"/>
+              <param name="list_id" value="19014"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
               <param name="content_path" value="plugin://plugin.video.umbrella/?action=actorSearchMovies&amp;name=$INFO[Skin.String(SearchInputEncoded)]"/>
               <param name="widget_header" value="Actors/Actresses (Movies)"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27015"/>
+              <param name="list_id" value="19015"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
               <param name="content_path" value="plugin://plugin.video.umbrella/?action=actorSearchTV&amp;name=$INFO[Skin.String(SearchInputEncoded)]"/>
               <param name="widget_header" value="Actors/Actresses (TV Shows)"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27016"/>
+              <param name="list_id" value="19016"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
 							<param name="content_path" value="$VAR[SearchProviderKeywordMoviesVar]"/>
               <param name="widget_header" value="$VAR[KeywordMoviesLabelVar]"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27015"/>
+              <param name="list_id" value="19015"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
 							<param name="content_path" value="$VAR[SearchProviderKeywordTVShowsVar]"/>
               <param name="widget_header" value="$VAR[KeywordTVShowsLabelVar]"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27016"/>
+              <param name="list_id" value="19016"/>
             </include>
             <include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
 							<param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
               <param name="widget_header" value="TRAKT Lists"/>
               <param name="widget_target" value="videos"/>
-              <param name="list_id" value="27017"/>
+              <param name="list_id" value="19017"/>
             </include>
 						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
 							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=movies&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
 							<param name="widget_header" value="TRAKT Lists (Movies)"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="27018"/>
+							<param name="list_id" value="19018"/>
 						</include>
 						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
 							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=tvshows&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
 							<param name="widget_header" value="TRAKT Lists (TV Shows)"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="27019"/>
+							<param name="list_id" value="19019"/>
 						</include>
 					</control>
 					<include content="WidgetUpDownArrows">
-						<param name="container_id" value="27001" />
+						<param name="container_id" value="19001" />
 					</include>
 					<include content="WidgetScrollbar" condition="Skin.HasSetting(touchmode)">
-						<param name="scrollbar_id" value="27099"/>
+						<param name="scrollbar_id" value="19099"/>
 					</include>
 				</control>
 			</control>
@@ -152,8 +152,8 @@
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
 				<include>SearchMenuAnimations</include>
-				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
-				<top>563</top>
+				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + $EXP[isContent]</visible>
+				<top>568</top>
 				<left>50</left>
 				<width>1815</width>
 				<aligny>center</aligny>
@@ -181,7 +181,7 @@
 						<!-- <effect type="fade" start="0" end="100" time="500" tween="cubic" easing="in"/> -->
 					</animation>
 					<include content="MenuContentPanel">
-						<param name="width" value="670"/>
+						<param name="width" value="611"/>
 						<!-- <param name="width" value="600"/> -->
 					</include>
 					<!-- <visible allowhiddenfocus="true">true</visible> -->
@@ -289,7 +289,7 @@
 					<!-- <width>550</width> -->
 					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					<include>OpenClose_Left</include>
-					<animation type="Conditional" condition="!ControlGroup(2000).HasFocus" reversible="true">
+					<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)" reversible="true">
 						<effect type="slide" start="0,0" end="0,-610" time="500" tween="cubic" easing="inout" />
 						<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
 					</animation>

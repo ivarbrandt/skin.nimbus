@@ -9,10 +9,10 @@
 	</variable>
 
 	
-	<variable name="DetailedOSDLogoVar">
-		<value condition="!VideoPlayer.Content(livetv) + [!String.IsEmpty(Player.Art(clearlogo)) + !Skin.HasSetting(Disable.OSDClearlogo)]">$VAR[PlayerClearLogoVar]</value>
+	<!-- <variable name="DetailedOSDLogoVar">
+		<value condition="!VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.OSDClearlogo)">$VAR[PlayerClearLogoVar]</value>
 		<value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(Disable.OSDClearlogo)">$INFO[Player.Icon]</value>
-	</variable>
+	</variable> -->
 
 	<variable name="DynamicContentInfo">
     <value condition="VideoPlayer.Content(episodes) + !Skin.HasSetting(Disable.OSDEpisodeInfo) + !Skin.HasSetting(Disable.OSDEpisodePlot)">[B]$INFO[VideoPlayer.Season]x$INFO[VideoPlayer.Episode] • $INFO[VideoPlayer.Title][/B][CR]$INFO[VideoPlayer.Plot]</value>

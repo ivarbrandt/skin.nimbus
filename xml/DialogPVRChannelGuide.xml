@@ -5,7 +5,7 @@
 		<control type="group">
 			<animation effect="fade" start="0" end="100" time="100">WindowOpen</animation>
 			<animation effect="fade" start="100" end="0" time="100">WindowClose</animation>
-			<animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+			<animation effect="fade" start="100" end="95" time="0" condition="true">Conditional</animation>
 			<visible>!Window.IsActive(fullscreenvideo)</visible>
 			<include>ColoredBackgroundImages</include>
 		</control>

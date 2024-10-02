@@ -217,61 +217,40 @@
 					<onclick>Skin.ToggleSetting(OneClickClose)</onclick>
 					<selected>Skin.HasSetting(OneClickClose)</selected>
 				</control>
-				<!-- HOMESCREEN ON BACK -->
-				<control type="button" id="63702">
-					<label>Home screen widget on back action</label>
-					<label2>$VAR[OnBackSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[OnBackSettingToggleVar]</onclick>
-				</control>
-				<!-- HOMESCREEN ON LEFT -->
-				<control type="button" id="63703">
-					<label>Home screen widget on left action</label>
-					<label2>$VAR[OnLeftSettingVar]</label2>
-					<include>DefaultSettingButton</include>
-					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
-				</control>
 				<!-- MENU ITEMS CASE -->
-				<control type="button" id="63704">
+				<control type="button" id="63702">
 					<label>Menu items case</label>
 					<label2>$VAR[MenuCaseSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[MenuCaseToggleVar]</onclick>
 				</control>
 				<!-- ACCENT COLOR THEME -->
-				<control type="button" id="63705">
+				<control type="button" id="63703">
 					<label>Accent color theme</label>
 					<label2>$VAR[MenuSelectorColorThemeSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[MenuSelectorColorThemeToggleVar]</onclick>
 				</control>
 				<!-- FOCUS COLOR THEME -->
-				<control type="button" id="63706">
+				<control type="button" id="63704">
 					<label>Focus color theme</label>
 					<label2>$VAR[FocusColorThemeSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[FocusColorThemeToggleVar]</onclick>
 				</control>
 				<!-- DAILOG COLOR THEME -->
-				<control type="button" id="63707">
+				<control type="button" id="63705">
 					<label>Dialog background color theme</label>
 					<label2>$VAR[DialogBackgroundSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[DialogBackgroundToggleVar]</onclick>
 				</control>
 				<!-- CLOCK -->
-				<control type="radiobutton" id="63708">
+				<control type="radiobutton" id="63706">
 					<label>Enable current time in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.ClockCrumbs)</selected>
 					<onclick>Skin.ToggleSetting(Enable.ClockCrumbs)</onclick>
-				</control>
-				<!-- WIDGET NAVIGATION -->
-				<control type="radiobutton" id="63709">
-					<label>Enable widget navigation arrows</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.WidgetNavigationArrows)</selected>
-					<onclick>Skin.ToggleSetting(Disable.WidgetNavigationArrows)</onclick>
 				</control>
 				<!-- STUDIO LOGOS -->
 				<!-- <control type="radiobutton" id="63707">
@@ -282,14 +261,14 @@
 					<selected>Skin.HasSetting(Enable.StudioLogos)</selected>
 				</control> -->
 				<!-- AUTO END PLAYBACK -->
-				<control type="radiobutton" id="63710">
+				<control type="radiobutton" id="63707">
 					<label>Enable auto ending of playback</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.AutoEndPlayback)</selected>
 					<onclick>Skin.ToggleSetting(Enable.AutoEndPlayback)</onclick>
 				</control>
 				<!-- SET DELAY -->
-				<control type="button" id="63711">
+				<control type="button" id="63708">
 					<label>    - Set delay (minutes)</label>
 					<label2>$INFO[Skin.String(PlaybackDelayMins)]</label2>
 					<include>DefaultSettingButton</include>
@@ -893,8 +872,73 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>640</ondown>
 				<visible>Container(9000).HasFocus(9)</visible>
+				<!-- HOMESCREEN ON BACK -->
+				<control type="button" id="64001">
+					<label>On back action</label>
+					<label2>$VAR[OnBackSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[OnBackSettingToggleVar]</onclick>
+				</control>
+				<!-- HOMESCREEN ON LEFT -->
+				<control type="button" id="64002">
+					<label>On left action</label>
+					<label2>$VAR[OnLeftSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
+				</control>
+				<!-- HOMESCREEN LANDSCAPE WIDGET SUBLABEL -->
+				<control type="button" id="64003">
+					<label>Choose landscape sublabel</label>
+					<label2>$VAR[LandscapeWidgetSublabelSettingVar]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[LandscapeWidgetSublabelToggleVar]</onclick>
+				</control>
+				<!-- ITEM TITLE -->
+				<control type="radiobutton" id="64004">
+					<label>Show item title in InfoLine</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.WidgetInfoLineTitle)</selected>
+					<onclick>Skin.ToggleSetting(Disable.WidgetInfoLineTitle)</onclick>
+				</control>
+				<!-- WIDGET NAVIGATION -->
+				<control type="radiobutton" id="64005">
+					<label>Enable widget navigation arrows</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.WidgetNavigationArrows)</selected>
+					<onclick>Skin.ToggleSetting(Disable.WidgetNavigationArrows)</onclick>
+				</control>
+				<!-- DIM WIDGETS -->
+				<control type="radiobutton" id="64006">
+					<label>Dim widgets on main menu focus</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.MainMenuWidgetDimming)</selected>
+					<onclick>Skin.ToggleSetting(Enable.MainMenuWidgetDimming)</onclick>
+				</control>
+			</control>
+				
+			<control type="grouplist" id="641">
+				<top>133</top>
+				<left>25</left>
+				<right>0</right>
+				<bottom>140</bottom>
+				<onleft>9000</onleft>
+				<onright>60</onright>
+				<onup>641</onup>
+				<pagecontrol>60</pagecontrol>
+				<ondown>641</ondown>
+				<visible>Container(9000).HasFocus(10)</visible>
+				<control type="button" id="64101">
+					<label>View changelog</label>
+					<include>DefaultSettingButton</include>
+					<onclick>RunScript(script.nimbus.helper,mode=show_changelog)</onclick>
+				</control>
+				<control type="button" id="64102">
+					<label>View welcome screen</label>
+					<include>DefaultSettingButton</include>
+					<onclick>ActivateWindow(1112)</onclick>
+				</control>
 				<!-- RESET FORCED VIEWS -->
-				<control type="button" id="6401">
+				<control type="button" id="64103">
 					<label>Reset forced views</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.Reset(Skin.ForcedView.)</onclick>
@@ -925,7 +969,7 @@
 					<onclick>Skin.Reset(Skin.ForcedView.years)</onclick>
 					<onclick>Notification(Views Unlocked,All forced views have been reset)</onclick>
 				</control>
-				<control type="button" id="6402">
+				<control type="button" id="64104">
 					<label>Clear blur cache</label>
 					<label2>$INFO[Skin.String(CacheSize)]</label2>
 					<include>DefaultSettingButton</include>
@@ -938,38 +982,15 @@
 					<onclick>Skin.SetString(TrailerSource,0)</onclick>
 					<visible>!String.IsEmpty(Skin.String(mdblist_api_key))</visible>
 				</control> -->
-				<control type="button" id="6403">
+				<control type="button" id="64105">
 					<label>Clear ratings cache</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper,mode=delete_all_ratings)</onclick>
 				</control>
-				<control type="button" id="6404">
+				<control type="button" id="64106">
 					<label>Clear search history</label>
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper,mode=remove_all_spaths)</onclick>
-				</control>
-			</control>
-
-			<control type="grouplist" id="641">
-				<top>133</top>
-				<left>25</left>
-				<right>0</right>
-				<bottom>140</bottom>
-				<onleft>9000</onleft>
-				<onright>60</onright>
-				<onup>641</onup>
-				<pagecontrol>60</pagecontrol>
-				<ondown>641</ondown>
-				<visible>Container(9000).HasFocus(10)</visible>
-				<control type="button" id="6410">
-					<label>View changelog</label>
-					<include>DefaultSettingButton</include>
-					<onclick>RunScript(script.nimbus.helper,mode=show_changelog)</onclick>
-				</control>
-				<control type="button" id="6411">
-					<label>View welcome screen</label>
-					<include>DefaultSettingButton</include>
-					<onclick>ActivateWindow(1112)</onclick>
 				</control>
 			</control>
 
@@ -1050,6 +1071,10 @@
 						<label>General configuration</label>
 						<onclick>noop</onclick>
 					</item>
+					<item id="9">
+						<label>Widget options</label>
+						<onclick>noop</onclick>
+					</item>
 					<item id="2">
 						<label>Customization</label>
 						<onclick>noop</onclick>
@@ -1072,10 +1097,6 @@
 					</item>
 					<item id="7">
 						<label>$LOCALIZE[31170]</label>
-						<onclick>noop</onclick>
-					</item>
-					<item id="9">
-						<label>Clear caches</label>
 						<onclick>noop</onclick>
 					</item>
 					<item id="10">

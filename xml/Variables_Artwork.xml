@@ -15,8 +15,9 @@
 	</variable>
 
   <variable name="HomeFanartVar">
-    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Thumb) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Thumb]</value>
-    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + !String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Art(fanart)]</value>
+    <!-- <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Thumb) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Thumb]</value> -->
+    <!-- <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + !String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Art(fanart)]</value> -->
+    <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(fanart)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Art(fanart)]</value>
     <value condition="$EXP[isEpisode] + !String.IsEmpty(ListItem.Art(landscape)) + String.IsEqual(Skin.String(HomeArtworkChoice),1) + String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[ListItem.Art(landscape)]</value>
     <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_thumb)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[Window(home).Property(nimbus_episode_thumb)]</value>
     <value condition="!String.IsEmpty(Window(home).Property(nimbus_episode_fanart)) + [String.IsEqual(Skin.String(HomeArtworkChoice),0) | String.IsEqual(Skin.String(HomeArtworkChoice),1)] + !String.IsEmpty(Window(Home).Property(LandscapeWidgetFocused)) + !String.IsEqual(Skin.String(HomeEpisodeArtworkChoice),2)">$INFO[Window(home).Property(nimbus_episode_fanart)]</value>
@@ -58,6 +59,7 @@
 
   <variable name="ClearlogoVar">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))">$INFO[Container.ListItem.Art(tvshow.clearlogo)]</value>
 		<value>$INFO[ListItem.Art(clearlogo)]</value>
 	</variable>
 

@@ -708,7 +708,7 @@
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
 					<font>font27</font>
-					<visible>![Player.HasMedia | Window.IsVisible(10702)]</visible>
+					<visible>!Window.IsVisible(Home) + ![Player.HasMedia | Window.IsVisible(10702)]</visible>
 				</control>
 				<control type="label">
 					<top>505</top>
@@ -722,7 +722,7 @@
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
 					<font>font27</font>
-					<visible>Player.HasMedia + !Window.IsVisible(10702)</visible>
+					<visible>!Window.IsVisible(Home) + Player.HasMedia + !Window.IsVisible(10702)</visible>
 				</control>
 				<control type="label">
 					<top>545</top>

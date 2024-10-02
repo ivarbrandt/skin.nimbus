@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<onload>SetProperty(NimbusInitialStartup_movies,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_tvshows,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_custom1,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_custom2,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_custom3,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_music,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_musicvideos,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_livetv,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_radio,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_addons,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_pictures,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_videos,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_games,true,home)</onload>
+	<onload>SetProperty(NimbusInitialStartup_weather,true,home)</onload>
 	<onload>ReplaceWindow($INFO[System.StartupWindow])</onload>
 	<controls />
 </window>

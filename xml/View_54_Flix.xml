@@ -53,19 +53,19 @@
 		<param name="focused">false</param>
 		<definition>
 			<control type="group">
-				<width>279</width>
-				<height>279</height>
+				<width>235</width>
+				<height>235</height>
 				<control type="group">
 					<control type="image">
 						<!-- <left>2</left> -->
 						<texture colordiffuse="$VAR[FocusColorTheme]">masks/addons-glow.png</texture>
-						<bordersize>-26</bordersize>
+						<bordersize>-22</bordersize>
 						<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
 					<include content="GlowPulse">
-						<param name="pos_x" value="139.5"/>
-						<param name="pos_y" value="139.5"/>
+						<param name="pos_x" value="117.5"/>
+						<param name="pos_y" value="117.5"/>
 					</include>
 				</control>
 				<control type="image">
@@ -76,7 +76,7 @@
 				</control>
 				<control type="image">
 					<texture colordiffuse="80000000">masks/addons.png</texture>
-					<bordersize>2</bordersize>
+					<bordersize>1</bordersize>
 					<bordertexture colordiffuse="$VAR[MenuSelectorColor]" border="10" infill="false">masks/addons-border.png</bordertexture>
 					<visible>![$PARAM[focused] + Control.HasFocus($PARAM[list_id])]</visible>
 					<visible>![$PARAM[focused] + ControlGroup(400).HasFocus]</visible>
@@ -86,18 +86,30 @@
 					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_icon]" background="true">$VAR[FlixThumbVar]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="label">
-					<centerleft>50%</centerleft>
-					<top>285</top>
-					<width>240</width>
-					<height>75</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$PARAM[single_label]</label>
-					<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
-					<font>font25</font>
-					<textcolor>unfocused_text</textcolor>
-					<visible>!String.IsEqual(ListItem.DBType,album)</visible>
+				<control type="group">
+					<left>10</left>
+					<width>215</width>
+					<control type="label">
+						<top>250</top>
+						<label>$VAR[LandscapeWidgetMainLabel]</label>
+						<!-- <label>$VAR[AddonsTitleVar]</label> -->
+						<font>font25_title</font>
+						<textcolor>unfocused_text</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<align>center</align>
+						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
+						<scrollspeed>100</scrollspeed>
+					</control>
+					<control type="label">
+						<top>280</top>
+						<label>$INFO[ListItem.AddonVersion]</label>
+						<font>font25</font>
+						<textcolor>FF939393</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<align>center</align>
+						<scroll>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</scroll>
+						<scrollspeed>100</scrollspeed>
+					</control>
 				</control>
 				<control type="group">
 					<visible>String.IsEqual(ListItem.DBType,album)</visible>
@@ -205,7 +217,7 @@
 					<height>411</height> -->
 					<texture colordiffuse="$VAR[FocusColorTheme]">masks/poster-glow.png</texture>
 					<bordersize>-10</bordersize>
-					<visible>[[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] + String.IsEmpty(Skin.String(TrailerPlaying))] | [[$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]] + String.IsEmpty(Skin.String(TrailerPlaying))]</visible>
+					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					<include content="GlowPulse">

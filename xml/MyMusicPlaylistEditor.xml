@@ -92,7 +92,7 @@
 			</control>
 		</control>
 		<include content="TopBar">
-			<param name="breadcrumbs_label" value="$LOCALIZE[10503][COLOR=button_focus][/COLOR]" />
+			<param name="breadcrumbs_label" value="$LOCALIZE[10503]" />
 		</include>
 		<include>BottomBar</include>
 		<include content="BottomBarTwoListInfo">

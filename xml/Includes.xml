@@ -74,6 +74,22 @@
 					<top>list_top_offset</top>
 					<width>60</width>
 					<bottom>$PARAM[bottom_offset]</bottom>
+					<control type="scrollbar" id="530">
+						<left>35</left>
+						<top>-492</top>
+						<bottom>72</bottom>
+						<width>12</width>
+						<texturesliderbar colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbar>
+						<texturesliderbarfocus colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbarfocus>
+						<onleft condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">9000</onleft>
+						<onleft condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">9000</onleft>
+						<onright condition="![Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)]">52</onright>
+						<onright condition="Window.IsVisible(musicplaylist) | Window.IsVisible(videoplaylist)">52</onright>
+						<orientation>vertical</orientation>
+						<texturesliderbackground />
+						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(530)]">conditional</animation>
+						<visible>Control.IsVisible(52)</visible>
+					</control>
 					<control type="scrollbar" id="531">
 						<left>35</left>
 						<top>0</top>
@@ -88,7 +104,7 @@
 						<orientation>vertical</orientation>
 						<texturesliderbackground />
 						<animation effect="zoom" end="50,100" time="300" tween="sine" center="35,0" easing="inout" condition="![Container.Scrolling | Control.HasFocus(531)]">conditional</animation>
-						<visible>Control.IsVisible(52) | Control.IsVisible(56)</visible>
+						<visible>Control.IsVisible(56)</visible>
 					</control>
 					<control type="scrollbar" id="532">
 						<left>35</left>
@@ -604,7 +620,7 @@
 				<control type="group">
 					<visible>Integer.IsGreater(Container($PARAM[group_id]50).NumItems,0) | Container($PARAM[group_id]50).IsUpdating</visible>
 					<control type="panel" id="$PARAM[group_id]50">
-						<left>465</left>
+						<left>435</left>
 						<top>0</top>
 						<height>100%</height>
 						<onleft>9000</onleft>
@@ -614,7 +630,7 @@
 						<preloaditems>2</preloaditems>
 						<pagecontrol>$PARAM[group_id]30</pagecontrol>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
-						<itemlayout height="375" width="350">
+						<itemlayout width="290" height="370">
 							<control type="group">
 								<left>25</left>
 								<top>150</top>
@@ -623,7 +639,7 @@
 								</include>
 							</control>
 						</itemlayout>
-						<focusedlayout height="375" width="350" infoupdate="30">
+						<focusedlayout width="290" height="370" infoupdate="30">
 							<control type="group">
 								<left>25</left>
 								<top>150</top>
@@ -751,7 +767,7 @@
 			<control type="button" id="$PARAM[container_id]588">
 				<include>WidgetNavigationAnimations</include>
 				<left>45</left>
-				<top>100</top>
+				<top>104.5</top>
 				<width>33</width>
 				<height>33</height>
 				<texturefocus colordiffuse="$VAR[MenuSelectorColor]">overlays/arrowdown1.png</texturefocus>
@@ -762,7 +778,7 @@
 			<control type="button" id="$PARAM[container_id]589">
 				<include>WidgetNavigationAnimations</include>
 				<left>45</left>
-				<top>89</top>
+				<top>93.5</top>
 				<width>33</width>
 				<height>33</height>
 				<texturefocus colordiffuse="$VAR[MenuSelectorColor]" flipy="true">overlays/arrowdown1.png</texturefocus>
@@ -773,7 +789,7 @@
 			<control type="button" id="$PARAM[container_id]590">
 				<include>WidgetNavigationAnimations</include>
 				<left>45</left>
-				<top>89</top>
+				<top>93.5</top>
 				<width>33</width>
 				<height>33</height>
 				<texturefocus colordiffuse="$VAR[MenuSelectorColor]">overlays/arrowdown1.png</texturefocus>
@@ -784,7 +800,7 @@
 			<control type="button" id="$PARAM[container_id]591">
 				<include>WidgetNavigationAnimations</include>
 				<left>45</left>
-				<top>100</top>
+				<top>104.5</top>
 				<width>33</width>
 				<height>33</height>
 				<texturefocus colordiffuse="$VAR[MenuSelectorColor]" flipy="true">overlays/arrowdown1.png</texturefocus>
@@ -947,6 +963,7 @@
 				<depth>DepthBars</depth>
 				<!-- <animation effect="fade" start="0" end="100" time="300" condition="!Container.Scrolling">Conditional</animation> -->
 				<animation effect="fade" start="0" end="100" time="300" condition="[Window.Previous(fullscreenvideo) | Window.Previous(startup)] + !Window.IsVisible(1109)">WindowOpen</animation>
+				<!-- <animation effect="fade" start="100" end="0" time="300" condition="[Window.IsVisible(Home) | Window.IsVisible(1121)] + !Player.HasMedia | [Player.HasMedia + ControlGroup(2000).HasFocus]">Conditional</animation> -->
 				<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(50) | Control.IsVisible(56)] | Window.IsVisible(extendedprogressdialog)</visible>
 				<control type="image">
 					<!-- <visible>Window.IsVisible(extendedprogressdialog)</visible> -->
@@ -1224,8 +1241,8 @@
 				<fadetime>500</fadetime>
 				<animation effect="zoom" center="auto" end="102,102" time="0" condition="Integer.IsGreater(System.StereoscopicMode,0)">conditional</animation>
 				<!-- <animation effect="fade" start="0" end="100" time="500">WindowOpen</animation>
-				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation>
-				<animation effect="fade" time="400">VisibleChange</animation> -->
+				<animation effect="fade" start="100" end="0" time="500">WindowClose</animation> -->
+				<!-- <animation effect="fade" time="300">VisibleChange</animation> -->
 				<depth>DepthBackground</depth>
 				<include>FullScreenDimensions</include>
 				<aspectratio>scale</aspectratio>
@@ -1405,30 +1422,62 @@
 		<definition>
 			<control type="group">
 				<visible>Player.HasVideo</visible>
-				<control type="videowindow">
-					<depth>DepthBackground</depth>
-					<include>NetflixScreenVideoDimensions</include>
-					<visible>!Slideshow.IsActive</visible>
-					<visible>Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)</visible>
+				<control type="group">
+					<visible>Window.IsVisible(Home) | Window.IsVisible(1121)</visible>
+					<control type="group">
+						<visible>ControlGroup(2000).HasFocus</visible>
+						<control type="videowindow">
+							<depth>DepthBackground</depth>
+							<include>NetflixScreenVideoDimensions</include>
+							<visible>!Slideshow.IsActive</visible>
+						</control>
+						<control type="image">
+							<right>-3</right>
+							<top>-3</top>
+							<width>1410</width>
+							<height>730</height>
+							<texture colordiffuse="black">overlays/netflixtrailerdiffuse.png</texture>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!ControlGroup(2000).HasFocus</visible>
+						<control type="videowindow">
+							<depth>DepthBackground</depth>
+							<include>FullScreenDimensions</include>
+							<visible>!Slideshow.IsActive</visible>
+						</control>
+						<control type="image">
+							<include>FullScreenDimensions</include>
+							<texture colordiffuse="99000000">colors/white.png</texture>
+						</control>
+					</control>
 				</control>
-				<control type="videowindow">
-					<depth>DepthBackground</depth>
-					<include>FullScreenDimensions</include>
-					<visible>!Slideshow.IsActive</visible>
+				<control type="group">
+					<visible>Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)</visible>
+					<control type="videowindow">
+						<depth>DepthBackground</depth>
+						<include>NetflixScreenVideoDimensions</include>
+						<visible>!Slideshow.IsActive</visible>
+					</control>
+					<control type="image">
+						<right>-3</right>
+						<top>-3</top>
+						<width>1410</width>
+						<height>730</height>
+						<texture colordiffuse="black">overlays/netflixtrailerdiffuse.png</texture>
+					</control>
+				</control>
+				<control type="group">
 					<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)]</visible>
-				</control>
-				<control type="image">
-					<right>-3</right>
-					<top>-3</top>
-					<width>1410</width>
-					<height>730</height>
-					<texture colordiffuse="black">overlays/netflixtrailerdiffuse.png</texture>
-					<visible>Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)</visible>
-				</control>
-				<control type="image">
-					<include>FullScreenDimensions</include>
-					<texture colordiffuse="99000000">colors/white.png</texture>
-					<visible>![Window.IsVisible(Home) | Window.IsVisible(1121) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Window.IsVisible(tvchannels) | Window.IsVisible(tvguide) | Window.IsVisible(tvrecordings) | Window.IsVisible(tvtimers) | Window.IsVisible(tvtimerrules) | Window.IsVisible(tvsearch)]</visible>
+					<control type="videowindow">
+						<depth>DepthBackground</depth>
+						<include>FullScreenDimensions</include>
+						<visible>!Slideshow.IsActive</visible>
+					</control>
+					<control type="image">
+						<include>FullScreenDimensions</include>
+						<texture colordiffuse="99000000">colors/white.png</texture>
+					</control>
 				</control>
 				<control type="visualisation">
 					<include>FullScreenDimensions</include>
@@ -1487,7 +1536,7 @@
 				<depth>DepthBars</depth>
 				<animation effect="fade" start="100" end="0" time="300" condition="Window.Next(visualisation) | Window.Next(screencalibration)">WindowClose</animation>
 				<animation effect="fade" start="0" end="100" time="300" condition="Window.Previous(fullscreenvideo) | Window.Previous(startup) | Window.Previous(visualisation)">WindowOpen</animation>
-				<visible>![Control.IsVisible(50) | Control.IsVisible(56)]</visible>
+				<visible>![Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(54) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(500) | Control.IsVisible(501)]</visible>
 				<bottom>0</bottom>
 				<control type="image">
 					<left>0</left>
@@ -1665,7 +1714,7 @@
     <definition>
 			<!-- Content Panel Background -->
 			<control type="image">
-				<texture flipx="$PARAM[flipx]" colordiffuse="$VAR[MainMenuDiffuse]">masks/mediapanel.png</texture>
+				<texture flipx="$PARAM[flipx]" colordiffuse="$VAR[MainMenuDiffuse]">colors/white.png</texture>
 				<bordersize>40</bordersize>
 				<width>$PARAM[width]</width>
 				<left>$PARAM[left]</left>
@@ -1837,7 +1886,7 @@
 				<height>198</height>
 				<texture colordiffuse="80000000">masks/landscape.png</texture>
 				<bordertexture colordiffuse="$VAR[MenuSelectorColor]" border="10" infill="false">masks/landscape-border.png</bordertexture>
-				<bordersize>2</bordersize>
+				<bordersize>1</bordersize>
 			</control>
 			<control type="image">
 				<centerleft>54%</centerleft>

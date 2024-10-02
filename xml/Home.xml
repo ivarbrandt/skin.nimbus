@@ -20,19 +20,83 @@
 		</control>
 		<include>DefaultBackground</include>
 		<control type="group">
-			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]</visible>
+			<visible>
+				[
+					[ControlGroup(2000).HasFocus | Control.HasFocus(20000) | Control.HasFocus(20001)] + 
+					[!Player.HasVideo + ![Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)] + 
+					String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]
+				] | 
+				[
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),movies) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_movies_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_movies))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),tvshows) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_tvshows_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_tvshows))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),custom1) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_custom1_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_custom1))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),custom2) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_custom2_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_custom2))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),custom3) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_custom3_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_custom3))]
+					] | 
+					[
+					String.IsEqual(Container(9000).ListItem.Property(id),music) + 
+					[!String.IsEmpty(Window(Home).Property(nimbus_music_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_music))]
+					] | 
+					[
+					String.IsEqual(Container(9000).ListItem.Property(id),musicvideos) + 
+					[!String.IsEmpty(Window(Home).Property(nimbus_musicvideos_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_musicvideos))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),livetv) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_livetv_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_livetv))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),radio) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_radio_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_radio))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),addons) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_addons_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_addons))]
+					] | 
+					[
+					String.IsEqual(Container(9000).ListItem.Property(id),pictures) + 
+					[!String.IsEmpty(Window(Home).Property(nimbus_pictures_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_pictures))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),video) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_videos_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_videos))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),games) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_games_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_games))]
+					] | 
+					[
+						String.IsEqual(Container(9000).ListItem.Property(id),weather) + 
+						[!String.IsEmpty(Window(Home).Property(nimbus_weather_first_widget)) | !String.IsEmpty(Window(Home).Property(NimbusInitialStartup_weather))]
+					]
+				]
+			</visible>
+			<animation effect="fade" time="500">VisibleChange</animation>
 			<control type="multiimage">
 				<include>NetflixScreenDimensions</include>
 				<aspectratio>stretch</aspectratio>
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
 				<imagepath background="true" diffuse="overlays/netflixfanartdiffuse.png" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[HomeFanartVar]</imagepath>
-				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),0) + !$EXP[infodialog_active]</visible>
+				<visible>!Player.HasMedia + String.IsEqual(Skin.String(HomeArtworkChoice),0) + !String.IsEqual(Container(9000).ListItem.Property(id),favorites) + !$EXP[infodialog_active]</visible>
 			</control>
 			<control type="image">
 				<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)" reversible="true">
 					<effect type="slide" start="0,0" end="-200,0" time="500" tween="cubic" easing="inout" />
-					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
 				</animation>
 				<include>BigLandscapeScreenDimensions</include>
 				<fadetime>500</fadetime>
@@ -41,19 +105,18 @@
 				<bordersize>1</bordersize>
 				<aspectratio scalediffuse="false">scale</aspectratio>
 				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + !ControlGroup(15000).HasFocus + !$EXP[infodialog_active]</visible>
+				<visible>!Player.HasMedia + String.IsEqual(Skin.String(HomeArtworkChoice),1) + !String.IsEqual(Container(9000).ListItem.Property(id),favorites) + !ControlGroup(15000).HasFocus + !$EXP[infodialog_active]</visible>
 			</control>
 			<control type="multiimage">
 				<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)" reversible="true">
 					<effect type="slide" start="0,0" end="-200,0" time="500" tween="cubic" easing="inout" />
-					<!-- <effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/> -->
 				</animation>
 				<include>BigLandscapeScreenDimensions</include>
 				<fadetime>500</fadetime>
 				<include>ArtworkAnimations</include>
 				<imagepath colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true">$VAR[WeatherFanartVar]</imagepath>
 				<aspectratio scalediffuse="false">scale</aspectratio>
-				<visible>String.IsEqual(Skin.String(HomeArtworkChoice),1) + ControlGroup(15000).HasFocus</visible>
+				<visible>!Player.HasMedia + String.IsEqual(Skin.String(HomeArtworkChoice),1) + ControlGroup(15000).HasFocus</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -61,6 +124,10 @@
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<!-- WIDGETS GROUP -->
 			<control type="group" id="2000">
+				<animation condition="Skin.HasSetting(Enable.MainMenuWidgetDimming) + !ControlGroup(2000).HasFocus" reversible="true">
+					<effect type="fade" start="100" end="80" time="500" tween="sine" easing="inout" />
+					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="500" />
+				</animation>
 				<animation type="Conditional" condition="Control.IsVisible(20000)" reversible="false">
 					<effect type="slide" end="0,20" time="60" tween="sine" />
 					<effect type="slide" end="0,-20" time="180" tween="sine" delay="80" />
@@ -220,7 +287,7 @@
 							<param name="content_path" value="library://music/"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
 							<param name="widget_target" value="music"/>
-							<param name="list_id" value="7900"/>
+							<param name="list_id" value="7011"/>
 						</include>
 						<include content="WidgetListSquare" condition="Library.HasContent(music)">
 							<param name="content_path" value="musicdb://recentlyplayedalbums"/>
@@ -297,6 +364,7 @@
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="addons"/>
 					</include>
+					<include>AddonsPanel</include>
 					<control type="grouplist" id="8001">
 						<include content="Animation_Widget_Poster_Slide">
 							<param name="container" value="8001" />
@@ -307,7 +375,7 @@
 							<param name="content_path" value="addons://"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
 							<param name="widget_target" value="addonbrowser"/>
-							<param name="list_id" value="8900"/>
+							<param name="list_id" value="8011"/>
 							<param name="visible" value="Integer.IsGreater(Container(8100).NumItems,0) | Integer.IsGreater(Container(8200).NumItems,0) | Integer.IsGreater(Container(8300).NumItems,0) | Integer.IsGreater(Container(8400).NumItems,0) | Integer.IsGreater(Container(8500).NumItems,0) | Integer.IsGreater(Container(8700).NumItems,0)"/>
 						</include>
 						<include content="WidgetListSquare">
@@ -396,7 +464,7 @@
 							<param name="content_path" value="library://video/"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="11900"/>
+							<param name="list_id" value="11011"/>
 						</include>
 						<include content="WidgetListCategory">
 							<param name="content_path" value="sources://video/"/>
@@ -445,7 +513,7 @@
 						<include content="WidgetListCategory" condition="System.HasPVRAddon + !Skin.HasSetting(home_no_categories_widget)">
 							<param name="content_path" value="pvr://tv/"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
-							<param name="list_id" value="12900"/>
+							<param name="list_id" value="12011"/>
 						</include>
 						<include content="WidgetListPVR" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://channels/tv/*?view=lastplayed"/>
@@ -522,7 +590,7 @@
 						<include content="WidgetListCategory" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://radio/"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
-							<param name="list_id" value="13900"/>
+							<param name="list_id" value="13011"/>
 						</include>
 						<include content="WidgetListPVR" condition="System.HasPVRAddon">
 							<param name="content_path" value="pvr://channels/radio/*?view=lastplayed"/>
@@ -590,9 +658,9 @@
 					<include content="Visible_Right_Delayed">
 						<param name="id" value="favorites"/>
 					</include>
-					<control type="label">
+					<!-- <control type="label">
 						<left>50</left>
-						<top>90</top>
+						<top>-425</top>
 						<label>$VAR[HomescreenFlixCrumbs]</label>
 						<font>font27</font>
 						<textcolor>$VAR[MenuSelectorColor]</textcolor>
@@ -601,9 +669,20 @@
 						<scrollspeed>100</scrollspeed>
 						<visible>Control.HasFocus(14100)</visible>
 					</control>
-					<control type="fixedlist" id="14100">
+					<control type="label">
+						<left>50</left>
+						<top>-425</top>
+						<label>$INFO[Container(9000).ListItem.Label]</label>
+						<font>font27</font>
+						<textcolor>unfocused_text</textcolor>
+						<shadowcolor>text_shadow</shadowcolor>
+						<scroll>true</scroll>
+						<scrollspeed>100</scrollspeed>
+						<visible>!Control.HasFocus(14100)</visible>
+					</control> -->
+					<control type="panel" id="14100">
 						<left>0</left>
-						<top>107</top>
+						<top>-565</top>
 						<right>0</right>
 						<bottom>0</bottom>
 						<onback>9000</onback>
@@ -618,12 +697,12 @@
 						<onfocus>ClearProperty(nimbus_landscape_art)</onfocus>
 						<onfocus>ClearProperty(nimbus_landscape_prop)</onfocus>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
-						<orientation>horizontal</orientation>
+						<orientation>vertical</orientation>
 						<pagecontrol>14010</pagecontrol>
 						<visible>Integer.IsGreater(Container(14100).NumItems,0) | Container(14100).IsUpdating</visible>
-						<itemlayout width="306">
+						<itemlayout width="315" height="320">
 							<control type="group">
-								<top>45</top>
+								<top>145</top>
 								<left>56</left>
 								<include content="FlixSquareLayout">
 									<param name="fallback_image" value="DefaultFavourites.png" />
@@ -631,10 +710,10 @@
 								</include>
 							</control>
 						</itemlayout>
-						<focusedlayout width="306">
+						<focusedlayout width="315" height="320" infoupdate="30">
 							<control type="group">
 								<depth>DepthContentPopout</depth>
-								<top>45</top>
+								<top>145</top>
 								<left>56</left>
 								<include content="FlixSquareLayout">
 									<param name="fallback_image" value="DefaultFavourites.png" />
@@ -673,13 +752,13 @@
 						<pagecontrol>15010</pagecontrol>
 						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
 							<param name="content_include" value="DailyItems" />
-							<param name="list_id" value="15200" />
+							<param name="list_id" value="15011" />
 							<param name="widget_header" value="$LOCALIZE[31019]"/>
 							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Daily.IsFetched))" />
 						</include>
 						<include content="WeatherWidget" condition="!String.IsEmpty(Weather.Plugin)">
 							<param name="content_include" value="HourlyItems" />
-							<param name="list_id" value="15100" />
+							<param name="list_id" value="15200" />
 							<param name="widget_header" value="$LOCALIZE[33036]"/>
 							<param name="visible" value="!String.IsEmpty(Window(weather).Property(Hourly.IsFetched))" />
 						</include>
@@ -738,7 +817,7 @@
 							<param name="content_path" value="library://video/musicvideos/"/>
 							<param name="widget_header" value="$LOCALIZE[31148]"/>
 							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="16900"/>
+							<param name="list_id" value="16011"/>
 						</include>
 						<include content="WidgetListEpisodes" condition="Library.HasContent(musicvideos) + !Skin.HasSetting(show_musicvideoposter)">
 							<param name="content_path" value="videodb://recentlyaddedmusicvideos/"/>
@@ -904,27 +983,25 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="" />
 			</include>
-			<!-- <control type="textbox" id="9999">
+			<control type="textbox" id="9999">
 				<include>MainMenuAnimations</include>
 				<left>50</left>
-				<top>560</top>
+				<top>200</top>
 				<width>1500</width>
 				<height>1000</height>
 				<font>font12</font>
 				<textcolor>FFFFFFFF</textcolor>
-				<label>LIE: $INFO[Window(Home).Property(LandscapeInfoEpisode)] | LWF: $INFO[Window(Home).Property(LandscapeWidgetFocused)] | HAC: $INFO[Skin.String(HomeArtworkChoice)] | NET: $INFO[Window(home).Property(nimbus_episode_thumb)] | NEF: $INFO[Window(home).Property(nimbus_episode_fanart)] | Selected: $INFO[Container(9000).ListItem.Property(SelectedArtwork)]</label>
+				<!-- <label>Movies: $INFO[Window(Home).Property(NimbusInitialStartup_movies)][CR]TVShows: $INFO[Window(Home).Property(NimbusInitialStartup_tvshows)][CR]Custom 1:$INFO[Window(Home).Property(NimbusInitialStartup_custom1)][CR]Custom 2:$INFO[Window(Home).Property(NimbusInitialStartup_custom2)][CR]Custom 3:$INFO[Window(Home).Property(NimbusInitialStartup_custom3)][CR]Music: $INFO[Window(Home).Property(NimbusInitialStartup_music)][CR]Music Videos: $INFO[Window(Home).Property(NimbusInitialStartup_musicvideos)][CR]Live TV: $INFO[Window(Home).Property(NimbusInitialStartup_livetv)][CR]Radio: $INFO[Window(Home).Property(NimbusInitialStartup_radio)][CR]Addons: $INFO[Window(Home).Property(NimbusInitialStartup_addons)][CR]Pictures: $INFO[Window(Home).Property(NimbusInitialStartup_pictures)][CR]Videos: $INFO[Window(Home).Property(NimbusInitialStartup_videos)][CR]Games: $INFO[Window(Home).Property(NimbusInitialStartup_games)][CR]Weather: $INFO[Window(Home).Property(NimbusInitialStartup_weather)]</label> -->
+				<!-- <label>Movies: $INFO[Window(Home).Property(nimbus_movies_first_widget)][CR]TVShows: $INFO[Window(Home).Property(nimbus_tvshows_first_widget)][CR]Custom 1:$INFO[Window(Home).Property(nimbus_custom1_first_widget)][CR]Custom 2:$INFO[Window(Home).Property(nimbus_custom2_first_widget)][CR]Custom 3:$INFO[Window(Home).Property(nimbus_custom3_first_widget)][CR]Music: $INFO[Window(Home).Property(nimbus_music_first_widget)][CR]Music Videos: $INFO[Window(Home).Property(nimbus_musicvideos_first_widget)][CR]Live TV: $INFO[Window(Home).Property(nimbus_livetv_first_widget)][CR]Radio: $INFO[Window(Home).Property(nimbus_radio_first_widget)][CR]Addons: $INFO[Window(Home).Property(nimbus_addons_first_widget)][CR]Pictures: $INFO[Window(Home).Property(nimbus_pictures_first_widget)][CR]Videos: $INFO[Window(Home).Property(nimbus_videos_first_widget)][CR]Games: $INFO[Window(Home).Property(nimbus_games_first_widget)][CR]Weather: $INFO[Window(Home).Property(nimbus_weather_first_widget)]</label> -->
 				<visible>true</visible>
-			</control> -->
+			</control>
 			<!-- <include>BottomBar</include> -->
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<control type="group">
-					<visible>$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
+					<visible>$EXP[isContent]</visible>
 					<include>OpenClose_Left</include>
-					<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) + !Control.HasFocus(20001)" reversible="true">
-						<effect type="slide" start="0,0" end="0,-540" time="500" tween="cubic" easing="inout" />
-						<effect type="fade" start="100" end="0" time="650" tween="cubic" easing="in"/>
-					</animation>
+					<include>HomeFlixPanelAnimations</include>
 					<include>FlixPanel</include>
 				</control>
 				<!-- <include>osd_darkenBG</include> -->
@@ -935,20 +1012,24 @@
 					</animation>
 					<include>OpenClose_Left</include>
 					<include content="MenuContentPanel">
-						<param name="width" value="600"/>
+						<param name="width" value="549"/>
 					</include>
 					<!-- <visible>true</visible> -->
 					<control type="fixedlist" id="9000">
 						<left>25</left>
 						<top>215</top>
             <width>825</width>
-						<height>580</height>
+						<height>605</height>
 						<movement>7</movement>
 						<focusposition>0</focusposition>
+						<onunfocus condition="ControlGroup(2000).HasFocus + String.IsEqual(Container(9000).ListItem.Property(id),movies)">ClearProperty(nimbus_movies_first_widget,home)</onunfocus>
+						<onunfocus condition="ControlGroup(2000).HasFocus + String.IsEqual(Container(9000).ListItem.Property(id),tvshows)">ClearProperty(nimbus_tvshows_first_widget,home)</onunfocus>
+						<onunfocus condition="ControlGroup(2000).HasFocus + String.IsEqual(Container(9000).ListItem.Property(id),custom1)">ClearProperty(nimbus_custom1_first_widget,home)</onunfocus>
+						<onunfocus condition="ControlGroup(2000).HasFocus + String.IsEqual(Container(9000).ListItem.Property(id),custom2)">ClearProperty(nimbus_custom2_first_widget,home)</onunfocus>
+						<onunfocus condition="ControlGroup(2000).HasFocus + String.IsEqual(Container(9000).ListItem.Property(id),custom3)">ClearProperty(nimbus_custom3_first_widget,home)</onunfocus>
+						<onfocus>ClearProperty(nimbus_saved_list_id,home)</onfocus>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
-						<!-- <onleft condition="!Skin.HasSetting(Enable.ArtworkQuickConfigure) + [String.IsEqual(Container(9000).ListItem.Property(id),movies) | String.IsEqual(Container(9000).ListItem.Property(id),tvshows) | String.IsEqual(Container(9000).ListItem.Property(id),custom1) | String.IsEqual(Container(9000).ListItem.Property(id),custom2) | String.IsEqual(Container(9000).ListItem.Property(id),custom3)]">733</onleft> -->
-						<onleft condition="!Skin.HasSetting(Disable.QuickConfig)">733</onleft>
 						<onback>700</onback>
 						<onup>700</onup>
 						<ondown>9000</ondown>
@@ -1139,16 +1220,17 @@
 					</control>
 					<control type="label">
 						<animation effect="fade" time="300">Visible</animation>
-						<bottom>410</bottom>
-						<left>528</left>
-						<width>1000</width>
+						<bottom>415</bottom>
+						<left>743</left>
+						<width>930</width>
 						<aligny>center</aligny>
+						<align>center</align>
 						<height>98</height>
 						<font>font32_title</font>
 						<label>[COLOR grey][LIGHT]Current location: [/LIGHT][/COLOR][UPPERCASE]$INFO[Weather.Location][/UPPERCASE]</label>
 						<!-- <label>[UPPERCASE]$INFO[Weather.Location][/UPPERCASE]</label> -->
 						<textcolor>$VAR[MenuSelectorColor]</textcolor>
-						<visible>!String.IsEmpty(Weather.Plugin) + !Control.IsVisible(733) + Weather.IsFetched + String.IsEqual(Container(9000).ListItem.Property(id),weather) + !ControlGroup(2000).HasFocus</visible>
+						<visible>!String.IsEmpty(Weather.Plugin) + !String.IsEmpty(Window(Home).Property(nimbus_weather_first_widget)) + Weather.IsFetched + String.IsEqual(Container(9000).ListItem.Property(id),weather) + !ControlGroup(2000).HasFocus</visible>
 					</control>
 				</control>
 			</control>

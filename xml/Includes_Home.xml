@@ -3,7 +3,7 @@
 
 	<include name="WidgetGroupListCommon">
 		<orientation>vertical</orientation>
-		<height>99999</height>
+		<height>33000</height>
 		<itemgap>-100</itemgap>
 		<onup>20000</onup>
 		<ondown>20001</ondown>
@@ -16,43 +16,48 @@
 		<param name="label_focus">$VAR[FlixCrumbsVar]</param>
 		<definition>
 			<control type="group" id="$PARAM[list_id]665">
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
 				<left>50</left>
 				<top>80</top>
 				<height>40</height>
 				<width>1815</width>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
 				<visible>$PARAM[visible]</visible>
-				<!-- <control type="label">
-					<top>12</top>
-					<label>$VAR[LoadingLabelsVar]</label>
-					<font>font27</font>
-					<textcolor>unfocused_text</textcolor>
-					<shadowcolor>text_shadow</shadowcolor>
-				</control> -->
 				<control type="label">
-					<top>12</top>
-					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]</label>
-					<font>font27</font>
+					<top>17</top>
+					<!-- <label>$INFO[Window(Home).Property(nimbus_saved_list_id)]</label> -->
+					<label>[LIGHT]$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus][/LIGHT]</label>
+					<font>font23_title</font>
 					<textcolor>$VAR[MenuSelectorColor]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
 					<visible>Skin.HasSetting(Disable.WidgetNavigationArrows) + Control.HasFocus($PARAM[list_id])</visible>
-					<animation condition="!Control.HasFocus(9000)" effect="fade" time="500">Conditional</animation>
-					<!-- <visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Skin.String(TrailerPlaying))]</visible> -->
+					<animation effect="fade" start="0" end="100" time="300">Visible</animation>
 				</control>
 				<control type="label">
 					<left>33</left>
-					<top>12</top>
-					<label>$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus]</label>
-					<font>font27</font>
+					<top>17</top>
+					<label>[LIGHT]$VAR[HomescreenFlixCrumbs]$VAR[SearchFlixCrumbs][COLOR unfocused_text]$PARAM[label][/COLOR]$PARAM[label_focus][/LIGHT]</label>
+					<font>font23_title</font>
 					<textcolor>$VAR[MenuSelectorColor]</textcolor>
 					<shadowcolor>text_shadow</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
 					<visible>!Skin.HasSetting(Disable.WidgetNavigationArrows) + Control.HasFocus($PARAM[list_id])</visible>
-					<animation condition="!Control.HasFocus(9000)" effect="fade" time="500">Conditional</animation>
-					<!-- <visible>[!Container($PARAM[list_id]).IsUpdating + Control.HasFocus($PARAM[list_id])] | [Control.HasFocus($PARAM[list_id]) + !String.IsEmpty(Skin.String(TrailerPlaying))]</visible> -->
+					<animation effect="fade" start="0" end="100" time="300">Visible</animation>
+				</control>
+				<control type="label">
+					<top>22</top>
+					<label>$PARAM[label]</label>
+					<font>font23</font>
+					<textcolor>unfocused_text</textcolor>
+					<shadowcolor>text_shadow</shadowcolor>
+					<scroll>true</scroll>
+					<scrollspeed>100</scrollspeed>
+					<visible>!Control.HasFocus($PARAM[list_id])</visible>
 				</control>
 			</control>
 		</definition>
@@ -70,33 +75,35 @@
 				<param name="posy" value="240"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>107</top>
+				<top>102</top>
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
-				<movement>6</movement>
+				<movement>7</movement>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
-				<height>1100</height>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
+				<height>346</height>
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<itemlayout width="263" height="393" >
+				<itemlayout width="230.5" height="393" >
 					<control type="group">
 						<left>33</left>
 						<top>15</top>
-						<include content="FlixMovieLayout">
+						<include content="FlixWidgetMovieLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="263" height="393" infoupdate="30">
+				<focusedlayout width="230.5" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>33</left>
 						<top>15</top>
-						<include content="FlixMovieLayout">
+						<include content="FlixWidgetMovieLayout">
 							<param name="focused" value="true" />
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
@@ -109,7 +116,7 @@
 		</definition>
 	</include>
 
-	<include name="WidgetListLandscape">
+	<!-- <include name="WidgetListLandscape">
 		<param name="onclick_condition">false</param>
 		<definition>
 			<include content="CategoryLabel">
@@ -127,8 +134,10 @@
 				<movement>2</movement>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
 				<right>0</right>
-				<height>1100</height>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
+				<height>346</height>
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
 				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
@@ -158,6 +167,60 @@
 				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
 			</control>
 		</definition>
+	</include> -->
+
+	<include name="WidgetListLandscape">
+		<param name="onclick_condition">false</param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label">$PARAM[widget_header]</param>
+				<param name="list_id" value="$PARAM[list_id]"/>
+			</include>
+			<include content="BusyListSpinner">
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="posy" value="240"/>
+			</include>
+			<control type="fixedlist" id="$PARAM[list_id]">
+				<top>102</top>
+				<onright>$PARAM[list_id]</onright>
+				<orientation>horizontal</orientation>
+				<movement>3</movement>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<right>0</right>
+				<height>346</height>
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<!-- <animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation> -->
+				<onclick condition="$PARAM[onclick_condition]">$PARAM[onclick_action]</onclick>
+				<include content="WidgetListCommon">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<itemlayout width="459.5" height="393" >
+					<control type="group">
+						<left>35</left>
+						<top>15</top>
+						<include content="FlixScapeWidgetMovieLayout">
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+					</control>
+				</itemlayout>
+				<focusedlayout width="459.5" height="393" infoupdate="30">
+					<control type="group">
+						<depth>DepthContentPopout</depth>
+						<left>35</left>
+						<top>15</top>
+						<include content="FlixScapeWidgetMovieLayout">
+							<param name="focused" value="true" />
+							<param name="list_id" value="$PARAM[list_id]" />
+						</include>
+						<include>HomeTrailerControl</include>
+						<include>SetLandscapeArtworkProperties</include>
+					</control>
+				</focusedlayout>
+				<content sortby="$PARAM[sortby]" sortorder="$PARAM[sortorder]" target="$PARAM[widget_target]" limit="$PARAM[limit]">$PARAM[content_path]</content>
+			</control>
+		</definition>
 	</include>
 
 	<include name="WidgetListSquare">
@@ -177,20 +240,22 @@
 				<param name="posy" value="140"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>107</top>
+				<top>102</top>
 				<right>0</right>
-				<height>1100</height>
+				<height>346</height>
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
 				<onright>$PARAM[list_id]</onright>
-				<movement>5</movement>
+				<movement>6</movement>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="306" height="393">
+				<itemlayout width="262" height="393">
 					<control type="group">
 						<top>26</top>
 						<left>56</left>
@@ -202,7 +267,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393" infoupdate="30">
+				<focusedlayout width="262" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<top>26</top>
@@ -240,27 +305,29 @@
 				<param name="posy" value="140"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>107</top>
+				<top>102</top>
 				<right>0</right>
-				<height>1100</height>
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<height>346</height>
 				<onright>$PARAM[list_id]</onright>
-				<movement>5</movement>
+				<movement>6</movement>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="306" height="393">
+				<itemlayout width="262" height="393">
 					<control type="group">
 						<include content="WidgetListCategoryLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393" infoupdate="300">
+				<focusedlayout width="262" height="393" infoupdate="300">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<include content="WidgetListCategoryLayout">
@@ -268,7 +335,7 @@
 							<param name="focused" value="true" />
 						</include>
 						<include>HomeTrailerControl</include>
-						<include>ClearLandscapeProperties</include>
+						<include>SetLandscapeArtworkProperties</include>
 					</control>
 				</focusedlayout>
 				<content target="$PARAM[widget_target]">$PARAM[content_path]</content>
@@ -374,29 +441,35 @@
 				<param name="posy" value="140"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>107</top>
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<top>102</top>
 				<right>0</right>
-				<height>1100</height>
+				<height>346</height>
 				<onright>$PARAM[list_id]</onright>
-				<movement>5</movement>
+				<movement>3</movement>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,$PARAM[item_treshold]) | [Container($PARAM[list_id]).IsUpdating + Integer.IsEqual(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<itemlayout width="306" height="393">
+				<itemlayout width="460.3" height="393">
 					<control type="group">
+						<left>-5</left>
+						<!-- <top>55</top> -->
 						<include content="WidgetListPVRLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393" infoupdate="30">
+				<focusedlayout width="460.3" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
+						<left>-5</left>
+						<!-- <top>55</top> -->
 						<include content="WidgetListPVRLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 							<param name="focused" value="true" />
@@ -422,28 +495,30 @@
 				<param name="posy" value="140"/>
 			</include>
 			<control type="fixedlist" id="$PARAM[list_id]">
-				<top>107</top>
+				<include content="WidgetVisibilityAnimations">
+					<param name="list_id" value="$PARAM[list_id]"/>
+				</include>
+				<top>102</top>
 				<right>0</right>
-				<height>1100</height>
+				<height>346</height>
 				<onright>$PARAM[list_id]</onright>
-				<movement>5</movement>
+				<movement>6</movement>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
-				<animation effect="fade" start="0" end="100" time="500" tween="sine" reversible="true" condition="Control.HasFocus($PARAM[list_id]) | !ControlGroup(2000).HasFocus">Conditional</animation>
 				<visible>$PARAM[visible]</visible>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="306" height="393">
+				<itemlayout width="262" height="393">
 					<control type="group">
 						<include content="WeatherWidgetLayout">
 							<param name="list_id" value="$PARAM[list_id]" />
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="306" height="393" infoupdate="30">
+				<focusedlayout width="262" height="393" infoupdate="30">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<include content="WeatherWidgetLayout">
@@ -730,15 +805,30 @@
 	</include>
 
 	<include name="WidgetListCommon">
-		<scrolltime tween="cubic" easing="out">500</scrolltime>
+		<scrolltime tween="cubic" easing="out">700</scrolltime>
 		<orientation>horizontal</orientation>
 		<onleft condition="String.IsEqual(Skin.String(onLeftSetting),0)">9000</onleft>
 		<onleft condition="String.IsEqual(Skin.String(onLeftSetting),1)">$PARAM[list_id]</onleft>
 		<onright>$PARAM[list_id]</onright>
-		<onback condition="String.IsEqual(Skin.String(onBackSetting),1)">SetFocus($PARAM[list_id],0,absolute)</onback>
-		<onback condition="String.IsEqual(Skin.String(onBackSetting),0)">9000</onback>
+		<onback condition="String.IsEqual(Skin.String(onBackSetting),1) | String.IsEqual(Skin.String(onBackSetting),2)">SetFocus($PARAM[list_id],0,absolute)</onback>
+		<onback condition="String.IsEqual(Skin.String(onBackSetting),0) | String.IsEqual(Skin.String(onBackSetting),2)">9000</onback>
 		<onfocus condition="!Skin.HasSetting(Disable.WidgetNavigationArrows)">RunScript(script.nimbus.helper,mode=set_widget_count,$PARAM[list_id])</onfocus>
 
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),19)">ClearProperty(NimbusInitialStartup_movies,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),22)">ClearProperty(NimbusInitialStartup_tvshows,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),23)">ClearProperty(NimbusInitialStartup_custom1,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),24)">ClearProperty(NimbusInitialStartup_custom2,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),25)">ClearProperty(NimbusInitialStartup_custom3,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),7)">ClearProperty(NimbusInitialStartup_music,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),8)">ClearProperty(NimbusInitialStartup_addons,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),16)">ClearProperty(NimbusInitialStartup_musicvideos,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),12)">ClearProperty(NimbusInitialStartup_livetv,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),13)">ClearProperty(NimbusInitialStartup_radio,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),4)">ClearProperty(NimbusInitialStartup_pictures,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),11)">ClearProperty(NimbusInitialStartup_videos,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),17)">ClearProperty(NimbusInitialStartup_games,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),15)">ClearProperty(NimbusInitialStartup_weather,home)</onfocus>
+		<onfocus>SetProperty(nimbus_saved_list_id,$PARAM[list_id],home)</onfocus>
 		<onfocus>ClearProperty(nimbus_episode_thumb,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_episode_fanart,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_episode_landscape,home)</onfocus>
@@ -746,6 +836,36 @@
 		<onfocus>ClearProperty(nimbus_fanart_prop,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_landscape_art,home)</onfocus>
 		<onfocus>ClearProperty(nimbus_landscape_prop,home)</onfocus>
+
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),19)">ClearProperty(nimbus_movies_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),22)">ClearProperty(nimbus_tvshows_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),23)">ClearProperty(nimbus_custom1_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),24)">ClearProperty(nimbus_custom2_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),25)">ClearProperty(nimbus_custom3_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),7)">ClearProperty(nimbus_music_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),8)">ClearProperty(nimbus_addons_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),16)">ClearProperty(nimbus_musicvideos_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),12)">ClearProperty(nimbus_livetv_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),13)">ClearProperty(nimbus_radio_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),4)">ClearProperty(nimbus_pictures_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),11)">ClearProperty(nimbus_videos_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),17)">ClearProperty(nimbus_games_first_widget,home)</onfocus>
+		<onfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),15)">ClearProperty(nimbus_weather_first_widget,home)</onfocus>
+
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),19) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_movies_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),22) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_tvshows_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),23) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_custom1_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),24) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_custom2_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),25) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_custom3_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),7) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_music_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),8) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_addons_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),16) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_musicvideos_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),12) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_livetv_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),13) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_radio_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),4) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_pictures_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),11) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_videos_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),17) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_games_first_widget,true,home)</onunfocus>
+		<onunfocus condition="String.StartsWith(Window(Home).Property(nimbus_saved_list_id),15) + String.EndsWith(Window(Home).Property(nimbus_saved_list_id),11)">SetProperty(nimbus_weather_first_widget,true,home)</onunfocus>
 
 		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isEpisode]">SetProperty(nimbus_episode_thumb,$INFO[Container($PARAM[list_id]).ListItem(0).Art(thumb)],home)</onunfocus>
 		<onunfocus condition="!Skin.HasSetting(Disable.PersistentArtwork) + $EXP[isEpisode]">SetProperty(nimbus_episode_fanart,$INFO[Container($PARAM[list_id]).ListItem(0).Art(fanart)],home)</onunfocus>
@@ -822,7 +942,7 @@
 		<onload condition="String.IsEmpty(Skin.String(trailerSetting))">Skin.SetString(trailerSetting,0)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(waitInterval))">Skin.SetString(waitInterval,1)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(titleSetting))">Skin.SetString(titleSetting,0)</onload>	
-		<onload condition="String.IsEmpty(Skin.String(onBackSetting)) | String.IsEqual(Skin.String(onBackSetting),2)">Skin.SetString(onBackSetting,0)</onload>	
+		<onload condition="String.IsEmpty(Skin.String(onBackSetting))">Skin.SetString(onBackSetting,0)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(onLeftSetting))">Skin.SetString(onLeftSetting,0)</onload>	
 		<onload condition="String.IsEmpty(Skin.String(TrailerDelaySecs))">Skin.SetString(TrailerDelaySecs,5)</onload>
 		<onload condition="String.IsEmpty(Skin.String(PlaybackDelayMins))">Skin.SetString(PlaybackDelayMins,30)</onload>
@@ -841,7 +961,7 @@
 		<onload condition="String.IsEmpty(Skin.String(PosterFlowOnDownSetting.Other))">Skin.SetString(PosterFlowOnDownSetting.Other,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.MovieTV))">Skin.SetString(OnRightSetting.MovieTV,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OnRightSetting.Other))">Skin.SetString(OnRightSetting.Other,0)</onload>
-		<!-- <onload condition="String.IsEmpty(Skin.String(OnRightSetting))">Skin.SetString(OnRightSetting,0)</onload> -->
+		<onload condition="String.IsEmpty(Skin.String(LandscapeWidgetSublabelSetting))">Skin.SetString(LandscapeWidgetSublabelSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(MenuSelectorColorThemeSetting))">Skin.SetString(MenuSelectorColorThemeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(FocusColorThemeSetting))">Skin.SetString(FocusColorThemeSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(DialogBackgroundSetting))">Skin.SetString(DialogBackgroundSetting,0)</onload>

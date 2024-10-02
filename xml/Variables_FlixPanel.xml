@@ -272,16 +272,29 @@
 
 	<variable name="FlixPanelRuntime">
     <!-- MOVIES -->
-    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins]</value>
-    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] 1 min</value>
-    <value condition="$EXP[isMovie] + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hrs]</value>
-    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] $INFO[ListItem.Duration(m),, mins]</value>
-    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] 1 min</value>
-    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hr]</value>
-    <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(m),, mins]</value>
+    <value condition="$EXP[isMovie] + !String.IsEqual(Container.PluginName,flixify.com) + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins]</value>
+    <value condition="$EXP[isMovie] + !String.IsEqual(Container.PluginName,flixify.com) + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] 1 min</value>
+    <value condition="$EXP[isMovie] + !String.IsEqual(Container.PluginName,flixify.com) + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hrs]</value>
+    <value condition="$EXP[isMovie] + !String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] $INFO[ListItem.Duration(m),, mins]</value>
+    <value condition="$EXP[isMovie] + !String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] 1 min</value>
+    <value condition="$EXP[isMovie] + !String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hr]</value>
+    <value condition="$EXP[isMovie] + !String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(m),, mins]</value>
     <!-- <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)">1 min</value> -->
     <!-- TVSHOWS, SEASONS, EPISODES -->
-    <value condition="$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]">$INFO[ListItem.Duration(mins),, mins]</value>
+    <value condition="!String.IsEqual(Container.PluginName,flixify.com) + [$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]">$INFO[ListItem.Duration(mins),, mins]</value>
+
+
+    <!-- MOVIES -->
+    <value condition="String.IsEqual(Container.PluginName,flixify.com) + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] $INFO[ListItem.Duration(m),, mins]</value>
+    <value condition="String.IsEqual(Container.PluginName,flixify.com) + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hrs] 1 min</value>
+    <value condition="String.IsEqual(Container.PluginName,flixify.com) + Integer.IsGreater(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hrs]</value>
+    <value condition="String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] $INFO[ListItem.Duration(m),, mins]</value>
+    <value condition="String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),1)">$INFO[ListItem.Duration(h),, hr] 1 min</value>
+    <value condition="String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),1) + Integer.IsEqual(ListItem.Duration(m),0)">$INFO[ListItem.Duration(h),, hr]</value>
+    <value condition="String.IsEqual(Container.PluginName,flixify.com) + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsGreater(ListItem.Duration(m),1)">$INFO[ListItem.Duration(m),, mins]</value>
+    <!-- <value condition="$EXP[isMovie] + Integer.IsEqual(ListItem.Duration(h),0) + Integer.IsEqual(ListItem.Duration(m),1)">1 min</value> -->
+    <!-- TVSHOWS, SEASONS, EPISODES -->
+    <!-- <value condition="!String.IsEqual(Container.PluginName,flixify.com) + [$EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]]">$INFO[ListItem.Duration(mins),, mins]</value> -->
 	</variable>
 
 	<variable name="EpisodeType">

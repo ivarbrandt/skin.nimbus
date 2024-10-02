@@ -181,6 +181,12 @@
 			<style>bold</style>
 		</font>
 		<font>
+			<name>font23_title</name>
+			<filename>Inter-Regular.ttf</filename>
+			<size>25</size>
+			<style>bold</style>
+		</font>
+		<font>
 			<name>font25_title</name>
 			<filename>Inter-Regular.ttf</filename>
 			<size>23</size>

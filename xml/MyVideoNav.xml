@@ -102,9 +102,9 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="$VAR[BreadcrumbsVideoVar]" />
 			</include>
-			<!-- <include content="BottomBar">
+			<include content="BottomBar">
 				<param name="info_visible" value="false" />
-			</include> -->
+			</include>
 			<control type="group">
 				<depth>DepthBars</depth>
 				<bottom>0</bottom>
