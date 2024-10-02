@@ -1,7 +1,20 @@
-Nimbus Helper: Latest: v0.0.45 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.46 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 _____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Redesigned home screen and search window widget layout
+- Improved widget performance. Widgets load faster and have a smaller impact on available memory.
+- Resized poster, landscape, PVR, and square widgets
+- Redesigned home screen favorites section
+- Added FlixPanel info for home screen Addons section
+- Various info and artwork compatibility fixes for specific addons
+- Added BOTH back into On back action for widgets. This has been moved to the new Widget options section in Skin settings.
+- Merged Clear caches section in Skin settings with Extras
+- Added new Widget options section to Skin settings
+- Cleaned up IconWall view
+- Numerous small changes/fixes/improvements
+_____________________________________________________________________________________________
+[B][COLOR FFFFFFFF]Version 0.1.26[/COLOR][/B]
 - Added color adaptive square widget
 - Added optional color adaptive background for dialog windows
 - Added color adaptive button menus to home, search, and addon-launcher windows
