@@ -47,8 +47,8 @@
 
 	<include name="FlixSquareLayout">
 		<param name="fallback_icon">DefaultFolder.png</param>
-		<param name="main_label">$INFO[ListItem.Artist]</param>
-		<param name="sub_label">$INFO[ListItem.Title]</param>
+		<!-- <param name="main_label">$INFO[ListItem.Artist]</param> -->
+		<!-- <param name="sub_label">$INFO[ListItem.Title]</param> -->
 		<param name="single_label">$INFO[ListItem.Label]</param>
 		<param name="focused">false</param>
 		<definition>
@@ -111,7 +111,7 @@
 						<scrollspeed>100</scrollspeed>
 					</control>
 				</control>
-				<control type="group">
+				<!-- <control type="group">
 					<visible>String.IsEqual(ListItem.DBType,album)</visible>
 					<control type="label">
 						<left>29</left>
@@ -133,7 +133,7 @@
 						<scroll>$PARAM[focused]</scroll>
 						<align>center</align>
 					</control>
-				</control>
+				</control> -->
 				<control type="group">
 					<left>133</left>
 					<top>2</top>
