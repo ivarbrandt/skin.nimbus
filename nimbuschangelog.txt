@@ -2,6 +2,13 @@ Nimbus Helper: Latest: v0.0.46 | Installed: v$INFO[System.AddonVersion(script.ni
 _____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added Anime search widget to search window for FEN Light
+- Made landscape widget labels optional
+- Fixed Arial font inconsistencies
+- Other bug fixes
+_____________________________________________________________________________________________
+
+[B][COLOR FFFFFFFF]Version 0.1.27[/COLOR][/B]
 - Redesigned home screen and search window widget layout
 - Improved widget performance. Widgets load faster and have a smaller impact on available memory.
 - Resized poster, landscape, PVR, and square widgets
@@ -14,6 +21,7 @@ ________________________________________________________________________________
 - Cleaned up IconWall view
 - Numerous small changes/fixes/improvements
 _____________________________________________________________________________________________
+
 [B][COLOR FFFFFFFF]Version 0.1.26[/COLOR][/B]
 - Added color adaptive square widget
 - Added optional color adaptive background for dialog windows
