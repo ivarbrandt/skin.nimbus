@@ -1,12 +1,16 @@
-Nimbus Helper: Latest: v0.0.46 | Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
-_____________________________________________________________________________________________
+Nimbus Helper: Latest: v0.0.47 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Updated ratings functionality. You can now choose to display up to 6 ratings in any order that you like. Go to Skin settings [B]»[/B] Ratings management to set these up.
+- Added Trakt, Letterboxd, and MDbList ratings. The Letterboxd ratings have been changed to use a scale out of 10 rather than 5 in order to maintain parity with the rest of the ratings.
+- Added option to disable dynamic text label in default OSD
+- Added option to show the full file name in default OSD
+
+[B][COLOR FFFFFFFF]Version 0.1.28[/COLOR][/B]
 - Added Anime search widget to search window for FEN Light
 - Made landscape widget labels optional
 - Fixed Arial font inconsistencies
 - Other bug fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.27[/COLOR][/B]
 - Redesigned home screen and search window widget layout
@@ -20,7 +24,6 @@ ________________________________________________________________________________
 - Added new Widget options section to Skin settings
 - Cleaned up IconWall view
 - Numerous small changes/fixes/improvements
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.26[/COLOR][/B]
 - Added color adaptive square widget
@@ -36,11 +39,9 @@ ________________________________________________________________________________
 - Removed background blur toggle from video windows
 - Fixed search window bug
 - Other changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.25[/COLOR][/B]
 - Reverted skin and helper back to Netflix layout
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.24[/COLOR][/B]
 - Added new multi-widget home layout design. If you prefer the Netflix layout, you can find the zips for the latest versions of the skin and helper before these changes were made in the pinned post on my Github.
@@ -67,7 +68,6 @@ ________________________________________________________________________________
 - Removed background blur toggle from video windows
 - Removed widget navigation arrows
 - Other changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.23[/COLOR][/B]
 - Added new PosterFlow view
@@ -77,11 +77,9 @@ ________________________________________________________________________________
 - Made artwork a bit less restrictive
 - Fixed media sidemenu coloring
 - Other changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.22[/COLOR][/B]
 - Bug fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.21[/COLOR][/B]
 - Increased general compatibility with other addons
@@ -89,11 +87,9 @@ ________________________________________________________________________________
 - Fixed a few bugs related to the visibility of the collection icon. THIS WILL REQUIRE CLEARING THE RATINGS CACHE.
 - Added an adaptive universal List layout for other addons
 - Other fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.20[/COLOR][/B]
 - Small bug fix
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.19[/COLOR][/B]
 - Added optional modular OSD. Choose which elements to show in Skin settings [B]»[/B] On screen display.
@@ -111,7 +107,6 @@ ________________________________________________________________________________
 - Fixed trailers restarting while playing on the home screen
 - Added fallbacks for mixed content. I recommend using FlixScape view when viewing mixed content/universes.
 - Other small changes/fixes/adjustments
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.18[/COLOR][/B]
 - Added genre classification system. Nimbus will now try to classify the movie/tvshow based on the genres that the item contains. For example, if an item contains the genres War,History,and Drama, Nimbus will display "Historical War Drama" for the genre.
@@ -128,7 +123,6 @@ ________________________________________________________________________________
 - Made Nimbus fully compatible with other FEN forks
 - Fixed location cycling for weather widget. Click the Weather main menu item to cycle to the next location.
 - Other fixes/changes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.17[/COLOR][/B]
 - Added collection icon to most views and FlixPanel. With a quick glance, this allows seeing whether or not a movie belongs to a collection. For use with FEN Light only.
@@ -136,7 +130,6 @@ ________________________________________________________________________________
 - Changed duration for movies to more specific format
 - Removed 'Ends at:' infolabel across the skin
 - Other small adjustments
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.16[/COLOR][/B]
 - Added ratings and Info tab to Information screen
@@ -150,7 +143,6 @@ Added optional on down actions for Flix/Flixscape views (Scrollbar, Wall, Play t
 - Updated skin help texts
 - Removed studio logos
 - Numerous other changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.15[/COLOR][/B]
 - Added Poster and Fanart layouts to List View
@@ -160,7 +152,6 @@ ________________________________________________________________________________
 - Added more juice to the Nimbus Start Help dialog. You can view this in Skin settings [B]»[/B] Extras.
 - Added visual Nimbus Helper update check to changelog
 - Other small changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.14[/COLOR][/B]
 - Added automatic artwork setting for episode widgets. Poster = Thumb, Landscape = Fanart
@@ -169,7 +160,6 @@ ________________________________________________________________________________
 - Removed auto view lock notification
 - Expanded artwork and views for better compatibility with other addons
 - Fixed various bugs
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.13[/COLOR][/B]
 - Added changelog viewing to Skin settings [B]»[/B] Extras
@@ -185,7 +175,6 @@ ________________________________________________________________________________
 - Fixed fallback artwork for List view
 - Redesigned PVR InfoPanel
 - Other changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.12[/COLOR][/B]
 - Added 3 new views for movies, tvshows, seasons, and episodes (List, FlixScape, WallScape)
@@ -200,7 +189,6 @@ ________________________________________________________________________________
 - Updated poster and landscape views for other types of content
 - Added conditional view locking to new WallScape and Wall views. This allow views to be locked to Flix or FlixScape and still be able to access their respective wall views by just clicking down.
 - Other changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.11[/COLOR][/B]
 - Updated custom background image variable and strings to not clash with FENtastic
@@ -221,7 +209,6 @@ ________________________________________________________________________________
 - New slide out design for media menu
 - Fixed crumbs for all content types
 - Lots of other small fixes/changes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.10[/COLOR][/B]
 - Refactored context menu, search dialog, and shutdown menu
@@ -231,20 +218,16 @@ ________________________________________________________________________________
 - Added playback speed label to VideoOSD
 - Adjusted progress bar height in a few windows
 - Other small changes/fixes
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.09[/COLOR][/B]
 - Added optional view locking
 - Fixed small bug in timers
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.08[/COLOR][/B]
 - Added episode type to FlixPanel (season premiere, season finale, etc)
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.07[/COLOR][/B]
 - Added alternating info label for VideoOSD
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.06[/COLOR][/B]
 - New PVR widget design
@@ -255,13 +238,11 @@ ________________________________________________________________________________
 - Fixed progress indicators for POV addon
 - Updated textures to actual sizes (should reduce load on GPU as upscaling is no longer needed)
 - Added two new textures for buttons
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.05[/COLOR][/B]
 - Fixed texture visibility conditions for movies, tvshows, seasons, and episodes
 - Fixed elapsed and remaining time
 - Changed default progress controls
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.04[/COLOR][/B]
 - Fixed text centering across skin
@@ -277,20 +258,17 @@ ________________________________________________________________________________
 - Updated Seekbar for Live TV content
 - Made group selector in PVRGuide circular
 - Added auto end plackback option
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.03[/COLOR][/B]
 - Increased line spacing for plot font
 - Fixed label width for square widgets
 - Reverted back to old OSD progress bar
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.02[/COLOR][/B]
 - Removed unused multiimage controls
 - Renamed timers and skin strings for navigation delay
 - Cleaned up unused fanart properties
 - Fixed netflix fanart and fullscreen background visibilty conditions
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.01[/COLOR][/B]
 - Removed clearing of fanart property
@@ -299,15 +277,12 @@ ________________________________________________________________________________
 - Removed bolding for focused items across the skin
 - New progress bar textures
 - Redesigned OSD progress bar
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.1.0[/COLOR][/B]
 Fixed widget labels not showing when unfocused/scrolling
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.0.99[/COLOR][/B]
 - Fixed widget labels showing during trailer playback
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.0.98[/COLOR][/B]
 - Added automatic return to Flix view from Wall view
@@ -316,7 +291,6 @@ ________________________________________________________________________________
 - Added Scroll Fade feature for home and search windows
 - Added POV and Seren search functionality
 - Added TRAKT lists functionality
-_____________________________________________________________________________________________
 
 [B][COLOR FFFFFFFF]Version 0.0.97[/COLOR][/B]
 - Updated most PVR windows to skin design
