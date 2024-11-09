@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <!-- Image Width Includes -->
+  <include name="MetacriticRatingImageWidth">
+    <width>50</width>
+  </include>
+  <include name="TraktRatingImageWidth">
+    <width>50</width>
+  </include>
+  <include name="LetterboxdRatingImageWidth">
+    <width>50</width>
+  </include>
+  <include name="MDbListRatingImageWidth">
+    <width>50</width>
+  </include>
+  <include name="RTCRatingImageWidth">
+    <width>50</width>
+  </include>
+  <include name="RTARatingImageWidth">
+    <width>45</width>
+  </include>
+  <include name="IMDbRatingImageWidth">
+    <width>74</width>
+  </include>
+  <include name="IMDbPopRatingImageWidth">
+    <width>29</width>
+  </include>
+  <include name="TMDbRatingImageWidth">
+    <width>37</width>
+  </include>
+
+  <!-- Image Left Includes -->
+  <include name="MetacriticRatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="TraktRatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="LetterboxdRatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="MDbListRatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="RTCRatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="RTARatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="IMDbRatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="IMDbPopRatingImageLeft">
+    <left>0</left>
+  </include>
+  <include name="TMDbRatingImageLeft">
+    <left>5</left>
+  </include>
+
+  <!-- Label Width Includes -->
+  <include name="MetacriticRatingLabelWidth">
+    <width max="80">auto</width>
+  </include>
+  <include name="TraktRatingLabelWidth">
+    <width max="80">auto</width>
+  </include>
+  <include name="LetterboxdRatingLabelWidth">
+    <width max="80">auto</width>
+  </include>
+  <include name="MDbListRatingLabelWidth">
+    <width max="80">auto</width>
+  </include>
+  <include name="RTCRatingLabelWidth">
+    <width max="80">auto</width>
+  </include>
+  <include name="RTARatingLabelWidth">
+    <width max="80">auto</width>
+  </include>
+  <include name="IMDbRatingLabelWidth">
+    <width max="60">auto</width>
+  </include>
+  <include name="IMDbPopRatingLabelWidth">
+    <width max="87">auto</width>
+  </include>
+  <include name="TMDbRatingLabelWidth">
+    <width max="55">auto</width>
+  </include>
+
+  <!-- Rating Name Variable -->
+  <variable name="RatingName1Var">
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),none)">None</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">Metacritic</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">Trakt</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">Letterboxd</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">MDbList</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">Rotten Tomatoes (Critic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rta)">Rotten Tomatoes (Audience)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">IMDb</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">IMDb Popular</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">TMDb</value>
+  </variable>
+  <variable name="RatingName2Var">
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),none)">None</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">Metacritic</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">Trakt</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">Letterboxd</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">MDbList</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">Rotten Tomatoes (Critic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rta)">Rotten Tomatoes (Audience)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">IMDb</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">IMDb Popular</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">TMDb</value>
+  </variable>
+  <variable name="RatingName3Var">
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),none)">None</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">Metacritic</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">Trakt</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">Letterboxd</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">MDbList</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">Rotten Tomatoes (Critic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rta)">Rotten Tomatoes (Audience)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">IMDb</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">IMDb Popular</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">TMDb</value>
+  </variable>
+  <variable name="RatingName4Var">
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),none)">None</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">Metacritic</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">Trakt</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">Letterboxd</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">MDbList</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">Rotten Tomatoes (Critic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rta)">Rotten Tomatoes (Audience)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">IMDb</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">IMDb Popular</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">TMDb</value>
+  </variable>
+  <variable name="RatingName5Var">
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),none)">None</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">Metacritic</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">Trakt</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">Letterboxd</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">MDbList</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">Rotten Tomatoes (Critic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rta)">Rotten Tomatoes (Audience)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">IMDb</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">IMDb Popular</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">TMDb</value>
+  </variable>
+  <variable name="RatingName6Var">
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),none)">None</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">Metacritic</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">Trakt</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">Letterboxd</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">MDbList</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">Rotten Tomatoes (Critic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rta)">Rotten Tomatoes (Audience)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">IMDb</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">IMDb Popular</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">TMDb</value>
+  </variable>
+
+  <!-- Variables for each rating slot (1-6) -->
+  <variable name="Rating1ValueVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">$INFO[Window(Home).Property(nimbus.metascore)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">$INFO[Window(Home).Property(nimbus.traktRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistRating)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">$INFO[Window(Home).Property(nimbus.imdbRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">$INFO[Window(Home).Property(nimbus.popularRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbRating)]</value>
+  </variable>
+
+  <variable name="Rating2ValueVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">$INFO[Window(Home).Property(nimbus.metascore)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">$INFO[Window(Home).Property(nimbus.traktRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistRating)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">$INFO[Window(Home).Property(nimbus.imdbRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">$INFO[Window(Home).Property(nimbus.popularRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbRating)]</value>
+  </variable>
+
+  <variable name="Rating3ValueVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">$INFO[Window(Home).Property(nimbus.metascore)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">$INFO[Window(Home).Property(nimbus.traktRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistRating)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">$INFO[Window(Home).Property(nimbus.imdbRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">$INFO[Window(Home).Property(nimbus.popularRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbRating)]</value>
+  </variable>
+
+  <variable name="Rating4ValueVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">$INFO[Window(Home).Property(nimbus.metascore)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">$INFO[Window(Home).Property(nimbus.traktRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistRating)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">$INFO[Window(Home).Property(nimbus.imdbRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">$INFO[Window(Home).Property(nimbus.popularRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbRating)]</value>
+  </variable>
+
+  <variable name="Rating5ValueVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">$INFO[Window(Home).Property(nimbus.metascore)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">$INFO[Window(Home).Property(nimbus.traktRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistRating)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">$INFO[Window(Home).Property(nimbus.imdbRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">$INFO[Window(Home).Property(nimbus.popularRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbRating)]</value>
+  </variable>
+
+  <variable name="Rating6ValueVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">$INFO[Window(Home).Property(nimbus.metascore)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">$INFO[Window(Home).Property(nimbus.traktRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistRating)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">$INFO[Window(Home).Property(nimbus.tomatoMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserMeter)]%</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">$INFO[Window(Home).Property(nimbus.imdbRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">$INFO[Window(Home).Property(nimbus.popularRating)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbRating)]</value>
+  </variable>
+
+  <variable name="Rating1ImageVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">$INFO[Window(Home).Property(nimbus.metascoreImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">$INFO[Window(Home).Property(nimbus.traktImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">$INFO[Window(Home).Property(nimbus.tomatoImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">$INFO[Window(Home).Property(nimbus.imdbImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">$INFO[Window(Home).Property(nimbus.popularImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbImage)]</value>
+  </variable>
+
+  <variable name="Rating2ImageVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">$INFO[Window(Home).Property(nimbus.metascoreImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">$INFO[Window(Home).Property(nimbus.traktImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">$INFO[Window(Home).Property(nimbus.tomatoImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">$INFO[Window(Home).Property(nimbus.imdbImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">$INFO[Window(Home).Property(nimbus.popularImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbImage)]</value>
+  </variable>
+
+  <variable name="Rating3ImageVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">$INFO[Window(Home).Property(nimbus.metascoreImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">$INFO[Window(Home).Property(nimbus.traktImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">$INFO[Window(Home).Property(nimbus.tomatoImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">$INFO[Window(Home).Property(nimbus.imdbImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">$INFO[Window(Home).Property(nimbus.popularImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbImage)]</value>
+  </variable>
+
+  <variable name="Rating4ImageVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">$INFO[Window(Home).Property(nimbus.metascoreImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">$INFO[Window(Home).Property(nimbus.traktImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">$INFO[Window(Home).Property(nimbus.tomatoImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">$INFO[Window(Home).Property(nimbus.imdbImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">$INFO[Window(Home).Property(nimbus.popularImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbImage)]</value>
+  </variable>
+
+  <variable name="Rating5ImageVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">$INFO[Window(Home).Property(nimbus.metascoreImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">$INFO[Window(Home).Property(nimbus.traktImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">$INFO[Window(Home).Property(nimbus.tomatoImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">$INFO[Window(Home).Property(nimbus.imdbImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">$INFO[Window(Home).Property(nimbus.popularImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbImage)]</value>
+  </variable>
+
+  <variable name="Rating6ImageVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">$INFO[Window(Home).Property(nimbus.metascoreImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">$INFO[Window(Home).Property(nimbus.traktImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">$INFO[Window(Home).Property(nimbus.letterboxdImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">$INFO[Window(Home).Property(nimbus.mdblistImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">$INFO[Window(Home).Property(nimbus.tomatoImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rta)">$INFO[Window(Home).Property(nimbus.tomatoUserImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">$INFO[Window(Home).Property(nimbus.imdbImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">$INFO[Window(Home).Property(nimbus.popularImage)]</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">$INFO[Window(Home).Property(nimbus.tmdbImage)]</value>
+  </variable>
+
+  <!-- Toggle variables for cycling through options -->
+  <variable name="Rating1ToggleVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),none)">Skin.SetString(RatingSlot1,metacritic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">Skin.SetString(RatingSlot1,trakt)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">Skin.SetString(RatingSlot1,letterboxd)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">Skin.SetString(RatingSlot1,mdblist)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">Skin.SetString(RatingSlot1,rtc)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">Skin.SetString(RatingSlot1,rta)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),rta)">Skin.SetString(RatingSlot1,imdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">Skin.SetString(RatingSlot1,imdbpop)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">Skin.SetString(RatingSlot1,tmdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">Skin.SetString(RatingSlot1,none)</value>
+  </variable>
+
+  <variable name="Rating2ToggleVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),none)">Skin.SetString(RatingSlot2,metacritic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">Skin.SetString(RatingSlot2,trakt)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">Skin.SetString(RatingSlot2,letterboxd)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">Skin.SetString(RatingSlot2,mdblist)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">Skin.SetString(RatingSlot2,rtc)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">Skin.SetString(RatingSlot2,rta)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),rta)">Skin.SetString(RatingSlot2,imdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">Skin.SetString(RatingSlot2,imdbpop)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">Skin.SetString(RatingSlot2,tmdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">Skin.SetString(RatingSlot2,none)</value>
+  </variable>
+
+  <variable name="Rating3ToggleVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),none)">Skin.SetString(RatingSlot3,metacritic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">Skin.SetString(RatingSlot3,trakt)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">Skin.SetString(RatingSlot3,letterboxd)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">Skin.SetString(RatingSlot3,mdblist)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">Skin.SetString(RatingSlot3,rtc)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">Skin.SetString(RatingSlot3,rta)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),rta)">Skin.SetString(RatingSlot3,imdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">Skin.SetString(RatingSlot3,imdbpop)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">Skin.SetString(RatingSlot3,tmdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">Skin.SetString(RatingSlot3,none)</value>
+  </variable>
+
+  <variable name="Rating4ToggleVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),none)">Skin.SetString(RatingSlot4,metacritic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">Skin.SetString(RatingSlot4,trakt)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">Skin.SetString(RatingSlot4,letterboxd)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">Skin.SetString(RatingSlot4,mdblist)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">Skin.SetString(RatingSlot4,rtc)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">Skin.SetString(RatingSlot4,rta)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),rta)">Skin.SetString(RatingSlot4,imdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">Skin.SetString(RatingSlot4,imdbpop)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">Skin.SetString(RatingSlot4,tmdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">Skin.SetString(RatingSlot4,none)</value>
+  </variable>
+
+  <variable name="Rating5ToggleVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),none)">Skin.SetString(RatingSlot5,metacritic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">Skin.SetString(RatingSlot5,trakt)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">Skin.SetString(RatingSlot5,letterboxd)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">Skin.SetString(RatingSlot5,mdblist)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">Skin.SetString(RatingSlot5,rtc)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">Skin.SetString(RatingSlot5,rta)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),rta)">Skin.SetString(RatingSlot5,imdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">Skin.SetString(RatingSlot5,imdbpop)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">Skin.SetString(RatingSlot5,tmdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">Skin.SetString(RatingSlot5,none)</value>
+  </variable>
+
+  <variable name="Rating6ToggleVar">
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),none)">Skin.SetString(RatingSlot6,metacritic)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">Skin.SetString(RatingSlot6,trakt)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">Skin.SetString(RatingSlot6,letterboxd)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">Skin.SetString(RatingSlot6,mdblist)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">Skin.SetString(RatingSlot6,rtc)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">Skin.SetString(RatingSlot6,rta)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),rta)">Skin.SetString(RatingSlot6,imdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">Skin.SetString(RatingSlot6,imdbpop)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">Skin.SetString(RatingSlot6,tmdb)</value>
+    <value condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">Skin.SetString(RatingSlot6,none)</value>
+  </variable>
+
+</includes>

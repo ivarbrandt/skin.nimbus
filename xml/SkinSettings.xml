@@ -415,68 +415,57 @@
 					<include>DefaultSettingButton</include>
 					<onclick>RunScript(script.nimbus.helper, mode=set_api_key)</onclick>
 				</control>
-				<control type="button" id="64801">
-					<label>Show all ratings</label>
+				<control type="button" id="6481">
+					<label>Reset all ratings</label>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.Reset(Disable.MetacriticRating)</onclick>
-					<onclick>Skin.Reset(Disable.RTCRating)</onclick>
-					<onclick>Skin.Reset(Disable.RTARating)</onclick>
-					<onclick>Skin.Reset(Disable.IMDbRating)</onclick>
-					<onclick>Skin.Reset(Disable.IMDbPopularRating)</onclick>
-					<onclick>Skin.Reset(Disable.TMDbRating)</onclick>
+					<onclick>Skin.SetString(RatingSlot1,none)</onclick>
+					<onclick>Skin.SetString(RatingSlot2,none)</onclick>
+					<onclick>Skin.SetString(RatingSlot3,none)</onclick>
+					<onclick>Skin.SetString(RatingSlot4,none)</onclick>
+					<onclick>Skin.SetString(RatingSlot5,none)</onclick>
+					<onclick>Skin.SetString(RatingSlot6,none)</onclick>
+					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
+			</control>
+				<control type="button" id="6482">
+					<label>    - Rating 1</label>
+					<label2>$VAR[RatingName1Var]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>$VAR[Rating1ToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
 				</control>
-				<control type="button" id="64802">
-					<label>Hide all ratings</label>
+				<control type="button" id="6483">
+					<label>    - Rating 2</label>
+					<label2>$VAR[RatingName2Var]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.SetBool(Disable.MetacriticRating)</onclick>
-					<onclick>Skin.SetBool(Disable.RTCRating)</onclick>
-					<onclick>Skin.SetBool(Disable.RTARating)</onclick>
-					<onclick>Skin.SetBool(Disable.IMDbRating)</onclick>
-					<onclick>Skin.SetBool(Disable.IMDbPopularRating)</onclick>
-					<onclick>Skin.SetBool(Disable.TMDbRating)</onclick>
+					<onclick>$VAR[Rating2ToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64803">
-					<label>    - Metacritic</label>
+				<control type="button" id="6484">
+					<label>    - Rating 3</label>
+					<label2>$VAR[RatingName3Var]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.MetacriticRating)</onclick>
-					<selected>!Skin.HasSetting(Disable.MetacriticRating)</selected>
+					<onclick>$VAR[Rating3ToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64804">
-					<label>    - Rotten Tomatoes (Critic)</label>
+				<control type="button" id="6485">
+					<label>    - Rating 4</label>
+					<label2>$VAR[RatingName4Var]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.RTCRating)</onclick>
-					<selected>!Skin.HasSetting(Disable.RTCRating)</selected>
+					<onclick>$VAR[Rating4ToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64805">
-					<label>    - Rotten Tomatoes (Audience)</label>
+				<control type="button" id="6486">
+					<label>    - Rating 5</label>
+					<label2>$VAR[RatingName5Var]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.RTARating)</onclick>
-					<selected>!Skin.HasSetting(Disable.RTARating)</selected>
+					<onclick>$VAR[Rating5ToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
 				</control>
-				<control type="radiobutton" id="64806">
-					<label>    - IMDb (Main)</label>
+				<control type="button" id="6487">
+					<label>    - Rating 6</label>
+					<label2>$VAR[RatingName6Var]</label2>
 					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.IMDbRating)</onclick>
-					<selected>!Skin.HasSetting(Disable.IMDbRating)</selected>
-					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
-				</control>
-				<control type="radiobutton" id="64807">
-					<label>    - IMDb (Popular)</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.IMDbPopularRating)</onclick>
-					<selected>!Skin.HasSetting(Disable.IMDbPopularRating)</selected>
-					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
-				</control>
-				<control type="radiobutton" id="64808">
-					<label>    - TMDb</label>
-					<include>DefaultSettingButton</include>
-					<onclick>Skin.ToggleSetting(Disable.TMDbRating)</onclick>
-					<selected>!Skin.HasSetting(Disable.TMDbRating)</selected>
+					<onclick>$VAR[Rating6ToggleVar]</onclick>
 					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
 				</control>
 			</control>
@@ -710,7 +699,28 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OSDStyleToggleVar]</onclick>
 				</control>
-				<control type="button" id="6226">
+				<control type="radiobutton" id="6226">
+					<label>    - Enable dynamic title label (movies/episodes)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDDynamicLabelContent)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDDynamicLabelContent)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
+				</control>
+				<control type="radiobutton" id="6227">
+					<label>    - Enable dynamic title label (live tv)</label>
+					<include>DefaultSettingButton</include>
+					<selected>!Skin.HasSetting(Disable.OSDDynamicLabelPVR)</selected>
+					<onclick>Skin.ToggleSetting(Disable.OSDDynamicLabelPVR)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
+				</control>
+				<control type="radiobutton" id="6228">
+					<label>    - Show full filename</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.OSDFileNameLabel)</selected>
+					<onclick>Skin.ToggleSetting(Enable.OSDFileNameLabel)</onclick>
+					<visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
+				</control>
+				<control type="button" id="6229">
 					<label>Show all OSD elements</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.Reset(Disable.OSDClearlogo)</onclick>
@@ -726,7 +736,7 @@
 					<onclick>Skin.Reset(Disable.OSDAudioChannels)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="button" id="6227">
+				<control type="button" id="6230">
 					<label>Hide all OSD elements</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.SetBool(Disable.OSDClearlogo)</onclick>
@@ -742,77 +752,77 @@
 					<onclick>Skin.SetBool(Disable.OSDAudioChannels)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6228">
+				<control type="radiobutton" id="6231">
 					<label>    - Clearlogo</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDClearlogo)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDClearlogo)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6229">
+				<control type="radiobutton" id="6232">
 					<label>        - Title label</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDTitle)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDTitle)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1) + Skin.HasSetting(Disable.OSDClearlogo)</visible>
 				</control>
-				<control type="radiobutton" id="6230">
+				<control type="radiobutton" id="6233">
 					<label>    - Studio logo</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDStudiologo)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDStudiologo)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6231">
+				<control type="radiobutton" id="62334">
 					<label>    - Episode info (SxE • Title)</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDEpisodeInfo)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDEpisodeInfo)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6232">
+				<control type="radiobutton" id="6235">
 					<label>    - Episode plot</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDEpisodePlot)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDEpisodePlot)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6233">
+				<control type="radiobutton" id="6236">
 					<label>    - Movie plot</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDMoviePlot)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDMoviePlot)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6234">
+				<control type="radiobutton" id="6237">
 					<label>    - End time</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDEndTime)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDEndTime)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6235">
+				<control type="radiobutton" id="6238">
 					<label>    - Ratings</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDRatings)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDRatings)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6236">
+				<control type="radiobutton" id="6239">
 					<label>    - Video codec</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDVideoCodec)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDVideoCodec)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6237">
+				<control type="radiobutton" id="6240">
 					<label>    - Audio codec</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDAudioCodec)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDAudioCodec)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6238">
+				<control type="radiobutton" id="6241">
 					<label>    - Audio channels</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDAudioChannels)</selected>

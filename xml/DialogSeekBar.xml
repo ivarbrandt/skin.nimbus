@@ -19,11 +19,11 @@
     !Window.IsVisible(subtitlesearch) + 
     !Window.IsVisible(MusicOSD)
   </visible>
-  <onload condition="!VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOn,Skin.Reset(ToggleLabel),00:00:12,silent,loop)</onload>
-  <onload condition="!VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOff,Skin.SetString(ToggleLabel,on),00:00:06,silent,loop)</onload>
-  <onunload>CancelAlarm(toggleLabelOn,silent)</onunload>
-  <onunload>CancelAlarm(toggleLabelOff,silent)</onunload>
-  <onunload>Skin.Reset(ToggleLabel)</onunload>
+  <onload condition="!Skin.HasSetting(Disable.OSDDynamicLabelContent) + !VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOn,Skin.Reset(ToggleLabel),00:00:12,silent,loop)</onload>
+  <onload condition="!Skin.HasSetting(Disable.OSDDynamicLabelContent) + !VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOff,Skin.SetString(ToggleLabel,on),00:00:06,silent,loop)</onload>
+  <onunload condition="!Skin.HasSetting(Disable.OSDDynamicLabelContent)">CancelAlarm(toggleLabelOn,silent)</onunload>
+  <onunload condition="!Skin.HasSetting(Disable.OSDDynamicLabelContent)">CancelAlarm(toggleLabelOff,silent)</onunload>
+  <onunload condition="!Skin.HasSetting(Disable.OSDDynamicLabelContent)">Skin.Reset(ToggleLabel)</onunload>
   <controls>
     <include content="OSDBackgrounds"/>
     <control type="group">

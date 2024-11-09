@@ -83,8 +83,10 @@
 	</variable>
 
 	<variable name="NowPlayingLabelVar">
-		<value condition="!VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Title]</value>
-		<value condition="VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.TVShowTitle] $VAR[Nimbus_Divider]$INFO[VideoPlayer.Season, S] $INFO[VideoPlayer.Episode,E, ]</value>
+		<value condition="!VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv) + !Skin.HasSetting(Enable.OSDFileNameLabel)">$INFO[VideoPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv) + !Skin.HasSetting(Enable.OSDFileNameLabel)">$INFO[VideoPlayer.TVShowTitle] $VAR[Nimbus_Divider] $INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x,] $VAR[Nimbus_Divider] $INFO[VideoPlayer.Title]</value>
+		<value condition="!VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv) + Skin.HasSetting(Enable.OSDFileNameLabel)">$INFO[VideoPlayer.Title] $VAR[Nimbus_Divider] [I]$INFO[Player.Filename][/I]</value>
+		<value condition="VideoPlayer.Content(episodes) + !VideoPlayer.Content(livetv) + Skin.HasSetting(Enable.OSDFileNameLabel)">$INFO[VideoPlayer.TVShowTitle] $VAR[Nimbus_Divider] $INFO[VideoPlayer.Season]$INFO[VideoPlayer.Episode,x,] $VAR[Nimbus_Divider] $INFO[VideoPlayer.Title] $VAR[Nimbus_Divider] [I]$INFO[Player.Filename][/I]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Title] $VAR[Nimbus_Divider] $INFO[VideoPlayer.ChannelName]</value>
 	</variable>
 

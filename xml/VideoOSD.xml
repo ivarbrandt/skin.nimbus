@@ -4,11 +4,11 @@
   <onload condition="!VideoPlayer.Content(livetv)">SetFocus(703)</onload>
   <onload condition="VideoPlayer.Content(livetv)">SetFocus(704)</onload>
   <onunload>ClearProperty(LanguageNotification,home)</onunload>
-  <onload condition="VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOn,Skin.Reset(ToggleLabel),00:00:12,silent,loop)</onload>
-  <onload condition="VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOff,Skin.SetString(ToggleLabel,on),00:00:06,silent,loop)</onload>
-  <onunload>CancelAlarm(toggleLabelOn,silent)</onunload>
-  <onunload>CancelAlarm(toggleLabelOff,silent)</onunload>
-  <onunload>Skin.Reset(ToggleLabel)</onunload>
+  <onload condition="!Skin.HasSetting(Disable.OSDDynamicLabelPVR) + VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOn,Skin.Reset(ToggleLabel),00:00:12,silent,loop)</onload>
+  <onload condition="!Skin.HasSetting(Disable.OSDDynamicLabelPVR) + VideoPlayer.Content(livetv)">AlarmClock(toggleLabelOff,Skin.SetString(ToggleLabel,on),00:00:06,silent,loop)</onload>
+  <onunload condition="!Skin.HasSetting(Disable.OSDDynamicLabelPVR)">CancelAlarm(toggleLabelOn,silent)</onunload>
+  <onunload condition="!Skin.HasSetting(Disable.OSDDynamicLabelPVR)">CancelAlarm(toggleLabelOff,silent)</onunload>
+  <onunload condition="!Skin.HasSetting(Disable.OSDDynamicLabelPVR)">Skin.Reset(ToggleLabel)</onunload>
   <controls>
     <control type="label">
       <top>0</top>

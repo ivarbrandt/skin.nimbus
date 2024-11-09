@@ -41,6 +41,7 @@
 	<include file="Variables_FlixPanel.xml" />
 	<include file="Variables_MyVariables.xml" />
 	<include file="Variables_HelpTexts.xml" />
+	<include file="Variables_Ratings.xml" />
 	<include file="Variables_Search.xml" />
 	<include file="Variables_Seekbar.xml" />
 	<include file="Variables_Trailers.xml" />
