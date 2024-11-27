@@ -1,6 +1,12 @@
 Nimbus Helper: Latest: v0.0.47 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added Anime to search dialog
+- Added star rating to Otaku items
+- Fixed Umbrella not showing watched items
+- Other bug fixes
+
+[B][COLOR FFFFFFFF]Version 0.1.29[/COLOR][/B]
 - Updated ratings functionality. You can now choose to display up to 6 ratings in any order that you like. Go to Skin settings [B]»[/B] Ratings management to set these up.
 - Added Trakt, Letterboxd, and MDbList ratings. The Letterboxd ratings have been changed to use a scale out of 10 rather than 5 in order to maintain parity with the rest of the ratings.
 - Added option to disable dynamic text label in default OSD
