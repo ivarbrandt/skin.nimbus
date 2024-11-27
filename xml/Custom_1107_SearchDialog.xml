@@ -46,6 +46,12 @@
 						<onclick condition="String.IsEqual(Skin.String(current_search_provider),4)">ActivateWindow(Videos,"plugin://plugin.video.seren/?action=showsSearchResults",return)</onclick>
 					</item>
 					<item>
+						<label>Anime</label>
+						<onclick>Dialog.Close(all)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(current_search_provider),1)">ActivateWindow(Videos,"plugin://plugin.video.fenlight/?action=anime&amp;mode=navigator.search_history&amp;name=Search%20History%20Anime",return)</onclick>
+						<visible>String.IsEqual(Skin.String(current_search_provider),1)</visible>
+					</item>
+					<item>
 						<label>Movie Collections</label>
 						<onclick>Dialog.Close(all)</onclick>
 						<onclick condition="String.IsEqual(Skin.String(current_search_provider),0)">ActivateWindow(Videos,"plugin://plugin.video.fen/?mode=history.search&amp;action=tmdb_movie_sets",return)</onclick>

@@ -69,14 +69,14 @@
 
 		<!-- OSD SECTION -->
 		<value condition="Container(9000).HasFocus(7) + !ControlGroup(10000).HasFocus">$LOCALIZE[31171]</value>
-		<value condition="Container(9000).HasFocus(7) + [Control.HasFocus(6220) | Control.HasFocus(6221) | Control.HasFocus(6222) | Control.HasFocus(6223) | Control.HasFocus(6224)]">$LOCALIZE[31171]</value>
-		<value condition="Control.HasFocus(6225)">Choose OSD style. Default is a simple small text-based OSD. Modular can customized with different OSD elements. Choose which elements to show/hide below. You can quickly change the OSD style during playback by clicking the Info icon in the OSD.</value>
-		<value condition="Control.HasFocus(6226)">When this option is enabled, the label will automatically switch back and forth from movie/episode info to resolution/codec/audio channels info during movie/episode playback. Disabling this option will consistently show movie/episode info.</value>
-		<value condition="Control.HasFocus(6227)">When this option is enabled, the label will automatically switch back and forth from channel/program info to resolution/codec/audio channels info during live tv playback. Disabling this option will consistently show channel/program info.</value>
-		<value condition="Control.HasFocus(6228)">When this option is enabled, the label will show the full filename of the file that is currently playing.</value>
-		<value condition="Control.HasFocus(6229)">Click to show all modular OSD elements.</value>
-		<value condition="Control.HasFocus(6230)">Click to hide all modular OSD elements.</value>
-		<value condition="Control.HasFocus(6231) | Control.HasFocus(6232) | Control.HasFocus(6233) | Control.HasFocus(6234) | Control.HasFocus(6235) | Control.HasFocus(6236) | Control.HasFocus(6237) | Control.HasFocus(6238) | Control.HasFocus(6239) | Control.HasFocus(6240) | Control.HasFocus(6241)">Enable or disable the showing of specific OSD elements.</value>
+		<value condition="Container(9000).HasFocus(7) + [Control.HasFocus(62200) | Control.HasFocus(62201) | Control.HasFocus(62202) | Control.HasFocus(62203) | Control.HasFocus(62204)]">$LOCALIZE[31171]</value>
+		<value condition="Control.HasFocus(62205)">Choose OSD style. Default is a simple small text-based OSD. Modular can customized with different OSD elements. Choose which elements to show/hide below. You can quickly change the OSD style during playback by clicking the Info icon in the OSD.</value>
+		<value condition="Control.HasFocus(62206)">When this option is enabled, the label will automatically switch back and forth from movie/episode info to resolution/codec/audio channels info during movie/episode playback. Disabling this option will consistently show movie/episode info.</value>
+		<value condition="Control.HasFocus(62207)">When this option is enabled, the label will automatically switch back and forth from channel/program info to resolution/codec/audio channels info during live tv playback. Disabling this option will consistently show channel/program info.</value>
+		<value condition="Control.HasFocus(62208)">When this option is enabled, the label will show the full filename of the file that is currently playing.</value>
+		<value condition="Control.HasFocus(62209)">Click to show all modular OSD elements.</value>
+		<value condition="Control.HasFocus(62210)">Click to hide all modular OSD elements.</value>
+		<value condition="Control.HasFocus(62211) | Control.HasFocus(62212) | Control.HasFocus(62213) | Control.HasFocus(62214) | Control.HasFocus(62215) | Control.HasFocus(62216) | Control.HasFocus(62217) | Control.HasFocus(62218) | Control.HasFocus(62219) | Control.HasFocus(62220) | Control.HasFocus(62221)">Enable or disable the showing of specific OSD elements.</value>
 
 		<!-- EXTRAS SECTION -->
 		<value condition="Container(9000).HasFocus(10) + !ControlGroup(10000).HasFocus">Extras and cache related options</value>

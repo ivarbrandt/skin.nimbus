@@ -662,65 +662,65 @@
 				<pagecontrol>60</pagecontrol>
 				<ondown>622</ondown>
 				<visible>Container(9000).HasFocus(7)</visible>
-				<control type="radiobutton" id="6220">
+				<control type="radiobutton" id="62200">
 					<label>$LOCALIZE[31172]</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(OSDAutoClose)</selected>
 					<onclick>Skin.ToggleSetting(OSDAutoClose)</onclick>
 				</control>
-				<control type="button" id="6221">
+				<control type="button" id="62201">
 					<label>- $LOCALIZE[31173]</label>
 					<label2>$VAR[SkinSettingOSDAutoCloseTime]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.SetNumeric(OSDAutoCloseTime)</onclick>
 					<enable>Skin.HasSetting(OSDAutoClose)</enable>
 				</control>
-				<control type="button" id="6222">
+				<control type="button" id="62202">
 					<label>Audio button action</label>
 					<label2>$VAR[OSDAudioButtonSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OSDAudioButtonSettingToggleVar]</onclick>
 				</control>
-				<control type="button" id="6223">
+				<control type="button" id="62203">
 					<label>Subtitle button action</label>
 					<label2>$VAR[OSDSubtitleButtonSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OSDSubtitleButtonSettingToggleVar]</onclick>
 				</control>
-				<control type="radiobutton" id="6224">
+				<control type="radiobutton" id="62204">
 					<label>Show OSD while paused</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.PauseOSD)</selected>
 					<onclick>Skin.ToggleSetting(Disable.PauseOSD)</onclick>
 				</control>
-				<control type="button" id="6225">
+				<control type="button" id="62205">
 					<label>OSD style</label>
 					<label2>$VAR[OSDStyleSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OSDStyleToggleVar]</onclick>
 				</control>
-				<control type="radiobutton" id="6226">
+				<control type="radiobutton" id="62206">
 					<label>    - Enable dynamic title label (movies/episodes)</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDDynamicLabelContent)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDDynamicLabelContent)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
 				</control>
-				<control type="radiobutton" id="6227">
+				<control type="radiobutton" id="62207">
 					<label>    - Enable dynamic title label (live tv)</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDDynamicLabelPVR)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDDynamicLabelPVR)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
 				</control>
-				<control type="radiobutton" id="6228">
+				<control type="radiobutton" id="62208">
 					<label>    - Show full filename</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.OSDFileNameLabel)</selected>
 					<onclick>Skin.ToggleSetting(Enable.OSDFileNameLabel)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),0)</visible>
 				</control>
-				<control type="button" id="6229">
+				<control type="button" id="62209">
 					<label>Show all OSD elements</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.Reset(Disable.OSDClearlogo)</onclick>
@@ -736,7 +736,7 @@
 					<onclick>Skin.Reset(Disable.OSDAudioChannels)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="button" id="6230">
+				<control type="button" id="62210">
 					<label>Hide all OSD elements</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.SetBool(Disable.OSDClearlogo)</onclick>
@@ -752,77 +752,77 @@
 					<onclick>Skin.SetBool(Disable.OSDAudioChannels)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6231">
+				<control type="radiobutton" id="62211">
 					<label>    - Clearlogo</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDClearlogo)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDClearlogo)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6232">
+				<control type="radiobutton" id="62212">
 					<label>        - Title label</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDTitle)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDTitle)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1) + Skin.HasSetting(Disable.OSDClearlogo)</visible>
 				</control>
-				<control type="radiobutton" id="6233">
+				<control type="radiobutton" id="62213">
 					<label>    - Studio logo</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDStudiologo)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDStudiologo)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="62334">
+				<control type="radiobutton" id="62214">
 					<label>    - Episode info (SxE • Title)</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDEpisodeInfo)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDEpisodeInfo)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6235">
+				<control type="radiobutton" id="62215">
 					<label>    - Episode plot</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDEpisodePlot)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDEpisodePlot)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6236">
+				<control type="radiobutton" id="62216">
 					<label>    - Movie plot</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDMoviePlot)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDMoviePlot)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6237">
+				<control type="radiobutton" id="62217">
 					<label>    - End time</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDEndTime)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDEndTime)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6238">
+				<control type="radiobutton" id="62218">
 					<label>    - Ratings</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDRatings)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDRatings)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6239">
+				<control type="radiobutton" id="62219">
 					<label>    - Video codec</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDVideoCodec)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDVideoCodec)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6240">
+				<control type="radiobutton" id="62220">
 					<label>    - Audio codec</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDAudioCodec)</selected>
 					<onclick>Skin.ToggleSetting(Disable.OSDAudioCodec)</onclick>
 					<visible>String.IsEqual(Skin.String(OSDStyleSetting),1)</visible>
 				</control>
-				<control type="radiobutton" id="6241">
+				<control type="radiobutton" id="62221">
 					<label>    - Audio channels</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.OSDAudioChannels)</selected>

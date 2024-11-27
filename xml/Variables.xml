@@ -453,11 +453,11 @@
 		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
 	</variable> -->
 	<variable name="ListWatchedIconVar">
-    <value condition="String.IsEqual(Container.PluginName,plugin.video.pov)">$VAR[ListWatchedIconVar.POV]</value>
+    <value condition="String.IsEqual(Container.PluginName,plugin.video.pov) | String.IsEqual(Container.PluginName,plugin.video.umbrella)">$VAR[ListWatchedIconVar.POV]</value>
     <value>$VAR[ListWatchedIconVar.All]</value>
-</variable>
+	</variable>
 
-<variable name="ListWatchedIconVar.POV">
+	<variable name="ListWatchedIconVar.POV">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
@@ -472,9 +472,9 @@
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
     <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
     <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
-</variable>
+	</variable>
 
-<variable name="ListWatchedIconVar.All">
+	<variable name="ListWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
     <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
@@ -482,7 +482,7 @@
     <value condition="ListItem.IsFolder + $EXP[noDBType] + !String.IsEqual(ListItem.Overlay,OverlayWatched.png) + !ListItem.IsParentFolder">overlays/folder.png</value>
     <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
     <value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
-</variable>
+	</variable>
 	
 	<!-- <variable name="ListWatchedIconVar">
 		<value condition="ListItem.IsRecording">windows/pvr/record.png</value>
@@ -494,7 +494,7 @@
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 	</variable> -->
 	<variable name="WallWatchedIconVar">
-    <value condition="String.IsEqual(Container.PluginName,plugin.video.pov)">$VAR[WallWatchedIconVar.POV]</value>
+    <value condition="String.IsEqual(Container.PluginName,plugin.video.pov) | String.IsEqual(Container.PluginName,plugin.video.umbrella)">$VAR[WallWatchedIconVar.POV]</value>
     <value>$VAR[WallWatchedIconVar.All]</value>
 	</variable>
 	<variable name="WallWatchedIconVar.POV">
