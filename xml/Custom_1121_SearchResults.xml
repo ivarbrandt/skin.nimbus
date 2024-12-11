@@ -84,7 +84,7 @@
               <param name="list_id" value="19012"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HideAnimeResults) + String.IsEqual(Skin.String(current_search_provider),1)">
-              <param name="content_path" value="plugin://plugin.video.fenlight/?mode=build_tvshow_list&amp;action=tmdb_anime_search&amp;query=$INFO[Skin.String(SearchInputEncoded)]"/>
+              <param name="content_path" value="$VAR[SearchProviderAnimeVar]"/>
               <param name="widget_header" value="Anime"/>
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="19013"/>
@@ -102,13 +102,13 @@
               <param name="list_id" value="19015"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-              <param name="content_path" value="plugin://plugin.video.umbrella/?action=actorSearchMovies&amp;name=$INFO[Skin.String(SearchInputEncoded)]"/>
+              <param name="content_path" value="$VAR[SearchProviderActors/ActressesMoviesVar]"/>
               <param name="widget_header" value="Actors/Actresses (Movies)"/>
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="19016"/>
             </include>
             <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-              <param name="content_path" value="plugin://plugin.video.umbrella/?action=actorSearchTV&amp;name=$INFO[Skin.String(SearchInputEncoded)]"/>
+              <param name="content_path" value="$VAR[SearchProviderActors/ActressesTVShowsVar]"/>
               <param name="widget_header" value="Actors/Actresses (TV Shows)"/>
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="19017"/>
@@ -125,20 +125,20 @@
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="19019"/>
             </include>
-            <include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+            <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
 							<param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
               <param name="widget_header" value="TRAKT Lists"/>
               <param name="widget_target" value="videos"/>
               <param name="list_id" value="19020"/>
             </include>
 						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=movies&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
+							<param name="content_path" value="$VAR[SearchProviderTRAKTListsMoviesVar]"/>
 							<param name="widget_header" value="TRAKT Lists (Movies)"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="19021"/>
 						</include>
 						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-							<param name="content_path" value="plugin://plugin.video.umbrella/?action=trakt_search_lists&amp;media_type=tvshows&amp;name=$INFO[Skin.String(SearchInputTraktEncoded)]"/>
+							<param name="content_path" value="$VAR[SearchProviderTRAKTListsTVShowsVar]"/>
 							<param name="widget_header" value="TRAKT Lists (TV Shows)"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="19022"/>
