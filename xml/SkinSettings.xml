@@ -904,37 +904,29 @@
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[OnLeftSettingToggleVar]</onclick>
 				</control>
-				<!-- ENABLE LANDSCAPE LABEL -->
-				<control type="radiobutton" id="64003">
-					<label>Enable landscape sublabels</label>
-					<include>DefaultSettingButton</include>
-					<selected>!Skin.HasSetting(Disable.LandscapeWidgetSubLabels)</selected>
-					<onclick>Skin.ToggleSetting(Disable.LandscapeWidgetSubLabels)</onclick>
-				</control>
 				<!-- HOMESCREEN LANDSCAPE WIDGET SUBLABEL -->
-				<control type="button" id="64004">
-					<label>   - Choose landscape sublabel</label>
+				<control type="button" id="64003">
+					<label>Choose landscape sublabel</label>
 					<label2>$VAR[LandscapeWidgetSublabelSettingVar]</label2>
 					<include>DefaultSettingButton</include>
 					<onclick>$VAR[LandscapeWidgetSublabelToggleVar]</onclick>
-					<visible>!Skin.HasSetting(Disable.LandscapeWidgetSubLabels)</visible>
 				</control>
 				<!-- ITEM TITLE -->
-				<control type="radiobutton" id="64005">
+				<control type="radiobutton" id="64004">
 					<label>Show item title in InfoLine</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.WidgetInfoLineTitle)</selected>
 					<onclick>Skin.ToggleSetting(Disable.WidgetInfoLineTitle)</onclick>
 				</control>
 				<!-- WIDGET NAVIGATION -->
-				<control type="radiobutton" id="64006">
+				<control type="radiobutton" id="64005">
 					<label>Enable widget navigation arrows</label>
 					<include>DefaultSettingButton</include>
 					<selected>!Skin.HasSetting(Disable.WidgetNavigationArrows)</selected>
 					<onclick>Skin.ToggleSetting(Disable.WidgetNavigationArrows)</onclick>
 				</control>
 				<!-- DIM WIDGETS -->
-				<control type="radiobutton" id="64007">
+				<control type="radiobutton" id="64006">
 					<label>Dim widgets on main menu focus</label>
 					<include>DefaultSettingButton</include>
 					<selected>Skin.HasSetting(Enable.MainMenuWidgetDimming)</selected>

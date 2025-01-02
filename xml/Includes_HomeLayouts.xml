@@ -784,7 +784,7 @@
 				<control type="group">
 					<left>30</left>
 					<width>410</width>
-					<visible>!Skin.HasSetting(Disable.LandscapeWidgetSubLabels)</visible>
+					<!-- <visible>!Skin.HasSetting(Disable.LandscapeWidgetSubLabels)</visible> -->
 					<control type="label">
 						<top>265</top>
 						<label>$VAR[LandscapeWidgetMainLabel]</label>
