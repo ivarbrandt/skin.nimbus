@@ -1,6 +1,9 @@
 Nimbus Helper: Latest: v0.0.47 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Removed optionality for landscape widget sublabels. These will now be on by default.
+
+[B][COLOR FFFFFFFF]Version 0.1.31[/COLOR][/B]
 - Bug fixes
 
 [B][COLOR FFFFFFFF]Version 0.1.30[/COLOR][/B]
