@@ -953,6 +953,8 @@
 		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDSubtitleButtonSetting))">Skin.SetString(OSDSubtitleButtonSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(nimbus_digital_release_window))">Skin.SetString(nimbus_digital_release_window,7)</onload>
+		<onload condition="String.IsEmpty(Skin.String(nimbus_digital_expired_window))">Skin.SetString(nimbus_digital_expired_window,21)</onload>
 
 		<!-- Initialize rating slots -->
 		<onload condition="String.IsEmpty(Skin.String(RatingSlot1))">Skin.SetString(RatingSlot1,none)</onload>

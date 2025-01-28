@@ -275,6 +275,28 @@
 					<onclick>RunScript(script.nimbus.helper, mode=set_autoendplaybackdelay)</onclick>
 					<visible>Skin.HasSetting(Enable.AutoEndPlayback)</visible>
 				</control>
+				<!-- DIGITAL RELEASE -->
+				<control type="radiobutton" id="63709">
+					<label>Enable smart status (movies)</label>
+					<include>DefaultSettingButton</include>
+					<selected>Skin.HasSetting(Enable.SmartStatus)</selected>
+					<onclick>Skin.ToggleSetting(Enable.SmartStatus)</onclick>
+					<visible>!String.IsEmpty(Skin.String(valid_api_key))</visible>
+				</control>
+				<control type="button" id="63710">
+					<label>    - Recent window (days)</label>
+					<label2>$VAR[SkinSettingDigitalReleaseWindow]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SetNumeric(nimbus_digital_release_window)</onclick>
+					<visible>Skin.HasSetting(Enable.SmartStatus)</visible>
+				</control>
+				<control type="button" id="63711">
+					<label>    - Expiry window (days)</label>
+					<label2>$VAR[SkinSettingDigitalExpiredWindow]</label2>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.SetNumeric(nimbus_digital_expired_window)</onclick>
+					<visible>Skin.HasSetting(Enable.SmartStatus)</visible>
+				</control>
 			</control>
 
 			<control type="grouplist" id="647">

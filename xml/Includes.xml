@@ -936,7 +936,7 @@
 				<align>center</align> 
 				<aligny>center</aligny>
 				<font>font36_title</font>
-				<textcolor>darkgrey</textcolor>
+				<textcolor>unfocused_text</textcolor>
 				<shadowcolor>black</shadowcolor>
 			</control>
 		</control>

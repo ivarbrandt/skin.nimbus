@@ -28,6 +28,9 @@
 		<!-- <value condition="Control.HasFocus(63707)">Enabling this option will show colored studio logos for media content in the FlixPanel.</value> -->
 		<value condition="Control.HasFocus(63707)">Enabling this option will auto end playback after a custom number of minutes [B]IF[/B] playback is paused.</value>
 		<value condition="Control.HasFocus(63708)">Enter custom delay for ending playback.</value>
+		<value condition="Control.HasFocus(63709)">Tracks and color-codes movies based on digital release status: green (digitally released and within expiry window and past recent window), yellow (digitally released and within recent window), red (not yet digitally released), and white (missing digital release info or past expiry window).</value>
+		<value condition="Control.HasFocus(63710)">Set digital release recent window. Any time this value is changed requires clearing the ratings cache and restarting Kodi.</value>
+		<value condition="Control.HasFocus(63711)">Set digital release expiry window. Movies whose digital release date is past this window will display the original release date. Any time this value is changed requires clearing the ratings cache and restarting Kodi.</value>
 
 		<!-- ARTWORK SECTION -->
 		<value condition="Container(9000).HasFocus(6) + !ControlGroup(10000).HasFocus">Artwork settings</value>

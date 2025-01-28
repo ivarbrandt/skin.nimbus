@@ -9,7 +9,8 @@
 	<color name="button_focus2">FF040505</color>
 	<color name="focused_text">FF141515</color>
 	<!-- <color name="unfocused_text">FFC1C1C1</color> -->
-	<color name="unfocused_text">FFCCCCCC</color>
+	<!-- <color name="unfocused_text">FFCCCCCC</color> -->
+	<color name="unfocused_text">FFE0E0E8</color>
 	<color name="artwork_dim">FFE9E9E9</color>
 	<color name="accent_color">FFCCCCCC</color>
 	<color name="selected">FF1773CD</color>

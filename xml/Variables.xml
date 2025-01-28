@@ -367,6 +367,14 @@
 		<value condition="!String.IsEmpty(Skin.String(RevertFromWallDelay))">$INFO[Skin.String(RevertFromWallDelay)]</value>
 		<value condition="String.IsEmpty(Skin.String(RevertFromWallDelay))">2</value> <!-- Default value -->
 	</variable>
+	<variable name="SkinSettingDigitalReleaseWindow">
+		<value condition="!String.IsEmpty(Skin.String(nimbus_digital_release_window))">$INFO[Skin.String(nimbus_digital_release_window)]</value>
+		<value condition="String.IsEmpty(Skin.String(nimbus_digital_release_window))">7</value> <!-- Default value -->
+	</variable>
+	<variable name="SkinSettingDigitalExpiredWindow">
+		<value condition="!String.IsEmpty(Skin.String(nimbus_digital_expired_window))">$INFO[Skin.String(nimbus_digital_expired_window)]</value>
+		<value condition="String.IsEmpty(Skin.String(nimbus_digital_expired_window))">21</value> <!-- Default value -->
+	</variable>
 	<variable name="VolumeIconVar">
 		<value condition="Player.Muted">dialogs/volume/mute.png</value>
 		<value condition="Integer.IsGreater(Player.Volume,66)">dialogs/volume/volume.png</value>

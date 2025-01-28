@@ -14,12 +14,12 @@
 			<control type="textbox" id="5">
 				<centerleft>50%</centerleft>
 				<top>85</top>
-				<width>1120</width>
+				<width>1420</width>
 				<height>824</height>
 				<shadowcolor>black</shadowcolor>
 				<pagecontrol>3000</pagecontrol>
 				<!-- <font>font32</font> -->
-				<textcolor>darkgrey</textcolor>
+				<textcolor>unfocused_text</textcolor>
 			</control>
 			<control type="scrollbar" id="3000">
 				<include>HiddenObject</include>
@@ -54,7 +54,7 @@
 			<texturenofocus colordiffuse="button_focus">overlays/arrowdown.png</texturenofocus>
 		</control> -->
 		<control type="label">
-			<left>1192</left>
+			<left>1342</left>
 			<top>980</top>
 			<width>330</width>
 			<height>35</height>

@@ -309,6 +309,25 @@
 		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">Mid-Season Finale</value>
 	</variable>
 
+	<variable name="DigitalReleaseTextColor">
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),true)">FF89dfc5</value>
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),recently)">FFeedfb1</value>
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),false) + !String.IsEmpty(Window(home).Property(nimbus.digital_release_date))">FFf6aaaa</value>
+    <value condition="!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(nimbus.digital_release_flag),expired) | !String.IsEmpty(Skin.String(TrailerPlaying)) | ControlGroup(996).HasFocus | Control.HasFocus(9000) | !String.IsEmpty(ListItem.Premiered)">unfocused_text</value>
+	</variable>
+
+	<variable name="DigitalReleaseColor">
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),true)">3340E0B0</value>
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),recently)">33FFC30B</value>
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),false) + !String.IsEmpty(Window(home).Property(nimbus.digital_release_date))">33FF4D4D</value>
+    <value condition="!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(nimbus.digital_release_flag),expired) | !String.IsEmpty(Skin.String(TrailerPlaying)) | ControlGroup(996).HasFocus | Control.HasFocus(9000) | !String.IsEmpty(ListItem.Premiered)">26CCCCCC</value>
+	</variable>
+
+	<variable name="DigitalReleaseValue">
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + !String.IsEmpty(Window(home).Property(nimbus.digital_release_date)) + [String.IsEqual(Window(home).Property(nimbus.digital_release_flag),true) | String.IsEqual(Window(home).Property(nimbus.digital_release_flag),recently) | String.IsEqual(Window(home).Property(nimbus.digital_release_flag),false)]">$INFO[Window(home).Property(nimbus.digital_release_date)]</value>
+    <value condition="!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(nimbus.digital_release_flag),expired) | !String.IsEmpty(ListItem.Premiered)">$INFO[ListItem.Premiered]</value>
+	</variable>
+
 	<variable name="EpisodeTypeTextColor">
 		<value condition="!Skin.HasSetting(Enable.BackgroundBlur) + [String.IsEqual(ListItem.Property(episode_type), series_premiere) | String.IsEqual(ListItem.Property(episode_type), season_premiere) | String.IsEqual(ListItem.Property(episode_type), mid_season_finale) | String.IsEqual(ListItem.Property(episode_type), mid_season_premiere) | String.IsEqual(ListItem.Property(episode_type), season_finale) | String.IsEqual(ListItem.Property(episode_type), series_finale)]">ffffffff</value>
 

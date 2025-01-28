@@ -4,7 +4,7 @@
 		<control type="group">
 			<visible>!Control.IsVisible(50) + [!Player.HasVideo | !$EXP[sidebar_visible]]</visible>
 			<left>50</left>
-			<width>785</width>
+			<width>815</width>
 			<top>45</top>
 			<control type="image">
 				<width>522</width>
@@ -60,11 +60,25 @@
 					<itemgap>12</itemgap>
 					<aligny>center</aligny>
 					<align>left</align>
-					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + !String.IsEmpty(ListItem.Genre)</visible>
-					<include content="FlixInfoIcon">
+					<visible>![Window.IsVisible(dialogbusy) | Player.HasMedia] + String.IsEmpty(Skin.String(TrailerPlaying)) + !String.IsEmpty(ListItem.Genre)</visible>
+					<!-- <include content="FlixInfoIcon">
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Premiered]"/>
 						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered) + !ListItem.IsCollection"/>
-					</include>
+					</include> -->
+					<control type="togglebutton">
+						<left>50</left>
+						<width>auto</width>
+						<top>56</top>
+						<height>49</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textoffsetx>14</textoffsetx>
+						<font>FlixPanelIcon</font>
+						<textcolor>$VAR[DigitalReleaseTextColor]</textcolor>
+						<texturenofocus border="13" colordiffuse="$VAR[DigitalReleaseColor]">masks/flixicon-filled.png</texturenofocus>
+						<label>$VAR[DigitalReleaseValue]</label>
+						<visible>!String.IsEmpty(Container($PARAM[id]).ListItem.Premiered)</visible>
+					</control>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.MPAA]"/>
 						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.MPAA) + !ListItem.IsCollection"/>
@@ -75,7 +89,7 @@
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$INFO[Container($PARAM[id]).ListItem.Rating]★"/>
-						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Rating) + !ListItem.IsCollection + [$EXP[isEpisode] | String.IsEqual(Container.PluginName,plugin.video.otaku)]"/>
+						<param name="visible" value="!String.IsEmpty(Container($PARAM[id]).ListItem.Rating) + !ListItem.IsCollection + [$EXP[isEpisode] | String.StartsWith(Container.PluginName,plugin.video.otaku)]"/>
 					</include>
 					<include content="FlixInfoIcon">
 						<param name="flixlabel" value="$VAR[FlixPanelRuntime]"/>
@@ -333,7 +347,7 @@
 		<param name="top"></param>
 		<param name="bottom"></param>
 		<param name="left"></param>
-		<param name="visible">!String.IsEmpty(ListItem.Genre) + $EXP[isContent] + [
+		<param name="visible">!String.IsEmpty(ListItem.Genre) + String.IsEmpty(Skin.String(TrailerPlaying)) + $EXP[isContent] + [
 			[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
 			[String.IsEqual(Skin.String(RatingSlot1),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
 			[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating))] |
