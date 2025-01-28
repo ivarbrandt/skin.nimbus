@@ -1,4 +1,32 @@
-Nimbus Helper: Latest: v0.0.47 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.48 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+
+[B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+
+[B]If you use ratings, this update requires a [COLOR red]MANDATORY[/COLOR] clearing of the ratings cache due to a new database schema.[/B] 
+
+- Expanded ratings functionality to other addons (Otaku, TMDbHelper, etc). Nimbus can now pull ratings using the IMDb ID, TMDb ID, or just the title and year of any item.
+- Improved overall ratings performance
+- Changed default text color to improve legibility
+- Added optional smart status feature for movies
+
+This new feature helps you quickly assess the availability of links through a color-coded system that tracks digital release status. When enabled, the display shows digital release dates (instead of premiere dates) with colors indicating availability.
+
+The color system works as follows:
+[COLOR FF89dfc5][B]GREEN[/B][/COLOR] indicates a high probability of finding links - these are movies that have been digitally released, are past the initial release window, but still within the tracking period.
+[COLOR FFeedfb1][B]YELLOW[/B][/COLOR] signals potential availability - these are fresh digital releases within the recent window, typically representing new releases that are just becoming available.
+[COLOR FFf6aaaa][B]RED[/B][/COLOR] warns of limited availability - these are movies not yet digitally released, meaning links are unlikely to be found.
+[COLOR white][B]WHITE[/B][/COLOR] indicates either missing digital release information or movies that have aged beyond your tracking window, reverting to showing the premiere date.
+
+Configuration Options:
+In Skin settings [B]»[/B] Customization, you'll find two configurable windows:
+The Recent Window determines how long a movie stays marked as a fresh release (yellow). This period starts from the digital release date.
+The Expiry Window sets how long you want to track a movie's digital release status before it reverts to showing the premiere date. This value must be bigger than the Recent Window.
+
+IMPORTANT NOTE: Status updates only occur if the last update was more than 3 days ago. Keep this in mind when setting your Recent Window value.
+
+Requirements:
+- MDbList API key required
+- After enabling: Clear ratings cache and restart Kodi
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
 - Removed optionality for landscape widget sublabels. These will now be on by default.
