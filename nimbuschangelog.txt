@@ -1,7 +1,10 @@
 Nimbus Helper: Latest: v0.0.48 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Redesigned vertical ratings panel
+- Added vertical ratings panel to Fanart List view
 
+[B][COLOR FFFFFFFF]Version 0.1.33[/COLOR][/B]
 [B]If you use ratings, this update requires a [COLOR red]MANDATORY[/COLOR] clearing of the ratings cache due to a new database schema.[/B] 
 
 - Expanded ratings functionality to other addons (Otaku, TMDbHelper, etc). Nimbus can now pull ratings using the IMDb ID, TMDb ID, or just the title and year of any item.
@@ -28,7 +31,7 @@ Requirements:
 - MDbList API key required
 - After enabling: Clear ratings cache and restart Kodi
 
-[B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+[B][COLOR FFFFFFFF]Version 0.1.32[/COLOR][/B]
 - Removed optionality for landscape widget sublabels. These will now be on by default.
 
 [B][COLOR FFFFFFFF]Version 0.1.31[/COLOR][/B]
