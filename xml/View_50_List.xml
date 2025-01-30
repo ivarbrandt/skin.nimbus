@@ -2,757 +2,151 @@
 <includes>
 
 	<include name="View_50_List">
-		<control type="group">
-			<include>OpenClose_Right</include>
-			<left>0</left>
-			<top>0</top>
-			<visible>Control.IsVisible(50)</visible>
-			<include>Visible_Right</include>
-			<include>MediaMenuAnimations</include>
-			<!-- <control type="label">
-				<left>300</left>
-				<top>100</top>
-				<width>700</width>
-				<height>80</height>
-				<label>$INFO[Container.Content]</label>
-			</control> -->
-			<!-- <control type="label">
-				<left>300</left>
-				<top>150</top>
-				<width>700</width>
-				<height>80</height>
-				<label>Last Focused Color: $INFO[Window(home).Property(LastFocusedColor)]</label>
-			</control>
-			<control type="label">
-				<left>300</left>
-				<top>200</top>
-				<width>700</width>
-				<height>80</height>
-				<label>Current Color: $INFO[Window(home).Property(listitem_color)]</label>
-			</control> -->
-			<control type="image">
-				<left>70</left>
-				<bottom>240</bottom>
-				<width>930</width>
-				<height>523</height>
-				<fadetime>500</fadetime>
-				<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
-				<bordersize>1</bordersize>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<include>ArtworkAnimations</include>
-				<include>ListLandscapeArtworkSlide</include>
-				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
-				<visible>
-					!Player.HasMedia + 
-					[
-						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
-						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
-						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | 
-						[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
-						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
-						[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
+		<param name="ratings_notvisible">[
+					[String.IsEqual(Skin.String(RatingSlot1),none) | 
+							[String.IsEqual(Skin.String(RatingSlot1),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
+							[String.IsEqual(Skin.String(RatingSlot1),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
+							[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating))] |
+							[String.IsEqual(Skin.String(RatingSlot1),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
+							[String.IsEqual(Skin.String(RatingSlot1),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot1),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot1),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
+							[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
+							[String.IsEqual(Skin.String(RatingSlot1),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
+					] +
+					[String.IsEqual(Skin.String(RatingSlot2),none) | 
+							[String.IsEqual(Skin.String(RatingSlot2),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
+							[String.IsEqual(Skin.String(RatingSlot2),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
+							[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating))] |
+							[String.IsEqual(Skin.String(RatingSlot2),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
+							[String.IsEqual(Skin.String(RatingSlot2),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot2),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot2),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
+							[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
+							[String.IsEqual(Skin.String(RatingSlot2),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
+					] +
+					[String.IsEqual(Skin.String(RatingSlot3),none) | 
+							[String.IsEqual(Skin.String(RatingSlot3),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
+							[String.IsEqual(Skin.String(RatingSlot3),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
+							[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating))] |
+							[String.IsEqual(Skin.String(RatingSlot3),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
+							[String.IsEqual(Skin.String(RatingSlot3),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot3),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot3),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
+							[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
+							[String.IsEqual(Skin.String(RatingSlot3),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
+					] +
+					[String.IsEqual(Skin.String(RatingSlot4),none) | 
+							[String.IsEqual(Skin.String(RatingSlot4),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
+							[String.IsEqual(Skin.String(RatingSlot4),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
+							[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating))] |
+							[String.IsEqual(Skin.String(RatingSlot4),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
+							[String.IsEqual(Skin.String(RatingSlot4),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot4),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot4),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
+							[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
+							[String.IsEqual(Skin.String(RatingSlot4),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
+					] +
+					[String.IsEqual(Skin.String(RatingSlot5),none) | 
+							[String.IsEqual(Skin.String(RatingSlot5),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
+							[String.IsEqual(Skin.String(RatingSlot5),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
+							[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating))] |
+							[String.IsEqual(Skin.String(RatingSlot5),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
+							[String.IsEqual(Skin.String(RatingSlot5),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot5),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot5),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
+							[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
+							[String.IsEqual(Skin.String(RatingSlot5),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
+					] +
+					[String.IsEqual(Skin.String(RatingSlot6),none) | 
+							[String.IsEqual(Skin.String(RatingSlot6),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
+							[String.IsEqual(Skin.String(RatingSlot6),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
+							[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating))] |
+							[String.IsEqual(Skin.String(RatingSlot6),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
+							[String.IsEqual(Skin.String(RatingSlot6),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot6),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
+							[String.IsEqual(Skin.String(RatingSlot6),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
+							[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
+							[String.IsEqual(Skin.String(RatingSlot6),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
 					]
-				</visible>
-			</control>
-			<control type="image">
-				<left>159</left>
-				<bottom>90</bottom>
-				<width>610</width>
-				<height>915</height>
-				<fadetime>500</fadetime>
-				<texture colordiffuse="artwork_dim" diffuse="masks/colossal-poster.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[FlixPosterVar]</texture>
-				<bordersize>1</bordersize>
-				<bordertexture colordiffuse="$VAR[BorderColorVar]" border="20" infill="false">masks/colossal-poster-border.png</bordertexture>
-				<aspectratio scalediffuse="false">scale</aspectratio>
-				<include>ArtworkAnimations</include>
-				<animation condition="
-						$EXP[isContent] + 
-						[
-								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
-								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
-								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
-								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
-						] +
-						[
-								[String.IsEqual(Skin.String(RatingSlot1),none) | 
-										[String.IsEqual(Skin.String(RatingSlot1),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot1),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot1),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot1),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot1),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot2),none) | 
-										[String.IsEqual(Skin.String(RatingSlot2),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot2),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot2),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot2),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot2),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot3),none) | 
-										[String.IsEqual(Skin.String(RatingSlot3),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot3),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot3),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot3),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot3),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot4),none) | 
-										[String.IsEqual(Skin.String(RatingSlot4),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot4),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot4),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot4),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot4),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot5),none) | 
-										[String.IsEqual(Skin.String(RatingSlot5),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot5),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot5),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot5),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot5),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot6),none) | 
-										[String.IsEqual(Skin.String(RatingSlot6),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot6),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot6),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot6),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot6),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								]
-						]" 
-						reversible="true">
-						<effect type="slide" start="0,0" end="100,0" delay="200" time="500" tween="cubic" easing="inout" />
-				</animation>
-				<visible>
-					!Player.HasMedia + 
-					[
-						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
-						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
-						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
-						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
-					] + 
-					[!Container.Content(addons) | String.StartsWith(Container.PluginName,plugin.video.otaku)]
-				</visible>
-			</control>
-			<control type="image">
-				<!-- <include>FullScreenDimensions</include> -->
+		]</param>
+		<definition>
+			<control type="group">
+				<include>OpenClose_Right</include>
 				<left>0</left>
 				<top>0</top>
-				<width>101%</width>
-				<height>101%</height>
-				<fadetime>500</fadetime>
-				<texture colordiffuse="artwork_dim" diffuse="overlays/fanart-diffuse.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
-				<aspectratio>stretch</aspectratio>
-				<include>ArtworkAnimations</include>
-				<visible>
-					!Player.HasMedia + 
-					[
-						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
-						[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
-						[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
-					]
-				</visible>
-				</control>
-				<control type="image">
-					<top>90</top>
-					<right>90</right>
-					<width>470</width>
-					<height>182</height>
-					<fadetime>300</fadetime>
-					<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
-					<aspectratio align="right" aligny="top">keep</aspectratio>
-					<visible>
-						!Player.HasMedia + Skin.HasSetting(Enable.FanartClearlogo) +
-						[
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]
-						] + 
-						[!Container.Content(addons) | String.StartsWith(Container.PluginName,plugin.video.otaku)]
-					</visible>
-				</control>
-				<control type="image">
-					<left>159</left>
-					<bottom>190</bottom>
+				<visible>Control.IsVisible(50)</visible>
+				<include>Visible_Right</include>
+				<include>MediaMenuAnimations</include>
+				<!-- <control type="label">
+					<left>300</left>
+					<top>100</top>
 					<width>700</width>
-					<height>700</height>
-					<fadetime>500</fadetime>
-					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<include>ArtworkAnimations</include>
-					<visible>
-						!Player.HasMedia + 
-						Container.Content(addons) + 
-						!String.StartsWith(Container.PluginName,plugin.video.otaku) + 
-						!String.IsEqual(Skin.String(ListArtworkChoice.addons),2)
-					</visible>
-				</control>
-				<!-- <control type="image">
-					<left>289</left>
-					<bottom>290</bottom>
-					<width>500</width>
-					<height>500</height>
-					<fadetime>500</fadetime>
-					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<include>ArtworkAnimations</include>
-					<visible>!Player.HasMedia + Container.Content() + !String.StartsWith(Container.PluginName,plugin.video.otaku)</visible>
+					<height>80</height>
+					<label>$INFO[Container.Content]</label>
 				</control> -->
-				<control type="group">
+				<!-- <control type="label">
+					<left>300</left>
+					<top>150</top>
+					<width>700</width>
+					<height>80</height>
+					<label>Last Focused Color: $INFO[Window(home).Property(LastFocusedColor)]</label>
+				</control>
+				<control type="label">
+					<left>300</left>
+					<top>200</top>
+					<width>700</width>
+					<height>80</height>
+					<label>Current Color: $INFO[Window(home).Property(listitem_color)]</label>
+				</control> -->
+				<control type="image">
+					<left>70</left>
+					<bottom>240</bottom>
+					<width>930</width>
+					<height>523</height>
+					<fadetime>500</fadetime>
+					<texture colordiffuse="artwork_dim" diffuse="masks/giant-landscape.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
+					<bordersize>1</bordersize>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<include>ArtworkAnimations</include>
+					<include>ListLandscapeArtworkSlide</include>
+					<bordertexture colordiffuse="$VAR[BorderColorVar]" border="17" infill="false">masks/giant-border.png</bordertexture>
 					<visible>
 						!Player.HasMedia + 
 						[
 							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
 							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
 							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)]
-						] + 
-						[[!String.IsEmpty(ListItem.Art(clearlogo)) | !String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(Enable.LandscapeClearlogo)] + 
-						[$EXP[isContent] | Container.Content(addons)] + 
-						[
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListLandscape.movies),1)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListLandscape.tvshows),1)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListLandscape.seasons),1)] | 
-							[Container.Content(episodes) + [String.IsEqual(Skin.String(ListLandscape.episodes),0) | String.IsEqual(Skin.String(ListLandscape.episodes),1)]]
+							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),0)] | 
+							[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),0)] | 
+							[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),0)] |
+							[Container.Content(addons) + String.StartsWith(Container.PluginName,plugin.video.otaku) + String.IsEqual(Skin.String(ListArtworkChoice.addons),0)]
 						]
 					</visible>
-					<include>ListLandscapeArtworkSlide</include>
-					<control type="image">
-						<top>589</top>
-						<left>71</left>
-						<width>928</width>
-						<height>250</height>
-						<texture colordiffuse="A8FFFFFF" background="true">overlays/overlayfade-ls.png</texture>
-					</control>
-					<control type="image">
-						<top>674</top>
-						<left>120</left>
-						<width>300</width>
-						<height>116</height>
-						<fadetime>300</fadetime>
-						<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
-						<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					</control>
 				</control>
-				<control type="grouplist">
-					<include>ListLandscapeArtworkSlide</include>
-					<animation effect="fade" time="400">VisibleChange</animation>
-					<width>930</width>
-					<left>70</left>
-					<top>239.5</top>
-					<height>38</height>
-					<orientation>horizontal</orientation>
-					<itemgap>20</itemgap>
-					<aligny>center</aligny>
-					<align>center</align>
-					<visible>
-						!Player.HasMedia + 
-						[
-							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
-							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
-							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
-							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)]
-						] + 
-						!String.IsEmpty(ListItem.Genre) + 
-						$EXP[isContent]
-					</visible>
-					<control type="grouplist">
-						<width>130</width>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<align>left</align>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot1),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot1),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot1),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<align>left</align>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating1ImageVar]</texture>
-						</control>
-						<control type="label">
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">MetacriticRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">TraktRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">LetterboxdRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">MDbListRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">RTCRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rta)">RTARatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">IMDbRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">IMDbPopRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">TMDbRatingLabelWidth</include>
-							<height>38</height>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating1ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="grouplist">
-						<width>130</width>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<align>left</align>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot2),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot2),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot2),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot2),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<align>left</align>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating2ImageVar]</texture>
-						</control>
-						<control type="label">
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">MetacriticRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">TraktRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">LetterboxdRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">MDbListRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">RTCRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rta)">RTARatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">IMDbRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">IMDbPopRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">TMDbRatingLabelWidth</include>
-							<height>38</height>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating2ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="grouplist">
-						<width>130</width>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<align>left</align>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot3),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot3),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot3),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot3),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<align>left</align>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating3ImageVar]</texture>
-						</control>
-						<control type="label">
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">MetacriticRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">TraktRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">LetterboxdRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">MDbListRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">RTCRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rta)">RTARatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">IMDbRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">IMDbPopRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">TMDbRatingLabelWidth</include>
-							<height>38</height>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating3ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="grouplist">
-						<width>130</width>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<align>left</align>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot4),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot4),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot4),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot4),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<align>left</align>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating4ImageVar]</texture>
-						</control>
-						<control type="label">
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">MetacriticRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">TraktRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">LetterboxdRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">MDbListRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">RTCRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rta)">RTARatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">IMDbRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">IMDbPopRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">TMDbRatingLabelWidth</include>
-							<height>38</height>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating4ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="grouplist">
-						<width>130</width>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<align>left</align>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot5),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot5),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot5),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot5),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<align>left</align>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating5ImageVar]</texture>
-						</control>
-						<control type="label">
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">MetacriticRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">TraktRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">LetterboxdRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">MDbListRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">RTCRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rta)">RTARatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">IMDbRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">IMDbPopRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">TMDbRatingLabelWidth</include>
-							<height>38</height>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating5ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="grouplist">
-						<width>130</width>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<align>left</align>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot6),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot6),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot6),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot6),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<align>left</align>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating6ImageVar]</texture>
-						</control>
-						<control type="label">
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">MetacriticRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">TraktRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">LetterboxdRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">MDbListRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">RTCRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rta)">RTARatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">IMDbRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">IMDbPopRatingLabelWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">TMDbRatingLabelWidth</include>
-							<height>38</height>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating6ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="group">
-						<width>49</width>
-						<height>35</height>
-						<animation effect="fade" time="300">VisibleChange</animation>
-						<visible>
-							[!String.EndsWith(Container.PluginCategory,Collection) + !String.EndsWith(Container.PluginCategory,Saga) | String.IsEqual(Container.PluginCategory,Movies Collection)] + 
-							String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot1),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot1),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot2),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot2),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot3),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot3),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot4),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot4),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot5),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot5),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot6),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot6),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						</visible>
-						<control type="image">
-							<left>7</left>
-							<top>0</top>
-							<width>35</width>
-							<height>35</height>
-							<fadetime>0</fadetime>
-							<aspectratio align="center" aligny="center">keep</aspectratio>
-							<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
-						</control>
-					</control>
-					<control type="group">
-						<width>92</width>
-						<height>38</height>
-						<visible>
-							!String.IsEmpty(ListItem.Status) + 
-							!String.IsEqual(Container.PluginName,plugin.video.otaku) + 
-							$EXP[isTVShow] +
-							[
-									[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot1),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot1),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot2),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot2),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot3),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot3),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot4),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot4),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot5),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot5),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot6),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot6),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						</visible>
-						<control type="image">
-							<left>7</left>
-							<top>0</top>
-							<width>51</width>
-							<height>36</height>
-							<fadetime>0</fadetime>
-							<aspectratio align="left" aligny="center">keep</aspectratio>
-							<texture colordiffuse="artwork_dim">$VAR[TVShowStatusIcon]</texture>
-						</control>
-					</control>
-				</control>
-				<control type="grouplist">
-					<animation effect="fade" time="400">VisibleChange</animation>
-					<width>150</width>
-					<left>835</left>
+				<control type="image">
+					<left>224</left>
 					<bottom>90</bottom>
+					<width>610</width>
 					<height>915</height>
-					<orientation>vertical</orientation>
-					<itemgap>33</itemgap>
-					<aligny>center</aligny>
-					<align>center</align>
+					<fadetime>500</fadetime>
+					<texture colordiffuse="artwork_dim" diffuse="masks/colossal-poster.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[FlixPosterVar]</texture>
+					<bordersize>1</bordersize>
+					<bordertexture colordiffuse="$VAR[BorderColorVar]" border="20" infill="false">masks/colossal-poster-border.png</bordertexture>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<include>ArtworkAnimations</include>
+					<animation condition="
+						Skin.HasSetting(Disable.50_ListSetting1_Ratings) | 
+							[
+									[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
+									[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
+									[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
+									[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
+							] +
+						$PARAM[ratings_notvisible]" 
+							reversible="true">
+							<effect type="slide" start="0,0" end="45,0" delay="200" time="500" tween="cubic" easing="in" />
+					</animation>
 					<visible>
 						!Player.HasMedia + 
 						[
@@ -761,583 +155,273 @@
 							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
 							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
 						] + 
-						!String.IsEmpty(ListItem.Genre) + 
-						$EXP[isContent]
+						[!Container.Content(addons) | String.StartsWith(Container.PluginName,plugin.video.otaku)]
 					</visible>
-					<control type="group">
-						<width>150</width>
-						<height>38</height>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot1),none) + 
+				</control>
+				<control type="image">
+					<!-- <include>FullScreenDimensions</include> -->
+					<left>0</left>
+					<top>0</top>
+					<width>101%</width>
+					<height>101%</height>
+					<fadetime>500</fadetime>
+					<texture colordiffuse="artwork_dim" diffuse="overlays/fanart-diffuse.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$VAR[ListLandscapeVar]</texture>
+					<aspectratio>stretch</aspectratio>
+					<include>ArtworkAnimations</include>
+					<visible>
+						!Player.HasMedia + 
+						[
+							[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+							[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+							[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+							[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
+							[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
+							[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]
+						]
+					</visible>
+					</control>
+					<control type="image">
+						<top>90</top>
+						<right>90</right>
+						<width>470</width>
+						<height>182</height>
+						<fadetime>300</fadetime>
+						<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
+						<aspectratio align="right" aligny="top">keep</aspectratio>
+						<visible>
+						!Player.HasMedia + !String.IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(Enable.FanartClearlogo) +
 							[
-									[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot1),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot1),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
+								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]
+							] + 
+							[!Container.Content(addons) | String.StartsWith(Container.PluginName,plugin.video.otaku)]
+						</visible>
+					</control>
+					<control type="image">
+						<left>159</left>
+						<bottom>190</bottom>
+						<width>700</width>
+						<height>700</height>
+						<fadetime>500</fadetime>
+						<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<include>ArtworkAnimations</include>
+						<visible>
+							!Player.HasMedia + 
+							Container.Content(addons) + 
+							!String.StartsWith(Container.PluginName,plugin.video.otaku) + 
+							!String.IsEqual(Skin.String(ListArtworkChoice.addons),2)
+						</visible>
+					</control>
+					<!-- <control type="image">
+						<left>289</left>
+						<bottom>290</bottom>
+						<width>500</width>
+						<height>500</height>
+						<fadetime>500</fadetime>
+						<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" background="true" fallback="$VAR[NimbusCustomBackgroundImage]">$INFO[ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<include>ArtworkAnimations</include>
+						<visible>!Player.HasMedia + Container.Content() + !String.StartsWith(Container.PluginName,plugin.video.otaku)</visible>
+					</control> -->
+					<control type="group">
+						<visible>
+							!Player.HasMedia + 
+							[
+								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
+								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
+								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
+								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)]
+							] + 
+							[[!String.IsEmpty(ListItem.Art(clearlogo)) | !String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))] + Skin.HasSetting(Enable.LandscapeClearlogo)] + 
+							[$EXP[isContent] | Container.Content(addons)] + 
+							[
+								[Container.Content(movies) + String.IsEqual(Skin.String(ListLandscape.movies),1)] | 
+								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListLandscape.tvshows),1)] | 
+								[Container.Content(seasons) + String.IsEqual(Skin.String(ListLandscape.seasons),1)] | 
+								[Container.Content(episodes) + [String.IsEqual(Skin.String(ListLandscape.episodes),0) | String.IsEqual(Skin.String(ListLandscape.episodes),1)]]
 							]
-						]</visible>
+						</visible>
+						<include>ListLandscapeArtworkSlide</include>
 						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">MetacriticRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">TraktRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">LetterboxdRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">MDbListRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">RTCRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rta)">RTARatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">IMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">IMDbPopRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">TMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot1),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating1ImageVar]</texture>
+							<top>589</top>
+							<left>71</left>
+							<width>928</width>
+							<height>250</height>
+							<texture colordiffuse="A8FFFFFF" background="true">overlays/overlayfade-ls.png</texture>
 						</control>
-						<control type="label">
-							<right>0</right>
-							<width>100</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating1ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
+						<control type="image">
+							<top>674</top>
+							<left>120</left>
+							<width>300</width>
+							<height>116</height>
+							<fadetime>300</fadetime>
+							<texture colordiffuse="artwork_dim" background="true">$VAR[ClearlogoVar]</texture>
+							<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						</control>
 					</control>
 					<control type="group">
-						<width>150</width>
-						<height>38</height>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot2),none) + 
+						<include>ListLandscapeArtworkSlide</include>
+						<animation effect="fade" time="400">VisibleChange</animation>
+						<include condition="!String.IsEmpty(Skin.String(valid_api_key))" content="HorizontalRatings">
+							<param name="visible" value="!Player.HasMedia + !Skin.HasSetting(Disable.50_ListSetting0_Ratings) + 
 							[
-									[String.IsEqual(Skin.String(RatingSlot2),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot2),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot2),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">MetacriticRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">TraktRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">LetterboxdRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">MDbListRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">RTCRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rta)">RTARatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">IMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">IMDbPopRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">TMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot2),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating2ImageVar]</texture>
-						</control>
-						<control type="label">
-							<right>0</right>
-							<width>100</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating2ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
+								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),0)] | 
+								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),0)] | 
+								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),0)] | 
+								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),0)]
+							] + 
+							!String.IsEmpty(ListItem.Genre) + 
+							$EXP[isContent]"/>
+							<param name="align" value="center"/>
+							<param name="top" value="239.5"/>
+							<param name="left" value="-850"/>
+						</include>
 					</control>
-					<control type="group">
+					<!-- Grouplist for ListArtworkChoice 1 -->
+					<control type="grouplist">
+						<animation effect="fade" time="400">VisibleChange</animation>
 						<width>150</width>
-						<height>38</height>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot3),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot3),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot3),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot3),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">MetacriticRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">TraktRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">LetterboxdRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">MDbListRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">RTCRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rta)">RTARatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">IMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">IMDbPopRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">TMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot3),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating3ImageVar]</texture>
-						</control>
-						<control type="label">
-							<right>0</right>
-							<width>100</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating3ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
+						<left>840</left>
+						<bottom>90</bottom>
+						<height>915</height>
+						<orientation>vertical</orientation>
+						<itemgap>36</itemgap>
+						<aligny>center</aligny>
+						<align>center</align>
+						<visible>
+								!Player.HasMedia + 
+								!Skin.HasSetting(Disable.50_ListSetting1_Ratings) + 
+								[
+										[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
+										[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
+										[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
+										[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
+								] + 
+								!String.IsEmpty(ListItem.Genre) + 
+								$EXP[isContent]
+						</visible>
+						<include condition="!String.IsEmpty(Skin.String(valid_api_key))">VerticalRatings</include>
 					</control>
-					<control type="group">
+
+					<!-- Grouplist for ListArtworkChoice 2 -->
+					<control type="grouplist">
+						<animation type="Visible">
+							<effect type="slide" start="-100,0" end="0,0" tween="cubic" easing="out" time="400" />
+							<effect type="fade" start="0" end="100" time="400" />
+						</animation>
+						<animation type="Hidden">
+							<effect type="slide" start="0,0" end="-100,0" tween="cubic" easing="in" time="400" />
+							<effect type="fade" start="100" end="0" time="400" />
+						</animation>
 						<width>150</width>
-						<height>38</height>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot4),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot4),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot4),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot4),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">MetacriticRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">TraktRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">LetterboxdRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">MDbListRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">RTCRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rta)">RTARatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">IMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">IMDbPopRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">TMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot4),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating4ImageVar]</texture>
-						</control>
-						<control type="label">
-							<right>0</right>
-							<width>100</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating4ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="group">
-						<width>150</width>
-						<height>38</height>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot5),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot5),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot5),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot5),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">MetacriticRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">TraktRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">LetterboxdRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">MDbListRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">RTCRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rta)">RTARatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">IMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">IMDbPopRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">TMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot5),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating5ImageVar]</texture>
-						</control>
-						<control type="label">
-							<right>0</right>
-							<width>100</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating5ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
-					<control type="group">
-						<width>150</width>
-						<height>38</height>
-						<visible>[!String.IsEqual(Skin.String(RatingSlot6),none) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot6),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot6),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot6),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						]</visible>
-						<control type="image">
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">MetacriticRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">TraktRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">LetterboxdRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">MDbListRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">RTCRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rta)">RTARatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">IMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">IMDbPopRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">TMDbRatingImageLeft</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),metacritic)">MetacriticRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),trakt)">TraktRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),letterboxd)">LetterboxdRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),mdblist)">MDbListRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rtc)">RTCRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),rta)">RTARatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdb)">IMDbRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),imdbpop)">IMDbPopRatingImageWidth</include>
-							<include condition="String.IsEqual(Skin.String(RatingSlot6),tmdb)">TMDbRatingImageWidth</include>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$VAR[Rating6ImageVar]</texture>
-						</control>
-						<control type="label">
-							<right>0</right>
-							<width>100</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$VAR[Rating6ValueVar]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
+						<left>40</left>
+						<bottom>55</bottom>
+						<height>915</height>
+						<orientation>vertical</orientation>
+						<itemgap>36</itemgap>
+						<aligny>center</aligny>
+						<align>center</align>
+						<visible>
+								!Player.HasMedia + 
+								!Skin.HasSetting(Disable.50_ListSetting2_Ratings) + 
+								[
+										[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+										[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+										[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+										[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]
+								] + 
+								!String.IsEmpty(ListItem.Genre) + 
+								$EXP[isContent]
+						</visible>
+						<include condition="!String.IsEmpty(Skin.String(valid_api_key))">VerticalRatings</include>
 					</control>
 					
-					<!-- <control type="group">
-						<width>150</width>
-						<height>38</height>
-						<visible>![String.IsEmpty(Window(Home).Property(altus.popularRating)) | Skin.HasSetting(Disable.IMDbPopularRating)]</visible>
-						<control type="image">
-							<left>5</left>
-							<width>29</width>
-							<height>35</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$INFO[Window(Home).Property(altus.popularImage)]</texture>
-						</control>
-						<control type="label">
-							<right>0</right>
-							<width>116</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$INFO[Window(Home).Property(altus.popularRating)]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
-						</control>
-					</control>
+					<include content="ListContainer">
+						<param name="list_id" value="50" />
+						<param name="left" value="1018" />
+						<param name="viewtype_label" value="$LOCALIZE[535]" />
+						<param name="ratings_notvisible" value="$PARAM[ratings_notvisible]" />
+					</include>
 					<control type="group">
-						<width>150</width>
-						<height>38</height>
-						<visible>![String.IsEmpty(Window(Home).Property(altus.tmdbRating)) | Skin.HasSetting(Disable.TMDbRating)]</visible>
-						<control type="image">
-							<left>-5</left>
-							<width>60</width>
-							<height>38</height>
-							<aspectratio>keep</aspectratio>
-							<aligny>center</aligny>
-							<texture>$INFO[Window(Home).Property(altus.tmdbImage)]</texture>
-						</control>
-						<control type="label">
+						<depth>DepthContentPanel</depth>
+						<control type="group">
 							<right>0</right>
-							<width>85</width>
-							<height>38</height>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$INFO[Window(Home).Property(altus.tmdbRating)]</label>
-							<font>font27</font>
-							<textcolor>unfocused_text</textcolor>
+							<width>634</width>
+							<!-- <include content="RightListPanel">
+								<param name="list_id" value="50" />
+							</include> -->
+							<!-- <control type="image">
+								<top>0</top>
+								<bottom>0</bottom>
+								<width>7</width>
+								<right>-7</right>
+								<texture >colors/black.png</texture>
+								<animation effect="slide" end="-7,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(50600)">Conditional</animation>
+							</control> -->
+							<!-- <control type="scrollbar" id="50600">
+								<right>-7</right>
+								<top>0</top>
+								<width>7</width>
+								<bottom>0</bottom>
+								<onleft>50</onleft>
+								<onright>50</onright>
+								<orientation>vertical</orientation>
+								<animation effect="slide" end="-7,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(50600)">Conditional</animation>
+							</control> -->
+							<control type="scrollbar" id="50600">
+								<visible>Control.IsVisible(50) + !$EXP[sidebar_visible]</visible>
+								<top>0</top>
+								<right>-7</right>
+								<width>7</width>
+								<bottom>0</bottom>
+								<orientation>vertical</orientation>
+								<texturesliderbar colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbar>
+								<texturesliderbarfocus colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbarfocus>
+								<!-- Animation for right-side scrollbar -->
+								<animation effect="slide" end="-7,0" time="300" tween="sine" easing="inout" condition="
+								[
+									[Container.Scrolling + ![Container.Content(addons) | String.IsEmpty(Container.Content())]] | 
+									Control.HasFocus(50600)
+								] + 
+								![
+									[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+									[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+									[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+									[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
+									[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] |  
+									[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
+									[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
+								]">Conditional</animation>
+								<!-- Animation for left-side scrollbar -->
+								<animation effect="slide" end="7,0" time="300" tween="sine" easing="inout" condition="
+								[
+									[Container.Scrolling + ![Container.Content(addons) | String.IsEmpty(Container.Content())]] | 
+									Control.HasFocus(50600)
+								] + 
+								[
+									[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+									[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+									[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+									[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
+									[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | 
+									[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
+									[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
+								]">Conditional</animation>
+								<animation type="Conditional" condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">
+									<effect type="slide" start="0,0" end="-1927,0" time="0" />
+								</animation>
+								<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onleft>
+								<onright condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
+								<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
+								<onright condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
 						</control>
-					</control> -->
-					<control type="label">
-						<width>1</width>
-						<height>-37</height>
-						<label></label>
-					</control>
-					<control type="image">
-						<width>150</width>
-						<height>45</height>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture colordiffuse="$VAR[MenuSelectorColor]">$VAR[CollectionStatus]</texture>
-						<animation effect="fade" time="300">VisibleChange</animation>
-						<visible>
-							[!String.EndsWith(Container.PluginCategory,Collection) + !String.EndsWith(Container.PluginCategory,Saga) | String.IsEqual(Container.PluginCategory,Movies Collection)] + 
-							String.IsEqual(Window(Home).Property(nimbus.belongs_to_collection),true) + 
-							[
-									[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot1),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot1),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot2),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot2),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot3),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot3),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot4),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot4),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot5),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot5),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot6),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot6),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						</visible>
-					</control>
-					<control type="image">
-						<width>150</width>
-						<height>45</height>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<texture>$VAR[TVShowStatusIcon]</texture>
-						<visible>
-							!String.IsEmpty(ListItem.Status) + 
-							!String.IsEqual(Container.PluginName,plugin.video.otaku) + 
-							$EXP[isTVShow] +
-							[
-									[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
-									[String.IsEqual(Skin.String(RatingSlot1),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot1),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot1),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot2),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot2),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot2),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot3),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot3),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot3),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot4),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot4),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot4),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot5),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot5),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot5),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-									[String.IsEqual(Skin.String(RatingSlot6),trakt) + !String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + !String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) + !String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)] |
-									[String.IsEqual(Skin.String(RatingSlot6),mdblist) + !String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rtc) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),rta) + !String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdb) + !String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + !String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-									[String.IsEqual(Skin.String(RatingSlot6),tmdb) + !String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-							]
-						</visible>
-					</control>
-				</control>
-				<include content="ListContainer">
-					<param name="list_id" value="50" />
-					<param name="left" value="1018" />
-					<param name="viewtype_label" value="$LOCALIZE[535]" />
-				</include>
-				<control type="group">
-					<depth>DepthContentPanel</depth>
-					<control type="group">
-						<right>0</right>
-						<width>634</width>
-						<!-- <include content="RightListPanel">
-							<param name="list_id" value="50" />
-						</include> -->
-						<!-- <control type="image">
-							<top>0</top>
-							<bottom>0</bottom>
-							<width>7</width>
-							<right>-7</right>
-							<texture >colors/black.png</texture>
-							<animation effect="slide" end="-7,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(50600)">Conditional</animation>
-						</control> -->
-						<!-- <control type="scrollbar" id="50600">
-							<right>-7</right>
-							<top>0</top>
-							<width>7</width>
-							<bottom>0</bottom>
-							<onleft>50</onleft>
-							<onright>50</onright>
-							<orientation>vertical</orientation>
-							<animation effect="slide" end="-7,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(50600)">Conditional</animation>
-						</control> -->
-						<control type="scrollbar" id="50600">
-							<visible>Control.IsVisible(50) + !$EXP[sidebar_visible]</visible>
-							<top>0</top>
-							<right>-7</right>
-							<width>7</width>
-							<bottom>0</bottom>
-							<orientation>vertical</orientation>
-							<texturesliderbar colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbar>
-							<texturesliderbarfocus colordiffuse="$VAR[MenuSelectorColor]">colors/white.png</texturesliderbarfocus>
-							<!-- Animation for right-side scrollbar -->
-							<animation effect="slide" end="-7,0" time="300" tween="sine" easing="inout" condition="
-							[
-								[Container.Scrolling + ![Container.Content(addons) | String.IsEmpty(Container.Content())]] | 
-								Control.HasFocus(50600)
-							] + 
-							![
-								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
-								[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] |  
-								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
-								[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
-							]">Conditional</animation>
-							<!-- Animation for left-side scrollbar -->
-							<animation effect="slide" end="7,0" time="300" tween="sine" easing="inout" condition="
-							[
-								[Container.Scrolling + ![Container.Content(addons) | String.IsEmpty(Container.Content())]] | 
-								Control.HasFocus(50600)
-							] + 
-							[
-								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
-								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
-								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
-								[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | 
-								[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] |
-								[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]
-							]">Conditional</animation>
-							<animation type="Conditional" condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">
-								<effect type="slide" start="0,0" end="-1927,0" time="0" />
-							</animation>
-							<onleft condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onleft>
-							<onright condition="[Container.Content(movies) + !String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + !String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + !String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + !String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + !String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + !String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + !String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + !String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
-							<onleft condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">9000</onleft>
-							<onright condition="[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | [Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | [Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | [Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | [Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | [Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)] | [Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | [Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | [Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)]">50</onright>
 					</control>
 				</control>
 			</control>
-		</control>
+		</definition>
 	</include>
 
 	<include name="RightListPanel">
@@ -1444,94 +528,61 @@
 				condition="Container.Content(addons) + !String.StartsWith(Container.PluginName,plugin.video.otaku) + !String.IsEqual(Skin.String(ListArtworkChoice.addons),2)">Conditional</animation>
 				<animation condition="
 						$EXP[isContent] + 
+					[Skin.HasSetting(Disable.50_ListSetting1_Ratings) + [
+						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
+						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
+						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
+					]] | 
 						[
 								[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
 								[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
 								[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
 								[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]
-						] +
-						[
-								[String.IsEqual(Skin.String(RatingSlot1),none) | 
-										[String.IsEqual(Skin.String(RatingSlot1),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot1),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot1),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot1),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot1),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot1),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot2),none) | 
-										[String.IsEqual(Skin.String(RatingSlot2),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot2),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot2),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot2),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot2),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot2),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot3),none) | 
-										[String.IsEqual(Skin.String(RatingSlot3),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot3),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot3),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot3),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot3),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot3),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot4),none) | 
-										[String.IsEqual(Skin.String(RatingSlot4),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot4),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot4),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot4),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot4),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot4),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot5),none) | 
-										[String.IsEqual(Skin.String(RatingSlot5),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot5),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot5),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot5),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot5),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot5),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								] +
-								[String.IsEqual(Skin.String(RatingSlot6),none) | 
-										[String.IsEqual(Skin.String(RatingSlot6),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
-										[String.IsEqual(Skin.String(RatingSlot6),trakt) + String.IsEmpty(Window(Home).Property(nimbus.traktRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),letterboxd) + [String.IsEmpty(Window(Home).Property(nimbus.letterboxdRating)) | String.IsEqual(Window(Home).Property(nimbus.letterboxdRating),0.0)]] |
-										[String.IsEqual(Skin.String(RatingSlot6),mdblist) + String.IsEmpty(Window(Home).Property(nimbus.mdblistRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),rtc) + String.IsEmpty(Window(Home).Property(nimbus.tomatoMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot6),rta) + String.IsEmpty(Window(Home).Property(nimbus.tomatoUserMeter))] |
-										[String.IsEqual(Skin.String(RatingSlot6),imdb) + String.IsEmpty(Window(Home).Property(nimbus.imdbRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),imdbpop) + String.IsEmpty(Window(Home).Property(nimbus.popularRating))] |
-										[String.IsEqual(Skin.String(RatingSlot6),tmdb) + String.IsEmpty(Window(Home).Property(nimbus.tmdbRating))]
-								]
-						]" 
+					] +
+					$PARAM[ratings_notvisible]" 
 						reversible="true">
-						<effect type="slide" start="0,0" end="-100,0" delay="200" time="500" tween="cubic" easing="inout" />
+					<effect type="slide" start="0,0" end="-45,0" delay="200" time="500" tween="cubic" easing="in" />
+				</animation>
+				<animation condition="
+					$EXP[isContent] + 
+					[Skin.HasSetting(Disable.50_ListSetting2_Ratings) + [
+					[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+					[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+					[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]
+					]] | 
+					[
+						[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
+						[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
+						[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
+						[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]
+					] +
+					$PARAM[ratings_notvisible]" 
+					reversible="true">
+					<effect type="slide" start="0,0" end="-80,0" delay="200" time="400" tween="cubic" easing="in" />
 				</animation>
 				<animation condition="
 					[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),2)] | 
 					[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),2)] | 
 					[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),2)] | 
-					[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)] | 
+					[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),2)]" reversible="false">
+					<effect type="slide" start="0,0" end="-850,0" time="0" tween="cubic" easing="inout" />
+				</animation>
+				<animation condition="
 					[Container.Content(videos) + String.IsEqual(Skin.String(ListArtworkChoice.videos),2)] | 
 					[Container.Content(files) + String.IsEqual(Skin.String(ListArtworkChoice.files),2)] | 
 					[Container.Content(favourites) + String.IsEqual(Skin.String(ListArtworkChoice.favourites),2)] | 
 					[Container.Content() + String.IsEqual(Skin.String(ListArtworkChoice.),2)] |
 					[Container.Content(addons) + String.IsEqual(Skin.String(ListArtworkChoice.addons),2)]" reversible="false">
 					<effect type="slide" start="0,0" end="-930,0" time="0" tween="cubic" easing="inout" />
+				</animation>
+				<animation condition="
+					[Container.Content(movies) + String.IsEqual(Skin.String(ListArtworkChoice.movies),1)] | 
+					[Container.Content(tvshows) + String.IsEqual(Skin.String(ListArtworkChoice.tvshows),1)] | 
+					[Container.Content(seasons) + String.IsEqual(Skin.String(ListArtworkChoice.seasons),1)] | 
+					[Container.Content(episodes) + String.IsEqual(Skin.String(ListArtworkChoice.episodes),1)]" reversible="false">
+					<effect type="slide" start="0,0" end="-55,0" time="0" tween="cubic" easing="inout" />
 				</animation>
 				<control type="label">
 					<include>ListLandscapeSlideAnimations</include>
@@ -1545,8 +596,9 @@
 					<align>left</align>
 				</control>
 				<control type="fixedlist" id="$PARAM[list_id]">
-					<top>120</top>
-					<bottom>90</bottom>
+					<!-- <left>70</left> -->
+					<top>135</top>
+					<bottom>75</bottom>
 					<movement>6</movement>
 					<focusposition>5</focusposition>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
@@ -1698,8 +750,20 @@
 							<label>$VAR[RI_Plot]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
-							<autoscroll delay="7000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-							<visible>!String.StartsWith(Container.PluginName,plugin.video.dramacool)</visible>
+							<autoscroll delay="7000" time="3000" repeat="7000">true</autoscroll>
+							<visible>!String.StartsWith(Container.PluginName,plugin.video.dramacool) + ![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<control type="textbox">
+							<top>97</top>
+							<left>33</left>
+							<width>810</width>
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font23</font>
+							<label>$VAR[RI_Plot]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<visible>!String.StartsWith(Container.PluginName,plugin.video.dramacool) + [Container.OnNext | Container.OnPrevious] | !Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 						<control type="textbox">
 							<top>65</top>
@@ -1711,8 +775,21 @@
 							<label>$VAR[RI_Plot]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
-							<autoscroll delay="7000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-							<visible>String.StartsWith(Container.PluginName,plugin.video.dramacool)</visible>
+							<autoscroll delay="7000" time="3000" repeat="7000">$PARAM[focused]</autoscroll>
+							<visible>String.StartsWith(Container.PluginName,plugin.video.dramacool) + ![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<control type="textbox">
+							<top>65</top>
+							<left>33</left>
+							<width>810</width>
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font23</font>
+							<label>$VAR[RI_Plot]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<autoscroll delay="7000" time="3000" repeat="7000">$PARAM[focused]</autoscroll>
+							<visible>String.StartsWith(Container.PluginName,plugin.video.dramacool) + [[Container.OnNext | Container.OnPrevious] | !Control.HasFocus($PARAM[list_id])]</visible>
 						</control>
 						<control type="image">
 							<left>33</left>
@@ -1740,7 +817,7 @@
 							<bottom>0</bottom>
 							<aligny>center</aligny>
 							<font>font32</font>
-							<textcolor>darkgrey</textcolor>
+							<textcolor>lightgrey</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -1749,7 +826,7 @@
 							<centertop>52%</centertop>
 							<width>21</width>
 							<height>21</height>
-							<texture colordiffuse="darkgrey">$VAR[ListWatchedIconVar]</texture>
+							<texture colordiffuse="lightgrey">$VAR[ListWatchedIconVar]</texture>
 						</control>
 					</itemlayout>
 					<focusedlayout condition="!Container.Content(songs) + !Container.Content(addons) + !Container.Content(playlists) + !Container.Content() + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(movies) + !Container.Content(musicvideos) + !Container.Content(videos) + !Container.Content(favourites)" height="67" width="610" infoupdate="300">
@@ -1794,7 +871,7 @@
 							<bottom>0</bottom>
 							<aligny>center</aligny>
 							<font>font32</font>
-							<textcolor>darkgrey</textcolor>
+							<textcolor>lightgrey</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -1841,7 +918,7 @@
 							<bottom>0</bottom>
 							<aligny>center</aligny>
 							<font>font32</font>
-							<textcolor>darkgrey</textcolor>
+							<textcolor>lightgrey</textcolor>
 							<label>$VAR[ListLabelVar]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -1915,7 +992,20 @@
 							<label>$VAR[ListBoxInfoVar]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
-							<autoscroll delay="7000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
+							<autoscroll delay="7000" time="3000" repeat="7000">true</autoscroll>
+							<visible>![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
+						</control>
+						<control type="textbox">
+							<top>97</top>
+							<left>33</left>
+							<width>810</width>
+							<bottom>13</bottom>
+							<aligny>center</aligny>
+							<font>font23</font>
+							<label>$VAR[ListBoxInfoVar]</label>
+							<textcolor>unfocused_text</textcolor>
+							<shadowcolor>text_shadow</shadowcolor>
+							<visible>[Container.OnNext | Container.OnPrevious] | !Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 						<control type="image">
 							<right>-220</right>
@@ -1962,7 +1052,7 @@
 							<bottom>0</bottom>
 							<aligny>center</aligny>
 							<font>font32</font>
-							<textcolor>darkgrey</textcolor>
+							<textcolor>lightgrey</textcolor>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -1972,7 +1062,7 @@
 							<width>30</width>
 							<height>30</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="darkgrey">$VAR[AddonsOriginVar]</texture>
+							<texture colordiffuse="lightgrey">$VAR[AddonsOriginVar]</texture>
 						</control>
 						<control type="image">
 							<left>33</left>
@@ -1980,7 +1070,7 @@
 							<width>33</width>
 							<height>33</height>
 							<aspectratio>keep</aspectratio>
-							<texture colordiffuse="darkgrey">$VAR[AddonsListIconVar]</texture>
+							<texture colordiffuse="lightgrey">$VAR[AddonsListIconVar]</texture>
 						</control>
 					</itemlayout>
 				</control>

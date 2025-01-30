@@ -129,10 +129,20 @@
 	</variable>
 
 
-	<!-- Released -->
 	<!-- <variable name="RI_Year">
 		<value condition="!String.IsEmpty(ListItem.Year)">[COLOR unfocused_text]$INFO[ListItem.Year][/COLOR]</value>
 	</variable> -->
+	<!-- Released -->
+	<variable name="RI_Digital">
+    <!-- Already digitally released (more than 3 days) - show digital release date in teal -->
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),true)">[COLOR FF40E0B0]$INFO[Window(home).Property(nimbus.digital_release_date)][/COLOR]</value>
+    <!-- Recently released (within 3 days) - show digital release date in yellow -->
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),recently)">[COLOR FFFFC30B]$INFO[Window(home).Property(nimbus.digital_release_date)][/COLOR]</value>
+    <!-- Future digital release - show date in coral -->
+    <value condition="Skin.HasSetting(Enable.SmartStatus) + String.IsEqual(Window(home).Property(nimbus.digital_release_flag),false) + !String.IsEmpty(Window(home).Property(nimbus.digital_release_date))">[COLOR FFFF4D4D]$INFO[Window(home).Property(nimbus.digital_release_date)][/COLOR]</value>
+    <!-- Expired or disabled or fallback - show premiered date in unfocused color -->
+    <value condition="!Skin.HasSetting(Enable.SmartStatus) | String.IsEqual(Window(home).Property(nimbus.digital_release_flag),expired) | !String.IsEmpty(ListItem.Premiered)">[COLOR unfocused_text]$INFO[ListItem.Premiered][/COLOR]</value>
+	</variable>
 	<!-- Aired -->
 	<variable name="RI_Aired">
 		<value condition="!String.IsEmpty(ListItem.Premiered)">[COLOR unfocused_text]$INFO[ListItem.Premiered][/COLOR]</value>
@@ -254,8 +264,7 @@
 
 	<variable name="InfoPanelTop">
 		<!-- MOVIES -->
-		<value condition="!ListItem.IsCollection + $EXP[isMovie] + Integer.IsEqual(ListItem.Property(WatchedProgress),0)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_MovieCollection]$VAR[RI_Rating_Other]$VAR[RI_Runtime]</value>
-		<value condition="!ListItem.IsCollection + $EXP[isMovie] + !Integer.IsEqual(ListItem.Property(WatchedProgress),0)">$VAR[RI_Aired]$VAR[RI_WatchedProgress]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]</value>
+		<value condition="!ListItem.IsCollection + $EXP[isMovie]">$VAR[RI_Digital]$VAR[RI_WatchedProgress]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_Rating_Other]$VAR[RI_Runtime]</value>
 		<!-- SHOWS -->
 		<value condition="!ListItem.IsCollection + $EXP[isTVShow]">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[_Genre]$VAR[RI_TotalSeasons]$VAR[RI_EpisodesRemaining]$VAR[RI_Rating_Other]$VAR[RI_Status]</value>
 		<!-- SEASONS -->

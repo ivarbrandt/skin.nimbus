@@ -156,7 +156,7 @@
               <visible>!String.IsEmpty(ListItem.TagLine)</visible>
               <height max="180">auto</height>
               <font>font32</font>
-              <textcolor>darkgrey</textcolor>
+              <textcolor>lightgrey</textcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>$INFO[ListItem.TagLine]</label>
@@ -165,7 +165,7 @@
               <visible>!String.IsEmpty(ListItem.Genre)</visible>
               <height>50</height>
               <font>Font30</font>
-              <textcolor>grey</textcolor>
+              <textcolor>lightgrey</textcolor>
               <align>center</align>
               <aligny>center</aligny>
               <label>[I]$INFO[ListItem.Genre][/I]</label>
@@ -177,7 +177,7 @@
               <visible>!String.IsEmpty(ListItem.Plot)</visible>
               <height max="370">auto</height>
               <font>font32</font>
-              <textcolor>darkgrey</textcolor>
+              <textcolor>lightgrey</textcolor>
               <align>center</align>
               <label>$INFO[ListItem.Plot]</label>
               <autoscroll delay="10000" time="4700" repeat="10000">Skin.HasSetting(autoscroll)</autoscroll>

@@ -323,7 +323,7 @@
 
 	<include name="ListLandscapeArtworkSlide">
     <animation condition="
-        !$EXP[isContent] | 
+        !$EXP[isContent] | Skin.HasSetting(Disable.50_ListSetting0_Ratings) | 
         [
             [String.IsEqual(Skin.String(RatingSlot1),none) | 
                 [String.IsEqual(Skin.String(RatingSlot1),metacritic) + String.IsEmpty(Window(Home).Property(nimbus.metascore))] |
