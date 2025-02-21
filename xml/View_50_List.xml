@@ -751,7 +751,7 @@
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="7000" time="3000" repeat="7000">true</autoscroll>
-							<visible>!String.StartsWith(Container.PluginName,plugin.video.dramacool) + ![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
+							<visible>![String.StartsWith(Container.PluginName,plugin.video.dramacool) | String.StartsWith(Container.PluginName,plugin.video.mediafusion)] + ![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 						<control type="textbox">
 							<top>97</top>
@@ -763,33 +763,33 @@
 							<label>$VAR[RI_Plot]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
-							<visible>!String.StartsWith(Container.PluginName,plugin.video.dramacool) + [Container.OnNext | Container.OnPrevious] | !Control.HasFocus($PARAM[list_id])</visible>
+							<visible>![String.StartsWith(Container.PluginName,plugin.video.dramacool) | String.StartsWith(Container.PluginName,plugin.video.mediafusion)] + [[Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id]) | !Control.HasFocus($PARAM[list_id])]</visible>
 						</control>
 						<control type="textbox">
 							<top>65</top>
 							<left>33</left>
 							<width>810</width>
-							<bottom>13</bottom>
+							<bottom>14</bottom>
 							<aligny>center</aligny>
 							<font>font23</font>
 							<label>$VAR[RI_Plot]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="7000" time="3000" repeat="7000">$PARAM[focused]</autoscroll>
-							<visible>String.StartsWith(Container.PluginName,plugin.video.dramacool) + ![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
+							<visible>[String.StartsWith(Container.PluginName,plugin.video.dramacool) | String.StartsWith(Container.PluginName,plugin.video.mediafusion)] + ![Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id])</visible>
 						</control>
 						<control type="textbox">
 							<top>65</top>
 							<left>33</left>
 							<width>810</width>
-							<bottom>13</bottom>
+							<bottom>14</bottom>
 							<aligny>center</aligny>
 							<font>font23</font>
 							<label>$VAR[RI_Plot]</label>
 							<textcolor>unfocused_text</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 							<autoscroll delay="7000" time="3000" repeat="7000">$PARAM[focused]</autoscroll>
-							<visible>String.StartsWith(Container.PluginName,plugin.video.dramacool) + [[Container.OnNext | Container.OnPrevious] | !Control.HasFocus($PARAM[list_id])]</visible>
+							<visible>[String.StartsWith(Container.PluginName,plugin.video.dramacool) | String.StartsWith(Container.PluginName,plugin.video.mediafusion)] + [[Container.OnNext | Container.OnPrevious] + Control.HasFocus($PARAM[list_id]) | !Control.HasFocus($PARAM[list_id])]</visible>
 						</control>
 						<control type="image">
 							<left>33</left>
@@ -1081,6 +1081,7 @@
 	<include name="ListThumbInfoPanel">
 		<param name="fallback_image"></param>
 		<param name="flip_bg">false</param>
+		<param name="excluded_addons">![String.StartsWith(ListItem.Path,plugin://plugin.video.dramacool) | String.StartsWith(ListItem.Path,plugin://plugin.video.mediafusion)]</param>
 		<definition>
 			<include>MediaMenuAnimations</include>
 			<control type="group">
@@ -1099,7 +1100,7 @@
 					<aspectratio aligny="center">keep</aspectratio>
 					<fadetime>300</fadetime>
 					<texture colordiffuse="artwork_dim" diffuse="masks/addons.png" fallback="$PARAM[fallback_image]" background="true">$INFO[ListItem.Icon]</texture>
-					<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | String.IsEqual(ListItem.DBType,song)] + !String.IsEqual(Container.PluginName,plugin.video.dramacool) + !Container.Content(addons)</visible>
+					<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode] | String.IsEqual(ListItem.DBType,song)] + $PARAM[excluded_addons] + !Container.Content(addons)</visible>
 				</control>
 				<control type="image">
 					<left>30</left>
