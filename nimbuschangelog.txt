@@ -1,6 +1,12 @@
 Nimbus Helper: Latest: v0.0.48 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Added support for MediaFusion addon
+- Fixed watched indicators for Umbrella/POV widgets
+- Fixed janky widget scrolling
+- Other small fixes
+
+[B][COLOR FFFFFFFF]Version 0.1.34[/COLOR][/B]
 - Redesigned vertical ratings panel
 - Added vertical ratings panel to Fanart List view
 
