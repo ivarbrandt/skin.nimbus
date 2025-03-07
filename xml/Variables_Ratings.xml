@@ -446,7 +446,7 @@
 		<param name="align">left</param>
 		<param name="top"></param>
 		<param name="left"></param>
-		<param name="visible">!String.IsEmpty(ListItem.Genre) + !Player.HasMedia + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason]] + 
+		<param name="visible">!String.IsEmpty(ListItem.Genre) + !Player.HasMedia + [$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | String.StartsWith(ListItem.Path,plugin://plugin.video.mediafusion)] + 
 		[
 			[[Window.IsVisible(Home) | Window.IsVisible(1121)] + !Skin.HasSetting(Disable.AutoInfoRatings)] | [Control.IsVisible(51) + !Skin.HasSetting(Disable.51Ratings)] | [Control.IsVisible(53) + !Skin.HasSetting(Disable.53Ratings)] | [Control.IsVisible(54) + !Skin.HasSetting(Disable.54Ratings)] | [Control.IsVisible(55) + !Skin.HasSetting(Disable.55Ratings)] | [Control.IsVisible(56) + !Skin.HasSetting(Disable.56Ratings)]
 		] + 

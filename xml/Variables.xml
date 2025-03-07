@@ -461,11 +461,11 @@
 		<value condition="!String.IsEmpty(Container.ListItem.Art(fanart))">$INFO[Container.ListItem.Art(fanart)]</value>
 	</variable> -->
 	<variable name="ListWatchedIconVar">
-    <value condition="String.IsEqual(Container.PluginName,plugin.video.pov) | String.IsEqual(Container.PluginName,plugin.video.umbrella)">$VAR[ListWatchedIconVar.POV]</value>
+    <value condition="String.IsEqual(Container.PluginName,plugin.video.fenlight)">$VAR[ListWatchedIconVar.Other]</value>
     <value>$VAR[ListWatchedIconVar.All]</value>
 	</variable>
 
-	<variable name="ListWatchedIconVar.POV">
+	<variable name="ListWatchedIconVar.All">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
     <value condition="ListItem.IsCollection">overlays/set.png</value>
@@ -482,7 +482,7 @@
     <value condition="!String.IsEmpty(ListItem.Overlay)">$INFO[ListItem.Overlay]</value>
 	</variable>
 
-	<variable name="ListWatchedIconVar.All">
+	<variable name="ListWatchedIconVar.Other">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
     <value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
@@ -502,10 +502,10 @@
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 	</variable> -->
 	<variable name="WallWatchedIconVar">
-    <value condition="String.IsEqual(Container.PluginName,plugin.video.pov) | String.IsEqual(Container.PluginName,plugin.video.umbrella) | String.StartsWith(ListItem.Path,plugin://plugin.video.pov) | String.StartsWith(ListItem.Path,plugin://plugin.video.umbrella)">$VAR[WallWatchedIconVar.POV]</value>
+    <value condition="String.IsEqual(Container.PluginName,plugin.video.fenlight) | String.StartsWith(ListItem.Path,plugin://plugin.video.fenlight)">$VAR[WallWatchedIconVar.Other]</value>
     <value>$VAR[WallWatchedIconVar.All]</value>
 	</variable>	
-	<variable name="WallWatchedIconVar.POV">
+	<variable name="WallWatchedIconVar.All">
 		<value condition="ListItem.IsPlaying">overlays/watched/OverlayPlaying-List.png</value>
 		<value condition="ListItem.HasArchive">windows/pvr/archive.png</value>
 		<!-- TV Shows -->
@@ -518,7 +518,7 @@
 		<value condition="Integer.IsGreater(ListItem.Playcount,0)">OverlayWatched.png</value>
 		<value condition="!Integer.IsEqual(Container.ListItem.Property(WatchedProgress),0)">progress/unwatched/$INFO[ListItem.Property(WatchedProgress),,.png]</value>
 	</variable>
-	<variable name="WallWatchedIconVar.All">
+	<variable name="WallWatchedIconVar.Other">
     <value condition="ListItem.IsRecording">windows/pvr/record.png</value>
     <value condition="ListItem.HasReminder">icons/pvr/timers/bell.png</value>
     <value condition="ListItem.HasTimer">icons/pvr/timers/recording.png</value>

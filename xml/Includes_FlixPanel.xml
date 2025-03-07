@@ -2,6 +2,7 @@
 <includes>
 	<include name="FlixPanel">
 		<param name="excluded_adddons">![String.StartsWith(ListItem.Path,plugin://plugin.video.dramacool) | String.StartsWith(ListItem.Path,plugin://plugin.program.iagl) | String.StartsWith(ListItem.Path,plugin://plugin.flixify.com) | String.StartsWith(ListItem.Path,plugin://plugin.video.mediafusion)]</param>
+		<param name="text_visible">[!String.StartsWith(ListItem.Path,plugin://plugin.video.umbrella) + !String.StartsWith(ListItem.Path,plugin://plugin.video.infinity) | [$EXP[isContent] + [String.StartsWith(ListItem.Path,plugin://plugin.video.umbrella) | String.StartsWith(ListItem.Path,plugin://plugin.video.infinity)]]]</param>
 		<!-- <param name="api_enabled">
 		[
 				[String.IsEqual(Skin.String(RatingSlot1),metacritic) + !String.IsEmpty(Window(Home).Property(nimbus.metascore))] | 
@@ -146,7 +147,7 @@
 				<control type="group">
 					<height>263</height>
 					<width>600</width>
-					<visible>!Skin.HasSetting(Enable.Clearlogo) | [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))]</visible>
+					<visible>[!Skin.HasSetting(Enable.Clearlogo) | [String.IsEmpty(ListItem.Art(clearlogo)) + String.IsEmpty(Container.ListItem.Art(tvshow.clearlogo))]] + $PARAM[text_visible]</visible>
 					<control type="textbox">
 						<aligny>center</aligny>
 						<font>font52_title</font>
@@ -306,9 +307,9 @@
 						<font>font27</font>
 						<textcolor>unfocused_text</textcolor>
 						<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
-						<visible>!Player.HasMedia</visible>
+						<visible>!Player.HasMedia + $PARAM[text_visible]</visible>
 					</control>
-					<!-- <control type="textbox">
+					<control type="textbox">
 						<height>235</height>
 						<width>600</width>
 						<bottom>70</bottom>
@@ -317,7 +318,7 @@
 						<textcolor>unfocused_text</textcolor>
 						<autoscroll delay="8000" time="3000" repeat="7000">Skin.HasSetting(autoscroll)</autoscroll>
 						<visible>Player.HasMedia</visible>
-					</control> -->
+					</control>
 					<!-- <control type="textbox">
 						<height max="165">auto</height>
 						<bottom>70</bottom>
