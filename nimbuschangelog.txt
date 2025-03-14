@@ -1,6 +1,13 @@
 Nimbus Helper: Latest: v0.0.49 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Upgraded search window feature: Faster performance, smoother operation, and eliminated home screen widget reloading
+- Removed "Open keyboard" in favor of just "Open search window" or "Open search dialog"
+- Fixed TRAKT lists search widget not showing
+- Search history is now capped at 100 items; limit can be increased upon request
+- Please report any issues or bugs via my GitHub repo
+
+[B][COLOR FFFFFFFF]Version 0.1.36[/COLOR][/B]
 - Fixed ratings for MediaFusion
 - Other small fixes
 
