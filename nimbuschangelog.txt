@@ -1,4 +1,4 @@
-Nimbus Helper: Latest: v0.0.49 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.50 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
 - Upgraded search window feature: Faster performance, smoother operation, and eliminated home screen widget reloading
