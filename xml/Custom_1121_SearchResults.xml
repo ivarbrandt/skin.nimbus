@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="SearchResults" id="1121">
+<window type="window" id="1121">
 	<defaultcontrol>9000</defaultcontrol>
 	<backgroundcolor>background</backgroundcolor>
 	<controls>
@@ -20,7 +20,7 @@
 		<include>DefaultBackground</include>
 		<control type="group">
 			<include>MediaMenuAnimations</include>
-			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !String.IsEmpty(Skin.String(SearchInput))</visible>
+			<visible>[![Player.HasVideo | [Player.HasAudio + Visualisation.Enabled + !String.IsEmpty(Visualisation.Name)]] | !String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))] + !String.IsEmpty(Window(home).Property(nimbus.search.input))</visible>
 			<control type="image">
 				<include>NetflixScreenDimensions</include>
 				<aspectratio>stretch</aspectratio>
@@ -68,81 +68,10 @@
 						<include content="Animation_Widget_Poster_Slide">
 							<param name="container" value="19001" />
 						</include>
-					<visible allowhiddenfocus="true">!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
+						<visible>!String.IsEmpty(Window(home).Property(nimbus.search.input)) + !String.IsEqual(Window(home).Property(nimbus.search.history.count),0)</visible>
 						<include>WidgetGroupListCommon</include>
 						<pagecontrol>19099</pagecontrol>
-						<include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieResults)">
-              <param name="content_path" value="$VAR[SearchProviderMoviesVar]"/>
-              <param name="widget_header" value="$LOCALIZE[342]"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19011"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowResults)">
-              <param name="content_path" value="$VAR[SearchProviderTVShowsVar]"/>
-              <param name="widget_header" value="TV Shows"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19012"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideAnimeResults) + String.IsEqual(Skin.String(current_search_provider),1)">
-              <param name="content_path" value="$VAR[SearchProviderAnimeVar]"/>
-              <param name="widget_header" value="Anime"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19013"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideCollectionsResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),3)]">
-              <param name="content_path" value="$VAR[SearchProviderCollectionsVar]"/>
-              <param name="widget_header" value="Collections"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19014"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-              <param name="content_path" value="$VAR[SearchProviderPeopleVar]"/>
-              <param name="widget_header" value="Actors/Actresses"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19015"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-              <param name="content_path" value="$VAR[SearchProviderActors/ActressesMoviesVar]"/>
-              <param name="widget_header" value="Actors/Actresses (Movies)"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19016"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-              <param name="content_path" value="$VAR[SearchProviderActors/ActressesTVShowsVar]"/>
-              <param name="widget_header" value="Actors/Actresses (TV Shows)"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19017"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-							<param name="content_path" value="$VAR[SearchProviderKeywordMoviesVar]"/>
-              <param name="widget_header" value="$VAR[KeywordMoviesLabelVar]"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19018"/>
-            </include>
-            <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-							<param name="content_path" value="$VAR[SearchProviderKeywordTVShowsVar]"/>
-              <param name="widget_header" value="$VAR[KeywordTVShowsLabelVar]"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19019"/>
-            </include>
-            <include content="WidgetListCategoryStacked" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
-							<param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
-              <param name="widget_header" value="TRAKT Lists"/>
-              <param name="widget_target" value="videos"/>
-              <param name="list_id" value="19020"/>
-            </include>
-						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-							<param name="content_path" value="$VAR[SearchProviderTRAKTListsMoviesVar]"/>
-							<param name="widget_header" value="TRAKT Lists (Movies)"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="19021"/>
-						</include>
-						<include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
-							<param name="content_path" value="$VAR[SearchProviderTRAKTListsTVShowsVar]"/>
-							<param name="widget_header" value="TRAKT Lists (TV Shows)"/>
-							<param name="widget_target" value="videos"/>
-							<param name="list_id" value="19022"/>
-						</include>
+						<include content="SearchWidgets"/>
 					</control>
 					<include content="WidgetUpDownArrows">
 						<param name="container_id" value="19001" />
@@ -158,7 +87,7 @@
 			<!-- <include>BottomBar</include> -->
 			<control type="label">
 				<include>SearchMenuAnimations</include>
-				<visible>!String.IsEmpty(Skin.String(SearchInput)) + String.IsEmpty(Skin.String(DatabaseStatus)) + $EXP[isContent]</visible>
+				<visible>!String.IsEmpty(Window(home).Property(nimbus.search.input)) + !String.IsEqual(Window(home).Property(nimbus.search.history.count),0) + $EXP[isContent]</visible>
 				<top>568</top>
 				<left>50</left>
 				<width>1815</width>
@@ -166,20 +95,11 @@
 				<height>40</height>
 				<font>font27</font>
 				<textcolor>unfocused_text</textcolor>
-				<label>Search results for: [B]$INFO[Skin.String(SearchInput)][/B]</label>
+				<label>Search results for: [B]$INFO[Window(home).Property(nimbus.search.input)][/B]</label>
 			</control>
 			<control type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<!-- <include>osd_darkenBG</include> -->
-				<include content="ImageWidget" condition="!String.IsEmpty(Skin.String(DatabaseStatus))">
-					<param name="left">50</param>
-					<param name="text_label" value="Your search history is currently empty. Would you like to perform a new search or return to the home screen?" />
-					<param name="button_label" value="New search" />
-					<param name="button_onclick" value="RunScript(script.nimbus.helper,mode=re_search)"/>
-					<param name="button3_onclick" value="ActivateWindow(home)"/>
-					<param name="button_id" value="27400"/>
-				</include>
 				<control type="group">
 					<left>-610</left>
 					<animation type="Conditional" condition="!ControlGroup(2000).HasFocus + !Control.HasFocus(20000) +  !Control.HasFocus(20001)" reversible="true">
@@ -190,9 +110,8 @@
 						<param name="width" value="611"/>
 						<!-- <param name="width" value="600"/> -->
 					</include>
-					<!-- <visible allowhiddenfocus="true">true</visible> -->
 					<control type="label">
-						<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + String.IsEmpty(Skin.String(DatabaseStatus))</visible>
+						<visible>![$EXP[isMovie] | $EXP[isTVShow] | $EXP[isSeason] | $EXP[isEpisode]] + !String.IsEqual(Window(home).Property(nimbus.search.history.count),0)</visible>
 						<top>200</top>
 						<left>90</left>
 						<width>820</width>
@@ -202,7 +121,21 @@
 						<label>$VAR[RecentSearchesCaseVar]</label>
 						<textcolor>$VAR[FocusColorTheme]</textcolor>
 					</control>
+					<!-- <visible allowhiddenfocus="true">true</visible> -->
+					<control type="textbox">
+						<top>185</top>
+						<left>85</left>
+						<width>343</width>
+						<aligny>center</aligny>
+						<align>left</align>
+						<height>200</height>
+						<font>font27</font>
+						<label>$INFO[Window(home).Property(nimbus.search.history.empty)]</label>
+						<textcolor>unfocused_text</textcolor>
+						<visible>String.IsEqual(Window(home).Property(nimbus.search.history.count),0)</visible>
+					</control>
 					<control type="fixedlist" id="9000">
+					<visible>!String.IsEqual(Window(home).Property(nimbus.search.history.count),0)</visible>
 						<left>25</left>
 						<top>300</top>
 						<width>825</width>
@@ -211,7 +144,7 @@
 						<focusposition>0</focusposition>
 						<onfocus>ClearProperty(listposition,home)</onfocus>
 						<onleft>9000</onleft>
-						<onright condition="!String.IsEmpty(Skin.String(SearchInput))">SetFocus(2000)</onright>
+						<onright condition="!String.IsEmpty(Window(home).Property(nimbus.search.input))">SetFocus(2000)</onright>
 						<onup>700</onup>
 						<ondown>9000</ondown>
 						<scrolltime tween="cubic" easing="out">500</scrolltime>
@@ -234,14 +167,17 @@
 							<itemgap>-19</itemgap>
 							<width>343</width>
 							<height>100</height>
-							<onup>SetFocus(9000,99,absolute)</onup>
-							<ondown>SetFocus(9000,0,absolute)</ondown>
-							<onright condition="!String.IsEmpty(Skin.String(SearchInput))">2000</onright>
+							<onup condition="!String.IsEqual(Window(home).Property(nimbus.search.history.count),0)">SetFocus(9000,99,absolute)</onup>
+							<onup condition="String.IsEqual(Window(home).Property(nimbus.search.history.count),0)">700</onup>
+							<ondown condition="!String.IsEqual(Window(home).Property(nimbus.search.history.count),0)">SetFocus(9000,0,absolute)</ondown>
+							<ondown condition="String.IsEqual(Window(home).Property(nimbus.search.history.count),0)">700</ondown>
+							<onright condition="String.IsEmpty(Window(home).Property(nimbus.search.input))">801</onright>
+							<onright condition="!String.IsEmpty(Window(home).Property(nimbus.search.input))">2000</onright>
 							<onback>9000</onback>
 							<align>left</align>
 							<include content="IconButton">
 								<param name="control_id" value="801" />
-								<param name="onclick" value="$VAR[CurrentSearchProviderToggleVar]" />
+								<param name="onclick" value="RunScript(script.nimbus.helper,mode=toggle_search_provider)" />
 								<param name="icon" value="icons/submenu/cycleproviders.png" />
 							</include>
 							<include content="IconButton">

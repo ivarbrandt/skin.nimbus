@@ -79,7 +79,11 @@
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
 				<movement>7</movement>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<animation condition="Window.IsVisible(1121) + Container($PARAM[list_id]).IsUpdating" reversible="true" pulse="true">
+					<effect type="fade" start="100" end="80" time="700" tween="sine" easing="inout" />
+					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="700" />
+				</animation>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating | String.IsEqual(Window(Home).Property(nimbus.search.refreshing),true)</visible>
 				<right>0</right>
 				<height>346</height>
 				<include content="WidgetVisibilityAnimations">
@@ -253,8 +257,12 @@
 				</include>
 				<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
 				<onfocus>Control.Move($PARAM[list_id],$INFO[Window(home).Property(listposition)])</onfocus>
-				<visible>$PARAM[visible]</visible>
-				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
+				<!-- <visible>$PARAM[visible]</visible> -->
+				<animation condition="Window.IsVisible(1121) + Container($PARAM[list_id]).IsUpdating" reversible="true" pulse="true">
+					<effect type="fade" start="100" end="80" time="700" tween="sine" easing="inout" />
+					<effect type="fadediffuse" start="FFE9E9E9" end="FF777777" time="700" />
+				</animation>
+				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating | String.IsEqual(Window(Home).Property(nimbus.search.refreshing),true)</visible>
 				<itemlayout width="262" height="393">
 					<control type="group">
 						<top>26</top>
@@ -953,6 +961,7 @@
 		<onload condition="String.IsEmpty(Skin.String(current_search_provider))">Skin.SetString(current_search_provider,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDAudioButtonSetting))">Skin.SetString(OSDAudioButtonSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(OSDSubtitleButtonSetting))">Skin.SetString(OSDSubtitleButtonSetting,0)</onload>
+		<onload condition="String.IsEmpty(Skin.String(SearchSetting))">Skin.SetString(SearchSetting,0)</onload>
 		<onload condition="String.IsEmpty(Skin.String(nimbus_digital_release_window))">Skin.SetString(nimbus_digital_release_window,7)</onload>
 		<onload condition="String.IsEmpty(Skin.String(nimbus_digital_expired_window))">Skin.SetString(nimbus_digital_expired_window,21)</onload>
 

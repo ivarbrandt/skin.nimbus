@@ -8,6 +8,7 @@
 	<include file="Includes_Games.xml" />
 	<include file="Includes_MediaMenu.xml" />
 	<include file="Includes_Buttons.xml" />
+	<include file="Includes_Search.xml" />
 	<include file="Includes_DialogSelect.xml" />
 	<include file="Includes_ListItem.xml" />
 	<include file="Includes_MusicInfo.xml" />
@@ -25,7 +26,6 @@
 	<include file="script-nimbus-widget_custom1.xml" />
 	<include file="script-nimbus-widget_custom2.xml" />
 	<include file="script-nimbus-widget_custom3.xml" />
-	<include file="script-nimbus-search_history.xml" />
 	<include file="View_50_List.xml" />
 	<include file="View_51_PosterFlow.xml" />
 	<include file="View_52_IconWall.xml" />
@@ -35,7 +35,6 @@
 	<include file="View_503_NowPlaying.xml" />
 	<include file="View_500_Wall.xml" />
 	<include file="View_501_WallScape.xml" />
-	<include file="Custom_1121_SearchResults.xml" />
 	<include file="Variables.xml" />
 	<include file="Variables_Artwork.xml" />
 	<include file="Variables_FlixPanel.xml" />

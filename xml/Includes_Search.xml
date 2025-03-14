@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+
+  <include name="SearchWidgets">
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieResults)">
+      <param name="content_path" value="$VAR[SearchProviderMoviesVar]"/>
+      <param name="widget_header" value="$LOCALIZE[342]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19011"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowResults)">
+      <param name="content_path" value="$VAR[SearchProviderTVShowsVar]"/>
+      <param name="widget_header" value="TV Shows"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19012"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HideAnimeResults) + String.IsEqual(Skin.String(current_search_provider),1)">
+      <param name="content_path" value="$VAR[SearchProviderAnimeVar]"/>
+      <param name="widget_header" value="Anime"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19013"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HideCollectionsResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),3)]">
+      <param name="content_path" value="$VAR[SearchProviderCollectionsVar]"/>
+      <param name="widget_header" value="Collections"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19014"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+      <param name="content_path" value="$VAR[SearchProviderPeopleVar]"/>
+      <param name="widget_header" value="Actors/Actresses"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19015"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+      <param name="content_path" value="$VAR[SearchProviderActors/ActressesMoviesVar]"/>
+      <param name="widget_header" value="Actors/Actresses (Movies)"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19016"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HidePeopleResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+      <param name="content_path" value="$VAR[SearchProviderActors/ActressesTVShowsVar]"/>
+      <param name="widget_header" value="Actors/Actresses (TV Shows)"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19017"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HideMovieKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+      <param name="content_path" value="$VAR[SearchProviderKeywordMoviesVar]"/>
+      <param name="widget_header" value="$VAR[KeywordMoviesLabelVar]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19018"/>
+    </include>
+    <include content="WidgetListPoster" condition="!Skin.HasSetting(HideTVShowKeywordResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+      <param name="content_path" value="$VAR[SearchProviderKeywordTVShowsVar]"/>
+      <param name="widget_header" value="$VAR[KeywordTVShowsLabelVar]"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19019"/>
+    </include>
+    <include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + [String.IsEqual(Skin.String(current_search_provider),0) | String.IsEqual(Skin.String(current_search_provider),1) | String.IsEqual(Skin.String(current_search_provider),3)]">
+      <param name="content_path" value="$VAR[SearchProviderTRAKTListsVar]"/>
+      <param name="widget_header" value="TRAKT Lists"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19020"/>
+    </include>
+    <include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+      <param name="content_path" value="$VAR[SearchProviderTRAKTListsMoviesVar]"/>
+      <param name="widget_header" value="TRAKT Lists (Movies)"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19021"/>
+    </include>
+    <include content="WidgetListSquare" condition="!Skin.HasSetting(HideTraktResults) + String.IsEqual(Skin.String(current_search_provider),2)">
+      <param name="content_path" value="$VAR[SearchProviderTRAKTListsTVShowsVar]"/>
+      <param name="widget_header" value="TRAKT Lists (TV Shows)"/>
+      <param name="widget_target" value="videos"/>
+      <param name="list_id" value="19022"/>
+    </include>
+  </include>
+
+  <include name="SearchHistory">
+    <!-- Search History Items 1-100 -->
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.1)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.1)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.1))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.2)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.2)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.2))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.3)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.3)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.3))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.4)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.4)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.4))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.5)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.5)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.5))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.6)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.6)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.6))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.7)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.7)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.7))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.8)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.8)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.8))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.9)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.9)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.9))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.10)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.10)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.10))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.11)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.11)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.11))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.12)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.12)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.12))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.13)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.13)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.13))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.14)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.14)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.14))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.15)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.15)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.15))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.16)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.16)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.16))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.17)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.17)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.17))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.18)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.18)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.18))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.19)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.19)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.19))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.20)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.20)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.20))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.21)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.21)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.21))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.22)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.22)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.22))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.23)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.23)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.23))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.24)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.24)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.24))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.25)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.25)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.25))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.26)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.26)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.26))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.27)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.27)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.27))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.28)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.28)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.28))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.29)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.29)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.29))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.30)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.30)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.30))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.31)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.31)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.31))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.32)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.32)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.32))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.33)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.33)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.33))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.34)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.34)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.34))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.35)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.35)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.35))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.36)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.36)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.36))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.37)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.37)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.37))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.38)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.38)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.38))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.39)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.39)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.39))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.40)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.40)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.40))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.41)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.41)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.41))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.42)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.42)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.42))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.43)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.43)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.43))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.44)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.44)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.44))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.45)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.45)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.45))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.46)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.46)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.46))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.47)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.47)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.47))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.48)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.48)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.48))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.49)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.49)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.49))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.50)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.50)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.50))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.51)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.51)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.51))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.52)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.52)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.52))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.53)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.53)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.53))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.54)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.54)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.54))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.55)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.55)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.55))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.56)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.56)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.56))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.57)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.57)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.57))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.58)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.58)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.58))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.59)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.59)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.59))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.60)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.60)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.60))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.61)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.61)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.61))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.62)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.62)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.62))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.63)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.63)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.63))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.64)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.64)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.64))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.65)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.65)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.65))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.66)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.66)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.66))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.67)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.67)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.67))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.68)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.68)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.68))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.69)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.69)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.69))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.70)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.70)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.70))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.71)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.71)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.71))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.72)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.72)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.72))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.73)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.73)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.73))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.74)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.74)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.74))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.75)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.75)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.75))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.76)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.76)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.76))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.77)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.77)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.77))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.78)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.78)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.78))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.79)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.79)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.79))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.80)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.80)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.80))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.81)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.81)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.81))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.82)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.82)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.82))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.83)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.83)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.83))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.84)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.84)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.84))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.85)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.85)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.85))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.86)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.86)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.86))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.87)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.87)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.87))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.88)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.88)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.88))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.89)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.89)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.89))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.90)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.90)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.90))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.91)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.91)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.91))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.92)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.92)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.92))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.93)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.93)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.93))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.94)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.94)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.94))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.95)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.95)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.95))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.96)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.96)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.96))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.97)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.97)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.97))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.98)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.98)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.98))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.99)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.99)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.99))</visible>
+    </item>
+
+    <item>
+      <label>$INFO[Window(home).Property(nimbus.search.history.100)]</label>
+      <onclick>RunScript(script.nimbus.helper,mode=re_search,$INFO[Window(home).Property(nimbus.search.history.100)])</onclick>
+      <visible>!String.IsEmpty(Window(home).Property(nimbus.search.history.100))</visible>
+    </item>
+
+  </include>
+
+</includes>

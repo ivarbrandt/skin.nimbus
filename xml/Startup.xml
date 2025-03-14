@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<onload>RunScript(script.nimbus.helper,mode=refresh_search_history)</onload>
 	<onload>SetProperty(NimbusInitialStartup_movies,true,home)</onload>
 	<onload>SetProperty(NimbusInitialStartup_tvshows,true,home)</onload>
 	<onload>SetProperty(NimbusInitialStartup_custom1,true,home)</onload>

@@ -258,11 +258,6 @@
     <value condition="!$EXP[isPlugin]">$VAR[ClockCrumbs][COLOR unfocused_text]$INFO[Container.FolderName][/COLOR]</value>
 	</variable>
 
-	<variable name="DefaultSearchWindowBehaviorVar">
-    <value condition="Skin.HasSetting(DefaultSearchWindowBehavior)">Open keyboard</value>
-    <value>Open search window</value>
-	</variable>
-
 	<variable name="OneClickCloseVar">
     <value condition="Skin.HasSetting(OneClickClose)">Exit</value>
     <value>Open shutdown menu</value>
@@ -547,6 +542,16 @@
 		<value condition="String.IsEqual(Skin.String(OnRightSetting.Other),1)">Skin.SetString(OnRightSetting.Other,0)</value>
 	</variable>
 
+	<variable name="SearchSettingVar">
+		<value condition="String.IsEqual(Skin.String(SearchSetting),0)">Search window</value>
+		<value condition="String.IsEqual(Skin.String(SearchSetting),1)">Search dialog</value>
+	</variable>
+
+	<variable name="SearchToggleVar">
+		<value condition="String.IsEqual(Skin.String(SearchSetting),0)">Skin.SetString(SearchSetting,1)</value>
+		<value condition="String.IsEqual(Skin.String(SearchSetting),1)">Skin.SetString(SearchSetting,0)</value>
+	</variable>
+
 	<variable name="MenuSelectorColorThemeSettingVar">
     <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),0) + !Skin.HasSetting(Enable.BackgroundBlur)">Accent</value>
     <value condition="String.IsEqual(Skin.String(MenuSelectorColorThemeSetting),0) + Skin.HasSetting(Enable.BackgroundBlur)">Adaptive</value>
@@ -664,9 +669,8 @@
 	</variable>
 
 	<variable name="HomeSearchButtonActionVar">
-		<value condition="!Skin.HasSetting(NoSearchResultsWindow) + !Skin.HasSetting(DefaultSearchWindowBehavior)">RunScript(script.nimbus.helper,mode=open_search_window)</value>
-		<value condition="!Skin.HasSetting(NoSearchResultsWindow) + Skin.HasSetting(DefaultSearchWindowBehavior)">RunScript(script.nimbus.helper,mode=search_input)</value>
-		<value condition="Skin.HasSetting(NoSearchResultsWindow)">ActivateWindow(1107)</value>
+		<value condition="String.IsEqual(Skin.String(SearchSetting),0)">RunScript(script.nimbus.helper,mode=open_search_window)</value>
+		<value condition="String.IsEqual(Skin.String(SearchSetting),1)">ActivateWindow(1107)</value>
 	</variable>
 
 	<!-- MAIN MENU SUBMENU BUTTON LABELS -->
@@ -674,9 +678,8 @@
 		<value condition="Control.HasFocus(801) + Skin.HasSetting(OneClickClose)">Exit Kodi</value>
 		<value condition="Control.HasFocus(801) + !Skin.HasSetting(OneClickClose)">Open shutdownmenu</value>
 		<value condition="Control.HasFocus(802)">Open settings</value>
-		<value condition="Control.HasFocus(803) + !Skin.HasSetting(NoSearchResultsWindow) + !Skin.HasSetting(DefaultSearchWindowBehavior)">Open search window</value>
-		<value condition="Control.HasFocus(803) + !Skin.HasSetting(NoSearchResultsWindow) + Skin.HasSetting(DefaultSearchWindowBehavior)">Open search input</value>
-		<value condition="Control.HasFocus(803) + Skin.HasSetting(NoSearchResultsWindow)">Open search dialog</value>
+		<value condition="Control.HasFocus(803) + String.IsEqual(Skin.String(SearchSetting),0)">Open search window</value>
+		<value condition="Control.HasFocus(803) + String.IsEqual(Skin.String(SearchSetting),1)">Open search dialog</value>
 		<value condition="Control.HasFocus(804) + Integer.IsEqual(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available update</value>
 		<value condition="Control.HasFocus(804) + Integer.IsGreater(System.AddonUpdateCount,1)">$INFO[System.AddonUpdateCount] available updates</value>
 		<value condition="Control.HasFocus(805)">Toggle fullscreen</value>

@@ -66,9 +66,8 @@
 		<!-- SEARCH SECTION -->
 		<value condition="Container(9000).HasFocus(3) + !ControlGroup(10000).HasFocus">Search settings</value>
 		<value condition="Control.HasFocus(64700)">Set your desired search provider. This will use the selected addon for searches in the search window and default search dialog. This setting can be changed on the fly in the search window button menu.</value>
-		<value condition="Control.HasFocus(64701)">Enabling this option will use the built-in search window. Disabling this option will use the default search dialog. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
-		<value condition="Control.HasFocus(64702)">Set the search window behavior. OPEN KEYBOARD will open a keyboard when the Search button is clicked in the home screen button menu. OPEN SEARCH WINDOW will open the search window where you can see your search history, view TRAKT lists, etc.</value>
-		<value condition="Control.HasFocus(64703) | Control.HasFocus(64704) | Control.HasFocus(64705) | Control.HasFocus(64706) | Control.HasFocus(64707) | Control.HasFocus(64708) | Control.HasFocus(64709) | Control.HasFocus(64710) | Control.HasFocus(64711) | Control.HasFocus(64712) | Control.HasFocus(64713) | Control.HasFocus(64714)">Enabling or disable the showing of specific search widgets.</value>
+		<value condition="Control.HasFocus(64701)">Set the search icon behavior. OPEN SEARCH WINDOW will open the search window where you can see your search history, view TRAKT lists, etc. OPEN SEARCH DIALOG will open a simple dialog with addon search paths. The advantage to using the search window is that you can see results for multiple media types all at once (movies, tvshows, etc).</value>
+		<value condition="Control.HasFocus(64702) | Control.HasFocus(64703) | Control.HasFocus(64704) | Control.HasFocus(64705) | Control.HasFocus(64706) | Control.HasFocus(64707) | Control.HasFocus(64708) | Control.HasFocus(64709) | Control.HasFocus(64710) | Control.HasFocus(64711) | Control.HasFocus(64712) | Control.HasFocus(64713)">Enabling or disable the showing of specific search widgets.</value>
 
 		<!-- OSD SECTION -->
 		<value condition="Container(9000).HasFocus(7) + !ControlGroup(10000).HasFocus">$LOCALIZE[31171]</value>
