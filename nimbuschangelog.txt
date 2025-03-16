@@ -1,6 +1,9 @@
 Nimbus Helper: Latest: v0.0.50 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
+- Bug fixes
+
+[B][COLOR FFFFFFFF]Version 0.1.37[/COLOR][/B]
 - Upgraded search window feature: Faster performance, smoother operation, and eliminated home screen widget reloading
 - Removed "Open keyboard" in favor of just "Open search window" or "Open search dialog"
 - Fixed TRAKT lists search widget not showing
