@@ -1,4 +1,4 @@
-# Nimbus Skin for Kodi Omega
+# Nimbus Skin (HTPC mod) for Kodi Omega
 
 Focused my efforts mainly on adding codec information and some minor formatting adjustments to the musicosd as of now. Also want to next add codec info for albums or tracks on search for music + album art on music scroll for left panel space thats blank.
 
