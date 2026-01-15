@@ -145,5 +145,58 @@
 				</control>
 			</control>
 		</control>
+		<control type="group">
+			<visible>[Player.ShowInfo | Window.IsActive(musicosd)] + !MusicPlayer.Content(livetv)</visible>
+			<include>Visible_Center</include>
+			<posx>50%</posx>
+			<posy>50%</posy>
+			<control type="grouplist">
+				<width>1000</width>
+				<height>40</height>
+				<align>center</align>
+				<orientation>horizontal</orientation>
+				<itemgap>30</itemgap>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<label>$INFO[Player.AudioCodec]</label>
+					<font>font37</font>
+					<shadowcolor>black</shadowcolor>
+					<aligny>center</aligny>
+					<align>center</align>
+					<visible>!String.IsEmpty(Player.AudioCodec)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<label>$INFO[Player.BitsPerSample]</label>
+					<font>font37</font>
+					<shadowcolor>black</shadowcolor>
+					<aligny>center</aligny>
+					<align>center</align>
+					<visible>!String.IsEmpty(Player.BitsPerSample)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<label>$INFO[Player.SampleRate]</label>
+					<font>font37</font>
+					<shadowcolor>black</shadowcolor>
+					<aligny>center</aligny>
+					<align>center</align>
+					<visible>!String.IsEmpty(Player.SampleRate)</visible>
+				</control>
+				<control type="label">
+					<width>auto</width>
+					<height>40</height>
+					<label>$INFO[Player.Bitrate]</label>
+					<font>font37</font>
+					<shadowcolor>black</shadowcolor>
+					<aligny>center</aligny>
+					<align>center</align>
+					<visible>!String.IsEmpty(Player.Bitrate)</visible>
+				</control>
+			</control>
+		</control>
 	</controls>
 </window>
