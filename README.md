@@ -1,5 +1,9 @@
 # Nimbus Skin for Kodi Omega
 
+Focused my efforts mainly on adding codec information and some minor formatting adjustments to the musicosd as of now. Also want to next add codec info for albums or tracks on search for music + album art on music scroll for left panel space thats blank.
+
+Thank you ivarbrandt for such an awesome skin.
+
 Kodi File Manager Source: [https://ivarbrandt.github.io/repository.ivarbrandt/](https://ivarbrandt.github.io/repository.ivarbrandt/)
 
 If you encounter any issues while using Nimbus, please follow these guidelines before opening an Issue:
