@@ -2065,4 +2065,25 @@
 		</control>
 	</include>
 
+	<include name="CodecBox">
+		<param name="label" default=""></param>
+		<param name="visible" default="true"></param>
+		<definition>
+			<control type="button">
+				<width>auto</width>
+				<height>33</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<label>$PARAM[label]</label>
+				<textoffsetx>12</textoffsetx>
+				<texturefocus border="3" infill="false" colordiffuse="40FFFFFF">colors/white.png</texturefocus>
+				<texturenofocus border="3" infill="false" colordiffuse="40FFFFFF">colors/white.png</texturenofocus>
+				<focusedcolor>white</focusedcolor>
+				<textcolor>white</textcolor>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
 </includes>

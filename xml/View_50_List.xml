@@ -500,6 +500,7 @@
 						<top>600</top>
 						<width>540</width>
 						<bottom>70</bottom>
+						<font>font33</font>
 						<autoscroll time="3000" delay="7000" repeat="5000">!System.HasModalDialog + Skin.HasSetting(AutoScroll)</autoscroll>
 						<label>[COLOR button_focus][B]$LOCALIZE[31000]: [/COLOR]$INFO[musicplayer.Playlistposition,]$INFO[musicplayer.Playlistlength,/][/B][CR]$VAR[NowPlayingInfoVar]</label>
 					</control>

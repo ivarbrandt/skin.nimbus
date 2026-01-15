@@ -2,6 +2,7 @@
 <window>
 	<onload condition="!Player.PauseEnabled">SetFocus(603)</onload>
 	<defaultcontrol always="true">602</defaultcontrol>
+	<timeout>0</timeout>
 	<depth>DepthOSD</depth>
 	<controls>
 		<control type="button">
@@ -12,23 +13,13 @@
 			<bottom>180</bottom>
 			<texturefocus />
 			<texturenofocus />
-			<onclick>Action(close)</onclick>
+			<onclick>noop</onclick>
 		</control>
 		<include condition="Skin.HasSetting(touchmode)">TouchBackOSDButton</include>
 		<control type="group" id="200">
-			<include>Animation_BottomSlide</include>
 			<bottom>0</bottom>
 			<height>120</height>
-			<include>Animation_BottomSlide</include>
 			<visible>!Window.IsActive(osdaudiosettings) + !Window.IsActive(osdvideosettings) + !Window.IsActive(playerprocessinfo)</visible>
-			<animation type="Visible" reversible="false">
-				<effect type="fade" start="0" end="100" time="300"/>
-				<effect type="slide" start="0,200" end="0,0" time="300" tween="cubic" easing="out" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" start="100" end="0" time="300"/>
-				<effect type="slide" start="0,0" end="0,200" time="300" tween="cubic" easing="out" />
-			</animation>
 			<control type="grouplist" id="201">
 				<left>20</left>
 				<top>30</top>
@@ -256,20 +247,18 @@
 		<control type="group">
 			<bottom>0</bottom>
 			<height>120</height>
-			<animation type="WindowOpen" condition="!Player.ShowInfo" reversible="False">
-				<effect type="fade" start="0" end="100" time="300"/>
-				<effect type="slide" start="0,200" end="0,0" time="300" tween="cubic" easing="out" />
-			</animation>
-			<animation type="WindowClose" condition="!Player.ShowInfo" reversible="False">
-				<effect type="fade" start="100" end="0" time="300"/>
-				<effect type="slide" start="0,0" end="0,200" time="300" tween="cubic" easing="out" />
-			</animation>
-			<animation type="WindowOpen" condition="Player.ShowInfo" reversible="False">
-				<effect type="fade" start="0" end="100" time="300"/>
-			</animation>
-			<animation type="WindowClose" condition="Player.ShowInfo" reversible="False">
-				<effect type="fade" start="100" end="0" time="300"/>
-			</animation>
+			<control type="label">
+				<centerleft>50%</centerleft>
+				<centertop>68</centertop>
+				<width>800</width>
+				<height>40</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>font13</font>
+				<textcolor>80939393</textcolor>
+				<label>$INFO[MusicPlayer.Codec,[UPPERCASE],[/UPPERCASE]]$INFO[MusicPlayer.BitsPerSample, | , bit]$INFO[MusicPlayer.SampleRate, | , kHz]$INFO[MusicPlayer.Bitrate, | , kbps]</label>
+				<visible>!MusicPlayer.Content(livetv)</visible>
+			</control>
 			<control type="button" id="87">
 				<include>HiddenObject</include>
 				<onup>200</onup>
