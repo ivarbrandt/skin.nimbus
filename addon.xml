@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="skin.nimbus" version="0.1.38" name="Nimbus"
-	provider-name="Ivar Brandt">
+<addon id="skin.nimbus.htpc" version="0.1.38.snt" name="Nimbus HTPC"
+	provider-name="sntcodes">
 	<requires>
 		<import addon="xbmc.gui" version="5.17.0" />
 		<import addon="script.nimbus.helper" version="0.0.50"/>
@@ -22,11 +22,11 @@
 			<icon>resources/icon.png</icon>
 			<fanart>resources/fanart.png</fanart>
 		</assets>
-		<summary lang="en_GB">Nimbus skin by Ivar Brandt</summary>
-		<summary lang="en_NZ">Nimbus skin by Ivar Brandt</summary>
-		<summary lang="en_US">Nimbus skin by Ivar Brandt</summary>
-		<description lang="en_GB">Nimbus Skin</description>
-		<description lang="en_NZ">Nimbus Skin</description>
-		<description lang="en_US">Nimbus Skin</description>
+		<summary lang="en_GB">A fork of Nimbus Skin by Ivar Brandt, modified by sntcodes</summary>
+		<summary lang="en_NZ">A fork of Nimbus Skin by Ivar Brandt, modified by sntcodes</summary>
+		<summary lang="en_US">A fork of Nimbus Skin by Ivar Brandt, modified by sntcodes</summary>
+		<description lang="en_GB">A fork of Nimbus Skin by Ivar Brandt, modified by sntcodes</description>
+		<description lang="en_NZ">A fork of Nimbus Skin by Ivar Brandt, modified by sntcodes</description>
+		<description lang="en_US">A fork of Nimbus Skin by Ivar Brandt, modified by sntcodes</description>
 	</extension>
 </addon>
