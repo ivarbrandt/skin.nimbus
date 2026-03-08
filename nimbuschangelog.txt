@@ -1,4 +1,4 @@
-Nimbus Helper: Latest: v0.0.50 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
+Nimbus Helper: Latest: v0.0.52 [B]|[/B] Installed: v$INFO[System.AddonVersion(script.nimbus.helper)]
 
 [B][COLOR FFFFFFFF]Version $INFO[System.AddonVersion(skin.nimbus)][/COLOR][/B]
 - Bug fixes
