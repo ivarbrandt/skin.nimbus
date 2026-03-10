@@ -1,6 +1,6 @@
 # Nimbus Skin for Kodi Omega
 
-Kodi File Manager Source: [https://ivarbrandt.github.io/](https://ivarbrandt.github.io/)
+Kodi File Manager Source: [https://ivarbrandt.github.io/repository.ivarbrandt/](https://ivarbrandt.github.io/repository.ivarbrandt/)
 
 If you encounter any issues while using Nimbus, please follow these guidelines before opening an Issue:
 
