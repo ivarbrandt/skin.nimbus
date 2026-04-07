@@ -17,6 +17,7 @@ check_dest:
 	@if [ ! -d "$(DEST_DIR).git" ]; then echo "ERROR: Git repo not found at $(DEST_DIR)"; exit 1; fi
 sync: check_dest
 	@rsync $(RSYNC_OPTS) $(EXCLUDE_OPTS) "$(SOURCE_DIR)" "$(DEST_DIR)"
+	@TexturePacker -dupecheck -input "$(DEST_DIR)media" -output "$(DEST_DIR)media/Textures.xbt"
 	@echo "Sync complete."
 test_sync: check_dest
 	@rsync $(RSYNC_OPTS) --dry-run $(EXCLUDE_OPTS) "$(SOURCE_DIR)" "$(DEST_DIR)"
