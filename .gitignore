@@ -1,5 +1,7 @@
 .DS_Store
 ._*
+media/*
+!media/Textures.xbt
 xml/script-nimbus-main_menu_movies.xml
 xml/script-nimbus-main_menu_tvshows.xml
 xml/script-nimbus-main_menu_custom1.xml
