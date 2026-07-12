@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <colors>
-	<color name="primary_background">FF303232</color>
+	<color name="primary_background">FF1C1C1E</color>
 	<color name="dialog_tint">FF050505</color>
 	<color name="dialog_bg">BF050505</color>
 	<color name="dialog_bg2">F2050505</color>
 	<color name="dialog_bg3">F7050505</color>
-	<color name="button_focus">FFCCCCCC</color>
+	<color name="button_focus">FFFFFFFF</color>
 	<color name="button_focus2">FF040505</color>
 	<color name="focused_text">FF141515</color>
 	<!-- <color name="unfocused_text">FFC1C1C1</color> -->
 	<!-- <color name="unfocused_text">FFCCCCCC</color> -->
 	<color name="unfocused_text">FFE0E0E8</color>
 	<color name="artwork_dim">FFE9E9E9</color>
-	<color name="accent_color">FFCCCCCC</color>
+	<color name="accent_color">FFF2F2F7</color>
 	<color name="selected">FF1773CD</color>
 	<color name="keyboard_selected">FF1773CD</color>
 	<color name="primary_content_panel_bg">FF354CCF</color>

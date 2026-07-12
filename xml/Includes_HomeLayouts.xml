@@ -19,6 +19,10 @@
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
+					<include content="Animation_FocusGlowLift">
+						<param name="pos_x" value="117.5"/>
+						<param name="pos_y" value="117.5"/>
+					</include>
 					<include content="GlowPulse">
 						<param name="pos_x" value="117.5"/>
 						<param name="pos_y" value="117.5"/>
@@ -109,6 +113,10 @@
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
+					<include content="Animation_FocusGlowLift">
+						<param name="pos_x" value="217"/>
+						<param name="pos_y" value="150"/>
+					</include>
 					<include content="GlowPulse">
 						<param name="pos_x" value="217"/>
 						<param name="pos_y" value="150"/>
@@ -246,6 +254,10 @@
 						<visible>$PARAM[focused] + Control.HasFocus($PARAM[list_id])</visible>
 						<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
 					</control>
+					<include content="Animation_FocusGlowLift">
+						<param name="pos_x" value="117.5"/>
+						<param name="pos_y" value="117.5"/>
+					</include>
 					<include content="GlowPulse">
             <param name="pos_x" value="117.5"/>
 						<param name="pos_y" value="117.5"/>
@@ -387,6 +399,10 @@
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(54) | Control.IsVisible(500)]]</visible>
 					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+					<include content="Animation_FocusGlowLift">
+						<param name="pos_x" value="100.5"/>
+						<param name="pos_y" value="150.5"/>
+					</include>
 					<include content="GlowPulse">
 						<param name="pos_x" value="100.5"/>
 						<param name="pos_y" value="150.5"/>
@@ -585,6 +601,10 @@
 					<visible>[$PARAM[focused] + Control.HasFocus($PARAM[list_id])] | [$PARAM[focused] + [Control.IsVisible(55) | Control.IsVisible(501)]]</visible>
 					<!-- <visible>!Container($PARAM[list_id]).IsUpdating</visible> -->
 					<include condition="$PARAM[focused]">Animation_FocusTextureFade</include>
+					<include content="Animation_FocusGlowLift">
+						<param name="pos_x" value="215"/>
+						<param name="pos_y" value="121"/>
+					</include>
 					<include content="GlowPulse">
 						<param name="pos_x" value="215"/>
 						<param name="pos_y" value="121"/>

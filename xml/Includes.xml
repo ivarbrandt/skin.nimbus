@@ -1919,6 +1919,10 @@
 					<texture colordiffuse="$VAR[FocusColorTheme]">masks/landscape-glow.png</texture>
 					<bordersize>-25</bordersize>
 					<include>Animation_FocusTextureFade</include>
+					<include content="Animation_FocusGlowLift">
+						<param name="pos_x" value="205.5"/>
+						<param name="pos_y" value="135.5"/>
+					</include>
 					<include content="GlowPulse">
 						<param name="pos_x" value="205.5"/>
 						<param name="pos_y" value="135.5"/>

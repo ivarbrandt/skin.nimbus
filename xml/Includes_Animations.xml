@@ -5,6 +5,15 @@
 		<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
 	</include>
 
+	<!-- Apple TV-style focus "lift": the focus glow pops in with a soft spring
+	     overshoot instead of just appearing. Settles back to its normal
+	     100% size, so it never persists larger than before and can't
+	     overlap neighbouring items - only the transition itself grows. -->
+	<include name="Animation_FocusGlowLift">
+		<animation effect="zoom" start="88" end="100" center="$PARAM[pos_x],$PARAM[pos_y]" time="260" tween="back" easing="out">Focus</animation>
+		<animation effect="zoom" start="100" end="88" center="$PARAM[pos_x],$PARAM[pos_y]" time="140" tween="cubic" easing="in">UnFocus</animation>
+	</include>
+
 	<include name="Animation_DialogPopupOpenClose">
 		<animation type="WindowOpen" reversible="false">
 			<effect type="zoom" start="80" end="100" center="50%,50%" delay="160" tween="back" time="240" />
